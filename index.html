@@ -3,379 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Reputation Guard | Remove Unfair Google Reviews</title>
-  <!-- Font Awesome 6 (free CDN) -->
+  <title>ReputationGuard | Remove Unfair Google Reviews</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts: Inter + Fallback -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #ffffff;
-      color: #111827;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Header & navigation */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 24px 0;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #1E3A8A, #3B82F6);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.5px;
-    }
-
-    .lang-switch {
-      display: flex;
-      gap: 12px;
-      background: #f3f4f6;
-      padding: 6px 12px;
-      border-radius: 60px;
-    }
-
-    .lang-btn {
-      background: none;
-      border: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      padding: 6px 14px;
-      border-radius: 40px;
-      transition: all 0.2s;
-      color: #4b5563;
-    }
-
-    .lang-btn.active {
-      background: #1E3A8A;
-      color: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    /* buttons */
-    .btn-primary {
-      background: #1E3A8A;
-      color: white;
-      padding: 12px 28px;
-      border-radius: 40px;
-      font-weight: 700;
-      border: none;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 10px rgba(30,58,138,0.2);
-      display: inline-block;
-      text-decoration: none;
-    }
-
-    .btn-primary:hover {
-      background: #2563EB;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(37,99,235,0.25);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid #1E3A8A;
-      color: #1E3A8A;
-      padding: 10px 24px;
-      border-radius: 40px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .btn-outline:hover {
-      background: #1E3A8A;
-      color: white;
-    }
-
-    /* hero section */
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 48px;
-      padding: 40px 0 60px;
-    }
-
-    .hero-content {
-      flex: 1;
-    }
-
-    .hero-badge {
-      background: #EFF6FF;
-      color: #1E40AF;
-      padding: 6px 14px;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      display: inline-block;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #4b5563;
-      margin-bottom: 32px;
-      max-width: 90%;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      margin-top: 24px;
-    }
-
-    .stat span {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #1E3A8A;
-    }
-
-    .hero-image {
-      flex: 1;
-      background: linear-gradient(145deg, #EFF6FF, #FFFFFF);
-      border-radius: 48px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
-    }
-
-    .hero-image i {
-      font-size: 8rem;
-      color: #3B82F6;
-    }
-
-    /* section headers */
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 16px;
-    }
-
-    .section-sub {
-      text-align: center;
-      color: #6b7280;
-      max-width: 700px;
-      margin: 0 auto 48px;
-    }
-
-    /* process cards */
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 32px;
-      margin: 40px 0;
-    }
-
-    .process-card {
-      background: #F9FAFB;
-      border-radius: 28px;
-      padding: 28px 20px;
-      text-align: center;
-      transition: 0.2s;
-    }
-
-    .process-card:hover {
-      transform: translateY(-6px);
-      background: white;
-      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
-    }
-
-    .process-icon {
-      font-size: 2.8rem;
-      color: #2563EB;
-      margin-bottom: 18px;
-    }
-
-    /* pricing */
-    .pricing-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 32px;
-      margin: 50px 0;
-    }
-
-    .pricing-card {
-      background: white;
-      border-radius: 32px;
-      padding: 32px 24px;
-      width: 300px;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.05);
-      border: 1px solid #e5e7eb;
-      transition: all 0.25s;
-    }
-
-    .pricing-card.popular {
-      border: 2px solid #3B82F6;
-      position: relative;
-      background: #FEFEFE;
-    }
-
-    .popular-badge {
-      position: absolute;
-      top: -12px;
-      left: 20px;
-      background: #3B82F6;
-      color: white;
-      padding: 4px 12px;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 700;
-    }
-
-    .price {
-      font-size: 2.7rem;
-      font-weight: 800;
-      margin: 16px 0;
-    }
-
-    .price span {
-      font-size: 1rem;
-      font-weight: 400;
-      color: #6c757d;
-    }
-
-    .feature-list {
-      list-style: none;
-      margin: 24px 0;
-    }
-
-    .feature-list li {
-      margin: 12px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .feature-list i.fa-check {
-      color: #10B981;
-      width: 20px;
-    }
-
-    /* testimonials / trust */
-    .trust-section {
-      background: #F3F6FC;
-      border-radius: 48px;
-      padding: 48px 32px;
-      margin: 60px 0;
-      text-align: center;
-    }
-
-    .faq-item {
-      background: white;
-      border-radius: 24px;
-      padding: 20px 28px;
-      margin-bottom: 16px;
-      border: 1px solid #eef2ff;
-      cursor: pointer;
-    }
-
-    .faq-question {
-      font-weight: 700;
-      font-size: 1.1rem;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .faq-answer {
-      margin-top: 12px;
-      color: #4b5563;
-      display: none;
-    }
-
-    .faq-item.active .faq-answer {
-      display: block;
-    }
-
-    /* CTA */
-    .cta {
-      background: linear-gradient(135deg, #0F172A, #1E3A8A);
-      border-radius: 48px;
-      padding: 64px 32px;
-      text-align: center;
-      color: white;
-      margin: 40px 0 60px;
-    }
-
-    .cta h2 {
-      font-size: 2rem;
-      margin-bottom: 16px;
-    }
-
-    .cta .btn-primary {
-      background: white;
-      color: #1E3A8A;
-      margin-top: 20px;
-      box-shadow: none;
-    }
-
-    .cta .btn-primary:hover {
-      background: #f0f4ff;
-    }
-
-    footer {
-      text-align: center;
-      padding: 32px;
-      color: #6c757d;
-      border-top: 1px solid #eef2ff;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #ffffff; color: #111827; line-height: 1.5; scroll-behavior: smooth; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; flex-wrap: wrap; gap: 20px; }
+    .logo { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #1E3A8A, #3B82F6); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.5px; }
+    .lang-switch { display: flex; gap: 12px; background: #f3f4f6; padding: 6px 12px; border-radius: 60px; }
+    .lang-btn { background: none; border: none; font-weight: 600; font-size: 0.9rem; cursor: pointer; padding: 6px 14px; border-radius: 40px; transition: 0.2s; color: #4b5563; }
+    .lang-btn.active { background: #1E3A8A; color: white; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .btn-primary { background: #1E3A8A; color: white; padding: 12px 28px; border-radius: 40px; font-weight: 700; border: none; font-size: 1rem; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 10px rgba(30,58,138,0.2); display: inline-block; text-decoration: none; }
+    .btn-primary:hover { background: #2563EB; transform: translateY(-2px); }
+    .btn-outline { background: transparent; border: 2px solid #1E3A8A; color: #1E3A8A; padding: 10px 24px; border-radius: 40px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+    .btn-outline:hover { background: #1E3A8A; color: white; }
+    .hero { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 48px; padding: 40px 0 60px; }
+    .hero-content { flex: 1; }
+    .hero-badge { background: #EFF6FF; color: #1E40AF; padding: 6px 14px; border-radius: 40px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-bottom: 20px; }
+    .hero h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .hero p { font-size: 1.2rem; color: #4b5563; margin-bottom: 32px; max-width: 90%; }
+    .hero-stats { display: flex; gap: 32px; margin-top: 24px; }
+    .stat span { font-size: 1.8rem; font-weight: 800; color: #1E3A8A; }
+    .hero-image { flex: 1; background: linear-gradient(145deg, #EFF6FF, #FFFFFF); border-radius: 48px; padding: 20px; text-align: center; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1); }
+    .hero-image i { font-size: 8rem; color: #3B82F6; }
+    .section-title { font-size: 2.2rem; font-weight: 800; text-align: center; margin-bottom: 16px; }
+    .section-sub { text-align: center; color: #6b7280; max-width: 700px; margin: 0 auto 48px; }
+    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; margin: 40px 0; }
+    .process-card { background: #F9FAFB; border-radius: 28px; padding: 28px 20px; text-align: center; transition: 0.2s; }
+    .process-card:hover { transform: translateY(-6px); background: white; box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1); }
+    .process-icon { font-size: 2.8rem; color: #2563EB; margin-bottom: 18px; }
+    .pricing-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin: 50px 0; }
+    .pricing-card { background: white; border-radius: 32px; padding: 32px 24px; width: 300px; box-shadow: 0 12px 24px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; transition: 0.25s; }
+    .pricing-card.popular { border: 2px solid #3B82F6; position: relative; background: #FEFEFE; }
+    .popular-badge { position: absolute; top: -12px; left: 20px; background: #3B82F6; color: white; padding: 4px 12px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; }
+    .price { font-size: 2.7rem; font-weight: 800; margin: 16px 0; }
+    .price span { font-size: 1rem; font-weight: 400; color: #6c757d; }
+    .feature-list { list-style: none; margin: 24px 0; }
+    .feature-list li { margin: 12px 0; display: flex; align-items: center; gap: 8px; }
+    .feature-list i.fa-check { color: #10B981; width: 20px; }
+    .trust-section { background: #F3F6FC; border-radius: 48px; padding: 48px 32px; margin: 60px 0; text-align: center; }
+    .faq-item { background: white; border-radius: 24px; padding: 20px 28px; margin-bottom: 16px; border: 1px solid #eef2ff; cursor: pointer; }
+    .faq-question { font-weight: 700; font-size: 1.1rem; display: flex; justify-content: space-between; }
+    .faq-answer { margin-top: 12px; color: #4b5563; display: none; }
+    .faq-item.active .faq-answer { display: block; }
+    .cta { background: linear-gradient(135deg, #0F172A, #1E3A8A); border-radius: 48px; padding: 64px 32px; text-align: center; color: white; margin: 40px 0 60px; }
+    .cta h2 { font-size: 2rem; margin-bottom: 16px; }
+    .contact-form { max-width: 600px; margin: 32px auto 0; background: rgba(255,255,255,0.1); backdrop-filter: blur(2px); border-radius: 32px; padding: 28px; text-align: left; }
+    .form-group { margin-bottom: 20px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 14px 18px; border-radius: 28px; border: none; font-family: inherit; font-size: 1rem; background: white; color: #1f2937; outline: none; }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group input:focus, .form-group textarea:focus { ring: 2px solid #3B82F6; }
+    .cta .btn-primary { background: white; color: #1E3A8A; margin-top: 10px; box-shadow: none; border: none; width: auto; }
+    .cta .btn-primary:hover { background: #f0f4ff; }
+    footer { text-align: center; padding: 32px; color: #6c757d; border-top: 1px solid #eef2ff; }
+    .form-status { margin-top: 16px; font-size: 0.85rem; text-align: center; color: #d1d5db; }
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-      .navbar {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .lang-switch {
-        align-self: center;
-      }
+      .hero h1 { font-size: 2.2rem; }
+      .navbar { flex-direction: column; align-items: stretch; }
+      .lang-switch { align-self: center; }
+      .contact-form { padding: 20px; }
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- Header -->
   <div class="navbar">
-    <div class="logo">🗺️ ReputationGuard</div>
+    <div class="logo">🛡️ ReputationGuard</div>
     <div class="lang-switch">
       <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
       <button class="lang-btn" data-lang="ru">🇷🇺 RU</button>
@@ -383,13 +79,12 @@
     </div>
   </div>
 
-  <!-- Hero section -->
   <div class="hero">
     <div class="hero-content">
       <div class="hero-badge" data-i18n="hero-badge">Google Reviews Defense</div>
       <h1 data-i18n="hero-title">Stop Losing <span style="color:#2563EB;">30% Revenue</span> From Fake Reviews</h1>
       <p data-i18n="hero-desc">We identify & appeal violating Google reviews using official policies. No court, no shady tricks — only legitimate removal requests.</p>
-      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-i18n="hero-btn">Get Free Audit →</button>
+      <button class="btn-primary" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="hero-btn">Get Free Audit →</button>
       <div class="hero-stats">
         <div class="stat"><span>89%</span> <span data-i18n="stat1">appeal success rate*</span></div>
         <div class="stat"><span>48h</span> <span data-i18n="stat2">avg response time</span></div>
@@ -402,7 +97,6 @@
     </div>
   </div>
 
-  <!-- How it works -->
   <div style="text-align: center; margin-top: 50px;">
     <h2 class="section-title" data-i18n="process-title">How we clean your reputation</h2>
     <p class="section-sub" data-i18n="process-sub">No long legal battles — just smart, policy-based appeals</p>
@@ -414,16 +108,14 @@
     <div class="process-card"><div class="process-icon"><i class="fas fa-chart-line"></i></div><h3 data-i18n="step4-title">4. Tracking & Report</h3><p data-i18n="step4-desc">Weekly status updates + monthly removal reports.</p></div>
   </div>
 
-  <!-- Pricing plans -->
   <h2 class="section-title" data-i18n="pricing-title">Simple, transparent pricing</h2>
   <p class="section-sub" data-i18n="pricing-sub">Fixed monthly fee + overage protection. No hidden costs.</p>
   <div class="pricing-grid">
-    <div class="pricing-card"><h3 data-i18n="plan1-name">Essential</h3><div class="price">$399<span data-i18n="per-month">/month</span></div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature1a">Up to 3 appeals/month</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature1b">Weekly monitoring</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature1c">Email support</span></li></ul><button class="btn-outline" onclick="alert('Free audit request: hello@reputationguard.com')" data-i18n="choose-plan">Choose plan</button></div>
-    <div class="pricing-card popular"><div class="popular-badge" data-i18n="popular">⭐ MOST POPULAR</div><h3 data-i18n="plan2-name">Pro</h3><div class="price">$799<span data-i18n="per-month">/month</span></div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature2a">Up to 8 appeals/month</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2b">Priority evidence building</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2c">Monthly strategy call</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2d">Overage: $49/extra review</span></li></ul><button class="btn-primary" onclick="alert('Book a demo: Let’s discuss Pro plan.')" data-i18n="choose-plan">Choose plan →</button></div>
-    <div class="pricing-card"><h3 data-i18n="plan3-name">Enterprise</h3><div class="price">$1,499+<span data-i18n="per-month">/month</span></div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature3a">Unlimited appeals</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3b">Dedicated account manager</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3c">SERM consulting</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3d">Legal escalation support</span></li></ul><button class="btn-outline" onclick="alert('Contact enterprise team')" data-i18n="choose-plan">Contact us</button></div>
+    <div class="pricing-card"><h3 data-i18n="plan1-name">Essential</h3><div class="price">$399<span data-i18n="per-month">/month</span></div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature1a">Up to 3 appeals/month</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature1b">Weekly monitoring</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature1c">Email support</span></li></ul><button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Choose plan</button></div>
+    <div class="pricing-card popular"><div class="popular-badge" data-i18n="popular">⭐ MOST POPULAR</div><h3 data-i18n="plan2-name">Pro</h3><div class="price">$799<span data-i18n="per-month">/month</span></div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature2a">Up to 8 appeals/month</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2b">Priority evidence building</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2c">Monthly strategy call</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2d">Overage: $49/extra review</span></li></ul><button class="btn-primary" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Choose plan →</button></div>
+    <div class="pricing-card"><h3 data-i18n="plan3-name">Enterprise</h3><div class="price">$1,499+<span data-i18n="per-month">/month</span></div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature3a">Unlimited appeals</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3b">Dedicated account manager</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3c">SERM consulting</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3d">Legal escalation support</span></li></ul><button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Contact us</button></div>
   </div>
 
-  <!-- Trust section -->
   <div class="trust-section">
     <i class="fas fa-shield-alt" style="font-size: 3rem; color:#1E3A8A;"></i>
     <h3 style="margin: 16px 0;" data-i18n="trust-title">Legitimate appeals only – no fake removals</h3>
@@ -435,7 +127,6 @@
     </div>
   </div>
 
-  <!-- FAQ -->
   <h2 class="section-title" data-i18n="faq-title">Frequently asked questions</h2>
   <div class="faq-container" style="margin: 30px 0;">
     <div class="faq-item"><div class="faq-question"><span data-i18n="faq1q">Do you guarantee removal?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer" data-i18n="faq1a">No agency can guarantee 100% removal. But we maximize your chances using deep knowledge of Google’s policies. You pay for expertise and effort.</div></div>
@@ -444,21 +135,42 @@
     <div class="faq-item"><div class="faq-question"><span data-i18n="faq4q">What if I get many fake reviews in one month?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer" data-i18n="faq4a">Overage fee applies above your plan’s quota – low and fair. We also advise bulk appeal strategies at no extra surprise.</div></div>
   </div>
 
-  <!-- CTA & Contact -->
-  <div id="contact" class="cta">
+  <!-- Contact form section with defend@reputationguard.pro -->
+  <div id="contact-form-section" class="cta">
     <h2 data-i18n="cta-title">Stop letting unfair reviews hurt your bookings</h2>
     <p data-i18n="cta-text">Get a free audit of your 10 most recent negative reviews — we’ll show which can be removed.</p>
-    <button class="btn-primary" onclick="alert('📧 Send us an email: defend@reputationguard.com | We’ll reply in 24h')" data-i18n="cta-btn">Request free audit →</button>
-    <p style="margin-top: 24px; font-size: 0.8rem;" data-i18n="cta-note">No spam, no obligation.</p>
+    
+    <form id="contactForm" class="contact-form" action="https://formsubmit.co/defend@reputationguard.pro" method="POST">
+      <!-- honeypot & config -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_subject" value="New Audit Request from ReputationGuard Landing Page">
+      <input type="hidden" name="_next" value="https://reputationguard.pro/thanks.html" disabled style="display:none">
+      <!-- We'll show success message inline instead of redirect -->
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Full name *" required data-i18n-placeholder="form-name">
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Email address *" required data-i18n-placeholder="form-email">
+      </div>
+      <div class="form-group">
+        <input type="text" name="business" placeholder="Business name (optional)" data-i18n-placeholder="form-business">
+      </div>
+      <div class="form-group">
+        <textarea name="message" placeholder="Tell us about your negative review problem... *" required data-i18n-placeholder="form-message"></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;" data-i18n="form-submit">Send Free Audit Request →</button>
+      <p class="form-status" id="formStatusText" data-i18n="form-note">We’ll reply within 24h to defend@reputationguard.pro</p>
+    </form>
   </div>
 
   <footer>
-    <p>© 2026 ReputationGuard (US LLC) — Vietnam & Global. <span data-i18n="footer-text">Google Maps reputation management for hotels, restaurants & accommodations.</span></p>
+    <p>© 2026 ReputationGuard (US LLC) — Vietnam & Global. <span data-i18n="footer-text">Google Maps reputation management for hotels, restaurants & accommodations.</span><br>📧 defend@reputationguard.pro</p>
   </footer>
 </div>
 
 <script>
-  // i18n content: English, Russian, Vietnamese
+  // translations
   const translations = {
     en: {
       "hero-badge": "⚡ Google Reviews Defense",
@@ -513,8 +225,12 @@
       "faq4a": "Overage fee applies above your plan’s quota – low and fair. We also advise bulk appeal strategies at no extra surprise.",
       "cta-title": "Stop letting unfair reviews hurt your bookings",
       "cta-text": "Get a free audit of your 10 most recent negative reviews — we’ll show which can be removed.",
-      "cta-btn": "Request free audit →",
-      "cta-note": "No spam, no obligation.",
+      "form-name": "Full name *",
+      "form-email": "Email address *",
+      "form-business": "Business name (optional)",
+      "form-message": "Tell us about your negative review problem... *",
+      "form-submit": "Send Free Audit Request →",
+      "form-note": "We’ll reply within 24h to defend@reputationguard.pro",
       "footer-text": "Google Maps reputation management for hotels, restaurants & accommodations."
     },
     ru: {
@@ -570,8 +286,12 @@
       "faq4a": "Надбавка за превышение плана – низкая и честная. Поможем с массовыми апелляциями.",
       "cta-title": "Не позволяйте несправедливым отзывам влиять на бронирования",
       "cta-text": "Получите бесплатный аудит 10 последних негативных отзывов — покажем, какие можно удалить.",
-      "cta-btn": "Запросить аудит →",
-      "cta-note": "Без спама и обязательств.",
+      "form-name": "Ваше имя *",
+      "form-email": "Email адрес *",
+      "form-business": "Название бизнеса (опционально)",
+      "form-message": "Опишите проблему с негативными отзывами... *",
+      "form-submit": "Отправить запрос на аудит →",
+      "form-note": "Ответим в течение 24 часов на defend@reputationguard.pro",
       "footer-text": "Управление репутацией в Google Maps для отелей, ресторанов и жилья."
     },
     vi: {
@@ -627,54 +347,63 @@
       "faq4a": "Phí vượt mức được áp dụng rất hợp lý. Chúng tôi tư vấn chiến lược khiếu nại hàng loạt.",
       "cta-title": "Đừng để đánh giá bất công ảnh hưởng đến đặt phòng của bạn",
       "cta-text": "Nhận kiểm tra miễn phí 10 đánh giá tiêu cực gần nhất – chúng tôi sẽ chỉ ra những đánh giá có thể bị xóa.",
-      "cta-btn": "Yêu cầu kiểm tra miễn phí →",
-      "cta-note": "Không spam, không ràng buộc.",
+      "form-name": "Họ và tên *",
+      "form-email": "Địa chỉ email *",
+      "form-business": "Tên doanh nghiệp (không bắt buộc)",
+      "form-message": "Mô tả vấn đề đánh giá tiêu cực của bạn... *",
+      "form-submit": "Gửi yêu cầu kiểm tra miễn phí →",
+      "form-note": "Chúng tôi sẽ trả lời trong vòng 24h tới defend@reputationguard.pro",
       "footer-text": "Quản lý uy tín Google Maps cho khách sạn, nhà hàng và chỗ nghỉ."
     }
   };
 
   let currentLang = 'en';
-
   function setLanguage(lang) {
     currentLang = lang;
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(el => {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (translations[lang] && translations[lang][key]) {
-        if (key === 'hero-title' || key.includes('title') && el.tagName !== 'INPUT' && el.tagName !== 'BUTTON') {
+        if (key === 'hero-title' && el.tagName === 'H1') {
           el.innerHTML = translations[lang][key];
+        } else if (el.hasAttribute('data-i18n-placeholder')) {
+          el.placeholder = translations[lang][key];
         } else {
           el.innerText = translations[lang][key];
         }
       }
     });
-    // update active button style
     document.querySelectorAll('.lang-btn').forEach(btn => {
-      if (btn.getAttribute('data-lang') === lang) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
   }
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const lang = btn.getAttribute('data-lang');
-      setLanguage(lang);
-    });
+    btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
   });
 
-  // FAQ accordion
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const questionDiv = item.querySelector('.faq-question');
-    questionDiv.addEventListener('click', () => {
-      item.classList.toggle('active');
-    });
+  // FAQ toggle
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => item.classList.toggle('active'));
   });
 
-  // Set default english
+  // Intercept form submission to show custom success message (since _next disabled)
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      fetch(form.action, { method: 'POST', body: formData })
+        .then(response => {
+          if (response.ok) {
+            form.innerHTML = '<div style="text-align:center; padding:20px;"><i class="fas fa-check-circle" style="font-size:48px; color:#10B981;"></i><h3 style="margin-top:16px;">✅ Request sent!</h3><p>We’ll get back to you within 24h at <strong>defend@reputationguard.pro</strong></p></div>';
+          } else {
+            alert('Error sending message. Please email defend@reputationguard.pro directly.');
+          }
+        })
+        .catch(() => alert('Network error. Please email defend@reputationguard.pro'));
+    });
+  }
+
   setLanguage('en');
 </script>
 </body>
