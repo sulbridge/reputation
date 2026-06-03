@@ -178,7 +178,7 @@
         <textarea name="message" placeholder="Tell us about your negative review problem... *" required data-i18n-placeholder="form-message"></textarea>
       </div>
       <button type="submit" class="btn-primary" style="width:100%;" data-i18n="form-submit">Send Free Audit Request →</button>
-      <p class="form-status" id="formStatusText" data-i18n="form-note">We’ll reply within 24h to defend@reputationguard.pro</p>
+      <p class="form-status" id="formStatusText" data-i18n="form-note">We’ll reply within 24h</p>
     </form>
   </div>
 
@@ -248,7 +248,7 @@
       "form-business": "Business name (optional)",
       "form-message": "Tell us about your negative review problem... *",
       "form-submit": "Send Free Audit Request →",
-      "form-note": "We’ll reply within 24h to defend@reputationguard.pro",
+      "form-note": "We’ll reply within 24h",
       "footer-text": "Google Maps reputation management for hotels, restaurants & accommodations."
     },
     ru: {
@@ -309,7 +309,7 @@
       "form-business": "Название бизнеса (опционально)",
       "form-message": "Опишите проблему с негативными отзывами... *",
       "form-submit": "Отправить запрос на аудит →",
-      "form-note": "Ответим в течение 24 часов на defend@reputationguard.pro",
+      "form-note": "Ответим в течение 24 часов",
       "footer-text": "Управление репутацией в Google Maps для отелей, ресторанов и жилья."
     },
     vi: {
@@ -370,7 +370,7 @@
       "form-business": "Tên doanh nghiệp (không bắt buộc)",
       "form-message": "Mô tả vấn đề đánh giá tiêu cực của bạn... *",
       "form-submit": "Gửi yêu cầu kiểm tra miễn phí →",
-      "form-note": "Chúng tôi sẽ trả lời trong vòng 24h tới defend@reputationguard.pro",
+      "form-note": "Chúng tôi sẽ trả lời trong vòng 24h",
       "footer-text": "Quản lý uy tín Google Maps cho khách sạn, nhà hàng và chỗ nghỉ."
     }
   };
@@ -413,7 +413,7 @@
       fetch(form.action, { method: 'POST', body: formData })
         .then(response => {
           if (response.ok) {
-            form.innerHTML = '<div style="text-align:center; padding:20px;"><i class="fas fa-check-circle" style="font-size:48px; color:#10B981;"></i><h3 style="margin-top:16px;">✅ Request sent!</h3><p>We’ll get back to you within 24h at <strong>defend@reputationguard.pro</strong></p></div>';
+            form.innerHTML = '<div style="text-align:center; padding:20px;"><i class="fas fa-check-circle" style="font-size:48px; color:#10B981;"></i><h3 style="margin-top:16px;">✅ Request sent!</h3><p>We’ll get back to you within 24h.</p></div>';
           } else {
             alert('Error sending message. Please email defend@reputationguard.pro directly.');
           }
