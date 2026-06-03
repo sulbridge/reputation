@@ -59,31 +59,40 @@
     .cta .btn-primary:hover { background: #f0f4ff; }
     footer { text-align: center; padding: 32px; color: #6c757d; border-top: 1px solid #eef2ff; }
     .form-status { margin-top: 16px; font-size: 0.85rem; text-align: center; color: #d1d5db; }
+    
+    /* Мобильные улучшения — логотип и переключатель языков вертикально */
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.2rem; }
-      .navbar { flex-direction: column; align-items: stretch; }
-      .lang-switch { align-self: center; }
-      .contact-form { padding: 20px; }
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo {
+        font-size: 1.5rem;
+      }
+      .lang-switch {
+        align-self: center;
+      }
+      .contact-form {
+        padding: 20px;
+      }
     }
   </style>
-  <!-- Стандартный favicon для большинства браузеров -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/genfavicon-16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/genfavicon-32.png">
-<link rel="icon" type="image/png" sizes="48x48" href="/genfavicon-48.png">
-<link rel="icon" type="image/png" sizes="64x64" href="/genfavicon-64.png">
-<link rel="icon" type="image/png" sizes="128x128" href="/genfavicon-128.png">
-<link rel="icon" type="image/png" sizes="256x256" href="/genfavicon-256.png">
-
-<!-- Apple Touch Icons (для сохранения на экран iPhone/iPad) -->
-<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-<!-- Web App Manifest (для PWA / Android) -->
-<link rel="manifest" href="/site.webmanifest">
+  <!-- Favicon и манифест -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/genfavicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/genfavicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/genfavicon-48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/genfavicon-64.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="/genfavicon-128.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/genfavicon-256.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
 
@@ -153,18 +162,13 @@
     <div class="faq-item"><div class="faq-question"><span data-i18n="faq4q">What if I get many fake reviews in one month?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer" data-i18n="faq4a">Overage fee applies above your plan’s quota – low and fair. We also advise bulk appeal strategies at no extra surprise.</div></div>
   </div>
 
-  <!-- Contact form section with defend@reputationguard.pro -->
   <div id="contact-form-section" class="cta">
     <h2 data-i18n="cta-title">Stop letting unfair reviews hurt your bookings</h2>
     <p data-i18n="cta-text">Get a free audit of your 10 most recent negative reviews — we’ll show which can be removed.</p>
-    
     <form id="contactForm" class="contact-form" action="https://formsubmit.co/defend@reputationguard.pro" method="POST">
-      <!-- honeypot & config -->
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_subject" value="New Audit Request from ReputationGuard Landing Page">
-      <input type="hidden" name="_next" value="https://reputationguard.pro/thanks.html" disabled style="display:none">
-      <!-- We'll show success message inline instead of redirect -->
       <div class="form-group">
         <input type="text" name="name" placeholder="Full name *" required data-i18n-placeholder="form-name">
       </div>
@@ -178,7 +182,7 @@
         <textarea name="message" placeholder="Tell us about your negative review problem... *" required data-i18n-placeholder="form-message"></textarea>
       </div>
       <button type="submit" class="btn-primary" style="width:100%;" data-i18n="form-submit">Send Free Audit Request →</button>
-      <p class="form-status" id="formStatusText" data-i18n="form-note">We’ll reply within 24h</p>
+      <p class="form-status" data-i18n="form-note">We’ll reply within 24h</p>
     </form>
   </div>
 
@@ -188,7 +192,6 @@
 </div>
 
 <script>
-  // translations
   const translations = {
     en: {
       "hero-badge": "⚡ Google Reviews Defense",
@@ -390,38 +393,22 @@
         }
       }
     });
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-    });
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-lang') === lang));
   }
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang'))));
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
-  });
+  document.querySelectorAll('.faq-item').forEach(item => item.querySelector('.faq-question').addEventListener('click', () => item.classList.toggle('active')));
 
-  // FAQ toggle
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.querySelector('.faq-question').addEventListener('click', () => item.classList.toggle('active'));
-  });
-
-  // Intercept form submission to show custom success message (since _next disabled)
   const form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       const formData = new FormData(form);
       fetch(form.action, { method: 'POST', body: formData })
-        .then(response => {
-          if (response.ok) {
-            form.innerHTML = '<div style="text-align:center; padding:20px;"><i class="fas fa-check-circle" style="font-size:48px; color:#10B981;"></i><h3 style="margin-top:16px;">✅ Request sent!</h3><p>We’ll get back to you within 24h.</p></div>';
-          } else {
-            alert('Error sending message. Please email defend@reputationguard.pro directly.');
-          }
-        })
+        .then(response => response.ok ? form.innerHTML = '<div style="text-align:center; padding:20px;"><i class="fas fa-check-circle" style="font-size:48px; color:#10B981;"></i><h3 style="margin-top:16px;">✅ Request sent!</h3><p>We’ll get back to you within 24h.</p></div>' : alert('Error sending message. Please email defend@reputationguard.pro directly.'))
         .catch(() => alert('Network error. Please email defend@reputationguard.pro'));
     });
   }
-
   setLanguage('en');
 </script>
 </body>
