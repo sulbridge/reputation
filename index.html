@@ -76,16 +76,37 @@
     .form-group input:focus, .form-group textarea:focus { outline: 2px solid #3B82F6; outline-offset: 2px; }
     .cta .btn-primary { background: white; color: #1E3A8A; margin-top: 10px; box-shadow: none; border: none; width: auto; }
     .cta .btn-primary:hover { background: #f0f4ff; }
-    footer { text-align: center; padding: 32px; color: #6c757d; border-top: 1px solid #eef2ff; }
+    footer { text-align: center; padding: 32px; color: #6c757d; border-top: 1px solid #eef2ff; margin-top: 40px; }
     .form-status { margin-top: 16px; font-size: 0.85rem; text-align: center; color: #d1d5db; }
-    .badge-row { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin: 30px 0; }
-    .badge-icon { background: white; border-radius: 60px; padding: 8px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; font-weight: 500; }
-    .badge-icon i { color: #2563EB; margin-right: 8px; }
-    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; margin: 40px 0; }
+    
+    /* Полноценный блок с преимуществами (3 карточки) */
+    .features-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      margin: 50px 0;
+    }
+    .feature-card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px 24px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+      border: 1px solid #eef2ff;
+      transition: 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1); }
+    .feature-icon { font-size: 2.5rem; color: #2563EB; margin-bottom: 16px; }
+    .feature-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: #0F172A; }
+    .feature-card p { font-size: 0.9rem; color: #4b5563; line-height: 1.5; }
+    
     .risk-card { background: #FEF2F0; border-radius: 20px; padding: 20px; margin: 16px 0; border-left: 4px solid #E53E3E; }
     .checklist { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 40px 0; }
     .checklist-item { background: white; border-radius: 20px; padding: 20px; width: 220px; text-align: center; box-shadow: 0 6px 14px rgba(0,0,0,0.03); border: 1px solid #eef2ff; }
     .guarantee-badge { display: inline-block; background: #1E3A8A; color: white; padding: 3px 12px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; margin-bottom: 12px; }
+    
     @media (max-width: 768px) {
       .hero h1 { font-size: 2rem; }
       .navbar { flex-direction: column; align-items: center; gap: 12px; }
@@ -104,7 +125,15 @@
       .hero-subhead { font-size: 1rem; }
       .hero p { font-size: 1rem; max-width: 100%; }
       .section-title { font-size: 1.6rem; }
+      .features-row { gap: 24px; margin: 40px 0; }
+      .feature-card { width: 100%; max-width: 320px; padding: 24px; }
+      .process-grid { gap: 24px; }
+      .pricing-grid { gap: 24px; }
+      .trust-section { margin: 40px 0; padding: 32px 20px; }
+      .comparison-table { margin: 30px 0; }
+      .risk-card { margin: 12px 0; }
     }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; margin: 40px 0; }
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/genfavicon-32.png">
@@ -141,10 +170,23 @@
     </div>
   </div>
 
-  <div class="badge-row">
-    <div class="badge-icon"><i class="fas fa-user-tag"></i> <span data-i18n="badge1">Manager access only</span></div>
-    <div class="badge-icon"><i class="fas fa-file-signature"></i> <span data-i18n="badge2">Legal agreement</span></div>
-    <div class="badge-icon"><i class="fas fa-chart-line"></i> <span data-i18n="badge3">Transparent dashboard</span></div>
+  <!-- НОВЫЙ БЛОК: полноценные карточки преимуществ с пояснениями -->
+  <div class="features-row">
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-user-tag"></i></div>
+      <h3 data-i18n="feature1-title">Manager access only</h3>
+      <p data-i18n="feature1-desc">You add our email as a Manager in your Google Business Profile. We never ask for your password — full control stays with you.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-file-signature"></i></div>
+      <h3 data-i18n="feature2-title">Legal agreement</h3>
+      <p data-i18n="feature2-desc">Clear service contract with liability limits and confidentiality. We operate transparently under US law.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+      <h3 data-i18n="feature3-title">Transparent dashboard</h3>
+      <p data-i18n="feature3-desc">Weekly status reports, monthly removal summaries, and real‑time appeal tracking via Google’s official tool.</p>
+    </div>
   </div>
 
   <div style="text-align: center; margin-top: 20px;">
@@ -269,6 +311,12 @@
       "stat1": "appeal success rate*",
       "stat2": "h avg response time",
       "hero-img-text": "We remove what breaks Google's rules",
+      "feature1-title": "Manager access only",
+      "feature1-desc": "You add our email as a Manager in your Google Business Profile. We never ask for your password — full control stays with you.",
+      "feature2-title": "Legal agreement",
+      "feature2-desc": "Clear service contract with liability limits and confidentiality. We operate transparently under US law.",
+      "feature3-title": "Transparent dashboard",
+      "feature3-desc": "Weekly status reports, monthly removal summaries, and real‑time appeal tracking via Google’s official tool.",
       "process-title": "How we clean your reputation",
       "process-sub": "No long legal battles — just smart, policy-based appeals",
       "step1-title": "1. Audit & Flag",
@@ -352,9 +400,6 @@
       "testimonial6-author": "— Elena V., Guesthouse Chain, Hoi An",
       "trust-title": "Legitimate appeals only – no fake removals",
       "trust-text": "We never violate Google ToS. Our experts only file appeals for reviews that truly break the rules. Transparent dashboard, client-owned access.",
-      "badge1": "Manager access only",
-      "badge2": "Legal agreement",
-      "badge3": "Transparent dashboard",
       "faq-title": "Frequently asked questions",
       "faq1q": "Do you guarantee removal?",
       "faq1a": "No agency can guarantee 100% removal. But we maximize your chances using deep knowledge of Google’s policies. You pay for expertise and effort.",
@@ -387,6 +432,12 @@
       "stat1": "успешных апелляций*",
       "stat2": "ч среднее время ответа",
       "hero-img-text": "Удаляем то, что нарушает правила Google",
+      "feature1-title": "Доступ менеджера",
+      "feature1-desc": "Вы добавляете наш email как Менеджера в Google Business Profile. Мы никогда не просим пароль — полный контроль остаётся у вас.",
+      "feature2-title": "Юридический договор",
+      "feature2-desc": "Чёткий контракт с ограничением ответственности и конфиденциальностью. Работаем прозрачно по законам США.",
+      "feature3-title": "Прозрачный дашборд",
+      "feature3-desc": "Еженедельные отчёты о статусе, ежемесячные сводки об удалениях и отслеживание апелляций через инструмент Google.",
       "process-title": "Как мы чистим репутацию",
       "process-sub": "Никаких долгих судов — только умные апелляции на основе политик",
       "step1-title": "1. Аудит и пометка",
@@ -470,9 +521,6 @@
       "testimonial6-author": "— Елена В., сеть гестхаусов, Хойан",
       "trust-title": "Только легальные апелляции – никаких фейковых удалений",
       "trust-text": "Мы не нарушаем правила Google. Эксперты обжалуют только отзывы, которые действительно нарушают политику. Прозрачный доступ.",
-      "badge1": "Доступ менеджера",
-      "badge2": "Юридический договор",
-      "badge3": "Прозрачный дашборд",
       "faq-title": "Частые вопросы",
       "faq1q": "Вы гарантируете удаление?",
       "faq1a": "Ни одно агентство не даёт 100% гарантии. Но мы максимизируем шансы благодаря глубокому знанию политик Google. Вы платите за экспертизу и усилия.",
@@ -497,6 +545,7 @@
       "guarantee-badge": "100% ЛЕГАЛЬНО"
     },
     vi: {
+      // аналогичные переводы для вьетнамского (сжато для экономии места, но структура та же)
       "hero-badge": "⚡ Bảo vệ đánh giá Google",
       "hero-title": "Ngừng mất <span style=\"color:#2563EB;\">30% doanh thu</span> vì đánh giá giả",
       "hero-subhead": "Thuê ngoài toàn bộ quản lý uy tín. Thay thế nhân viên nội bộ bằng chuyên môn của chúng tôi.",
@@ -505,6 +554,12 @@
       "stat1": "tỷ lệ thành công*",
       "stat2": "h thời gian phản hồi TB",
       "hero-img-text": "Chúng tôi loại bỏ đánh giá vi phạm quy tắc Google",
+      "feature1-title": "Chỉ truy cập Quản lý",
+      "feature1-desc": "Bạn thêm email của chúng tôi với vai trò Quản lý trong Google Business Profile. Chúng tôi không bao giờ hỏi mật khẩu — toàn quyền kiểm soát vẫn thuộc về bạn.",
+      "feature2-title": "Thỏa thuận pháp lý",
+      "feature2-desc": "Hợp đồng rõ ràng với giới hạn trách nhiệm và bảo mật. Chúng tôi hoạt động minh bạch theo luật Hoa Kỳ.",
+      "feature3-title": "Bảng điều khiển minh bạch",
+      "feature3-desc": "Báo cáo trạng thái hàng tuần, tóm tắt xóa hàng tháng và theo dõi khiếu nại theo thời gian thực qua công cụ chính thức của Google.",
       "process-title": "Cách chúng tôi dọn dẹp uy tín của bạn",
       "process-sub": "Không kiện tụng dài dòng – chỉ khiếu nại thông minh dựa trên chính sách",
       "step1-title": "1. Kiểm tra & gắn cờ",
@@ -588,9 +643,6 @@
       "testimonial6-author": "— Elena V., Chuỗi nhà nghỉ, Hội An",
       "trust-title": "Chỉ khiếu nại hợp pháp – không xóa giả mạo",
       "trust-text": "Chúng tôi không vi phạm Điều khoản Google. Chuyên gia chỉ khiếu nại các đánh giá thực sự vi phạm. Bảng điều khiển minh bạch, quyền truy cập do khách hàng kiểm soát.",
-      "badge1": "Chỉ truy cập Quản lý",
-      "badge2": "Thỏa thuận pháp lý",
-      "badge3": "Bảng điều khiển minh bạch",
       "faq-title": "Câu hỏi thường gặp",
       "faq1q": "Bạn có đảm bảo xóa được không?",
       "faq1a": "Không ai có thể đảm bảo 100% xóa. Nhưng chúng tôi tối đa hóa cơ hội bằng kiến thức chuyên sâu về chính sách Google. Bạn trả cho chuyên môn và nỗ lực.",
