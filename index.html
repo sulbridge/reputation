@@ -26,7 +26,7 @@
     .hero h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 16px; }
     .hero-subhead { font-size: 1.25rem; color: #2c3e66; margin-bottom: 20px; font-weight: 500; border-left: 3px solid #3B82F6; padding-left: 16px; }
     .hero p { font-size: 1.1rem; color: #4b5563; margin-bottom: 32px; max-width: 90%; }
-    .hero-stats { display: flex; gap: 32px; margin-top: 24px; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 32px; margin-top: 24px; flex-wrap: wrap; margin-bottom: 0; }
     .stat span.counter { font-size: 1.8rem; font-weight: 800; color: #1E3A8A; display: inline-block; }
     .hero-image { flex: 1; background: linear-gradient(145deg, #EFF6FF, #FFFFFF); border-radius: 48px; padding: 24px 20px; text-align: center; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 280px; }
     .hero-image i { font-size: 5rem; color: #3B82F6; transition: transform 0.3s ease; margin-bottom: 8px; }
@@ -39,10 +39,23 @@
     }
     .section-title { font-size: 2.2rem; font-weight: 800; text-align: center; margin-bottom: 16px; }
     .section-sub { text-align: center; color: #6b7280; max-width: 700px; margin: 0 auto 48px; }
+    
+    /* увеличенные отступы между блоками */
+    .process-section, .pricing-section, .compare-section, .risk-section, .trust-section, .cases-section, .checklist-section, .testimonials-section, .faq-section, .freeaudit-section, .cta-section, .features-section {
+      margin: 70px 0;
+    }
+    .features-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin: 70px 0; }
+    .feature-card { background: white; border-radius: 28px; padding: 28px 24px; width: 300px; text-align: center; box-shadow: 0 12px 24px rgba(0,0,0,0.05); border: 1px solid #eef2ff; transition: 0.2s; }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1); }
+    .feature-icon { font-size: 2.5rem; color: #2563EB; margin-bottom: 16px; }
+    .feature-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: #0F172A; }
+    .feature-card p { font-size: 0.9rem; color: #4b5563; line-height: 1.5; }
+    
     .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; margin: 40px 0; }
     .process-card { background: #F9FAFB; border-radius: 28px; padding: 28px 20px; text-align: center; transition: 0.2s; }
     .process-card:hover { transform: translateY(-6px); background: white; box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1); }
     .process-icon { font-size: 2.8rem; color: #2563EB; margin-bottom: 18px; }
+    
     .pricing-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin: 50px 0; }
     .pricing-card { background: white; border-radius: 32px; padding: 32px 24px; width: 300px; box-shadow: 0 12px 24px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; transition: 0.25s; position: relative; }
     .pricing-card.popular { border: 2px solid #3B82F6; }
@@ -53,21 +66,24 @@
     .feature-list { list-style: none; margin: 24px 0; }
     .feature-list li { margin: 12px 0; display: flex; align-items: center; gap: 8px; }
     .feature-list i.fa-check { color: #10B981; width: 20px; }
-    .trust-section { background: #F3F6FC; border-radius: 48px; padding: 48px 32px; margin: 60px 0; text-align: center; }
+    
     .comparison-table { width: 100%; border-collapse: collapse; background: white; border-radius: 32px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.05); margin: 40px 0; }
     .comparison-table th { background: #1E3A8A; color: white; padding: 16px; text-align: center; font-weight: 700; }
     .comparison-table td { padding: 14px; border-bottom: 1px solid #eef2ff; text-align: center; }
     .comparison-table tr:last-child td { border-bottom: none; }
     .comparison-table .feature-cell { font-weight: 700; background: #F9FAFB; text-align: left; padding-left: 24px; }
+    
     .case-card, .testimonial-card { background: white; border-radius: 24px; padding: 20px; box-shadow: 0 6px 14px rgba(0,0,0,0.03); border: 1px solid #eef2ff; margin: 16px 0; }
     .case-badge, .testimonial-badge { background: #EFF6FF; color: #1E3A8A; font-size: 0.7rem; font-weight: 700; border-radius: 40px; padding: 2px 10px; display: inline-block; margin-bottom: 12px; }
     .testimonial-card p { font-style: normal; color: #2d3a4a; margin: 12px 0; line-height: 1.5; }
     .testimonial-author { font-weight: 700; color: #1E3A8A; margin-top: 12px; font-size: 0.85rem; border-top: 1px solid #eef2ff; padding-top: 12px; }
+    
     .faq-item { background: white; border-radius: 24px; padding: 20px 28px; margin-bottom: 16px; border: 1px solid #eef2ff; cursor: pointer; }
     .faq-question { font-weight: 700; font-size: 1.1rem; display: flex; justify-content: space-between; }
     .faq-answer { margin-top: 12px; color: #4b5563; display: none; }
     .faq-item.active .faq-answer { display: block; }
-    .cta { background: linear-gradient(135deg, #0F172A, #1E3A8A); border-radius: 48px; padding: 64px 32px; text-align: center; color: white; margin: 40px 0 60px; }
+    
+    .cta { background: linear-gradient(135deg, #0F172A, #1E3A8A); border-radius: 48px; padding: 64px 32px; text-align: center; color: white; margin: 70px 0; }
     .cta h2 { font-size: 2rem; margin-bottom: 16px; }
     .contact-form { max-width: 600px; margin: 32px auto 0; background: rgba(255,255,255,0.1); backdrop-filter: blur(2px); border-radius: 32px; padding: 28px; text-align: left; }
     .form-group { margin-bottom: 20px; }
@@ -76,36 +92,14 @@
     .form-group input:focus, .form-group textarea:focus { outline: 2px solid #3B82F6; outline-offset: 2px; }
     .cta .btn-primary { background: white; color: #1E3A8A; margin-top: 10px; box-shadow: none; border: none; width: auto; }
     .cta .btn-primary:hover { background: #f0f4ff; }
-    footer { text-align: center; padding: 32px; color: #6c757d; border-top: 1px solid #eef2ff; margin-top: 40px; }
+    footer { text-align: center; padding: 32px; color: #6c757d; border-top: 1px solid #eef2ff; margin-top: 70px; }
     .form-status { margin-top: 16px; font-size: 0.85rem; text-align: center; color: #d1d5db; }
-    
-    /* Полноценный блок с преимуществами (3 карточки) */
-    .features-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 32px;
-      margin: 50px 0;
-    }
-    .feature-card {
-      background: white;
-      border-radius: 28px;
-      padding: 28px 24px;
-      width: 300px;
-      text-align: center;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.05);
-      border: 1px solid #eef2ff;
-      transition: 0.2s;
-    }
-    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1); }
-    .feature-icon { font-size: 2.5rem; color: #2563EB; margin-bottom: 16px; }
-    .feature-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; color: #0F172A; }
-    .feature-card p { font-size: 0.9rem; color: #4b5563; line-height: 1.5; }
     
     .risk-card { background: #FEF2F0; border-radius: 20px; padding: 20px; margin: 16px 0; border-left: 4px solid #E53E3E; }
     .checklist { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 40px 0; }
     .checklist-item { background: white; border-radius: 20px; padding: 20px; width: 220px; text-align: center; box-shadow: 0 6px 14px rgba(0,0,0,0.03); border: 1px solid #eef2ff; }
     .guarantee-badge { display: inline-block; background: #1E3A8A; color: white; padding: 3px 12px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; margin-bottom: 12px; }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; margin: 40px 0; }
     
     @media (max-width: 768px) {
       .hero h1 { font-size: 2rem; }
@@ -125,15 +119,16 @@
       .hero-subhead { font-size: 1rem; }
       .hero p { font-size: 1rem; max-width: 100%; }
       .section-title { font-size: 1.6rem; }
-      .features-row { gap: 24px; margin: 40px 0; }
+      .features-row { gap: 24px; margin: 50px 0; }
       .feature-card { width: 100%; max-width: 320px; padding: 24px; }
       .process-grid { gap: 24px; }
       .pricing-grid { gap: 24px; }
-      .trust-section { margin: 40px 0; padding: 32px 20px; }
       .comparison-table { margin: 30px 0; }
       .risk-card { margin: 12px 0; }
+      .process-section, .pricing-section, .compare-section, .risk-section, .trust-section, .cases-section, .checklist-section, .testimonials-section, .faq-section, .freeaudit-section, .cta-section, .features-section {
+        margin: 50px 0;
+      }
     }
-    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; margin: 40px 0; }
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/genfavicon-32.png">
@@ -170,66 +165,77 @@
     </div>
   </div>
 
-  <!-- НОВЫЙ БЛОК: полноценные карточки преимуществ с пояснениями -->
+  <!-- БЛОК ПРЕИМУЩЕСТВ (НОВЫЙ ПОРЯДОК) -->
   <div class="features-row">
+    <div class="feature-card">
+      <div class="feature-icon"><i class="fas fa-file-signature"></i></div>
+      <h3 data-i18n="feature2-title">Legal agreement</h3>
+      <p data-i18n="feature2-desc">We sign a contract with liability limits and confidentiality. We operate transparently within the law.</p>
+    </div>
     <div class="feature-card">
       <div class="feature-icon"><i class="fas fa-user-tag"></i></div>
       <h3 data-i18n="feature1-title">Manager access only</h3>
       <p data-i18n="feature1-desc">You add our email as a Manager in your Google Business Profile. We never ask for your password — full control stays with you.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon"><i class="fas fa-file-signature"></i></div>
-      <h3 data-i18n="feature2-title">Legal agreement</h3>
-      <p data-i18n="feature2-desc">Clear service contract with liability limits and confidentiality. We operate transparently under US law.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+      <div class="feature-icon"><i class="fas fa-chart-simple"></i></div>
       <h3 data-i18n="feature3-title">Transparent dashboard</h3>
       <p data-i18n="feature3-desc">Weekly status reports, monthly removal summaries, and real‑time appeal tracking via Google’s official tool.</p>
     </div>
   </div>
 
-  <div style="text-align: center; margin-top: 20px;">
+  <!-- ПРОЦЕСС -->
+  <div class="process-section">
     <h2 class="section-title" data-i18n="process-title">How we clean your reputation</h2>
     <p class="section-sub" data-i18n="process-sub">No long legal battles — just smart, policy-based appeals</p>
-  </div>
-  <div class="process-grid">
-    <div class="process-card"><div class="process-icon"><i class="fas fa-search"></i></div><h3 data-i18n="step1-title">1. Audit & Flag</h3><p data-i18n="step1-desc">We scan your Google reviews and flag violators: spam, fake, conflict of interest, off-topic.</p></div>
-    <div class="process-card"><div class="process-icon"><i class="fas fa-file-alt"></i></div><h3 data-i18n="step2-title">2. Evidence Package</h3><p data-i18n="step2-desc">We build strong appeals with screenshots, logs, policy references.</p></div>
-    <div class="process-card"><div class="process-icon"><i class="fab fa-google"></i></div><h3 data-i18n="step3-title">3. Official Appeal</h3><p data-i18n="step3-desc">Using Google’s Manager access & appeals tool — fast and legitimate.</p></div>
-    <div class="process-card"><div class="process-icon"><i class="fas fa-chart-line"></i></div><h3 data-i18n="step4-title">4. Tracking & Report</h3><p data-i18n="step4-desc">Weekly status updates + monthly removal reports.</p></div>
-  </div>
-
-  <h2 class="section-title" data-i18n="pricing-title">Simple, transparent pricing</h2>
-  <p class="section-sub" data-i18n="pricing-sub">Fixed monthly fee + overage protection. Save up to 70% vs hiring in-house.</p>
-  <div class="pricing-grid">
-    <div class="pricing-card"><h3 data-i18n="plan1-name">Essential</h3><div class="price">$399<span data-i18n="per-month">/month</span></div><div class="saving-badge" data-i18n="saving1">Save ~$600/month</div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature1a">Up to 3 appeals/month</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature1b">Weekly monitoring</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature1c">Email support</span></li></ul><button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Choose plan</button></div>
-    <div class="pricing-card popular"><div class="popular-badge" data-i18n="popular">⭐ MOST POPULAR</div><h3 data-i18n="plan2-name">Pro</h3><div class="price">$799<span data-i18n="per-month">/month</span></div><div class="saving-badge" data-i18n="saving2">Save ~$1,200/month</div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature2a">Up to 8 appeals/month</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2b">Priority evidence building</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2c">Monthly strategy call</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2d">Overage: $49/extra review</span></li></ul><button class="btn-primary" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Choose plan →</button></div>
-    <div class="pricing-card"><h3 data-i18n="plan3-name">Enterprise</h3><div class="price">$1,499+<span data-i18n="per-month">/month</span></div><div class="saving-badge" data-i18n="saving3">Full department at 10% cost</div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature3a">Unlimited appeals</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3b">Dedicated account manager</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3c">SERM consulting</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3d">Legal escalation support</span></li></ul><button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Contact us</button></div>
+    <div class="process-grid">
+      <div class="process-card"><div class="process-icon"><i class="fas fa-search"></i></div><h3 data-i18n="step1-title">1. Audit & Flag</h3><p data-i18n="step1-desc">We scan your Google reviews and flag violators: spam, fake, conflict of interest, off-topic.</p></div>
+      <div class="process-card"><div class="process-icon"><i class="fas fa-file-alt"></i></div><h3 data-i18n="step2-title">2. Evidence Package</h3><p data-i18n="step2-desc">We build strong appeals with screenshots, logs, policy references.</p></div>
+      <div class="process-card"><div class="process-icon"><i class="fab fa-google"></i></div><h3 data-i18n="step3-title">3. Official Appeal</h3><p data-i18n="step3-desc">Using Google’s Manager access & appeals tool — fast and legitimate.</p></div>
+      <div class="process-card"><div class="process-icon"><i class="fas fa-chart-line"></i></div><h3 data-i18n="step4-title">4. Tracking & Report</h3><p data-i18n="step4-desc">Weekly status updates + monthly removal reports.</p></div>
+    </div>
   </div>
 
-  <h2 class="section-title" data-i18n="compare-title">In-house vs ReputationGuard</h2>
-  <p class="section-sub" data-i18n="compare-sub">Why pay a full salary when you can get better results for less?</p>
-  <table class="comparison-table">
-    <thead><tr><th data-i18n="compare-feature">Feature</th><th data-i18n="compare-inhouse">In‑house Employee</th><th data-i18n="compare-rg">ReputationGuard</th></tr></thead>
-    <tbody>
-      <tr><td class="feature-cell" data-i18n="compare-cost">Monthly cost</td><td>$2,000–$3,500+</td><td>$399–$1,499</td></tr>
-      <tr><td class="feature-cell" data-i18n="compare-expertise">Google policies expertise</td><td>❌ General knowledge</td><td>✅ Dedicated specialists</td></tr>
-      <tr><td class="feature-cell" data-i18n="compare-appeals">Appeal success rate</td><td>~30–50%</td><td>89% (policy‑based)</td></tr>
-      <tr><td class="feature-cell" data-i18n="compare-legal">Legal escalation</td><td>❌ No</td><td>✅ Yes (Enterprise)</td></tr>
-      <tr><td class="feature-cell" data-i18n="compare-tools">Monitoring & reporting</td><td>Basic / manual</td><td>Automated + weekly reports</td></tr>
-      <tr><td class="feature-cell" data-i18n="compare-risk">Zero risk trial</td><td>No</td><td>✅ Free audit + pilot</td></tr>
-    </tbody>
-  </table>
-
-  <h2 class="section-title" data-i18n="risk-title">The hidden cost of ignoring fake reviews</h2>
-  <p class="section-sub" data-i18n="risk-sub">What happens when you leave unfair reviews unaddressed</p>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; margin-bottom: 40px;">
-    <div class="risk-card"><i class="fas fa-chart-line" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i><h3 data-i18n="risk1-title">Lost revenue</h3><p data-i18n="risk1-text">A 1‑star drop in rating can reduce bookings by up to 30%. One fake review = thousands of dollars in lost sales.</p></div>
-    <div class="risk-card"><i class="fas fa-search" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i><h3 data-i18n="risk2-title">Lower Google visibility</h3><p data-i18n="risk2-text">Google’s algorithm favors high‑rated businesses. Bad reviews push you down in local search results.</p></div>
-    <div class="risk-card"><i class="fas fa-hand-holding-usd" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i><h3 data-i18n="risk3-title">Higher ad costs</h3><p data-i18n="risk3-text">A poor reputation increases customer acquisition costs, eating into your marketing budget.</p></div>
+  <!-- ТАРИФЫ -->
+  <div class="pricing-section">
+    <h2 class="section-title" data-i18n="pricing-title">Simple, transparent pricing</h2>
+    <p class="section-sub" data-i18n="pricing-sub">Fixed monthly fee + overage protection. Save up to 70% vs hiring in-house.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card"><h3 data-i18n="plan1-name">Essential</h3><div class="price">$399<span data-i18n="per-month">/month</span></div><div class="saving-badge" data-i18n="saving1">Save ~$600/month</div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature1a">Up to 3 appeals/month</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature1b">Weekly monitoring</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature1c">Email support</span></li></ul><button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Choose plan</button></div>
+      <div class="pricing-card popular"><div class="popular-badge" data-i18n="popular">⭐ MOST POPULAR</div><h3 data-i18n="plan2-name">Pro</h3><div class="price">$799<span data-i18n="per-month">/month</span></div><div class="saving-badge" data-i18n="saving2">Save ~$1,200/month</div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature2a">Up to 8 appeals/month</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2b">Priority evidence building</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2c">Monthly strategy call</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2d">Overage: $49/extra review</span></li></ul><button class="btn-primary" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Choose plan →</button></div>
+      <div class="pricing-card"><h3 data-i18n="plan3-name">Enterprise</h3><div class="price">$1,499+<span data-i18n="per-month">/month</span></div><div class="saving-badge" data-i18n="saving3">Full department at 10% cost</div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature3a">Unlimited appeals</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3b">Dedicated account manager</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3c">SERM consulting</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3d">Legal escalation support</span></li></ul><button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Contact us</button></div>
+    </div>
   </div>
 
+  <!-- СРАВНЕНИЕ -->
+  <div class="compare-section">
+    <h2 class="section-title" data-i18n="compare-title">In-house vs ReputationGuard</h2>
+    <p class="section-sub" data-i18n="compare-sub">Why pay a full salary when you can get better results for less?</p>
+    <table class="comparison-table">
+      <thead><tr><th data-i18n="compare-feature">Feature</th><th data-i18n="compare-inhouse">In‑house Employee</th><th data-i18n="compare-rg">ReputationGuard</th></tr></thead>
+      <tbody>
+        <tr><td class="feature-cell" data-i18n="compare-cost">Monthly cost</td><td>$2,000–$3,500+</td><td>$399–$1,499</td></tr>
+        <tr><td class="feature-cell" data-i18n="compare-expertise">Google policies expertise</td><td>❌ General knowledge</td><td>✅ Dedicated specialists</td></tr>
+        <tr><td class="feature-cell" data-i18n="compare-appeals">Appeal success rate</td><td>~30–50%</td><td>89% (policy‑based)</td></tr>
+        <tr><td class="feature-cell" data-i18n="compare-legal">Legal escalation</td><td>❌ No</td><td>✅ Yes (Enterprise)</td></tr>
+        <tr><td class="feature-cell" data-i18n="compare-tools">Monitoring & reporting</td><td>Basic / manual</td><td>Automated + weekly reports</td></tr>
+        <tr><td class="feature-cell" data-i18n="compare-risk">Zero risk trial</td><td>No</td><td>✅ Free audit + pilot</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- СКРЫТЫЕ РИСКИ -->
+  <div class="risk-section">
+    <h2 class="section-title" data-i18n="risk-title">The hidden cost of ignoring fake reviews</h2>
+    <p class="section-sub" data-i18n="risk-sub">What happens when you leave unfair reviews unaddressed</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; margin-bottom: 40px;">
+      <div class="risk-card"><i class="fas fa-chart-line" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i><h3 data-i18n="risk1-title">Lost revenue</h3><p data-i18n="risk1-text">A 1‑star drop in rating can reduce bookings by up to 30%. One fake review = thousands of dollars in lost sales.</p></div>
+      <div class="risk-card"><i class="fas fa-search" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i><h3 data-i18n="risk2-title">Lower Google visibility</h3><p data-i18n="risk2-text">Google’s algorithm favors high‑rated businesses. Bad reviews push you down in local search results.</p></div>
+      <div class="risk-card"><i class="fas fa-hand-holding-usd" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i><h3 data-i18n="risk3-title">Higher ad costs</h3><p data-i18n="risk3-text">A poor reputation increases customer acquisition costs, eating into your marketing budget.</p></div>
+    </div>
+  </div>
+
+  <!-- ГАРАНТИИ -->
   <div class="trust-section">
     <div class="guarantee-badge" data-i18n="guarantee-badge">100% LEGITIMATE</div>
     <i class="fas fa-shield-alt" style="font-size: 3rem; color:#1E3A8A; margin-top: 10px;"></i>
@@ -237,46 +243,61 @@
     <p data-i18n="trust-text">We never violate Google ToS. Our experts only file appeals for reviews that truly break the rules. Transparent dashboard, client-owned access.</p>
   </div>
 
-  <h2 class="section-title" data-i18n="cases-title">Real results. Removed reviews.</h2>
-  <p class="section-sub" data-i18n="cases-sub">Examples of unfair reviews we successfully appealed (anonymized).</p>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; margin-bottom: 30px;">
-    <div class="case-card"><div class="case-badge" data-i18n="case1-badge">CONFLICT OF INTEREST</div><p data-i18n="case1-text">"Worst hotel, never come back" – user never checked in, identified as competitor's employee. Removed in 5 days.</p><i class="fas fa-check-circle" style="color:#10B981;"></i> <span data-i18n="case1-result">Removed</span></div>
-    <div class="case-card"><div class="case-badge" data-i18n="case2-badge">FAKE / NO VISIT</div><p data-i18n="case2-text">"Food poisoning, dirty kitchen" – no reservation record, fake account created same day. Removed after evidence submission.</p><i class="fas fa-check-circle" style="color:#10B981;"></i> <span data-i18n="case2-result">Removed</span></div>
-    <div class="case-card"><div class="case-badge" data-i18n="case3-badge">SPAM / OFF-TOPIC</div><p data-i18n="case3-text">"Terrible place, go elsewhere" – contained link to competitor. Flagged as spam, deleted within 48h.</p><i class="fas fa-check-circle" style="color:#10B981;"></i> <span data-i18n="case3-result">Removed</span></div>
+  <!-- КЕЙСЫ -->
+  <div class="cases-section">
+    <h2 class="section-title" data-i18n="cases-title">Real results. Removed reviews.</h2>
+    <p class="section-sub" data-i18n="cases-sub">Examples of unfair reviews we successfully appealed (anonymized).</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; margin-bottom: 30px;">
+      <div class="case-card"><div class="case-badge" data-i18n="case1-badge">CONFLICT OF INTEREST</div><p data-i18n="case1-text">"Worst hotel, never come back" – user never checked in, identified as competitor's employee. Removed in 5 days.</p><i class="fas fa-check-circle" style="color:#10B981;"></i> <span data-i18n="case1-result">Removed</span></div>
+      <div class="case-card"><div class="case-badge" data-i18n="case2-badge">FAKE / NO VISIT</div><p data-i18n="case2-text">"Food poisoning, dirty kitchen" – no reservation record, fake account created same day. Removed after evidence submission.</p><i class="fas fa-check-circle" style="color:#10B981;"></i> <span data-i18n="case2-result">Removed</span></div>
+      <div class="case-card"><div class="case-badge" data-i18n="case3-badge">SPAM / OFF-TOPIC</div><p data-i18n="case3-text">"Terrible place, go elsewhere" – contained link to competitor. Flagged as spam, deleted within 48h.</p><i class="fas fa-check-circle" style="color:#10B981;"></i> <span data-i18n="case3-result">Removed</span></div>
+    </div>
   </div>
 
-  <h2 class="section-title" data-i18n="checklist-title">You should be worried if any of these sound familiar</h2>
-  <div class="checklist">
-    <div class="checklist-item"><i class="fas fa-exclamation-triangle" style="color:#E53E3E; font-size: 1.5rem;"></i><p data-i18n="checklist1">Unfair 1‑star reviews with no actual visit</p></div>
-    <div class="checklist-item"><i class="fas fa-building" style="color:#E53E3E; font-size: 1.5rem;"></i><p data-i18n="checklist2">Suspicious reviews from competitor accounts</p></div>
-    <div class="checklist-item"><i class="fas fa-clock" style="color:#E53E3E; font-size: 1.5rem;"></i><p data-i18n="checklist3">Multiple bad reviews in a short time span</p></div>
-    <div class="checklist-item"><i class="fas fa-language" style="color:#E53E3E; font-size: 1.5rem;"></i><p data-i18n="checklist4">Offensive or off‑topic comments</p></div>
+  <!-- ЧЕК-ЛИСТ БОЛЕЙ -->
+  <div class="checklist-section">
+    <h2 class="section-title" data-i18n="checklist-title">You should be worried if any of these sound familiar</h2>
+    <div class="checklist">
+      <div class="checklist-item"><i class="fas fa-exclamation-triangle" style="color:#E53E3E; font-size: 1.5rem;"></i><p data-i18n="checklist1">Unfair 1‑star reviews with no actual visit</p></div>
+      <div class="checklist-item"><i class="fas fa-building" style="color:#E53E3E; font-size: 1.5rem;"></i><p data-i18n="checklist2">Suspicious reviews from competitor accounts</p></div>
+      <div class="checklist-item"><i class="fas fa-clock" style="color:#E53E3E; font-size: 1.5rem;"></i><p data-i18n="checklist3">Multiple bad reviews in a short time span</p></div>
+      <div class="checklist-item"><i class="fas fa-language" style="color:#E53E3E; font-size: 1.5rem;"></i><p data-i18n="checklist4">Offensive or off‑topic comments</p></div>
+    </div>
   </div>
 
-  <h2 class="section-title" data-i18n="testimonials-title">What our clients say</h2>
-  <p class="section-sub" data-i18n="testimonials-sub">Trusted by hotels, restaurants and service businesses worldwide</p>
-  <div class="testimonial-grid">
-    <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial1">"They removed three fake 1-star reviews that were crushing our rating. Within two weeks our average went from 4.1 to 4.7. ROI is insane."</p><div class="testimonial-author" data-i18n="testimonial1-author">— Marco L., Boutique Hotel, Da Nang</div></div>
-    <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial2">"We tried to dispute reviews ourselves for months – zero success. ReputationGuard got two taken down in the first week. Worth every penny."</p><div class="testimonial-author" data-i18n="testimonial2-author">— Lan N., Restaurant Owner, Hanoi</div></div>
-    <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial3">"Professional, fast, transparent. They don't overpromise, but they deliver. The free audit was enough to convince us."</p><div class="testimonial-author" data-i18n="testimonial3-author">— David K., Resort Manager, Phu Quoc</div></div>
-    <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial4">"Saved us from a coordinated attack by a competitor. They provided solid evidence and Google removed all 5 fake reviews. Unbelievable service."</p><div class="testimonial-author" data-i18n="testimonial4-author">— Sophia T., Spa & Wellness, Ho Chi Minh</div></div>
-    <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial5">"I was skeptical about paying monthly, but after seeing how quickly they handle appeals, I'm a believer. Our booking rate increased 22%."</p><div class="testimonial-author" data-i18n="testimonial5-author">— Alex P., Beach Resort, Nha Trang</div></div>
-    <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial6">"They act like our outsourced reputation department. Responsive, proactive, and results-driven. Highly recommend for any hospitality business."</p><div class="testimonial-author" data-i18n="testimonial6-author">— Elena V., Guesthouse Chain, Hoi An</div></div>
+  <!-- ОТЗЫВЫ -->
+  <div class="testimonials-section">
+    <h2 class="section-title" data-i18n="testimonials-title">What our clients say</h2>
+    <p class="section-sub" data-i18n="testimonials-sub">Trusted by hotels, restaurants and service businesses worldwide</p>
+    <div class="testimonial-grid">
+      <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial1">"They removed three fake 1-star reviews that were crushing our rating. Within two weeks our average went from 4.1 to 4.7. ROI is insane."</p><div class="testimonial-author" data-i18n="testimonial1-author">— Marco L., Boutique Hotel, Da Nang</div></div>
+      <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial2">"We tried to dispute reviews ourselves for months – zero success. ReputationGuard got two taken down in the first week. Worth every penny."</p><div class="testimonial-author" data-i18n="testimonial2-author">— Lan N., Restaurant Owner, Hanoi</div></div>
+      <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial3">"Professional, fast, transparent. They don't overpromise, but they deliver. The free audit was enough to convince us."</p><div class="testimonial-author" data-i18n="testimonial3-author">— David K., Resort Manager, Phu Quoc</div></div>
+      <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial4">"Saved us from a coordinated attack by a competitor. They provided solid evidence and Google removed all 5 fake reviews. Unbelievable service."</p><div class="testimonial-author" data-i18n="testimonial4-author">— Sophia T., Spa & Wellness, Ho Chi Minh</div></div>
+      <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial5">"I was skeptical about paying monthly, but after seeing how quickly they handle appeals, I'm a believer. Our booking rate increased 22%."</p><div class="testimonial-author" data-i18n="testimonial5-author">— Alex P., Beach Resort, Nha Trang</div></div>
+      <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial6">"They act like our outsourced reputation department. Responsive, proactive, and results-driven. Highly recommend for any hospitality business."</p><div class="testimonial-author" data-i18n="testimonial6-author">— Elena V., Guesthouse Chain, Hoi An</div></div>
+    </div>
   </div>
 
-  <h2 class="section-title" data-i18n="faq-title">Frequently asked questions</h2>
-  <div class="faq-container" style="margin: 30px 0;">
-    <div class="faq-item"><div class="faq-question"><span data-i18n="faq1q">Do you guarantee removal?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer" data-i18n="faq1a">No agency can guarantee 100% removal. But we maximize your chances using deep knowledge of Google’s policies. You pay for expertise and effort.</div></div>
-    <div class="faq-item"><div class="faq-question"><span data-i18n="faq2q">How do you access my Google Business Profile?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer" data-i18n="faq2a">You add our email as “Manager” inside Google Business Profile. We never ask for your password. Full control stays with you.</div></div>
-    <div class="faq-item"><div class="faq-question"><span data-i18n="faq3q">What types of reviews can you remove?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer" data-i18n="faq3a">Spam, fake reviews (no actual visit), conflict of interest (competitors/employees), off-topic, harassment, and offensive content.</div></div>
-    <div class="faq-item"><div class="faq-question"><span data-i18n="faq4q">How much can I save compared to hiring?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer" data-i18n="faq4a">A full-time reputation manager costs $2k–$3.5k/month. With our Pro plan you save $1,200+ every month while getting better expertise and guaranteed response times.</div></div>
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2 class="section-title" data-i18n="faq-title">Frequently asked questions</h2>
+    <div class="faq-container" style="margin: 30px 0;">
+      <div class="faq-item"><div class="faq-question"><span data-i18n="faq1q">Do you guarantee removal?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer" data-i18n="faq1a">No agency can guarantee 100% removal. But we maximize your chances using deep knowledge of Google’s policies. You pay for expertise and effort.</div></div>
+      <div class="faq-item"><div class="faq-question"><span data-i18n="faq2q">How do you access my Google Business Profile?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer" data-i18n="faq2a">You add our email as “Manager” inside Google Business Profile. We never ask for your password. Full control stays with you.</div></div>
+      <div class="faq-item"><div class="faq-question"><span data-i18n="faq3q">What types of reviews can you remove?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer" data-i18n="faq3a">Spam, fake reviews (no actual visit), conflict of interest (competitors/employees), off-topic, harassment, and offensive content.</div></div>
+      <div class="faq-item"><div class="faq-question"><span data-i18n="faq4q">How much can I save compared to hiring?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer" data-i18n="faq4a">A full-time reputation manager costs $2k–$3.5k/month. With our Pro plan you save $1,200+ every month while getting better expertise and guaranteed response times.</div></div>
+    </div>
   </div>
 
-  <div style="background: #F8FAFC; border-radius: 32px; padding: 32px; text-align: center; margin: 30px 0;">
-    <i class="fas fa-chart-simple" style="font-size: 2rem; color:#1E3A8A;"></i>
-    <h3 style="margin: 12px 0;" data-i18n="free-audit-title">Free audit of your 10 most recent negative reviews</h3>
-    <p data-i18n="free-audit-text">We’ll show you exactly which reviews can be removed and why. No obligation, no spam.</p>
-    <button class="btn-primary" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" style="margin-top: 20px;" data-i18n="claim-audit">Claim Free Audit →</button>
+  <!-- БЕСПЛАТНЫЙ АУДИТ -->
+  <div class="freeaudit-section">
+    <div style="background: #F8FAFC; border-radius: 32px; padding: 32px; text-align: center; margin: 30px 0;">
+      <i class="fas fa-chart-simple" style="font-size: 2rem; color:#1E3A8A;"></i>
+      <h3 style="margin: 12px 0;" data-i18n="free-audit-title">Free audit of your 10 most recent negative reviews</h3>
+      <p data-i18n="free-audit-text">We’ll show you exactly which reviews can be removed and why. No obligation, no spam.</p>
+      <button class="btn-primary" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" style="margin-top: 20px;" data-i18n="claim-audit">Claim Free Audit →</button>
+    </div>
   </div>
 
   <div id="contact-form-section" class="cta">
@@ -311,10 +332,10 @@
       "stat1": "appeal success rate*",
       "stat2": "h avg response time",
       "hero-img-text": "We remove what breaks Google's rules",
+      "feature2-title": "Legal agreement",
+      "feature2-desc": "We sign a contract with liability limits and confidentiality. We operate transparently within the law.",
       "feature1-title": "Manager access only",
       "feature1-desc": "You add our email as a Manager in your Google Business Profile. We never ask for your password — full control stays with you.",
-      "feature2-title": "Legal agreement",
-      "feature2-desc": "Clear service contract with liability limits and confidentiality. We operate transparently under US law.",
       "feature3-title": "Transparent dashboard",
       "feature3-desc": "Weekly status reports, monthly removal summaries, and real‑time appeal tracking via Google’s official tool.",
       "process-title": "How we clean your reputation",
@@ -432,10 +453,10 @@
       "stat1": "успешных апелляций*",
       "stat2": "ч среднее время ответа",
       "hero-img-text": "Удаляем то, что нарушает правила Google",
-      "feature1-title": "Доступ менеджера",
-      "feature1-desc": "Вы добавляете наш email как Менеджера в Google Business Profile. Мы никогда не просим пароль — полный контроль остаётся у вас.",
       "feature2-title": "Юридический договор",
-      "feature2-desc": "Чёткий контракт с ограничением ответственности и конфиденциальностью. Работаем прозрачно по законам США.",
+      "feature2-desc": "Заключаем контракт с ограничением ответственности и конфиденциальностью. Работаем прозрачно в рамках закона.",
+      "feature1-title": "Доступ менеджера",
+      "feature1-desc": "Вы добавляете наш email как Менеджера в Google Business Profile. Мы никогда не просим ваш пароль, полный контроль всегда у вас.",
       "feature3-title": "Прозрачный дашборд",
       "feature3-desc": "Еженедельные отчёты о статусе, ежемесячные сводки об удалениях и отслеживание апелляций через инструмент Google.",
       "process-title": "Как мы чистим репутацию",
@@ -545,7 +566,6 @@
       "guarantee-badge": "100% ЛЕГАЛЬНО"
     },
     vi: {
-      // аналогичные переводы для вьетнамского (сжато для экономии места, но структура та же)
       "hero-badge": "⚡ Bảo vệ đánh giá Google",
       "hero-title": "Ngừng mất <span style=\"color:#2563EB;\">30% doanh thu</span> vì đánh giá giả",
       "hero-subhead": "Thuê ngoài toàn bộ quản lý uy tín. Thay thế nhân viên nội bộ bằng chuyên môn của chúng tôi.",
@@ -554,10 +574,10 @@
       "stat1": "tỷ lệ thành công*",
       "stat2": "h thời gian phản hồi TB",
       "hero-img-text": "Chúng tôi loại bỏ đánh giá vi phạm quy tắc Google",
-      "feature1-title": "Chỉ truy cập Quản lý",
-      "feature1-desc": "Bạn thêm email của chúng tôi với vai trò Quản lý trong Google Business Profile. Chúng tôi không bao giờ hỏi mật khẩu — toàn quyền kiểm soát vẫn thuộc về bạn.",
       "feature2-title": "Thỏa thuận pháp lý",
-      "feature2-desc": "Hợp đồng rõ ràng với giới hạn trách nhiệm và bảo mật. Chúng tôi hoạt động minh bạch theo luật Hoa Kỳ.",
+      "feature2-desc": "Chúng tôi ký hợp đồng với giới hạn trách nhiệm và bảo mật. Hoạt động minh bạch trong khuôn khổ pháp luật.",
+      "feature1-title": "Chỉ truy cập Quản lý",
+      "feature1-desc": "Bạn thêm email của chúng tôi với vai trò Quản lý trong Google Business Profile. Chúng tôi không bao giờ hỏi mật khẩu của bạn — toàn quyền kiểm soát vẫn thuộc về bạn.",
       "feature3-title": "Bảng điều khiển minh bạch",
       "feature3-desc": "Báo cáo trạng thái hàng tuần, tóm tắt xóa hàng tháng và theo dõi khiếu nại theo thời gian thực qua công cụ chính thức của Google.",
       "process-title": "Cách chúng tôi dọn dẹp uy tín của bạn",
