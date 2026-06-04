@@ -21,16 +21,16 @@
     .btn-outline { background: transparent; border: 2px solid #1E3A8A; color: #1E3A8A; padding: 10px 24px; border-radius: 40px; font-weight: 700; cursor: pointer; transition: 0.2s; }
     .btn-outline:hover { background: #1E3A8A; color: white; }
     .hero { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 48px; padding: 40px 0 60px; }
-    .hero-content { flex: 1; }
+    .hero-content { flex: 1; min-width: 260px; }
     .hero-badge { background: #EFF6FF; color: #1E40AF; padding: 6px 14px; border-radius: 40px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-bottom: 20px; }
     .hero h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 16px; }
     .hero-subhead { font-size: 1.25rem; color: #2c3e66; margin-bottom: 20px; font-weight: 500; border-left: 3px solid #3B82F6; padding-left: 16px; }
     .hero p { font-size: 1.1rem; color: #4b5563; margin-bottom: 32px; max-width: 90%; }
     .hero-stats { display: flex; gap: 32px; margin-top: 24px; flex-wrap: wrap; }
     .stat span.counter { font-size: 1.8rem; font-weight: 800; color: #1E3A8A; display: inline-block; }
-    .hero-image { flex: 1; background: linear-gradient(145deg, #EFF6FF, #FFFFFF); border-radius: 48px; padding: 24px 16px; text-align: center; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1); position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 280px; }
-    .hero-image i { font-size: 6rem; color: #3B82F6; transition: transform 0.3s ease; }
-    .hero-image p { margin-top: 12px; font-weight: 500; max-width: 100%; word-break: break-word; white-space: normal; font-size: 0.95rem; padding: 0 10px; }
+    .hero-image { flex: 1; background: linear-gradient(145deg, #EFF6FF, #FFFFFF); border-radius: 48px; padding: 24px 20px; text-align: center; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 280px; }
+    .hero-image i { font-size: 5rem; color: #3B82F6; transition: transform 0.3s ease; margin-bottom: 8px; }
+    .hero-image p { margin-top: 12px; font-weight: 500; max-width: 100%; word-break: break-word; white-space: normal; line-height: 1.4; }
     .animated-google { display: inline-block; animation: googleGlow 3s ease-in-out infinite; transform-origin: center; }
     @keyframes googleGlow {
       0% { transform: scale(1) rotate(0deg); text-shadow: 0 0 0 rgba(59,130,246,0); }
@@ -96,12 +96,14 @@
       .comparison-table .feature-cell { font-size: 12px; }
       .testimonial-grid { grid-template-columns: 1fr; }
       .checklist { flex-direction: column; align-items: center; }
-      .hero-image { min-height: 220px; padding: 16px; }
-      .hero-image i { font-size: 4rem; }
-      .hero-image p { font-size: 0.85rem; line-height: 1.4; }
+      .hero { flex-direction: column; gap: 32px; }
+      .hero-content { width: 100%; }
+      .hero-image { width: 100%; min-height: 200px; padding: 20px; margin-top: 0; }
+      .hero-image i { font-size: 3.5rem; }
+      .hero-image p { font-size: 0.9rem; line-height: 1.4; }
       .hero-subhead { font-size: 1rem; }
       .hero p { font-size: 1rem; max-width: 100%; }
-      .section-title { font-size: 1.8rem; }
+      .section-title { font-size: 1.6rem; }
     }
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -133,8 +135,8 @@
       </div>
     </div>
     <div class="hero-image">
-      <i class="fab fa-google animated-google" id="googleIcon"></i>
-      <i class="fas fa-star-of-life" style="font-size: 2rem; margin-left: 5px;"></i>
+      <i class="fab fa-google animated-google"></i>
+      <i class="fas fa-star-of-life" style="font-size: 1.8rem; margin-left: 5px;"></i>
       <p data-i18n="hero-img-text">We remove what breaks Google's rules</p>
     </div>
   </div>
