@@ -26,10 +26,11 @@
     .hero h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 16px; }
     .hero-subhead { font-size: 1.25rem; color: #2c3e66; margin-bottom: 20px; font-weight: 500; border-left: 3px solid #3B82F6; padding-left: 16px; }
     .hero p { font-size: 1.1rem; color: #4b5563; margin-bottom: 32px; max-width: 90%; }
-    .hero-stats { display: flex; gap: 32px; margin-top: 24px; }
+    .hero-stats { display: flex; gap: 32px; margin-top: 24px; flex-wrap: wrap; }
     .stat span.counter { font-size: 1.8rem; font-weight: 800; color: #1E3A8A; display: inline-block; }
-    .hero-image { flex: 1; background: linear-gradient(145deg, #EFF6FF, #FFFFFF); border-radius: 48px; padding: 20px; text-align: center; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
-    .hero-image i { font-size: 8rem; color: #3B82F6; transition: transform 0.3s ease; }
+    .hero-image { flex: 1; background: linear-gradient(145deg, #EFF6FF, #FFFFFF); border-radius: 48px; padding: 24px 16px; text-align: center; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1); position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 280px; }
+    .hero-image i { font-size: 6rem; color: #3B82F6; transition: transform 0.3s ease; }
+    .hero-image p { margin-top: 12px; font-weight: 500; max-width: 100%; word-break: break-word; white-space: normal; font-size: 0.95rem; padding: 0 10px; }
     .animated-google { display: inline-block; animation: googleGlow 3s ease-in-out infinite; transform-origin: center; }
     @keyframes googleGlow {
       0% { transform: scale(1) rotate(0deg); text-shadow: 0 0 0 rgba(59,130,246,0); }
@@ -86,7 +87,7 @@
     .checklist-item { background: white; border-radius: 20px; padding: 20px; width: 220px; text-align: center; box-shadow: 0 6px 14px rgba(0,0,0,0.03); border: 1px solid #eef2ff; }
     .guarantee-badge { display: inline-block; background: #1E3A8A; color: white; padding: 3px 12px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; margin-bottom: 12px; }
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
+      .hero h1 { font-size: 2rem; }
       .navbar { flex-direction: column; align-items: center; gap: 12px; }
       .logo { font-size: 1.5rem; }
       .lang-switch { align-self: center; }
@@ -95,7 +96,12 @@
       .comparison-table .feature-cell { font-size: 12px; }
       .testimonial-grid { grid-template-columns: 1fr; }
       .checklist { flex-direction: column; align-items: center; }
-      .hero-image i { font-size: 5rem; }
+      .hero-image { min-height: 220px; padding: 16px; }
+      .hero-image i { font-size: 4rem; }
+      .hero-image p { font-size: 0.85rem; line-height: 1.4; }
+      .hero-subhead { font-size: 1rem; }
+      .hero p { font-size: 1rem; max-width: 100%; }
+      .section-title { font-size: 1.8rem; }
     }
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -128,8 +134,8 @@
     </div>
     <div class="hero-image">
       <i class="fab fa-google animated-google" id="googleIcon"></i>
-      <i class="fas fa-star-of-life" style="font-size: 3rem; margin-left: 10px;"></i>
-      <p style="margin-top: 16px; font-weight: 500;" data-i18n="hero-img-text">We remove what breaks Google's rules</p>
+      <i class="fas fa-star-of-life" style="font-size: 2rem; margin-left: 5px;"></i>
+      <p data-i18n="hero-img-text">We remove what breaks Google's rules</p>
     </div>
   </div>
 
@@ -371,10 +377,240 @@
       "guarantee-badge": "100% LEGITIMATE"
     },
     ru: {
-      "hero-badge": "⚡ Защита отзывов Google", "hero-title": "Перестаньте терять <span style=\"color:#2563EB;\">30% выручки</span> из-за фейковых отзывов", "hero-subhead": "Полный аутсорсинг репутации. Замените штатного сотрудника нашей экспертизой.", "hero-desc": "Мы находим и обжалуем отзывы, нарушающие правила Google. Без судов — только легальные апелляции.", "hero-btn": "Бесплатный аудит →", "stat1": "успешных апелляций*", "stat2": "ч среднее время ответа", "hero-img-text": "Удаляем то, что нарушает правила Google", "process-title": "Как мы чистим репутацию", "process-sub": "Никаких долгих судов — только умные апелляции на основе политик", "step1-title": "1. Аудит и пометка", "step1-desc": "Сканируем отзывы и находим спам, фейки, конфликт интересов, не по теме.", "step2-title": "2. Пакет доказательств", "step2-desc": "Готовим сильные апелляции: скриншоты, логи, ссылки на правила.", "step3-title": "3. Официальная апелляция", "step3-desc": "Доступ Менеджера Google и официальный инструмент апелляций.", "step4-title": "4. Отслеживание и отчёт", "step4-desc": "Еженедельные статусы + ежемесячные отчёты об удалениях.", "pricing-title": "Прозрачные цены", "pricing-sub": "Фиксированная подписка + надбавка при всплеске. Экономия до 70% по сравнению со штатным сотрудником.", "plan1-name": "Базовый", "per-month": "/мес", "feature1a": "До 3 апелляций/мес", "feature1b": "Еженедельный мониторинг", "feature1c": "Поддержка по email", "plan2-name": "Про", "popular": "⭐ САМЫЙ ПОПУЛЯРНЫЙ", "feature2a": "До 8 апелляций/мес", "feature2b": "Приоритетный сбор доказательств", "feature2c": "Ежемесячный стратегический звонок", "feature2d": "Перегрузка: $49 за лишний отзыв", "plan3-name": "Предприятие", "feature3a": "Безлимит апелляций", "feature3b": "Персональный менеджер", "feature3c": "SERM консалтинг", "feature3d": "Юридическая поддержка", "choose-plan": "Выбрать", "saving1": "Экономия ~$600/мес", "saving2": "Экономия ~$1,200/мес", "saving3": "Полный отдел за 10% стоимости", "compare-title": "Свой сотрудник vs ReputationGuard", "compare-sub": "Зачем платить полную зарплату, если можно получить лучший результат за меньшие деньги?", "compare-feature": "Параметр", "compare-inhouse": "Штатный сотрудник", "compare-rg": "ReputationGuard", "compare-cost": "Стоимость в месяц", "compare-expertise": "Экспертиза политик Google", "compare-appeals": "Успешность апелляций", "compare-legal": "Юридическая поддержка", "compare-tools": "Мониторинг и отчёты", "compare-risk": "Пилотный проект", "risk-title": "Скрытая стоимость игнорирования фейковых отзывов", "risk-sub": "Что происходит, когда вы оставляете несправедливые отзывы без внимания", "risk1-title": "Потеря дохода", "risk1-text": "Падение рейтинга на 1 звезду может снизить бронирования на 30%. Один фейковый отзыв = тысячи долларов потерянных продаж.", "risk2-title": "Снижение видимости в Google", "risk2-text": "Алгоритм Google отдаёт предпочтение компаниям с высоким рейтингом. Плохие отзывы опускают вас ниже в локальном поиске.", "risk3-title": "Рост рекламных расходов", "risk3-text": "Плохая репутация увеличивает стоимость привлечения клиентов, съедая маркетинговый бюджет.", "cases-title": "Реальные результаты. Удалённые отзывы.", "cases-sub": "Примеры несправедливых отзывов, которые мы успешно обжаловали (анонимно).", "case1-badge": "КОНФЛИКТ ИНТЕРЕСОВ", "case1-text": "«Ужасный отель, больше не приеду» – гость не заселялся, определён как сотрудник конкурента. Удалён за 5 дней.", "case1-result": "Удалён", "case2-badge": "ФЕЙК / НЕ БЫЛ", "case2-text": "«Отравление, грязная кухня» – нет записи о бронировании, фейковый аккаунт. Удалён после предоставления доказательств.", "case2-result": "Удалён", "case3-badge": "СПАМ / НЕ ПО ТЕМЕ", "case3-text": "«Ужасное место, идите в другое» – содержал ссылку на конкурента. Удалён как спам за 48 часов.", "case3-result": "Удалён", "checklist-title": "Вам стоит беспокоиться, если что-то из этого вам знакомо", "checklist1": "Несправедливые отзывы на 1 звезду без реального визита", "checklist2": "Подозрительные отзывы с аккаунтов конкурентов", "checklist3": "Множество плохих отзывов за короткий промежуток времени", "checklist4": "Оскорбительные или не по теме комментарии", "testimonials-title": "Отзывы клиентов", "testimonials-sub": "Нам доверяют отели, рестораны и сервисные компании по всему миру", "testimonial1": "«Они удалили три фейковых отзыва, которые убивали наш рейтинг. За две недели средняя оценка выросла с 4,1 до 4,7. Окупаемость фантастическая».", "testimonial1-author": "— Марко Л., бутик-отель, Дананг", "testimonial2": "«Месяцами пытались оспорить отзывы сами – ноль успеха. ReputationGuard удалил два за первую неделю. Стоит каждого цента».", "testimonial2-author": "— Лан Н., владелица ресторана, Ханой", "testimonial3": "«Профессионально, быстро, прозрачно. Не обещают лишнего, но делают. Бесплатный аудит нас убедил».", "testimonial3-author": "— Дэвид К., управляющий курортом, Фукуок", "testimonial4": "«Спасли нас от скоординированной атаки конкурента. Предоставили железные доказательства – Google удалил все 5 фейков».", "testimonial4-author": "— София Т., спа-центр, Хошимин", "testimonial5": "«Скептически относился к подписке, но увидев скорость обработки апелляций, стал фанатом. Бронирования выросли на 22%».", "testimonial5-author": "— Алекс П., пляжный курорт, Нячанг", "testimonial6": "«Они стали нашим аутсорс-отделом репутации. Отзывчивые, проактивные, результативные. Рекомендую всем в сфере гостеприимства».", "testimonial6-author": "— Елена В., сеть гестхаусов, Хойан", "trust-title": "Только легальные апелляции – никаких фейковых удалений", "trust-text": "Мы не нарушаем правила Google. Эксперты обжалуют только отзывы, которые действительно нарушают политику. Прозрачный доступ.", "badge1": "Доступ менеджера", "badge2": "Юридический договор", "badge3": "Прозрачный дашборд", "faq-title": "Частые вопросы", "faq1q": "Вы гарантируете удаление?", "faq1a": "Ни одно агентство не даёт 100% гарантии. Но мы максимизируем шансы благодаря глубокому знанию политик Google. Вы платите за экспертизу и усилия.", "faq2q": "Как вы получаете доступ к моему профилю Google?", "faq2a": "Вы добавляете наш email как «Менеджера» в Google Business Profile. Мы никогда не просим пароль. Полный контроль остаётся у вас.", "faq3q": "Какие отзывы можно удалить?", "faq3a": "Спам, фейки (не были в заведении), конфликт интересов (конкуренты/сотрудники), не по теме, оскорбления и домогательства.", "faq4q": "Сколько я сэкономлю по сравнению с наймом?", "faq4a": "Штатный менеджер по репутации стоит $2,000–3,500/мес. С тарифом Pro вы экономите $1,200+ каждый месяц, получая лучшую экспертизу и гарантированное время реакции.", "free-audit-title": "Бесплатный аудит 10 последних негативных отзывов", "free-audit-text": "Мы покажем, какие отзывы можно удалить и почему. Без обязательств и спама.", "claim-audit": "Заказать бесплатный аудит →", "cta-title": "Не позволяйте несправедливым отзывам влиять на бронирования", "cta-text": "Получите бесплатный аудит 10 последних негативных отзывов — мы покажем, какие можно удалить.", "form-name": "Полное имя *", "form-email": "Email адрес *", "form-business": "Название бизнеса (опционально)", "form-message": "Расскажите о проблеме с негативными отзывами... *", "form-submit": "Отправить запрос на аудит →", "form-note": "Ответим в течение 24 часов", "footer-text": "Управление репутацией в Google Maps для отелей, ресторанов и жилья.", "guarantee-badge": "100% ЛЕГАЛЬНО"
+      "hero-badge": "⚡ Защита отзывов Google",
+      "hero-title": "Перестаньте терять <span style=\"color:#2563EB;\">30% выручки</span> из-за фейковых отзывов",
+      "hero-subhead": "Полный аутсорсинг репутации. Замените штатного сотрудника нашей экспертизой.",
+      "hero-desc": "Мы находим и обжалуем отзывы, нарушающие правила Google. Без судов — только легальные апелляции.",
+      "hero-btn": "Бесплатный аудит →",
+      "stat1": "успешных апелляций*",
+      "stat2": "ч среднее время ответа",
+      "hero-img-text": "Удаляем то, что нарушает правила Google",
+      "process-title": "Как мы чистим репутацию",
+      "process-sub": "Никаких долгих судов — только умные апелляции на основе политик",
+      "step1-title": "1. Аудит и пометка",
+      "step1-desc": "Сканируем отзывы и находим спам, фейки, конфликт интересов, не по теме.",
+      "step2-title": "2. Пакет доказательств",
+      "step2-desc": "Готовим сильные апелляции: скриншоты, логи, ссылки на правила.",
+      "step3-title": "3. Официальная апелляция",
+      "step3-desc": "Доступ Менеджера Google и официальный инструмент апелляций.",
+      "step4-title": "4. Отслеживание и отчёт",
+      "step4-desc": "Еженедельные статусы + ежемесячные отчёты об удалениях.",
+      "pricing-title": "Прозрачные цены",
+      "pricing-sub": "Фиксированная подписка + надбавка при всплеске. Экономия до 70% по сравнению со штатным сотрудником.",
+      "plan1-name": "Базовый",
+      "per-month": "/мес",
+      "feature1a": "До 3 апелляций/мес",
+      "feature1b": "Еженедельный мониторинг",
+      "feature1c": "Поддержка по email",
+      "plan2-name": "Про",
+      "popular": "⭐ САМЫЙ ПОПУЛЯРНЫЙ",
+      "feature2a": "До 8 апелляций/мес",
+      "feature2b": "Приоритетный сбор доказательств",
+      "feature2c": "Ежемесячный стратегический звонок",
+      "feature2d": "Перегрузка: $49 за лишний отзыв",
+      "plan3-name": "Предприятие",
+      "feature3a": "Безлимит апелляций",
+      "feature3b": "Персональный менеджер",
+      "feature3c": "SERM консалтинг",
+      "feature3d": "Юридическая поддержка",
+      "choose-plan": "Выбрать",
+      "saving1": "Экономия ~$600/мес",
+      "saving2": "Экономия ~$1,200/мес",
+      "saving3": "Полный отдел за 10% стоимости",
+      "compare-title": "Свой сотрудник vs ReputationGuard",
+      "compare-sub": "Зачем платить полную зарплату, если можно получить лучший результат за меньшие деньги?",
+      "compare-feature": "Параметр",
+      "compare-inhouse": "Штатный сотрудник",
+      "compare-rg": "ReputationGuard",
+      "compare-cost": "Стоимость в месяц",
+      "compare-expertise": "Экспертиза политик Google",
+      "compare-appeals": "Успешность апелляций",
+      "compare-legal": "Юридическая поддержка",
+      "compare-tools": "Мониторинг и отчёты",
+      "compare-risk": "Пилотный проект",
+      "risk-title": "Скрытая стоимость игнорирования фейковых отзывов",
+      "risk-sub": "Что происходит, когда вы оставляете несправедливые отзывы без внимания",
+      "risk1-title": "Потеря дохода",
+      "risk1-text": "Падение рейтинга на 1 звезду может снизить бронирования на 30%. Один фейковый отзыв = тысячи долларов потерянных продаж.",
+      "risk2-title": "Снижение видимости в Google",
+      "risk2-text": "Алгоритм Google отдаёт предпочтение компаниям с высоким рейтингом. Плохие отзывы опускают вас ниже в локальном поиске.",
+      "risk3-title": "Рост рекламных расходов",
+      "risk3-text": "Плохая репутация увеличивает стоимость привлечения клиентов, съедая маркетинговый бюджет.",
+      "cases-title": "Реальные результаты. Удалённые отзывы.",
+      "cases-sub": "Примеры несправедливых отзывов, которые мы успешно обжаловали (анонимно).",
+      "case1-badge": "КОНФЛИКТ ИНТЕРЕСОВ",
+      "case1-text": "«Ужасный отель, больше не приеду» – гость не заселялся, определён как сотрудник конкурента. Удалён за 5 дней.",
+      "case1-result": "Удалён",
+      "case2-badge": "ФЕЙК / НЕ БЫЛ",
+      "case2-text": "«Отравление, грязная кухня» – нет записи о бронировании, фейковый аккаунт. Удалён после предоставления доказательств.",
+      "case2-result": "Удалён",
+      "case3-badge": "СПАМ / НЕ ПО ТЕМЕ",
+      "case3-text": "«Ужасное место, идите в другое» – содержал ссылку на конкурента. Удалён как спам за 48 часов.",
+      "case3-result": "Удалён",
+      "checklist-title": "Вам стоит беспокоиться, если что-то из этого вам знакомо",
+      "checklist1": "Несправедливые отзывы на 1 звезду без реального визита",
+      "checklist2": "Подозрительные отзывы с аккаунтов конкурентов",
+      "checklist3": "Множество плохих отзывов за короткий промежуток времени",
+      "checklist4": "Оскорбительные или не по теме комментарии",
+      "testimonials-title": "Отзывы клиентов",
+      "testimonials-sub": "Нам доверяют отели, рестораны и сервисные компании по всему миру",
+      "testimonial1": "«Они удалили три фейковых отзыва, которые убивали наш рейтинг. За две недели средняя оценка выросла с 4,1 до 4,7. Окупаемость фантастическая».",
+      "testimonial1-author": "— Марко Л., бутик-отель, Дананг",
+      "testimonial2": "«Месяцами пытались оспорить отзывы сами – ноль успеха. ReputationGuard удалил два за первую неделю. Стоит каждого цента».",
+      "testimonial2-author": "— Лан Н., владелица ресторана, Ханой",
+      "testimonial3": "«Профессионально, быстро, прозрачно. Не обещают лишнего, но делают. Бесплатный аудит нас убедил».",
+      "testimonial3-author": "— Дэвид К., управляющий курортом, Фукуок",
+      "testimonial4": "«Спасли нас от скоординированной атаки конкурента. Предоставили железные доказательства – Google удалил все 5 фейков».",
+      "testimonial4-author": "— София Т., спа-центр, Хошимин",
+      "testimonial5": "«Скептически относился к подписке, но увидев скорость обработки апелляций, стал фанатом. Бронирования выросли на 22%».",
+      "testimonial5-author": "— Алекс П., пляжный курорт, Нячанг",
+      "testimonial6": "«Они стали нашим аутсорс-отделом репутации. Отзывчивые, проактивные, результативные. Рекомендую всем в сфере гостеприимства».",
+      "testimonial6-author": "— Елена В., сеть гестхаусов, Хойан",
+      "trust-title": "Только легальные апелляции – никаких фейковых удалений",
+      "trust-text": "Мы не нарушаем правила Google. Эксперты обжалуют только отзывы, которые действительно нарушают политику. Прозрачный доступ.",
+      "badge1": "Доступ менеджера",
+      "badge2": "Юридический договор",
+      "badge3": "Прозрачный дашборд",
+      "faq-title": "Частые вопросы",
+      "faq1q": "Вы гарантируете удаление?",
+      "faq1a": "Ни одно агентство не даёт 100% гарантии. Но мы максимизируем шансы благодаря глубокому знанию политик Google. Вы платите за экспертизу и усилия.",
+      "faq2q": "Как вы получаете доступ к моему профилю Google?",
+      "faq2a": "Вы добавляете наш email как «Менеджера» в Google Business Profile. Мы никогда не просим пароль. Полный контроль остаётся у вас.",
+      "faq3q": "Какие отзывы можно удалить?",
+      "faq3a": "Спам, фейки (не были в заведении), конфликт интересов (конкуренты/сотрудники), не по теме, оскорбления и домогательства.",
+      "faq4q": "Сколько я сэкономлю по сравнению с наймом?",
+      "faq4a": "Штатный менеджер по репутации стоит $2,000–3,500/мес. С тарифом Pro вы экономите $1,200+ каждый месяц, получая лучшую экспертизу и гарантированное время реакции.",
+      "free-audit-title": "Бесплатный аудит 10 последних негативных отзывов",
+      "free-audit-text": "Мы покажем, какие отзывы можно удалить и почему. Без обязательств и спама.",
+      "claim-audit": "Заказать бесплатный аудит →",
+      "cta-title": "Не позволяйте несправедливым отзывам влиять на бронирования",
+      "cta-text": "Получите бесплатный аудит 10 последних негативных отзывов — мы покажем, какие можно удалить.",
+      "form-name": "Полное имя *",
+      "form-email": "Email адрес *",
+      "form-business": "Название бизнеса (опционально)",
+      "form-message": "Расскажите о проблеме с негативными отзывами... *",
+      "form-submit": "Отправить запрос на аудит →",
+      "form-note": "Ответим в течение 24 часов",
+      "footer-text": "Управление репутацией в Google Maps для отелей, ресторанов и жилья.",
+      "guarantee-badge": "100% ЛЕГАЛЬНО"
     },
     vi: {
-      "hero-badge": "⚡ Bảo vệ đánh giá Google", "hero-title": "Ngừng mất <span style=\"color:#2563EB;\">30% doanh thu</span> vì đánh giá giả", "hero-subhead": "Thuê ngoài toàn bộ quản lý uy tín. Thay thế nhân viên nội bộ bằng chuyên môn của chúng tôi.", "hero-desc": "Chúng tôi phát hiện và khiếu nại các đánh giá vi phạm chính sách Google. Hợp pháp, không thủ thuật mờ ám.", "hero-btn": "Nhận kiểm tra miễn phí →", "stat1": "tỷ lệ thành công*", "stat2": "h thời gian phản hồi TB", "hero-img-text": "Chúng tôi loại bỏ đánh giá vi phạm quy tắc Google", "process-title": "Cách chúng tôi dọn dẹp uy tín của bạn", "process-sub": "Không kiện tụng dài dòng – chỉ khiếu nại thông minh dựa trên chính sách", "step1-title": "1. Kiểm tra & gắn cờ", "step1-desc": "Quét đánh giá Google, phát hiện spam, giả mạo, xung đột lợi ích, lạc đề.", "step2-title": "2. Hồ sơ bằng chứng", "step2-desc": "Chuẩn bị khiếu nại mạnh: ảnh chụp, nhật ký, chính sách.", "step3-title": "3. Khiếu nại chính thức", "step3-desc": "Sử dụng quyền Truy cập Quản lý Google & công cụ khiếu nại chính thức.", "step4-title": "4. Theo dõi & báo cáo", "step4-desc": "Cập nhật hàng tuần + báo cáo xóa hàng tháng.", "pricing-title": "Bảng giá đơn giản, minh bạch", "pricing-sub": "Phí cố định hàng tháng + bảo vệ vượt mức. Tiết kiệm đến 70% so với thuê nhân viên nội bộ.", "plan1-name": "Cơ bản", "per-month": "/tháng", "feature1a": "Tối đa 3 khiếu nại/tháng", "feature1b": "Giám sát hàng tuần", "feature1c": "Hỗ trợ email", "plan2-name": "Chuyên nghiệp", "popular": "⭐ PHỔ BIẾN NHẤT", "feature2a": "Tối đa 8 khiếu nại/tháng", "feature2b": "Ưu tiên xây dựng bằng chứng", "feature2c": "Cuộc gọi chiến lược hàng tháng", "feature2d": "Phụ trội: $49/đánh giá thêm", "plan3-name": "Doanh nghiệp", "feature3a": "Khiếu nại không giới hạn", "feature3b": "Quản lý tài khoản riêng", "feature3c": "Tư vấn SERM", "feature3d": "Hỗ trợ pháp lý nâng cao", "choose-plan": "Chọn gói", "saving1": "Tiết kiệm ~$600/tháng", "saving2": "Tiết kiệm ~$1,200/tháng", "saving3": "Toàn bộ phòng ban với 10% chi phí", "compare-title": "Nhân viên nội bộ vs ReputationGuard", "compare-sub": "Tại sao phải trả lương toàn thời gian khi có thể đạt kết quả tốt hơn với chi phí thấp hơn?", "compare-feature": "Tính năng", "compare-inhouse": "Nhân viên nội bộ", "compare-rg": "ReputationGuard", "compare-cost": "Chi phí hàng tháng", "compare-expertise": "Chuyên môn chính sách Google", "compare-appeals": "Tỷ lệ khiếu nại thành công", "compare-legal": "Hỗ trợ pháp lý", "compare-tools": "Giám sát & báo cáo", "compare-risk": "Dùng thử không rủi ro", "risk-title": "Chi phí ẩn của việc bỏ qua đánh giá giả", "risk-sub": "Điều gì xảy ra khi bạn bỏ qua các đánh giá không công bằng", "risk1-title": "Mất doanh thu", "risk1-text": "Giảm 1 sao có thể làm giảm 30% lượng đặt phòng. Một đánh giá giả = hàng ngàn đô la doanh thu bị mất.", "risk2-title": "Giảm khả năng hiển thị trên Google", "risk2-text": "Thuật toán Google ưu tiên các doanh nghiệp có đánh giá cao. Đánh giá xấu đẩy bạn xuống dưới trong kết quả tìm kiếm địa phương.", "risk3-title": "Chi phí quảng cáo cao hơn", "risk3-text": "Danh tiếng kém làm tăng chi phí thu hút khách hàng, ăn vào ngân sách tiếp thị của bạn.", "cases-title": "Kết quả thực tế. Đánh giá đã bị xóa.", "cases-sub": "Ví dụ về đánh giá bất công chúng tôi đã khiếu nại thành công (ẩn danh).", "case1-badge": "XUNG ĐỘT LỢI ÍCH", "case1-text": "“Khách sạn tệ, không bao giờ quay lại” – người dùng chưa từng đến, được xác định là nhân viên đối thủ. Bị xóa sau 5 ngày.", "case1-result": "Đã xóa", "case2-badge": "GIẢ / KHÔNG ĐẾN", "case2-text": "“Ngộ độc thực phẩm, bếp bẩn” – không có đặt phòng, tài khoản giả được tạo cùng ngày. Bị xóa sau khi cung cấp bằng chứng.", "case2-result": "Đã xóa", "case3-badge": "SPAM / LẠC ĐỀ", "case3-text": "“Nơi tệ, hãy đi chỗ khác” – chứa liên kết đến đối thủ. Bị gắn cờ spam và xóa trong vòng 48h.", "case3-result": "Đã xóa", "checklist-title": "Bạn nên lo lắng nếu bất kỳ điều nào sau đây nghe quen thuộc", "checklist1": "Đánh giá 1 sao không công bằng mà không có chuyến thăm thực tế", "checklist2": "Đánh giá đáng ngờ từ tài khoản đối thủ cạnh tranh", "checklist3": "Nhiều đánh giá xấu trong một khoảng thời gian ngắn", "checklist4": "Bình luận xúc phạm hoặc lạc đề", "testimonials-title": "Khách hàng nói gì", "testimonials-sub": "Được tin cậy bởi khách sạn, nhà hàng và doanh nghiệp dịch vụ trên toàn thế giới", "testimonial1": "“Họ đã xóa ba đánh giá 1 sao giả đang hủy hoại xếp hạng của chúng tôi. Trong hai tuần, điểm trung bình tăng từ 4,1 lên 4,7. Lợi nhuận đầu tư thật điên rồ.”", "testimonial1-author": "— Marco L., Khách sạn boutique, Đà Nẵng", "testimonial2": "“Chúng tôi đã tự khiếu nại nhiều tháng – không thành công. ReputationGuard đã xóa hai đánh giá trong tuần đầu tiên. Xứng đáng từng xu.”", "testimonial2-author": "— Lan N., Chủ nhà hàng, Hà Nội", "testimonial3": "“Chuyên nghiệp, nhanh chóng, minh bạch. Họ không hứa quá nhiều nhưng họ thực hiện. Bản kiểm tra miễn phí đã đủ thuyết phục chúng tôi.”", "testimonial3-author": "— David K., Giám đốc khu nghỉ dưỡng, Phú Quốc", "testimonial4": "“Cứu chúng tôi khỏi một cuộc tấn công có phối hợp của đối thủ. Họ cung cấp bằng chứng vững chắc và Google đã xóa toàn bộ 5 đánh giá giả. Dịch vụ khó tin.”", "testimonial4-author": "— Sophia T., Spa & Wellness, TP.HCM", "testimonial5": "“Tôi đã hoài nghi về việc trả phí hàng tháng, nhưng sau khi thấy họ xử lý khiếu nại nhanh chóng thế nào, tôi tin tưởng. Tỷ lệ đặt phòng tăng 22%.”", "testimonial5-author": "— Alex P., Khu nghỉ dưỡng biển, Nha Trang", "testimonial6": "“Họ hoạt động như bộ phận quản lý uy tín thuê ngoài của chúng tôi. Phản hồi nhanh, chủ động và định hướng kết quả. Rất khuyến nghị cho bất kỳ doanh nghiệp khách sạn nào.”", "testimonial6-author": "— Elena V., Chuỗi nhà nghỉ, Hội An", "trust-title": "Chỉ khiếu nại hợp pháp – không xóa giả mạo", "trust-text": "Chúng tôi không vi phạm Điều khoản Google. Chuyên gia chỉ khiếu nại các đánh giá thực sự vi phạm. Bảng điều khiển minh bạch, quyền truy cập do khách hàng kiểm soát.", "badge1": "Chỉ truy cập Quản lý", "badge2": "Thỏa thuận pháp lý", "badge3": "Bảng điều khiển minh bạch", "faq-title": "Câu hỏi thường gặp", "faq1q": "Bạn có đảm bảo xóa được không?", "faq1a": "Không ai có thể đảm bảo 100% xóa. Nhưng chúng tôi tối đa hóa cơ hội bằng kiến thức chuyên sâu về chính sách Google. Bạn trả cho chuyên môn và nỗ lực.", "faq2q": "Làm thế nào bạn truy cập Hồ sơ Google Doanh nghiệp của tôi?", "faq2a": "Bạn thêm email của chúng tôi với vai trò 'Quản lý' trong Google Business Profile. Chúng tôi không bao giờ hỏi mật khẩu. Toàn quyền kiểm soát vẫn thuộc về bạn.", "faq3q": "Những loại đánh giá nào có thể bị xóa?", "faq3a": "Spam, đánh giá giả (chưa từng đến), xung đột lợi ích (đối thủ/nhân viên), lạc đề, quấy rối và nội dung xúc phạm.", "faq4q": "Tôi tiết kiệm được bao nhiêu so với việc tự thuê nhân viên?", "faq4a": "Một quản lý uy tín toàn thời gian tốn $2,000–3,500/tháng. Với gói Pro, bạn tiết kiệm $1,200+ mỗi tháng đồng thời có chuyên môn tốt hơn và thời gian phản hồi đảm bảo.", "free-audit-title": "Kiểm tra miễn phí 10 đánh giá tiêu cực gần nhất", "free-audit-text": "Chúng tôi sẽ chỉ ra chính xác đánh giá nào có thể bị xóa và lý do. Không ràng buộc, không spam.", "claim-audit": "Nhận kiểm tra miễn phí →", "cta-title": "Đừng để đánh giá bất công ảnh hưởng đến đặt phòng của bạn", "cta-text": "Nhận kiểm tra miễn phí 10 đánh giá tiêu cực gần nhất – chúng tôi sẽ chỉ ra những đánh giá có thể bị xóa.", "form-name": "Họ và tên *", "form-email": "Địa chỉ email *", "form-business": "Tên doanh nghiệp (không bắt buộc)", "form-message": "Mô tả vấn đề đánh giá tiêu cực của bạn... *", "form-submit": "Gửi yêu cầu kiểm tra miễn phí →", "form-note": "Chúng tôi sẽ trả lời trong vòng 24h", "footer-text": "Quản lý uy tín Google Maps cho khách sạn, nhà hàng và chỗ nghỉ.", "guarantee-badge": "100% HỢP PHÁP"
+      "hero-badge": "⚡ Bảo vệ đánh giá Google",
+      "hero-title": "Ngừng mất <span style=\"color:#2563EB;\">30% doanh thu</span> vì đánh giá giả",
+      "hero-subhead": "Thuê ngoài toàn bộ quản lý uy tín. Thay thế nhân viên nội bộ bằng chuyên môn của chúng tôi.",
+      "hero-desc": "Chúng tôi phát hiện và khiếu nại các đánh giá vi phạm chính sách Google. Hợp pháp, không thủ thuật mờ ám.",
+      "hero-btn": "Nhận kiểm tra miễn phí →",
+      "stat1": "tỷ lệ thành công*",
+      "stat2": "h thời gian phản hồi TB",
+      "hero-img-text": "Chúng tôi loại bỏ đánh giá vi phạm quy tắc Google",
+      "process-title": "Cách chúng tôi dọn dẹp uy tín của bạn",
+      "process-sub": "Không kiện tụng dài dòng – chỉ khiếu nại thông minh dựa trên chính sách",
+      "step1-title": "1. Kiểm tra & gắn cờ",
+      "step1-desc": "Quét đánh giá Google, phát hiện spam, giả mạo, xung đột lợi ích, lạc đề.",
+      "step2-title": "2. Hồ sơ bằng chứng",
+      "step2-desc": "Chuẩn bị khiếu nại mạnh: ảnh chụp, nhật ký, chính sách.",
+      "step3-title": "3. Khiếu nại chính thức",
+      "step3-desc": "Sử dụng quyền Truy cập Quản lý Google & công cụ khiếu nại chính thức.",
+      "step4-title": "4. Theo dõi & báo cáo",
+      "step4-desc": "Cập nhật hàng tuần + báo cáo xóa hàng tháng.",
+      "pricing-title": "Bảng giá đơn giản, minh bạch",
+      "pricing-sub": "Phí cố định hàng tháng + bảo vệ vượt mức. Tiết kiệm đến 70% so với thuê nhân viên nội bộ.",
+      "plan1-name": "Cơ bản",
+      "per-month": "/tháng",
+      "feature1a": "Tối đa 3 khiếu nại/tháng",
+      "feature1b": "Giám sát hàng tuần",
+      "feature1c": "Hỗ trợ email",
+      "plan2-name": "Chuyên nghiệp",
+      "popular": "⭐ PHỔ BIẾN NHẤT",
+      "feature2a": "Tối đa 8 khiếu nại/tháng",
+      "feature2b": "Ưu tiên xây dựng bằng chứng",
+      "feature2c": "Cuộc gọi chiến lược hàng tháng",
+      "feature2d": "Phụ trội: $49/đánh giá thêm",
+      "plan3-name": "Doanh nghiệp",
+      "feature3a": "Khiếu nại không giới hạn",
+      "feature3b": "Quản lý tài khoản riêng",
+      "feature3c": "Tư vấn SERM",
+      "feature3d": "Hỗ trợ pháp lý nâng cao",
+      "choose-plan": "Chọn gói",
+      "saving1": "Tiết kiệm ~$600/tháng",
+      "saving2": "Tiết kiệm ~$1,200/tháng",
+      "saving3": "Toàn bộ phòng ban với 10% chi phí",
+      "compare-title": "Nhân viên nội bộ vs ReputationGuard",
+      "compare-sub": "Tại sao phải trả lương toàn thời gian khi có thể đạt kết quả tốt hơn với chi phí thấp hơn?",
+      "compare-feature": "Tính năng",
+      "compare-inhouse": "Nhân viên nội bộ",
+      "compare-rg": "ReputationGuard",
+      "compare-cost": "Chi phí hàng tháng",
+      "compare-expertise": "Chuyên môn chính sách Google",
+      "compare-appeals": "Tỷ lệ khiếu nại thành công",
+      "compare-legal": "Hỗ trợ pháp lý",
+      "compare-tools": "Giám sát & báo cáo",
+      "compare-risk": "Dùng thử không rủi ro",
+      "risk-title": "Chi phí ẩn của việc bỏ qua đánh giá giả",
+      "risk-sub": "Điều gì xảy ra khi bạn bỏ qua các đánh giá không công bằng",
+      "risk1-title": "Mất doanh thu",
+      "risk1-text": "Giảm 1 sao có thể làm giảm 30% lượng đặt phòng. Một đánh giá giả = hàng ngàn đô la doanh thu bị mất.",
+      "risk2-title": "Giảm khả năng hiển thị trên Google",
+      "risk2-text": "Thuật toán Google ưu tiên các doanh nghiệp có đánh giá cao. Đánh giá xấu đẩy bạn xuống dưới trong kết quả tìm kiếm địa phương.",
+      "risk3-title": "Chi phí quảng cáo cao hơn",
+      "risk3-text": "Danh tiếng kém làm tăng chi phí thu hút khách hàng, ăn vào ngân sách tiếp thị của bạn.",
+      "cases-title": "Kết quả thực tế. Đánh giá đã bị xóa.",
+      "cases-sub": "Ví dụ về đánh giá bất công chúng tôi đã khiếu nại thành công (ẩn danh).",
+      "case1-badge": "XUNG ĐỘT LỢI ÍCH",
+      "case1-text": "“Khách sạn tệ, không bao giờ quay lại” – người dùng chưa từng đến, được xác định là nhân viên đối thủ. Bị xóa sau 5 ngày.",
+      "case1-result": "Đã xóa",
+      "case2-badge": "GIẢ / KHÔNG ĐẾN",
+      "case2-text": "“Ngộ độc thực phẩm, bếp bẩn” – không có đặt phòng, tài khoản giả được tạo cùng ngày. Bị xóa sau khi cung cấp bằng chứng.",
+      "case2-result": "Đã xóa",
+      "case3-badge": "SPAM / LẠC ĐỀ",
+      "case3-text": "“Nơi tệ, hãy đi chỗ khác” – chứa liên kết đến đối thủ. Bị gắn cờ spam và xóa trong vòng 48h.",
+      "case3-result": "Đã xóa",
+      "checklist-title": "Bạn nên lo lắng nếu bất kỳ điều nào sau đây nghe quen thuộc",
+      "checklist1": "Đánh giá 1 sao không công bằng mà không có chuyến thăm thực tế",
+      "checklist2": "Đánh giá đáng ngờ từ tài khoản đối thủ cạnh tranh",
+      "checklist3": "Nhiều đánh giá xấu trong một khoảng thời gian ngắn",
+      "checklist4": "Bình luận xúc phạm hoặc lạc đề",
+      "testimonials-title": "Khách hàng nói gì",
+      "testimonials-sub": "Được tin cậy bởi khách sạn, nhà hàng và doanh nghiệp dịch vụ trên toàn thế giới",
+      "testimonial1": "“Họ đã xóa ba đánh giá 1 sao giả đang hủy hoại xếp hạng của chúng tôi. Trong hai tuần, điểm trung bình tăng từ 4,1 lên 4,7. Lợi nhuận đầu tư thật điên rồ.”",
+      "testimonial1-author": "— Marco L., Khách sạn boutique, Đà Nẵng",
+      "testimonial2": "“Chúng tôi đã tự khiếu nại nhiều tháng – không thành công. ReputationGuard đã xóa hai đánh giá trong tuần đầu tiên. Xứng đáng từng xu.”",
+      "testimonial2-author": "— Lan N., Chủ nhà hàng, Hà Nội",
+      "testimonial3": "“Chuyên nghiệp, nhanh chóng, minh bạch. Họ không hứa quá nhiều nhưng họ thực hiện. Bản kiểm tra miễn phí đã đủ thuyết phục chúng tôi.”",
+      "testimonial3-author": "— David K., Giám đốc khu nghỉ dưỡng, Phú Quốc",
+      "testimonial4": "“Cứu chúng tôi khỏi một cuộc tấn công có phối hợp của đối thủ. Họ cung cấp bằng chứng vững chắc và Google đã xóa toàn bộ 5 đánh giá giả. Dịch vụ khó tin.”",
+      "testimonial4-author": "— Sophia T., Spa & Wellness, TP.HCM",
+      "testimonial5": "“Tôi đã hoài nghi về việc trả phí hàng tháng, nhưng sau khi thấy họ xử lý khiếu nại nhanh chóng thế nào, tôi tin tưởng. Tỷ lệ đặt phòng tăng 22%.”",
+      "testimonial5-author": "— Alex P., Khu nghỉ dưỡng biển, Nha Trang",
+      "testimonial6": "“Họ hoạt động như bộ phận quản lý uy tín thuê ngoài của chúng tôi. Phản hồi nhanh, chủ động và định hướng kết quả. Rất khuyến nghị cho bất kỳ doanh nghiệp khách sạn nào.”",
+      "testimonial6-author": "— Elena V., Chuỗi nhà nghỉ, Hội An",
+      "trust-title": "Chỉ khiếu nại hợp pháp – không xóa giả mạo",
+      "trust-text": "Chúng tôi không vi phạm Điều khoản Google. Chuyên gia chỉ khiếu nại các đánh giá thực sự vi phạm. Bảng điều khiển minh bạch, quyền truy cập do khách hàng kiểm soát.",
+      "badge1": "Chỉ truy cập Quản lý",
+      "badge2": "Thỏa thuận pháp lý",
+      "badge3": "Bảng điều khiển minh bạch",
+      "faq-title": "Câu hỏi thường gặp",
+      "faq1q": "Bạn có đảm bảo xóa được không?",
+      "faq1a": "Không ai có thể đảm bảo 100% xóa. Nhưng chúng tôi tối đa hóa cơ hội bằng kiến thức chuyên sâu về chính sách Google. Bạn trả cho chuyên môn và nỗ lực.",
+      "faq2q": "Làm thế nào bạn truy cập Hồ sơ Google Doanh nghiệp của tôi?",
+      "faq2a": "Bạn thêm email của chúng tôi với vai trò 'Quản lý' trong Google Business Profile. Chúng tôi không bao giờ hỏi mật khẩu. Toàn quyền kiểm soát vẫn thuộc về bạn.",
+      "faq3q": "Những loại đánh giá nào có thể bị xóa?",
+      "faq3a": "Spam, đánh giá giả (chưa từng đến), xung đột lợi ích (đối thủ/nhân viên), lạc đề, quấy rối và nội dung xúc phạm.",
+      "faq4q": "Tôi tiết kiệm được bao nhiêu so với việc tự thuê nhân viên?",
+      "faq4a": "Một quản lý uy tín toàn thời gian tốn $2,000–3,500/tháng. Với gói Pro, bạn tiết kiệm $1,200+ mỗi tháng đồng thời có chuyên môn tốt hơn và thời gian phản hồi đảm bảo.",
+      "free-audit-title": "Kiểm tra miễn phí 10 đánh giá tiêu cực gần nhất",
+      "free-audit-text": "Chúng tôi sẽ chỉ ra chính xác đánh giá nào có thể bị xóa và lý do. Không ràng buộc, không spam.",
+      "claim-audit": "Nhận kiểm tra miễn phí →",
+      "cta-title": "Đừng để đánh giá bất công ảnh hưởng đến đặt phòng của bạn",
+      "cta-text": "Nhận kiểm tra miễn phí 10 đánh giá tiêu cực gần nhất – chúng tôi sẽ chỉ ra những đánh giá có thể bị xóa.",
+      "form-name": "Họ và tên *",
+      "form-email": "Địa chỉ email *",
+      "form-business": "Tên doanh nghiệp (không bắt buộc)",
+      "form-message": "Mô tả vấn đề đánh giá tiêu cực của bạn... *",
+      "form-submit": "Gửi yêu cầu kiểm tra miễn phí →",
+      "form-note": "Chúng tôi sẽ trả lời trong vòng 24h",
+      "footer-text": "Quản lý uy tín Google Maps cho khách sạn, nhà hàng và chỗ nghỉ.",
+      "guarantee-badge": "100% HỢP PHÁP"
     }
   };
   let currentLang = 'en';
@@ -398,7 +634,6 @@
   document.querySelectorAll('.faq-item').forEach(item => item.querySelector('.faq-question').addEventListener('click', () => item.classList.toggle('active')));
   const form = document.getElementById('contactForm');
   if (form) form.addEventListener('submit', e => { e.preventDefault(); fetch(form.action, { method: 'POST', body: new FormData(form) }).then(r => r.ok ? form.innerHTML = '<div style="text-align:center;"><i class="fas fa-check-circle" style="font-size:48px; color:#10B981;"></i><h3>✅ Request sent!</h3><p>We’ll reply within 24h.</p></div>' : alert('Error sending. Please email directly.')).catch(() => alert('Network error. Email defend@reputationguard.pro')); });
-
   function animateCounters() {
     const counters = document.querySelectorAll('.counter');
     counters.forEach(counter => {
