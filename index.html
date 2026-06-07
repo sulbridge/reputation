@@ -1205,5 +1205,94 @@ footer {
   const detected = detectBrowserLanguage();
   setLanguage(detected);
 </script>
+  <!-- Floating WhatsApp & Zalo buttons -->
+<div class="floating-buttons">
+  <a href="https://wa.me/15053136274?text=Hello%21%20I%27d%20like%20to%20learn%20more%20about%20removing%20unfair%20Google%20reviews" 
+     class="float-btn whatsapp" 
+     target="_blank" 
+     rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+    <span class="btn-label">WhatsApp</span>
+  </a>
+  <a href="https://zalo.me/15053136274" 
+     class="float-btn zalo" 
+     target="_blank" 
+     rel="noopener noreferrer">
+    <i class="fas fa-comment-dots"></i>
+    <span class="btn-label">Zalo</span>
+  </a>
+</div>
+
+<style>
+  .floating-buttons {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1000;
+  }
+  .float-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .float-btn.zalo {
+    background: #0068FF;
+  }
+  .float-btn .btn-label {
+    font-size: 0;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+  .float-btn:hover {
+    width: auto;
+    padding: 0 16px;
+    border-radius: 40px;
+    gap: 10px;
+  }
+  .float-btn:hover .btn-label {
+    font-size: 14px;
+  }
+  .float-btn.whatsapp:hover {
+    background: #20b359;
+  }
+  .float-btn.zalo:hover {
+    background: #0050cc;
+  }
+  @media (max-width: 768px) {
+    .floating-buttons {
+      bottom: 16px;
+      right: 16px;
+      gap: 10px;
+    }
+    .float-btn {
+      width: 48px;
+      height: 48px;
+      font-size: 24px;
+    }
+    .float-btn:hover {
+      width: auto;
+      padding: 0 14px;
+    }
+    .float-btn:hover .btn-label {
+      font-size: 12px;
+    }
+  }
+</style>
 </body>
 </html>
