@@ -362,7 +362,7 @@ footer {
       <input type="hidden" name="_subject" value="New Audit Request from ReputationGuard">
       <div class="form-group"><input type="text" name="name" placeholder="Full name *" required data-i18n-placeholder="form-name"></div>
       <div class="form-group"><input type="email" name="email" placeholder="Email address *" required data-i18n-placeholder="form-email"></div>
-      <div class="form-group"><input type="text" name="business" placeholder="Business name (optional)" data-i18n-placeholder="form-business"></div>
+      <div class="form-group"><input type="url" name="google_maps_url" placeholder="Google Maps link to your business *" data-i18n-placeholder="form-maps-link" required></div>
       <div class="form-group"><textarea name="message" placeholder="Tell us about your negative review problem... *" required data-i18n-placeholder="form-message"></textarea></div>
       <button type="submit" class="btn-primary" style="width:100%;" data-i18n="form-submit">Send Free Audit Request →</button>
       <p class="form-status" data-i18n="form-note">We’ll reply within 24h</p>
@@ -1206,7 +1206,7 @@ footer {
   setLanguage(detected);
 </script>
 <style>
-  /* Контейнер для плавающих кнопок */
+  
   .floating-buttons {
     position: fixed;
     bottom: 24px;
@@ -1217,7 +1217,7 @@ footer {
     z-index: 1000;
   }
 
-  /* Базовый стиль кнопок */
+  
   .floating-btn {
     width: 60px;
     height: 60px;
@@ -1232,12 +1232,12 @@ footer {
     background: #25D366; /* WhatsApp */
   }
 
-  /* Иконка Zalo — отдельный класс с официальным цветом */
+  
   .btn-zalo {
-    background: #0068FF; /* Официальный синий Zalo */
+    background: #0068FF; 
   }
 
-  /* Иконка внутри кнопки Zalo — SVG с официальным логотипом */
+  
   .zalo-icon svg {
     width: 32px;
     height: 32px;
@@ -1245,7 +1245,7 @@ footer {
     margin: 0 auto;
   }
 
-  /* Анимация пульсации для обеих кнопок */
+  
   .floating-btn {
     animation: pulse 1.8s infinite;
   }
@@ -1265,12 +1265,12 @@ footer {
     }
   }
 
-  /* Немного замедлим пульсацию для Zalo */
+  
   .btn-zalo {
     animation-duration: 2.2s;
   }
 
-  /* Адаптация для мобильных устройств */
+  
   @media (max-width: 768px) {
     .floating-buttons {
       bottom: 16px;
@@ -1290,7 +1290,7 @@ footer {
 </style>
 
 <div class="floating-buttons">
-  <!-- Кнопка WhatsApp -->
+
   <a href="https://wa.me/15053136274?text=Hello!%20I%20need%20help%20with%20unfair%20Google%20reviews"
      class="floating-btn"
      target="_blank"
@@ -1298,7 +1298,6 @@ footer {
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- Кнопка Zalo (официальная иконка) -->
   <a href="https://zalo.me/15053136274"
      class="floating-btn btn-zalo"
      target="_blank"
