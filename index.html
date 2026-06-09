@@ -254,6 +254,144 @@ footer {
     justify-content: center;
   }
 }
+   
+.one-time-wrapper {
+    margin: 20px auto 40px;
+    max-width: 860px;
+}
+.one-time-horizontal {
+    background: #F8FAFC;
+    border-radius: 28px;
+    border: 1px solid #E2E8F0;
+    padding: 16px 28px;
+    transition: 0.2s;
+}
+.one-time-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.one-time-left {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 24px;
+    flex: 2;
+}
+.one-time-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0;
+    color: #1E3A8A;
+}
+.one-time-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1E3A8A;
+    white-space: nowrap;
+}
+.one-time-price span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #4b5563;
+}
+.one-time-features {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+.one-time-features li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+.one-time-content .btn-outline {
+    flex-shrink: 0;
+    padding: 8px 24px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+@media (max-width: 720px) {
+    .one-time-content {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    .one-time-left {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .one-time-features {
+        justify-content: center;
+        gap: 16px;
+    }
+    .one-time-features li {
+        white-space: normal;
+    }
+}
+
+.pricing-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    margin: 40px 0 20px;
+}
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    border-radius: 32px;
+    padding: 32px 24px;
+    width: 300px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+    border: 1px solid #e5e7eb;
+    transition: 0.25s;
+    position: relative;
+}
+.pricing-card .feature-list {
+    flex-grow: 1;
+}
+.pricing-card button {
+    width: 100%;
+    margin-top: 24px;
+    padding: 12px 0;
+    font-weight: 700;
+    text-align: center;
+    justify-content: center;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.btn-outline, .btn-primary {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+.btn-primary {
+    background: #1E3A8A;
+    color: white;
+}
+.btn-primary:hover {
+    background: #2563EB;
+}
+.btn-outline {
+    background: transparent;
+    border: 2px solid #1E3A8A;
+    color: #1E3A8A;
+}
+.btn-outline:hover {
+    background: #1E3A8A;
+    color: white;
+}
   </style>
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/genfavicon-32.png">
@@ -326,23 +464,22 @@ footer {
     <h2 class="section-title" data-i18n="pricing-title">Simple, transparent pricing</h2>
     <p class="section-sub" data-i18n="pricing-sub">Fixed monthly fee + overage protection. Save up to 70% vs hiring in-house.</p>
 
-    <!-- One‑time горизонтальная карточка -->
     <div class="one-time-wrapper">
-        <div class="one-time-horizontal">
-            <div class="one-time-content">
-                <div>
-                    <h3 data-i18n="plan0-name">One‑time review removal</h3>
-                    <div class="one-time-price">$99 <span>/review</span></div>
-                    <ul class="one-time-features">
-                        <li><i class="fas fa-check"></i> 1 appeal</li>
-                        <li><i class="fas fa-check"></i> Standard evidence check</li>
-                        <li><i class="fas fa-check"></i> Email support</li>
-                    </ul>
-                </div>
-                <button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-one-time">Remove my review →</button>
+    <div class="one-time-horizontal">
+        <div class="one-time-content">
+            <div class="one-time-left">
+                <div class="one-time-title" data-i18n="plan0-name">One‑time review removal</div>
+                <div class="one-time-price">$99 <span data-i18n="one-time">/review</span></div>
+                <ul class="one-time-features">
+                    <li><i class="fas fa-check"></i> <span data-i18n="feature0a">1 appeal</span></li>
+                    <li><i class="fas fa-check"></i> <span data-i18n="feature0b">Standard evidence check</span></li>
+                    <li><i class="fas fa-check"></i> <span data-i18n="feature0c">Email support</span></li>
+                </ul>
             </div>
+            <button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-one-time">Remove my review →</button>
         </div>
     </div>
+</div>
 
     
     <div class="pricing-grid">
