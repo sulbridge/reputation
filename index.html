@@ -258,15 +258,67 @@ footer {
     </div>
   </div>
 
-  <div class="pricing-section">
+ <div class="pricing-section">
     <h2 class="section-title" data-i18n="pricing-title">Simple, transparent pricing</h2>
     <p class="section-sub" data-i18n="pricing-sub">Fixed monthly fee + overage protection. Save up to 70% vs hiring in-house.</p>
     <div class="pricing-grid">
-      <div class="pricing-card"><h3 data-i18n="plan1-name">Essential</h3><div class="price">$399<span data-i18n="per-month">/month</span></div><div class="saving-badge" data-i18n="saving1">Save ~$600/month</div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature1a">Up to 3 appeals/month</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature1b">Weekly monitoring</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature1c">Email support</span></li></ul><button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Choose plan</button></div>
-      <div class="pricing-card popular"><div class="popular-badge" data-i18n="popular">⭐ MOST POPULAR</div><h3 data-i18n="plan2-name">Pro</h3><div class="price">$799<span data-i18n="per-month">/month</span></div><div class="saving-badge" data-i18n="saving2">Save ~$1,200/month</div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature2a">Up to 8 appeals/month</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2b">Priority evidence building</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2c">Monthly strategy call</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature2d">Overage: $49/extra review</span></li></ul><button class="btn-primary" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Choose plan →</button></div>
-      <div class="pricing-card"><h3 data-i18n="plan3-name">Enterprise</h3><div class="price">$1,499+<span data-i18n="per-month">/month</span></div><div class="saving-badge" data-i18n="saving3">Full department at 10% cost</div><ul class="feature-list"><li><i class="fas fa-check"></i> <span data-i18n="feature3a">Unlimited appeals</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3b">Dedicated account manager</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3c">SERM consulting</span></li><li><i class="fas fa-check"></i> <span data-i18n="feature3d">Legal escalation support</span></li></ul><button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Contact us</button></div>
+        
+        <!-- One‑time: 1 review -->
+        <div class="pricing-card one-time">
+            <h3 data-i18n="plan0-name">One‑time</h3>
+            <div class="price">$99<span data-i18n="one-time">/review</span></div>
+            <div class="saving-badge" data-i18n="saving0">Perfect for single issues</div>
+            <ul class="feature-list">
+                <li><i class="fas fa-check"></i> <span data-i18n="feature0a">1 appeal</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="feature0b">Standard evidence check</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="feature0c">Email support</span></li>
+            </ul>
+            <button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-one-time">Remove my review →</button>
+        </div>
+
+        <!-- Essential: 5 appeals/month -->
+        <div class="pricing-card">
+            <h3 data-i18n="plan1-name">Essential</h3>
+            <div class="price">$399<span data-i18n="per-month">/month</span></div>
+            <div class="saving-badge" data-i18n="saving1">Save $96 vs one‑time ×5</div>
+            <ul class="feature-list">
+                <li><i class="fas fa-check"></i> <span data-i18n="feature1a">Up to 5 appeals/month</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="feature1b">Weekly monitoring</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="feature1c">Email support</span></li>
+            </ul>
+            <button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Choose plan</button>
+        </div>
+
+        <!-- Pro: 12 appeals/month + overage $49 -->
+        <div class="pricing-card popular">
+            <div class="popular-badge" data-i18n="popular">⭐ MOST POPULAR</div>
+            <h3 data-i18n="plan2-name">Pro</h3>
+            <div class="price">$799<span data-i18n="per-month">/month</span></div>
+            <div class="saving-badge" data-i18n="saving2">Save $389 vs one‑time ×12</div>
+            <ul class="feature-list">
+                <li><i class="fas fa-check"></i> <span data-i18n="feature2a">Up to 12 appeals/month</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="feature2b">Priority evidence building</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="feature2c">Monthly strategy call</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="feature2d">Overage: $49/extra review</span></li>
+            </ul>
+            <button class="btn-primary" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Choose plan →</button>
+        </div>
+
+        <!-- Enterprise: 30 appeals/month -->
+        <div class="pricing-card">
+            <h3 data-i18n="plan3-name">Enterprise</h3>
+            <div class="price">$1,499<span data-i18n="per-month">/month</span></div>
+            <div class="saving-badge" data-i18n="saving3">Save $1,470 vs one‑time ×30</div>
+            <ul class="feature-list">
+                <li><i class="fas fa-check"></i> <span data-i18n="feature3a">Up to 30 appeals/month</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="feature3b">Dedicated account manager</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="feature3c">SERM consulting</span></li>
+                <li><i class="fas fa-check"></i> <span data-i18n="feature3d">Legal escalation support</span></li>
+            </ul>
+            <button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Contact us</button>
+        </div>
     </div>
-  </div>
+</div>
 
   <div class="compare-section">
     <h2 class="section-title" data-i18n="compare-title">In-house vs ReputationGuard</h2>
