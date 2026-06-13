@@ -405,22 +405,22 @@ footer {
     <div class="logo">🛡️ ReputationGuard</div>
     <div class="lang-switch">
   <button class="lang-btn" data-lang="en">
-    <span class="fi fi-gb" style="margin-right: 6px;"></span> EN
+    <span class="fi fi-gb" style="margin-right: 2px;"></span> EN
   </button>
   <button class="lang-btn" data-lang="vi">
-    <span class="fi fi-vn" style="margin-right: 6px;"></span> VI
+    <span class="fi fi-vn" style="margin-right: 2px;"></span> VI
   </button>
   <button class="lang-btn" data-lang="pt">
-    <span class="fi fi-pt" style="margin-right: 6px;"></span> PT
+    <span class="fi fi-pt" style="margin-right: 2px;"></span> PT
   </button>
   <button class="lang-btn" data-lang="tr">
-    <span class="fi fi-tr" style="margin-right: 6px;"></span> TR
+    <span class="fi fi-tr" style="margin-right: 2px;"></span> TR
   </button>
   <button class="lang-btn" data-lang="ar">
-    <span class="fi fi-sa" style="margin-right: 6px;"></span> ع
+    <span class="fi fi-sa" style="margin-right: 2px;"></span> ع
   </button>
   <button class="lang-btn" data-lang="ru">
-    <span class="fi fi-ru" style="margin-right: 6px;"></span> RU
+    <span class="fi fi-ru" style="margin-right: 2px;"></span> RU
   </button>
 </div>
   </div>
@@ -1643,22 +1643,27 @@ footer {
   }
 
   function setLanguage(lang) {
-    currentLang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (translations[lang] && translations[lang][key]) {
-        if (key === 'hero-title' && el.tagName === 'H1') {
-          el.innerHTML = translations[lang][key];
-        } else if (el.hasAttribute('data-i18n-placeholder')) {
-          el.placeholder = translations[lang][key];
-        } else {
-          el.innerText = translations[lang][key];
-        }
+  currentLang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      if (key === 'hero-title' && el.tagName === 'H1') {
+        el.innerHTML = translations[lang][key];
+      } else if (el.hasAttribute('data-i18n-placeholder')) {
+        el.placeholder = translations[lang][key];
+      } else {
+        el.innerText = translations[lang][key];
       }
-    });
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-lang') === lang));
-  }
-
+    }
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (translations[lang] && translations[lang][key]) {
+      el.placeholder = translations[lang][key];
+    }
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-lang') === lang));
+}
   document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang'))));
   document.querySelectorAll('.faq-item').forEach(item => item.querySelector('.faq-question').addEventListener('click', () => item.classList.toggle('active')));
 
