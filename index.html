@@ -392,6 +392,29 @@ footer {
     background: #1E3A8A;
     color: white;
 }
+.footer-lang-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.footer-lang-switch .lang-btn {
+  background: #f0f2f5;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  border-radius: 24px;
+  transition: 0.2s;
+}
+
+.footer-lang-switch .lang-btn.active {
+  background: #1E3A8A;
+  color: white;
+}
+
+.footer-lang-switch .lang-btn span.fi {
+  margin-right: 4px;
+}
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -623,10 +646,13 @@ footer {
 
   <footer>
   <div class="footer-container">
+    
     <div class="footer-column">
       <h4 data-i18n="footer-company">ReputationGuard</h4>
       <p data-i18n="footer-tagline">Google Maps reputation management for hotels, restaurants & accommodations.</p>
     </div>
+
+    
     <div class="footer-column">
       <h4 data-i18n="footer-services">Services</h4>
       <ul>
@@ -636,6 +662,8 @@ footer {
         <li><a href="#" data-i18n="footer-consulting">SERM Consulting</a></li>
       </ul>
     </div>
+
+    
     <div class="footer-column">
       <h4 data-i18n="footer-legal">Legal</h4>
       <ul>
@@ -644,30 +672,29 @@ footer {
         <li><a href="/refund-policy.html" data-i18n="footer-refund">Refund Policy</a></li>
       </ul>
     </div>
+
+    
     <div class="footer-column">
       <h4 data-i18n="footer-contact">Contact</h4>
       <p><i class="fas fa-envelope"></i> defend@reputationguard.pro</p>
       <p><i class="fas fa-globe"></i> reputationguard.pro</p>
       <p><i class="fab fa-whatsapp"></i> +1(505)3136274 (WhatsApp)</p>
     </div>
+
+    
     <div class="footer-column">
-  <h4 data-i18n="footer-contact">Contact</h4>
-  <p><i class="fas fa-envelope"></i> defend@reputationguard.pro</p>
-  <p><i class="fas fa-globe"></i> reputationguard.pro</p>
-  <p><i class="fab fa-whatsapp"></i> +1(505)3136274 (WhatsApp)</p>
-  <div style="margin-top: 20px;">
-    <h4 style="font-size: 0.9rem; margin-bottom: 8px;">Language</h4>
-    <div class="lang-switch-footer" style="display: flex; flex-wrap: wrap; gap: 8px;">
-      <button class="lang-btn" data-lang="en"><span class="fi fi-gb" style="margin-right: 2px;"></span> EN</button>
-      <button class="lang-btn" data-lang="vi"><span class="fi fi-vn" style="margin-right: 2px;"></span> VI</button>
-      <button class="lang-btn" data-lang="pt"><span class="fi fi-pt" style="margin-right: 2px;"></span> PT</button>
-      <button class="lang-btn" data-lang="tr"><span class="fi fi-tr" style="margin-right: 2px;"></span> TR</button>
-      <button class="lang-btn" data-lang="ar"><span class="fi fi-sa" style="margin-right: 2px;"></span> ع</button>
-      <button class="lang-btn" data-lang="ru"><span class="fi fi-ru" style="margin-right: 2px;"></span> RU</button>
+      <h4 data-i18n="footer-language">Language</h4>
+      <div class="footer-lang-switch">
+        <button class="lang-btn" data-lang="en"><span class="fi fi-gb"></span> EN</button>
+        <button class="lang-btn" data-lang="vi"><span class="fi fi-vn"></span> VI</button>
+        <button class="lang-btn" data-lang="pt"><span class="fi fi-pt"></span> PT</button>
+        <button class="lang-btn" data-lang="tr"><span class="fi fi-tr"></span> TR</button>
+        <button class="lang-btn" data-lang="ar"><span class="fi fi-sa"></span> ع</button>
+        <button class="lang-btn" data-lang="ru"><span class="fi fi-ru"></span> RU</button>
+      </div>
     </div>
   </div>
-</div>
-  </div>
+
   <div class="footer-bottom">
     <p data-i18n="footer-disclaimer">*Results may vary. Google makes final decisions on reviews.</p>
     <p>© 2026 ReputationGuard Global. All rights reserved.</p>
