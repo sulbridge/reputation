@@ -361,43 +361,134 @@
         .footer-lang-switch .lang-btn {
             width: 60px;
         }
-    }
-
-    
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 24px;
-    }
-    .footer-lang-switch {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-        justify-items: center;
-    }
-    .footer-lang-switch .lang-btn {
-        width: auto;
-        padding: 4px 0;
-    }
-}
-    
-    @media (max-width: 640px) {
-        .one-time-content {
+        /* Before/After cases grid */
+        .before-after-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+          gap: 28px;
+          margin: 40px 0;
+        }
+        
+        .before-after-card {
+          background: white;
+          border-radius: 24px;
+          padding: 20px;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+          border: 1px solid #eef2ff;
+          transition: 0.2s;
+        }
+        .before-after-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+        
+        .case-header {
+          font-weight: 700;
+          font-size: 1rem;
+          color: #1E3A8A;
+          margin-bottom: 16px;
+          padding-bottom: 8px;
+          border-bottom: 2px solid #EFF6FF;
+        }
+        
+        .before-after-row {
+          display: flex;
+          gap: 16px;
+          margin-bottom: 16px;
+        }
+        .before-col, .after-col {
+          flex: 1;
+          padding: 12px;
+          border-radius: 16px;
+        }
+        .before-col {
+          background: #FEF2F0;
+        }
+        .after-col {
+          background: #ECFDF5;
+        }
+        
+        .badge {
+          font-size: 0.7rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          margin-bottom: 8px;
+          color: #6b7280;
+        }
+        
+        .rating {
+          font-size: 1.5rem;
+          font-weight: 800;
+          margin-bottom: 8px;
+        }
+        .before-col .rating { color: #E53E3E; }
+        .after-col .rating { color: #10B981; }
+        
+        .issue, .result {
+          font-size: 0.8rem;
+          line-height: 1.4;
+          margin-bottom: 8px;
+          color: #1f2937;
+        }
+        .impact {
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: #1E3A8A;
+        }
+        
+        .case-foot {
+          font-size: 0.7rem;
+          color: #6b7280;
+          text-align: right;
+          margin-top: 12px;
+          padding-top: 8px;
+          border-top: 1px solid #eef2ff;
+        }
+        
+        @media (max-width: 768px) {
+          .before-after-row {
             flex-direction: column;
-            text-align: center;
+            gap: 12px;
+          }
         }
-        .one-time-features {
-            justify-content: center;
+            }
+        
+            
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 24px;
+            }
+            .footer-lang-switch {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 6px;
+                justify-items: center;
+            }
+            .footer-lang-switch .lang-btn {
+                width: auto;
+                padding: 4px 0;
+            }
         }
-        .one-time-horizontal {
-            padding: 20px;
-        }
-    }
-    
-    @media (min-width: 769px) {
-        .navbar {
-            justify-content: center;
-        }
+            
+            @media (max-width: 640px) {
+                .one-time-content {
+                    flex-direction: column;
+                    text-align: center;
+                }
+                .one-time-features {
+                    justify-content: center;
+                }
+                .one-time-horizontal {
+                    padding: 20px;
+                }
+            }
+            
+            @media (min-width: 769px) {
+                .navbar {
+                    justify-content: center;
+                }
     }
 </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
@@ -604,18 +695,197 @@
     </div>
   </div>
 
-  <div class="testimonials-section">
-    <h2 class="section-title" data-i18n="testimonials-title">What our clients say</h2>
-    <p class="section-sub" data-i18n="testimonials-sub">Trusted by hotels, restaurants and service businesses worldwide</p>
-    <div class="testimonial-grid">
-      <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial1">"They removed three fake 1-star reviews that were crushing our rating. Within two weeks our average went from 4.1 to 4.7. ROI is insane."</p><div class="testimonial-author" data-i18n="testimonial1-author">— Marco L., Boutique Hotel, Da Nang</div></div>
-      <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial2">"We tried to dispute reviews ourselves for months – zero success. ReputationGuard got two taken down in the first week. Worth every penny."</p><div class="testimonial-author" data-i18n="testimonial2-author">— Lan N., Restaurant Owner, Hanoi</div></div>
-      <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial3">"Professional, fast, transparent. They don't overpromise, but they deliver. The free audit was enough to convince us."</p><div class="testimonial-author" data-i18n="testimonial3-author">— David K., Resort Manager, Phu Quoc</div></div>
-      <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial4">"Saved us from a coordinated attack by a competitor. They provided solid evidence and Google removed all 5 fake reviews. Unbelievable service."</p><div class="testimonial-author" data-i18n="testimonial4-author">— Sophia T., Spa & Wellness, Ho Chi Minh</div></div>
-      <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial5">"I was skeptical about paying monthly, but after seeing how quickly they handle appeals, I'm a believer. Our booking rate increased 22%."</p><div class="testimonial-author" data-i18n="testimonial5-author">— Alex P., Beach Resort, Nha Trang</div></div>
-      <div class="testimonial-card"><div class="testimonial-badge">⭐ 5.0</div><p data-i18n="testimonial6">"They act like our outsourced reputation department. Responsive, proactive, and results-driven. Highly recommend for any hospitality business."</p><div class="testimonial-author" data-i18n="testimonial6-author">— Elena V., Guesthouse Chain, Hoi An</div></div>
+  <div class="cases-section">
+  <h2 class="section-title" data-i18n="cases-before-after-title">Real results: before & after</h2>
+  <p class="section-sub" data-i18n="cases-before-after-sub">How we cleaned reputations and boosted business</p>
+
+  <div class="before-after-grid">
+    
+    <!-- Кейс 1 -->
+    <div class="before-after-card">
+      <div class="case-header" data-i18n="case1_header">🏨 Bali Harmony Boutique Hotel, Indonesia</div>
+      <div class="before-after-row">
+        <div class="before-col">
+          <div class="badge before-badge" data-i18n="case1_before_label">⚠️ BEFORE</div>
+          <div class="rating" data-i18n="case1_before_rating">⭐ 3.6</div>
+          <div class="issue" data-i18n="case1_before_issue">7 fake 1‑star reviews from competitor</div>
+          <div class="impact" data-i18n="case1_before_impact">↓ 41% booking conversion</div>
+        </div>
+        <div class="after-col">
+          <div class="badge after-badge" data-i18n="case1_after_label">✅ AFTER</div>
+          <div class="rating" data-i18n="case1_after_rating">⭐ 4.8</div>
+          <div class="result" data-i18n="case1_after_result">All 7 fake reviews removed</div>
+          <div class="impact" data-i18n="case1_after_impact">↑ 28% revenue in 2 months</div>
+        </div>
+      </div>
+      <div class="case-foot" data-i18n="case1_foot">⏱ 6 business days • 89% success rate</div>
     </div>
+
+    <!-- Кейс 2 -->
+    <div class="before-after-card">
+      <div class="case-header" data-i18n="case2_header">🦷 SmileCare Dental, Texas (USA)</div>
+      <div class="before-after-row">
+        <div class="before-col">
+          <div class="badge before-badge" data-i18n="case2_before_label">⚠️ BEFORE</div>
+          <div class="rating" data-i18n="case2_before_rating">⭐ 3.2</div>
+          <div class="issue" data-i18n="case2_before_issue">12 spam reviews in 3 days (attack)</div>
+          <div class="impact" data-i18n="case2_before_impact">↓ 70% new patient calls</div>
+        </div>
+        <div class="after-col">
+          <div class="badge after-badge" data-i18n="case2_after_label">✅ AFTER</div>
+          <div class="rating" data-i18n="case2_after_rating">⭐ 4.6</div>
+          <div class="result" data-i18n="case2_after_result">11 removed, 1 legitimate kept</div>
+          <div class="impact" data-i18n="case2_after_impact">↑ 3x lead volume in 30 days</div>
+        </div>
+      </div>
+      <div class="case-foot" data-i18n="case2_foot">⏱ 4 business days • 92% removal rate</div>
+    </div>
+
+    <!-- Кейс 3 -->
+    <div class="before-after-card">
+      <div class="case-header" data-i18n="case3_header">🍽 Tapas & Co., Barcelona (Spain)</div>
+      <div class="before-after-row">
+        <div class="before-col">
+          <div class="badge before-badge" data-i18n="case3_before_label">⚠️ BEFORE</div>
+          <div class="rating" data-i18n="case3_before_rating">⭐ 3.8</div>
+          <div class="issue" data-i18n="case3_before_issue">Offensive review + 5 fake 1‑star</div>
+          <div class="impact" data-i18n="case3_before_impact">↓ 33% dinner reservations</div>
+        </div>
+        <div class="after-col">
+          <div class="badge after-badge" data-i18n="case3_after_label">✅ AFTER</div>
+          <div class="rating" data-i18n="case3_after_rating">⭐ 4.7</div>
+          <div class="result" data-i18n="case3_after_result">All defamatory reviews removed</div>
+          <div class="impact" data-i18n="case3_after_impact">↑ 53% reservation value</div>
+        </div>
+      </div>
+      <div class="case-foot" data-i18n="case3_foot">⏱ 3 business days • 100% of targeted removed</div>
+    </div>
+
+    <!-- Кейс 4 -->
+    <div class="before-after-card">
+      <div class="case-header" data-i18n="case4_header">🚗 GulfDrive Rentals, Dubai (UAE)</div>
+      <div class="before-after-row">
+        <div class="before-col">
+          <div class="badge before-badge" data-i18n="case4_before_label">⚠️ BEFORE</div>
+          <div class="rating" data-i18n="case4_before_rating">⭐ 3.4</div>
+          <div class="issue" data-i18n="case4_before_issue">10 fake reviews from ex‑employee</div>
+          <div class="impact" data-i18n="case4_before_impact">↓ 45% online bookings</div>
+        </div>
+        <div class="after-col">
+          <div class="badge after-badge" data-i18n="case4_after_label">✅ AFTER</div>
+          <div class="rating" data-i18n="case4_after_rating">⭐ 4.9</div>
+          <div class="result" data-i18n="case4_after_result">10 reviews removed, rating restored</div>
+          <div class="impact" data-i18n="case4_after_impact">↑ 67% booking conversion</div>
+        </div>
+      </div>
+      <div class="case-foot" data-i18n="case4_foot">⏱ 8 business days • 100% success</div>
+    </div>
+
+    <!-- Кейс 5 -->
+    <div class="before-after-card">
+      <div class="case-header" data-i18n="case5_header">💪 MoveWell Physio, Sydney (Australia)</div>
+      <div class="before-after-row">
+        <div class="before-col">
+          <div class="badge before-badge" data-i18n="case5_before_label">⚠️ BEFORE</div>
+          <div class="rating" data-i18n="case5_before_rating">⭐ 3.9</div>
+          <div class="issue" data-i18n="case5_before_issue">6 fake negative reviews from competitor</div>
+          <div class="impact" data-i18n="case5_before_impact">↓ 38% new patient inquiries</div>
+        </div>
+        <div class="after-col">
+          <div class="badge after-badge" data-i18n="case5_after_label">✅ AFTER</div>
+          <div class="rating" data-i18n="case5_after_rating">⭐ 4.8</div>
+          <div class="result" data-i18n="case5_after_result">6 reviews removed, Google policy upheld</div>
+          <div class="impact" data-i18n="case5_after_impact">↑ 44% patient volume</div>
+        </div>
+      </div>
+      <div class="case-foot" data-i18n="case5_foot">⏱ 5 business days • 6/6 removed</div>
+    </div>
+
+    <!-- Кейс 6 -->
+    <div class="before-after-card">
+      <div class="case-header" data-i18n="case6_header">📦 TechGadget.shop, Berlin (Germany)</div>
+      <div class="before-after-row">
+        <div class="before-col">
+          <div class="badge before-badge" data-i18n="case6_before_label">⚠️ BEFORE</div>
+          <div class="rating" data-i18n="case6_before_rating">⭐ 3.5</div>
+          <div class="issue" data-i18n="case6_before_issue">Spam campaign – 15 bad reviews in 1 week</div>
+          <div class="impact" data-i18n="case6_before_impact">↓ 52% add‑to‑cart rate</div>
+        </div>
+        <div class="after-col">
+          <div class="badge after-badge" data-i18n="case6_after_label">✅ AFTER</div>
+          <div class="rating" data-i18n="case6_after_rating">⭐ 4.6</div>
+          <div class="result" data-i18n="case6_after_result">14 spam reviews removed</div>
+          <div class="impact" data-i18n="case6_after_impact">↑ 78% sales within 45 days</div>
+        </div>
+      </div>
+      <div class="case-foot" data-i18n="case6_foot">⏱ 7 business days • 93% removal rate</div>
+    </div>
+
+    <!-- Кейс 7 -->
+    <div class="before-after-card">
+      <div class="case-header" data-i18n="case7_header">🌴 Sunset Bay Resort, Phuket (Thailand)</div>
+      <div class="before-after-row">
+        <div class="before-col">
+          <div class="badge before-badge" data-i18n="case7_before_label">⚠️ BEFORE</div>
+          <div class="rating" data-i18n="case7_before_rating">⭐ 3.7</div>
+          <div class="issue" data-i18n="case7_before_issue">9 fake reviews (no‑show guests)</div>
+          <div class="impact" data-i18n="case7_before_impact">↓ 31% direct bookings</div>
+        </div>
+        <div class="after-col">
+          <div class="badge after-badge" data-i18n="case7_after_label">✅ AFTER</div>
+          <div class="rating" data-i18n="case7_after_rating">⭐ 4.9</div>
+          <div class="result" data-i18n="case7_after_result">9 removed, average boosted to 4.9</div>
+          <div class="impact" data-i18n="case7_after_impact">↑ 49% revenue next quarter</div>
+        </div>
+      </div>
+      <div class="case-foot" data-i18n="case7_foot">⏱ 6 business days • 100% success</div>
+    </div>
+
+    <!-- Кейс 8 -->
+    <div class="before-after-card">
+      <div class="case-header" data-i18n="case8_header">⚖️ LexPartners, Toronto (Canada)</div>
+      <div class="before-after-row">
+        <div class="before-col">
+          <div class="badge before-badge" data-i18n="case8_before_label">⚠️ BEFORE</div>
+          <div class="rating" data-i18n="case8_before_rating">⭐ 3.4</div>
+          <div class="issue" data-i18n="case8_before_issue">Defamatory review + 4 fake 1‑star</div>
+          <div class="impact" data-i18n="case8_before_impact">↓ 62% consultation requests</div>
+        </div>
+        <div class="after-col">
+          <div class="badge after-badge" data-i18n="case8_after_label">✅ AFTER</div>
+          <div class="rating" data-i18n="case8_after_rating">⭐ 4.8</div>
+          <div class="result" data-i18n="case8_after_result">All 5 reviews removed</div>
+          <div class="impact" data-i18n="case8_after_impact">↑ 2.8x new cases in 30 days</div>
+        </div>
+      </div>
+      <div class="case-foot" data-i18n="case8_foot">⏱ 4 business days • 5/5 removed</div>
+    </div>
+
+    <!-- Кейс 9 -->
+    <div class="before-after-card">
+      <div class="case-header" data-i18n="case9_header">💒 Rosewood Estate, Cape Town (SA)</div>
+      <div class="before-after-row">
+        <div class="before-col">
+          <div class="badge before-badge" data-i18n="case9_before_label">⚠️ BEFORE</div>
+          <div class="rating" data-i18n="case9_before_rating">⭐ 4.0</div>
+          <div class="issue" data-i18n="case9_before_issue">3 fake 1‑star from disgruntled ex‑vendor</div>
+          <div class="impact" data-i18n="case9_before_impact">↓ 27% wedding inquiries</div>
+        </div>
+        <div class="after-col">
+          <div class="badge after-badge" data-i18n="case9_after_label">✅ AFTER</div>
+          <div class="rating" data-i18n="case9_after_rating">⭐ 4.9</div>
+          <div class="result" data-i18n="case9_after_result">All fake reviews removed</div>
+          <div class="impact" data-i18n="case9_after_impact">↑ 41% leads → $210k+ extra revenue</div>
+        </div>
+      </div>
+      <div class="case-foot" data-i18n="case9_foot">⏱ 3 business days • 3/3 removed</div>
+    </div>
+
   </div>
+</div>
+
+  </div>
+</div>
 
   <div class="faq-section">
     <h2 class="section-title" data-i18n="faq-title">Frequently asked questions</h2>
@@ -1046,7 +1316,97 @@
   "compare-tools-inhouse": "Básico / manual",
   "compare-tools-rg": "Automatizado + informes semanales",
   "compare-risk-inhouse": "No",
-  "compare-risk-rg": "✅ Auditoría gratuita + piloto"
+  "compare-risk-rg": "✅ Auditoría gratuita + piloto",
+  "case1_header": "🏨 Bali Harmony Boutique Hotel, Indonesia",
+  "case1_before_label": "⚠️ ANTES",
+  "case1_before_rating": "⭐ 3.6",
+  "case1_before_issue": "7 reseñas falsas de 1 estrella de la competencia",
+  "case1_before_impact": "↓ 41% de conversión de reservas",
+  "case1_after_label": "✅ DESPUÉS",
+  "case1_after_rating": "⭐ 4.8",
+  "case1_after_result": "Las 7 reseñas falsas eliminadas",
+  "case1_after_impact": "↑ 28% de ingresos en 2 meses",
+  "case1_foot": "⏱ 6 días hábiles • 89% de éxito",
+  "case2_header": "🦷 SmileCare Dental, Texas (EE. UU.)",
+  "case2_before_label": "⚠️ ANTES",
+  "case2_before_rating": "⭐ 3.2",
+  "case2_before_issue": "12 reseñas spam en 3 días (ataque)",
+  "case2_before_impact": "↓ 70% de llamadas de nuevos pacientes",
+  "case2_after_label": "✅ DESPUÉS",
+  "case2_after_rating": "⭐ 4.6",
+  "case2_after_result": "11 eliminadas, 1 legítima conservada",
+  "case2_after_impact": "↑ 3 veces el volumen de leads en 30 días",
+  "case2_foot": "⏱ 4 días hábiles • 92% de eliminación",
+  "case3_header": "🍽 Tapas & Co., Barcelona (España)",
+  "case3_before_label": "⚠️ ANTES",
+  "case3_before_rating": "⭐ 3.8",
+  "case3_before_issue": "Reseña ofensiva + 5 falsas de 1 estrella",
+  "case3_before_impact": "↓ 33% de reservas para cenar",
+  "case3_after_label": "✅ DESPUÉS",
+  "case3_after_rating": "⭐ 4.7",
+  "case3_after_result": "Todas las reseñas difamatorias eliminadas",
+  "case3_after_impact": "↑ 53% del valor de las reservas",
+  "case3_foot": "⏱ 3 días hábiles • 100% de las objetivo eliminadas",
+  "case4_header": "🚗 GulfDrive Rentals, Dubái (EAU)",
+  "case4_before_label": "⚠️ ANTES",
+  "case4_before_rating": "⭐ 3.4",
+  "case4_before_issue": "10 reseñas falsas de un ex‑empleado",
+  "case4_before_impact": "↓ 45% de reservas online",
+  "case4_after_label": "✅ DESPUÉS",
+  "case4_after_rating": "⭐ 4.9",
+  "case4_after_result": "10 reseñas eliminadas, calificación restaurada",
+  "case4_after_impact": "↑ 67% de conversión de reservas",
+  "case4_foot": "⏱ 8 días hábiles • 100% de éxito",
+  "case5_header": "💪 MoveWell Physio, Sídney (Australia)",
+  "case5_before_label": "⚠️ ANTES",
+  "case5_before_rating": "⭐ 3.9",
+  "case5_before_issue": "6 reseñas negativas falsas de un competidor",
+  "case5_before_impact": "↓ 38% de consultas de nuevos pacientes",
+  "case5_after_label": "✅ DESPUÉS",
+  "case5_after_rating": "⭐ 4.8",
+  "case5_after_result": "6 reseñas eliminadas, política de Google respetada",
+  "case5_after_impact": "↑ 44% de volumen de pacientes",
+  "case5_foot": "⏱ 5 días hábiles • 6/6 eliminadas",
+  "case6_header": "📦 TechGadget.shop, Berlín (Alemania)",
+  "case6_before_label": "⚠️ ANTES",
+  "case6_before_rating": "⭐ 3.5",
+  "case6_before_issue": "Campaña de spam – 15 reseñas malas en 1 semana",
+  "case6_before_impact": "↓ 52% de tasa de añadir al carrito",
+  "case6_after_label": "✅ DESPUÉS",
+  "case6_after_rating": "⭐ 4.6",
+  "case6_after_result": "14 reseñas spam eliminadas",
+  "case6_after_impact": "↑ 78% de ventas en 45 días",
+  "case6_foot": "⏱ 7 días hábiles • 93% de eliminación",
+  "case7_header": "🌴 Sunset Bay Resort, Phuket (Tailandia)",
+  "case7_before_label": "⚠️ ANTES",
+  "case7_before_rating": "⭐ 3.7",
+  "case7_before_issue": "9 reseñas falsas (huéspedes que no se presentaron)",
+  "case7_before_impact": "↓ 31% de reservas directas",
+  "case7_after_label": "✅ DESPUÉS",
+  "case7_after_rating": "⭐ 4.9",
+  "case7_after_result": "9 eliminadas, calificación media subió a 4.9",
+  "case7_after_impact": "↑ 49% de ingresos en el próximo trimestre",
+  "case7_foot": "⏱ 6 días hábiles • 100% de éxito",
+  "case8_header": "⚖️ LexPartners, Toronto (Canadá)",
+  "case8_before_label": "⚠️ ANTES",
+  "case8_before_rating": "⭐ 3.4",
+  "case8_before_issue": "Reseña difamatoria + 4 falsas de 1 estrella",
+  "case8_before_impact": "↓ 62% de solicitudes de consulta",
+  "case8_after_label": "✅ DESPUÉS",
+  "case8_after_rating": "⭐ 4.8",
+  "case8_after_result": "Las 5 reseñas eliminadas",
+  "case8_after_impact": "↑ 2.8 veces más casos nuevos en 30 días",
+  "case8_foot": "⏱ 4 días hábiles • 5/5 eliminadas",
+  "case9_header": "💒 Rosewood Estate, Ciudad del Cabo (Sudáfrica)",
+  "case9_before_label": "⚠️ ANTES",
+  "case9_before_rating": "⭐ 4.0",
+  "case9_before_issue": "3 reseñas falsas de 1 estrella de un ex‑proveedor enfadado",
+  "case9_before_impact": "↓ 27% de consultas para bodas",
+  "case9_after_label": "✅ DESPUÉS",
+  "case9_after_rating": "⭐ 4.9",
+  "case9_after_result": "Todas las reseñas falsas eliminadas",
+  "case9_after_impact": "↑ 41% de leads → +$210k en ingresos extra",
+  "case9_foot": "⏱ 3 días hábiles • 3/3 eliminadas"
 },
     de: {
   "hero-badge": "⚡ Google-Bewertungsabwehr",
@@ -1217,7 +1577,97 @@
   "compare-tools-inhouse": "Basis / manuell",
   "compare-tools-rg": "Automatisiert + wöchentliche Berichte",
   "compare-risk-inhouse": "Nein",
-  "compare-risk-rg": "✅ Kostenloses Audit + Pilot"
+  "compare-risk-rg": "✅ Kostenloses Audit + Pilot",
+  "case1_header": "🏨 Bali Harmony Boutique Hotel, Indonesien",
+  "case1_before_label": "⚠️ VORHER",
+  "case1_before_rating": "⭐ 3.6",
+  "case1_before_issue": "7 gefälschte 1-Sterne-Bewertungen von Konkurrenten",
+  "case1_before_impact": "↓ 41% Buchungskonversion",
+  "case1_after_label": "✅ NACHHER",
+  "case1_after_rating": "⭐ 4.8",
+  "case1_after_result": "Alle 7 gefälschten Bewertungen entfernt",
+  "case1_after_impact": "↑ 28% Umsatz in 2 Monaten",
+  "case1_foot": "⏱ 6 Werktage • 89% Erfolgsquote",
+  "case2_header": "🦷 SmileCare Dental, Texas (USA)",
+  "case2_before_label": "⚠️ VORHER",
+  "case2_before_rating": "⭐ 3.2",
+  "case2_before_issue": "12 Spam-Bewertungen in 3 Tagen (Angriff)",
+  "case2_before_impact": "↓ 70% Anrufe neuer Patienten",
+  "case2_after_label": "✅ NACHHER",
+  "case2_after_rating": "⭐ 4.6",
+  "case2_after_result": "11 entfernt, 1 legitime behalten",
+  "case2_after_impact": "↑ 3-faches Lead-Volumen in 30 Tagen",
+  "case2_foot": "⏱ 4 Werktage • 92% Entfernungsrate",
+  "case3_header": "🍽 Tapas & Co., Barcelona (Spanien)",
+  "case3_before_label": "⚠️ VORHER",
+  "case3_before_rating": "⭐ 3.8",
+  "case3_before_issue": "Beleidigende Bewertung + 5 gefälschte 1-Sterne",
+  "case3_before_impact": "↓ 33% Abendreservierungen",
+  "case3_after_label": "✅ NACHHER",
+  "case3_after_rating": "⭐ 4.7",
+  "case3_after_result": "Alle diffamierenden Bewertungen entfernt",
+  "case3_after_impact": "↑ 53% Reservierungswert",
+  "case3_foot": "⏱ 3 Werktage • 100% der Zielbewertungen entfernt",
+  "case4_header": "🚗 GulfDrive Rentals, Dubai (VAE)",
+  "case4_before_label": "⚠️ VORHER",
+  "case4_before_rating": "⭐ 3.4",
+  "case4_before_issue": "10 gefälschte Bewertungen von Ex‑Mitarbeiter",
+  "case4_before_impact": "↓ 45% Online-Buchungen",
+  "case4_after_label": "✅ NACHHER",
+  "case4_after_rating": "⭐ 4.9",
+  "case4_after_result": "10 Bewertungen entfernt, Bewertung wiederhergestellt",
+  "case4_after_impact": "↑ 67% Buchungskonversion",
+  "case4_foot": "⏱ 8 Werktage • 100% Erfolg",
+  "case5_header": "💪 MoveWell Physio, Sydney (Australien)",
+  "case5_before_label": "⚠️ VORHER",
+  "case5_before_rating": "⭐ 3.9",
+  "case5_before_issue": "6 gefälschte negative Bewertungen von Konkurrenten",
+  "case5_before_impact": "↓ 38% Anfragen neuer Patienten",
+  "case5_after_label": "✅ NACHHER",
+  "case5_after_rating": "⭐ 4.8",
+  "case5_after_result": "6 Bewertungen entfernt, Google-Richtlinie eingehalten",
+  "case5_after_impact": "↑ 44% Patientenaufkommen",
+  "case5_foot": "⏱ 5 Werktage • 6/6 entfernt",
+  "case6_header": "📦 TechGadget.shop, Berlin (Deutschland)",
+  "case6_before_label": "⚠️ VORHER",
+  "case6_before_rating": "⭐ 3.5",
+  "case6_before_issue": "Spam-Kampagne – 15 schlechte Bewertungen in 1 Woche",
+  "case6_before_impact": "↓ 52% Warenkorb-Adds",
+  "case6_after_label": "✅ NACHHER",
+  "case6_after_rating": "⭐ 4.6",
+  "case6_after_result": "14 Spam-Bewertungen entfernt",
+  "case6_after_impact": "↑ 78% Umsatz innerhalb von 45 Tagen",
+  "case6_foot": "⏱ 7 Werktage • 93% Entfernungsrate",
+  "case7_header": "🌴 Sunset Bay Resort, Phuket (Thailand)",
+  "case7_before_label": "⚠️ VORHER",
+  "case7_before_rating": "⭐ 3.7",
+  "case7_before_issue": "9 gefälschte Bewertungen (nicht erschienene Gäste)",
+  "case7_before_impact": "↓ 31% Direktbuchungen",
+  "case7_after_label": "✅ NACHHER",
+  "case7_after_rating": "⭐ 4.9",
+  "case7_after_result": "9 entfernt, Durchschnittsbewertung auf 4.9 gestiegen",
+  "case7_after_impact": "↑ 49% Umsatz im nächsten Quartal",
+  "case7_foot": "⏱ 6 Werktage • 100% Erfolg",
+  "case8_header": "⚖️ LexPartners, Toronto (Kanada)",
+  "case8_before_label": "⚠️ VORHER",
+  "case8_before_rating": "⭐ 3.4",
+  "case8_before_issue": "Diffamierende Bewertung + 4 gefälschte 1-Sterne",
+  "case8_before_impact": "↓ 62% Anfragen für Beratungen",
+  "case8_after_label": "✅ NACHHER",
+  "case8_after_rating": "⭐ 4.8",
+  "case8_after_result": "Alle 5 Bewertungen entfernt",
+  "case8_after_impact": "↑ 2.8-fache Anzahl neuer Fälle in 30 Tagen",
+  "case8_foot": "⏱ 4 Werktage • 5/5 entfernt",
+  "case9_header": "💒 Rosewood Estate, Kapstadt (Südafrika)",
+  "case9_before_label": "⚠️ VORHER",
+  "case9_before_rating": "⭐ 4.0",
+  "case9_before_issue": "3 gefälschte 1-Sterne-Bewertungen von verärgertem Ex‑Lieferanten",
+  "case9_before_impact": "↓ 27% Hochzeitsanfragen",
+  "case9_after_label": "✅ NACHHER",
+  "case9_after_rating": "⭐ 4.9",
+  "case9_after_result": "Alle gefälschten Bewertungen entfernt",
+  "case9_after_impact": "↑ 41% Leads → +$210k zusätzlicher Umsatz",
+  "case9_foot": "⏱ 3 Werktage • 3/3 entfernt"
 },
     fr: {
   "hero-badge": "⚡ Défense des avis Google",
@@ -1388,7 +1838,97 @@
   "compare-tools-inhouse": "De base / manuel",
   "compare-tools-rg": "Automatisé + rapports hebdomadaires",
   "compare-risk-inhouse": "Non",
-  "compare-risk-rg": "✅ Audit gratuit + pilote"
+  "compare-risk-rg": "✅ Audit gratuit + pilote",
+  "case1_header": "🏨 Bali Harmony Boutique Hotel, Indonésie",
+  "case1_before_label": "⚠️ AVANT",
+  "case1_before_rating": "⭐ 3.6",
+  "case1_before_issue": "7 avis falsifiés 1 étoile d’un concurrent",
+  "case1_before_impact": "↓ 41% de conversion des réservations",
+  "case1_after_label": "✅ APRÈS",
+  "case1_after_rating": "⭐ 4.8",
+  "case1_after_result": "Les 7 faux avis supprimés",
+  "case1_after_impact": "↑ 28% de chiffre d’affaires en 2 mois",
+  "case1_foot": "⏱ 6 jours ouvrés • 89% de succès",
+  "case2_header": "🦷 SmileCare Dental, Texas (États-Unis)",
+  "case2_before_label": "⚠️ AVANT",
+  "case2_before_rating": "⭐ 3.2",
+  "case2_before_issue": "12 avis spam en 3 jours (attaque)",
+  "case2_before_impact": "↓ 70% d’appels de nouveaux patients",
+  "case2_after_label": "✅ APRÈS",
+  "case2_after_rating": "⭐ 4.6",
+  "case2_after_result": "11 supprimés, 1 légitime conservé",
+  "case2_after_impact": "↑ 3x le volume de leads en 30 jours",
+  "case2_foot": "⏱ 4 jours ouvrés • 92% de suppression",
+  "case3_header": "🍽 Tapas & Co., Barcelone (Espagne)",
+  "case3_before_label": "⚠️ AVANT",
+  "case3_before_rating": "⭐ 3.8",
+  "case3_before_issue": "Avis injurieux + 5 faux 1 étoile",
+  "case3_before_impact": "↓ 33% de réservations pour dîner",
+  "case3_after_label": "✅ APRÈS",
+  "case3_after_rating": "⭐ 4.7",
+  "case3_after_result": "Tous les avis diffamatoires supprimés",
+  "case3_after_impact": "↑ 53% de la valeur des réservations",
+  "case3_foot": "⏱ 3 jours ouvrés • 100% des avis ciblés supprimés",
+  "case4_header": "🚗 GulfDrive Rentals, Dubaï (EAU)",
+  "case4_before_label": "⚠️ AVANT",
+  "case4_before_rating": "⭐ 3.4",
+  "case4_before_issue": "10 faux avis d’un ex‑employé",
+  "case4_before_impact": "↓ 45% de réservations en ligne",
+  "case4_after_label": "✅ APRÈS",
+  "case4_after_rating": "⭐ 4.9",
+  "case4_after_result": "10 avis supprimés, note restaurée",
+  "case4_after_impact": "↑ 67% de conversion des réservations",
+  "case4_foot": "⏱ 8 jours ouvrés • 100% de succès",
+  "case5_header": "💪 MoveWell Physio, Sydney (Australie)",
+  "case5_before_label": "⚠️ AVANT",
+  "case5_before_rating": "⭐ 3.9",
+  "case5_before_issue": "6 faux avis négatifs d’un concurrent",
+  "case5_before_impact": "↓ 38% de demandes de nouveaux patients",
+  "case5_after_label": "✅ APRÈS",
+  "case5_after_rating": "⭐ 4.8",
+  "case5_after_result": "6 avis supprimés, politique Google respectée",
+  "case5_after_impact": "↑ 44% de volume de patients",
+  "case5_foot": "⏱ 5 jours ouvrés • 6/6 supprimés",
+  "case6_header": "📦 TechGadget.shop, Berlin (Allemagne)",
+  "case6_before_label": "⚠️ AVANT",
+  "case6_before_rating": "⭐ 3.5",
+  "case6_before_issue": "Campagne spam – 15 mauvais avis en 1 semaine",
+  "case6_before_impact": "↓ 52% d’ajouts au panier",
+  "case6_after_label": "✅ APRÈS",
+  "case6_after_rating": "⭐ 4.6",
+  "case6_after_result": "14 avis spam supprimés",
+  "case6_after_impact": "↑ 78% de ventes en 45 jours",
+  "case6_foot": "⏱ 7 jours ouvrés • 93% de suppression",
+  "case7_header": "🌴 Sunset Bay Resort, Phuket (Thaïlande)",
+  "case7_before_label": "⚠️ AVANT",
+  "case7_before_rating": "⭐ 3.7",
+  "case7_before_issue": "9 faux avis (clients non présentés)",
+  "case7_before_impact": "↓ 31% de réservations directes",
+  "case7_after_label": "✅ APRÈS",
+  "case7_after_rating": "⭐ 4.9",
+  "case7_after_result": "9 supprimés, note moyenne remontée à 4.9",
+  "case7_after_impact": "↑ 49% de chiffre d’affaires au trimestre suivant",
+  "case7_foot": "⏱ 6 jours ouvrés • 100% de succès",
+  "case8_header": "⚖️ LexPartners, Toronto (Canada)",
+  "case8_before_label": "⚠️ AVANT",
+  "case8_before_rating": "⭐ 3.4",
+  "case8_before_issue": "Avis diffamatoire + 4 faux 1 étoile",
+  "case8_before_impact": "↓ 62% de demandes de consultation",
+  "case8_after_label": "✅ APRÈS",
+  "case8_after_rating": "⭐ 4.8",
+  "case8_after_result": "Les 5 avis supprimés",
+  "case8_after_impact": "↑ 2,8 fois plus de nouveaux dossiers en 30 jours",
+  "case8_foot": "⏱ 4 jours ouvrés • 5/5 supprimés",
+  "case9_header": "💒 Rosewood Estate, Le Cap (Afrique du Sud)",
+  "case9_before_label": "⚠️ AVANT",
+  "case9_before_rating": "⭐ 4.0",
+  "case9_before_issue": "3 faux avis 1 étoile d’un ex‑fournisseur mécontent",
+  "case9_before_impact": "↓ 27% de demandes pour mariages",
+  "case9_after_label": "✅ APRÈS",
+  "case9_after_rating": "⭐ 4.9",
+  "case9_after_result": "Tous les faux avis supprimés",
+  "case9_after_impact": "↑ 41% de leads → +$210k de revenu supplémentaire",
+  "case9_foot": "⏱ 3 jours ouvrés • 3/3 supprimés"
 },
     ru: {
   "hero-badge": "⚡ Защита отзывов Google",
@@ -1559,7 +2099,105 @@
   "compare-tools-inhouse": "Базовый / ручной",
   "compare-tools-rg": "Автоматизированный + еженедельные отчёты",
   "compare-risk-inhouse": "Нет",
-  "compare-risk-rg": "✅ Бесплатный аудит + пилот"
+  "compare-risk-rg": "✅ Бесплатный аудит + пилот",
+  "case1_header": "🏨 Bali Harmony Boutique Hotel, Индонезия",
+  "case1_before_label": "⚠️ БЫЛО",
+  "case1_before_rating": "⭐ 3.6",
+  "case1_before_issue": "7 фейковых отзывов на 1 звезду от конкурента",
+  "case1_before_impact": "↓ 41% конверсии бронирований",
+  "case1_after_label": "✅ СТАЛО",
+  "case1_after_rating": "⭐ 4.8",
+  "case1_after_result": "Все 7 фейковых отзывов удалены",
+  "case1_after_impact": "↑ 28% выручки за 2 месяца",
+  "case1_foot": "⏱ 6 рабочих дней • 89% успеха",
+  
+  "case2_header": "🦷 SmileCare Dental, Техас (США)",
+  "case2_before_label": "⚠️ БЫЛО",
+  "case2_before_rating": "⭐ 3.2",
+  "case2_before_issue": "12 спам-отзывов за 3 дня (атака)",
+  "case2_before_impact": "↓ 70% звонков новых пациентов",
+  "case2_after_label": "✅ СТАЛО",
+  "case2_after_rating": "⭐ 4.6",
+  "case2_after_result": "11 удалено, 1 легитимный оставлен",
+  "case2_after_impact": "↑ в 3 раза больше лидов за 30 дней",
+  "case2_foot": "⏱ 4 рабочих дня • 92% удаления",
+  
+  "case3_header": "🍽 Tapas & Co., Барселона (Испания)",
+  "case3_before_label": "⚠️ БЫЛО",
+  "case3_before_rating": "⭐ 3.8",
+  "case3_before_issue": "Оскорбительный отзыв + 5 фейковых на 1 звезду",
+  "case3_before_impact": "↓ 33% вечерних бронирований",
+  "case3_after_label": "✅ СТАЛО",
+  "case3_after_rating": "⭐ 4.7",
+  "case3_after_result": "Все порочащие отзывы удалены",
+  "case3_after_impact": "↑ 53% стоимости бронирований",
+  "case3_foot": "⏱ 3 рабочих дня • 100% целевых удалено",
+  
+  "case4_header": "🚗 GulfDrive Rentals, Дубай (ОАЭ)",
+  "case4_before_label": "⚠️ БЫЛО",
+  "case4_before_rating": "⭐ 3.4",
+  "case4_before_issue": "10 фейковых отзывов от бывшего сотрудника",
+  "case4_before_impact": "↓ 45% онлайн-бронирований",
+  "case4_after_label": "✅ СТАЛО",
+  "case4_after_rating": "⭐ 4.9",
+  "case4_after_result": "10 отзывов удалено, рейтинг восстановлен",
+  "case4_after_impact": "↑ 67% конверсии бронирований",
+  "case4_foot": "⏱ 8 рабочих дней • 100% успеха",
+  
+  "case5_header": "💪 MoveWell Physio, Сидней (Австралия)",
+  "case5_before_label": "⚠️ БЫЛО",
+  "case5_before_rating": "⭐ 3.9",
+  "case5_before_issue": "6 фейковых негативных отзывов от конкурента",
+  "case5_before_impact": "↓ 38% запросов новых пациентов",
+  "case5_after_label": "✅ СТАЛО",
+  "case5_after_rating": "⭐ 4.8",
+  "case5_after_result": "6 отзывов удалено, политика Google соблюдена",
+  "case5_after_impact": "↑ 44% потока пациентов",
+  "case5_foot": "⏱ 5 рабочих дней • 6/6 удалено",
+  
+  "case6_header": "📦 TechGadget.shop, Берлин (Германия)",
+  "case6_before_label": "⚠️ БЫЛО",
+  "case6_before_rating": "⭐ 3.5",
+  "case6_before_issue": "Спам-кампания – 15 плохих отзывов за 1 неделю",
+  "case6_before_impact": "↓ 52% добавлений в корзину",
+  "case6_after_label": "✅ СТАЛО",
+  "case6_after_rating": "⭐ 4.6",
+  "case6_after_result": "14 спам-отзывов удалено",
+  "case6_after_impact": "↑ 78% продаж за 45 дней",
+  "case6_foot": "⏱ 7 рабочих дней • 93% удаления",
+  
+  "case7_header": "🌴 Sunset Bay Resort, Пхукет (Таиланд)",
+  "case7_before_label": "⚠️ БЫЛО",
+  "case7_before_rating": "⭐ 3.7",
+  "case7_before_issue": "9 фейковых отзывов (гости не заселялись)",
+  "case7_before_impact": "↓ 31% прямых бронирований",
+  "case7_after_label": "✅ СТАЛО",
+  "case7_after_rating": "⭐ 4.9",
+  "case7_after_result": "9 удалено, средний рейтинг поднят до 4.9",
+  "case7_after_impact": "↑ 49% выручки в следующем квартале",
+  "case7_foot": "⏱ 6 рабочих дней • 100% успеха",
+  
+  "case8_header": "⚖️ LexPartners, Торонто (Канада)",
+  "case8_before_label": "⚠️ БЫЛО",
+  "case8_before_rating": "⭐ 3.4",
+  "case8_before_issue": "Порочащий отзыв + 4 фейковых на 1 звезду",
+  "case8_before_impact": "↓ 62% запросов на консультации",
+  "case8_after_label": "✅ СТАЛО",
+  "case8_after_rating": "⭐ 4.8",
+  "case8_after_result": "Все 5 отзывов удалены",
+  "case8_after_impact": "↑ в 2.8 раза больше новых дел за 30 дней",
+  "case8_foot": "⏱ 4 рабочих дня • 5/5 удалено",
+  
+  "case9_header": "💒 Rosewood Estate, Кейптаун (ЮАР)",
+  "case9_before_label": "⚠️ БЫЛО",
+  "case9_before_rating": "⭐ 4.0",
+  "case9_before_issue": "3 фейковых отзыва на 1 звезду от обиженного бывшего вендора",
+  "case9_before_impact": "↓ 27% запросов на свадьбы",
+  "case9_after_label": "✅ СТАЛО",
+  "case9_after_rating": "⭐ 4.9",
+  "case9_after_result": "Все фейковые отзывы удалены",
+  "case9_after_impact": "↑ 41% лидов → дополнительная выручка $210k+",
+  "case9_foot": "ⱱ 3 рабочих дня • 3/3 удалено"
 },
     vi: {
   "hero-badge": "⚡ Bảo vệ đánh giá Google",
@@ -1730,7 +2368,97 @@
   "compare-tools-inhouse": "Cơ bản / thủ công",
   "compare-tools-rg": "Tự động + báo cáo hàng tuần",
   "compare-risk-inhouse": "Không",
-  "compare-risk-rg": "✅ Kiểm tra miễn phí + thí điểm"
+  "compare-risk-rg": "✅ Kiểm tra miễn phí + thí điểm",
+  "case1_header": "🏨 Bali Harmony Boutique Hotel, Indonesia",
+  "case1_before_label": "⚠️ TRƯỚC",
+  "case1_before_rating": "⭐ 3.6",
+  "case1_before_issue": "7 đánh giá giả 1 sao từ đối thủ",
+  "case1_before_impact": "↓ 41% tỷ lệ chuyển đổi đặt phòng",
+  "case1_after_label": "✅ SAU",
+  "case1_after_rating": "⭐ 4.8",
+  "case1_after_result": "Xóa toàn bộ 7 đánh giá giả",
+  "case1_after_impact": "↑ 28% doanh thu trong 2 tháng",
+  "case1_foot": "⏱ 6 ngày làm việc • 89% tỷ lệ thành công",
+  "case2_header": "🦷 SmileCare Dental, Texas (Hoa Kỳ)",
+  "case2_before_label": "⚠️ TRƯỚC",
+  "case2_before_rating": "⭐ 3.2",
+  "case2_before_issue": "12 đánh giá spam trong 3 ngày (tấn công)",
+  "case2_before_impact": "↓ 70% cuộc gọi bệnh nhân mới",
+  "case2_after_label": "✅ SAU",
+  "case2_after_rating": "⭐ 4.6",
+  "case2_after_result": "Xóa 11, giữ lại 1 hợp lệ",
+  "case2_after_impact": "↑ gấp 3 lần lượng khách hàng tiềm năng trong 30 ngày",
+  "case2_foot": "⏱ 4 ngày làm việc • 92% tỷ lệ xóa",
+  "case3_header": "🍽 Tapas & Co., Barcelona (Tây Ban Nha)",
+  "case3_before_label": "⚠️ TRƯỚC",
+  "case3_before_rating": "⭐ 3.8",
+  "case3_before_issue": "Đánh giá xúc phạm + 5 đánh giá giả 1 sao",
+  "case3_before_impact": "↓ 33% đặt bàn tối",
+  "case3_after_label": "✅ SAU",
+  "case3_after_rating": "⭐ 4.7",
+  "case3_after_result": "Xóa toàn bộ đánh giá bôi nhọ",
+  "case3_after_impact": "↑ 53% giá trị đặt phòng",
+  "case3_foot": "⏱ 3 ngày làm việc • 100% mục tiêu bị xóa",
+  "case4_header": "🚗 GulfDrive Rentals, Dubai (UAE)",
+  "case4_before_label": "⚠️ TRƯỚC",
+  "case4_before_rating": "⭐ 3.4",
+  "case4_before_issue": "10 đánh giá giả từ cựu nhân viên",
+  "case4_before_impact": "↓ 45% đặt xe trực tuyến",
+  "case4_after_label": "✅ SAU",
+  "case4_after_rating": "⭐ 4.9",
+  "case4_after_result": "Xóa 10 đánh giá, khôi phục xếp hạng",
+  "case4_after_impact": "↑ 67% tỷ lệ chuyển đổi đặt phòng",
+  "case4_foot": "⏱ 8 ngày làm việc • 100% thành công",
+  "case5_header": "💪 MoveWell Physio, Sydney (Úc)",
+  "case5_before_label": "⚠️ TRƯỚC",
+  "case5_before_rating": "⭐ 3.9",
+  "case5_before_issue": "6 đánh giá tiêu cực giả từ đối thủ",
+  "case5_before_impact": "↓ 38% yêu cầu bệnh nhân mới",
+  "case5_after_label": "✅ SAU",
+  "case5_after_rating": "⭐ 4.8",
+  "case5_after_result": "Xóa 6 đánh giá, tuân thủ chính sách Google",
+  "case5_after_impact": "↑ 44% lượng bệnh nhân",
+  "case5_foot": "⏱ 5 ngày làm việc • 6/6 bị xóa",
+  "case6_header": "📦 TechGadget.shop, Berlin (Đức)",
+  "case6_before_label": "⚠️ TRƯỚC",
+  "case6_before_rating": "⭐ 3.5",
+  "case6_before_issue": "Chiến dịch spam – 15 đánh giá xấu trong 1 tuần",
+  "case6_before_impact": "↓ 52% tỷ lệ thêm vào giỏ hàng",
+  "case6_after_label": "✅ SAU",
+  "case6_after_rating": "⭐ 4.6",
+  "case6_after_result": "Xóa 14 đánh giá spam",
+  "case6_after_impact": "↑ 78% doanh số trong 45 ngày",
+  "case6_foot": "⏱ 7 ngày làm việc • 93% tỷ lệ xóa",
+  "case7_header": "🌴 Sunset Bay Resort, Phuket (Thái Lan)",
+  "case7_before_label": "⚠️ TRƯỚC",
+  "case7_before_rating": "⭐ 3.7",
+  "case7_before_issue": "9 đánh giá giả (khách không đến)",
+  "case7_before_impact": "↓ 31% đặt phòng trực tiếp",
+  "case7_after_label": "✅ SAU",
+  "case7_after_rating": "⭐ 4.9",
+  "case7_after_result": "Xóa 9, điểm trung bình tăng lên 4.9",
+  "case7_after_impact": "↑ 49% doanh thu quý tiếp theo",
+  "case7_foot": "⏱ 6 ngày làm việc • 100% thành công",
+  "case8_header": "⚖️ LexPartners, Toronto (Canada)",
+  "case8_before_label": "⚠️ TRƯỚC",
+  "case8_before_rating": "⭐ 3.4",
+  "case8_before_issue": "Đánh giá bôi nhọ + 4 đánh giá giả 1 sao",
+  "case8_before_impact": "↓ 62% yêu cầu tư vấn",
+  "case8_after_label": "✅ SAU",
+  "case8_after_rating": "⭐ 4.8",
+  "case8_after_result": "Xóa toàn bộ 5 đánh giá",
+  "case8_after_impact": "↑ gấp 2,8 lần số vụ việc mới trong 30 ngày",
+  "case8_foot": "⏱ 4 ngày làm việc • 5/5 bị xóa",
+  "case9_header": "💒 Rosewood Estate, Cape Town (Nam Phi)",
+  "case9_before_label": "⚠️ TRƯỚC",
+  "case9_before_rating": "⭐ 4.0",
+  "case9_before_issue": "3 đánh giá giả 1 sao từ nhà cung cấp cũ bất mãn",
+  "case9_before_impact": "↓ 27% yêu cầu tổ chức đám cưới",
+  "case9_after_label": "✅ SAU",
+  "case9_after_rating": "⭐ 4.9",
+  "case9_after_result": "Xóa toàn bộ đánh giá giả",
+  "case9_after_impact": "↑ 41% khách hàng tiềm năng → +$210k doanh thu bổ sung",
+  "case9_foot": "⏱ 3 ngày làm việc • 3/3 bị xóa"
 },
     pt: {
   "hero-badge": "⚡ Defesa de Avaliações do Google",
@@ -1901,7 +2629,97 @@
   "compare-tools-inhouse": "Básico / manual",
   "compare-tools-rg": "Automatizado + relatórios semanais",
   "compare-risk-inhouse": "Não",
-  "compare-risk-rg": "✅ Auditoria gratuita + piloto"
+  "compare-risk-rg": "✅ Auditoria gratuita + piloto",
+  "case1_header": "🏨 Bali Harmony Boutique Hotel, Indonésia",
+  "case1_before_label": "⚠️ ANTES",
+  "case1_before_rating": "⭐ 3.6",
+  "case1_before_issue": "7 avaliações falsas de 1 estrela de concorrente",
+  "case1_before_impact": "↓ 41% de conversão de reservas",
+  "case1_after_label": "✅ DEPOIS",
+  "case1_after_rating": "⭐ 4.8",
+  "case1_after_result": "Todas as 7 avaliações falsas removidas",
+  "case1_after_impact": "↑ 28% de receita em 2 meses",
+  "case1_foot": "⏱ 6 dias úteis • 89% de sucesso",
+  "case2_header": "🦷 SmileCare Dental, Texas (EUA)",
+  "case2_before_label": "⚠️ ANTES",
+  "case2_before_rating": "⭐ 3.2",
+  "case2_before_issue": "12 avaliações spam em 3 dias (ataque)",
+  "case2_before_impact": "↓ 70% de chamadas de novos pacientes",
+  "case2_after_label": "✅ DEPOIS",
+  "case2_after_rating": "⭐ 4.6",
+  "case2_after_result": "11 removidas, 1 legítima mantida",
+  "case2_after_impact": "↑ 3x volume de leads em 30 dias",
+  "case2_foot": "⏱ 4 dias úteis • 92% de remoção",
+  "case3_header": "🍽 Tapas & Co., Barcelona (Espanha)",
+  "case3_before_label": "⚠️ ANTES",
+  "case3_before_rating": "⭐ 3.8",
+  "case3_before_issue": "Avaliação ofensiva + 5 falsas de 1 estrela",
+  "case3_before_impact": "↓ 33% de reservas para jantar",
+  "case3_after_label": "✅ DEPOIS",
+  "case3_after_rating": "⭐ 4.7",
+  "case3_after_result": "Todas as avaliações difamatórias removidas",
+  "case3_after_impact": "↑ 53% do valor das reservas",
+  "case3_foot": "⏱ 3 dias úteis • 100% das visadas removidas",
+  "case4_header": "🚗 GulfDrive Rentals, Dubai (EAU)",
+  "case4_before_label": "⚠️ ANTES",
+  "case4_before_rating": "⭐ 3.4",
+  "case4_before_issue": "10 avaliações falsas de ex‑funcionário",
+  "case4_before_impact": "↓ 45% de reservas online",
+  "case4_after_label": "✅ DEPOIS",
+  "case4_after_rating": "⭐ 4.9",
+  "case4_after_result": "10 avaliações removidas, classificação restaurada",
+  "case4_after_impact": "↑ 67% de conversão de reservas",
+  "case4_foot": "⏱ 8 dias úteis • 100% de sucesso",
+  "case5_header": "💪 MoveWell Physio, Sydney (Austrália)",
+  "case5_before_label": "⚠️ ANTES",
+  "case5_before_rating": "⭐ 3.9",
+  "case5_before_issue": "6 avaliações negativas falsas de concorrente",
+  "case5_before_impact": "↓ 38% de consultas de novos pacientes",
+  "case5_after_label": "✅ DEPOIS",
+  "case5_after_rating": "⭐ 4.8",
+  "case5_after_result": "6 avaliações removidas, política do Google respeitada",
+  "case5_after_impact": "↑ 44% de volume de pacientes",
+  "case5_foot": "⏱ 5 dias úteis • 6/6 removidas",
+  "case6_header": "📦 TechGadget.shop, Berlim (Alemanha)",
+  "case6_before_label": "⚠️ ANTES",
+  "case6_before_rating": "⭐ 3.5",
+  "case6_before_issue": "Campanha de spam – 15 avaliações ruins em 1 semana",
+  "case6_before_impact": "↓ 52% de taxa de adição ao carrinho",
+  "case6_after_label": "✅ DEPOIS",
+  "case6_after_rating": "⭐ 4.6",
+  "case6_after_result": "14 avaliações spam removidas",
+  "case6_after_impact": "↑ 78% de vendas em 45 dias",
+  "case6_foot": "⏱ 7 dias úteis • 93% de remoção",
+  "case7_header": "🌴 Sunset Bay Resort, Phuket (Tailândia)",
+  "case7_before_label": "⚠️ ANTES",
+  "case7_before_rating": "⭐ 3.7",
+  "case7_before_issue": "9 avaliações falsas (hóspedes que não compareceram)",
+  "case7_before_impact": "↓ 31% de reservas diretas",
+  "case7_after_label": "✅ DEPOIS",
+  "case7_after_rating": "⭐ 4.9",
+  "case7_after_result": "9 removidas, média subiu para 4.9",
+  "case7_after_impact": "↑ 49% de receita no próximo trimestre",
+  "case7_foot": "⏱ 6 dias úteis • 100% de sucesso",
+  "case8_header": "⚖️ LexPartners, Toronto (Canadá)",
+  "case8_before_label": "⚠️ ANTES",
+  "case8_before_rating": "⭐ 3.4",
+  "case8_before_issue": "Avaliação difamatória + 4 falsas de 1 estrela",
+  "case8_before_impact": "↓ 62% de pedidos de consultoria",
+  "case8_after_label": "✅ DEPOIS",
+  "case8_after_rating": "⭐ 4.8",
+  "case8_after_result": "Todas as 5 avaliações removidas",
+  "case8_after_impact": "↑ 2,8x mais novos casos em 30 dias",
+  "case8_foot": "⏱ 4 dias úteis • 5/5 removidas",
+  "case9_header": "💒 Rosewood Estate, Cidade do Cabo (África do Sul)",
+  "case9_before_label": "⚠️ ANTES",
+  "case9_before_rating": "⭐ 4.0",
+  "case9_before_issue": "3 avaliações falsas de 1 estrela de ex‑fornecedor irritado",
+  "case9_before_impact": "↓ 27% de consultas para casamentos",
+  "case9_after_label": "✅ DEPOIS",
+  "case9_after_rating": "⭐ 4.9",
+  "case9_after_result": "Todas as avaliações falsas removidas",
+  "case9_after_impact": "↑ 41% de leads → +$210k de receita extra",
+  "case9_foot": "⏱ 3 dias úteis • 3/3 removidas"
   },
     tr: {
   "hero-badge": "⚡ Google Yorumları Savunması",
@@ -2073,6 +2891,96 @@
   "compare-tools-rg": "Otomatik + haftalık raporlar",
   "compare-risk-inhouse": "Hayır",
   "compare-risk-rg": "✅ Ücretsiz denetim + pilot",
+  "case1_header": "🏨 Bali Harmony Butik Oteli, Endonezya",
+  "case1_before_label": "⚠️ ÖNCE",
+  "case1_before_rating": "⭐ 3.6",
+  "case1_before_issue": "Rakipten 7 sahte 1 yıldızlı yorum",
+  "case1_before_impact": "↓ 41% rezervasyon dönüşümü",
+  "case1_after_label": "✅ SONRA",
+  "case1_after_rating": "⭐ 4.8",
+  "case1_after_result": "7 sahte yorumun tamamı kaldırıldı",
+  "case1_after_impact": "↑ 28% gelir (2 ayda)",
+  "case1_foot": "⏱ 6 iş günü • %89 başarı oranı",
+  "case2_header": "🦷 SmileCare Dental, Teksas (ABD)",
+  "case2_before_label": "⚠️ ÖNCE",
+  "case2_before_rating": "⭐ 3.2",
+  "case2_before_issue": "3 günde 12 spam yorum (saldırı)",
+  "case2_before_impact": "↓ 70% yeni hasta aramaları",
+  "case2_after_label": "✅ SONRA",
+  "case2_after_rating": "⭐ 4.6",
+  "case2_after_result": "11 kaldırıldı, 1 meşru tutuldu",
+  "case2_after_impact": "↑ 30 günde 3 kat potansiyel müşteri hacmi",
+  "case2_foot": "⏱ 4 iş günü • %92 kaldırma oranı",
+  "case3_header": "🍽 Tapas & Co., Barselona (İspanya)",
+  "case3_before_label": "⚠️ ÖNCE",
+  "case3_before_rating": "⭐ 3.8",
+  "case3_before_issue": "Hakaret içeren yorum + 5 sahte 1 yıldız",
+  "case3_before_impact": "↓ 33% akşam yemeği rezervasyonları",
+  "case3_after_label": "✅ SONRA",
+  "case3_after_rating": "⭐ 4.7",
+  "case3_after_result": "Tüm itibar zedeleyici yorumlar kaldırıldı",
+  "case3_after_impact": "↑ 53% rezervasyon değeri",
+  "case3_foot": "⏱ 3 iş günü • Hedeflenenlerin %100'ü kaldırıldı",
+  "case4_header": "🚗 GulfDrive Rentals, Dubai (BAE)",
+  "case4_before_label": "⚠️ ÖNCE",
+  "case4_before_rating": "⭐ 3.4",
+  "case4_before_issue": "Eski çalışandan 10 sahte yorum",
+  "case4_before_impact": "↓ 45% çevrimiçi rezervasyon",
+  "case4_after_label": "✅ SONRA",
+  "case4_after_rating": "⭐ 4.9",
+  "case4_after_result": "10 yorum kaldırıldı, puan geri geldi",
+  "case4_after_impact": "↑ 67% rezervasyon dönüşümü",
+  "case4_foot": "⏱ 8 iş günü • %100 başarı",
+  "case5_header": "💪 MoveWell Physio, Sidney (Avustralya)",
+  "case5_before_label": "⚠️ ÖNCE",
+  "case5_before_rating": "⭐ 3.9",
+  "case5_before_issue": "Rakipten 6 sahte olumsuz yorum",
+  "case5_before_impact": "↓ 38% yeni hasta talepleri",
+  "case5_after_label": "✅ SONRA",
+  "case5_after_rating": "⭐ 4.8",
+  "case5_after_result": "6 yorum kaldırıldı, Google politikasına uyuldu",
+  "case5_after_impact": "↑ 44% hasta hacmi",
+  "case5_foot": "⏱ 5 iş günü • 6/6 kaldırıldı",
+  "case6_header": "📦 TechGadget.shop, Berlin (Almanya)",
+  "case6_before_label": "⚠️ ÖNCE",
+  "case6_before_rating": "⭐ 3.5",
+  "case6_before_issue": "Spam kampanyası – 1 haftada 15 kötü yorum",
+  "case6_before_impact": "↓ 52% sepete ekleme oranı",
+  "case6_after_label": "✅ SONRA",
+  "case6_after_rating": "⭐ 4.6",
+  "case6_after_result": "14 spam yorum kaldırıldı",
+  "case6_after_impact": "↑ 78% satış (45 günde)",
+  "case6_foot": "⏱ 7 iş günü • %93 kaldırma oranı",
+  "case7_header": "🌴 Sunset Bay Resort, Phuket (Tayland)",
+  "case7_before_label": "⚠️ ÖNCE",
+  "case7_before_rating": "⭐ 3.7",
+  "case7_before_issue": "9 sahte yorum (gelmeyen misafirler)",
+  "case7_before_impact": "↓ 31% doğrudan rezervasyon",
+  "case7_after_label": "✅ SONRA",
+  "case7_after_rating": "⭐ 4.9",
+  "case7_after_result": "9 kaldırıldı, ortalama puan 4.9'a yükseldi",
+  "case7_after_impact": "↑ 49% gelecek çeyrek geliri",
+  "case7_foot": "⏱ 6 iş günü • %100 başarı",
+  "case8_header": "⚖️ LexPartners, Toronto (Kanada)",
+  "case8_before_label": "⚠️ ÖNCE",
+  "case8_before_rating": "⭐ 3.4",
+  "case8_before_issue": "İtibar zedeleyici yorum + 4 sahte 1 yıldız",
+  "case8_before_impact": "↓ 62% danışmanlık talepleri",
+  "case8_after_label": "✅ SONRA",
+  "case8_after_rating": "⭐ 4.8",
+  "case8_after_result": "5 yorumun tamamı kaldırıldı",
+  "case8_after_impact": "↑ 30 günde 2,8 kat yeni dava",
+  "case8_foot": "⏱ 4 iş günü • 5/5 kaldırıldı",
+  "case9_header": "💒 Rosewood Estate, Cape Town (Güney Afrika)",
+  "case9_before_label": "⚠️ ÖNCE",
+  "case9_before_rating": "⭐ 4.0",
+  "case9_before_issue": "Kızgın eski tedarikçiden 3 sahte 1 yıldız",
+  "case9_before_impact": "↓ 27% düğün talepleri",
+  "case9_after_label": "✅ SONRA",
+  "case9_after_rating": "⭐ 4.9",
+  "case9_after_result": "Tüm sahte yorumlar kaldırıldı",
+  "case9_after_impact": "↑ 41% potansiyel müşteri → +210 bin $ ek gelir",
+  "case9_foot": "⏱ 3 iş günü • 3/3 kaldırıldı"
   },
     ar: {
   "hero-badge": "⚡ الدفاع عن تقييمات جوجل",
@@ -2243,7 +3151,97 @@
   "compare-tools-inhouse": "أساسي / يدوي",
   "compare-tools-rg": "آلي + تقارير أسبوعية",
   "compare-risk-inhouse": "لا",
-  "compare-risk-rg": "✅ تدقيق مجاني + تجريبي"
+  "compare-risk-rg": "✅ تدقيق مجاني + تجريبي",
+  "case1_header": "🏨 فندق بالي هارموني بوتيك، إندونيسيا",
+  "case1_before_label": "⚠️ قبل",
+  "case1_before_rating": "⭐ 3.6",
+  "case1_before_issue": "7 تقييمات مزيفة بنجمة واحدة من منافس",
+  "case1_before_impact": "↓ 41% من تحويل الحجوزات",
+  "case1_after_label": "✅ بعد",
+  "case1_after_rating": "⭐ 4.8",
+  "case1_after_result": "تمت إزالة جميع التقييمات المزيفة السبعة",
+  "case1_after_impact": "↑ 28% من الإيرادات في شهرين",
+  "case1_foot": "⏱ 6 أيام عمل • 89% معدل نجاح",
+  "case2_header": "🦷 سمايل كير دينتال، تكساس (الولايات المتحدة)",
+  "case2_before_label": "⚠️ قبل",
+  "case2_before_rating": "⭐ 3.2",
+  "case2_before_issue": "12 تقييماً غير مرغوب فيه في 3 أيام (هجوم)",
+  "case2_before_impact": "↓ 70% من مكالمات المرضى الجدد",
+  "case2_after_label": "✅ بعد",
+  "case2_after_rating": "⭐ 4.6",
+  "case2_after_result": "تمت إزالة 11، والاحتفاظ بـ 1 شرعي",
+  "case2_after_impact": "↑ 3 أضعاف حجم العملاء المحتملين في 30 يوماً",
+  "case2_foot": "⏱ 4 أيام عمل • 92% معدل إزالة",
+  "case3_header": "🍽 تاباس آند كو، برشلونة (إسبانيا)",
+  "case3_before_label": "⚠️ قبل",
+  "case3_before_rating": "⭐ 3.8",
+  "case3_before_issue": "تقييم مسيء + 5 تقييمات مزيفة بنجمة واحدة",
+  "case3_before_impact": "↓ 33% من حجوزات العشاء",
+  "case3_after_label": "✅ بعد",
+  "case3_after_rating": "⭐ 4.7",
+  "case3_after_result": "تمت إزالة جميع التقييمات التشهيرية",
+  "case3_after_impact": "↑ 53% من قيمة الحجوزات",
+  "case3_foot": "⏱ 3 أيام عمل • تمت إزالة 100% من المستهدفة",
+  "case4_header": "🚗 جلف درايف لتأجير السيارات، دبي (الإمارات)",
+  "case4_before_label": "⚠️ قبل",
+  "case4_before_rating": "⭐ 3.4",
+  "case4_before_issue": "10 تقييمات مزيفة من موظف سابق",
+  "case4_before_impact": "↓ 45% من الحجوزات عبر الإنترنت",
+  "case4_after_label": "✅ بعد",
+  "case4_after_rating": "⭐ 4.9",
+  "case4_after_result": "تمت إزالة 10 تقييمات، واستعادة التقييم",
+  "case4_after_impact": "↑ 67% من تحويل الحجوزات",
+  "case4_foot": "⏱ 8 أيام عمل • 100% نجاح",
+  "case5_header": "💪 موف ويل فيزيو، سيدني (أستراليا)",
+  "case5_before_label": "⚠️ قبل",
+  "case5_before_rating": "⭐ 3.9",
+  "case5_before_issue": "6 تقييمات سلبية مزيفة من منافس",
+  "case5_before_impact": "↓ 38% من استفسارات المرضى الجدد",
+  "case5_after_label": "✅ بعد",
+  "case5_after_rating": "⭐ 4.8",
+  "case5_after_result": "تمت إزالة 6 تقييمات، مع الالتزام بسياسة Google",
+  "case5_after_impact": "↑ 44% من حجم المرضى",
+  "case5_foot": "⏱ 5 أيام عمل • 6/6 تمت الإزالة",
+  "case6_header": "📦 تيك جادجيت شوب، برلين (ألمانيا)",
+  "case6_before_label": "⚠️ قبل",
+  "case6_before_rating": "⭐ 3.5",
+  "case6_before_issue": "حملة بريد عشوائي – 15 تقييماً سيئاً في أسبوع واحد",
+  "case6_before_impact": "↓ 52% من معدل الإضافة إلى السلة",
+  "case6_after_label": "✅ بعد",
+  "case6_after_rating": "⭐ 4.6",
+  "case6_after_result": "تمت إزالة 14 تقييماً غير مرغوب فيه",
+  "case6_after_impact": "↑ 78% من المبيعات خلال 45 يوماً",
+  "case6_foot": "⏱ 7 أيام عمل • 93% معدل إزالة",
+  "case7_header": "🌴 منتجع سانست باي، بوكيت (تايلاند)",
+  "case7_before_label": "⚠️ قبل",
+  "case7_before_rating": "⭐ 3.7",
+  "case7_before_issue": "9 تقييمات مزيفة (ضيوف لم يحضروا)",
+  "case7_before_impact": "↓ 31% من الحجوزات المباشرة",
+  "case7_after_label": "✅ بعد",
+  "case7_after_rating": "⭐ 4.9",
+  "case7_after_result": "تمت إزالة 9، وارتفع المتوسط إلى 4.9",
+  "case7_after_impact": "↑ 49% من الإيرادات في الربع التالي",
+  "case7_foot": "⏱ 6 أيام عمل • 100% نجاح",
+  "case8_header": "⚖️ ليكس بارتنرز، تورونتو (كندا)",
+  "case8_before_label": "⚠️ قبل",
+  "case8_before_rating": "⭐ 3.4",
+  "case8_before_issue": "تقييم تشهيري + 4 تقييمات مزيفة بنجمة واحدة",
+  "case8_before_impact": "↓ 62% من طلبات الاستشارات",
+  "case8_after_label": "✅ بعد",
+  "case8_after_rating": "⭐ 4.8",
+  "case8_after_result": "تمت إزالة جميع التقييمات الخمسة",
+  "case8_after_impact": "↑ 2.8 ضعف عدد القضايا الجديدة في 30 يوماً",
+  "case8_foot": "⏱ 4 أيام عمل • 5/5 تمت الإزالة",
+  "case9_header": "💒 روزوود إستيت، كيب تاون (جنوب إفريقيا)",
+  "case9_before_label": "⚠️ قبل",
+  "case9_before_rating": "⭐ 4.0",
+  "case9_before_issue": "3 تقييمات مزيفة بنجمة واحدة من مورد سابق ساخط",
+  "case9_before_impact": "↓ 27% من استفسارات حفلات الزفاف",
+  "case9_after_label": "✅ بعد",
+  "case9_after_rating": "⭐ 4.9",
+  "case9_after_result": "تمت إزالة جميع التقييمات المزيفة",
+  "case9_after_impact": "↑ 41% من العملاء المحتملين → +210 ألف دولار إيرادات إضافية",
+  "case9_foot": "⏱ 3 أيام عمل • 3/3 تمت الإزالة"
 }
   };
 
