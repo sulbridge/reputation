@@ -696,7 +696,7 @@
 
   <div class="before-after-grid">
     
-    <!-- Кейс 1 -->
+    
     <div class="before-after-card">
       <div class="case-header" data-i18n="case1_header">🏨 Bali Harmony Boutique Hotel, Indonesia</div>
       <div class="before-after-row">
@@ -716,7 +716,7 @@
       <div class="case-foot" data-i18n="case1_foot">⏱ 6 business days • 89% success rate</div>
     </div>
 
-    <!-- Кейс 2 -->
+    
     <div class="before-after-card">
       <div class="case-header" data-i18n="case2_header">🦷 SmileCare Dental, Texas (USA)</div>
       <div class="before-after-row">
@@ -736,7 +736,7 @@
       <div class="case-foot" data-i18n="case2_foot">⏱ 4 business days • 92% removal rate</div>
     </div>
 
-    <!-- Кейс 3 -->
+    
     <div class="before-after-card">
       <div class="case-header" data-i18n="case3_header">🍽 Tapas & Co., Barcelona (Spain)</div>
       <div class="before-after-row">
@@ -756,7 +756,7 @@
       <div class="case-foot" data-i18n="case3_foot">⏱ 3 business days • 100% of targeted removed</div>
     </div>
 
-    <!-- Кейс 4 -->
+    
     <div class="before-after-card">
       <div class="case-header" data-i18n="case4_header">🚗 GulfDrive Rentals, Dubai (UAE)</div>
       <div class="before-after-row">
@@ -776,7 +776,7 @@
       <div class="case-foot" data-i18n="case4_foot">⏱ 8 business days • 100% success</div>
     </div>
 
-    <!-- Кейс 5 -->
+    
     <div class="before-after-card">
       <div class="case-header" data-i18n="case5_header">💪 MoveWell Physio, Sydney (Australia)</div>
       <div class="before-after-row">
@@ -796,7 +796,7 @@
       <div class="case-foot" data-i18n="case5_foot">⏱ 5 business days • 6/6 removed</div>
     </div>
 
-    <!-- Кейс 6 -->
+    
     <div class="before-after-card">
       <div class="case-header" data-i18n="case6_header">📦 TechGadget.shop, Berlin (Germany)</div>
       <div class="before-after-row">
@@ -816,7 +816,7 @@
       <div class="case-foot" data-i18n="case6_foot">⏱ 7 business days • 93% removal rate</div>
     </div>
 
-    <!-- Кейс 7 -->
+    
     <div class="before-after-card">
       <div class="case-header" data-i18n="case7_header">🌴 Sunset Bay Resort, Phuket (Thailand)</div>
       <div class="before-after-row">
@@ -836,7 +836,7 @@
       <div class="case-foot" data-i18n="case7_foot">⏱ 6 business days • 100% success</div>
     </div>
 
-    <!-- Кейс 8 -->
+    
     <div class="before-after-card">
       <div class="case-header" data-i18n="case8_header">⚖️ LexPartners, Toronto (Canada)</div>
       <div class="before-after-row">
@@ -856,7 +856,7 @@
       <div class="case-foot" data-i18n="case8_foot">⏱ 4 business days • 5/5 removed</div>
     </div>
 
-    <!-- Кейс 9 -->
+   
     <div class="before-after-card">
       <div class="case-header" data-i18n="case9_header">💒 Rosewood Estate, Cape Town (SA)</div>
       <div class="before-after-row">
@@ -3312,8 +3312,20 @@
   const statsSection = document.querySelector('.hero-stats');
   if (statsSection) observer.observe(statsSection);
 
+  function initLanguage() {
   const detected = detectBrowserLanguage();
   setLanguage(detected);
+}
+
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLanguage);
+} else {
+  initLanguage();
+}
+
+
+window.addEventListener('load', initLanguage);
 </script>
 
 <div class="floating-buttons">
