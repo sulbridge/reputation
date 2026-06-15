@@ -314,22 +314,7 @@
     .btn-zalo {
         animation-duration: 2.2s;
     }
-    @media (max-width: 768px) {
-        .floating-buttons {
-            bottom: 16px;
-            right: 16px;
-            gap: 12px;
-        }
-        .floating-btn {
-            width: 50px;
-            height: 50px;
-            font-size: 24px;
-        }
-        .zalo-icon svg {
-            width: 28px;
-            height: 28px;
-        }
-      /* Before/After cases grid */
+/* Before/After cases grid */
         .before-after-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -413,9 +398,23 @@
           padding-top: 8px;
           border-top: 1px solid #eef2ff;
         }
-    }
     
     @media (max-width: 768px) {
+        .floating-buttons {
+            bottom: 16px;
+            right: 16px;
+            gap: 12px;
+        }
+        .floating-btn {
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+        }
+        .zalo-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+      
         .hero h1 { font-size: 2rem; }
         .navbar { flex-direction: column; align-items: center; gap: 12px; }
         .logo { font-size: 1.5rem; }
