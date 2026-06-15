@@ -231,8 +231,8 @@
     }
     .footer-lang-switch {
         display: grid;
-        grid-template-columns: repeat(3, auto);
-        gap: 6px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
         justify-items: center;
         margin-top: 8px;
     }
@@ -362,6 +362,24 @@
             width: 60px;
         }
     }
+
+    
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+    }
+    .footer-lang-switch {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        justify-items: center;
+    }
+    .footer-lang-switch .lang-btn {
+        width: auto;
+        padding: 4px 0;
+    }
+}
     
     @media (max-width: 640px) {
         .one-time-content {
