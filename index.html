@@ -2281,15 +2281,6 @@ footer {
   margin-top: 8px;
 }
 
-.footer-lang-switch .lang-btn {
-  background: #f0f2f5;
-  padding: 4px 6px;   
-  font-size: 0.75rem;
-  border-radius: 24px;
-  transition: 0.2s;
-  white-space: nowrap;
-}
-
 .footer-lang-switch .lang-btn.active {
   background: #1E3A8A;
   color: white;
@@ -2316,13 +2307,31 @@ footer {
   cursor: pointer;
 }
 .footer-lang-switch .lang-btn {
+  background: #f0f2f5;
+  font-size: 0.75rem;
+  border-radius: 24px;
+  transition: 0.2s;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
-  width: 70px;          
-  padding: 4px 0;      
+  width: 70px;
+  padding: 4px 0;
   white-space: nowrap;
+}
+
+.footer-lang-switch .lang-btn.active {
+  background: #1E3A8A;
+  color: white;
+}
+
+.footer-lang-switch .lang-btn span.fi {
+  margin-right: 2px;
+}
+
+.footer-lang-switch .lang-btn:hover {
+  background: #e2e8f0;
+  cursor: pointer;
 }
 
 
