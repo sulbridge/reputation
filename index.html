@@ -2315,7 +2315,22 @@ footer {
   background: #e2e8f0;
   cursor: pointer;
 }
+.footer-lang-switch .lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 70px;          
+  padding: 4px 0;      
+  white-space: nowrap;
+}
 
+
+@media (max-width: 768px) {
+  .footer-lang-switch .lang-btn {
+    width: 60px;
+  }
+}
 </style>
 
 <div class="floating-buttons">
