@@ -118,28 +118,6 @@
       .pricing-card { flex: 1 1 260px; max-width: 320px; min-width: 240px; }
     }
       
-.one-time-wrapper {
-    margin: 30px auto 40px;
-    max-width: 780px;
-}
-.one-time-horizontal {
-    background: linear-gradient(135deg, #F8FAFC, #FFFFFF);
-    border-radius: 32px;
-    border: 1px solid #E2E8F0;
-    padding: 20px 28px;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.03);
-    transition: 0.2s;
-}
-.one-time-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-}
-.one-time-content > div {
-    flex: 2;
-}
 .one-time-price {
     font-size: 2rem;
     font-weight: 800;
@@ -2310,6 +2288,7 @@ footer {
  
 .footer-column:last-child {
   text-align: center;
+  min-width: 210px;
 }
 
 .footer-lang-switch {
@@ -2337,6 +2316,11 @@ footer {
   width: 18px;
   text-align: center;
   font-size: 1rem;
+}
+
+.footer-lang-switch .lang-btn:hover {
+  background: #e2e8f0;
+  cursor: pointer;
 }
 </style>
 
