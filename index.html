@@ -617,7 +617,9 @@
                     <li><i class="fas fa-check"></i> <span data-i18n="feature0c">Email support</span></li>
                 </ul>
             </div>
-            <button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-one-time">Remove my review →</button>
+            <button class="btn-outline" 
+        onclick="confirm('Payment does not guarantee removal. We will select one review with the highest chance. Continue?') && window.open('https://buy.stripe.com/dRmeVcdyf1f14O58u2bo400', '_blank')"
+        data-i18n="choose-one-time">Remove my review →</button>
         </div>
     </div>
 </div>
