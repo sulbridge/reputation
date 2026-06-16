@@ -1004,7 +1004,7 @@
   <h4 data-i18n="footer-contact">Contact</h4>
   <p><i class="fas fa-envelope"></i> defend@reputationguard.pro</p>
   <p><i class="fas fa-globe"></i> reputationguard.pro</p>
-  <p><i class="fab fa-whatsapp"></i> <span style="white-space: nowrap;">+1(505)3136274 (WhatsApp)</span></p>
+  <p><i class="fab fa-whatsapp"></i> <span id="dynamic-phone" style="white-space: nowrap;"></span> (WhatsApp)</p>
 </div>
 
     
@@ -3430,5 +3430,14 @@ window.addEventListener('load', initLanguage);
     </div>
   </a>
 </div>
+  <script>
+  (function() {
+  const phoneSpan = document.getElementById('dynamic-phone');
+  if (phoneSpan) {
+    const parts = ['+', '1', '(', '505', ')', '313', '6274'];
+    phoneSpan.textContent = parts.join('');
+  }
+})();
+    </script>
 </body>
 </html>
