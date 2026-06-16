@@ -485,6 +485,55 @@
                     justify-content: center;
                 }
     }
+    /* RTL support for Arabic */
+.rtl-mode {
+    direction: rtl;
+    text-align: right;
+}
+
+
+.rtl-mode .hero-subhead {
+    border-left: none;
+    border-right: 3px solid #3B82F6;
+    padding-left: 0;
+    padding-right: 16px;
+}
+
+
+.rtl-mode .comparison-table .feature-cell {
+    text-align: right;
+    padding-left: 0;
+    padding-right: 24px;
+}
+
+
+.rtl-mode .feature-list li {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+
+
+.rtl-mode .footer-column p {
+    justify-content: flex-start; 
+}
+.rtl-mode .footer-column p i {
+    margin-left: 8px;
+    margin-right: 0;
+}
+.rtl-mode .footer-column p {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+.rtl-mode .footer-column p i {
+    margin-left: 0;
+    margin-right: 8px;
+}
+    .rtl-mode .risk-card {
+    border-left: none;
+    border-right: 4px solid #E53E3E;
+}
+
 </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -3272,6 +3321,13 @@
   function setLanguage(lang) {
   localStorage.setItem('preferredLanguage', lang);
   currentLang = lang;
+  if (lang === 'ar') {
+    document.documentElement.setAttribute('dir', 'rtl');
+    document.body.classList.add('rtl-mode');
+  } else {
+    document.documentElement.setAttribute('dir', 'ltr');
+    document.body.classList.remove('rtl-mode');
+  }
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (translations[lang] && translations[lang][key]) {
