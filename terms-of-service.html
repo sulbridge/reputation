@@ -17,10 +17,56 @@
     ul { padding-left: 24px; margin: 16px 0; }
     .last-updated { color: #6c757d; font-size: 0.85rem; margin-top: 32px; border-top: 1px solid #eef2ff; padding-top: 20px; }
     footer { text-align: center; margin-top: 40px; font-size: 0.75rem; color: #6c757d; }
+    
+    /* Стили для таблицы с тарифами */
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .pricing-table th {
+      background: #f1f5f9;
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: 700;
+      border-bottom: 2px solid #cbd5e1;
+      color: #0F172A;
+    }
+    .pricing-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+    .pricing-table tr:last-child td {
+      border-bottom: none;
+    }
+    .pricing-table .plan-name {
+      font-weight: 600;
+      color: #0F172A;
+    }
+    .pricing-table .fee {
+      font-weight: 700;
+      color: #1E3A8A;
+      white-space: nowrap;
+    }
+    .pricing-table ul {
+      margin: 4px 0 0 0;
+      padding-left: 18px;
+    }
+    .pricing-table ul li {
+      margin-bottom: 2px;
+      font-size: 0.9rem;
+    }
     @media (max-width: 700px) {
       .container { padding: 20px; }
       h1 { font-size: 1.6rem; }
       h2 { font-size: 1.2rem; }
+      .pricing-table { font-size: 0.85rem; }
+      .pricing-table th, .pricing-table td { padding: 8px 10px; }
     }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -30,50 +76,180 @@
   <div class="header">
     <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to ReputationGuard</a>
     <h1>Terms of Service</h1>
-    <p><strong>Effective date:</strong> June 6, 2026</p>
+    <p><strong>Effective date:</strong> June 17, 2026</p>
   </div>
 
-  <p>These Terms of Service ("Terms") govern your use of the ReputationGuard website and our Google review removal services. By accessing our website or engaging our services, you agree to be bound by these Terms.</p>
+  <p>These Terms of Service ("Terms") govern your access to and use of our website, services, and any related tools (collectively, the "Services"). By using our Services, you agree to be bound by these Terms. If you do not agree, please do not use our Services.</p>
 
-  <h2>1. Services Description</h2>
-  <p>ReputationGuard provides Google Maps review monitoring, identification of policy-violating reviews (spam, fake, conflict of interest, off-topic, harassment), and filing of official appeals through Google’s tools. We do not guarantee removal of any specific review; final decisions rest with Google.</p>
-
-  <h2>2. Client Responsibilities</h2>
+  <h2>1. Definitions</h2>
   <ul>
-    <li>You must provide accurate information and grant our email address “Manager” access to your Google Business Profile(s).</li>
-    <li>You are responsible for ensuring that the reviews you want to appeal are genuinely in violation of Google’s policies. We do not knowingly file frivolous or false appeals.</li>
-    <li>Any delays in providing requested information may affect service timelines.</li>
+    <li><strong>"One‑Time Service"</strong> – a single attempt to remove one (1) specific Google review from your Business Profile, for a one‑time fee of $99.00.</li>
+    <li><strong>"Subscription Plan"</strong> – a recurring monthly service that includes monitoring, identification, and ongoing appeals for multiple reviews. Available as Essential, Pro, and Enterprise.</li>
+    <li><strong>"Pilot Period"</strong> – an optional one‑month trial of a Subscription Plan, available only for new clients who have not previously subscribed.</li>
+    <li><strong>"Minimum Commitment"</strong> – the minimum number of months you agree to remain subscribed after the Pilot Period (or immediately, if you choose to skip the Pilot). The Minimum Commitment is <strong>three (3) months</strong>.</li>
+    <li><strong>"Business Profile"</strong> – your Google Business Profile(s) linked to the Google Maps listing(s) you manage.</li>
   </ul>
 
-  <h2>3. Fees and Payment</h2>
-  <p>Our fees are based on a monthly subscription plan as displayed on our Pricing page. All fees are in US Dollars and are due on the first day of each billing cycle. Plans include a fixed number of appeals per month; additional appeals incur an overage fee as stated on the Pricing page. Fees are non‑refundable except as described in our Refund Policy.</p>
+  <h2>2. Services Description</h2>
+  <p>ReputationGuard provides the following services:</p>
+  <ul>
+    <li><strong>Monitoring</strong> – regular scanning of your Google reviews for potential policy violations (spam, fake reviews, conflict of interest, off‑topic content, harassment, and other breaches of Google’s policies).</li>
+    <li><strong>Review Identification</strong> – analysis of your reviews to select those with the highest likelihood of removal.</li>
+    <li><strong>Appeal Filing</strong> – preparation and submission of official appeals through Google’s designated tools (e.g., Google Business Profile support, Redressal Form, etc.).</li>
+    <li><strong>Ongoing Support</strong> – for Subscription Plan clients, we provide periodic reports and priority email/WhatsApp support.</li>
+  </ul>
+  <p><strong>We do not guarantee removal of any specific review.</strong> Google makes the final decision. Our service is an attempt to enforce Google’s own policies on your behalf.</p>
 
-  <h2>4. Disclaimer of Warranties</h2>
-  <p>Services are provided “AS IS” and “AS AVAILABLE”. To the maximum extent permitted by law, we disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose, and non‑infringement. We do not warrant that appeals will be successful or that Google will remove any review.</p>
+  <h2>3. Client Responsibilities</h2>
+  <ul>
+    <li>Provide accurate and complete information about your Business Profile(s).</li>
+    <li>Grant <code>onboard@reputationguard.pro</code> <strong>Manager</strong> (or equivalent) access to your Google Business Profile(s) so we can view and manage reviews. This is a <strong>mandatory condition</strong> for service delivery.</li>
+    <li>Promptly respond to any requests for additional information or clarification.</li>
+    <li>Not submit fraudulent or knowingly false appeals. We reserve the right to terminate the agreement immediately if we suspect abuse.</li>
+    <li>Inform us of any changes to your Business Profile or contact details.</li>
+  </ul>
+  <p>Failure to fulfill these responsibilities may result in delays or cancellation of services, without refund.</p>
 
-  <h2>5. Limitation of Liability</h2>
-  <p>In no event shall ReputationGuard be liable for any indirect, incidental, special, or consequential damages, including loss of revenue or reputation, arising out of or related to these Terms or our services. Our total liability shall not exceed the total fees paid by you in the three (3) months preceding the event giving rise to the claim.</p>
+  <h2>4. Fees and Payment</h2>
+  
+  <h3>4.1 One-Time Service</h3>
+  <ul>
+    <li><strong>Fee:</strong> $99.00 per review (one review only).</li>
+    <li><strong>Billing:</strong> One‑time payment, due in full before we commence work.</li>
+    <li><strong>Refund:</strong> If we are unable to remove the selected review, we will issue a <strong>full refund</strong> within 5 business days of our final determination.</li>
+  </ul>
 
-  <h2>6. Indemnification</h2>
-  <p>You agree to indemnify and hold ReputationGuard harmless from any claims, damages, or expenses arising from your breach of these Terms or your misuse of our services.</p>
+  <h3>4.2 Subscription Plans</h3>
+  <table class="pricing-table">
+    <thead>
+      <tr>
+        <th>Plan</th>
+        <th>Monthly Fee</th>
+        <th>Features</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="plan-name">Essential</td>
+        <td class="fee">$399</td>
+        <td>
+          <ul>
+            <li>Up to 3 review removal attempts per month</li>
+            <li>Basic monitoring</li>
+            <li>Email support</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="plan-name">Pro</td>
+        <td class="fee">$699</td>
+        <td>
+          <ul>
+            <li>Up to 7 attempts per month</li>
+            <li>Advanced monitoring</li>
+            <li>Priority support (email + WhatsApp)</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="plan-name">Enterprise</td>
+        <td class="fee">$1,199</td>
+        <td>
+          <ul>
+            <li>Unlimited attempts per month</li>
+            <li>Dedicated account manager</li>
+            <li>Custom reporting</li>
+            <li>24/7 support</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-  <h2>7. Termination</h2>
-  <p>Either party may terminate a service agreement with 30 days’ written notice. We may suspend or terminate access to our services immediately if you violate any material term of these Terms (e.g., non‑payment). Upon termination, you remain liable for all fees accrued.</p>
+  <h3>4.3 Pilot Period (Optional)</h3>
+  <ul>
+    <li>New clients may subscribe to a <strong>one‑month Pilot Period</strong> for any Subscription Plan.</li>
+    <li>During the Pilot, you pay the regular monthly fee (as above) and receive full service.</li>
+    <li>The Pilot Period is <strong>non‑renewable</strong> and can be used only once per client.</li>
+  </ul>
 
-  <h2>8. Governing Law</h2>
-  <p>These Terms shall be governed by the laws of the State of Delaware, USA, without regard to conflict of laws principles. Any dispute shall be resolved through binding arbitration in accordance with the rules of the American Arbitration Association.</p>
+  <h3>4.4 Minimum Commitment</h3>
+  <ul>
+    <li>After the Pilot Period (or immediately if you skip the Pilot), your subscription enters a <strong>Minimum Commitment of three (3) consecutive months</strong>.</li>
+    <li>You are billed monthly during this period. The commitment starts on the date your first regular (non‑Pilot) month begins.</li>
+    <li>After the Minimum Commitment, the subscription automatically continues on a month‑to‑month basis unless cancelled as per Section 7.</li>
+  </ul>
 
-  <h2>9. Changes to Terms</h2>
-  <p>We may modify these Terms from time to time. Material changes will be communicated via email or a prominent notice on our website. Your continued use of our services after such changes constitutes your acceptance.</p>
+  <h3>4.5 Automatic Renewal and Billing</h3>
+  <ul>
+    <li>All Subscription Plans renew automatically each month on the same day of the month as the original sign‑up date.</li>
+    <li>We charge the card on file for each renewal. It is your responsibility to keep your payment information current.</li>
+    <li>If a payment fails, we will attempt to notify you and retry. After two consecutive failed attempts, we may suspend your service.</li>
+  </ul>
 
-  <h2>10. Contact Information</h2>
-  <p>For any questions regarding these Terms, please contact us at defend@reputationguard.pro.</p>
+  <h3>4.6 Price Changes</h3>
+  <ul>
+    <li>We reserve the right to adjust subscription fees. Any price increase will be communicated to you at least 30 days in advance. If you do not agree, you may cancel before the increase takes effect.</li>
+  </ul>
+
+  <h2>5. Refund Policy</h2>
+  <ul>
+    <li><strong>One‑Time Service:</strong> Full refund if we cannot remove the selected review.</li>
+    <li><strong>Subscription Plans:</strong> Because of the nature of ongoing work, we do not offer refunds for partial months. If you cancel after the Minimum Commitment, your cancellation will take effect at the end of the current billing month, and no refund will be issued for the remaining days of that month.</li>
+    <li><strong>Pilot Period:</strong> No refund during the Pilot, but you may cancel at the end of the Pilot without further obligation.</li>
+  </ul>
+
+  <h2>6. Cancellation and Termination</h2>
+  
+  <h3>6.1 Client Cancellation</h3>
+  <ul>
+    <li><strong>During Minimum Commitment:</strong> You may not cancel before the 3‑month commitment ends. If you request early cancellation, we will continue to bill you for the remaining committed months.</li>
+    <li><strong>After Minimum Commitment:</strong> You may cancel by giving <strong>30 days’ written notice</strong> via email to <code>onboard@reputationguard.pro</code>. Your cancellation will take effect at the end of the current billing period.</li>
+  </ul>
+
+  <h3>6.2 Termination by Us</h3>
+  <ul>
+    <li>We may terminate or suspend your access immediately if you breach these Terms (including non‑payment or failure to provide access), if we suspect fraudulent activity, or if we are legally required to do so.</li>
+    <li>Upon termination, you remain liable for all fees accrued up to the termination date, and for any outstanding Minimum Commitment payments.</li>
+  </ul>
+
+  <h3>6.3 Service Completion (One‑Time)</h3>
+  <ul>
+    <li>The One‑Time agreement automatically terminates when we either (a) successfully remove the review, or (b) determine removal is not possible and issue a refund.</li>
+  </ul>
+
+  <h2>7. Disclaimer of Warranties</h2>
+  <p>THE SERVICES ARE PROVIDED “AS IS” AND “AS AVAILABLE.” TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON‑INFRINGEMENT. WE DO NOT WARRANT THAT ANY REVIEW WILL BE REMOVED OR THAT GOOGLE WILL ACT FAVORABLY ON ANY APPEAL.</p>
+
+  <h2>8. Limitation of Liability</h2>
+  <p>IN NO EVENT SHALL REPUTATIONGUARD BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES, INCLUDING LOSS OF REVENUE, PROFITS, OR REPUTATION, ARISING OUT OF OR RELATED TO THESE TERMS OR OUR SERVICES. OUR TOTAL LIABILITY TO YOU FOR ANY CLAIM SHALL NOT EXCEED THE TOTAL FEES PAID BY YOU TO US IN THE THREE (3) MONTHS PRECEDING THE EVENT GIVING RISE TO THE CLAIM.</p>
+
+  <h2>9. Indemnification</h2>
+  <p>You agree to indemnify, defend, and hold harmless ReputationGuard and its officers, employees, and agents from any claims, damages, or expenses (including legal fees) arising from your breach of these Terms, your misuse of our Services, or your violation of any law or third‑party rights (including Google’s terms of service).</p>
+
+  <h2>10. Governing Law and Dispute Resolution</h2>
+  <p>These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, USA, without regard to its conflict of laws provisions.</p>
+  <p>Any dispute arising from these Terms shall be resolved through <strong>binding arbitration</strong> administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules. The arbitration shall be held in Delaware, and judgment on the award may be entered in any court having jurisdiction.</p>
+
+  <h2>11. Changes to These Terms</h2>
+  <p>We may update these Terms from time to time. Material changes will be communicated to you via email or a prominent notice on our website at least 15 days in advance. Your continued use of the Services after the effective date of the changes constitutes your acceptance of the revised Terms.</p>
+
+  <h2>12. Entire Agreement</h2>
+  <p>These Terms constitute the entire agreement between you and ReputationGuard regarding the Services and supersede all prior agreements, understandings, or representations.</p>
+
+  <h2>13. Contact Information</h2>
+  <p>For any questions, complaints, or cancellation requests, please contact us:</p>
+  <ul>
+    <li><strong>Email:</strong> <code>onboard@reputationguard.pro</code> (primary)</li>
+    <li><strong>WhatsApp:</strong> <a href="https://wa.me/15053136274" target="_blank">https://wa.me/15053136274</a></li>
+    <li><strong>Website:</strong> <a href="https://reputationguard.pro" target="_blank">https://reputationguard.pro</a></li>
+  </ul>
 
   <div class="last-updated">
-    <i class="fas fa-calendar-alt"></i> Last updated: June 6, 2026
+    <i class="fas fa-calendar-alt"></i> Last updated: June 17, 2026
   </div>
   <footer>
-    <p>© 2026 ReputationGuard.pro</p>
+    <p>© 2026 ReputationGuard.pro. All rights reserved.</p>
   </footer>
 </div>
 </body>
