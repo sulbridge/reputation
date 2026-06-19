@@ -20,16 +20,16 @@
       flex-direction: column;
     }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; width: 100%; }
+
+    
     .navbar {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       padding: 24px 0;
-      flex-wrap: wrap;
-      gap: 20px;
     }
     .logo {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 800;
       background: linear-gradient(135deg, #1E3A8A, #3B82F6);
       -webkit-background-clip: text;
@@ -38,118 +38,85 @@
       letter-spacing: -0.5px;
       text-decoration: none;
     }
-    .lang-switch {
-      display: flex;
-      gap: 12px;
-      background: #f3f4f6;
-      padding: 6px 12px;
-      border-radius: 60px;
-      flex-wrap: wrap;
-    }
-    .lang-btn {
-      background: none;
-      border: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      padding: 6px 14px;
-      border-radius: 40px;
-      transition: 0.2s;
-      color: #4b5563;
-      font-family: 'Segoe UI Emoji', 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
-    }
-    .lang-btn.active {
-      background: #1E3A8A;
-      color: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
 
+    
     .thankyou-section {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 60px 20px;
+      padding: 60px 20px 80px;
+      background: linear-gradient(145deg, #F8FAFC 0%, #EFF6FF 100%);
     }
     .thankyou-card {
-      max-width: 640px;
+      max-width: 660px;
       width: 100%;
       background: white;
       border-radius: 48px;
-      padding: 48px 40px;
+      padding: 56px 44px;
       text-align: center;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);
-      border: 1px solid #eef2ff;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      border: 1px solid rgba(255,255,255,0.5);
+      transition: 0.3s;
     }
     .thankyou-icon {
-      font-size: 4rem;
+      font-size: 4.8rem;
       color: #10B981;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       display: inline-block;
-      animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     @keyframes popIn {
-      0% { transform: scale(0.5); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+      0% { transform: scale(0.4) rotate(-10deg); opacity: 0; }
+      100% { transform: scale(1) rotate(0); opacity: 1; }
     }
     .thankyou-card h1 {
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       font-weight: 800;
       margin-bottom: 12px;
       color: #0F172A;
+      letter-spacing: -0.02em;
     }
-    .thankyou-card p {
-      font-size: 1.1rem;
-      color: #4b5563;
-      margin-bottom: 28px;
-      line-height: 1.6;
+    .thankyou-card .message {
+      font-size: 1.2rem;
+      color: #1E3A8A;
+      font-weight: 600;
+      margin-bottom: 16px;
     }
     .thankyou-card .sub-message {
-      font-size: 0.95rem;
-      color: #6b7280;
-      margin-bottom: 32px;
+      font-size: 1rem;
+      color: #4b5563;
+      margin-bottom: 36px;
+      line-height: 1.6;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .btn-primary {
       background: #1E3A8A;
       color: white;
-      padding: 14px 36px;
+      padding: 14px 40px;
       border-radius: 40px;
       font-weight: 700;
       border: none;
-      font-size: 1rem;
+      font-size: 1.05rem;
       cursor: pointer;
       transition: 0.2s;
-      box-shadow: 0 4px 10px rgba(30,58,138,0.2);
+      box-shadow: 0 4px 12px rgba(30,58,138,0.25);
       display: inline-block;
       text-decoration: none;
     }
     .btn-primary:hover {
       background: #2563EB;
-      transform: translateY(-2px);
-    }
-    .btn-outline {
-      background: transparent;
-      border: 2px solid #1E3A8A;
-      color: #1E3A8A;
-      padding: 12px 28px;
-      border-radius: 40px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s;
-      display: inline-block;
-      text-decoration: none;
-      margin: 0 8px;
-    }
-    .btn-outline:hover {
-      background: #1E3A8A;
-      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(30,58,138,0.3);
     }
 
-    /* Footer */
+    
     footer {
       background: #F8FAFC;
       border-top: 1px solid #eef2ff;
-      margin-top: 40px;
+      margin-top: 0;
     }
     .footer-container {
       display: flex;
@@ -158,7 +125,7 @@
       gap: 32px;
       max-width: 1280px;
       margin: 0 auto;
-      padding: 32px 24px 24px;
+      padding: 48px 24px 32px;
     }
     .footer-column {
       flex: 1;
@@ -168,27 +135,73 @@
       font-size: 1rem;
       font-weight: 700;
       color: #0F172A;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
-    .footer-column p {
+    .footer-column p, .footer-column ul {
       font-size: 0.85rem;
       color: #4b5563;
       line-height: 1.6;
     }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-column li {
+      margin-bottom: 8px;
+    }
+    .footer-column a {
+      color: #1E3A8A;
+      text-decoration: none;
+    }
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+    .footer-column p i {
+      width: 18px;
+      text-align: center;
+      margin-right: 8px;
+    }
+    .footer-lang-switch {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      justify-items: center;
+      margin-top: 8px;
+    }
+    .footer-lang-switch .lang-btn {
+      background: #f0f2f5;
+      border: none;
+      font-weight: 600;
+      font-size: 0.75rem;
+      border-radius: 24px;
+      padding: 4px 0;
+      width: 70px;
+      transition: 0.2s;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      white-space: nowrap;
+      color: #4b5563;
+      font-family: 'Segoe UI Emoji', 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+    }
+    .footer-lang-switch .lang-btn.active {
+      background: #1E3A8A;
+      color: white;
+    }
+    .footer-lang-switch .lang-btn:hover {
+      background: #e2e8f0;
+    }
     .footer-bottom {
       text-align: center;
-      padding: 16px 24px;
+      padding: 24px;
       border-top: 1px solid #e2e8f0;
       font-size: 0.7rem;
       color: #6c757d;
     }
-
-    @media (max-width: 768px) {
-      .navbar { flex-direction: column; align-items: center; gap: 12px; }
-      .logo { font-size: 1.5rem; }
-      .lang-switch { align-self: center; justify-content: center; }
-      .thankyou-card { padding: 32px 20px; }
-      .thankyou-card h1 { font-size: 1.8rem; }
+    .footer-bottom p {
+      margin-bottom: 4px;
     }
 
     /* RTL support */
@@ -196,46 +209,51 @@
       direction: rtl;
       text-align: right;
     }
-    .rtl-mode .footer-column p {
-      justify-content: flex-end;
+    .rtl-mode .footer-column p i {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+    .rtl-mode .footer-lang-switch .lang-btn {
+      flex-direction: row-reverse;
     }
     @media (max-width: 768px) {
-      .rtl-mode .footer-column p { justify-content: center; }
+      .navbar { padding: 16px 0; }
+      .logo { font-size: 1.6rem; }
+      .thankyou-card { padding: 32px 20px; }
+      .thankyou-card h1 { font-size: 2rem; }
+      .thankyou-card .message { font-size: 1rem; }
+      .footer-container { flex-direction: column; text-align: center; gap: 24px; }
+      .footer-lang-switch { justify-items: center; }
+      .footer-column p i { margin-right: 4px; }
+      .rtl-mode .footer-column p i { margin-left: 4px; }
+    }
+    @media (max-width: 480px) {
+      .thankyou-card { padding: 28px 16px; }
+      .thankyou-icon { font-size: 3.8rem; }
+      .btn-primary { padding: 12px 28px; font-size: 0.95rem; }
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- Navbar -->
+ 
   <div class="navbar">
-    <a href="/" class="logo">🛡️ ReputationGuard</a>
-    <div class="lang-switch">
-      <button class="lang-btn" data-lang="en"><span class="fi fi-us"></span> EN</button>
-      <button class="lang-btn" data-lang="vi"><span class="fi fi-vn"></span> VI</button>
-      <button class="lang-btn" data-lang="pt"><span class="fi fi-br"></span> PT</button>
-      <button class="lang-btn" data-lang="tr"><span class="fi fi-tr"></span> TR</button>
-      <button class="lang-btn" data-lang="ar"><span class="fi fi-sa"></span> ع</button>
-      <button class="lang-btn" data-lang="es"><span class="fi fi-es"></span> ES</button>
-      <button class="lang-btn" data-lang="de"><span class="fi fi-de"></span> DE</button>
-      <button class="lang-btn" data-lang="fr"><span class="fi fi-fr"></span> FR</button>
-      <button class="lang-btn" data-lang="ru"><span class="fi fi-ru"></span> RU</button>
-    </div>
+    <a href="https://reputationguard.pro" class="logo">🛡️ ReputationGuard</a>
   </div>
 </div>
 
-<!-- Thank you content -->
+
 <section class="thankyou-section">
   <div class="thankyou-card">
     <div class="thankyou-icon"><i class="fas fa-check-circle"></i></div>
     <h1 data-i18n="thankyou-title">Thank You!</h1>
-    <p data-i18n="thankyou-message">Your free audit request has been sent successfully.</p>
-    <div class="sub-message" data-i18n="thankyou-sub">We’ll review your case and get back to you within 24 hours with a detailed analysis.</div>
-    <div>
-      <a href="/" class="btn-primary" data-i18n="thankyou-btn">Return to Homepage</a>
-    </div>
+    <p class="message" data-i18n="thankyou-message">Your free audit request has been sent successfully.</p>
+    <p class="sub-message" data-i18n="thankyou-sub">We’ll review your case and get back to you within 24 hours with a detailed analysis.</p>
+    <a href="https://reputationguard.pro" class="btn-primary" data-i18n="thankyou-btn">Return to Homepage</a>
   </div>
 </section>
+
 
 <footer>
   <div class="footer-container">
@@ -243,20 +261,60 @@
       <h4 data-i18n="footer-company">ReputationGuard</h4>
       <p data-i18n="footer-tagline">Google Maps reputation management for hotels, restaurants & accommodations.</p>
     </div>
+
+    <div class="footer-column">
+      <h4 data-i18n="footer-services">Services</h4>
+      <ul>
+        <li><a href="#" data-i18n="footer-review-removal">Google Review Removal</a></li>
+        <li><a href="#" data-i18n="footer-appeal">Appeal Filing</a></li>
+        <li><a href="#" data-i18n="footer-monitoring">Reputation Monitoring</a></li>
+        <li><a href="#" data-i18n="footer-consulting">SERM Consulting</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4 data-i18n="footer-legal">Legal</h4>
+      <ul>
+        <li><a href="/privacy-policy.html" data-i18n="footer-privacy">Privacy Policy</a></li>
+        <li><a href="/terms-of-service.html" data-i18n="footer-terms">Terms of Service</a></li>
+        <li><a href="/refund-policy.html" data-i18n="footer-refund">Refund Policy</a></li>
+      </ul>
+    </div>
+
     <div class="footer-column">
       <h4 data-i18n="footer-contact">Contact</h4>
       <p><i class="fas fa-envelope"></i> defend@reputationguard.pro</p>
       <p><i class="fas fa-globe"></i> reputationguard.pro</p>
+      <p><i class="fab fa-whatsapp"></i> <span id="dynamic-phone">+1(505)313-6274</span> (WhatsApp)</p>
+    </div>
+
+    <div class="footer-column">
+      <h4 data-i18n="footer-language">Language</h4>
+      <div class="footer-lang-switch">
+        <button class="lang-btn" data-lang="en"><span class="fi fi-us"></span> EN</button>
+        <button class="lang-btn" data-lang="vi"><span class="fi fi-vn"></span> VI</button>
+        <button class="lang-btn" data-lang="pt"><span class="fi fi-br"></span> PT</button>
+        <button class="lang-btn" data-lang="tr"><span class="fi fi-tr"></span> TR</button>
+        <button class="lang-btn" data-lang="ar"><span class="fi fi-sa"></span> ع</button>
+        <button class="lang-btn" data-lang="es"><span class="fi fi-es"></span> ES</button>
+        <button class="lang-btn" data-lang="de"><span class="fi fi-de"></span> DE</button>
+        <button class="lang-btn" data-lang="fr"><span class="fi fi-fr"></span> FR</button>
+        <button class="lang-btn" data-lang="ru"><span class="fi fi-ru"></span> RU</button>
+      </div>
     </div>
   </div>
+
   <div class="footer-bottom">
     <p data-i18n="footer-disclaimer">*Results may vary. Google makes final decisions on reviews.</p>
     <p>© 2026 ReputationGuard Global. All rights reserved.</p>
+    <p style="font-size: 0.65rem; color: #9ca3af; margin-top: 8px;">
+      1209 Mountain Road PL NE, STE N, Albuquerque, NM 87110, USA
+    </p>
   </div>
 </footer>
 
 <script>
-  // Translations for thank-you page (only needed keys)
+  
   const translations = {
     en: {
       "thankyou-title": "Thank You!",
@@ -265,8 +323,18 @@
       "thankyou-btn": "Return to Homepage",
       "footer-company": "ReputationGuard",
       "footer-tagline": "Google Maps reputation management for hotels, restaurants & accommodations.",
+      "footer-services": "Services",
+      "footer-review-removal": "Google Review Removal",
+      "footer-appeal": "Appeal Filing",
+      "footer-monitoring": "Reputation Monitoring",
+      "footer-consulting": "SERM Consulting",
+      "footer-legal": "Legal",
+      "footer-privacy": "Privacy Policy",
+      "footer-terms": "Terms of Service",
+      "footer-refund": "Refund Policy",
       "footer-contact": "Contact",
-      "footer-disclaimer": "*Results may vary. Google makes final decisions on reviews."
+      "footer-disclaimer": "*Results may vary. Google makes final decisions on reviews.",
+      "footer-language": "Language"
     },
     es: {
       "thankyou-title": "¡Gracias!",
@@ -275,8 +343,18 @@
       "thankyou-btn": "Volver a la página de inicio",
       "footer-company": "ReputationGuard",
       "footer-tagline": "Gestión de reputación en Google Maps para hoteles, restaurantes y alojamientos.",
+      "footer-services": "Servicios",
+      "footer-review-removal": "Eliminación de reseñas de Google",
+      "footer-appeal": "Presentación de apelaciones",
+      "footer-monitoring": "Monitoreo de reputación",
+      "footer-consulting": "Consultoría SERM",
+      "footer-legal": "Legal",
+      "footer-privacy": "Política de privacidad",
+      "footer-terms": "Términos de servicio",
+      "footer-refund": "Política de reembolso",
       "footer-contact": "Contacto",
-      "footer-disclaimer": "*Los resultados pueden variar. Google toma la decisión final sobre las reseñas."
+      "footer-disclaimer": "*Los resultados pueden variar. Google toma la decisión final sobre las reseñas.",
+      "footer-language": "Idioma"
     },
     de: {
       "thankyou-title": "Vielen Dank!",
@@ -285,8 +363,18 @@
       "thankyou-btn": "Zurück zur Startseite",
       "footer-company": "ReputationGuard",
       "footer-tagline": "Google Maps Reputationsmanagement für Hotels, Restaurants & Unterkünfte.",
+      "footer-services": "Dienstleistungen",
+      "footer-review-removal": "Google-Bewertungen entfernen",
+      "footer-appeal": "Einspruch einlegen",
+      "footer-monitoring": "Reputationsüberwachung",
+      "footer-consulting": "SERM-Beratung",
+      "footer-legal": "Rechtliches",
+      "footer-privacy": "Datenschutzerklärung",
+      "footer-terms": "Nutzungsbedingungen",
+      "footer-refund": "Rückerstattungsrichtlinie",
       "footer-contact": "Kontakt",
-      "footer-disclaimer": "*Die Ergebnisse können variieren. Google trifft die endgültige Entscheidung über Bewertungen."
+      "footer-disclaimer": "*Die Ergebnisse können variieren. Google trifft die endgültige Entscheidung über Bewertungen.",
+      "footer-language": "Sprache"
     },
     fr: {
       "thankyou-title": "Merci !",
@@ -295,8 +383,18 @@
       "thankyou-btn": "Retour à l'accueil",
       "footer-company": "ReputationGuard",
       "footer-tagline": "Gestion de la réputation sur Google Maps pour hôtels, restaurants et hébergements.",
+      "footer-services": "Services",
+      "footer-review-removal": "Suppression d'avis Google",
+      "footer-appeal": "Dépôt de contestation",
+      "footer-monitoring": "Surveillance de la réputation",
+      "footer-consulting": "Conseil SERM",
+      "footer-legal": "Juridique",
+      "footer-privacy": "Politique de confidentialité",
+      "footer-terms": "Conditions d'utilisation",
+      "footer-refund": "Politique de remboursement",
       "footer-contact": "Contact",
-      "footer-disclaimer": "*Les résultats peuvent varier. Google prend la décision finale concernant les avis."
+      "footer-disclaimer": "*Les résultats peuvent varier. Google prend la décision finale concernant les avis.",
+      "footer-language": "Langue"
     },
     ru: {
       "thankyou-title": "Спасибо!",
@@ -305,8 +403,18 @@
       "thankyou-btn": "Вернуться на главную",
       "footer-company": "ReputationGuard",
       "footer-tagline": "Управление репутацией в Google Maps для отелей, ресторанов и жилья.",
+      "footer-services": "Услуги",
+      "footer-review-removal": "Удаление отзывов Google",
+      "footer-appeal": "Подача апелляций",
+      "footer-monitoring": "Мониторинг репутации",
+      "footer-consulting": "SERM-консалтинг",
+      "footer-legal": "Юридическая информация",
+      "footer-privacy": "Политика конфиденциальности",
+      "footer-terms": "Условия использования",
+      "footer-refund": "Политика возврата",
       "footer-contact": "Контакты",
-      "footer-disclaimer": "*Результаты могут отличаться. Окончательное решение об удалении принимает Google."
+      "footer-disclaimer": "*Результаты могут отличаться. Окончательное решение об удалении принимает Google.",
+      "footer-language": "Язык"
     },
     vi: {
       "thankyou-title": "Cảm ơn bạn!",
@@ -315,8 +423,18 @@
       "thankyou-btn": "Quay lại trang chủ",
       "footer-company": "ReputationGuard",
       "footer-tagline": "Quản lý danh tiếng trên Google Maps cho khách sạn, nhà hàng và chỗ nghỉ.",
+      "footer-services": "Dịch vụ",
+      "footer-review-removal": "Xóa đánh giá Google",
+      "footer-appeal": "Nộp khiếu nại",
+      "footer-monitoring": "Giám sát danh tiếng",
+      "footer-consulting": "Tư vấn SERM",
+      "footer-legal": "Pháp lý",
+      "footer-privacy": "Chính sách bảo mật",
+      "footer-terms": "Điều khoản dịch vụ",
+      "footer-refund": "Chính sách hoàn tiền",
       "footer-contact": "Liên hệ",
-      "footer-disclaimer": "*Kết quả có thể khác nhau. Google đưa ra quyết định cuối cùng về đánh giá."
+      "footer-disclaimer": "*Kết quả có thể khác nhau. Google đưa ra quyết định cuối cùng về đánh giá.",
+      "footer-language": "Ngôn ngữ"
     },
     pt: {
       "thankyou-title": "Obrigado!",
@@ -325,8 +443,18 @@
       "thankyou-btn": "Voltar para a página inicial",
       "footer-company": "ReputationGuard",
       "footer-tagline": "Gerenciamento de reputação no Google Maps para hotéis, restaurantes e acomodações.",
+      "footer-services": "Serviços",
+      "footer-review-removal": "Remoção de avaliações do Google",
+      "footer-appeal": "Registro de recurso",
+      "footer-monitoring": "Monitoramento de reputação",
+      "footer-consulting": "Consultoria SERM",
+      "footer-legal": "Legal",
+      "footer-privacy": "Política de privacidade",
+      "footer-terms": "Termos de serviço",
+      "footer-refund": "Política de reembolso",
       "footer-contact": "Contato",
-      "footer-disclaimer": "*Os resultados podem variar. O Google toma a decisão final sobre as avaliações."
+      "footer-disclaimer": "*Os resultados podem variar. O Google toma a decisão final sobre as avaliações.",
+      "footer-language": "Idioma"
     },
     tr: {
       "thankyou-title": "Teşekkürler!",
@@ -335,8 +463,18 @@
       "thankyou-btn": "Ana Sayfaya Dön",
       "footer-company": "ReputationGuard",
       "footer-tagline": "Oteller, restoranlar ve konaklama yerleri için Google Haritalar itibar yönetimi.",
+      "footer-services": "Hizmetler",
+      "footer-review-removal": "Google Yorumu Kaldırma",
+      "footer-appeal": "İtiraz Başvurusu",
+      "footer-monitoring": "İtibar İzleme",
+      "footer-consulting": "SERM Danışmanlığı",
+      "footer-legal": "Yasal",
+      "footer-privacy": "Gizlilik Politikası",
+      "footer-terms": "Kullanım Şartları",
+      "footer-refund": "İade Politikası",
       "footer-contact": "İletişim",
-      "footer-disclaimer": "*Sonuçlar değişebilir. Yorumlar hakkında nihai kararı Google verir."
+      "footer-disclaimer": "*Sonuçlar değişebilir. Yorumlar hakkında nihai kararı Google verir.",
+      "footer-language": "Dil"
     },
     ar: {
       "thankyou-title": "شكراً لك!",
@@ -345,8 +483,18 @@
       "thankyou-btn": "العودة إلى الصفحة الرئيسية",
       "footer-company": "ReputationGuard",
       "footer-tagline": "إدارة السمعة على خرائط جوجل للفنادق والمطاعم وأماكن الإقامة.",
+      "footer-services": "الخدمات",
+      "footer-review-removal": "إزالة تقييمات جوجل",
+      "footer-appeal": "تقديم الطعون",
+      "footer-monitoring": "مراقبة السمعة",
+      "footer-consulting": "استشارات SERM",
+      "footer-legal": "قانوني",
+      "footer-privacy": "سياسة الخصوصية",
+      "footer-terms": "شروط الخدمة",
+      "footer-refund": "سياسة الاسترداد",
       "footer-contact": "اتصل بنا",
-      "footer-disclaimer": "*النتائج قد تختلف. جوجل تتخذ القرار النهائي بشأن التقييمات."
+      "footer-disclaimer": "*النتائج قد تختلف. جوجل تتخذ القرار النهائي بشأن التقييمات.",
+      "footer-language": "اللغة"
     }
   };
 
@@ -381,7 +529,7 @@
         el.innerText = translations[lang][key];
       }
     });
-    document.querySelectorAll('.lang-btn').forEach(btn => {
+    document.querySelectorAll('.footer-lang-switch .lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
   }
@@ -396,7 +544,7 @@
     }
   }
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
+  document.querySelectorAll('.footer-lang-switch .lang-btn').forEach(btn => {
     btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
   });
 
@@ -405,6 +553,15 @@
   } else {
     initLanguage();
   }
+
+  
+  (function() {
+    const phoneSpan = document.getElementById('dynamic-phone');
+    if (phoneSpan) {
+      const parts = ['+', '1', '(', '505', ')', '313', '6274'];
+      phoneSpan.textContent = parts.join('');
+    }
+  })();
 </script>
 
 </body>
