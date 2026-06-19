@@ -963,6 +963,7 @@
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_subject" value="New Audit Request from ReputationGuard">
+      <input type="hidden" name="_redirect" value="https://reputationguard.pro/thank-you.html">
       <div class="form-group"><input type="text" name="name" placeholder="Full name *" required data-i18n-placeholder="form-name"></div>
       <div class="form-group"><input type="email" name="email" placeholder="Email address *" required data-i18n-placeholder="form-email"></div>
       <div class="form-group"><input type="url" name="google_maps_url" placeholder="Google Maps link to your business *" data-i18n-placeholder="form-maps-link" required></div>
@@ -3358,9 +3359,6 @@
 }
   document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang'))));
   document.querySelectorAll('.faq-item').forEach(item => item.querySelector('.faq-question').addEventListener('click', () => item.classList.toggle('active')));
-
-  const form = document.getElementById('contactForm');
-  if (form) form.addEventListener('submit', e => { e.preventDefault(); fetch(form.action, { method: 'POST', body: new FormData(form) }).then(r => r.ok ? form.innerHTML = '<div style="text-align:center;"><i class="fas fa-check-circle" style="font-size:48px; color:#10B981;"></i><h3>✅ Request sent!</h3><p>We’ll reply within 24h.</p></div>' : alert('Error sending. Please email directly.')).catch(() => alert('Network error. Email defend@reputationguard.pro')); });
 
   function animateCounters() {
     const counters = document.querySelectorAll('.counter');
