@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Affiliate Program – Earn Lifetime Recurring Commissions | ReputationGuard</title>
   <meta name="description" content="Join ReputationGuard affiliate program. Earn lifetime recurring commissions up to 20%. Work remotely with no earning cap. Apply today.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { overflow-x: hidden; width: 100%; }
     body { font-family: 'Inter', sans-serif; background: #ffffff; color: #111827; line-height: 1.5; scroll-behavior: smooth; }
-    .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
+
+    .container { width: min(1280px, calc(100% - 48px)); margin: 0 auto; padding: 0; box-sizing: border-box; }
     .navbar { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; flex-wrap: wrap; gap: 20px; }
     .logo { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #1E3A8A, #3B82F6); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.5px; text-decoration: none; }
     .btn-primary { background: #1E3A8A; color: white; padding: 12px 28px; border-radius: 40px; font-weight: 700; border: none; font-size: 1rem; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 10px rgba(30,58,138,0.2); display: inline-block; text-decoration: none; }
@@ -21,8 +23,8 @@
     .btn-outline:hover { background: #1E3A8A; color: white; }
     .section-title { font-size: 2.2rem; font-weight: 800; text-align: center; margin-bottom: 16px; }
     .section-sub { text-align: center; color: #6b7280; max-width: 700px; margin: 0 auto 48px; }
-    .section { margin: 80px 0; }
-    
+    .section { width: 100%; margin: 80px auto; }
+
     .gray-box { background: #F8FAFC; border-radius: 48px; padding: 40px 24px; text-align: center; }
     .dark-box { background: #0F172A; border-radius: 48px; padding: 40px 24px; color: white; text-align: center; }
 
@@ -97,6 +99,7 @@
       .footer-column p i { margin-right: 4px; }
       .benefit-item { flex: 1 1 calc(50% - 20px); }
       .card { flex: 1 1 100%; max-width: 100%; }
+      .gray-box, .dark-box { padding: 24px 16px; }
     }
     @media (max-width: 480px) {
       .benefit-item { flex: 1 1 100%; }
@@ -105,6 +108,7 @@
 </head>
 <body>
 
+<!-- HERO -->
 <div class="container">
   <div class="navbar">
     <a href="/" class="logo">🛡️ ReputationGuard</a>
@@ -114,209 +118,231 @@
   </div>
 </div>
 
-<section class="container">
-  <div class="hero-affiliate">
-    <h1>Earn <span class="highlight">Lifetime Recurring</span> Commissions</h1>
-    <p>Global Business Development Partner — Remote · Worldwide · No Earning Cap</p>
-    <p style="font-size: 1rem; color: #9CA3AF; margin-bottom: 20px;">⚠️ 100% commission-based contractor opportunity. No fixed salary.</p>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
-      <a href="#apply" class="btn-success">Apply Now →</a>
-      <a href="#structure" class="btn-outline" style="border-color: white; color: white; background: transparent;">View Commission Structure</a>
-    </div>
-    <div class="stats">
-      <div><span>20%</span> Commission on one‑time services</div>
-      <div><span>15–20%</span> Lifetime recurring on subscriptions</div>
-      <div><span>Net-15</span> Payment terms</div>
-      <div><span>🌍</span> Work from anywhere</div>
+<section class="section">
+  <div class="container">
+    <div class="hero-affiliate">
+      <h1>Earn <span class="highlight">Lifetime Recurring</span> Commissions</h1>
+      <p>Global Business Development Partner — Remote · Worldwide · No Earning Cap</p>
+      <p style="font-size: 1rem; color: #9CA3AF; margin-bottom: 20px;">⚠️ 100% commission-based contractor opportunity. No fixed salary.</p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
+        <a href="#apply" class="btn-success">Apply Now →</a>
+        <a href="#structure" class="btn-outline" style="border-color: white; color: white; background: transparent;">View Commission Structure</a>
+      </div>
+      <div class="stats">
+        <div><span>20%</span> Commission on one‑time services</div>
+        <div><span>15–20%</span> Lifetime recurring on subscriptions</div>
+        <div><span>Net-15</span> Payment terms</div>
+        <div><span>🌍</span> Work from anywhere</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="container section">
-  <h2 class="section-title">About ReputationGuard.pro</h2>
-  <p class="section-sub">We help businesses and individuals remove, suppress, and manage negative online content while improving their digital reputation.</p>
-  <div class="card-grid">
-    <div class="card"><i class="fas fa-search card-icon"></i><h3>Improve Google Results</h3><p>Boost search visibility and suppress damaging content.</p></div>
-    <div class="card"><i class="fas fa-user-shield card-icon"></i><h3>Address Damaging Content</h3><p>Remove false, defamatory, or misleading information.</p></div>
-    <div class="card"><i class="fas fa-star card-icon"></i><h3>Improve Ratings & Reviews</h3><p>Legally challenge fake and unfair Google reviews.</p></div>
-    <div class="card"><i class="fas fa-building card-icon"></i><h3>Strengthen Brand Perception</h3><p>Restore trust and protect your online reputation.</p></div>
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">About ReputationGuard.pro</h2>
+    <p class="section-sub">We help businesses and individuals remove, suppress, and manage negative online content while improving their digital reputation.</p>
+    <div class="card-grid">
+      <div class="card"><i class="fas fa-search card-icon"></i><h3>Improve Google Results</h3><p>Boost search visibility and suppress damaging content.</p></div>
+      <div class="card"><i class="fas fa-user-shield card-icon"></i><h3>Address Damaging Content</h3><p>Remove false, defamatory, or misleading information.</p></div>
+      <div class="card"><i class="fas fa-star card-icon"></i><h3>Improve Ratings & Reviews</h3><p>Legally challenge fake and unfair Google reviews.</p></div>
+      <div class="card"><i class="fas fa-building card-icon"></i><h3>Strengthen Brand Perception</h3><p>Restore trust and protect your online reputation.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- WHY DIFFERENT -->
-<section class="container section gray-box">
-  <h2 class="section-title">Why This Opportunity Is Different</h2>
-  <div class="card-grid">
-    <div class="card"><i class="fas fa-undo-alt card-icon" style="color:#10B981;"></i><h3>Recurring Income</h3><p>Most sales roles pay once. We pay you every month for every active subscription client you bring.</p></div>
-    <div class="card"><i class="fas fa-chart-line card-icon" style="color:#10B981;"></i><h3>Build a Portfolio</h3><p>As your client portfolio grows, so does your monthly recurring revenue.</p></div>
-    <div class="card"><i class="fas fa-globe card-icon" style="color:#10B981;"></i><h3>Work Remotely</h3><p>No office required — sell from anywhere in the world.</p></div>
-    <div class="card"><i class="fas fa-infinity card-icon" style="color:#10B981;"></i><h3>No Earning Cap</h3><p>Unlimited clients, unlimited earning potential.</p></div>
+<section class="section">
+  <div class="container gray-box">
+    <h2 class="section-title">Why This Opportunity Is Different</h2>
+    <div class="card-grid">
+      <div class="card"><i class="fas fa-undo-alt card-icon" style="color:#10B981;"></i><h3>Recurring Income</h3><p>Most sales roles pay once. We pay you every month for every active subscription client you bring.</p></div>
+      <div class="card"><i class="fas fa-chart-line card-icon" style="color:#10B981;"></i><h3>Build a Portfolio</h3><p>As your client portfolio grows, so does your monthly recurring revenue.</p></div>
+      <div class="card"><i class="fas fa-globe card-icon" style="color:#10B981;"></i><h3>Work Remotely</h3><p>No office required — sell from anywhere in the world.</p></div>
+      <div class="card"><i class="fas fa-infinity card-icon" style="color:#10B981;"></i><h3>No Earning Cap</h3><p>Unlimited clients, unlimited earning potential.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- COMMISSION STRUCTURE -->
-<section id="structure" class="container section">
-  <h2 class="section-title">Commission Structure</h2>
-  <p class="section-sub">One‑time and recurring payments — paid Net-15 after client confirmation.</p>
-  <table class="commission-table">
-    <thead><tr><th>Service / Plan</th><th>Price</th><th>Upfront Commission</th><th>Recurring Monthly</th></tr></thead>
-    <tbody>
-      <tr><td>One‑Time Removal</td><td>$99</td><td class="upfront">$20</td><td>—</td></tr>
-      <tr><td>Essential Plan</td><td>$399/mo</td><td class="upfront">$60</td><td class="recurring">$40</td></tr>
-      <tr><td>Pro Plan</td><td>$799/mo</td><td class="upfront">$120</td><td class="recurring">$80</td></tr>
-      <tr class="highlight-cell"><td>Enterprise Plan</td><td>$1,499/mo</td><td class="upfront">$225</td><td class="recurring">$150</td></tr>
-    </tbody>
-  </table>
-  <p style="font-size: 0.9rem; color: #6b7280; text-align: center; margin-top: 8px;">
-    <i class="fas fa-info-circle"></i> Upfront commission includes the first month's recurring commission.
-    Recurring payments begin from month 2 onward for active subscriptions.
-  </p>
-</section>
-
-<!-- EXAMPLE RECURRING INCOME -->
-<section class="container section">
-  <h2 class="section-title">Example Recurring Income</h2>
-  <p class="section-sub">See how your income grows as you build your client portfolio.</p>
-  <div class="example-grid">
-    <div class="example-card"><div class="amount">$1,500</div><div class="label">10 Enterprise clients</div></div>
-    <div class="example-card"><div class="amount">$3,750</div><div class="label">25 Enterprise clients</div></div>
-    <div class="example-card"><div class="amount">$7,500</div><div class="label">50 Enterprise clients</div></div>
-    <div class="example-card" style="border-color: #10B981; background: #F0FDF4;"><div class="amount">$1,950</div><div class="label">15 Pro + 5 Enterprise clients<br><span style="font-size:0.8rem; color:#6b7280;">Mixed portfolio example</span></div></div>
-  </div>
-  <p style="text-align: center; color: #4b5563; margin-top: 16px;"><i class="fas fa-plus-circle" style="color:#10B981;"></i> Plus upfront commissions from every new sale.</p>
-</section>
-
-<!-- WHAT YOU'LL DO -->
-<section class="container section gray-box">
-  <h2 class="section-title">What You'll Do</h2>
-  <div class="card-grid">
-    <div class="card"><i class="fas fa-bullseye card-icon"></i><h3>Identify & Approach</h3><p>Find potential clients worldwide through LinkedIn, networking, referrals, and email outreach.</p></div>
-    <div class="card"><i class="fas fa-handshake card-icon"></i><h3>Present & Close</h3><p>Present ReputationGuard services to business owners, executives, and organizations. Negotiate and close new business.</p></div>
-    <div class="card"><i class="fas fa-users card-icon"></i><h3>Build Relationships</h3><p>Develop long‑term client relationships and manage your own sales pipeline.</p></div>
-    <div class="card"><i class="fas fa-laptop-house card-icon"></i><h3>Work Independently</h3><p>Operate remotely from anywhere with full flexibility.</p></div>
-  </div>
-</section>
-
-<!-- IDEAL CANDIDATE -->
-<section class="container section">
-  <h2 class="section-title">Ideal Candidate</h2>
-  <p class="section-sub">We are looking for experienced B2B professionals with a track record of closing new business.</p>
-  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-    <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">B2B Sales</span>
-    <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">Business Development</span>
-    <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">Agency Owners</span>
-    <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">Lead Generation</span>
-    <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">SEO & Digital Marketing</span>
-    <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">PR Consultants</span>
-    <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">SaaS Sales</span>
-    <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">ORM Specialists</span>
-  </div>
-  <div style="max-width: 900px; margin: 32px auto 0; background: #F9FAFB; border-radius: 28px; padding: 24px; border: 1px solid #eef2ff; text-align: center;">
-    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 12px;">Preferred Experience</h3>
-    <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
-      <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">B2B Sales</li>
-      <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">Business Development</li>
-      <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">SEO</li>
-      <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">Digital Marketing</li>
-      <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">SaaS</li>
-      <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">Lead Generation</li>
-      <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">PR</li>
-      <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">Consulting</li>
-      <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">Online Reputation Management</li>
-    </ul>
-  </div>
-</section>
-
-<!-- BENEFITS -->
-<section class="container section dark-box">
-  <h2 class="section-title" style="color: white;">Benefits</h2>
-  <div class="benefits-flex">
-    <div class="benefit-item"><i class="fas fa-sync-alt"></i><span>Lifetime recurring commissions</span></div>
-    <div class="benefit-item"><i class="fas fa-infinity"></i><span>Unlimited earning potential</span></div>
-    <div class="benefit-item"><i class="fas fa-globe"></i><span>Fully remote</span></div>
-    <div class="benefit-item"><i class="fas fa-clock"></i><span>Flexible schedule</span></div>
-    <div class="benefit-item"><i class="fas fa-briefcase"></i><span>Build your own portfolio</span></div>
-    <div class="benefit-item"><i class="fas fa-file-contract"></i><span>Independent contractor model</span></div>
-    <div class="benefit-item"><i class="fas fa-users"></i><span>Worldwide applicants welcome</span></div>
-    <div class="benefit-item"><i class="fas fa-box-open"></i><span>Marketing materials, scripts & case studies provided</span></div>
-  </div>
-</section>
-
-<!-- PAYMENT TERMS -->
-<section class="container section">
-  <div style="background: #F0FDF4; border-radius: 28px; padding: 24px 32px; border: 1px solid #10B981; text-align: center; max-width: 720px; margin: 0 auto;">
-    <i class="fas fa-credit-card" style="font-size: 2rem; color: #10B981; display: block; margin-bottom: 8px;"></i>
-    <h3 style="font-size: 1.3rem; font-weight: 700;">Payment Terms</h3>
-    <p style="color: #4b5563; margin-top: 8px;">All commissions are paid <strong>Net-15</strong> following client payment confirmation.</p>
-  </div>
-</section>
-
-<!-- HOW TO APPLY + FORM -->
-<section id="apply" class="container section">
-  <h2 class="section-title">How To Apply</h2>
-  <p class="section-sub">We're primarily interested in candidates with proven experience generating and closing new business.</p>
-  <div class="form-affiliate">
-    <form id="affiliateForm" action="https://formsubmit.co/defend@reputationguard.pro" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_subject" value="New Affiliate Application">
-      <input type="hidden" name="_next" value="https://reputationguard.pro/thank-you-affiliate.html">
-      <div class="form-group">
-        <label for="name">Full Name *</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email Address *</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone">
-      </div>
-      <div class="form-group">
-        <label for="country">Your Country *</label>
-        <input type="text" id="country" name="country" placeholder="e.g. United States" required>
-      </div>
-      <div class="form-group">
-        <label for="linkedin">LinkedIn Profile URL *</label>
-        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile" required>
-      </div>
-      <div class="form-group">
-        <label for="territory">Your Target Territory *</label>
-        <input type="text" id="territory" name="territory" placeholder="e.g. United States, Texas, or London, UK" required>
-        <p class="form-help">Specify the countries, regions, or cities where you plan to operate. All clients from these territories will be attributed to you.</p>
-      </div>
-      <div class="form-group">
-        <label for="experience">Brief Summary of Your Sales Experience *</label>
-        <textarea id="experience" name="sales_experience" rows="4" required placeholder="Describe your sales background, key achievements, and industries you have sold to..."></textarea>
-      </div>
-      <div class="form-group">
-        <label for="industries">Industries You Have Sold To</label>
-        <input type="text" id="industries" name="industries" placeholder="e.g. SaaS, Healthcare, Hospitality">
-      </div>
-      <div class="form-group">
-        <label for="sectors">Experience in SEO, Digital Marketing, SaaS, Lead Generation, PR, Consulting, or Reputation Management</label>
-        <textarea id="sectors" name="sectors" rows="3" placeholder="Please list any relevant experience..."></textarea>
-      </div>
-      <button type="submit" class="btn-success" style="width:100%;">Submit Application →</button>
-      <p class="form-status">We'll review your application and get back to you within 48 hours.</p>
-    </form>
-    <p style="text-align: center; color: #4b5563; margin-top: 20px;">
-      <i class="fas fa-globe" style="color: #10B981;"></i> After approval, your designated territory will be reserved for you. All clients from that region will be attributed to your account.
+<section id="structure" class="section">
+  <div class="container">
+    <h2 class="section-title">Commission Structure</h2>
+    <p class="section-sub">One‑time and recurring payments — paid Net-15 after client confirmation.</p>
+    <table class="commission-table">
+      <thead><tr><th>Service / Plan</th><th>Price</th><th>Upfront Commission</th><th>Recurring Monthly</th></tr></thead>
+      <tbody>
+        <tr><td>One‑Time Removal</td><td>$99</td><td class="upfront">$20</td><td>—</td></tr>
+        <tr><td>Essential Plan</td><td>$399/mo</td><td class="upfront">$60</td><td class="recurring">$40</td></tr>
+        <tr><td>Pro Plan</td><td>$799/mo</td><td class="upfront">$120</td><td class="recurring">$80</td></tr>
+        <tr class="highlight-cell"><td>Enterprise Plan</td><td>$1,499/mo</td><td class="upfront">$225</td><td class="recurring">$150</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size: 0.9rem; color: #6b7280; text-align: center; margin-top: 8px;">
+      <i class="fas fa-info-circle"></i> Upfront commission includes the first month's recurring commission.
+      Recurring payments begin from month 2 onward for active subscriptions.
     </p>
   </div>
 </section>
 
+<!-- EXAMPLE RECURRING INCOME -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Example Recurring Income</h2>
+    <p class="section-sub">See how your income grows as you build your client portfolio.</p>
+    <div class="example-grid">
+      <div class="example-card"><div class="amount">$1,500</div><div class="label">10 Enterprise clients</div></div>
+      <div class="example-card"><div class="amount">$3,750</div><div class="label">25 Enterprise clients</div></div>
+      <div class="example-card"><div class="amount">$7,500</div><div class="label">50 Enterprise clients</div></div>
+      <div class="example-card" style="border-color: #10B981; background: #F0FDF4;"><div class="amount">$1,950</div><div class="label">15 Pro + 5 Enterprise clients<br><span style="font-size:0.8rem; color:#6b7280;">Mixed portfolio example</span></div></div>
+    </div>
+    <p style="text-align: center; color: #4b5563; margin-top: 16px;"><i class="fas fa-plus-circle" style="color:#10B981;"></i> Plus upfront commissions from every new sale.</p>
+  </div>
+</section>
+
+<!-- WHAT YOU'LL DO -->
+<section class="section">
+  <div class="container gray-box">
+    <h2 class="section-title">What You'll Do</h2>
+    <div class="card-grid">
+      <div class="card"><i class="fas fa-bullseye card-icon"></i><h3>Identify & Approach</h3><p>Find potential clients worldwide through LinkedIn, networking, referrals, and email outreach.</p></div>
+      <div class="card"><i class="fas fa-handshake card-icon"></i><h3>Present & Close</h3><p>Present ReputationGuard services to business owners, executives, and organizations. Negotiate and close new business.</p></div>
+      <div class="card"><i class="fas fa-users card-icon"></i><h3>Build Relationships</h3><p>Develop long‑term client relationships and manage your own sales pipeline.</p></div>
+      <div class="card"><i class="fas fa-laptop-house card-icon"></i><h3>Work Independently</h3><p>Operate remotely from anywhere with full flexibility.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- IDEAL CANDIDATE -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Ideal Candidate</h2>
+    <p class="section-sub">We are looking for experienced B2B professionals with a track record of closing new business.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">B2B Sales</span>
+      <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">Business Development</span>
+      <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">Agency Owners</span>
+      <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">Lead Generation</span>
+      <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">SEO & Digital Marketing</span>
+      <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">PR Consultants</span>
+      <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">SaaS Sales</span>
+      <span style="background: #EFF6FF; padding: 8px 18px; border-radius: 40px; font-weight: 600; color: #1E3A8A;">ORM Specialists</span>
+    </div>
+    <div style="max-width: 900px; margin: 32px auto 0; background: #F9FAFB; border-radius: 28px; padding: 24px; border: 1px solid #eef2ff; text-align: center;">
+      <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 12px;">Preferred Experience</h3>
+      <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+        <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">B2B Sales</li>
+        <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">Business Development</li>
+        <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">SEO</li>
+        <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">Digital Marketing</li>
+        <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">SaaS</li>
+        <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">Lead Generation</li>
+        <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">PR</li>
+        <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">Consulting</li>
+        <li style="background: white; padding: 6px 16px; border-radius: 40px; border: 1px solid #e5e7eb;">Online Reputation Management</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section">
+  <div class="container dark-box">
+    <h2 class="section-title" style="color: white;">Benefits</h2>
+    <div class="benefits-flex">
+      <div class="benefit-item"><i class="fas fa-sync-alt"></i><span>Lifetime recurring commissions</span></div>
+      <div class="benefit-item"><i class="fas fa-infinity"></i><span>Unlimited earning potential</span></div>
+      <div class="benefit-item"><i class="fas fa-globe"></i><span>Fully remote</span></div>
+      <div class="benefit-item"><i class="fas fa-clock"></i><span>Flexible schedule</span></div>
+      <div class="benefit-item"><i class="fas fa-briefcase"></i><span>Build your own portfolio</span></div>
+      <div class="benefit-item"><i class="fas fa-file-contract"></i><span>Independent contractor model</span></div>
+      <div class="benefit-item"><i class="fas fa-users"></i><span>Worldwide applicants welcome</span></div>
+      <div class="benefit-item"><i class="fas fa-box-open"></i><span>Marketing materials, scripts & case studies provided</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT TERMS -->
+<section class="section">
+  <div class="container">
+    <div style="background: #F0FDF4; border-radius: 28px; padding: 24px 32px; border: 1px solid #10B981; text-align: center; max-width: 720px; margin: 0 auto;">
+      <i class="fas fa-credit-card" style="font-size: 2rem; color: #10B981; display: block; margin-bottom: 8px;"></i>
+      <h3 style="font-size: 1.3rem; font-weight: 700;">Payment Terms</h3>
+      <p style="color: #4b5563; margin-top: 8px;">All commissions are paid <strong>Net-15</strong> following client payment confirmation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO APPLY + FORM -->
+<section id="apply" class="section">
+  <div class="container">
+    <h2 class="section-title">How To Apply</h2>
+    <p class="section-sub">We're primarily interested in candidates with proven experience generating and closing new business.</p>
+    <div class="form-affiliate">
+      <form id="affiliateForm" action="https://formsubmit.co/defend@reputationguard.pro" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="New Affiliate Application">
+        <input type="hidden" name="_next" value="https://reputationguard.pro/thank-you-affiliate.html">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+          <label for="country">Your Country *</label>
+          <input type="text" id="country" name="country" placeholder="e.g. United States" required>
+        </div>
+        <div class="form-group">
+          <label for="linkedin">LinkedIn Profile URL *</label>
+          <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile" required>
+        </div>
+        <div class="form-group">
+          <label for="territory">Your Target Territory *</label>
+          <input type="text" id="territory" name="territory" placeholder="e.g. United States, Texas, or London, UK" required>
+          <p class="form-help">Specify the countries, regions, or cities where you plan to operate. All clients from these territories will be attributed to you.</p>
+        </div>
+        <div class="form-group">
+          <label for="experience">Brief Summary of Your Sales Experience *</label>
+          <textarea id="experience" name="sales_experience" rows="4" required placeholder="Describe your sales background, key achievements, and industries you have sold to..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="industries">Industries You Have Sold To</label>
+          <input type="text" id="industries" name="industries" placeholder="e.g. SaaS, Healthcare, Hospitality">
+        </div>
+        <div class="form-group">
+          <label for="sectors">Experience in SEO, Digital Marketing, SaaS, Lead Generation, PR, Consulting, or Reputation Management</label>
+          <textarea id="sectors" name="sectors" rows="3" placeholder="Please list any relevant experience..."></textarea>
+        </div>
+        <button type="submit" class="btn-success" style="width:100%;">Submit Application →</button>
+        <p class="form-status">We'll review your application and get back to you within 48 hours.</p>
+      </form>
+      <p style="text-align: center; color: #4b5563; margin-top: 20px;">
+        <i class="fas fa-globe" style="color: #10B981;"></i> After approval, your designated territory will be reserved for you. All clients from that region will be attributed to your account.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
-<section class="container section">
-  <h2 class="section-title">Frequently Asked Questions</h2>
-  <div class="faq-container">
-    <div class="faq-item"><div class="faq-question"><span>How do I track my commissions?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">During the application process, you'll specify the countries or cities where you operate. All clients coming from those territories will be automatically attributed to you in our internal system. We send you a detailed monthly report via email showing all clients from your territory, their active subscriptions, and your commission amount. Full transparency — no surprises.</div></div>
-    <div class="faq-item"><div class="faq-question"><span>When are commissions paid?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">All commissions are paid Net-15 after the client's payment is confirmed by our system.</div></div>
-    <div class="faq-item"><div class="faq-question"><span>Is there a minimum payout threshold?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">No minimum. We pay you the full amount due every month.</div></div>
-    <div class="faq-item"><div class="faq-question"><span>Do you provide marketing materials?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Yes. You'll get access to banners, email templates, case studies, and sales scripts to help you close deals faster.</div></div>
-    <div class="faq-item"><div class="faq-question"><span>Can I combine this with my own agency?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Absolutely. Many of our partners are agencies that white‑label our services or refer clients for a commission.</div></div>
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item"><div class="faq-question"><span>How do I track my commissions?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">During the application process, you'll specify the countries or cities where you operate. All clients coming from those territories will be automatically attributed to you in our internal system. We send you a detailed monthly report via email showing all clients from your territory, their active subscriptions, and your commission amount. Full transparency — no surprises.</div></div>
+      <div class="faq-item"><div class="faq-question"><span>When are commissions paid?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">All commissions are paid Net-15 after the client's payment is confirmed by our system.</div></div>
+      <div class="faq-item"><div class="faq-question"><span>Is there a minimum payout threshold?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">No minimum. We pay you the full amount due every month.</div></div>
+      <div class="faq-item"><div class="faq-question"><span>Do you provide marketing materials?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Yes. You'll get access to banners, email templates, case studies, and sales scripts to help you close deals faster.</div></div>
+      <div class="faq-item"><div class="faq-question"><span>Can I combine this with my own agency?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Absolutely. Many of our partners are agencies that white‑label our services or refer clients for a commission.</div></div>
+    </div>
   </div>
 </section>
 
