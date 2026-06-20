@@ -636,6 +636,251 @@
   </div>
 </section>
 
+  <!-- ===== AI REPUTATION SIMULATOR ===== -->
+<section class="simulator-section" style="margin: 70px 0;">
+  <div class="simulator-card" style="background: rgba(255,255,255,0.03); backdrop-filter: blur(14px); border-radius: 2.4rem; border: 2px solid rgba(255,255,255,0.06); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.8); padding: 2rem 2rem 1.8rem;">
+   
+    <div style="text-align: center; margin-bottom: 1.8rem;">
+      <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.2); font-weight: 700;" data-i18n="interactive-demo">Interactive Demo</span>
+      <h2 style="font-size: 2rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-top: 0.2rem;" data-i18n="how-ai-sees">How AI sees your reputation</h2>
+    </div>
+
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem;">
+      <span style="font-size: 1.6rem; font-weight: 800; color: #fff; letter-spacing: -0.02em;" data-i18n="your-business">
+        Your Business
+        <small id="ratingBadge" style="font-weight: 600; font-size: 0.9rem; color: #fbbf24; background: rgba(251,191,36,0.12); padding: 0.2rem 0.8rem; border-radius: 100px; border: 1px solid rgba(251,191,36,0.15); margin-left: 0.5rem;">⭐ 2.8 ★</small>
+      </span>
+    </div>
+
+    <!-- AI Summary -->
+    <div id="aiBox" style="background: rgba(255,255,255,0.02); border-radius: 1.4rem; padding: 1rem 1.2rem; border-left: 5px solid #ef4444; margin-bottom: 1.5rem; transition: border-color 0.4s;">
+      <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700; margin-bottom: 0.3rem;" data-i18n="ai-summary">AI Summary</div>
+      <div id="aiText" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); transition: all 0.4s ease;">
+        «Your business — <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">constant complaints</span> about dirt, rude staff, and broken promises. Clients <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span>.»
+      </div>
+    </div>
+
+    <!-- Rating -->
+    <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 1rem;">
+      <span id="starsDisplay" style="font-size: 2rem; color: #fbbf24; letter-spacing: 3px;">★★☆☆☆</span>
+      <span id="ratingNumber" style="font-size: 2.6rem; font-weight: 800; color: #fff; line-height: 1;">2.8</span>
+      <span id="ratingChange" style="font-size: 1.1rem; font-weight: 700; background: rgba(239,68,68,0.12); color: #ef4444; padding: 0.2rem 0.9rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.15); transition: all 0.3s;">-0.4</span>
+    </div>
+
+    <!-- Reviews meta -->
+    <div style="display: flex; gap: 1.8rem; font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; align-items: center; flex-wrap: wrap;">
+      <span id="reviewsCount">📊 67 reviews</span>
+      <span id="removedBadge" style="background: rgba(239,68,68,0.08); padding: 0.2rem 0.8rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.1); color: #f87171;">🗑️ 0 removed</span>
+    </div>
+
+    <!-- Controls -->
+    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.4rem;">
+      <label id="labelBefore" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none;" data-i18n="before">Before</label>
+      <div id="toggleTrack" style="flex: 1; height: 6px; border-radius: 6px; background: rgba(255,255,255,0.08); position: relative; cursor: pointer;">
+        <div id="progressBg" style="height: 100%; width: 0%; background: linear-gradient(90deg, #ef4444, #22c55e); border-radius: 6px; transition: width 0.35s ease;"></div>
+        <div id="thumb" style="width: 22px; height: 22px; background: #fff; border-radius: 50%; position: absolute; top: 50%; left: 0%; transform: translate(-50%, -50%); transition: left 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 4px 12px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <label id="labelAfter" style="font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none;" data-i18n="after">After</label>
+      <span id="stateLabel" style="font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.4); min-width: 3.2rem; text-align: right;" data-i18n="before-label">Before</span>
+    </div>
+
+    <!-- Hint -->
+    <div style="text-align: center; font-size: 1.15rem; font-weight: 600; color: rgba(255,255,255,0.6); padding: 0.6rem 0 0.8rem; margin-bottom: 1.2rem; letter-spacing: 0.03em; display: flex; align-items: center; justify-content: center; gap: 0.6rem; animation: hint-pulse 2s ease-in-out infinite; border-bottom: 1px solid rgba(255,255,255,0.04);" data-i18n="drag-hint">
+      <span style="display: inline-block; font-size: 2rem; animation: hint-slide 1.8s ease-in-out infinite;">👆</span> Drag the slider to see the transformation
+    </div>
+
+    <!-- Chart -->
+    <div style="background: rgba(255,255,255,0.02); border-radius: 1.2rem; padding: 1rem 0.5rem 0.5rem; border: 1px solid rgba(255,255,255,0.04); margin-bottom: 1.5rem;">
+      <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.2); font-weight: 600; padding-left: 0.5rem; margin-bottom: 0.3rem;" data-i18n="chart-title">📈 Rating dynamics</div>
+      <canvas id="ratingChart" style="width: 100% !important; height: 60px !important; display: block;"></canvas>
+    </div>
+
+    <!-- Manual Review -->
+    <div style="display: flex; align-items: center; justify-content: center; gap: 0.8rem; padding: 0.8rem 1.2rem; background: rgba(255,255,255,0.02); border-radius: 1.4rem; border: 1px solid rgba(255,255,255,0.04); text-align: left;">
+      <span style="font-size: 1.6rem; line-height: 1; flex-shrink: 0;">🔍</span>
+      <div style="display: flex; flex-direction: column;">
+        <span style="font-size: 0.9rem; font-weight: 700; color: #fff;" data-i18n="manual-title">Manual Review</span>
+        <span style="font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.4;" data-i18n="manual-desc">Each review is checked by a SERM specialist, which ensures a high success rate of appeals.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes hint-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+  @keyframes hint-slide {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+  }
+  .simulator-card {
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+  }
+  @keyframes pulse-glow {
+    0% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.6; transform: scale(1); }
+  }
+  .rating-change.animate {
+    animation: pulse-glow 0.8s ease 2;
+  }
+</style>
+
+
+<script>
+  (function() {
+    
+    const states = {
+      before: {
+        aiText: '«Your business — <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">constant complaints</span> about dirt, rude staff, and broken promises. Clients <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span>.»',
+        rating: '2.8',
+        change: '-0.4',
+        stars: '★★☆☆☆',
+        removed: '🗑️ 0 removed',
+        reviews: '📊 67 reviews',
+        borderColor: '#ef4444',
+        chartData: [3.2, 3.0, 2.9, 2.8, 2.8, 2.8]
+      },
+      after: {
+        aiText: '«Your business — <span class="highlight" style="background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">high level of service</span>, cleanliness, and attentive staff. Clients <span class="highlight" style="background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">recommend with confidence</span>.»',
+        rating: '4.8',
+        change: '+2.0',
+        stars: '★★★★★',
+        removed: '🗑️ 4 removed',
+        reviews: '📊 63 reviews',
+        borderColor: '#22c55e',
+        chartData: [3.2, 3.0, 2.9, 2.8, 4.0, 4.8]
+      }
+    };
+
+    const aiText = document.getElementById('aiText');
+    const ratingNumber = document.getElementById('ratingNumber');
+    const ratingChange = document.getElementById('ratingChange');
+    const removedBadge = document.getElementById('removedBadge');
+    const reviewsCount = document.getElementById('reviewsCount');
+    const starsDisplay = document.getElementById('starsDisplay');
+    const aiBox = document.getElementById('aiBox');
+    const ratingBadge = document.getElementById('ratingBadge');
+    const toggleTrack = document.getElementById('toggleTrack');
+    const thumb = document.getElementById('thumb');
+    const progressBg = document.getElementById('progressBg');
+    const stateLabel = document.getElementById('stateLabel');
+    const labelBefore = document.getElementById('labelBefore');
+    const labelAfter = document.getElementById('labelAfter');
+
+    let currentState = 'before';
+
+    function updateUI(state) {
+      const data = states[state];
+      aiText.innerHTML = data.aiText;
+      ratingNumber.textContent = data.rating;
+      ratingChange.textContent = data.change;
+      removedBadge.textContent = data.removed;
+      reviewsCount.textContent = data.reviews;
+      starsDisplay.textContent = data.stars;
+      ratingBadge.textContent = `⭐ ${data.rating} ★`;
+      aiBox.style.borderColor = data.borderColor;
+      stateLabel.textContent = state === 'before' ? 'Before' : 'After';
+      labelBefore.style.color = state === 'before' ? '#fff' : 'rgba(255,255,255,0.3)';
+      labelAfter.style.color = state === 'after' ? '#fff' : 'rgba(255,255,255,0.3)';
+
+      ratingChange.classList.remove('animate');
+      void ratingChange.offsetWidth;
+      ratingChange.classList.add('animate');
+
+      const percent = state === 'before' ? 0 : 100;
+      thumb.style.left = percent + '%';
+      progressBg.style.width = percent + '%';
+      currentState = state;
+
+      drawChart(data.chartData, data.borderColor);
+    }
+
+    const canvas = document.getElementById('ratingChart');
+    const ctx = canvas.getContext('2d');
+
+    function drawChart(points, color) {
+      const w = canvas.parentElement.clientWidth - 16;
+      const h = 60;
+      canvas.width = w * window.devicePixelRatio;
+      canvas.height = h * window.devicePixelRatio;
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+
+      const max = 5;
+      const min = 2.5;
+      const pad = 8;
+
+      ctx.clearRect(0, 0, w, h);
+
+      ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < 4; i++) {
+        const y = pad + (h - 2 * pad) * (1 - (i / 3));
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+
+      ctx.beginPath();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 3;
+      ctx.shadowColor = color + '40';
+      ctx.shadowBlur = 8;
+      const step = (w - 2 * pad) / (points.length - 1);
+      points.forEach((val, idx) => {
+        const x = pad + idx * step;
+        const y = pad + (h - 2 * pad) * (1 - (val - min) / (max - min));
+        if (idx === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      points.forEach((val, idx) => {
+        const x = pad + idx * step;
+        const y = pad + (h - 2 * pad) * (1 - (val - min) / (max - min));
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, 2 * Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = color + '80';
+      });
+    }
+
+    function toggleState() {
+      const next = currentState === 'before' ? 'after' : 'before';
+      updateUI(next);
+    }
+
+    toggleTrack.addEventListener('click', toggleState);
+    labelBefore.addEventListener('click', () => updateUI('before'));
+    labelAfter.addEventListener('click', () => updateUI('after'));
+
+    updateUI('before');
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const data = states[currentState];
+        drawChart(data.chartData, data.borderColor);
+      }, 150);
+    });
+  })();
+</script>
+
  <div class="pricing-section">
     <h2 class="section-title" data-i18n="pricing-title">Simple, transparent pricing</h2>
     <p class="section-sub" data-i18n="pricing-sub">Fixed monthly fee + overage protection. Save up to 70% vs hiring in-house.</p>
@@ -1266,7 +1511,18 @@
   "extortion-text1": "In November 2025, Google launched a <strong>dedicated tool</strong> to combat review extortion — but the problem is already growing fast. Bad actors are using negative reviews as leverage to demand money or services.",
   "extortion-text2": "<strong>Did you know?</strong> The term <em>\"google review extortion\"</em> has already gained traction in search trends, with 1,000–3,000 monthly searches — and almost no one is offering a solution.",
   "extortion-btn": "Protect Your Business Now →",
-  "extortion-stat": "search growth in 2025"
+  "extortion-stat": "search growth in 2025",
+  "interactive-demo": "Interactive Demo",
+  "how-ai-sees": "How AI sees your reputation",
+  "your-business": "Your Business",
+  "ai-summary": "AI Summary",
+  "before": "Before",
+  "after": "After",
+  "before-label": "Before",
+  "drag-hint": "👆 Drag the slider to see the transformation",
+  "chart-title": "📈 Rating dynamics",
+  "manual-title": "Manual Review",
+  "manual-desc": "Each review is checked by a SERM specialist, which ensures a high success rate of appeals."
 },
    "es": {
   "hero-badge": "⚡ Defensa de Reseñas con IA y Google",
@@ -1545,7 +1801,18 @@
   "extortion-text1": "En noviembre de 2025, Google lanzó una <strong>herramienta dedicada</strong> para combatir la extorsión por reseñas — pero el problema ya crece rápidamente. Malos actores usan reseñas negativas como chantaje para exigir dinero o servicios.",
   "extortion-text2": "<strong>¿Sabías?</strong> El término <em>\"google review extortion\"</em> ya ha ganado tracción en las tendencias de búsqueda, con 1,000–3,000 búsquedas mensuales — y casi nadie ofrece una solución.",
   "extortion-btn": "Protege tu Negocio Ahora →",
-  "extortion-stat": "crecimiento de búsquedas en 2025"
+  "extortion-stat": "crecimiento de búsquedas en 2025",
+  "interactive-demo": "Demostración interactiva",
+  "how-ai-sees": "Cómo la IA ve tu reputación",
+  "your-business": "Tu negocio",
+  "ai-summary": "Resumen de IA",
+  "before": "Antes",
+  "after": "Después",
+  "before-label": "Antes",
+  "drag-hint": "👆 Arrastra el control deslizante para ver la transformación",
+  "chart-title": "📈 Dinámica de calificación",
+  "manual-title": "Revisión manual",
+  "manual-desc": "Cada reseña es revisada por un especialista SERM, lo que garantiza una alta tasa de éxito en las apelaciones."
 },
     "de": {
   "hero-badge": "⚡ KI- und Google-Bewertungsabwehr",
@@ -1824,7 +2091,18 @@
   "extortion-text1": "Im November 2025 startete Google ein <strong>spezielles Tool</strong> gegen Bewertungserpressung — aber das Problem wächst bereits schnell. Böswillige Akteure nutzen negative Bewertungen als Druckmittel, um Geld oder Dienstleistungen zu fordern.",
   "extortion-text2": "<strong>Wussten Sie?</strong> Der Begriff <em>„google review extortion“</em> hat bereits an Fahrt aufgenommen, mit 1.000–3.000 monatlichen Suchanfragen — und fast niemand bietet eine Lösung an.",
   "extortion-btn": "Jetzt Ihr Unternehmen schützen →",
-  "extortion-stat": "Suchwachstum 2025"
+  "extortion-stat": "Suchwachstum 2025",
+  "interactive-demo": "Interaktive Demo",
+  "how-ai-sees": "Wie KI Ihren Ruf sieht",
+  "your-business": "Ihr Unternehmen",
+  "ai-summary": "KI-Zusammenfassung",
+  "before": "Vorher",
+  "after": "Nachher",
+  "before-label": "Vorher",
+  "drag-hint": "👆 Ziehen Sie den Schieberegler, um die Transformation zu sehen",
+  "chart-title": "📈 Bewertungsdynamik",
+  "manual-title": "Manuelle Überprüfung",
+  "manual-desc": "Jede Bewertung wird von einem SERM-Spezialisten geprüft, was eine hohe Erfolgsquote der Einsprüche gewährleistet."
 },
     "fr": {
   "hero-badge": "⚡ Défense des avis IA et Google",
@@ -2103,7 +2381,18 @@
   "extortion-text1": "En novembre 2025, Google a lancé un <strong>outil dédié</strong> pour lutter contre l'extorsion par avis — mais le problème s'aggrave déjà rapidement. Des acteurs malveillants utilisent les avis négatifs comme levier pour exiger de l'argent ou des services.",
   "extortion-text2": "<strong>Le saviez-vous ?</strong> Le terme <em>\"google review extortion\"</em> a déjà gagné du terrain dans les tendances de recherche, avec 1 000 à 3 000 recherches mensuelles — et presque personne n'offre de solution.",
   "extortion-btn": "Protégez votre entreprise maintenant →",
-  "extortion-stat": "croissance des recherches en 2025"
+  "extortion-stat": "croissance des recherches en 2025",
+  "interactive-demo": "Démo interactive",
+  "how-ai-sees": "Comment l'IA voit votre réputation",
+  "your-business": "Votre entreprise",
+  "ai-summary": "Résumé IA",
+  "before": "Avant",
+  "after": "Après",
+  "before-label": "Avant",
+  "drag-hint": "👆 Faites glisser le curseur pour voir la transformation",
+  "chart-title": "📈 Dynamique des notes",
+  "manual-title": "Examen manuel",
+  "manual-desc": "Chaque avis est vérifié par un spécialiste SERM, ce qui garantit un taux de réussite élevé des contestations."
 },
    "ru": {
   "hero-badge": "⚡ Защита отзывов с ИИ и Google",
@@ -2390,7 +2679,18 @@
   "extortion-text1": "В ноябре 2025 года Google запустил <strong>специальный инструмент</strong> против вымогательства через отзывы — но проблема уже быстро растёт. Недобросовестные игроки используют негативные отзывы как рычаг для вымогательства денег или услуг.",
   "extortion-text2": "<strong>Знаете ли вы?</strong> Термин <em>\"google review extortion\"</em> уже набрал популярность в поисковых трендах — 1 000–3 000 запросов в месяц, и почти никто не предлагает решения.",
   "extortion-btn": "Защитите свой бизнес сейчас →",
-  "extortion-stat": "рост поисковых запросов в 2025"
+  "extortion-stat": "рост поисковых запросов в 2025",
+  "interactive-demo": "Интерактивная демонстрация",
+  "how-ai-sees": "Как ИИ видит вашу репутацию",
+  "your-business": "Ваш бизнес",
+  "ai-summary": "Сводка ИИ",
+  "before": "До",
+  "after": "После",
+  "before-label": "До",
+  "drag-hint": "👆 Потяните ползунок, чтобы увидеть изменения",
+  "chart-title": "📈 Динамика рейтинга",
+  "manual-title": "Ручная проверка",
+  "manual-desc": "Каждый отзыв проверяется специалистом SERM, что гарантирует высокий процент успешных апелляций."
 },
     "vi": {
   "hero-badge": "⚡ Bảo vệ đánh giá với AI và Google",
@@ -2669,7 +2969,18 @@
   "extortion-text1": "Vào tháng 11 năm 2025, Google đã ra mắt <strong>công cụ chuyên dụng</strong> để chống lại nạn tống tiền qua đánh giá — nhưng vấn đề đã gia tăng nhanh chóng. Những kẻ xấu sử dụng đánh giá tiêu cực làm đòn bẩy để đòi tiền hoặc dịch vụ.",
   "extortion-text2": "<strong>Bạn có biết?</strong> Thuật ngữ <em>\"google review extortion\"</em> đã thu hút sự chú ý trong xu hướng tìm kiếm, với 1.000–3.000 lượt tìm kiếm hàng tháng — và hầu như không ai cung cấp giải pháp.",
   "extortion-btn": "Bảo vệ doanh nghiệp của bạn ngay →",
-  "extortion-stat": "tăng trưởng tìm kiếm trong năm 2025"
+  "extortion-stat": "tăng trưởng tìm kiếm trong năm 2025",
+  "interactive-demo": "Bản demo tương tác",
+  "how-ai-sees": "AI nhìn nhận danh tiếng của bạn như thế nào",
+  "your-business": "Doanh nghiệp của bạn",
+  "ai-summary": "Tóm tắt AI",
+  "before": "Trước",
+  "after": "Sau",
+  "before-label": "Trước",
+  "drag-hint": "👆 Kéo thanh trượt để xem sự thay đổi",
+  "chart-title": "📈 Động thái đánh giá",
+  "manual-title": "Kiểm tra thủ công",
+  "manual-desc": "Mỗi đánh giá được kiểm tra bởi chuyên gia SERM, đảm bảo tỷ lệ thành công cao trong các khiếu nại."
 },
     "pt": {
   "hero-badge": "⚡ Defesa de Avaliações com IA e Google",
@@ -2948,7 +3259,18 @@
   "extortion-text1": "Em novembro de 2025, o Google lançou uma <strong>ferramenta dedicada</strong> para combater a extorsão por avaliações — mas o problema já cresce rapidamente. Pessoas mal-intencionadas usam avaliações negativas como alavanca para exigir dinheiro ou serviços.",
   "extortion-text2": "<strong>Sabia disso?</strong> O termo <em>\"google review extortion\"</em> já ganhou força nas tendências de busca, com 1.000–3.000 pesquisas mensais — e quase ninguém oferece uma solução.",
   "extortion-btn": "Proteja seu Negócio Agora →",
-  "extortion-stat": "crescimento de buscas em 2025"
+  "extortion-stat": "crescimento de buscas em 2025",
+  "interactive-demo": "Demonstração interativa",
+  "how-ai-sees": "Como a IA vê sua reputação",
+  "your-business": "Seu negócio",
+  "ai-summary": "Resumo da IA",
+  "before": "Antes",
+  "after": "Depois",
+  "before-label": "Antes",
+  "drag-hint": "👆 Arraste o controlo para ver a transformação",
+  "chart-title": "📈 Dinâmica da classificação",
+  "manual-title": "Revisão manual",
+  "manual-desc": "Cada avaliação é verificada por um especialista SERM, o que garante uma alta taxa de sucesso nas apelações."
 },
    "tr": {
   "hero-badge": "⚡ Yapay Zeka ve Google Yorum Savunması",
@@ -3227,7 +3549,18 @@
   "extortion-text1": "Kasım 2025'te Google, yorum şantajıyla mücadele için <strong>özel bir araç</strong> başlattı — ancak sorun zaten hızla büyüyor. Kötü niyetli aktörler, para veya hizmet talep etmek için olumsuz yorumları koz olarak kullanıyor.",
   "extortion-text2": "<strong>Biliyor muydunuz?</strong> <em>\"google review extortion\"</em> terimi arama trendlerinde şimdiden ilgi gördü, aylık 1.000–3.000 arama — ve neredeyse hiç kimse bir çözüm sunmuyor.",
   "extortion-btn": "İşletmenizi Şimdi Koruyun →",
-  "extortion-stat": "2025'te arama büyümesi"
+  "extortion-stat": "2025'te arama büyümesi",
+  "interactive-demo": "İnteraktif Demo",
+  "how-ai-sees": "Yapay Zeka itibarınızı nasıl görüyor",
+  "your-business": "İşletmeniz",
+  "ai-summary": "Yapay Zeka Özeti",
+  "before": "Önce",
+  "after": "Sonra",
+  "before-label": "Önce",
+  "drag-hint": "👆 Dönüşümü görmek için kaydırıcıyı sürükleyin",
+  "chart-title": "📈 Puan dinamikleri",
+  "manual-title": "Manuel İnceleme",
+  "manual-desc": "Her yorum, itirazlarda yüksek başarı oranı sağlayan bir SERM uzmanı tarafından kontrol edilir."
 },
     "ar": {
   "hero-badge": "⚡ الدفاع عن التقييمات بالذكاء الاصطناعي وجوجل",
@@ -3506,7 +3839,18 @@
   "extortion-text1": "في نوفمبر 2025، أطلقت جوجل <strong>أداة مخصصة</strong> لمكافحة ابتزاز التقييمات — لكن المشكلة تتزايد بسرعة. يستخدم الجهات الخبيثة التقييمات السلبية كورقة ضغط لطلب المال أو الخدمات.",
   "extortion-text2": "<strong>هل تعلم؟</strong> مصطلح <em>\"google review extortion\"</em> اكتسب زخماً في اتجاهات البحث، مع 1,000–3,000 بحث شهري — ولا يكاد أحد يقدم حلاً.",
   "extortion-btn": "احمِ نشاطك التجاري الآن →",
-  "extortion-stat": "نمو في البحث خلال 2025"
+  "extortion-stat": "نمو في البحث خلال 2025",
+  "interactive-demo": "عرض تفاعلي",
+  "how-ai-sees": "كيف يرى الذكاء الاصطناعي سمعتك",
+  "your-business": "نشاطك التجاري",
+  "ai-summary": "ملخص الذكاء الاصطناعي",
+  "before": "قبل",
+  "after": "بعد",
+  "before-label": "قبل",
+  "drag-hint": "👆 اسحب المؤشر لرؤية التحول",
+  "chart-title": "📈 ديناميكيات التقييم",
+  "manual-title": "مراجعة يدوية",
+  "manual-desc": "يتم فحص كل تقييم بواسطة متخصص SERM، مما يضمن معدل نجاح مرتفع للطعون."
 }
   };
 
