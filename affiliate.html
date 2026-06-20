@@ -22,7 +22,6 @@
     .section-title { font-size: 2.2rem; font-weight: 800; text-align: center; margin-bottom: 16px; }
     .section-sub { text-align: center; color: #6b7280; max-width: 700px; margin: 0 auto 48px; }
     .section { margin: 80px 0; }
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 40px; }
     .card { background: white; border-radius: 28px; padding: 28px 24px; box-shadow: 0 12px 24px rgba(0,0,0,0.05); border: 1px solid #eef2ff; transition: 0.2s; text-align: left; }
     .card:hover { transform: translateY(-4px); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1); }
     .card-icon { font-size: 2.5rem; color: #2563EB; margin-bottom: 16px; }
@@ -31,6 +30,10 @@
     .card ul { list-style: none; padding: 0; }
     .card ul li { padding: 6px 0; display: flex; align-items: flex-start; gap: 10px; }
     .card ul li i { color: #10B981; margin-top: 4px; }
+
+    /* flex-карточки для центровки */
+    .card-flex { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 40px; }
+    .card-flex .card { flex: 0 1 280px; }
 
     .hero-affiliate { background: linear-gradient(135deg, #0F172A, #1E3A8A); border-radius: 48px; padding: 64px 48px; color: white; margin: 40px 0 60px; text-align: center; }
     .hero-affiliate h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
@@ -135,18 +138,18 @@
 <section class="container section">
   <h2 class="section-title">About ReputationGuard.pro</h2>
   <p class="section-sub">We help businesses and individuals remove, suppress, and manage negative online content while improving their digital reputation.</p>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 40px;">
-    <div class="card" style="flex: 0 1 280px;"><i class="fas fa-search card-icon"></i><h3>Improve Google Results</h3><p>Boost search visibility and suppress damaging content.</p></div>
-    <div class="card" style="flex: 0 1 280px;"><i class="fas fa-user-shield card-icon"></i><h3>Address Damaging Content</h3><p>Remove false, defamatory, or misleading information.</p></div>
-    <div class="card" style="flex: 0 1 280px;"><i class="fas fa-star card-icon"></i><h3>Improve Ratings & Reviews</h3><p>Legally challenge fake and unfair Google reviews.</p></div>
-    <div class="card" style="flex: 0 1 280px;"><i class="fas fa-building card-icon"></i><h3>Strengthen Brand Perception</h3><p>Restore trust and protect your online reputation.</p></div>
+  <div class="card-flex">
+    <div class="card"><i class="fas fa-search card-icon"></i><h3>Improve Google Results</h3><p>Boost search visibility and suppress damaging content.</p></div>
+    <div class="card"><i class="fas fa-user-shield card-icon"></i><h3>Address Damaging Content</h3><p>Remove false, defamatory, or misleading information.</p></div>
+    <div class="card"><i class="fas fa-star card-icon"></i><h3>Improve Ratings & Reviews</h3><p>Legally challenge fake and unfair Google reviews.</p></div>
+    <div class="card"><i class="fas fa-building card-icon"></i><h3>Strengthen Brand Perception</h3><p>Restore trust and protect your online reputation.</p></div>
   </div>
 </section>
 
 <!-- WHY DIFFERENT -->
 <section class="container section" style="background: #F8FAFC; border-radius: 48px; padding: 40px 24px; text-align: center;">
   <h2 class="section-title">Why This Opportunity Is Different</h2>
-  <div class="card-grid" style="margin-top: 20px; text-align: left;">
+  <div class="card-flex">
     <div class="card"><i class="fas fa-undo-alt card-icon" style="color:#10B981;"></i><h3>Recurring Income</h3><p>Most sales roles pay once. We pay you every month for every active subscription client you bring.</p></div>
     <div class="card"><i class="fas fa-chart-line card-icon" style="color:#10B981;"></i><h3>Build a Portfolio</h3><p>As your client portfolio grows, so does your monthly recurring revenue.</p></div>
     <div class="card"><i class="fas fa-globe card-icon" style="color:#10B981;"></i><h3>Work Remotely</h3><p>No office required — sell from anywhere in the world.</p></div>
@@ -190,7 +193,7 @@
 <!-- WHAT YOU'LL DO -->
 <section class="container section" style="background: #F8FAFC; border-radius: 48px; padding: 40px 24px; text-align: center;">
   <h2 class="section-title">What You'll Do</h2>
-  <div class="card-grid" style="margin-top: 20px; text-align: left;">
+  <div class="card-flex">
     <div class="card"><i class="fas fa-bullseye card-icon"></i><h3>Identify & Approach</h3><p>Find potential clients worldwide through LinkedIn, networking, referrals, and email outreach.</p></div>
     <div class="card"><i class="fas fa-handshake card-icon"></i><h3>Present & Close</h3><p>Present ReputationGuard services to business owners, executives, and organizations. Negotiate and close new business.</p></div>
     <div class="card"><i class="fas fa-users card-icon"></i><h3>Build Relationships</h3><p>Develop long‑term client relationships and manage your own sales pipeline.</p></div>
