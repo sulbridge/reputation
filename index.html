@@ -716,123 +716,105 @@ footer {
 
 <script>
   (function() {
-    const states = {
-      before: {
-        aiText: '«Your business — <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">constant complaints</span> about dirt, rude staff, and broken promises. Clients <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span>.»',
-        rating: '2.8',
-        change: '-0.4',
-        stars: '★★☆☆☆',
-        removed: '🗑️ 0 removed',
-        reviews: '📊 67 reviews',
-        borderColor: '#ef4444',
-        chartData: [3.2, 3.0, 2.9, 2.8, 2.8, 2.8]
-      },
-      after: {
-        aiText: '«Your business — <span class="highlight" style="background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">high level of service</span>, cleanliness, and attentive staff. Clients <span class="highlight" style="background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">recommend with confidence</span>.»',
-        rating: '4.8',
-        change: '+2.0',
-        stars: '★★★★★',
-        removed: '🗑️ 4 removed',
-        reviews: '📊 63 reviews',
-        borderColor: '#22c55e',
-        chartData: [3.2, 3.0, 2.9, 2.8, 4.0, 4.8]
-      }
-    };
-
-    const aiText = document.getElementById('aiText');
-    const ratingNumber = document.getElementById('ratingNumber');
-    const ratingChange = document.getElementById('ratingChange');
-    const removedBadge = document.getElementById('removedBadge');
-    const reviewsCount = document.getElementById('reviewsCount');
-    const starsDisplay = document.getElementById('starsDisplay');
-    const aiBox = document.getElementById('aiBox');
-    const ratingBadge = document.getElementById('ratingBadge');
-    const toggleTrack = document.getElementById('toggleTrack');
-    const thumb = document.getElementById('thumb');
-    const progressBg = document.getElementById('progressBg');
-    const stateLabel = document.getElementById('stateLabel');
-    const labelBefore = document.getElementById('labelBefore');
-    const labelAfter = document.getElementById('labelAfter');
-
-    let currentState = 'before';
-    let isDragging = false;
-
+    function getStateData(state) {
+      var lang = currentLang || 'en';
+      var t = translations[lang] || translations['en'];
+      var beforeText = t['simulator-ai-before'] || '«Your business — <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">constant complaints</span> about dirt, rude staff, and broken promises. Clients <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span>.»';
+      var afterText = t['simulator-ai-after'] || '«Your business — <span class="highlight" style="background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">high level of service</span>, cleanliness, and attentive staff. Clients <span class="highlight" style="background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">recommend with confidence</span>.»';
+      return {
+        aiText: state === 'before' ? beforeText : afterText,
+        rating: state === 'before' ? '2.8' : '4.8',
+        change: state === 'before' ? '-0.4' : '+2.0',
+        stars: state === 'before' ? '★★☆☆☆' : '★★★★★',
+        removed: state === 'before' ? '🗑️ 0 removed' : '🗑️ 4 removed',
+        reviews: state === 'before' ? '📊 67 reviews' : '📊 63 reviews',
+        borderColor: state === 'before' ? '#ef4444' : '#22c55e',
+        chartData: state === 'before' ? [3.2, 3.0, 2.9, 2.8, 2.8, 2.8] : [3.2, 3.0, 2.9, 2.8, 4.0, 4.8]
+      };
+    }
+    var aiText = document.getElementById('aiText');
+    var ratingNumber = document.getElementById('ratingNumber');
+    var ratingChange = document.getElementById('ratingChange');
+    var removedBadge = document.getElementById('removedBadge');
+    var reviewsCount = document.getElementById('reviewsCount');
+    var starsDisplay = document.getElementById('starsDisplay');
+    var aiBox = document.getElementById('aiBox');
+    var ratingBadge = document.getElementById('ratingBadge');
+    var toggleTrack = document.getElementById('toggleTrack');
+    var thumb = document.getElementById('thumb');
+    var progressBg = document.getElementById('progressBg');
+    var stateLabel = document.getElementById('stateLabel');
+    var labelBefore = document.getElementById('labelBefore');
+    var labelAfter = document.getElementById('labelAfter');
+    var currentState = 'before';
+    var isDragging = false;
     function updatePosition(percent) {
-      const clamped = Math.min(100, Math.max(0, percent));
+      var clamped = Math.min(100, Math.max(0, percent));
       thumb.style.left = clamped + '%';
       progressBg.style.width = clamped + '%';
     }
-
-    function setState(state) {
-      const data = states[state];
+    window.updateSimulatorUI = function(state) {
+      var data = getStateData(state);
       aiText.innerHTML = data.aiText;
       ratingNumber.textContent = data.rating;
       ratingChange.textContent = data.change;
       removedBadge.textContent = data.removed;
       reviewsCount.textContent = data.reviews;
       starsDisplay.textContent = data.stars;
-      ratingBadge.textContent = `⭐ ${data.rating} ★`;
+      ratingBadge.textContent = '⭐ ' + data.rating + ' ★';
       aiBox.style.borderColor = data.borderColor;
-      stateLabel.textContent = state === 'before' ? 'Before' : 'After';
+      stateLabel.textContent = state === 'before' ? (translations[currentLang]['before-label'] || 'Before') : (translations[currentLang]['after'] || 'After');
       labelBefore.style.color = state === 'before' ? '#fff' : 'rgba(255,255,255,0.3)';
       labelAfter.style.color = state === 'after' ? '#fff' : 'rgba(255,255,255,0.3)';
-
       ratingChange.classList.remove('animate');
       void ratingChange.offsetWidth;
       ratingChange.classList.add('animate');
-
-      const percent = state === 'before' ? 0 : 100;
+      var percent = state === 'before' ? 0 : 100;
       updatePosition(percent);
+      window._simulatorState = state;
       currentState = state;
       drawChart(data.chartData, data.borderColor);
-    }
-
-    const canvas = document.getElementById('ratingChart');
-    const ctx = canvas.getContext('2d');
-
+    };
+    var canvas = document.getElementById('ratingChart');
+    var ctx = canvas.getContext('2d');
     function drawChart(points, color) {
-      const w = canvas.parentElement.clientWidth - 16;
-      const h = 60;
+      var w = canvas.parentElement.clientWidth - 16;
+      var h = 60;
       canvas.width = w * window.devicePixelRatio;
       canvas.height = h * window.devicePixelRatio;
       canvas.style.width = w + 'px';
       canvas.style.height = h + 'px';
       ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-
-      const max = 5;
-      const min = 2.5;
-      const pad = 8;
-
+      var max = 5;
+      var min = 2.5;
+      var pad = 8;
       ctx.clearRect(0, 0, w, h);
-
       ctx.strokeStyle = 'rgba(255,255,255,0.04)';
       ctx.lineWidth = 1;
-      for (let i = 0; i < 4; i++) {
-        const y = pad + (h - 2 * pad) * (1 - (i / 3));
+      for (var i = 0; i < 4; i++) {
+        var y = pad + (h - 2 * pad) * (1 - (i / 3));
         ctx.beginPath();
         ctx.moveTo(0, y);
         ctx.lineTo(w, y);
         ctx.stroke();
       }
-
       ctx.beginPath();
       ctx.strokeStyle = color;
       ctx.lineWidth = 3;
       ctx.shadowColor = color + '40';
       ctx.shadowBlur = 8;
-      const step = (w - 2 * pad) / (points.length - 1);
-      points.forEach((val, idx) => {
-        const x = pad + idx * step;
-        const y = pad + (h - 2 * pad) * (1 - (val - min) / (max - min));
+      var step = (w - 2 * pad) / (points.length - 1);
+      points.forEach(function(val, idx) {
+        var x = pad + idx * step;
+        var y = pad + (h - 2 * pad) * (1 - (val - min) / (max - min));
         if (idx === 0) ctx.moveTo(x, y);
         else ctx.lineTo(x, y);
       });
       ctx.stroke();
       ctx.shadowBlur = 0;
-
-      points.forEach((val, idx) => {
-        const x = pad + idx * step;
-        const y = pad + (h - 2 * pad) * (1 - (val - min) / (max - min));
+      points.forEach(function(val, idx) {
+        var x = pad + idx * step;
+        var y = pad + (h - 2 * pad) * (1 - (val - min) / (max - min));
         ctx.beginPath();
         ctx.arc(x, y, 4, 0, 2 * Math.PI);
         ctx.fillStyle = color;
@@ -841,16 +823,13 @@ footer {
         ctx.shadowColor = color + '80';
       });
     }
-
     function toggleState() {
-      const next = currentState === 'before' ? 'after' : 'before';
-      setState(next);
+      var next = currentState === 'before' ? 'after' : 'before';
+      window.updateSimulatorUI(next);
     }
-
     toggleTrack.addEventListener('click', toggleState);
-    labelBefore.addEventListener('click', () => setState('before'));
-    labelAfter.addEventListener('click', () => setState('after'));
-
+    labelBefore.addEventListener('click', function() { window.updateSimulatorUI('before'); });
+    labelAfter.addEventListener('click', function() { window.updateSimulatorUI('after'); });
     function getPointerX(e) {
       if (e.touches) {
         return e.touches[0].clientX;
@@ -858,7 +837,6 @@ footer {
         return e.clientX;
       }
     }
-
     function onDragStart(e) {
       e.preventDefault();
       isDragging = true;
@@ -867,24 +845,20 @@ footer {
         thumb.style.cursor = 'grabbing';
       }
     }
-
     function onDragMove(e) {
       if (!isDragging) return;
       e.preventDefault();
-      const rect = toggleTrack.getBoundingClientRect();
-      const x = getPointerX(e) - rect.left;
-      let percent = (x / rect.width) * 100;
+      var rect = toggleTrack.getBoundingClientRect();
+      var x = getPointerX(e) - rect.left;
+      var percent = (x / rect.width) * 100;
       percent = Math.min(100, Math.max(0, percent));
-
       updatePosition(percent);
-
       if (percent >= 50 && currentState !== 'after') {
-        setState('after');
+        window.updateSimulatorUI('after');
       } else if (percent < 50 && currentState !== 'before') {
-        setState('before');
+        window.updateSimulatorUI('before');
       }
     }
-
     function onDragEnd(e) {
       if (isDragging) {
         isDragging = false;
@@ -892,22 +866,18 @@ footer {
         thumb.style.cursor = 'grab';
       }
     }
-
     thumb.addEventListener('mousedown', onDragStart);
     document.addEventListener('mousemove', onDragMove);
     document.addEventListener('mouseup', onDragEnd);
-
     thumb.addEventListener('touchstart', onDragStart, { passive: false });
     document.addEventListener('touchmove', onDragMove, { passive: false });
     document.addEventListener('touchend', onDragEnd);
-
-    setState('before');
-
-    let resizeTimer;
-    window.addEventListener('resize', () => {
+    window.updateSimulatorUI('before');
+    var resizeTimer;
+    window.addEventListener('resize', function() {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        const data = states[currentState];
+      resizeTimer = setTimeout(function() {
+        var data = getStateData(currentState);
         drawChart(data.chartData, data.borderColor);
       }, 150);
     });
@@ -1556,7 +1526,9 @@ footer {
   "drag-hint": "👆 Drag the slider to see the transformation",
   "chart-title": "📈 Rating dynamics",
   "manual-title": "Manual Review",
-  "manual-desc": "Each review is checked by a SERM specialist, which ensures a high success rate of appeals."
+  "manual-desc": "Each review is checked by a SERM specialist, which ensures a high success rate of appeals.",
+  "simulator-ai-before": "«Your business — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">constant complaints</span> about dirt, rude staff, and broken promises. Clients <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">do not recommend</span>.»",
+  "simulator-ai-after": "«Your business — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">high level of service</span>, cleanliness, and attentive staff. Clients <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">recommend with confidence</span>.»"
 },
    "es": {
   "hero-badge": "⚡ Defensa de Reseñas con IA y Google",
@@ -1846,7 +1818,9 @@ footer {
   "drag-hint": "👆 Arrastra el control deslizante para ver la transformación",
   "chart-title": "📈 Dinámica de calificación",
   "manual-title": "Revisión manual",
-  "manual-desc": "Cada reseña es revisada por un especialista SERM, lo que garantiza una alta tasa de éxito en las apelaciones."
+  "manual-desc": "Cada reseña es revisada por un especialista SERM, lo que garantiza una alta tasa de éxito en las apelaciones.",
+  "simulator-ai-before": "«Tu negocio — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">quejas constantes</span> sobre suciedad, personal grosero y promesas incumplidas. Los clientes <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">no recomiendan</span>.»",
+  "simulator-ai-after": "«Tu negocio — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">alto nivel de servicio</span>, limpieza y personal atento. Los clientes <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">recomiendan con confianza</span>.»"
 },
     "de": {
   "hero-badge": "⚡ KI- und Google-Bewertungsabwehr",
@@ -2136,7 +2110,10 @@ footer {
   "drag-hint": "👆 Ziehen Sie den Schieberegler, um die Transformation zu sehen",
   "chart-title": "📈 Bewertungsdynamik",
   "manual-title": "Manuelle Überprüfung",
-  "manual-desc": "Jede Bewertung wird von einem SERM-Spezialisten geprüft, was eine hohe Erfolgsquote der Einsprüche gewährleistet."
+  "manual-desc": "Jede Bewertung wird von einem SERM-Spezialisten geprüft, was eine hohe Erfolgsquote der Einsprüche gewährleistet.",
+  "simulator-ai-before": "«Ihr Unternehmen — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">ständige Beschwerden</span> über Schmutz, unhöfliches Personal und gebrochene Versprechen. Kunden <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">empfehlen nicht</span>.»",
+  "simulator-ai-after": "«Ihr Unternehmen — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">hohes Serviceniveau</span>, Sauberkeit und aufmerksames Personal. Kunden <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">empfehlen mit Vertrauen</span>.»"
+      
 },
     "fr": {
   "hero-badge": "⚡ Défense des avis IA et Google",
@@ -2426,7 +2403,10 @@ footer {
   "drag-hint": "👆 Faites glisser le curseur pour voir la transformation",
   "chart-title": "📈 Dynamique des notes",
   "manual-title": "Examen manuel",
-  "manual-desc": "Chaque avis est vérifié par un spécialiste SERM, ce qui garantit un taux de réussite élevé des contestations."
+  "manual-desc": "Chaque avis est vérifié par un spécialiste SERM, ce qui garantit un taux de réussite élevé des contestations.",
+  "simulator-ai-before": "«Votre entreprise — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">plaintes constantes</span> concernant la saleté, le personnel impoli et les promesses non tenues. Les clients <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">ne recommandent pas</span>.»",
+  "simulator-ai-after": "«Votre entreprise — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">haut niveau de service</span>, propreté et personnel attentif. Les clients <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">recommandent en toute confiance</span>.»"
+      
 },
    "ru": {
   "hero-badge": "⚡ Защита отзывов с ИИ и Google",
@@ -2724,7 +2704,10 @@ footer {
   "drag-hint": "👆 Потяните ползунок, чтобы увидеть изменения",
   "chart-title": "📈 Динамика рейтинга",
   "manual-title": "Ручная проверка",
-  "manual-desc": "Каждый отзыв проверяется специалистом SERM, что гарантирует высокий процент успешных апелляций."
+  "manual-desc": "Каждый отзыв проверяется специалистом SERM, что гарантирует высокий процент успешных апелляций.",
+  "simulator-ai-before": "«Ваш бизнес — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">постоянные жалобы</span> на грязь, грубый персонал и невыполненные обещания. Клиенты <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">не рекомендуют</span>.»",
+  "simulator-ai-after": "«Ваш бизнес — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">высокий уровень сервиса</span>, чистота и внимательный персонал. Клиенты <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">рекомендуют с уверенностью</span>.»"
+     
 },
     "vi": {
   "hero-badge": "⚡ Bảo vệ đánh giá với AI và Google",
@@ -3014,7 +2997,10 @@ footer {
   "drag-hint": "👆 Kéo thanh trượt để xem sự thay đổi",
   "chart-title": "📈 Động thái đánh giá",
   "manual-title": "Kiểm tra thủ công",
-  "manual-desc": "Mỗi đánh giá được kiểm tra bởi chuyên gia SERM, đảm bảo tỷ lệ thành công cao trong các khiếu nại."
+  "manual-desc": "Mỗi đánh giá được kiểm tra bởi chuyên gia SERM, đảm bảo tỷ lệ thành công cao trong các khiếu nại.",
+  "simulator-ai-before": "«Doanh nghiệp của bạn — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">khiếu nại liên tục</span> về bụi bẩn, nhân viên thô lỗ và lời hứa không giữ. Khách hàng <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">không khuyên dùng</span>.»",
+  "simulator-ai-after": "«Doanh nghiệp của bạn — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">dịch vụ chất lượng cao</span>, sạch sẽ và nhân viên chu đáo. Khách hàng <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">tin tưởng giới thiệu</span>.»"
+      
 },
     "pt": {
   "hero-badge": "⚡ Defesa de Avaliações com IA e Google",
@@ -3304,7 +3290,10 @@ footer {
   "drag-hint": "👆 Arraste o controlo para ver a transformação",
   "chart-title": "📈 Dinâmica da classificação",
   "manual-title": "Revisão manual",
-  "manual-desc": "Cada avaliação é verificada por um especialista SERM, o que garante uma alta taxa de sucesso nas apelações."
+  "manual-desc": "Cada avaliação é verificada por um especialista SERM, o que garante uma alta taxa de sucesso nas apelações.",
+  "simulator-ai-before": "«Seu negócio — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">queixas constantes</span> sobre sujeira, funcionários rudes e promessas não cumpridas. Os clientes <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">não recomendam</span>.»",
+  "simulator-ai-after": "«Seu negócio — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">alto nível de serviço</span>, limpeza e funcionários atenciosos. Os clientes <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">recomendam com confiança</span>.»"
+      
 },
    "tr": {
   "hero-badge": "⚡ Yapay Zeka ve Google Yorum Savunması",
@@ -3594,7 +3583,10 @@ footer {
   "drag-hint": "👆 Dönüşümü görmek için kaydırıcıyı sürükleyin",
   "chart-title": "📈 Puan dinamikleri",
   "manual-title": "Manuel İnceleme",
-  "manual-desc": "Her yorum, itirazlarda yüksek başarı oranı sağlayan bir SERM uzmanı tarafından kontrol edilir."
+  "manual-desc": "Her yorum, itirazlarda yüksek başarı oranı sağlayan bir SERM uzmanı tarafından kontrol edilir.",
+  "simulator-ai-before": "«İşletmeniz — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">sürekli şikayetler</span> kir, kaba personel ve yerine getirilmeyen vaatler hakkında. Müşteriler <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">tavsiye etmiyor</span>.»",
+  "simulator-ai-after": "«İşletmeniz — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">yüksek hizmet kalitesi</span>, temizlik ve ilgili personel. Müşteriler <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">güvenle tavsiye ediyor</span>.»"
+     
 },
     "ar": {
   "hero-badge": "⚡ الدفاع عن التقييمات بالذكاء الاصطناعي وجوجل",
@@ -3884,7 +3876,10 @@ footer {
   "drag-hint": "👆 اسحب المؤشر لرؤية التحول",
   "chart-title": "📈 ديناميكيات التقييم",
   "manual-title": "مراجعة يدوية",
-  "manual-desc": "يتم فحص كل تقييم بواسطة متخصص SERM، مما يضمن معدل نجاح مرتفع للطعون."
+  "manual-desc": "يتم فحص كل تقييم بواسطة متخصص SERM، مما يضمن معدل نجاح مرتفع للطعون.",
+  "simulator-ai-before": "«نشاطك التجاري — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">شكاوى مستمرة</span> بشأن الأوساخ والموظفين الوقحين والوعود المكسورة. العملاء <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">لا يوصون</span>.»",
+  "simulator-ai-after": "«نشاطك التجاري — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">مستوى عالٍ من الخدمة</span>، النظافة والموظفين اليقظين. العملاء <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">يوصون بثقة</span>.»"
+      
 }
   };
 
@@ -3935,6 +3930,10 @@ footer {
     }
   });
   document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-lang') === lang));
+
+  if (typeof window.updateSimulatorUI === 'function') {
+    window.updateSimulatorUI(window._simulatorState || 'before');
+  }
 }
   document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang'))));
   document.querySelectorAll('.faq-item').forEach(item => item.querySelector('.faq-question').addEventListener('click', () => item.classList.toggle('active')));
