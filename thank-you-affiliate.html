@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You – Affiliate Application | ReputationGuard</title>
+  <meta name="description" content="Your affiliate application has been sent. We'll review it and get back to you within 48 hours.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { overflow-x: hidden; width: 100%; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #111827;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: min(1280px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #1E3A8A;
+      color: #1E3A8A;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-outline:hover {
+      background: #1E3A8A;
+      color: white;
+    }
+
+    /* Thank You Section */
+    .thankyou-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px 80px;
+    }
+    .thankyou-card {
+      max-width: 660px;
+      width: 100%;
+      background: white;
+      border-radius: 48px;
+      padding: 56px 44px;
+      text-align: center;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.12);
+      border: 1px solid #eef2ff;
+      transition: 0.3s;
+    }
+    .thankyou-icon {
+      font-size: 4.8rem;
+      color: #10B981;
+      margin-bottom: 20px;
+      display: inline-block;
+      animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.4) rotate(-10deg); opacity: 0; }
+      100% { transform: scale(1) rotate(0); opacity: 1; }
+    }
+    .thankyou-card h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #0F172A;
+      letter-spacing: -0.02em;
+    }
+    .thankyou-card .message {
+      font-size: 1.2rem;
+      color: #1E3A8A;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .thankyou-card .sub-message {
+      font-size: 1rem;
+      color: #4b5563;
+      margin-bottom: 8px;
+      line-height: 1.6;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .thankyou-card .sub-message strong {
+      color: #1E3A8A;
+    }
+    .thankyou-card .divider {
+      width: 60px;
+      height: 2px;
+      background: #e5e7eb;
+      margin: 24px auto;
+    }
+    .thankyou-card .next-steps {
+      font-size: 0.95rem;
+      color: #4b5563;
+      line-height: 1.7;
+      max-width: 460px;
+      margin: 0 auto 32px;
+    }
+    .thankyou-card .next-steps i {
+      color: #10B981;
+      margin-right: 8px;
+    }
+    .btn-primary {
+      background: #1E3A8A;
+      color: white;
+      padding: 14px 40px;
+      border-radius: 40px;
+      font-weight: 700;
+      border: none;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 4px 12px rgba(30,58,138,0.25);
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background: #2563EB;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(30,58,138,0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: #F8FAFC;
+      border-top: 1px solid #eef2ff;
+      margin-top: 0;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 24px 32px;
+    }
+    .footer-column {
+      flex: 1;
+      min-width: 180px;
+    }
+    .footer-column h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 16px;
+    }
+    .footer-column p, .footer-column ul {
+      font-size: 0.85rem;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-column li {
+      margin-bottom: 8px;
+    }
+    .footer-column a {
+      color: #1E3A8A;
+      text-decoration: none;
+    }
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+    .footer-column p i {
+      width: 18px;
+      text-align: center;
+      margin-right: 8px;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.7rem;
+      color: #6c757d;
+    }
+    .footer-bottom p {
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 16px 0; }
+      .logo { font-size: 1.6rem; }
+      .thankyou-card { padding: 32px 20px; }
+      .thankyou-card h1 { font-size: 2rem; }
+      .thankyou-card .message { font-size: 1rem; }
+      .footer-container { flex-direction: column; text-align: center; gap: 24px; }
+      .footer-column p i { margin-right: 4px; }
+    }
+    @media (max-width: 480px) {
+      .thankyou-card { padding: 28px 16px; }
+      .thankyou-icon { font-size: 3.8rem; }
+      .btn-primary { padding: 12px 28px; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="navbar">
+    <a href="https://reputationguard.pro" class="logo">🛡️ ReputationGuard</a>
+    <a href="https://reputationguard.pro" class="btn-outline">← Home</a>
+  </div>
+</div>
+
+<section class="thankyou-section">
+  <div class="container">
+    <div class="thankyou-card">
+      <div class="thankyou-icon"><i class="fas fa-check-circle"></i></div>
+      <h1>Application Received!</h1>
+      <p class="message">Thank you for applying to our Affiliate Program</p>
+      <p class="sub-message">We've received your application and will review it carefully.</p>
+      <p class="sub-message" style="font-weight: 500; color: #1E3A8A;">We'll get back to you within 48 hours.</p>
+
+      <div class="divider"></div>
+
+      <p class="next-steps">
+        <i class="fas fa-envelope"></i> Check your email for a confirmation<br>
+        <i class="fas fa-clock"></i> We'll review your experience and territory<br>
+        <i class="fas fa-rocket"></i> Once approved, you'll receive your promo materials
+      </p>
+
+      <a href="https://reputationguard.pro" class="btn-primary">Return to Homepage</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>ReputationGuard</h4>
+      <p>Google Maps reputation management for hotels, restaurants & accommodations.</p>
+    </div>
+    <div class="footer-column">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="https://reputationguard.pro">Google Review Removal</a></li>
+        <li><a href="https://reputationguard.pro">Appeal Filing</a></li>
+        <li><a href="https://reputationguard.pro">Reputation Monitoring</a></li>
+        <li><a href="https://reputationguard.pro">SERM Consulting</a></li>
+        <li><a href="https://reputationguard.pro/affiliate.html" style="font-weight: 600; color: #10B981;">Affiliate Program</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="https://reputationguard.pro/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="https://reputationguard.pro/terms-of-service.html">Terms of Service</a></li>
+        <li><a href="https://reputationguard.pro/refund-policy.html">Refund Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Contact</h4>
+      <p><i class="fas fa-envelope"></i> defend@reputationguard.pro</p>
+      <p><i class="fas fa-globe"></i> reputationguard.pro</p>
+      <p><i class="fab fa-whatsapp"></i> +1(505)313-6274</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 ReputationGuard Global. All rights reserved.</p>
+    <p style="font-size: 0.65rem; color: #9ca3af; margin-top: 8px;">1209 Mountain Road PL NE, STE N, Albuquerque, NM 87110, USA</p>
+  </div>
+</footer>
+
+</body>
+</html>
