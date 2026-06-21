@@ -1155,7 +1155,7 @@ footer {
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1b">Weekly monitoring</span></li>
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1c">Email support</span></li>
       </ul>
-      <button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Choose plan</button>
+      <button class="btn-outline" onclick="selectPlan('Essential')" data-i18n="choose-plan">Choose plan</button>
     </div>
 
     <!-- Pro (MOST POPULAR) -->
@@ -1170,7 +1170,7 @@ footer {
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2c">Monthly strategy call</span></li>
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2d">Overage: $49/extra review</span></li>
       </ul>
-      <button class="btn-primary btn-cta" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Choose plan →</button>
+      <button class="btn-primary btn-cta" onclick="selectPlan('Pro')" data-i18n="choose-plan">Choose plan →</button>
     </div>
 
     <!-- Enterprise -->
@@ -1184,7 +1184,7 @@ footer {
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3c">SERM consulting</span></li>
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3d">Legal escalation support</span></li>
       </ul>
-      <button class="btn-outline" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="choose-plan">Contact us</button>
+      <button class="btn-outline" onclick="selectPlan('Enterprise')" data-i18n="choose-plan">Contact us</button>
     </div>
 
   </div>
@@ -1477,18 +1477,22 @@ footer {
   <div id="contact-form-section" class="cta">
     <h2 data-i18n="cta-title">Stop letting unfair reviews hurt your bookings</h2>
     <p data-i18n="cta-text">Get a free audit of your 10 most recent negative reviews — we’ll show which can be removed.</p>
-    <form id="contactForm" class="contact-form" action="https://formsubmit.co/defend@reputationguard.pro" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_subject" value="New Audit Request from ReputationGuard">
-      <input type="hidden" name="_next" value="https://reputationguard.pro/thank-you.html">
-      <div class="form-group"><input type="text" name="name" placeholder="Full name *" required data-i18n-placeholder="form-name"></div>
-      <div class="form-group"><input type="email" name="email" placeholder="Email address *" required data-i18n-placeholder="form-email"></div>
-      <div class="form-group"><input type="url" name="google_maps_url" placeholder="Google Maps link to your business *" data-i18n-placeholder="form-maps-link" required></div>
-      <div class="form-group"><textarea name="message" placeholder="Tell us about your negative review problem... *" required data-i18n-placeholder="form-message"></textarea></div>
-      <button type="submit" class="btn-primary" style="width:100%;" data-i18n="form-submit">Send Free Audit Request →</button>
-      <p class="form-status" data-i18n="form-note">We’ll reply within 24h</p>
-    </form>
+   <form id="contactForm" class="contact-form" action="https://formsubmit.co/defend@reputationguard.pro" method="POST">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_subject" value="New Audit Request from ReputationGuard">
+  <input type="hidden" name="_next" value="https://reputationguard.pro/thank-you.html">
+  <input type="hidden" name="plan" id="planField" value="Not selected">
+  <div class="form-group"><input type="text" name="name" placeholder="Full name *" required data-i18n-placeholder="form-name"></div>
+  <div class="form-group"><input type="email" name="email" placeholder="Email address *" required data-i18n-placeholder="form-email"></div>
+  <div class="form-group"><input type="url" name="google_maps_url" placeholder="Google Maps link to your business *" data-i18n-placeholder="form-maps-link" required></div>
+  <div class="form-group">
+    <input type="text" name="referred_by" placeholder="Who referred you? (optional)" data-i18n-placeholder="form-referred">
+  </div>
+  <div class="form-group"><textarea name="message" placeholder="Tell us about your negative review problem... *" required data-i18n-placeholder="form-message"></textarea></div>
+  <button type="submit" class="btn-primary" style="width:100%;" data-i18n="form-submit">Send Free Audit Request →</button>
+  <p class="form-status" data-i18n="form-note">We’ll reply within 24h</p>
+</form>
   </div>
   </div>
 
@@ -1754,6 +1758,7 @@ footer {
   "drag-hint": "👆 Drag the slider to see the transformation",
   "chart-title": "📈 Rating dynamics",
   "manual-title": "Manual Review",
+  "form-referred": "Who referred you? (optional)",
   "manual-desc": "Each review is checked by a SERM specialist, which ensures a high success rate of appeals.",
   "simulator-ai-before": "«Your business — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">constant complaints</span> about dirt, rude staff, and broken promises. Clients <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">do not recommend</span>.»",
   "simulator-ai-after": "«Your business — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">high level of service</span>, cleanliness, and attentive staff. Clients <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">recommend with confidence</span>.»"
@@ -2046,6 +2051,7 @@ footer {
   "drag-hint": "👆 Arrastra el control deslizante para ver la transformación",
   "chart-title": "📈 Dinámica de calificación",
   "manual-title": "Revisión manual",
+  "form-referred": "¿Quién te recomendó? (opcional)",
   "manual-desc": "Cada reseña es revisada por un especialista SERM, lo que garantiza una alta tasa de éxito en las apelaciones.",
   "simulator-ai-before": "«Tu negocio — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">quejas constantes</span> sobre suciedad, personal grosero y promesas incumplidas. Los clientes <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">no recomiendan</span>.»",
   "simulator-ai-after": "«Tu negocio — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">alto nivel de servicio</span>, limpieza y personal atento. Los clientes <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">recomiendan con confianza</span>.»"
@@ -2338,6 +2344,7 @@ footer {
   "drag-hint": "👆 Ziehen Sie den Schieberegler, um die Transformation zu sehen",
   "chart-title": "📈 Bewertungsdynamik",
   "manual-title": "Manuelle Überprüfung",
+  "form-referred": "Wer hat Sie empfohlen? (optional)",
   "manual-desc": "Jede Bewertung wird von einem SERM-Spezialisten geprüft, was eine hohe Erfolgsquote der Einsprüche gewährleistet.",
   "simulator-ai-before": "«Ihr Unternehmen — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">ständige Beschwerden</span> über Schmutz, unhöfliches Personal und gebrochene Versprechen. Kunden <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">empfehlen nicht</span>.»",
   "simulator-ai-after": "«Ihr Unternehmen — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">hohes Serviceniveau</span>, Sauberkeit und aufmerksames Personal. Kunden <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">empfehlen mit Vertrauen</span>.»"
@@ -2631,6 +2638,7 @@ footer {
   "drag-hint": "👆 Faites glisser le curseur pour voir la transformation",
   "chart-title": "📈 Dynamique des notes",
   "manual-title": "Examen manuel",
+  "form-referred": "Qui vous a recommandé ? (facultatif)",
   "manual-desc": "Chaque avis est vérifié par un spécialiste SERM, ce qui garantit un taux de réussite élevé des contestations.",
   "simulator-ai-before": "«Votre entreprise — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">plaintes constantes</span> concernant la saleté, le personnel impoli et les promesses non tenues. Les clients <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">ne recommandent pas</span>.»",
   "simulator-ai-after": "«Votre entreprise — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">haut niveau de service</span>, propreté et personnel attentif. Les clients <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">recommandent en toute confiance</span>.»"
@@ -2932,6 +2940,7 @@ footer {
   "drag-hint": "👆 Потяните ползунок, чтобы увидеть изменения",
   "chart-title": "📈 Динамика рейтинга",
   "manual-title": "Ручная проверка",
+  "form-referred": "Кто нас порекомендовал? (необязательно)",
   "manual-desc": "Каждый отзыв проверяется специалистом SERM, что гарантирует высокий процент успешных апелляций.",
   "simulator-ai-before": "«Ваш бизнес — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">постоянные жалобы</span> на грязь, грубый персонал и невыполненные обещания. Клиенты <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">не рекомендуют</span>.»",
   "simulator-ai-after": "«Ваш бизнес — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">высокий уровень сервиса</span>, чистота и внимательный персонал. Клиенты <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">рекомендуют с уверенностью</span>.»"
@@ -3225,6 +3234,7 @@ footer {
   "drag-hint": "👆 Kéo thanh trượt để xem sự thay đổi",
   "chart-title": "📈 Động thái đánh giá",
   "manual-title": "Kiểm tra thủ công",
+  "form-referred": "Ai giới thiệu bạn? (không bắt buộc)",
   "manual-desc": "Mỗi đánh giá được kiểm tra bởi chuyên gia SERM, đảm bảo tỷ lệ thành công cao trong các khiếu nại.",
   "simulator-ai-before": "«Doanh nghiệp của bạn — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">khiếu nại liên tục</span> về bụi bẩn, nhân viên thô lỗ và lời hứa không giữ. Khách hàng <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">không khuyên dùng</span>.»",
   "simulator-ai-after": "«Doanh nghiệp của bạn — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">dịch vụ chất lượng cao</span>, sạch sẽ và nhân viên chu đáo. Khách hàng <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">tin tưởng giới thiệu</span>.»"
@@ -3518,6 +3528,7 @@ footer {
   "drag-hint": "👆 Arraste o controlo para ver a transformação",
   "chart-title": "📈 Dinâmica da classificação",
   "manual-title": "Revisão manual",
+  "form-referred": "Quem te indicou? (opcional)",
   "manual-desc": "Cada avaliação é verificada por um especialista SERM, o que garante uma alta taxa de sucesso nas apelações.",
   "simulator-ai-before": "«Seu negócio — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">queixas constantes</span> sobre sujeira, funcionários rudes e promessas não cumpridas. Os clientes <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">não recomendam</span>.»",
   "simulator-ai-after": "«Seu negócio — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">alto nível de serviço</span>, limpeza e funcionários atenciosos. Os clientes <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">recomendam com confiança</span>.»"
@@ -3811,6 +3822,7 @@ footer {
   "drag-hint": "👆 Dönüşümü görmek için kaydırıcıyı sürükleyin",
   "chart-title": "📈 Puan dinamikleri",
   "manual-title": "Manuel İnceleme",
+  "form-referred": "Sizi kim yönlendirdi? (isteğe bağlı)",
   "manual-desc": "Her yorum, itirazlarda yüksek başarı oranı sağlayan bir SERM uzmanı tarafından kontrol edilir.",
   "simulator-ai-before": "«İşletmeniz — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">sürekli şikayetler</span> kir, kaba personel ve yerine getirilmeyen vaatler hakkında. Müşteriler <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">tavsiye etmiyor</span>.»",
   "simulator-ai-after": "«İşletmeniz — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">yüksek hizmet kalitesi</span>, temizlik ve ilgili personel. Müşteriler <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">güvenle tavsiye ediyor</span>.»"
@@ -4105,6 +4117,7 @@ footer {
   "chart-title": "📈 ديناميكيات التقييم",
   "manual-title": "مراجعة يدوية",
   "manual-desc": "يتم فحص كل تقييم بواسطة متخصص SERM، مما يضمن معدل نجاح مرتفع للطعون.",
+  "form-referred": "من قام بتحويلك؟ (اختياري)",
   "simulator-ai-before": "«نشاطك التجاري — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">شكاوى مستمرة</span> بشأن الأوساخ والموظفين الوقحين والوعود المكسورة. العملاء <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">لا يوصون</span>.»",
   "simulator-ai-after": "«نشاطك التجاري — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">مستوى عالٍ من الخدمة</span>، النظافة والموظفين اليقظين. العملاء <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">يوصون بثقة</span>.»"
       
@@ -4244,6 +4257,13 @@ window.addEventListener('load', initLanguage);
     phoneSpan.textContent = parts.join('');
   }
 })();
+  function selectPlan(planName) {
+  var planField = document.getElementById('planField');
+  if (planField) {
+    planField.value = planName;
+  }
+  document.getElementById('contact-form-section').scrollIntoView({ behavior: 'smooth' });
+}
     </script>
 </body>
 </html>
