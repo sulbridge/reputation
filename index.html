@@ -671,7 +671,7 @@ footer {
   flex-shrink: 0;
 }
 
-/* Кнопки в карточках */
+
 .pricing-card .btn-outline {
   background: transparent;
   border: 2px solid #3B82F6;
@@ -705,7 +705,118 @@ footer {
   box-shadow: 0 8px 24px rgba(30,58,138,0.4);
 }
 
-/* Адаптив для мобильных */
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  margin: 40px 0;
+  border-radius: 28px;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.35s ease-in-out;
+  will-change: transform;
+}
+
+.slider-track .before-after-card {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+  padding: 0 4px;
+}
+
+
+.slider-track .before-after-card .case-header,
+.slider-track .before-after-card .before-after-row,
+.slider-track .before-after-card .case-foot {
+  background: #1a1f2b;
+  padding: 12px 16px;
+  border-radius: 0;
+}
+.slider-track .before-after-card .case-header {
+  padding-top: 20px;
+  border-radius: 24px 24px 0 0;
+}
+.slider-track .before-after-card .case-foot {
+  border-radius: 0 0 24px 24px;
+  padding-bottom: 20px;
+}
+.slider-track .before-after-card .before-after-row {
+  padding: 12px 16px;
+  background: #1a1f2b;
+}
+
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 300;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.slider-btn:hover {
+  background: rgba(30, 58, 138, 0.8);
+}
+.slider-btn.prev {
+  left: 12px;
+}
+.slider-btn.next {
+  right: 12px;
+}
+@media (max-width: 600px) {
+  .slider-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.8rem;
+  }
+  .slider-btn.prev { left: 6px; }
+  .slider-btn.next { right: 6px; }
+}
+
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding-bottom: 8px;
+}
+.slider-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4b5563;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  padding: 0;
+}
+.slider-dots .dot.active {
+  background: #3B82F6;
+  transform: scale(1.3);
+}
+.slider-dots .dot:hover {
+  background: #93C5FD;
+}
+
+
 @media (max-width: 768px) {
   .pricing-card {
     width: 100%;
@@ -754,6 +865,7 @@ footer {
     text-align: left !important;
   }
 }
+
 </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -1270,191 +1382,201 @@ footer {
   <h2 class="section-title" data-i18n="cases-before-after-title">Real results: before & after</h2>
   <p class="section-sub" data-i18n="cases-before-after-sub">How we cleaned reputations and boosted business</p>
 
-  <div class="before-after-grid">
+  <div class="slider-container">
     
+    <div class="slider-track" id="sliderTrack">
+      
+     
+      <div class="before-after-card">
+        <div class="case-header" data-i18n="case1_header">🏨 Bali Harmony Boutique Hotel, Indonesia</div>
+        <div class="before-after-row">
+          <div class="before-col">
+            <div class="badge before-badge" data-i18n="case1_before_label">⚠️ BEFORE</div>
+            <div class="rating" data-i18n="case1_before_rating">⭐ 3.6</div>
+            <div class="issue" data-i18n="case1_before_issue">7 fake 1‑star reviews from competitor</div>
+            <div class="impact" data-i18n="case1_before_impact">↓ 41% booking conversion</div>
+          </div>
+          <div class="after-col">
+            <div class="badge after-badge" data-i18n="case1_after_label">✅ AFTER</div>
+            <div class="rating" data-i18n="case1_after_rating">⭐ 4.8</div>
+            <div class="result" data-i18n="case1_after_result">All 7 fake reviews removed</div>
+            <div class="impact" data-i18n="case1_after_impact">↑ 28% revenue in 2 months</div>
+          </div>
+        </div>
+        <div class="case-foot" data-i18n="case1_foot">⏱ 6 business days • 89% success rate</div>
+      </div>
+
+      
+      <div class="before-after-card">
+        <div class="case-header" data-i18n="case2_header">🦷 SmileCare Dental, Texas (USA)</div>
+        <div class="before-after-row">
+          <div class="before-col">
+            <div class="badge before-badge" data-i18n="case2_before_label">⚠️ BEFORE</div>
+            <div class="rating" data-i18n="case2_before_rating">⭐ 3.2</div>
+            <div class="issue" data-i18n="case2_before_issue">12 spam reviews in 3 days (attack)</div>
+            <div class="impact" data-i18n="case2_before_impact">↓ 70% new patient calls</div>
+          </div>
+          <div class="after-col">
+            <div class="badge after-badge" data-i18n="case2_after_label">✅ AFTER</div>
+            <div class="rating" data-i18n="case2_after_rating">⭐ 4.6</div>
+            <div class="result" data-i18n="case2_after_result">11 removed, 1 legitimate kept</div>
+            <div class="impact" data-i18n="case2_after_impact">↑ 3x lead volume in 30 days</div>
+          </div>
+        </div>
+        <div class="case-foot" data-i18n="case2_foot">⏱ 4 business days • 92% removal rate</div>
+      </div>
+
+      
+      <div class="before-after-card">
+        <div class="case-header" data-i18n="case3_header">🍽 Tapas & Co., Barcelona (Spain)</div>
+        <div class="before-after-row">
+          <div class="before-col">
+            <div class="badge before-badge" data-i18n="case3_before_label">⚠️ BEFORE</div>
+            <div class="rating" data-i18n="case3_before_rating">⭐ 3.8</div>
+            <div class="issue" data-i18n="case3_before_issue">Offensive review + 5 fake 1‑star</div>
+            <div class="impact" data-i18n="case3_before_impact">↓ 33% dinner reservations</div>
+          </div>
+          <div class="after-col">
+            <div class="badge after-badge" data-i18n="case3_after_label">✅ AFTER</div>
+            <div class="rating" data-i18n="case3_after_rating">⭐ 4.7</div>
+            <div class="result" data-i18n="case3_after_result">All defamatory reviews removed</div>
+            <div class="impact" data-i18n="case3_after_impact">↑ 53% reservation value</div>
+          </div>
+        </div>
+        <div class="case-foot" data-i18n="case3_foot">⏱ 3 business days • 100% of targeted removed</div>
+      </div>
+
+      
+      <div class="before-after-card">
+        <div class="case-header" data-i18n="case4_header">🚗 GulfDrive Rentals, Dubai (UAE)</div>
+        <div class="before-after-row">
+          <div class="before-col">
+            <div class="badge before-badge" data-i18n="case4_before_label">⚠️ BEFORE</div>
+            <div class="rating" data-i18n="case4_before_rating">⭐ 3.4</div>
+            <div class="issue" data-i18n="case4_before_issue">10 fake reviews from ex‑employee</div>
+            <div class="impact" data-i18n="case4_before_impact">↓ 45% online bookings</div>
+          </div>
+          <div class="after-col">
+            <div class="badge after-badge" data-i18n="case4_after_label">✅ AFTER</div>
+            <div class="rating" data-i18n="case4_after_rating">⭐ 4.9</div>
+            <div class="result" data-i18n="case4_after_result">10 reviews removed, rating restored</div>
+            <div class="impact" data-i18n="case4_after_impact">↑ 67% booking conversion</div>
+          </div>
+        </div>
+        <div class="case-foot" data-i18n="case4_foot">⏱ 8 business days • 100% success</div>
+      </div>
+
+      
+      <div class="before-after-card">
+        <div class="case-header" data-i18n="case5_header">💪 MoveWell Physio, Sydney (Australia)</div>
+        <div class="before-after-row">
+          <div class="before-col">
+            <div class="badge before-badge" data-i18n="case5_before_label">⚠️ BEFORE</div>
+            <div class="rating" data-i18n="case5_before_rating">⭐ 3.9</div>
+            <div class="issue" data-i18n="case5_before_issue">6 fake negative reviews from competitor</div>
+            <div class="impact" data-i18n="case5_before_impact">↓ 38% new patient inquiries</div>
+          </div>
+          <div class="after-col">
+            <div class="badge after-badge" data-i18n="case5_after_label">✅ AFTER</div>
+            <div class="rating" data-i18n="case5_after_rating">⭐ 4.8</div>
+            <div class="result" data-i18n="case5_after_result">6 reviews removed, Google policy upheld</div>
+            <div class="impact" data-i18n="case5_after_impact">↑ 44% patient volume</div>
+          </div>
+        </div>
+        <div class="case-foot" data-i18n="case5_foot">⏱ 5 business days • 6/6 removed</div>
+      </div>
+
+      
+      <div class="before-after-card">
+        <div class="case-header" data-i18n="case6_header">📦 TechGadget.shop, Berlin (Germany)</div>
+        <div class="before-after-row">
+          <div class="before-col">
+            <div class="badge before-badge" data-i18n="case6_before_label">⚠️ BEFORE</div>
+            <div class="rating" data-i18n="case6_before_rating">⭐ 3.5</div>
+            <div class="issue" data-i18n="case6_before_issue">Spam campaign – 15 bad reviews in 1 week</div>
+            <div class="impact" data-i18n="case6_before_impact">↓ 52% add‑to‑cart rate</div>
+          </div>
+          <div class="after-col">
+            <div class="badge after-badge" data-i18n="case6_after_label">✅ AFTER</div>
+            <div class="rating" data-i18n="case6_after_rating">⭐ 4.6</div>
+            <div class="result" data-i18n="case6_after_result">14 spam reviews removed</div>
+            <div class="impact" data-i18n="case6_after_impact">↑ 78% sales within 45 days</div>
+          </div>
+        </div>
+        <div class="case-foot" data-i18n="case6_foot">⏱ 7 business days • 93% removal rate</div>
+      </div>
+
+      
+      <div class="before-after-card">
+        <div class="case-header" data-i18n="case7_header">🌴 Sunset Bay Resort, Phuket (Thailand)</div>
+        <div class="before-after-row">
+          <div class="before-col">
+            <div class="badge before-badge" data-i18n="case7_before_label">⚠️ BEFORE</div>
+            <div class="rating" data-i18n="case7_before_rating">⭐ 3.7</div>
+            <div class="issue" data-i18n="case7_before_issue">9 fake reviews (no‑show guests)</div>
+            <div class="impact" data-i18n="case7_before_impact">↓ 31% direct bookings</div>
+          </div>
+          <div class="after-col">
+            <div class="badge after-badge" data-i18n="case7_after_label">✅ AFTER</div>
+            <div class="rating" data-i18n="case7_after_rating">⭐ 4.9</div>
+            <div class="result" data-i18n="case7_after_result">9 removed, average boosted to 4.9</div>
+            <div class="impact" data-i18n="case7_after_impact">↑ 49% revenue next quarter</div>
+          </div>
+        </div>
+        <div class="case-foot" data-i18n="case7_foot">⏱ 6 business days • 100% success</div>
+      </div>
+
+      
+      <div class="before-after-card">
+        <div class="case-header" data-i18n="case8_header">⚖️ LexPartners, Toronto (Canada)</div>
+        <div class="before-after-row">
+          <div class="before-col">
+            <div class="badge before-badge" data-i18n="case8_before_label">⚠️ BEFORE</div>
+            <div class="rating" data-i18n="case8_before_rating">⭐ 3.4</div>
+            <div class="issue" data-i18n="case8_before_issue">Defamatory review + 4 fake 1‑star</div>
+            <div class="impact" data-i18n="case8_before_impact">↓ 62% consultation requests</div>
+          </div>
+          <div class="after-col">
+            <div class="badge after-badge" data-i18n="case8_after_label">✅ AFTER</div>
+            <div class="rating" data-i18n="case8_after_rating">⭐ 4.8</div>
+            <div class="result" data-i18n="case8_after_result">All 5 reviews removed</div>
+            <div class="impact" data-i18n="case8_after_impact">↑ 2.8x new cases in 30 days</div>
+          </div>
+        </div>
+        <div class="case-foot" data-i18n="case8_foot">⏱ 4 business days • 5/5 removed</div>
+      </div>
+
+      
+      <div class="before-after-card">
+        <div class="case-header" data-i18n="case9_header">💒 Rosewood Estate, Cape Town (SA)</div>
+        <div class="before-after-row">
+          <div class="before-col">
+            <div class="badge before-badge" data-i18n="case9_before_label">⚠️ BEFORE</div>
+            <div class="rating" data-i18n="case9_before_rating">⭐ 4.0</div>
+            <div class="issue" data-i18n="case9_before_issue">3 fake 1‑star from disgruntled ex‑vendor</div>
+            <div class="impact" data-i18n="case9_before_impact">↓ 27% wedding inquiries</div>
+          </div>
+          <div class="after-col">
+            <div class="badge after-badge" data-i18n="case9_after_label">✅ AFTER</div>
+            <div class="rating" data-i18n="case9_after_rating">⭐ 4.9</div>
+            <div class="result" data-i18n="case9_after_result">All fake reviews removed</div>
+            <div class="impact" data-i18n="case9_after_impact">↑ 41% leads → $210k+ extra revenue</div>
+          </div>
+        </div>
+        <div class="case-foot" data-i18n="case9_foot">⏱ 3 business days • 3/3 removed</div>
+      </div>
+
+    </div> <!-- /slider-track -->
+
     
-    <div class="before-after-card">
-      <div class="case-header" data-i18n="case1_header">🏨 Bali Harmony Boutique Hotel, Indonesia</div>
-      <div class="before-after-row">
-        <div class="before-col">
-          <div class="badge before-badge" data-i18n="case1_before_label">⚠️ BEFORE</div>
-          <div class="rating" data-i18n="case1_before_rating">⭐ 3.6</div>
-          <div class="issue" data-i18n="case1_before_issue">7 fake 1‑star reviews from competitor</div>
-          <div class="impact" data-i18n="case1_before_impact">↓ 41% booking conversion</div>
-        </div>
-        <div class="after-col">
-          <div class="badge after-badge" data-i18n="case1_after_label">✅ AFTER</div>
-          <div class="rating" data-i18n="case1_after_rating">⭐ 4.8</div>
-          <div class="result" data-i18n="case1_after_result">All 7 fake reviews removed</div>
-          <div class="impact" data-i18n="case1_after_impact">↑ 28% revenue in 2 months</div>
-        </div>
-      </div>
-      <div class="case-foot" data-i18n="case1_foot">⏱ 6 business days • 89% success rate</div>
-    </div>
+    <button class="slider-btn prev" id="prevBtn">‹</button>
+    <button class="slider-btn next" id="nextBtn">›</button>
 
     
-    <div class="before-after-card">
-      <div class="case-header" data-i18n="case2_header">🦷 SmileCare Dental, Texas (USA)</div>
-      <div class="before-after-row">
-        <div class="before-col">
-          <div class="badge before-badge" data-i18n="case2_before_label">⚠️ BEFORE</div>
-          <div class="rating" data-i18n="case2_before_rating">⭐ 3.2</div>
-          <div class="issue" data-i18n="case2_before_issue">12 spam reviews in 3 days (attack)</div>
-          <div class="impact" data-i18n="case2_before_impact">↓ 70% new patient calls</div>
-        </div>
-        <div class="after-col">
-          <div class="badge after-badge" data-i18n="case2_after_label">✅ AFTER</div>
-          <div class="rating" data-i18n="case2_after_rating">⭐ 4.6</div>
-          <div class="result" data-i18n="case2_after_result">11 removed, 1 legitimate kept</div>
-          <div class="impact" data-i18n="case2_after_impact">↑ 3x lead volume in 30 days</div>
-        </div>
-      </div>
-      <div class="case-foot" data-i18n="case2_foot">⏱ 4 business days • 92% removal rate</div>
-    </div>
+    <div class="slider-dots" id="sliderDots"></div>
 
-    
-    <div class="before-after-card">
-      <div class="case-header" data-i18n="case3_header">🍽 Tapas & Co., Barcelona (Spain)</div>
-      <div class="before-after-row">
-        <div class="before-col">
-          <div class="badge before-badge" data-i18n="case3_before_label">⚠️ BEFORE</div>
-          <div class="rating" data-i18n="case3_before_rating">⭐ 3.8</div>
-          <div class="issue" data-i18n="case3_before_issue">Offensive review + 5 fake 1‑star</div>
-          <div class="impact" data-i18n="case3_before_impact">↓ 33% dinner reservations</div>
-        </div>
-        <div class="after-col">
-          <div class="badge after-badge" data-i18n="case3_after_label">✅ AFTER</div>
-          <div class="rating" data-i18n="case3_after_rating">⭐ 4.7</div>
-          <div class="result" data-i18n="case3_after_result">All defamatory reviews removed</div>
-          <div class="impact" data-i18n="case3_after_impact">↑ 53% reservation value</div>
-        </div>
-      </div>
-      <div class="case-foot" data-i18n="case3_foot">⏱ 3 business days • 100% of targeted removed</div>
-    </div>
-
-    
-    <div class="before-after-card">
-      <div class="case-header" data-i18n="case4_header">🚗 GulfDrive Rentals, Dubai (UAE)</div>
-      <div class="before-after-row">
-        <div class="before-col">
-          <div class="badge before-badge" data-i18n="case4_before_label">⚠️ BEFORE</div>
-          <div class="rating" data-i18n="case4_before_rating">⭐ 3.4</div>
-          <div class="issue" data-i18n="case4_before_issue">10 fake reviews from ex‑employee</div>
-          <div class="impact" data-i18n="case4_before_impact">↓ 45% online bookings</div>
-        </div>
-        <div class="after-col">
-          <div class="badge after-badge" data-i18n="case4_after_label">✅ AFTER</div>
-          <div class="rating" data-i18n="case4_after_rating">⭐ 4.9</div>
-          <div class="result" data-i18n="case4_after_result">10 reviews removed, rating restored</div>
-          <div class="impact" data-i18n="case4_after_impact">↑ 67% booking conversion</div>
-        </div>
-      </div>
-      <div class="case-foot" data-i18n="case4_foot">⏱ 8 business days • 100% success</div>
-    </div>
-
-    
-    <div class="before-after-card">
-      <div class="case-header" data-i18n="case5_header">💪 MoveWell Physio, Sydney (Australia)</div>
-      <div class="before-after-row">
-        <div class="before-col">
-          <div class="badge before-badge" data-i18n="case5_before_label">⚠️ BEFORE</div>
-          <div class="rating" data-i18n="case5_before_rating">⭐ 3.9</div>
-          <div class="issue" data-i18n="case5_before_issue">6 fake negative reviews from competitor</div>
-          <div class="impact" data-i18n="case5_before_impact">↓ 38% new patient inquiries</div>
-        </div>
-        <div class="after-col">
-          <div class="badge after-badge" data-i18n="case5_after_label">✅ AFTER</div>
-          <div class="rating" data-i18n="case5_after_rating">⭐ 4.8</div>
-          <div class="result" data-i18n="case5_after_result">6 reviews removed, Google policy upheld</div>
-          <div class="impact" data-i18n="case5_after_impact">↑ 44% patient volume</div>
-        </div>
-      </div>
-      <div class="case-foot" data-i18n="case5_foot">⏱ 5 business days • 6/6 removed</div>
-    </div>
-
-    
-    <div class="before-after-card">
-      <div class="case-header" data-i18n="case6_header">📦 TechGadget.shop, Berlin (Germany)</div>
-      <div class="before-after-row">
-        <div class="before-col">
-          <div class="badge before-badge" data-i18n="case6_before_label">⚠️ BEFORE</div>
-          <div class="rating" data-i18n="case6_before_rating">⭐ 3.5</div>
-          <div class="issue" data-i18n="case6_before_issue">Spam campaign – 15 bad reviews in 1 week</div>
-          <div class="impact" data-i18n="case6_before_impact">↓ 52% add‑to‑cart rate</div>
-        </div>
-        <div class="after-col">
-          <div class="badge after-badge" data-i18n="case6_after_label">✅ AFTER</div>
-          <div class="rating" data-i18n="case6_after_rating">⭐ 4.6</div>
-          <div class="result" data-i18n="case6_after_result">14 spam reviews removed</div>
-          <div class="impact" data-i18n="case6_after_impact">↑ 78% sales within 45 days</div>
-        </div>
-      </div>
-      <div class="case-foot" data-i18n="case6_foot">⏱ 7 business days • 93% removal rate</div>
-    </div>
-
-    
-    <div class="before-after-card">
-      <div class="case-header" data-i18n="case7_header">🌴 Sunset Bay Resort, Phuket (Thailand)</div>
-      <div class="before-after-row">
-        <div class="before-col">
-          <div class="badge before-badge" data-i18n="case7_before_label">⚠️ BEFORE</div>
-          <div class="rating" data-i18n="case7_before_rating">⭐ 3.7</div>
-          <div class="issue" data-i18n="case7_before_issue">9 fake reviews (no‑show guests)</div>
-          <div class="impact" data-i18n="case7_before_impact">↓ 31% direct bookings</div>
-        </div>
-        <div class="after-col">
-          <div class="badge after-badge" data-i18n="case7_after_label">✅ AFTER</div>
-          <div class="rating" data-i18n="case7_after_rating">⭐ 4.9</div>
-          <div class="result" data-i18n="case7_after_result">9 removed, average boosted to 4.9</div>
-          <div class="impact" data-i18n="case7_after_impact">↑ 49% revenue next quarter</div>
-        </div>
-      </div>
-      <div class="case-foot" data-i18n="case7_foot">⏱ 6 business days • 100% success</div>
-    </div>
-
-    
-    <div class="before-after-card">
-      <div class="case-header" data-i18n="case8_header">⚖️ LexPartners, Toronto (Canada)</div>
-      <div class="before-after-row">
-        <div class="before-col">
-          <div class="badge before-badge" data-i18n="case8_before_label">⚠️ BEFORE</div>
-          <div class="rating" data-i18n="case8_before_rating">⭐ 3.4</div>
-          <div class="issue" data-i18n="case8_before_issue">Defamatory review + 4 fake 1‑star</div>
-          <div class="impact" data-i18n="case8_before_impact">↓ 62% consultation requests</div>
-        </div>
-        <div class="after-col">
-          <div class="badge after-badge" data-i18n="case8_after_label">✅ AFTER</div>
-          <div class="rating" data-i18n="case8_after_rating">⭐ 4.8</div>
-          <div class="result" data-i18n="case8_after_result">All 5 reviews removed</div>
-          <div class="impact" data-i18n="case8_after_impact">↑ 2.8x new cases in 30 days</div>
-        </div>
-      </div>
-      <div class="case-foot" data-i18n="case8_foot">⏱ 4 business days • 5/5 removed</div>
-    </div>
-
-   
-    <div class="before-after-card">
-      <div class="case-header" data-i18n="case9_header">💒 Rosewood Estate, Cape Town (SA)</div>
-      <div class="before-after-row">
-        <div class="before-col">
-          <div class="badge before-badge" data-i18n="case9_before_label">⚠️ BEFORE</div>
-          <div class="rating" data-i18n="case9_before_rating">⭐ 4.0</div>
-          <div class="issue" data-i18n="case9_before_issue">3 fake 1‑star from disgruntled ex‑vendor</div>
-          <div class="impact" data-i18n="case9_before_impact">↓ 27% wedding inquiries</div>
-        </div>
-        <div class="after-col">
-          <div class="badge after-badge" data-i18n="case9_after_label">✅ AFTER</div>
-          <div class="rating" data-i18n="case9_after_rating">⭐ 4.9</div>
-          <div class="result" data-i18n="case9_after_result">All fake reviews removed</div>
-          <div class="impact" data-i18n="case9_after_impact">↑ 41% leads → $210k+ extra revenue</div>
-        </div>
-      </div>
-      <div class="case-foot" data-i18n="case9_foot">⏱ 3 business days • 3/3 removed</div>
-    </div>
-
-  </div>
-
-  </div>
+  </div> <!-- /slider-container -->
+</div>
   <!-- ===== REVIEW EXTORTION ===== -->
 <section class="extortion-section" style="margin: 70px 0;">
   <div style="background: #FFF7ED; border-radius: 32px; padding: 48px 32px; border-left: 6px solid #E53E3E; box-shadow: 0 4px 14px rgba(0,0,0,0.05);">
@@ -4261,6 +4383,63 @@ window.addEventListener('load', initLanguage);
   }
   document.getElementById('contact-form-section').scrollIntoView({ behavior: 'smooth' });
 }
+  
+(function initSlider() {
+  const track = document.getElementById('sliderTrack');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotsContainer = document.getElementById('sliderDots');
+
+  if (!track) return;
+
+  const cards = track.querySelectorAll('.before-after-card');
+  const total = cards.length;
+  let current = 0;
+
+  
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.dataset.index = i;
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+  const dots = dotsContainer.querySelectorAll('.dot');
+
+  function goTo(index) {
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+    current = index;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === current);
+    });
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+
+  
+  let autoplay = setInterval(next, 5000);
+  const container = track.closest('.slider-container');
+  container.addEventListener('mouseenter', () => clearInterval(autoplay));
+  container.addEventListener('mouseleave', () => {
+    autoplay = setInterval(next, 5000);
+  });
+
+  
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      
+    }, 100);
+  });
+})();
     </script>
 </body>
 </html>
