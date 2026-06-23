@@ -43,13 +43,14 @@
     .hero-affiliate .stats div { font-size: 0.95rem; color: #9CA3AF; text-align: center; }
     .hero-affiliate .stats span { display: block; font-size: 2rem; font-weight: 800; color: white; }
 
-    .commission-table { width: 100%; max-width: 900px; margin: 32px auto; border-collapse: collapse; background: #1a1f2b; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
+    .commission-table { width: 100%; max-width: 1000px; margin: 32px auto; border-collapse: collapse; background: #1a1f2b; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
     .commission-table th { background: #0F172A; color: #f9fafb; padding: 16px; text-align: left; font-weight: 700; border-bottom: 2px solid #2d3748; }
     .commission-table td { padding: 14px 16px; border-bottom: 1px solid #2d3748; color: #e5e7eb; }
     .commission-table tr:last-child td { border-bottom: none; }
     .commission-table .highlight-cell { background: #1a2d24; font-weight: 600; border-left: 3px solid #10B981; }
     .commission-table .upfront { color: #93C5FD; font-weight: 600; }
     .commission-table .recurring { color: #34d399; font-weight: 600; }
+    .commission-table .appeals { color: #FCD34D; font-weight: 600; }
 
     .example-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin: 32px 0; }
     .example-card { background: #1a1f2b; border-radius: 20px; padding: 24px; text-align: center; border: 1px solid #2d3748; box-shadow: 0 4px 10px rgba(0,0,0,0.2); flex: 1 1 200px; max-width: 220px; }
@@ -81,6 +82,9 @@
     .info-box h3 { color: #f9fafb; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
     .info-box p { color: #9ca3af; line-height: 1.6; }
 
+    .tag { background: #1e293b; color: #93C5FD; padding: 6px 16px; border-radius: 40px; font-weight: 600; display: inline-block; border: 1px solid #2d3748; }
+    .tag-green { background: #0f2a1f; color: #34d399; border-color: #1a4d33; }
+
     footer { background: #0d0f14; border-top: 1px solid #2d3748; margin-top: 70px; }
     .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; max-width: 1280px; margin: 0 auto; padding: 48px 24px 32px; }
     .footer-column { flex: 1; min-width: 180px; }
@@ -93,17 +97,14 @@
     .footer-column p i { width: 18px; text-align: center; margin-right: 8px; }
     .footer-bottom { text-align: center; padding: 24px; border-top: 1px solid #2d3748; font-size: 0.7rem; color: #6c757d; }
 
-    /* Dark theme tags */
-    .tag { background: #1e293b; color: #93C5FD; padding: 6px 16px; border-radius: 40px; font-weight: 600; display: inline-block; border: 1px solid #2d3748; }
-    .tag-green { background: #0f2a1f; color: #34d399; border-color: #1a4d33; }
-
     @media (max-width: 768px) {
       .hero-affiliate { padding: 32px 20px; }
       .hero-affiliate h1 { font-size: 2rem; }
       .hero-affiliate .stats { gap: 24px; }
       .section-title { font-size: 1.6rem; }
       .form-affiliate { padding: 24px 16px; }
-      .commission-table th, .commission-table td { font-size: 0.85rem; padding: 10px; }
+      .commission-table th, .commission-table td { font-size: 0.8rem; padding: 8px 6px; }
+      .commission-table { font-size: 0.8rem; }
       .footer-container { flex-direction: column; text-align: center; gap: 24px; }
       .footer-column p i { margin-right: 4px; }
       .benefit-item { flex: 1 1 calc(50% - 20px); }
@@ -113,6 +114,7 @@
     }
     @media (max-width: 480px) {
       .benefit-item { flex: 1 1 100%; }
+      .commission-table th, .commission-table td { font-size: 0.7rem; padding: 6px 4px; }
     }
   </style>
 <!-- Google tag (gtag.js) -->
@@ -121,11 +123,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  // Google Ads
   gtag('config', 'AW-18250144884');
-
-  // Google Analytics 4
   gtag('config', 'G-31HRXQ97B1');
 </script>
 </head>
@@ -189,18 +187,50 @@
   </div>
 </section>
 
-<!-- COMMISSION STRUCTURE -->
+<!-- COMMISSION STRUCTURE (ОБНОВЛЁННАЯ ТАБЛИЦА) -->
 <section id="structure" class="section">
   <div class="container">
     <h2 class="section-title">Commission Structure</h2>
     <p class="section-sub">Simple, transparent, and built for long‑term partnership. <span style="color: #34d399;">Lifetime recurring</span> on every active subscription.</p>
     <table class="commission-table">
-      <thead><tr><th>Service / Plan</th><th>Price</th><th>One‑Time Bonus</th><th>Recurring Monthly</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Service / Plan</th>
+          <th>Price</th>
+          <th style="text-align:center;">Appeals Included</th>
+          <th>One‑Time Bonus</th>
+          <th>Recurring Monthly</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>One‑Time Removal</td><td>$99</td><td class="upfront">$20 (20%)</td><td>—</td></tr>
-        <tr><td>Essential Plan</td><td>$399/mo</td><td class="upfront">$60 (15%)</td><td class="recurring">$40 (10%)</td></tr>
-        <tr><td>Pro Plan</td><td>$799/mo</td><td class="upfront">$120 (15%)</td><td class="recurring">$80 (10%)</td></tr>
-        <tr class="highlight-cell"><td>Enterprise Plan</td><td>$1,499/mo</td><td class="upfront">$225 (15%)</td><td class="recurring">$150 (10%)</td></tr>
+        <tr>
+          <td>One‑Time Removal</td>
+          <td>$99</td>
+          <td style="text-align:center;">1 review</td>
+          <td class="upfront">$20 (20%)</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Essential Plan</td>
+          <td>$399/mo</td>
+          <td style="text-align:center;" class="appeals">5 appeals/mo</td>
+          <td class="upfront">$60 (15%)</td>
+          <td class="recurring">$40 (10%)</td>
+        </tr>
+        <tr>
+          <td>Pro Plan</td>
+          <td>$799/mo</td>
+          <td style="text-align:center;" class="appeals">12 appeals/mo</td>
+          <td class="upfront">$120 (15%)</td>
+          <td class="recurring">$80 (10%)</td>
+        </tr>
+        <tr class="highlight-cell">
+          <td>Enterprise Plan</td>
+          <td>$1,499/mo</td>
+          <td style="text-align:center;" class="appeals">30 appeals/mo</td>
+          <td class="upfront">$225 (15%)</td>
+          <td class="recurring">$150 (10%)</td>
+        </tr>
       </tbody>
     </table>
     <p style="font-size: 0.9rem; color: #9ca3af; text-align: center; margin-top: 8px;">
@@ -209,38 +239,32 @@
   </div>
 </section>
 
-<!-- EXAMPLE RECURRING INCOME -->
+<!-- EXAMPLE RECURRING INCOME (без изменений) -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">Example Recurring Income</h2>
     <p class="section-sub">See how your income grows with different portfolio mixes. All figures based on 10% lifetime recurring commission.</p>
     <div class="example-grid">
-      
       <div class="example-card">
         <div class="amount">$830</div>
         <div class="label">7 Essential + 5 Pro + 1 Enterprise<br><span style="font-size:0.8rem; color:#6b7280;">(7×$40 + 5×$80 + 1×$150 = $830/mo)</span></div>
       </div>
-      
       <div class="example-card">
         <div class="amount">$1,000</div>
         <div class="label">10 Pro + 5 Essential clients<br><span style="font-size:0.8rem; color:#6b7280;">(10×$80 + 5×$40 = $1,000/mo)</span></div>
       </div>
-      
       <div class="example-card">
         <div class="amount">$1,500</div>
         <div class="label">10 Pro + 10 Essential + 2 Enterprise<br><span style="font-size:0.8rem; color:#6b7280;">(10×$80 + 10×$40 + 2×$150 = $1,500/mo)</span></div>
       </div>
-      
       <div class="example-card highlight">
         <div class="amount">$3,700</div>
         <div class="label">20 Pro + 15 Essential + 10 Enterprise<br><span style="font-size:0.8rem; color:#6b7280;">(20×$80 + 15×$40 + 10×$150 = $3,700/mo)</span></div>
       </div>
-      
       <div class="example-card" style="border-color: #FCD34D; background: #1e2a1f;">
         <div class="amount" style="color: #FCD34D;">$10,500</div>
         <div class="label">50 Pro + 50 Essential + 30 Enterprise<br><span style="font-size:0.8rem; color:#6b7280;">(50×$80 + 50×$40 + 30×$150 = $10,500/mo)</span></div>
       </div>
-      
     </div>
     <p style="text-align: center; color: #9ca3af; margin-top: 16px;">
       <i class="fas fa-plus-circle" style="color: #34d399;"></i> Plus one‑time bonuses from every new sale — paid on the first invoice.<br>
@@ -252,7 +276,7 @@
   </div>
 </section>
 
-<!-- CONTRACT & PAYMENT (NEW) -->
+<!-- CONTRACT & PAYMENT -->
 <section class="section">
   <div class="container">
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto;">
@@ -270,7 +294,7 @@
   </div>
 </section>
 
-<!-- TERRITORY & TRACKING (NEW) -->
+<!-- TERRITORY & TRACKING -->
 <section class="section">
   <div class="container">
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto;">
