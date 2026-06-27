@@ -981,7 +981,6 @@ footer {
       <h2 style="font-size: 2rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-top: 0.2rem;" data-i18n="how-ai-sees">How AI sees your reputation</h2>
     </div>
 
-    
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem;">
       <span style="font-size: 1.6rem; font-weight: 800; color: #fff; letter-spacing: -0.02em;" data-i18n="your-business">
         Your Business
@@ -1022,9 +1021,9 @@ footer {
     </div>
 
     <div style="text-align: center; font-size: 1.15rem; font-weight: 600; color: rgba(255,255,255,0.6); padding: 0.6rem 0 0.8rem; margin-bottom: 1.2rem; letter-spacing: 0.03em; display: flex; align-items: center; justify-content: center; gap: 0.6rem; animation: hint-pulse 2s ease-in-out infinite; border-bottom: 1px solid rgba(255,255,255,0.06);">
-  <span style="display: inline-block; font-size: 2rem; animation: hint-slide 1.8s ease-in-out infinite;">↔️</span>
-  <span data-i18n="drag-hint">Drag the slider to see the transformation</span>
-  </div>
+      <span style="display: inline-block; font-size: 2rem; animation: hint-slide 1.8s ease-in-out infinite;">↔️</span>
+      <span data-i18n="drag-hint">Drag the slider to see the transformation</span>
+    </div>
 
     <!-- Chart -->
     <div style="background: rgba(255,255,255,0.04); border-radius: 1.2rem; padding: 1rem 0.5rem 0.5rem; border: 1px solid rgba(255,255,255,0.06); margin-bottom: 1.5rem;">
@@ -1033,7 +1032,7 @@ footer {
     </div>
   </div>
 </section>
-  
+
 <style>
   @keyframes hint-pulse {
     0%, 100% { opacity: 0.4; }
@@ -1061,9 +1060,9 @@ footer {
   }
 </style>
 
-
 <script>
   (function() {
+    // ---- existing simulator logic ----
     function getStateData(state) {
       var lang = currentLang || 'en';
       var t = translations[lang] || translations['en'];
@@ -1096,11 +1095,13 @@ footer {
     var labelAfter = document.getElementById('labelAfter');
     var currentState = 'before';
     var isDragging = false;
+
     function updatePosition(percent) {
       var clamped = Math.min(100, Math.max(0, percent));
       thumb.style.left = clamped + '%';
       progressBg.style.width = clamped + '%';
     }
+
     window.updateSimulatorUI = function(state) {
       var data = getStateData(state);
       aiText.innerHTML = data.aiText;
@@ -1123,6 +1124,7 @@ footer {
       currentState = state;
       drawChart(data.chartData, data.borderColor);
     };
+
     var canvas = document.getElementById('ratingChart');
     var ctx = canvas.getContext('2d');
     function drawChart(points, color) {
@@ -1171,13 +1173,17 @@ footer {
         ctx.shadowColor = color + '80';
       });
     }
+
     function toggleState() {
       var next = currentState === 'before' ? 'after' : 'before';
       window.updateSimulatorUI(next);
     }
+
+    // ---- Click / drag handlers ----
     toggleTrack.addEventListener('click', toggleState);
     labelBefore.addEventListener('click', function() { window.updateSimulatorUI('before'); });
     labelAfter.addEventListener('click', function() { window.updateSimulatorUI('after'); });
+
     function getPointerX(e) {
       if (e.touches) {
         return e.touches[0].clientX;
@@ -1220,7 +1226,81 @@ footer {
     thumb.addEventListener('touchstart', onDragStart, { passive: false });
     document.addEventListener('touchmove', onDragMove, { passive: false });
     document.addEventListener('touchend', onDragEnd);
-    window.updateSimulatorUI('before');
+
+    // ---- AUTO‑PLAY (new) ----
+    var autoInterval = null;
+    var isVisible = false;
+
+    function startAutoPlay() {
+      if (autoInterval) return;
+      autoInterval = setInterval(function() {
+        // toggle only if not being dragged
+        if (!isDragging) {
+          toggleState();
+        }
+      }, 1800); // switch every 1.8s
+    }
+
+    function stopAutoPlay() {
+      if (autoInterval) {
+        clearInterval(autoInterval);
+        autoInterval = null;
+      }
+    }
+
+    // Use Intersection Observer to detect when the section is visible
+    var section = document.querySelector('.simulator-section');
+    if (section) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          isVisible = entry.isIntersecting;
+          if (isVisible) {
+            startAutoPlay();
+          } else {
+            stopAutoPlay();
+            // Reset to 'before' when hidden? optional
+            // window.updateSimulatorUI('before');
+          }
+        });
+      }, { threshold: 0.3 });
+      observer.observe(section);
+    }
+
+    // Stop autoplay when user interacts with slider (drag or click)
+    toggleTrack.addEventListener('mousedown', function() {
+      stopAutoPlay();
+    });
+    toggleTrack.addEventListener('touchstart', function() {
+      stopAutoPlay();
+    });
+    // Also stop on manual click on labels
+    labelBefore.addEventListener('click', stopAutoPlay);
+    labelAfter.addEventListener('click', stopAutoPlay);
+
+    // Restart autoplay after a short idle time if still visible
+    var restartTimeout = null;
+    document.addEventListener('mouseup', function() {
+      if (isVisible) {
+        clearTimeout(restartTimeout);
+        restartTimeout = setTimeout(function() {
+          if (isVisible && !isDragging) {
+            startAutoPlay();
+          }
+        }, 4000);
+      }
+    });
+    document.addEventListener('touchend', function() {
+      if (isVisible) {
+        clearTimeout(restartTimeout);
+        restartTimeout = setTimeout(function() {
+          if (isVisible && !isDragging) {
+            startAutoPlay();
+          }
+        }, 4000);
+      }
+    });
+
+    // ---- resize handler ----
     var resizeTimer;
     window.addEventListener('resize', function() {
       clearTimeout(resizeTimer);
@@ -1229,9 +1309,17 @@ footer {
         drawChart(data.chartData, data.borderColor);
       }, 150);
     });
+
+    // ---- initial state ----
+    window.updateSimulatorUI('before');
+    // start autoplay if already visible
+    if (section && section.getBoundingClientRect().top < window.innerHeight * 0.7) {
+      isVisible = true;
+      startAutoPlay();
+    }
   })();
 </script>
-
+  
   <div class="checklist-section">
     <h2 class="section-title" data-i18n="checklist-title">You should be worried if any of these sound familiar</h2>
     <div class="checklist">
