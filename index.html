@@ -979,367 +979,428 @@ footer {
   </div>
 </section>
 
-     <!-- ===== AI REPUTATION SIMULATOR (DARK THEME) ===== -->
+     <!-- ===== AI REPUTATION SIMULATOR – V2 (MOBILE‑FIRST, CONVERSION‑OPTIMIZED) ===== -->
 <section class="simulator-section" style="margin: 70px 0;">
-  <div class="simulator-card" style="background: #0d0f14; border-radius: 2.4rem; border: 2px solid rgba(255,255,255,0.06); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.8); padding: 2rem 2rem 1.8rem;">
-    
+  <div class="simulator-card" style="background: #0d0f14; border-radius: 2.4rem; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.8); padding: 2rem 1.5rem 1.8rem;">
+
+    <!-- HEADER -->
     <div style="text-align: center; margin-bottom: 1.8rem;">
-      <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.2); font-weight: 700;" data-i18n="interactive-demo">Interactive Demo</span>
-      <h2 style="font-size: 2rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-top: 0.2rem;" data-i18n="how-ai-sees">How AI sees your reputation</h2>
+      <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.25); font-weight: 700;" data-i18n="interactive-demo">Interactive Demo</span>
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-top: 0.2rem; line-height: 1.2;" data-i18n="how-ai-sees">
+        How AI sees your reputation
+      </h2>
+      <p style="font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-top: 0.25rem;" data-i18n="drag-hint">👆 Drag the slider to see the transformation</p>
     </div>
 
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem;">
-      <span style="font-size: 1.6rem; font-weight: 800; color: #fff; letter-spacing: -0.02em;" data-i18n="your-business">
-        Your Business
-        <small id="ratingBadge" style="font-weight: 600; font-size: 0.9rem; color: #fbbf24; background: rgba(251,191,36,0.12); padding: 0.2rem 0.8rem; border-radius: 100px; border: 1px solid rgba(251,191,36,0.15); margin-left: 0.5rem;">⭐ 2.8 ★</small>
-      </span>
+    <!-- MAIN DISPLAY -->
+    <div id="reputationDisplay" style="background: rgba(255,255,255,0.02); border-radius: 1.8rem; padding: 1.5rem 1.2rem; border: 1px solid rgba(255,255,255,0.05); transition: border-color 0.4s ease, background 0.4s ease;">
+
+      <!-- AI Summary Box -->
+      <div id="aiSummaryBox" style="background: rgba(239,68,68,0.06); border-radius: 1.2rem; padding: 1rem 1.2rem; border-left: 4px solid #ef4444; margin-bottom: 1.2rem; transition: all 0.4s ease;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.3rem;">
+          <span style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;">🤖 AI Summary</span>
+          <span id="aiPlatformBadge" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; background: rgba(96,165,250,0.12); color: #60A5FA; padding: 0.15rem 0.7rem; border-radius: 40px; border: 1px solid rgba(96,165,250,0.1);">ChatGPT · Gemini</span>
+        </div>
+        <div id="aiText" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); transition: all 0.4s ease;">
+          <span id="aiTextContent"><span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.</span>
+        </div>
+      </div>
+
+      <!-- Rating Row -->
+      <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.6rem;">
+        <span id="starsDisplay" style="font-size: 1.8rem; color: #fbbf24; letter-spacing: 2px; line-height: 1;">★★☆☆☆</span>
+        <span id="ratingNumber" style="font-size: 2.2rem; font-weight: 800; color: #fff; line-height: 1;">2.8</span>
+        <span id="ratingChange" style="font-size: 0.9rem; font-weight: 700; background: rgba(239,68,68,0.15); color: #ef4444; padding: 0.1rem 0.7rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.15); transition: all 0.3s;">-0.4</span>
+        <span id="aiRecommendBadge" style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(239,68,68,0.12); color: #f87171; padding: 0.15rem 0.7rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.1); font-weight: 700;">❌ NOT RECOMMENDED</span>
+      </div>
+
+      <!-- Review Stats -->
+      <div style="display: flex; gap: 1.2rem; font-size: 0.7rem; color: rgba(255,255,255,0.35); align-items: center; flex-wrap: wrap; margin-bottom: 1.2rem;">
+        <span id="reviewsCount">📊 67 reviews</span>
+        <span id="removedBadge" style="background: rgba(239,68,68,0.08); padding: 0.1rem 0.6rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.08); color: #f87171;">🗑️ 0 removed</span>
+        <span id="fakeFlagged" style="background: rgba(255,255,255,0.04); padding: 0.1rem 0.6rem; border-radius: 100px; color: rgba(255,255,255,0.25);">⚠️ 8 flagged</span>
+      </div>
+
+      <!-- SLIDER (MOBILE‑FIRST) -->
+      <div style="margin: 0.8rem 0 0.4rem;">
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+          <label id="labelBefore" style="font-size: 0.7rem; font-weight: 700; color: #f87171; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none; transition: color 0.3s; flex-shrink: 0;" data-i18n="before-label">Before</label>
+
+          <div id="toggleTrack" style="flex: 1; height: 6px; border-radius: 6px; background: rgba(255,255,255,0.12); position: relative; cursor: pointer; touch-action: none;">
+            <div id="progressBg" style="height: 100%; width: 0%; background: linear-gradient(90deg, #ef4444, #22c55e); border-radius: 6px; transition: width 0.05s ease;"></div>
+            <div id="thumb" style="width: 28px; height: 28px; background: #fff; border-radius: 50%; position: absolute; top: 50%; left: 0%; transform: translate(-50%, -50%); transition: left 0.05s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.6); border: 2px solid rgba(255,255,255,0.15); cursor: grab; touch-action: none;"></div>
+          </div>
+
+          <label id="labelAfter" style="font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.2); text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none; transition: color 0.3s; flex-shrink: 0;" data-i18n="after-label">After</label>
+        </div>
+
+        <!-- State label (mobile‑friendly) -->
+        <div style="text-align: center; margin-top: 0.5rem;">
+          <span id="stateLabel" style="font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.3); letter-spacing: 0.03em;" data-i18n="before-state">👈 Drag to reveal the transformation</span>
+        </div>
+      </div>
+
+      <!-- AI Response Preview -->
+      <div style="background: rgba(255,255,255,0.03); border-radius: 1rem; padding: 0.8rem 1rem; border: 1px solid rgba(255,255,255,0.05); margin-top: 1rem;">
+        <div style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.2); font-weight: 600; margin-bottom: 0.2rem;">💬 What AI says to your customers</div>
+        <div id="aiResponsePreview" style="font-size: 0.8rem; line-height: 1.5; color: rgba(255,255,255,0.5); font-style: italic; transition: all 0.4s ease;">
+          <span id="aiResponseContent">«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»</span>
+        </div>
+      </div>
+
     </div>
 
-  <!-- AI REPUTATION VISUALIZER -->
-<section id="ai-reputation-visualizer" style="background: rgba(255,255,255,0.02); border-radius: 2rem; padding: 2rem 1.8rem; margin: 2.5rem 0; border: 1px solid rgba(255,255,255,0.06);">
-  
-  <!-- Header -->
-  <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem;">
-    <span style="font-size: 1.8rem;">🤖</span>
-    <div>
-      <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;" data-i18n="ai-visualizer-title">How AI Sees Your Brand</div>
-      <div style="font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.7);" data-i18n="ai-visualizer-sub">ChatGPT, Gemini & Google AI Overviews</div>
+    <!-- CTA below slider -->
+    <div style="text-align: center; margin-top: 1.5rem;">
+      <a href="#contact-form-section" class="btn-primary" style="background: linear-gradient(135deg, #1E3A8A, #2563EB); padding: 0.8rem 2rem; font-size: 0.9rem; box-shadow: 0 4px 20px rgba(37,99,235,0.3);" data-i18n="hero-btn">Get Free AI Audit →</a>
+      <p style="font-size: 0.65rem; color: rgba(255,255,255,0.2); margin-top: 0.5rem;" data-i18n="form-note">No obligation • Results in 24h</p>
     </div>
-  </div>
 
-  <!-- AI Summary -->
-  <div id="aiBox" style="background: rgba(255,255,255,0.04); border-radius: 1.4rem; padding: 1rem 1.2rem; border-left: 5px solid #ef4444; margin-bottom: 1.5rem; transition: border-color 0.4s, background 0.4s;">
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-      <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;" data-i18n="ai-summary-label">🤖 AI Summary</div>
-      <div id="aiPlatformBadge" style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.06em; background: rgba(96,165,250,0.12); color: #60A5FA; padding: 0.15rem 0.7rem; border-radius: 40px; border: 1px solid rgba(96,165,250,0.1);">ChatGPT · Gemini</div>
-    </div>
-    <div id="aiText" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); transition: all 0.4s ease; margin-top: 0.3rem;">
-      <span id="aiTextContent" data-i18n="ai-before-text">«<span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.»</span>
-    </div>
   </div>
-
-  <!-- Rating & Stats -->
-  <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 0.8rem;">
-    <span id="starsDisplay" style="font-size: 2rem; color: #fbbf24; letter-spacing: 3px;">★★☆☆☆</span>
-    <span id="ratingNumber" style="font-size: 2.6rem; font-weight: 800; color: #fff; line-height: 1;">2.8</span>
-    <span id="ratingChange" style="font-size: 1.1rem; font-weight: 700; background: rgba(239,68,68,0.12); color: #ef4444; padding: 0.2rem 0.9rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.15); transition: all 0.3s;">-0.4</span>
-    <span id="aiRecommendBadge" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(239,68,68,0.08); color: #f87171; padding: 0.2rem 0.8rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.1);" data-i18n="not-recommended">❌ NOT RECOMMENDED</span>
-  </div>
-
-  <!-- Reviews meta -->
-  <div style="display: flex; gap: 1.8rem; font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; align-items: center; flex-wrap: wrap;">
-    <span id="reviewsCount">📊 67 reviews</span>
-    <span id="removedBadge" style="background: rgba(239,68,68,0.08); padding: 0.2rem 0.8rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.1); color: #f87171;">🗑️ 0 removed</span>
-    <span id="fakeFlagged" style="background: rgba(239,68,68,0.06); padding: 0.2rem 0.8rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.06); color: rgba(255,255,255,0.3);">⚠️ 8 flagged as policy violations</span>
-  </div>
-
-  <!-- Slider -->
-  <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem;">
-    <label id="labelBefore" style="font-size: 0.75rem; font-weight: 700; color: #f87171; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none; transition: color 0.3s;" data-i18n="before-label">Before</label>
-    <div id="toggleTrack" style="flex: 1; height: 6px; border-radius: 6px; background: rgba(255,255,255,0.12); position: relative; cursor: pointer;">
-      <div id="progressBg" style="height: 100%; width: 0%; background: linear-gradient(90deg, #ef4444, #22c55e); border-radius: 6px; transition: width 0.1s ease;"></div>
-      <div id="thumb" style="width: 22px; height: 22px; background: #fff; border-radius: 50%; position: absolute; top: 50%; left: 0%; transform: translate(-50%, -50%); transition: left 0.1s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); cursor: grab;"></div>
-    </div>
-    <label id="labelAfter" style="font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none; transition: color 0.3s;" data-i18n="after-label">After</label>
-    <span id="stateLabel" style="font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.4); min-width: 3.2rem; text-align: right;" data-i18n="before-state">Before</span>
-  </div>
-
-  <!-- Drag hint -->
-  <div style="text-align: center; font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.35); padding: 0.4rem 0 0.6rem; margin-bottom: 1rem; letter-spacing: 0.03em; display: flex; align-items: center; justify-content: center; gap: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.04);">
-    <span style="display: inline-block; font-size: 1.2rem;">↔️</span>
-    <span data-i18n="drag-hint">👆 Drag the slider to see the transformation</span>
-  </div>
-
-  <!-- AI Response Preview -->
-  <div style="background: rgba(255,255,255,0.03); border-radius: 1.2rem; padding: 1rem 1.2rem; border: 1px solid rgba(255,255,255,0.06); margin-bottom: 1.2rem;">
-    <div style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.25); font-weight: 600; margin-bottom: 0.3rem;" data-i18n="ai-response-preview">💬 What AI says to your customers</div>
-    <div id="aiResponsePreview" style="font-size: 0.85rem; line-height: 1.5; color: rgba(255,255,255,0.6); font-style: italic; transition: all 0.4s ease;">
-      <span id="aiResponseContent" data-i18n="ai-response-before">«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»</span>
-    </div>
-  </div>
-
 </section>
 
 <style>
-  @keyframes hint-pulse {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 1; }
-  }
-  @keyframes hint-slide {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(10px); }
-  }
+  /* ===== SIMULATOR V2 – MOBILE ENHANCEMENTS ===== */
+
   .simulator-card {
     animation: float 6s ease-in-out infinite;
   }
   @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0px); }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
   }
-  @keyframes pulse-glow {
-    0% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
-    100% { opacity: 0.6; transform: scale(1); }
+
+  /* Larger thumb for touch */
+  #thumb {
+    width: 32px !important;
+    height: 32px !important;
+    background: #fff !important;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.5) !important;
+    border: 2px solid rgba(255,255,255,0.2) !important;
+    transition: box-shadow 0.2s, transform 0.15s;
   }
-  .rating-change.animate {
-    animation: pulse-glow 0.8s ease 2;
+  #thumb:active {
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow: 0 4px 24px rgba(59,130,246,0.4) !important;
+  }
+
+  /* Track gets taller on touch for easier targeting */
+  #toggleTrack {
+    height: 8px !important;
+    border-radius: 8px !important;
+  }
+
+  /* Labels become tappable */
+  #labelBefore, #labelAfter {
+    padding: 6px 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  #labelBefore:hover, #labelAfter:hover {
+    background: rgba(255,255,255,0.04);
+  }
+
+  /* Responsive fine‑tuning */
+  @media (max-width: 480px) {
+    .simulator-card {
+      padding: 1.2rem 0.8rem !important;
+      border-radius: 1.8rem !important;
+    }
+    #reputationDisplay {
+      padding: 1rem 0.8rem !important;
+      border-radius: 1.2rem !important;
+    }
+    #aiSummaryBox {
+      padding: 0.8rem 0.8rem !important;
+    }
+    #aiText {
+      font-size: 0.85rem !important;
+    }
+    #starsDisplay {
+      font-size: 1.5rem !important;
+    }
+    #ratingNumber {
+      font-size: 1.8rem !important;
+    }
+    #thumb {
+      width: 28px !important;
+      height: 28px !important;
+    }
+    #toggleTrack {
+      height: 6px !important;
+    }
+    #aiResponsePreview {
+      font-size: 0.75rem !important;
+    }
+    .btn-primary {
+      font-size: 0.8rem !important;
+      padding: 0.7rem 1.5rem !important;
+    }
+    #labelBefore, #labelAfter {
+      font-size: 0.6rem !important;
+    }
+    #stateLabel {
+      font-size: 0.65rem !important;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .simulator-card {
+      padding: 0.8rem 0.4rem !important;
+    }
+    #reputationDisplay {
+      padding: 0.8rem 0.4rem !important;
+    }
+    #aiSummaryBox {
+      padding: 0.6rem 0.6rem !important;
+    }
+    #aiText {
+      font-size: 0.75rem !important;
+    }
+    #starsDisplay {
+      font-size: 1.2rem !important;
+    }
+    #ratingNumber {
+      font-size: 1.5rem !important;
+    }
+    #thumb {
+      width: 24px !important;
+      height: 24px !important;
+    }
+  }
+
+  /* Smooth highlight transitions */
+  .neg-highlight, .pos-highlight {
+    transition: all 0.4s ease;
+  }
+
+  /* Accessibility: reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .simulator-card {
+      animation: none !important;
+    }
+    #thumb, #progressBg {
+      transition: none !important;
+    }
   }
 </style>
 
 <script>
- document.addEventListener('DOMContentLoaded', function() {
-  // ====== AI SLIDER LOGIC ======
-  const aiBox = document.getElementById('aiBox');
-  const aiTextContent = document.getElementById('aiTextContent');
-  const starsDisplay = document.getElementById('starsDisplay');
-  const ratingNumber = document.getElementById('ratingNumber');
-  const ratingChange = document.getElementById('ratingChange');
-  const aiRecommendBadge = document.getElementById('aiRecommendBadge');
-  const reviewsCount = document.getElementById('reviewsCount');
-  const removedBadge = document.getElementById('removedBadge');
-  const aiResponseContent = document.getElementById('aiResponseContent');
-  const stateLabel = document.getElementById('stateLabel');
-  const labelBefore = document.getElementById('labelBefore');
-  const labelAfter = document.getElementById('labelAfter');
-  const thumb = document.getElementById('thumb');
-  const track = document.getElementById('toggleTrack');
-  const progressBg = document.getElementById('progressBg');
+  (function() {
+    'use strict';
 
-  // ====== CHART INIT ======
-  const chartCanvas = document.getElementById('ratingChart');
-  let ratingChart = null;
-  if (chartCanvas) {
-    const ctx = chartCanvas.getContext('2d');
-    ratingChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-        datasets: [{
-          label: 'Rating',
-          data: [2.8, 3.1, 3.5, 4.0, 4.5, 4.8],
-          borderColor: '#60A5FA',
-          backgroundColor: 'rgba(96,165,250,0.05)',
-          tension: 0.3,
-          fill: true,
-          pointBackgroundColor: '#60A5FA',
-          pointRadius: 0,
-          borderWidth: 2
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false }
-        },
-        scales: {
-          x: { 
-            display: false,
-            grid: { display: false }
-          },
-          y: {
-            display: false,
-            min: 0,
-            max: 5,
-            grid: { display: false }
-          }
+    // ===== DOM refs =====
+    const aiSummaryBox = document.getElementById('aiSummaryBox');
+    const aiTextContent = document.getElementById('aiTextContent');
+    const starsDisplay = document.getElementById('starsDisplay');
+    const ratingNumber = document.getElementById('ratingNumber');
+    const ratingChange = document.getElementById('ratingChange');
+    const aiRecommendBadge = document.getElementById('aiRecommendBadge');
+    const reviewsCount = document.getElementById('reviewsCount');
+    const removedBadge = document.getElementById('removedBadge');
+    const aiResponseContent = document.getElementById('aiResponseContent');
+    const stateLabel = document.getElementById('stateLabel');
+    const labelBefore = document.getElementById('labelBefore');
+    const labelAfter = document.getElementById('labelAfter');
+    const thumb = document.getElementById('thumb');
+    const track = document.getElementById('toggleTrack');
+    const progressBg = document.getElementById('progressBg');
+
+    // ===== DATA =====
+    const beforeData = {
+      aiText: '<span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.',
+      stars: '★★☆☆☆',
+      rating: '2.8',
+      change: '-0.4',
+      changeColor: '#ef4444',
+      changeBg: 'rgba(239,68,68,0.15)',
+      badge: '❌ NOT RECOMMENDED',
+      badgeBg: 'rgba(239,68,68,0.12)',
+      badgeColor: '#f87171',
+      badgeBorder: 'rgba(239,68,68,0.1)',
+      reviews: '📊 67 reviews',
+      removed: '🗑️ 0 removed',
+      removedColor: '#f87171',
+      removedBg: 'rgba(239,68,68,0.08)',
+      borderColor: '#ef4444',
+      boxBg: 'rgba(239,68,68,0.06)',
+      response: '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»',
+      labelColor: '#f87171',
+      stateText: '👈 Drag to see the transformation'
+    };
+
+    const afterData = {
+      aiText: '<span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Highly rated</span> business with excellent service. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">strongly recommend</span> this business.',
+      stars: '★★★★★',
+      rating: '4.8',
+      change: '+2.0',
+      changeColor: '#4ade80',
+      changeBg: 'rgba(34,197,94,0.15)',
+      badge: '✅ RECOMMENDED',
+      badgeBg: 'rgba(34,197,94,0.12)',
+      badgeColor: '#4ade80',
+      badgeBorder: 'rgba(34,197,94,0.15)',
+      reviews: '📊 63 reviews',
+      removed: '🗑️ 4 removed',
+      removedColor: '#4ade80',
+      removedBg: 'rgba(34,197,94,0.08)',
+      borderColor: '#22c55e',
+      boxBg: 'rgba(34,197,94,0.06)',
+      response: '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»',
+      labelColor: '#4ade80',
+      stateText: '✅ Your reputation is restored!'
+    };
+
+    // ===== UI update =====
+    function updateUI(data, isBeforeState) {
+      aiTextContent.innerHTML = data.aiText;
+      aiSummaryBox.style.borderColor = data.borderColor;
+      aiSummaryBox.style.background = data.boxBg;
+
+      starsDisplay.textContent = data.stars;
+      ratingNumber.textContent = data.rating;
+      ratingChange.textContent = data.change;
+      ratingChange.style.color = data.changeColor;
+      ratingChange.style.background = data.changeBg;
+
+      aiRecommendBadge.textContent = data.badge;
+      aiRecommendBadge.style.background = data.badgeBg;
+      aiRecommendBadge.style.color = data.badgeColor;
+      aiRecommendBadge.style.borderColor = data.badgeBorder;
+
+      reviewsCount.textContent = data.reviews;
+      removedBadge.textContent = data.removed;
+      removedBadge.style.color = data.removedColor;
+      removedBadge.style.background = data.removedBg;
+
+      aiResponseContent.innerHTML = data.response;
+
+      labelBefore.style.color = isBeforeState ? '#f87171' : 'rgba(255,255,255,0.2)';
+      labelAfter.style.color = isBeforeState ? 'rgba(255,255,255,0.2)' : '#4ade80';
+      stateLabel.textContent = data.stateText;
+    }
+
+    // ===== Progress =====
+    let currentProgress = 0;
+    let isBefore = true;
+
+    function setProgress(progress) {
+      const clamped = Math.min(100, Math.max(0, progress));
+      currentProgress = clamped;
+      thumb.style.left = clamped + '%';
+      progressBg.style.width = clamped + '%';
+
+      const isBeforeState = clamped < 50;
+      if (isBeforeState !== isBefore) {
+        isBefore = isBeforeState;
+        updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
+      }
+    }
+
+    // ===== Autoplay =====
+    let autoplayInterval = null;
+    let autoplayDirection = 1;
+
+    function startAutoplay() {
+      stopAutoplay();
+      let progress = currentProgress;
+      autoplayInterval = setInterval(() => {
+        progress += autoplayDirection * 0.6;
+        if (progress >= 100) {
+          progress = 100;
+          autoplayDirection = -1;
+        } else if (progress <= 0) {
+          progress = 0;
+          autoplayDirection = 1;
         }
-      }
-    });
-  } else {
-    console.warn('Element #ratingChart not found');
-  }
-
-  // ====== DATA ======
-  const beforeData = {
-    aiText: '«<span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.»',
-    stars: '★★☆☆☆',
-    rating: '2.8',
-    change: '-0.4',
-    changeColor: '#ef4444',
-    changeBg: 'rgba(239,68,68,0.12)',
-    badge: '❌ NOT RECOMMENDED',
-    badgeBg: 'rgba(239,68,68,0.08)',
-    badgeColor: '#f87171',
-    badgeBorder: 'rgba(239,68,68,0.1)',
-    reviews: '📊 67 reviews',
-    removed: '🗑️ 0 removed',
-    removedColor: '#f87171',
-    removedBg: 'rgba(239,68,68,0.08)',
-    borderColor: '#ef4444',
-    response: '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»',
-    labelColor: '#f87171',
-    stateText: 'Before'
-  };
-
-  const afterData = {
-    aiText: '«<span class="pos-highlight" style="background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Highly rated</span> business with excellent service. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">strongly recommend</span> this business.»',
-    stars: '★★★★★',
-    rating: '4.8',
-    change: '+2.0',
-    changeColor: '#4ade80',
-    changeBg: 'rgba(34,197,94,0.12)',
-    badge: '✅ RECOMMENDED',
-    badgeBg: 'rgba(34,197,94,0.12)',
-    badgeColor: '#4ade80',
-    badgeBorder: 'rgba(34,197,94,0.15)',
-    reviews: '📊 63 reviews',
-    removed: '🗑️ 4 removed',
-    removedColor: '#4ade80',
-    removedBg: 'rgba(34,197,94,0.08)',
-    borderColor: '#22c55e',
-    response: '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»',
-    labelColor: '#4ade80',
-    stateText: 'After'
-  };
-
-  // ====== UPDATE UI ======
-  function updateUI(data, isBeforeState) {
-    aiTextContent.innerHTML = data.aiText;
-    aiBox.style.borderColor = data.borderColor;
-    aiBox.style.background = isBeforeState ? 'rgba(255,255,255,0.04)' : 'rgba(34,197,94,0.04)';
-
-    starsDisplay.textContent = data.stars;
-    ratingNumber.textContent = data.rating;
-    ratingChange.textContent = data.change;
-    ratingChange.style.color = data.changeColor;
-    ratingChange.style.background = data.changeBg;
-
-    aiRecommendBadge.textContent = data.badge;
-    aiRecommendBadge.style.background = data.badgeBg;
-    aiRecommendBadge.style.color = data.badgeColor;
-    aiRecommendBadge.style.borderColor = data.badgeBorder;
-
-    reviewsCount.textContent = data.reviews;
-    removedBadge.textContent = data.removed;
-    removedBadge.style.color = data.removedColor;
-    removedBadge.style.background = data.removedBg;
-
-    aiResponseContent.innerHTML = data.response;
-
-    labelBefore.style.color = isBeforeState ? '#f87171' : 'rgba(255,255,255,0.25)';
-    labelAfter.style.color = isBeforeState ? 'rgba(255,255,255,0.25)' : '#4ade80';
-    stateLabel.textContent = data.stateText;
-  }
-
-  function setProgress(progress) {
-    const clampedProgress = Math.min(100, Math.max(0, progress));
-    thumb.style.left = clampedProgress + '%';
-    progressBg.style.width = clampedProgress + '%';
-    
-    if (clampedProgress < 50) {
-      updateUI(beforeData, true);
-      isBefore = true;
-    } else {
-      updateUI(afterData, false);
-      isBefore = false;
+        setProgress(progress);
+      }, 35);
     }
-  }
 
-  // ====== DRAG & AUTOPLAY ======
-  let isDragging = false;
-  let isBefore = true;
-  let autoplayInterval = null;
-
-  function startAutoplay() {
-    stopAutoplay();
-    let progress = parseFloat(thumb.style.left) || 0;
-    let direction = 1;
-    const step = 0.8;
-    const interval = 30;
-
-    autoplayInterval = setInterval(() => {
-      if (isDragging) return;
-      progress += direction * step;
-      
-      if (progress >= 100) {
-        progress = 100;
-        direction = -1;
-      } else if (progress <= 0) {
-        progress = 0;
-        direction = 1;
+    function stopAutoplay() {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
       }
-      
+    }
+
+    // ===== Drag / Touch =====
+    let isDragging = false;
+
+    function handlePointerStart(e) {
+      e.preventDefault();
+      isDragging = true;
+      stopAutoplay();
+      const rect = track.getBoundingClientRect();
+      const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+      const progress = ((clientX - rect.left) / rect.width) * 100;
       setProgress(progress);
-    }, interval);
-  }
-
-  function stopAutoplay() {
-    if (autoplayInterval) {
-      clearInterval(autoplayInterval);
-      autoplayInterval = null;
     }
-  }
 
-  // ----- Events -----
-  track.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    stopAutoplay();
-    const rect = track.getBoundingClientRect();
-    const progress = ((e.clientX - rect.left) / rect.width) * 100;
-    setProgress(progress);
-  });
+    function handlePointerMove(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      const rect = track.getBoundingClientRect();
+      const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+      const progress = ((clientX - rect.left) / rect.width) * 100;
+      setProgress(progress);
+    }
 
-  document.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    const rect = track.getBoundingClientRect();
-    const progress = ((e.clientX - rect.left) / rect.width) * 100;
-    setProgress(progress);
-  });
+    function handlePointerEnd(e) {
+      if (isDragging) {
+        isDragging = false;
+        startAutoplay();
+      }
+    }
 
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    startAutoplay();
-  });
+    // Mouse events
+    track.addEventListener('mousedown', handlePointerStart);
+    document.addEventListener('mousemove', handlePointerMove);
+    document.addEventListener('mouseup', handlePointerEnd);
 
-  track.addEventListener('touchstart', (e) => {
-    e.preventDefault();
-    isDragging = true;
-    stopAutoplay();
-    const rect = track.getBoundingClientRect();
-    const touch = e.touches[0];
-    const progress = ((touch.clientX - rect.left) / rect.width) * 100;
-    setProgress(progress);
-  });
+    // Touch events
+    track.addEventListener('touchstart', handlePointerStart, { passive: false });
+    document.addEventListener('touchmove', handlePointerMove, { passive: false });
+    document.addEventListener('touchend', handlePointerEnd);
 
-  document.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    const rect = track.getBoundingClientRect();
-    const touch = e.touches[0];
-    const progress = ((touch.clientX - rect.left) / rect.width) * 100;
-    setProgress(progress);
-  });
+    // Click on track (jump to position)
+    track.addEventListener('click', function(e) {
+      if (e.target === thumb) return;
+      stopAutoplay();
+      const rect = track.getBoundingClientRect();
+      const progress = ((e.clientX - rect.left) / rect.width) * 100;
+      setProgress(progress);
+      startAutoplay();
+    });
 
-  document.addEventListener('touchend', () => {
-    isDragging = false;
-    startAutoplay();
-  });
+    // Label clicks
+    labelBefore.addEventListener('click', function() {
+      stopAutoplay();
+      setProgress(0);
+      startAutoplay();
+    });
+    labelAfter.addEventListener('click', function() {
+      stopAutoplay();
+      setProgress(100);
+      startAutoplay();
+    });
 
-  track.addEventListener('click', (e) => {
-    if (e.target === thumb) return;
-    stopAutoplay();
-    const rect = track.getBoundingClientRect();
-    const progress = ((e.clientX - rect.left) / rect.width) * 100;
-    setProgress(progress);
-    startAutoplay();
-  });
-
-  labelBefore.addEventListener('click', () => {
-    stopAutoplay();
+    // ===== Init =====
     setProgress(0);
-    startAutoplay();
-  });
+    setTimeout(startAutoplay, 800);
 
-  labelAfter.addEventListener('click', () => {
-    stopAutoplay();
-    setProgress(100);
-    startAutoplay();
-  });
+    // Expose for i18n updates
+    window._simulatorState = { setProgress, beforeData, afterData, updateUI };
 
-  // ====== START ======
-  setTimeout(startAutoplay, 2000);
-});
+    // ===== Listen for language changes =====
+    document.addEventListener('languageChanged', function() {
+      // The i18n system will update data-i18n attributes, but our dynamic content
+      // uses the data objects. We re-apply the current state.
+      const isBeforeState = currentProgress < 50;
+      updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
+    });
+
+  })();
 </script>
   
   <div class="checklist-section">
