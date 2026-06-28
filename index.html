@@ -995,18 +995,6 @@ footer {
       </span>
     </div>
 
-    <!-- AI REPUTATION VISUALIZER -->
-<section id="ai-reputation-visualizer" style="background: rgba(255,255,255,0.02); border-radius: 2rem; padding: 2rem 1.8rem; margin: 2.5rem 0; border: 1px solid rgba(255,255,255,0.06);">
-  
-  <!-- Заголовок -->
-  <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem;">
-    <span style="font-size: 1.8rem;">🤖</span>
-    <div>
-      <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;" data-i18n="ai-visualizer-title">How AI Sees Your Brand</div>
-      <div style="font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.7);" data-i18n="ai-visualizer-sub">ChatGPT, Gemini & Google AI Overviews</div>
-    </div>
-  </div>
-
   <!-- AI REPUTATION VISUALIZER -->
 <section id="ai-reputation-visualizer" style="background: rgba(255,255,255,0.02); border-radius: 2rem; padding: 2rem 1.8rem; margin: 2.5rem 0; border: 1px solid rgba(255,255,255,0.06);">
   
@@ -1299,7 +1287,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     autoplayInterval = setInterval(() => {
       if (isDragging) return;
-      progress += direction * 0.3;
+      progress += direction * 0.8;
       
       if (progress >= 100) {
         progress = 100;
