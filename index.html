@@ -1007,6 +1007,18 @@ footer {
     </div>
   </div>
 
+  <!-- AI REPUTATION VISUALIZER -->
+<section id="ai-reputation-visualizer" style="background: rgba(255,255,255,0.02); border-radius: 2rem; padding: 2rem 1.8rem; margin: 2.5rem 0; border: 1px solid rgba(255,255,255,0.06);">
+  
+  <!-- Header -->
+  <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem;">
+    <span style="font-size: 1.8rem;">🤖</span>
+    <div>
+      <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;" data-i18n="ai-visualizer-title">How AI Sees Your Brand</div>
+      <div style="font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.7);" data-i18n="ai-visualizer-sub">ChatGPT, Gemini & Google AI Overviews</div>
+    </div>
+  </div>
+
   <!-- AI Summary -->
   <div id="aiBox" style="background: rgba(255,255,255,0.04); border-radius: 1.4rem; padding: 1rem 1.2rem; border-left: 5px solid #ef4444; margin-bottom: 1.5rem; transition: border-color 0.4s, background 0.4s;">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
@@ -1014,7 +1026,7 @@ footer {
       <div id="aiPlatformBadge" style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.06em; background: rgba(96,165,250,0.12); color: #60A5FA; padding: 0.15rem 0.7rem; border-radius: 40px; border: 1px solid rgba(96,165,250,0.1);">ChatGPT · Gemini</div>
     </div>
     <div id="aiText" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); transition: all 0.4s ease; margin-top: 0.3rem;">
-      <span data-i18n="ai-before-text">«<span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.»</span>
+      <span id="aiTextContent" data-i18n="ai-before-text">«<span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.»</span>
     </div>
   </div>
 
@@ -1047,14 +1059,14 @@ footer {
   <!-- Drag hint -->
   <div style="text-align: center; font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.35); padding: 0.4rem 0 0.6rem; margin-bottom: 1rem; letter-spacing: 0.03em; display: flex; align-items: center; justify-content: center; gap: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.04);">
     <span style="display: inline-block; font-size: 1.2rem;">↔️</span>
-    <span data-i18n="drag-hint">Drag to see how AI perception changes after removing fake reviews</span>
+    <span data-i18n="drag-hint">👆 Drag the slider to see the transformation</span>
   </div>
 
   <!-- AI Response Preview -->
   <div style="background: rgba(255,255,255,0.03); border-radius: 1.2rem; padding: 1rem 1.2rem; border: 1px solid rgba(255,255,255,0.06); margin-bottom: 1.2rem;">
     <div style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.25); font-weight: 600; margin-bottom: 0.3rem;" data-i18n="ai-response-preview">💬 What AI says to your customers</div>
     <div id="aiResponsePreview" style="font-size: 0.85rem; line-height: 1.5; color: rgba(255,255,255,0.6); font-style: italic; transition: all 0.4s ease;">
-      <span data-i18n="ai-response-before">«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»</span>
+      <span id="aiResponseContent" data-i18n="ai-response-before">«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»</span>
     </div>
   </div>
 
@@ -1094,263 +1106,262 @@ footer {
 </style>
 
 <script>
-  (function() {
-    // ---- existing simulator logic ----
-    function getStateData(state) {
-      var lang = currentLang || 'en';
-      var t = translations[lang] || translations['en'];
-      var beforeText = t['simulator-ai-before'] || '«Your business — <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">constant complaints</span> about dirt, rude staff, and broken promises. Clients <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span>.»';
-      var afterText = t['simulator-ai-after'] || '«Your business — <span class="highlight" style="background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">high level of service</span>, cleanliness, and attentive staff. Clients <span class="highlight" style="background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">recommend with confidence</span>.»';
-      return {
-        aiText: state === 'before' ? beforeText : afterText,
-        rating: state === 'before' ? '2.8' : '4.8',
-        change: state === 'before' ? '-0.4' : '+2.0',
-        stars: state === 'before' ? '★★☆☆☆' : '★★★★★',
-        removed: state === 'before' ? '🗑️ 0 removed' : '🗑️ 4 removed',
-        reviews: state === 'before' ? '📊 67 reviews' : '📊 63 reviews',
-        borderColor: state === 'before' ? '#ef4444' : '#22c55e',
-        chartData: state === 'before' ? [3.2, 3.0, 2.9, 2.8, 2.8, 2.8] : [3.2, 3.0, 2.9, 2.8, 4.0, 4.8]
-      };
+  // AI REPUTATION VISUALIZER — Slider Logic with Autoplay
+document.addEventListener('DOMContentLoaded', function() {
+  const aiBox = document.getElementById('aiBox');
+  const aiTextContent = document.getElementById('aiTextContent');
+  const starsDisplay = document.getElementById('starsDisplay');
+  const ratingNumber = document.getElementById('ratingNumber');
+  const ratingChange = document.getElementById('ratingChange');
+  const aiRecommendBadge = document.getElementById('aiRecommendBadge');
+  const reviewsCount = document.getElementById('reviewsCount');
+  const removedBadge = document.getElementById('removedBadge');
+  const aiResponseContent = document.getElementById('aiResponseContent');
+  const stateLabel = document.getElementById('stateLabel');
+  const labelBefore = document.getElementById('labelBefore');
+  const labelAfter = document.getElementById('labelAfter');
+  const thumb = document.getElementById('thumb');
+  const track = document.getElementById('toggleTrack');
+  const progressBg = document.getElementById('progressBg');
+
+  let isBefore = true;
+  let autoplayInterval = null;
+  let isDragging = false;
+
+  // Данные для состояний
+  const beforeData = {
+    aiText: '«<span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.»',
+    stars: '★★☆☆☆',
+    rating: '2.8',
+    change: '-0.4',
+    changeColor: '#ef4444',
+    changeBg: 'rgba(239,68,68,0.12)',
+    badge: '❌ NOT RECOMMENDED',
+    badgeBg: 'rgba(239,68,68,0.08)',
+    badgeColor: '#f87171',
+    badgeBorder: 'rgba(239,68,68,0.1)',
+    reviews: '📊 67 reviews',
+    removed: '🗑️ 0 removed',
+    removedColor: '#f87171',
+    removedBg: 'rgba(239,68,68,0.08)',
+    borderColor: '#ef4444',
+    response: '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»',
+    labelColor: '#f87171',
+    stateText: 'Before'
+  };
+
+  const afterData = {
+    aiText: '«<span class="pos-highlight" style="background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Highly rated</span> business with excellent service. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">strongly recommend</span> this business.»',
+    stars: '★★★★★',
+    rating: '4.8',
+    change: '+2.0',
+    changeColor: '#4ade80',
+    changeBg: 'rgba(34,197,94,0.12)',
+    badge: '✅ RECOMMENDED',
+    badgeBg: 'rgba(34,197,94,0.12)',
+    badgeColor: '#4ade80',
+    badgeBorder: 'rgba(34,197,94,0.15)',
+    reviews: '📊 63 reviews',
+    removed: '🗑️ 4 removed',
+    removedColor: '#4ade80',
+    removedBg: 'rgba(34,197,94,0.08)',
+    borderColor: '#22c55e',
+    response: '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»',
+    labelColor: '#4ade80',
+    stateText: 'After'
+  };
+
+  function updateUI(data, isBeforeState) {
+    // AI Summary
+    aiTextContent.innerHTML = data.aiText;
+    aiBox.style.borderColor = data.borderColor;
+    if (isBeforeState) {
+      aiBox.style.background = 'rgba(255,255,255,0.04)';
+    } else {
+      aiBox.style.background = 'rgba(34,197,94,0.04)';
     }
-    var aiText = document.getElementById('aiText');
-    var ratingNumber = document.getElementById('ratingNumber');
-    var ratingChange = document.getElementById('ratingChange');
-    var removedBadge = document.getElementById('removedBadge');
-    var reviewsCount = document.getElementById('reviewsCount');
-    var starsDisplay = document.getElementById('starsDisplay');
-    var aiBox = document.getElementById('aiBox');
-    var ratingBadge = document.getElementById('ratingBadge');
-    var toggleTrack = document.getElementById('toggleTrack');
-    var thumb = document.getElementById('thumb');
-    var progressBg = document.getElementById('progressBg');
-    var stateLabel = document.getElementById('stateLabel');
-    var labelBefore = document.getElementById('labelBefore');
-    var labelAfter = document.getElementById('labelAfter');
-    var currentState = 'before';
-    var isDragging = false;
 
-    function updatePosition(percent) {
-      var clamped = Math.min(100, Math.max(0, percent));
-      thumb.style.left = clamped + '%';
-      progressBg.style.width = clamped + '%';
+    // Stars & Rating
+    starsDisplay.textContent = data.stars;
+    ratingNumber.textContent = data.rating;
+    ratingChange.textContent = data.change;
+    ratingChange.style.color = data.changeColor;
+    ratingChange.style.background = data.changeBg;
+
+    // Badge
+    aiRecommendBadge.textContent = data.badge;
+    aiRecommendBadge.style.background = data.badgeBg;
+    aiRecommendBadge.style.color = data.badgeColor;
+    aiRecommendBadge.style.borderColor = data.badgeBorder;
+
+    // Reviews
+    reviewsCount.textContent = data.reviews;
+    removedBadge.textContent = data.removed;
+    removedBadge.style.color = data.removedColor;
+    removedBadge.style.background = data.removedBg;
+
+    // AI Response
+    aiResponseContent.innerHTML = data.response;
+
+    // Labels
+    labelBefore.style.color = isBeforeState ? '#f87171' : 'rgba(255,255,255,0.25)';
+    labelAfter.style.color = isBeforeState ? 'rgba(255,255,255,0.25)' : '#4ade80';
+    stateLabel.textContent = data.stateText;
+  }
+
+  function setProgress(progress) {
+    const clampedProgress = Math.min(100, Math.max(0, progress));
+    thumb.style.left = clampedProgress + '%';
+    progressBg.style.width = clampedProgress + '%';
+    
+    if (clampedProgress < 50) {
+      updateUI(beforeData, true);
+      isBefore = true;
+    } else {
+      updateUI(afterData, false);
+      isBefore = false;
     }
+  }
 
-    window.updateSimulatorUI = function(state) {
-      var data = getStateData(state);
-      aiText.innerHTML = data.aiText;
-      ratingNumber.textContent = data.rating;
-      ratingChange.textContent = data.change;
-      removedBadge.textContent = data.removed;
-      reviewsCount.textContent = data.reviews;
-      starsDisplay.textContent = data.stars;
-      ratingBadge.textContent = '⭐ ' + data.rating + ' ★';
-      aiBox.style.borderColor = data.borderColor;
-      stateLabel.textContent = state === 'before' ? (translations[currentLang]['before-label'] || 'Before') : (translations[currentLang]['after'] || 'After');
-      labelBefore.style.color = state === 'before' ? '#fff' : 'rgba(255,255,255,0.3)';
-      labelAfter.style.color = state === 'after' ? '#fff' : 'rgba(255,255,255,0.3)';
-      ratingChange.classList.remove('animate');
-      void ratingChange.offsetWidth;
-      ratingChange.classList.add('animate');
-      var percent = state === 'before' ? 0 : 100;
-      updatePosition(percent);
-      window._simulatorState = state;
-      currentState = state;
-      drawChart(data.chartData, data.borderColor);
-    };
+  // Drag handlers
+  track.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    stopAutoplay();
+    const rect = track.getBoundingClientRect();
+    const progress = ((e.clientX - rect.left) / rect.width) * 100;
+    setProgress(progress);
+  });
 
-    var canvas = document.getElementById('ratingChart');
-    var ctx = canvas.getContext('2d');
-    function drawChart(points, color) {
-      var w = canvas.parentElement.clientWidth - 16;
-      var h = 60;
-      canvas.width = w * window.devicePixelRatio;
-      canvas.height = h * window.devicePixelRatio;
-      canvas.style.width = w + 'px';
-      canvas.style.height = h + 'px';
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-      var max = 5;
-      var min = 2.5;
-      var pad = 8;
-      ctx.clearRect(0, 0, w, h);
-      ctx.strokeStyle = 'rgba(255,255,255,0.04)';
-      ctx.lineWidth = 1;
-      for (var i = 0; i < 4; i++) {
-        var y = pad + (h - 2 * pad) * (1 - (i / 3));
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(w, y);
-        ctx.stroke();
+  document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const rect = track.getBoundingClientRect();
+    const progress = ((e.clientX - rect.left) / rect.width) * 100;
+    setProgress(progress);
+  });
+
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+    startAutoplay();
+  });
+
+  // Touch support
+  track.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    isDragging = true;
+    stopAutoplay();
+    const rect = track.getBoundingClientRect();
+    const touch = e.touches[0];
+    const progress = ((touch.clientX - rect.left) / rect.width) * 100;
+    setProgress(progress);
+  });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const rect = track.getBoundingClientRect();
+    const touch = e.touches[0];
+    const progress = ((touch.clientX - rect.left) / rect.width) * 100;
+    setProgress(progress);
+  });
+
+  document.addEventListener('touchend', () => {
+    isDragging = false;
+    startAutoplay();
+  });
+
+  // Click on track
+  track.addEventListener('click', (e) => {
+    if (e.target === thumb) return;
+    stopAutoplay();
+    const rect = track.getBoundingClientRect();
+    const progress = ((e.clientX - rect.left) / rect.width) * 100;
+    setProgress(progress);
+    startAutoplay();
+  });
+
+  // Click on labels
+  labelBefore.addEventListener('click', () => {
+    stopAutoplay();
+    setProgress(0);
+    startAutoplay();
+  });
+
+  labelAfter.addEventListener('click', () => {
+    stopAutoplay();
+    setProgress(100);
+    startAutoplay();
+  });
+
+  // Autoplay
+  function startAutoplay() {
+    stopAutoplay();
+    let progress = parseFloat(thumb.style.left) || 0;
+    let direction = 1;
+
+    autoplayInterval = setInterval(() => {
+      if (isDragging) return;
+      progress += direction * 0.3;
+      
+      if (progress >= 100) {
+        progress = 100;
+        direction = -1;
+      } else if (progress <= 0) {
+        progress = 0;
+        direction = 1;
       }
-      ctx.beginPath();
-      ctx.strokeStyle = color;
-      ctx.lineWidth = 3;
-      ctx.shadowColor = color + '40';
-      ctx.shadowBlur = 8;
-      var step = (w - 2 * pad) / (points.length - 1);
-      points.forEach(function(val, idx) {
-        var x = pad + idx * step;
-        var y = pad + (h - 2 * pad) * (1 - (val - min) / (max - min));
-        if (idx === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      });
-      ctx.stroke();
-      ctx.shadowBlur = 0;
-      points.forEach(function(val, idx) {
-        var x = pad + idx * step;
-        var y = pad + (h - 2 * pad) * (1 - (val - min) / (max - min));
-        ctx.beginPath();
-        ctx.arc(x, y, 4, 0, 2 * Math.PI);
-        ctx.fillStyle = color;
-        ctx.fill();
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = color + '80';
-      });
-    }
+      
+      setProgress(progress);
+    }, 50);
+  }
 
-    function toggleState() {
-      var next = currentState === 'before' ? 'after' : 'before';
-      window.updateSimulatorUI(next);
+  function stopAutoplay() {
+    if (autoplayInterval) {
+      clearInterval(autoplayInterval);
+      autoplayInterval = null;
     }
+  }
 
-    // ---- Click / drag handlers ----
-    toggleTrack.addEventListener('click', toggleState);
-    labelBefore.addEventListener('click', function() { window.updateSimulatorUI('before'); });
-    labelAfter.addEventListener('click', function() { window.updateSimulatorUI('after'); });
+  // Autoplay starts after 2 seconds
+  setTimeout(startAutoplay, 2000);
 
-    function getPointerX(e) {
-      if (e.touches) {
-        return e.touches[0].clientX;
-      } else {
-        return e.clientX;
-      }
-    }
-    function onDragStart(e) {
-      e.preventDefault();
-      isDragging = true;
-      if (e.type === 'mousedown') {
-        document.body.style.cursor = 'grabbing';
-        thumb.style.cursor = 'grabbing';
-      }
-    }
-    function onDragMove(e) {
-      if (!isDragging) return;
-      e.preventDefault();
-      var rect = toggleTrack.getBoundingClientRect();
-      var x = getPointerX(e) - rect.left;
-      var percent = (x / rect.width) * 100;
-      percent = Math.min(100, Math.max(0, percent));
-      updatePosition(percent);
-      if (percent >= 50 && currentState !== 'after') {
-        window.updateSimulatorUI('after');
-      } else if (percent < 50 && currentState !== 'before') {
-        window.updateSimulatorUI('before');
-      }
-    }
-    function onDragEnd(e) {
-      if (isDragging) {
-        isDragging = false;
-        document.body.style.cursor = '';
-        thumb.style.cursor = 'grab';
-      }
-    }
-    thumb.addEventListener('mousedown', onDragStart);
-    document.addEventListener('mousemove', onDragMove);
-    document.addEventListener('mouseup', onDragEnd);
-    thumb.addEventListener('touchstart', onDragStart, { passive: false });
-    document.addEventListener('touchmove', onDragMove, { passive: false });
-    document.addEventListener('touchend', onDragEnd);
-
-    // ---- AUTO‑PLAY (new) ----
-    var autoInterval = null;
-    var isVisible = false;
-
-    function startAutoPlay() {
-      if (autoInterval) return;
-      autoInterval = setInterval(function() {
-        // toggle only if not being dragged
-        if (!isDragging) {
-          toggleState();
+  // Chart (simplified)
+  const ctx = document.getElementById('ratingChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Rating',
+        data: [2.8, 3.1, 3.5, 4.0, 4.5, 4.8],
+        borderColor: '#60A5FA',
+        backgroundColor: 'rgba(96,165,250,0.05)',
+        tension: 0.3,
+        fill: true,
+        pointBackgroundColor: '#60A5FA',
+        pointRadius: 0,
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        x: { 
+          display: false,
+          grid: { display: false }
+        },
+        y: {
+          display: false,
+          min: 0,
+          max: 5,
+          grid: { display: false }
         }
-      }, 1800); // switch every 1.8s
-    }
-
-    function stopAutoPlay() {
-      if (autoInterval) {
-        clearInterval(autoInterval);
-        autoInterval = null;
       }
     }
-
-    // Use Intersection Observer to detect when the section is visible
-    var section = document.querySelector('.simulator-section');
-    if (section) {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          isVisible = entry.isIntersecting;
-          if (isVisible) {
-            startAutoPlay();
-          } else {
-            stopAutoPlay();
-            // Reset to 'before' when hidden? optional
-            // window.updateSimulatorUI('before');
-          }
-        });
-      }, { threshold: 0.3 });
-      observer.observe(section);
-    }
-
-    // Stop autoplay when user interacts with slider (drag or click)
-    toggleTrack.addEventListener('mousedown', function() {
-      stopAutoPlay();
-    });
-    toggleTrack.addEventListener('touchstart', function() {
-      stopAutoPlay();
-    });
-    // Also stop on manual click on labels
-    labelBefore.addEventListener('click', stopAutoPlay);
-    labelAfter.addEventListener('click', stopAutoPlay);
-
-    // Restart autoplay after a short idle time if still visible
-    var restartTimeout = null;
-    document.addEventListener('mouseup', function() {
-      if (isVisible) {
-        clearTimeout(restartTimeout);
-        restartTimeout = setTimeout(function() {
-          if (isVisible && !isDragging) {
-            startAutoPlay();
-          }
-        }, 4000);
-      }
-    });
-    document.addEventListener('touchend', function() {
-      if (isVisible) {
-        clearTimeout(restartTimeout);
-        restartTimeout = setTimeout(function() {
-          if (isVisible && !isDragging) {
-            startAutoPlay();
-          }
-        }, 4000);
-      }
-    });
-
-    // ---- resize handler ----
-    var resizeTimer;
-    window.addEventListener('resize', function() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function() {
-        var data = getStateData(currentState);
-        drawChart(data.chartData, data.borderColor);
-      }, 150);
-    });
-
-    // ---- initial state ----
-    window.updateSimulatorUI('before');
-    // start autoplay if already visible
-    if (section && section.getBoundingClientRect().top < window.innerHeight * 0.7) {
-      isVisible = true;
-      startAutoPlay();
-    }
-  })();
+  });
+});
 </script>
   
   <div class="checklist-section">
