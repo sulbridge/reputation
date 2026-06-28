@@ -750,7 +750,14 @@ footer {
   background: #1a1f2b;
 }
 
-
+.animated-ai {
+  display: inline-block;
+  animation: aiPulse 3s ease-in-out infinite;
+}
+@keyframes aiPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); text-shadow: 0 0 20px rgba(96, 165, 250, 0.3); }
+}
 
 .slider-btn {
   position: absolute;
@@ -931,23 +938,23 @@ footer {
 </div>
 
   <div class="hero">
-    <div class="hero-content">
-      <div class="hero-badge" data-i18n="hero-badge">⚡ AI & Google Reviews Defense</div>
-      <h1 data-i18n="hero-title">AI Tools Are Reading Your Reviews – <span style="color:#2563EB;">Remove Fake Ones</span> Legally</h1>
-      <div class="hero-subhead" data-i18n="hero-subhead">Protect your brand from AI review summaries (Gemini, ChatGPT) and extortion attempts. Outsource reputation defense to our experts.</div>
-      <p data-i18n="hero-desc">We identify and remove reviews that violate Google policies – including fake, spam, off-topic, and extortion. No court, no shady tricks. Only legitimate appeals.</p>
-      <button class="btn-primary" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="hero-btn">Get Free Audit →</button>
-      <div class="hero-stats">
-        <div class="stat"><span class="counter" data-target="89">0</span>% <span data-i18n="stat1">appeal success rate*</span></div>
-        <div class="stat"><span class="counter" data-target="48">0</span><span data-i18n="stat2">h avg response time</span></div>
-      </div>
-    </div>
-    <div class="hero-image">
-      <i class="fab fa-google animated-google"></i>
-      <i class="fas fa-star-of-life" style="font-size: 1.8rem; margin-left: 5px;"></i>
-      <p data-i18n="hero-img-text">We remove reviews that harm your brand – including AI-aggregated ones</p>
+  <div class="hero-content">
+    <div class="hero-badge" data-i18n="hero-badge">⚡ AI Reputation Engine</div>
+    <h1 data-i18n="hero-title">Why Isn't ChatGPT <span style="color:#2563EB;">Recommending</span> Your Business?</h1>
+    <div class="hero-subhead" data-i18n="hero-subhead">AI reads every review about you — including the fake ones. We remove them so ChatGPT, Gemini, and Google AI recommend <strong>you</strong> instead of competitors.</div>
+    <p data-i18n="hero-desc">Free AI Reputation Audit → See exactly how AI sees your brand and what's costing you sales.</p>
+    <button class="btn-primary" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="hero-btn">Get Free AI Audit →</button>
+    <div class="hero-stats">
+      <div class="stat"><span class="counter" data-target="89">0</span>% <span data-i18n="stat1">appeal success rate*</span></div>
+      <div class="stat"><span class="counter" data-target="48">0</span><span data-i18n="stat2">h avg response time</span></div>
+      <div class="stat"><span class="counter" data-target="12">0</span>+ <span data-i18n="stat3">countries served</span></div>
     </div>
   </div>
+  <div class="hero-image">
+    <i class="fas fa-robot animated-ai" style="font-size: 5rem; color: #60A5FA;"></i>
+    <p data-i18n="hero-img-text">AI reads your reviews. We control the narrative.</p>
+  </div>
+</div>
 
   <!-- ===== THE 2026 REVIEW ECONOMY ===== -->
 <section class="trend-section" style="margin: 70px 0;">
@@ -988,49 +995,75 @@ footer {
       </span>
     </div>
 
-    <!-- AI Summary -->
-    <div id="aiBox" style="background: rgba(255,255,255,0.04); border-radius: 1.4rem; padding: 1rem 1.2rem; border-left: 5px solid #ef4444; margin-bottom: 1.5rem; transition: border-color 0.4s;">
-      <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700; margin-bottom: 0.3rem;" data-i18n="ai-summary">AI Summary</div>
-      <div id="aiText" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); transition: all 0.4s ease;">
-        «Your business — <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">constant complaints</span> about dirt, rude staff, and broken promises. Clients <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span>.»
-      </div>
-    </div>
-
-    <!-- Rating -->
-    <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 1rem;">
-      <span id="starsDisplay" style="font-size: 2rem; color: #fbbf24; letter-spacing: 3px;">★★☆☆☆</span>
-      <span id="ratingNumber" style="font-size: 2.6rem; font-weight: 800; color: #fff; line-height: 1;">2.8</span>
-      <span id="ratingChange" style="font-size: 1.1rem; font-weight: 700; background: rgba(239,68,68,0.12); color: #ef4444; padding: 0.2rem 0.9rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.15); transition: all 0.3s;">-0.4</span>
-    </div>
-
-    <!-- Reviews meta -->
-    <div style="display: flex; gap: 1.8rem; font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; align-items: center; flex-wrap: wrap;">
-      <span id="reviewsCount">📊 67 reviews</span>
-      <span id="removedBadge" style="background: rgba(239,68,68,0.08); padding: 0.2rem 0.8rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.1); color: #f87171;">🗑️ 0 removed</span>
-    </div>
-
-    <!-- Controls -->
-    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.4rem;">
-      <label id="labelBefore" style="font-size: 0.8rem; font-weight: 600; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none;" data-i18n="before">Before</label>
-      <div id="toggleTrack" style="flex: 1; height: 6px; border-radius: 6px; background: rgba(255,255,255,0.12); position: relative; cursor: pointer;">
-        <div id="progressBg" style="height: 100%; width: 0%; background: linear-gradient(90deg, #ef4444, #22c55e); border-radius: 6px; transition: width 0.1s ease;"></div>
-        <div id="thumb" style="width: 22px; height: 22px; background: #fff; border-radius: 50%; position: absolute; top: 50%; left: 0%; transform: translate(-50%, -50%); transition: left 0.1s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); cursor: grab;"></div>
-      </div>
-      <label id="labelAfter" style="font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none;" data-i18n="after">After</label>
-      <span id="stateLabel" style="font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.4); min-width: 3.2rem; text-align: right;" data-i18n="before-label">Before</span>
-    </div>
-
-    <div style="text-align: center; font-size: 1.15rem; font-weight: 600; color: rgba(255,255,255,0.6); padding: 0.6rem 0 0.8rem; margin-bottom: 1.2rem; letter-spacing: 0.03em; display: flex; align-items: center; justify-content: center; gap: 0.6rem; animation: hint-pulse 2s ease-in-out infinite; border-bottom: 1px solid rgba(255,255,255,0.06);">
-      <span style="display: inline-block; font-size: 2rem; animation: hint-slide 1.8s ease-in-out infinite;">↔️</span>
-      <span data-i18n="drag-hint">Drag the slider to see the transformation</span>
-    </div>
-
-    <!-- Chart -->
-    <div style="background: rgba(255,255,255,0.04); border-radius: 1.2rem; padding: 1rem 0.5rem 0.5rem; border: 1px solid rgba(255,255,255,0.06); margin-bottom: 1.5rem;">
-      <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.2); font-weight: 600; padding-left: 0.5rem; margin-bottom: 0.3rem;" data-i18n="chart-title">📈 Rating dynamics</div>
-      <canvas id="ratingChart" style="width: 100% !important; height: 60px !important; display: block;"></canvas>
+    <!-- AI REPUTATION VISUALIZER -->
+<section id="ai-reputation-visualizer" style="background: rgba(255,255,255,0.02); border-radius: 2rem; padding: 2rem 1.8rem; margin: 2.5rem 0; border: 1px solid rgba(255,255,255,0.06);">
+  
+  <!-- Заголовок -->
+  <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem;">
+    <span style="font-size: 1.8rem;">🤖</span>
+    <div>
+      <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;" data-i18n="ai-visualizer-title">How AI Sees Your Brand</div>
+      <div style="font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.7);" data-i18n="ai-visualizer-sub">ChatGPT, Gemini & Google AI Overviews</div>
     </div>
   </div>
+
+  <!-- AI Summary -->
+  <div id="aiBox" style="background: rgba(255,255,255,0.04); border-radius: 1.4rem; padding: 1rem 1.2rem; border-left: 5px solid #ef4444; margin-bottom: 1.5rem; transition: border-color 0.4s, background 0.4s;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+      <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;" data-i18n="ai-summary-label">🤖 AI Summary</div>
+      <div id="aiPlatformBadge" style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.06em; background: rgba(96,165,250,0.12); color: #60A5FA; padding: 0.15rem 0.7rem; border-radius: 40px; border: 1px solid rgba(96,165,250,0.1);">ChatGPT · Gemini</div>
+    </div>
+    <div id="aiText" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); transition: all 0.4s ease; margin-top: 0.3rem;">
+      <span data-i18n="ai-before-text">«<span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.»</span>
+    </div>
+  </div>
+
+  <!-- Rating & Stats -->
+  <div style="display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 0.8rem;">
+    <span id="starsDisplay" style="font-size: 2rem; color: #fbbf24; letter-spacing: 3px;">★★☆☆☆</span>
+    <span id="ratingNumber" style="font-size: 2.6rem; font-weight: 800; color: #fff; line-height: 1;">2.8</span>
+    <span id="ratingChange" style="font-size: 1.1rem; font-weight: 700; background: rgba(239,68,68,0.12); color: #ef4444; padding: 0.2rem 0.9rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.15); transition: all 0.3s;">-0.4</span>
+    <span id="aiRecommendBadge" style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(239,68,68,0.08); color: #f87171; padding: 0.2rem 0.8rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.1);" data-i18n="not-recommended">❌ NOT RECOMMENDED</span>
+  </div>
+
+  <!-- Reviews meta -->
+  <div style="display: flex; gap: 1.8rem; font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; align-items: center; flex-wrap: wrap;">
+    <span id="reviewsCount">📊 67 reviews</span>
+    <span id="removedBadge" style="background: rgba(239,68,68,0.08); padding: 0.2rem 0.8rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.1); color: #f87171;">🗑️ 0 removed</span>
+    <span id="fakeFlagged" style="background: rgba(239,68,68,0.06); padding: 0.2rem 0.8rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.06); color: rgba(255,255,255,0.3);">⚠️ 8 flagged as policy violations</span>
+  </div>
+
+  <!-- Slider -->
+  <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem;">
+    <label id="labelBefore" style="font-size: 0.75rem; font-weight: 700; color: #f87171; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none; transition: color 0.3s;" data-i18n="before-label">Before</label>
+    <div id="toggleTrack" style="flex: 1; height: 6px; border-radius: 6px; background: rgba(255,255,255,0.12); position: relative; cursor: pointer;">
+      <div id="progressBg" style="height: 100%; width: 0%; background: linear-gradient(90deg, #ef4444, #22c55e); border-radius: 6px; transition: width 0.1s ease;"></div>
+      <div id="thumb" style="width: 22px; height: 22px; background: #fff; border-radius: 50%; position: absolute; top: 50%; left: 0%; transform: translate(-50%, -50%); transition: left 0.1s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); cursor: grab;"></div>
+    </div>
+    <label id="labelAfter" style="font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none; transition: color 0.3s;" data-i18n="after-label">After</label>
+    <span id="stateLabel" style="font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.4); min-width: 3.2rem; text-align: right;" data-i18n="before-state">Before</span>
+  </div>
+
+  <!-- Drag hint -->
+  <div style="text-align: center; font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.35); padding: 0.4rem 0 0.6rem; margin-bottom: 1rem; letter-spacing: 0.03em; display: flex; align-items: center; justify-content: center; gap: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.04);">
+    <span style="display: inline-block; font-size: 1.2rem;">↔️</span>
+    <span data-i18n="drag-hint">Drag to see how AI perception changes after removing fake reviews</span>
+  </div>
+
+  <!-- AI Response Preview -->
+  <div style="background: rgba(255,255,255,0.03); border-radius: 1.2rem; padding: 1rem 1.2rem; border: 1px solid rgba(255,255,255,0.06); margin-bottom: 1.2rem;">
+    <div style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.25); font-weight: 600; margin-bottom: 0.3rem;" data-i18n="ai-response-preview">💬 What AI says to your customers</div>
+    <div id="aiResponsePreview" style="font-size: 0.85rem; line-height: 1.5; color: rgba(255,255,255,0.6); font-style: italic; transition: all 0.4s ease;">
+      <span data-i18n="ai-response-before">«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»</span>
+    </div>
+  </div>
+
+  <!-- Chart -->
+  <div style="background: rgba(255,255,255,0.03); border-radius: 1.2rem; padding: 0.8rem 0.5rem 0.4rem; border: 1px solid rgba(255,255,255,0.04);">
+    <div style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.2); font-weight: 600; padding-left: 0.5rem; margin-bottom: 0.2rem;" data-i18n="chart-title">📈 Rating & AI visibility</div>
+    <canvas id="ratingChart" style="width: 100% !important; height: 50px !important; display: block;"></canvas>
+  </div>
+
 </section>
 
 <style>
@@ -1872,14 +1905,14 @@ footer {
 <script>
   const translations = {
     "en": {
-  "hero-badge": "⚡ AI & Google Reviews Defense",
-  "hero-title": "Turn Your Google Reviews Into a Revenue Engine — <span style=\"color:#2563EB;\">Legally Remove Fake Ones</span> & Boost Sales",
-  "hero-subhead": "AI tools already summarize your reviews. We help you control the narrative and increase conversions.",
-  "hero-desc": "Free audit shows exactly how much revenue you're losing to fake reviews.",
-  "hero-btn": "Claim Your Free Revenue Audit →",
+  "hero-badge": "⚡ AI Reputation Engine",
+  "hero-title": "Why Isn't ChatGPT <span style=\"color:#2563EB;\">Recommending</span> Your Business?",
+  "hero-subhead": "AI reads every review about you — including the fake ones. We remove them so ChatGPT, Gemini, and Google AI recommend <strong>you</strong> instead of competitors.",
+  "hero-desc": "Free AI Reputation Audit → See exactly how AI sees your brand and what's costing you sales.",
+  "hero-btn": "Get Free AI Audit →",
   "stat1": "success rate",
   "stat2": "avg response time",
-  "hero-img-text": "We turn reputation management into a growth driver – not just damage control",
+  "hero-img-text": "AI reads your reviews. We control the narrative.",
 
   "feature1-title": "Manager access only",
   "feature1-desc": "You add our email as a manager in your Google Business Profile. We never ask for your password — full control stays with you.",
