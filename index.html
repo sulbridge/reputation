@@ -808,6 +808,203 @@ footer {
 }
 
 
+.compare-section {
+  margin: 70px 0;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.2fr;
+  gap: 0;
+  background: #1a1f2b;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid #2d3748;
+  box-shadow: 0 12px 30px -8px rgba(0,0,0,0.4);
+}
+
+
+.compare-header {
+  padding: 18px 24px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  background: #0f172a;
+  color: #e5e7eb;
+  border-bottom: 2px solid #2d3748;
+}
+
+.compare-header-inhouse {
+  border-right: 1px solid #2d3748;
+  color: #9ca3af;
+}
+
+.compare-header-rg {
+  color: #60A5FA;
+  border-left: 1px solid #2d3748;
+}
+
+
+.compare-label,
+.compare-value {
+  padding: 16px 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #2d3748;
+}
+
+.compare-label {
+  font-weight: 600;
+  color: #e5e7eb;
+  background: #161b26;
+  padding-left: 24px;
+  border-right: 1px solid #2d3748;
+}
+
+.compare-value {
+  justify-content: center;
+  text-align: center;
+  background: #1a1f2b;
+}
+
+.compare-value-inhouse {
+  color: #9ca3af;
+  border-right: 1px solid #2d3748;
+}
+
+.compare-value-rg {
+  color: #e5e7eb;
+  border-left: 1px solid #2d3748;
+}
+
+
+.icon-yes {
+  color: #34d399;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.icon-no {
+  color: #f87171;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+
+.highlight-cost {
+  color: #FCD34D;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.highlight-percent {
+  color: #34d399;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+
+@media (max-width: 768px) {
+  .compare-grid {
+    grid-template-columns: 1fr 1fr;
+    border-radius: 20px;
+  }
+
+  .compare-header-inhouse {
+    grid-column: 1 / 2;
+    border-right: 1px solid #2d3748;
+  }
+  .compare-header-rg {
+    grid-column: 2 / 3;
+    border-left: 1px solid #2d3748;
+  }
+
+  .compare-label {
+    grid-column: 1 / 2;
+    border-right: 1px solid #2d3748;
+    font-size: 0.85rem;
+    padding: 12px 12px;
+  }
+
+  .compare-value-inhouse {
+    grid-column: 2 / 3;
+    border-right: none;
+    border-left: 1px solid #2d3748;
+  }
+
+  .compare-value-rg {
+    display: none; 
+  }
+
+  
+  .compare-value-rg-mobile {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .compare-label {
+    font-size: 0.75rem;
+    padding: 10px 8px;
+  }
+  .compare-value-inhouse {
+    font-size: 0.75rem;
+    padding: 10px 8px;
+  }
+  .compare-value-rg {
+    font-size: 0.75rem;
+    padding: 10px 8px;
+  }
+  .icon-yes, .icon-no {
+    font-size: 0.9rem;
+  }
+}
+
+.compare-rg-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .compare-rg-mobile {
+    display: block;
+    margin-top: 24px;
+    background: #0f172a;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #2d3748;
+    text-align: center;
+  }
+  .compare-rg-mobile h3 {
+    color: #60A5FA;
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+  .compare-rg-mobile ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+  .compare-rg-mobile ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #2d3748;
+    color: #e5e7eb;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .compare-rg-mobile ul li:last-child {
+    border-bottom: none;
+  }
+  .compare-rg-mobile ul li .icon-yes {
+    font-size: 1rem;
+  }
+
+
 @media (max-width: 600px) {
   .slider-btn {
     width: 32px;
@@ -1782,54 +1979,58 @@ footer {
 </div>
 
   <div class="compare-section">
-    <h2 class="section-title" data-i18n="compare-title">In-house vs ReputationGuard</h2>
-    <p class="section-sub" data-i18n="compare-sub">Why pay a full salary when you can get better results for less?</p>
-    <table class="comparison-table">
-      <thead><tr><th data-i18n="compare-feature">Feature</th><th data-i18n="compare-inhouse">In‑house Employee</th><th data-i18n="compare-rg">ReputationGuard</th></tr></thead>
-      <tbody>
-  <tr>
-    <td class="feature-cell" data-i18n="compare-cost">Monthly cost</td>
-    <td data-i18n="compare-cost-inhouse">$2,000–$3,500+</td>
-    <td data-i18n="compare-cost-rg">$199–$999</td>
-  </tr>
-    <tr>
-    <td class="feature-cell" data-i18n="compare-revenue">Revenue impact</td>
-    <td data-i18n="compare-revenue-inhouse">❌ Unclear</td>
-    <td data-i18n="compare-revenue-rg">✅ Proven +20‑30% lead growth</td>
-  </tr>
-    <tr>
-    <td class="feature-cell" data-i18n="compare-ai-visibility">AI brand visibility</td>
-    <td data-i18n="compare-ai-visibility-inhouse">❌ No monitoring</td>
-    <td data-i18n="compare-ai-visibility-rg">✅ Full AI visibility dashboard</td>
-  </tr>
-  <tr>
-    <td class="feature-cell" data-i18n="compare-expertise">AI & Google policies expertise</td>
-    <td data-i18n="compare-expertise-inhouse">❌ General knowledge</td>
-    <td data-i18n="compare-expertise-rg">✅ Dedicated specialists</td>
-  </tr>
-  <tr>
-    <td class="feature-cell" data-i18n="compare-appeals">Appeal success rate</td>
-    <td data-i18n="compare-appeals-inhouse">~30–50%</td>
-    <td data-i18n="compare-appeals-rg">89% (policy‑based)</td>
-  </tr>
-  <tr>
-    <td class="feature-cell" data-i18n="compare-legal">Legal escalation</td>
-    <td data-i18n="compare-legal-inhouse">❌ No</td>
-    <td data-i18n="compare-legal-rg">✅ Yes (Grow)</td>
-  </tr>
-  <tr>
-    <td class="feature-cell" data-i18n="compare-tools">Monitoring & reporting</td>
-    <td data-i18n="compare-tools-inhouse">Basic / manual</td>
-    <td data-i18n="compare-tools-rg">Automated + weekly reports</td>
-  </tr>
-  <tr>
-    <td class="feature-cell" data-i18n="compare-risk">Zero risk trial</td>
-    <td data-i18n="compare-risk-inhouse">No</td>
-    <td data-i18n="compare-risk-rg">✅ Free audit + pilot</td>
-  </tr>
-</tbody>
-    </table>
+  <h2 class="section-title" data-i18n="compare-title">In‑house vs ReputationGuard</h2>
+  <p class="section-sub" data-i18n="compare-sub">Why pay a full salary when you can get better results for less?</p>
+
+  
+  <div class="compare-grid">
+
+    
+    <div class="compare-header compare-header-inhouse" data-i18n="compare-inhouse">In‑house Employee</div>
+    <div class="compare-header compare-header-rg" data-i18n="compare-rg">ReputationGuard</div>
+
+    <!-- 1: Monthly cost -->
+    <div class="compare-label" data-i18n="compare-cost">Monthly cost</div>
+    <div class="compare-value compare-value-inhouse" data-i18n="compare-cost-inhouse">$2,000–$3,500+</div>
+    <div class="compare-value compare-value-rg highlight-cost" data-i18n="compare-cost-rg">$199–$999</div>
+
+    <!-- 2: Revenue impact -->
+    <div class="compare-label" data-i18n="compare-revenue">Revenue impact</div>
+    <div class="compare-value compare-value-inhouse"><span class="icon-no">✗</span> <span data-i18n="compare-revenue-inhouse">Unclear</span></div>
+    <div class="compare-value compare-value-rg"><span class="icon-yes">✓</span> <span data-i18n="compare-revenue-rg">Proven +20‑30% lead growth</span></div>
+
+    <!-- 3: AI brand visibility -->
+    <div class="compare-label" data-i18n="compare-ai-visibility">AI brand visibility</div>
+    <div class="compare-value compare-value-inhouse"><span class="icon-no">✗</span> <span data-i18n="compare-ai-visibility-inhouse">No monitoring</span></div>
+    <div class="compare-value compare-value-rg"><span class="icon-yes">✓</span> <span data-i18n="compare-ai-visibility-rg">Full AI visibility dashboard</span></div>
+
+    <!-- 4: AI & Google policies expertise -->
+    <div class="compare-label" data-i18n="compare-expertise">AI & Google policies expertise</div>
+    <div class="compare-value compare-value-inhouse"><span class="icon-no">✗</span> <span data-i18n="compare-expertise-inhouse">General knowledge</span></div>
+    <div class="compare-value compare-value-rg"><span class="icon-yes">✓</span> <span data-i18n="compare-expertise-rg">Dedicated specialists</span></div>
+
+    <!-- 5: Appeal success rate -->
+    <div class="compare-label" data-i18n="compare-appeals">Appeal success rate</div>
+    <div class="compare-value compare-value-inhouse" data-i18n="compare-appeals-inhouse">~30–50%</div>
+    <div class="compare-value compare-value-rg highlight-percent" data-i18n="compare-appeals-rg">89% (policy‑based)</div>
+
+    <!-- 6: Legal escalation -->
+    <div class="compare-label" data-i18n="compare-legal">Legal escalation</div>
+    <div class="compare-value compare-value-inhouse"><span class="icon-no">✗</span> <span data-i18n="compare-legal-inhouse">No</span></div>
+    <div class="compare-value compare-value-rg"><span class="icon-yes">✓</span> <span data-i18n="compare-legal-rg">Yes (Grow)</span></div>
+
+    <!-- 7: Monitoring & reporting -->
+    <div class="compare-label" data-i18n="compare-tools">Monitoring & reporting</div>
+    <div class="compare-value compare-value-inhouse" data-i18n="compare-tools-inhouse">Basic / manual</div>
+    <div class="compare-value compare-value-rg" data-i18n="compare-tools-rg">Automated + weekly reports</div>
+
+    <!-- 8: Zero risk trial -->
+    <div class="compare-label" data-i18n="compare-risk">Zero risk trial</div>
+    <div class="compare-value compare-value-inhouse"><span class="icon-no">✗</span> <span data-i18n="compare-risk-inhouse">No</span></div>
+    <div class="compare-value compare-value-rg"><span class="icon-yes">✓</span> <span data-i18n="compare-risk-rg">Free audit + pilot</span></div>
+
   </div>
+</div>
 
   <div id="contact-form-section" class="cta">
     <h2 data-i18n="cta-title">Find Your Hidden Revenue — Free AI Reputation Audit</h2>
