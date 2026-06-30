@@ -1495,80 +1495,86 @@ footer {
   const thumb = document.getElementById('thumb');
   const track = document.getElementById('toggleTrack');
   const progressBg = document.getElementById('progressBg');
-  const aiSummaryLabel = document.getElementById('aiSummaryLabel');
-  const aiPlatformBadge = document.getElementById('aiPlatformBadge');
-  const aiResponseLabel = document.getElementById('aiResponseLabel');
-  const fakeFlagged = document.getElementById('fakeFlagged');
 
-  // ===== DATA OBJECTS (populated by applyTranslations) =====
-  let beforeData = {};
-  let afterData = {};
+  // ===== Базовые данные (fallback, если переводов нет) =====
+  const defaultBefore = {
+    aiText: '<span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.',
+    stars: '★★☆☆☆',
+    rating: '2.8',
+    change: '-0.4',
+    changeColor: '#ef4444',
+    changeBg: 'rgba(239,68,68,0.15)',
+    badge: '❌ NOT RECOMMENDED',
+    badgeBg: 'rgba(239,68,68,0.12)',
+    badgeColor: '#f87171',
+    badgeBorder: 'rgba(239,68,68,0.1)',
+    reviews: '📊 67 reviews',
+    removed: '🗑️ 0 removed',
+    removedColor: '#f87171',
+    removedBg: 'rgba(239,68,68,0.08)',
+    borderColor: '#ef4444',
+    boxBg: 'rgba(239,68,68,0.06)',
+    response: '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»',
+    labelColor: '#f87171',
+    stateText: '⚠️ Your reputation is damaged'
+  };
 
-  // ===== Helper =====
-  function getCurrentLang() {
-    return window.currentLang || 'en';
-  }
+  const defaultAfter = {
+    aiText: '<span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Highly rated</span> business with excellent service. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">strongly recommend</span> this business.',
+    stars: '★★★★★',
+    rating: '4.8',
+    change: '+2.0',
+    changeColor: '#4ade80',
+    changeBg: 'rgba(34,197,94,0.15)',
+    badge: '✅ RECOMMENDED',
+    badgeBg: 'rgba(34,197,94,0.12)',
+    badgeColor: '#4ade80',
+    badgeBorder: 'rgba(34,197,94,0.15)',
+    reviews: '📊 63 reviews',
+    removed: '🗑️ 4 removed',
+    removedColor: '#4ade80',
+    removedBg: 'rgba(34,197,94,0.08)',
+    borderColor: '#22c55e',
+    boxBg: 'rgba(34,197,94,0.06)',
+    response: '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»',
+    labelColor: '#4ade80',
+    stateText: '✅ Your reputation is restored!'
+  };
 
-  // ===== Apply translations to data objects AND static elements =====
-  function applyTranslations() {
-    const lang = getCurrentLang();
+  // ===== Функция получения данных с учётом языка =====
+  function getLocalizedData(isBefore) {
+    const lang = window.currentLang || 'en';
     const t = window.translations && window.translations[lang] ? window.translations[lang] : window.translations.en;
+    const prefix = isBefore ? 'simulator-before-' : 'simulator-after-';
 
-    // --- Static elements (updated via DOM, not data-i18n) ---
-    if (aiSummaryLabel) aiSummaryLabel.textContent = t['simulator-ai-summary-label'] || '🤖 AI Summary';
-    if (aiPlatformBadge) aiPlatformBadge.textContent = t['simulator-ai-platform-badge'] || 'ChatGPT · Gemini';
-    if (aiResponseLabel) aiResponseLabel.textContent = t['simulator-ai-response-label'] || '💬 What AI says to your customers';
-    if (fakeFlagged) fakeFlagged.textContent = t['simulator-flagged'] || '⚠️ 8 flagged';
-
-    // --- Dynamic data for before/after states ---
-    beforeData = {
-      aiText: t['simulator-before-ai'] || '<span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.',
-      stars: t['simulator-before-stars'] || '★★☆☆☆',
-      rating: t['simulator-before-rating'] || '2.8',
-      change: t['simulator-before-change'] || '-0.4',
-      changeColor: '#ef4444',
-      changeBg: 'rgba(239,68,68,0.15)',
-      badge: t['simulator-before-badge'] || '❌ NOT RECOMMENDED',
-      badgeBg: 'rgba(239,68,68,0.12)',
-      badgeColor: '#f87171',
-      badgeBorder: 'rgba(239,68,68,0.1)',
-      reviews: t['simulator-before-reviews'] || '📊 67 reviews',
-      removed: t['simulator-before-removed'] || '🗑️ 0 removed',
-      removedColor: '#f87171',
-      removedBg: 'rgba(239,68,68,0.08)',
-      borderColor: '#ef4444',
-      boxBg: 'rgba(239,68,68,0.06)',
-      response: t['simulator-before-response'] || '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»',
-      labelColor: '#f87171',
-      stateText: t['simulator-before-state'] || '⚠️ Your reputation is damaged'
+    // Берём из переводов, если есть, иначе fallback
+    const fallback = isBefore ? defaultBefore : defaultAfter;
+    return {
+      aiText: t[prefix + 'ai'] || fallback.aiText,
+      stars: t[prefix + 'stars'] || fallback.stars,
+      rating: t[prefix + 'rating'] || fallback.rating,
+      change: t[prefix + 'change'] || fallback.change,
+      changeColor: fallback.changeColor,
+      changeBg: fallback.changeBg,
+      badge: t[prefix + 'badge'] || fallback.badge,
+      badgeBg: fallback.badgeBg,
+      badgeColor: fallback.badgeColor,
+      badgeBorder: fallback.badgeBorder,
+      reviews: t[prefix + 'reviews'] || fallback.reviews,
+      removed: t[prefix + 'removed'] || fallback.removed,
+      removedColor: fallback.removedColor,
+      removedBg: fallback.removedBg,
+      borderColor: fallback.borderColor,
+      boxBg: fallback.boxBg,
+      response: t[prefix + 'response'] || fallback.response,
+      labelColor: fallback.labelColor,
+      stateText: t[prefix + 'state'] || fallback.stateText
     };
-
-    afterData = {
-      aiText: t['simulator-after-ai'] || '<span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Highly rated</span> business with excellent service. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">strongly recommend</span> this business.',
-      stars: t['simulator-after-stars'] || '★★★★★',
-      rating: t['simulator-after-rating'] || '4.8',
-      change: t['simulator-after-change'] || '+2.0',
-      changeColor: '#4ade80',
-      changeBg: 'rgba(34,197,94,0.15)',
-      badge: t['simulator-after-badge'] || '✅ RECOMMENDED',
-      badgeBg: 'rgba(34,197,94,0.12)',
-      badgeColor: '#4ade80',
-      badgeBorder: 'rgba(34,197,94,0.15)',
-      reviews: t['simulator-after-reviews'] || '📊 63 reviews',
-      removed: t['simulator-after-removed'] || '🗑️ 4 removed',
-      removedColor: '#4ade80',
-      removedBg: 'rgba(34,197,94,0.08)',
-      borderColor: '#22c55e',
-      boxBg: 'rgba(34,197,94,0.06)',
-      response: t['simulator-after-response'] || '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»',
-      labelColor: '#4ade80',
-      stateText: t['simulator-after-state'] || '✅ Your reputation is restored!'
-    };
-
-    // Update UI with current progress
-    const isBeforeState = currentProgress < 50;
-    updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
   }
+
+  // ===== DATA (будет обновляться) =====
+  let beforeData = getLocalizedData(true);
+  let afterData = getLocalizedData(false);
 
   // ===== UI update =====
   function updateUI(data, isBeforeState) {
@@ -1599,7 +1605,15 @@ footer {
     stateLabel.textContent = data.stateText;
   }
 
-  // ===== Progress and autoplay =====
+  // ===== Обновление данных при смене языка =====
+  function refreshTranslations() {
+    beforeData = getLocalizedData(true);
+    afterData = getLocalizedData(false);
+    const isBeforeState = currentProgress < 50;
+    updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
+  }
+
+  // ===== Progress =====
   let currentProgress = 0;
   let isBefore = true;
 
@@ -1612,8 +1626,7 @@ footer {
     const isBeforeState = clamped < 50;
     if (isBeforeState !== isBefore) {
       isBefore = isBeforeState;
-      const data = isBeforeState ? beforeData : afterData;
-      updateUI(data, isBeforeState);
+      updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
     }
   }
 
@@ -1683,7 +1696,7 @@ footer {
   document.addEventListener('touchmove', handlePointerMove, { passive: false });
   document.addEventListener('touchend', handlePointerEnd);
 
-  // Click on track (jump to position)
+  // Click on track
   track.addEventListener('click', function(e) {
     if (e.target === thumb) return;
     stopAutoplay();
@@ -1705,35 +1718,15 @@ footer {
     startAutoplay();
   });
 
-  // ===== Language change handler =====
-  function refreshUITranslation() {
-    applyTranslations();
-    if (!autoplayInterval) {
-      startAutoplay();
-    }
-  }
-
-  // Listen for language change event dispatched by setLanguage
-  document.addEventListener('languageChanged', refreshUITranslation);
-
-  // Also listen for manual language updates (fallback)
-  document.addEventListener('DOMContentLoaded', function() {
-    // Small delay to ensure translations are loaded
-    setTimeout(applyTranslations, 100);
-  });
+  // ===== Слушаем смену языка =====
+  document.addEventListener('languageChanged', refreshTranslations);
 
   // ===== Init =====
-  applyTranslations();
   setProgress(0);
   setTimeout(startAutoplay, 800);
 
   // Expose for debugging
-  window._simulatorState = {
-    setProgress,
-    applyTranslations,
-    refreshUITranslation,
-    currentProgress: () => currentProgress,
-  };
+  window._simulatorState = { setProgress, refreshTranslations };
 
 })();
 </script>
