@@ -9,6 +9,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="alternate" type="text/plain" href="/llms-full.txt" title="AI-readable company facts" />
   <link rel="profile" href="https://reputationguard.pro/#organization" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ReputationGuard.PRO",
+  "url": "https://reputationguard.pro",
+  "logo": "https://reputationguard.pro/AI_Visibility_Audit_from_ReputationguardPRO.webp",
+  "description": "AI Reputation Cleanup & GEO Foundation — remove fake reviews so ChatGPT, Gemini, and Google AI recommend your business.",
+  "founder": {
+    "@type": "Person",
+    "name": "Aleksei Zlobin",
+    "jobTitle": "Founder & AI Reputation Strategist",
+    "url": "https://www.linkedin.com/in/aireputationexpert/"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "defend@reputationguard.pro",
+    "contactType": "customer service"
+  }
+}
+</script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 body { 
@@ -1163,9 +1184,9 @@ footer {
     style="width: 100%; max-width: 540px; height: auto; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 16px 48px rgba(0,0,0,0.5);"
     loading="lazy"
   />
-  <p style="margin-top: 10px; font-size: 0.75rem; color: #6c757d; text-align: center; max-width: 540px; margin-left: auto; margin-right: auto;">
-    ⚡ Sample audit report · Real client data anonymized · 
-  </p>
+  <p style="margin-top: 12px; font-size: 0.85rem; color: #6c757d; text-align: center; max-width: 540px; margin-left: auto; margin-right: auto; font-weight: 500;" data-i18n="sample-audit-note">
+  ⚡ Sample audit report · Real client data anonymized ·
+</p>
 </div>
 </div>
 
@@ -1187,8 +1208,8 @@ footer {
       <!-- AI Summary Box -->
       <div id="aiSummaryBox" style="background: rgba(239,68,68,0.06); border-radius: 1.2rem; padding: 1rem 1.2rem; border-left: 4px solid #ef4444; margin-bottom: 1.2rem; transition: all 0.4s ease;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.3rem;">
-          <span style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;">🤖 AI Summary</span>
-          <span id="aiPlatformBadge" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; background: rgba(96,165,250,0.12); color: #60A5FA; padding: 0.15rem 0.7rem; border-radius: 40px; border: 1px solid rgba(96,165,250,0.1);">ChatGPT · Gemini</span>
+          <span style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;" data-i18n="simulator-ai-summary-label">🤖 AI Summary</span>
+          <span id="aiPlatformBadge" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; background: rgba(96,165,250,0.12); color: #60A5FA; padding: 0.15rem 0.7rem; border-radius: 40px; border: 1px solid rgba(96,165,250,0.1);" data-i18n="simulator-ai-platform-badge">ChatGPT · Gemini</span>
         </div>
         <div id="aiText" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); transition: all 0.4s ease;">
           <span id="aiTextContent"><span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.</span>
@@ -1207,7 +1228,7 @@ footer {
       <div style="display: flex; gap: 1.2rem; font-size: 0.7rem; color: rgba(255,255,255,0.35); align-items: center; flex-wrap: wrap; margin-bottom: 1.2rem;">
         <span id="reviewsCount">📊 67 reviews</span>
         <span id="removedBadge" style="background: rgba(239,68,68,0.08); padding: 0.1rem 0.6rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.08); color: #f87171;">🗑️ 0 removed</span>
-        <span id="fakeFlagged" style="background: rgba(255,255,255,0.04); padding: 0.1rem 0.6rem; border-radius: 100px; color: rgba(255,255,255,0.25);">⚠️ 8 flagged</span>
+        <span id="fakeFlagged" style="background: rgba(255,255,255,0.04); padding: 0.1rem 0.6rem; border-radius: 100px; color: rgba(255,255,255,0.25);" data-i18n="simulator-flagged">⚠️ 8 flagged</span>
       </div>
 
       <!-- SLIDER (MOBILE‑FIRST) -->
@@ -1231,7 +1252,7 @@ footer {
 
       <!-- AI Response Preview -->
       <div style="background: rgba(255,255,255,0.03); border-radius: 1rem; padding: 0.8rem 1rem; border: 1px solid rgba(255,255,255,0.05); margin-top: 1rem;">
-        <div style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.2); font-weight: 600; margin-bottom: 0.2rem;">💬 What AI says to your customers</div>
+        <div style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.2); font-weight: 600; margin-bottom: 0.2rem;" data-i18n="simulator-ai-response-label">💬 What AI says to your customers</div>
         <div id="aiResponsePreview" style="font-size: 0.8rem; line-height: 1.5; color: rgba(255,255,255,0.5); font-style: italic; transition: all 0.4s ease;">
           <span id="aiResponseContent">«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»</span>
         </div>
@@ -1376,220 +1397,226 @@ footer {
 
 <script>
   (function() {
-    'use strict';
+  'use strict';
 
-    // ===== DOM refs =====
-    const aiSummaryBox = document.getElementById('aiSummaryBox');
-    const aiTextContent = document.getElementById('aiTextContent');
-    const starsDisplay = document.getElementById('starsDisplay');
-    const ratingNumber = document.getElementById('ratingNumber');
-    const ratingChange = document.getElementById('ratingChange');
-    const aiRecommendBadge = document.getElementById('aiRecommendBadge');
-    const reviewsCount = document.getElementById('reviewsCount');
-    const removedBadge = document.getElementById('removedBadge');
-    const aiResponseContent = document.getElementById('aiResponseContent');
-    const stateLabel = document.getElementById('stateLabel');
-    const labelBefore = document.getElementById('labelBefore');
-    const labelAfter = document.getElementById('labelAfter');
-    const thumb = document.getElementById('thumb');
-    const track = document.getElementById('toggleTrack');
-    const progressBg = document.getElementById('progressBg');
+  // ===== DOM refs =====
+  const aiSummaryBox = document.getElementById('aiSummaryBox');
+  const aiTextContent = document.getElementById('aiTextContent');
+  const starsDisplay = document.getElementById('starsDisplay');
+  const ratingNumber = document.getElementById('ratingNumber');
+  const ratingChange = document.getElementById('ratingChange');
+  const aiRecommendBadge = document.getElementById('aiRecommendBadge');
+  const reviewsCount = document.getElementById('reviewsCount');
+  const removedBadge = document.getElementById('removedBadge');
+  const aiResponseContent = document.getElementById('aiResponseContent');
+  const stateLabel = document.getElementById('stateLabel');
+  const labelBefore = document.getElementById('labelBefore');
+  const labelAfter = document.getElementById('labelAfter');
+  const thumb = document.getElementById('thumb');
+  const track = document.getElementById('toggleTrack');
+  const progressBg = document.getElementById('progressBg');
 
-    // ===== DATA =====
-    const beforeData = {
-      aiText: '<span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.',
-      stars: '★★☆☆☆',
-      rating: '2.8',
-      change: '-0.4',
-      changeColor: '#ef4444',
-      changeBg: 'rgba(239,68,68,0.15)',
-      badge: '❌ NOT RECOMMENDED',
-      badgeBg: 'rgba(239,68,68,0.12)',
-      badgeColor: '#f87171',
-      badgeBorder: 'rgba(239,68,68,0.1)',
-      reviews: '📊 67 reviews',
-      removed: '🗑️ 0 removed',
-      removedColor: '#f87171',
-      removedBg: 'rgba(239,68,68,0.08)',
-      borderColor: '#ef4444',
-      boxBg: 'rgba(239,68,68,0.06)',
-      response: '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»',
-      labelColor: '#f87171',
-      stateText: '⚠️ Your reputation is damaged'
+  // ===== Helper to get translated data =====
+  function getSimulatorData(isBefore) {
+    const prefix = isBefore ? 'simulator-before-' : 'simulator-after-';
+    const lang = window.currentLang || 'en';
+    const t = window.translations && window.translations[lang] ? window.translations[lang] : window.translations.en;
+
+    return {
+      aiText: t[prefix + 'ai'] || '',
+      stars: t[prefix + 'stars'] || (isBefore ? '★★☆☆☆' : '★★★★★'),
+      rating: t[prefix + 'rating'] || (isBefore ? '2.8' : '4.8'),
+      change: t[prefix + 'change'] || (isBefore ? '-0.4' : '+2.0'),
+      badge: t[prefix + 'badge'] || (isBefore ? '❌ NOT RECOMMENDED' : '✅ RECOMMENDED'),
+      reviews: t[prefix + 'reviews'] || (isBefore ? '📊 67 reviews' : '📊 63 reviews'),
+      removed: t[prefix + 'removed'] || (isBefore ? '🗑️ 0 removed' : '🗑️ 4 removed'),
+      stateText: t[prefix + 'state'] || (isBefore ? '⚠️ Your reputation is damaged' : '✅ Your reputation is restored!'),
+      response: t[prefix + 'response'] || (isBefore
+        ? '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»'
+        : '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»'),
+      // Colors – we keep these fixed, they are not translated
+      borderColor: isBefore ? '#ef4444' : '#22c55e',
+      boxBg: isBefore ? 'rgba(239,68,68,0.06)' : 'rgba(34,197,94,0.06)',
+      labelColor: isBefore ? '#f87171' : '#4ade80',
+      changeBg: isBefore ? 'rgba(239,68,68,0.15)' : 'rgba(34,197,94,0.15)',
+      badgeBg: isBefore ? 'rgba(239,68,68,0.12)' : 'rgba(34,197,94,0.12)',
+      badgeColor: isBefore ? '#f87171' : '#4ade80',
+      badgeBorder: isBefore ? 'rgba(239,68,68,0.1)' : 'rgba(34,197,94,0.15)',
+      removedBg: isBefore ? 'rgba(239,68,68,0.08)' : 'rgba(34,197,94,0.08)',
+      removedColor: isBefore ? '#f87171' : '#4ade80',
+      changeColor: isBefore ? '#ef4444' : '#4ade80',
     };
+  }
 
-    const afterData = {
-      aiText: '<span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Highly rated</span> business with excellent service. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">strongly recommend</span> this business.',
-      stars: '★★★★★',
-      rating: '4.8',
-      change: '+2.0',
-      changeColor: '#4ade80',
-      changeBg: 'rgba(34,197,94,0.15)',
-      badge: '✅ RECOMMENDED',
-      badgeBg: 'rgba(34,197,94,0.12)',
-      badgeColor: '#4ade80',
-      badgeBorder: 'rgba(34,197,94,0.15)',
-      reviews: '📊 63 reviews',
-      removed: '🗑️ 4 removed',
-      removedColor: '#4ade80',
-      removedBg: 'rgba(34,197,94,0.08)',
-      borderColor: '#22c55e',
-      boxBg: 'rgba(34,197,94,0.06)',
-      response: '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»',
-      labelColor: '#4ade80',
-      stateText: '✅ Your reputation is restored!'
-    };
+  // ===== UI update =====
+  function updateUI(data, isBeforeState) {
+    // AI text
+    aiTextContent.innerHTML = data.aiText;
+    aiSummaryBox.style.borderColor = data.borderColor;
+    aiSummaryBox.style.background = data.boxBg;
 
-    // ===== UI update =====
-    function updateUI(data, isBeforeState) {
-      aiTextContent.innerHTML = data.aiText;
-      aiSummaryBox.style.borderColor = data.borderColor;
-      aiSummaryBox.style.background = data.boxBg;
+    // Stars, rating, change
+    starsDisplay.textContent = data.stars;
+    ratingNumber.textContent = data.rating;
+    ratingChange.textContent = data.change;
+    ratingChange.style.color = data.changeColor;
+    ratingChange.style.background = data.changeBg;
 
-      starsDisplay.textContent = data.stars;
-      ratingNumber.textContent = data.rating;
-      ratingChange.textContent = data.change;
-      ratingChange.style.color = data.changeColor;
-      ratingChange.style.background = data.changeBg;
+    // Badge
+    aiRecommendBadge.textContent = data.badge;
+    aiRecommendBadge.style.background = data.badgeBg;
+    aiRecommendBadge.style.color = data.badgeColor;
+    aiRecommendBadge.style.borderColor = data.badgeBorder;
 
-      aiRecommendBadge.textContent = data.badge;
-      aiRecommendBadge.style.background = data.badgeBg;
-      aiRecommendBadge.style.color = data.badgeColor;
-      aiRecommendBadge.style.borderColor = data.badgeBorder;
+    // Reviews & removed
+    reviewsCount.textContent = data.reviews;
+    removedBadge.textContent = data.removed;
+    removedBadge.style.color = data.removedColor;
+    removedBadge.style.background = data.removedBg;
 
-      reviewsCount.textContent = data.reviews;
-      removedBadge.textContent = data.removed;
-      removedBadge.style.color = data.removedColor;
-      removedBadge.style.background = data.removedBg;
+    // AI response
+    aiResponseContent.innerHTML = data.response;
 
-      aiResponseContent.innerHTML = data.response;
+    // Labels and state text
+    labelBefore.style.color = isBeforeState ? data.labelColor : 'rgba(255,255,255,0.2)';
+    labelAfter.style.color = isBeforeState ? 'rgba(255,255,255,0.2)' : data.labelColor;
+    stateLabel.textContent = data.stateText;
+  }
 
-      labelBefore.style.color = isBeforeState ? '#f87171' : 'rgba(255,255,255,0.2)';
-      labelAfter.style.color = isBeforeState ? 'rgba(255,255,255,0.2)' : '#4ade80';
-      stateLabel.textContent = data.stateText;
+  // ===== Progress and autoplay =====
+  let currentProgress = 0;
+  let isBefore = true;
+
+  function setProgress(progress) {
+    const clamped = Math.min(100, Math.max(0, progress));
+    currentProgress = clamped;
+    thumb.style.left = clamped + '%';
+    progressBg.style.width = clamped + '%';
+
+    const isBeforeState = clamped < 50;
+    if (isBeforeState !== isBefore) {
+      isBefore = isBeforeState;
+      const data = getSimulatorData(isBeforeState);
+      updateUI(data, isBeforeState);
     }
+  }
 
-    // ===== Progress =====
-    let currentProgress = 0;
-    let isBefore = true;
+  // ===== Autoplay =====
+  let autoplayInterval = null;
+  let autoplayDirection = 1;
 
-    function setProgress(progress) {
-      const clamped = Math.min(100, Math.max(0, progress));
-      currentProgress = clamped;
-      thumb.style.left = clamped + '%';
-      progressBg.style.width = clamped + '%';
-
-      const isBeforeState = clamped < 50;
-      if (isBeforeState !== isBefore) {
-        isBefore = isBeforeState;
-        updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
+  function startAutoplay() {
+    stopAutoplay();
+    let progress = currentProgress;
+    autoplayInterval = setInterval(() => {
+      progress += autoplayDirection * 0.6;
+      if (progress >= 100) {
+        progress = 100;
+        autoplayDirection = -1;
+      } else if (progress <= 0) {
+        progress = 0;
+        autoplayDirection = 1;
       }
-    }
-
-    // ===== Autoplay =====
-    let autoplayInterval = null;
-    let autoplayDirection = 1;
-
-    function startAutoplay() {
-      stopAutoplay();
-      let progress = currentProgress;
-      autoplayInterval = setInterval(() => {
-        progress += autoplayDirection * 0.6;
-        if (progress >= 100) {
-          progress = 100;
-          autoplayDirection = -1;
-        } else if (progress <= 0) {
-          progress = 0;
-          autoplayDirection = 1;
-        }
-        setProgress(progress);
-      }, 35);
-    }
-
-    function stopAutoplay() {
-      if (autoplayInterval) {
-        clearInterval(autoplayInterval);
-        autoplayInterval = null;
-      }
-    }
-
-    // ===== Drag / Touch =====
-    let isDragging = false;
-
-    function handlePointerStart(e) {
-      e.preventDefault();
-      isDragging = true;
-      stopAutoplay();
-      const rect = track.getBoundingClientRect();
-      const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
-      const progress = ((clientX - rect.left) / rect.width) * 100;
       setProgress(progress);
+    }, 35);
+  }
+
+  function stopAutoplay() {
+    if (autoplayInterval) {
+      clearInterval(autoplayInterval);
+      autoplayInterval = null;
     }
+  }
 
-    function handlePointerMove(e) {
-      if (!isDragging) return;
-      e.preventDefault();
-      const rect = track.getBoundingClientRect();
-      const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
-      const progress = ((clientX - rect.left) / rect.width) * 100;
-      setProgress(progress);
+  // ===== Drag / Touch =====
+  let isDragging = false;
+
+  function handlePointerStart(e) {
+    e.preventDefault();
+    isDragging = true;
+    stopAutoplay();
+    const rect = track.getBoundingClientRect();
+    const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+    const progress = ((clientX - rect.left) / rect.width) * 100;
+    setProgress(progress);
+  }
+
+  function handlePointerMove(e) {
+    if (!isDragging) return;
+    e.preventDefault();
+    const rect = track.getBoundingClientRect();
+    const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+    const progress = ((clientX - rect.left) / rect.width) * 100;
+    setProgress(progress);
+  }
+
+  function handlePointerEnd(e) {
+    if (isDragging) {
+      isDragging = false;
+      startAutoplay();
     }
+  }
 
-    function handlePointerEnd(e) {
-      if (isDragging) {
-        isDragging = false;
-        startAutoplay();
-      }
-    }
+  // Mouse events
+  track.addEventListener('mousedown', handlePointerStart);
+  document.addEventListener('mousemove', handlePointerMove);
+  document.addEventListener('mouseup', handlePointerEnd);
 
-    // Mouse events
-    track.addEventListener('mousedown', handlePointerStart);
-    document.addEventListener('mousemove', handlePointerMove);
-    document.addEventListener('mouseup', handlePointerEnd);
+  // Touch events
+  track.addEventListener('touchstart', handlePointerStart, { passive: false });
+  document.addEventListener('touchmove', handlePointerMove, { passive: false });
+  document.addEventListener('touchend', handlePointerEnd);
 
-    // Touch events
-    track.addEventListener('touchstart', handlePointerStart, { passive: false });
-    document.addEventListener('touchmove', handlePointerMove, { passive: false });
-    document.addEventListener('touchend', handlePointerEnd);
+  // Click on track (jump to position)
+  track.addEventListener('click', function(e) {
+    if (e.target === thumb) return;
+    stopAutoplay();
+    const rect = track.getBoundingClientRect();
+    const progress = ((e.clientX - rect.left) / rect.width) * 100;
+    setProgress(progress);
+    startAutoplay();
+  });
 
-    // Click on track (jump to position)
-    track.addEventListener('click', function(e) {
-      if (e.target === thumb) return;
-      stopAutoplay();
-      const rect = track.getBoundingClientRect();
-      const progress = ((e.clientX - rect.left) / rect.width) * 100;
-      setProgress(progress);
-      startAutoplay();
-    });
-
-    // Label clicks
-    labelBefore.addEventListener('click', function() {
-      stopAutoplay();
-      setProgress(0);
-      startAutoplay();
-    });
-    labelAfter.addEventListener('click', function() {
-      stopAutoplay();
-      setProgress(100);
-      startAutoplay();
-    });
-
-    // ===== Init =====
+  // Label clicks
+  labelBefore.addEventListener('click', function() {
+    stopAutoplay();
     setProgress(0);
-    setTimeout(startAutoplay, 800);
+    startAutoplay();
+  });
+  labelAfter.addEventListener('click', function() {
+    stopAutoplay();
+    setProgress(100);
+    startAutoplay();
+  });
 
-    // Expose for i18n updates
-    window._simulatorState = { setProgress, beforeData, afterData, updateUI };
+  // ===== Language change handler =====
+  function refreshUITranslation() {
+    const isBeforeState = currentProgress < 50;
+    const data = getSimulatorData(isBeforeState);
+    updateUI(data, isBeforeState);
+    // Also update the state text for the drag hint if it was overridden by state
+    // We already set stateLabel from data.stateText, so it's fine.
+  }
 
-    // ===== Listen for language changes =====
-    document.addEventListener('languageChanged', function() {
-      // The i18n system will update data-i18n attributes, but our dynamic content
-      // uses the data objects. We re-apply the current state.
-      const isBeforeState = currentProgress < 50;
-      updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
-    });
+  // Listen for language change event dispatched by setLanguage
+  document.addEventListener('languageChanged', refreshUITranslation);
 
-  })();
+  // ===== Init =====
+  // Set initial state (before)
+  const initialData = getSimulatorData(true);
+  updateUI(initialData, true);
+  setProgress(0);
+  setTimeout(startAutoplay, 800);
+
+  // Expose for debugging if needed
+  window._simulatorState = {
+    setProgress,
+    getSimulatorData,
+    refreshUITranslation,
+    currentProgress: () => currentProgress,
+  };
+
+})();
 </script>
 
   <!-- ===== 8-LAYER METHODOLOGY ===== -->
@@ -2200,21 +2227,6 @@ footer {
     </div>
   </div>
 
-  <div class="footer-company-facts" style="max-width: 1280px; margin: 0 auto; padding: 24px; background: #0f1119; border-top: 1px solid #2d3748; display: flex; flex-wrap: wrap; gap: 32px; justify-content: center;">
-  <div style="font-size:0.8rem; color:#9ca3af;">
-    <strong style="color:#f9fafb;">Brand:</strong> ReputationGuard.PRO
-  </div>
-  <div style="font-size:0.8rem; color:#9ca3af;">
-    <strong style="color:#f9fafb;">Legal entity:</strong> BrightLine Ventures LLC
-  </div>
-  <div style="font-size:0.8rem; color:#9ca3af;">
-    <strong style="color:#f9fafb;">Headquarters:</strong> Albuquerque, NM, USA
-  </div>
-  <div style="font-size:0.8rem; color:#9ca3af;">
-    <strong style="color:#f9fafb;">Core service:</strong> AI Reputation Cleanup & GEO Foundation
-  </div>
-</div>
-
   <div class="footer-bottom">
   <p data-i18n="footer-disclaimer">*Results may vary. Google makes final decisions on reviews.</p>
   <p>© 2026 ReputationGuard Global. All rights reserved.</p>
@@ -2236,6 +2248,7 @@ footer {
   "stat1": "success rate",
   "stat2": "avg response time",
   "hero-img-text": "We clean your data so AI recommends you.",
+  "sample-audit-note": "⚡ Sample audit report · Real client data anonymized ·",
 
   "feature1-title": "Manager access only",
   "feature1-desc": "You add our email as a manager in your Google Business Profile. We never ask for your password — full control stays with you.",
@@ -2295,7 +2308,6 @@ footer {
   "feature3d": "Weekly strategy calls",
   "feature3e": "Full legal escalation support",
   "feature3f": "GEO content strategy (optimize for AI)",
-  "feature3g": "Automated positive review generation + weekly revenue impact reports",
   "saving3": "Save $5,671 vs thirty one‑time removals",
 
   "choose-plan": "Choose plan",
@@ -2375,8 +2387,8 @@ footer {
   "faq4a": "A full-time reputation manager costs $2,000–$3,500 per month. With our Pro plan you save $1,200+ every month while getting better expertise and guaranteed response times.",
   "faq5q": "How quickly will I see ROI?",
   "faq5a": "Most clients see an increase in inquiries and bookings within the first month, as removed fake reviews immediately improve your average rating and Google visibility. Our tracking reports show you the direct impact.",
-  "faq6q": "What does 'unlimited appeals' mean? Is there a catch?",
-  "faq6a": "No catch. We handle all legitimate appeals for your business under fair use policy. Each plan includes a reasonable number of appeals per month: Monitor (5), Protect (15), Grow (30). If you exceed your fair use limit, we charge a small overage fee: $49/review (Monitor), $39/review (Protect), $29/review (Grow). We'll always notify you before any overage charges apply.",
+  "faq6q": "What are the monthly appeal limits?",
+  "faq6a": "Each plan includes a specific number of legitimate appeals per month: Monitor (3), Protect (8), Grow (15). If you exceed your limit, we charge a small overage fee: $49/review (Monitor), $39/review (Protect), $29/review (Grow). We'll always notify you before any overage charges apply.",
   "faq7q": "How do you improve my AI brand visibility?",
   "faq7a": "We don't just remove fake reviews. We monitor how your brand appears in ChatGPT, Gemini, and Google AI Overviews. After cleaning your reputation, we track improvements in AI recommendations and sentiment, providing you with a clear AI visibility score.",
   "faq8q": "Why should I care about AI reputation?",
@@ -2553,7 +2565,7 @@ footer {
 
   "geo-foundation-message": "Without clean reviews, any GEO strategy is useless. We are the first step.",
 
-  // ===== NEW: 9-LAYER METHODOLOGY =====
+  // ===== 9-LAYER METHODOLOGY =====
   "methodology-title": "How We Measure AI Visibility",
   "methodology-sub": "Our 9‑Layer Analysis framework — each layer represents a critical signal AI systems use to understand and recommend your brand.",
 
@@ -2575,6 +2587,32 @@ footer {
   "methodology-l8-desc": "Do you look active? Stale signals reduce urgency and trust.",
   "methodology-l9": "Reputation Signal",
   "methodology-l9-desc": "Does your brand have clean, verified reviews? AI models read review sentiment as a primary trust signal. Fake or negative reviews tell AI to avoid recommending you. Clean reviews = AI trust.",
+  // ===== SIMULATOR I18N KEYS =====
+  "simulator-before-ai": "«<span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Multiple complaints</span> about service quality. Customers <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">do not recommend</span> this business.»",
+  "simulator-before-stars": "★★☆☆☆",
+  "simulator-before-rating": "2.8",
+  "simulator-before-change": "-0.4",
+  "simulator-before-badge": "❌ NOT RECOMMENDED",
+  "simulator-before-reviews": "📊 67 reviews",
+  "simulator-before-removed": "🗑️ 0 removed",
+  "simulator-before-state": "⚠️ Your reputation is damaged",
+  "simulator-before-response": "«I found several negative reviews about this business. Based on customer feedback, I <strong style=\"color: #f87171;\">would not recommend</strong> it.»",
+  
+  "simulator-after-ai": "«<span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Highly rated</span> business with excellent service. Customers <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">strongly recommend</span> this business.»",
+  "simulator-after-stars": "★★★★★",
+  "simulator-after-rating": "4.8",
+  "simulator-after-change": "+2.0",
+  "simulator-after-badge": "✅ RECOMMENDED",
+  "simulator-after-reviews": "📊 63 reviews",
+  "simulator-after-removed": "🗑️ 4 removed",
+  "simulator-after-state": "✅ Your reputation is restored!",
+  "simulator-after-response": "«I found mostly positive reviews about this business. Based on customer feedback, I <strong style=\"color: #4ade80;\">highly recommend</strong> it.»",
+  
+  "simulator-flagged": "⚠️ 8 flagged",
+  "simulator-ai-summary-label": "🤖 AI Summary",
+  "simulator-ai-platform-badge": "ChatGPT · Gemini",
+  "simulator-ai-response-label": "💬 What AI says to your customers",
+  "simulator-drag-hint": "👆 Drag the slider to see the transformation",
 },
    "es": {
   "hero-badge": "⚡ Motor de Reputación IA",
@@ -3567,6 +3605,7 @@ footer {
   "stat1": "процент успешных обжалований",
   "stat2": "среднее время ответа",
   "hero-img-text": "Мы очищаем ваши данные, чтобы ИИ рекомендовал вас.",
+  "sample-audit-note": "⚡ Пример отчёта · Данные реального клиента анонимизированы ·",
 
   "feature1-title": "Только доступ менеджера",
   "feature1-desc": "Вы добавляете наш email как менеджера в свой профиль компании Google. Мы никогда не запрашиваем ваш пароль — полный контроль остаётся у вас.",
@@ -3603,7 +3642,7 @@ footer {
   
   "plan1-name": "AI Monitor",
   "per-month": "/мес",
-  "feature1a": "5 легальных обжалований в месяц (ответ за 5 дней)",
+  "feature1a": "3 легальных обжалования в месяц (ответ за 5 дней)",
   "feature1b": "Круглосуточный мониторинг отзывов с email-оповещениями",
   "feature1c": "Ежемесячный отчёт об AI-видимости (ChatGPT, Gemini)",
   "feature1d": "AI-мониторинг тональности",
@@ -3611,7 +3650,7 @@ footer {
   
   "plan2-name": "AI Protect",
   "popular": "⭐ САМЫЙ ПОПУЛЯРНЫЙ",
-  "feature2a": "15 легальных обжалований в месяц (ответ за 48 часов)",
+  "feature2a": "8 легальных обжалований в месяц (ответ за 48 часов)",
   "feature2b": "Круглосуточный мониторинг с AI-оповещениями",
   "feature2c": "Ежемесячный отчёт об AI-видимости (4+ LLM)",
   "feature2d": "Полный AI-анализ тональности",
@@ -3620,13 +3659,12 @@ footer {
   "saving2": "Экономия $2 836 против пятнадцати разовых удалений",
   
   "plan3-name": "GEO Strategy & Growth",
-  "feature3a": "30 легальных обжалований в месяц (ответ за 24 часа)",
+  "feature3a": "15 легальных обжалований в месяц (ответ за 24 часа)",
   "feature3b": "Выделенный AI-репутационный менеджер (доступ 24/7)",
   "feature3c": "Полная панель AI-видимости (10+ LLM)",
   "feature3d": "Еженедельные стратегические встречи",
   "feature3e": "Полная юридическая поддержка",
   "feature3f": "GEO-стратегия контента (оптимизация под ИИ)",
-  "feature3g": "Автоматическая генерация положительных отзывов + еженедельные отчёты о влиянии на выручку",
   "saving3": "Экономия $5 671 против тридцати разовых удалений",
 
   "choose-plan": "Выбрать тариф",
@@ -3707,8 +3745,8 @@ footer {
   "faq4a": "Штатный менеджер по репутации стоит $2 000–$3 500 в месяц. С нашим планом Pro вы экономите более $1 200 каждый месяц, получая более высокую экспертизу и гарантированное время ответа.",
   "faq5q": "Как быстро я увижу окупаемость?",
   "faq5a": "Большинство клиентов замечают рост продаж уже в первый месяц, так как удалённые фейковые отзывы мгновенно улучшают средний рейтинг и видимость в Google. Наши отчёты показывают прямое влияние.",
-  "faq6q": "Что значит «неограниченные обжалования»? Есть ли подвох?",
-  "faq6a": "Без подвоха. Мы обрабатываем все легальные обжалования для вашего бизнеса в рамках политики добросовестного использования (fair use). Каждый тариф включает разумное количество обжалований в месяц: Monitor (5), Protect (15), Grow (30). Если вы превышаете лимит, мы взимаем небольшую дополнительную плату: $49/отзыв (Monitor), $39/отзыв (Protect), $29/отзыв (Grow). Мы всегда предупреждаем вас перед списанием дополнительных средств.",
+  "faq6q": "Какие лимиты обжалований в тарифах?",
+  "faq6a": "Каждый тариф включает определённое количество легальных обжалований в месяц: Monitor (3), Protect (8), Grow (15). Если вы превышаете лимит, мы взимаем небольшую дополнительную плату: $49/отзыв (Monitor), $39/отзыв (Protect), $29/отзыв (Grow). Мы всегда предупреждаем вас перед списанием дополнительных средств.",
   "faq7q": "Как вы улучшаете мою AI-видимость?",
   "faq7a": "Мы не просто удаляем фейковые отзывы. Мы отслеживаем, как ваш бренд появляется в ChatGPT, Gemini и Google AI Overviews. После очистки репутации мы фиксируем улучшения в рекомендациях ИИ и тональности, предоставляя вам понятный AI-рейтинг.",
   "faq8q": "Почему мне стоит заботиться об AI-репутации?",
@@ -3751,6 +3789,8 @@ footer {
   "trend-stat2": "требуют 4,5★ для рассмотрения",
   "trend-stat3": "рост запросов на удаление",
   "trend-btn": "Запросить бесплатный аудит AI-репутации →",
+
+  "ai-visibility-improved": "🤖 AI-видимость: бренд теперь появляется в рекомендациях ChatGPT",
 
   "case1_header": "🏨 Бутик-отель, Индонезия",
   "case1_before_label": "⚠️ БЫЛО",
@@ -3857,7 +3897,7 @@ footer {
   "extortion-text2": "<strong>Мы удаляем эти отзывы до того, как они нанесут непоправимый ущерб</strong> вашей AI-видимости. Не позволяйте вымогателям управлять тем, что ChatGPT и Gemini говорят о вас.",
   "extortion-btn": "Защитите свой бизнес сейчас →",
   "extortion-stat": "рост поисковых запросов в 2025",
-
+  
   "interactive-demo": "Интерактивная демонстрация",
   "how-ai-sees": "Как ИИ видит вашу репутацию",
   "your-business": "Ваш бизнес",
@@ -3869,8 +3909,33 @@ footer {
   "chart-title": "📈 Динамика рейтинга",
   "manual-title": "Ручная проверка",
   "manual-desc": "Каждый отзыв проверяется специалистом SERM, что гарантирует высокий процент успешных обжалований.",
-  "simulator-ai-before": "«Ваш бизнес — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">постоянные жалобы</span> на грязь, грубый персонал и невыполненные обещания. Клиенты <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">не рекомендуют</span>.»",
-  "simulator-ai-after": "«Ваш бизнес — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">высокий уровень сервиса</span>, чистота и внимательный персонал. Клиенты <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">рекомендуют с уверенностью</span>.»",
+
+  // ===== SIMULATOR I18N KEYS (НОВЫЕ) =====
+  "simulator-before-ai": "«<span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Постоянные жалобы</span> на грязь, грубый персонал и невыполненные обещания. Клиенты <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">не рекомендуют</span> этот бизнес.»",
+  "simulator-before-stars": "★★☆☆☆",
+  "simulator-before-rating": "2.8",
+  "simulator-before-change": "-0.4",
+  "simulator-before-badge": "❌ НЕ РЕКОМЕНДУЕТСЯ",
+  "simulator-before-reviews": "📊 67 отзывов",
+  "simulator-before-removed": "🗑️ 0 удалено",
+  "simulator-before-state": "⚠️ Ваша репутация под угрозой",
+  "simulator-before-response": "«Я нашёл несколько негативных отзывов об этом бизнесе. Основываясь на отзывах клиентов, я <strong style=\"color: #f87171;\">не рекомендую</strong> его.»",
+
+  "simulator-after-ai": "«<span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Высокий уровень сервиса</span>, чистота и внимательный персонал. Клиенты <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">рекомендуют с уверенностью</span> этот бизнес.»",
+  "simulator-after-stars": "★★★★★",
+  "simulator-after-rating": "4.8",
+  "simulator-after-change": "+2.0",
+  "simulator-after-badge": "✅ РЕКОМЕНДУЕТСЯ",
+  "simulator-after-reviews": "📊 63 отзыва",
+  "simulator-after-removed": "🗑️ 4 удалено",
+  "simulator-after-state": "✅ Ваша репутация восстановлена!",
+  "simulator-after-response": "«Я нашёл в основном положительные отзывы об этом бизнесе. Основываясь на отзывах клиентов, я <strong style=\"color: #4ade80;\">настоятельно рекомендую</strong> его.»",
+
+  "simulator-flagged": "⚠️ 8 отмечено",
+  "simulator-ai-summary-label": "🤖 Сводка ИИ",
+  "simulator-ai-platform-badge": "ChatGPT · Gemini",
+  "simulator-ai-response-label": "💬 Что ИИ говорит вашим клиентам",
+  "simulator-drag-hint": "👆 Перетащите ползунок, чтобы увидеть трансформацию",
 
   "ai-matters-badge": "Почему это важно",
   "ai-matters-title": "Почему AI-репутация важна уже сейчас",
@@ -3883,8 +3948,7 @@ footer {
 
   "geo-foundation-message": "Без чистых отзывов любая GEO-стратегия бесполезна. Мы — первый шаг.",
 
-  "ai-visibility-improved": "🤖 AI-видимость: бренд теперь появляется в рекомендациях ChatGPT",
-
+  // ===== 9-LAYER METHODOLOGY =====
   "methodology-title": "Как мы измеряем AI-видимость",
   "methodology-sub": "Наш фреймворк из 9 слоёв — каждый слой представляет критический сигнал, который AI-системы используют для понимания и рекомендации вашего бренда.",
 
@@ -3905,7 +3969,7 @@ footer {
   "methodology-l8": "Активность",
   "methodology-l8-desc": "Выглядит ли ваш сайт активным? Устаревшие сигналы снижают доверие и срочность.",
   "methodology-l9": "Сигнал репутации",
-  "methodology-l9-desc": "Есть ли у вашего бренда чистые, верифицированные отзывы? AI-модели читают тональность отзывов как основной сигнал доверия. Фейковые или негативные отзывы говорят ИИ, что вас не стоит рекомендовать. Чистые отзывы = доверие ИИ.",
+  "methodology-l9-desc": "Есть ли у вашего бренда чистые, верифицированные отзывы? AI-модели читают тональность отзывов как основной сигнал доверия. Фейковые или негативные отзывы говорят ИИ, что вас не стоит рекомендовать. Чистые отзывы = доверие ИИ."
 },
     "vi": {
   "hero-badge": "⚡ Công cụ AI về Danh tiếng",
