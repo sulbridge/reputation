@@ -1208,7 +1208,7 @@ footer {
       <!-- AI Summary Box -->
       <div id="aiSummaryBox" style="background: rgba(239,68,68,0.06); border-radius: 1.2rem; padding: 1rem 1.2rem; border-left: 4px solid #ef4444; margin-bottom: 1.2rem; transition: all 0.4s ease;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.3rem;">
-          <span id="aiSummaryLabel" style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;">🤖 AI Summary</span>
+          <span style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;">🤖 AI Summary</span>
           <span id="aiPlatformBadge" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; background: rgba(96,165,250,0.12); color: #60A5FA; padding: 0.15rem 0.7rem; border-radius: 40px; border: 1px solid rgba(96,165,250,0.1);">ChatGPT · Gemini</span>
         </div>
         <div id="aiText" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); transition: all 0.4s ease;">
@@ -1246,13 +1246,13 @@ footer {
 
         <!-- State label (mobile‑friendly) -->
         <div style="text-align: center; margin-top: 0.5rem;">
-          <span id="stateLabel" style="font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.3); letter-spacing: 0.03em;">👆 Drag to reveal the transformation</span>
+          <span id="stateLabel" style="font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.3); letter-spacing: 0.03em;" data-i18n="before-state">👆 Drag to reveal the transformation</span>
         </div>
       </div>
 
       <!-- AI Response Preview -->
       <div style="background: rgba(255,255,255,0.03); border-radius: 1rem; padding: 0.8rem 1rem; border: 1px solid rgba(255,255,255,0.05); margin-top: 1rem;">
-        <div id="aiResponseLabel" style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.2); font-weight: 600; margin-bottom: 0.2rem;">💬 What AI says to your customers</div>
+        <div style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.2); font-weight: 600; margin-bottom: 0.2rem;">💬 What AI says to your customers</div>
         <div id="aiResponsePreview" style="font-size: 0.8rem; line-height: 1.5; color: rgba(255,255,255,0.5); font-style: italic; transition: all 0.4s ease;">
           <span id="aiResponseContent">«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»</span>
         </div>
@@ -1396,245 +1396,221 @@ footer {
 </style>
 
 <script>
-(function() {
-  'use strict';
+  (function() {
+    'use strict';
 
-  // ===== DOM refs =====
-  const aiSummaryBox = document.getElementById('aiSummaryBox');
-  const aiTextContent = document.getElementById('aiTextContent');
-  const starsDisplay = document.getElementById('starsDisplay');
-  const ratingNumber = document.getElementById('ratingNumber');
-  const ratingChange = document.getElementById('ratingChange');
-  const aiRecommendBadge = document.getElementById('aiRecommendBadge');
-  const reviewsCount = document.getElementById('reviewsCount');
-  const removedBadge = document.getElementById('removedBadge');
-  const aiResponseContent = document.getElementById('aiResponseContent');
-  const stateLabel = document.getElementById('stateLabel');
-  const labelBefore = document.getElementById('labelBefore');
-  const labelAfter = document.getElementById('labelAfter');
-  const thumb = document.getElementById('thumb');
-  const track = document.getElementById('toggleTrack');
-  const progressBg = document.getElementById('progressBg');
+    // ===== DOM refs =====
+    const aiSummaryBox = document.getElementById('aiSummaryBox');
+    const aiTextContent = document.getElementById('aiTextContent');
+    const starsDisplay = document.getElementById('starsDisplay');
+    const ratingNumber = document.getElementById('ratingNumber');
+    const ratingChange = document.getElementById('ratingChange');
+    const aiRecommendBadge = document.getElementById('aiRecommendBadge');
+    const reviewsCount = document.getElementById('reviewsCount');
+    const removedBadge = document.getElementById('removedBadge');
+    const aiResponseContent = document.getElementById('aiResponseContent');
+    const stateLabel = document.getElementById('stateLabel');
+    const labelBefore = document.getElementById('labelBefore');
+    const labelAfter = document.getElementById('labelAfter');
+    const thumb = document.getElementById('thumb');
+    const track = document.getElementById('toggleTrack');
+    const progressBg = document.getElementById('progressBg');
 
-  // ===== Language helper =====
-  function getLang() {
-    return window.currentLang || 'en';
-  }
-
-  function getTranslation(key) {
-    const lang = getLang();
-    const t = window.translations && window.translations[lang] ? window.translations[lang] : window.translations.en;
-    return t[key] || '';
-  }
-
-  // ===== Data getters with translations =====
-  function getBeforeData() {
-    return {
-      aiText: getTranslation('simulator-before-ai') || '<span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.',
-      stars: getTranslation('simulator-before-stars') || '★★☆☆☆',
-      rating: getTranslation('simulator-before-rating') || '2.8',
-      change: getTranslation('simulator-before-change') || '-0.4',
+    // ===== DATA =====
+    const beforeData = {
+      aiText: '<span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.',
+      stars: '★★☆☆☆',
+      rating: '2.8',
+      change: '-0.4',
       changeColor: '#ef4444',
       changeBg: 'rgba(239,68,68,0.15)',
-      badge: getTranslation('simulator-before-badge') || '❌ NOT RECOMMENDED',
+      badge: '❌ NOT RECOMMENDED',
       badgeBg: 'rgba(239,68,68,0.12)',
       badgeColor: '#f87171',
       badgeBorder: 'rgba(239,68,68,0.1)',
-      reviews: getTranslation('simulator-before-reviews') || '📊 67 reviews',
-      removed: getTranslation('simulator-before-removed') || '🗑️ 0 removed',
+      reviews: '📊 67 reviews',
+      removed: '🗑️ 0 removed',
       removedColor: '#f87171',
       removedBg: 'rgba(239,68,68,0.08)',
       borderColor: '#ef4444',
       boxBg: 'rgba(239,68,68,0.06)',
-      response: getTranslation('simulator-before-response') || '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»',
+      response: '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»',
       labelColor: '#f87171',
-      stateText: getTranslation('simulator-before-state') || '⚠️ Your reputation is damaged'
+      stateText: '⚠️ Your reputation is damaged'
     };
-  }
 
-  function getAfterData() {
-    return {
-      aiText: getTranslation('simulator-after-ai') || '<span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Highly rated</span> business with excellent service. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">strongly recommend</span> this business.',
-      stars: getTranslation('simulator-after-stars') || '★★★★★',
-      rating: getTranslation('simulator-after-rating') || '4.8',
-      change: getTranslation('simulator-after-change') || '+2.0',
+    const afterData = {
+      aiText: '<span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Highly rated</span> business with excellent service. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">strongly recommend</span> this business.',
+      stars: '★★★★★',
+      rating: '4.8',
+      change: '+2.0',
       changeColor: '#4ade80',
       changeBg: 'rgba(34,197,94,0.15)',
-      badge: getTranslation('simulator-after-badge') || '✅ RECOMMENDED',
+      badge: '✅ RECOMMENDED',
       badgeBg: 'rgba(34,197,94,0.12)',
       badgeColor: '#4ade80',
       badgeBorder: 'rgba(34,197,94,0.15)',
-      reviews: getTranslation('simulator-after-reviews') || '📊 63 reviews',
-      removed: getTranslation('simulator-after-removed') || '🗑️ 4 removed',
+      reviews: '📊 63 reviews',
+      removed: '🗑️ 4 removed',
       removedColor: '#4ade80',
       removedBg: 'rgba(34,197,94,0.08)',
       borderColor: '#22c55e',
       boxBg: 'rgba(34,197,94,0.06)',
-      response: getTranslation('simulator-after-response') || '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»',
+      response: '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»',
       labelColor: '#4ade80',
-      stateText: getTranslation('simulator-after-state') || '✅ Your reputation is restored!'
+      stateText: '✅ Your reputation is restored!'
     };
-  }
 
-  // ===== UI update =====
-  function updateUI(data, isBeforeState) {
-    aiTextContent.innerHTML = data.aiText;
-    aiSummaryBox.style.borderColor = data.borderColor;
-    aiSummaryBox.style.background = data.boxBg;
+    // ===== UI update =====
+    function updateUI(data, isBeforeState) {
+      aiTextContent.innerHTML = data.aiText;
+      aiSummaryBox.style.borderColor = data.borderColor;
+      aiSummaryBox.style.background = data.boxBg;
 
-    starsDisplay.textContent = data.stars;
-    ratingNumber.textContent = data.rating;
-    ratingChange.textContent = data.change;
-    ratingChange.style.color = data.changeColor;
-    ratingChange.style.background = data.changeBg;
+      starsDisplay.textContent = data.stars;
+      ratingNumber.textContent = data.rating;
+      ratingChange.textContent = data.change;
+      ratingChange.style.color = data.changeColor;
+      ratingChange.style.background = data.changeBg;
 
-    aiRecommendBadge.textContent = data.badge;
-    aiRecommendBadge.style.background = data.badgeBg;
-    aiRecommendBadge.style.color = data.badgeColor;
-    aiRecommendBadge.style.borderColor = data.badgeBorder;
+      aiRecommendBadge.textContent = data.badge;
+      aiRecommendBadge.style.background = data.badgeBg;
+      aiRecommendBadge.style.color = data.badgeColor;
+      aiRecommendBadge.style.borderColor = data.badgeBorder;
 
-    reviewsCount.textContent = data.reviews;
-    removedBadge.textContent = data.removed;
-    removedBadge.style.color = data.removedColor;
-    removedBadge.style.background = data.removedBg;
+      reviewsCount.textContent = data.reviews;
+      removedBadge.textContent = data.removed;
+      removedBadge.style.color = data.removedColor;
+      removedBadge.style.background = data.removedBg;
 
-    aiResponseContent.innerHTML = data.response;
+      aiResponseContent.innerHTML = data.response;
 
-    labelBefore.style.color = isBeforeState ? data.labelColor : 'rgba(255,255,255,0.2)';
-    labelAfter.style.color = isBeforeState ? 'rgba(255,255,255,0.2)' : data.labelColor;
-    stateLabel.textContent = data.stateText;
-  }
-
-  // ===== Progress =====
-  let currentProgress = 0;
-  let isBefore = true;
-
-  function setProgress(progress) {
-    const clamped = Math.min(100, Math.max(0, progress));
-    currentProgress = clamped;
-    thumb.style.left = clamped + '%';
-    progressBg.style.width = clamped + '%';
-
-    const isBeforeState = clamped < 50;
-    if (isBeforeState !== isBefore) {
-      isBefore = isBeforeState;
-      const data = isBeforeState ? getBeforeData() : getAfterData();
-      updateUI(data, isBeforeState);
+      labelBefore.style.color = isBeforeState ? '#f87171' : 'rgba(255,255,255,0.2)';
+      labelAfter.style.color = isBeforeState ? 'rgba(255,255,255,0.2)' : '#4ade80';
+      stateLabel.textContent = data.stateText;
     }
-  }
 
-  // ===== Autoplay =====
-  let autoplayInterval = null;
-  let autoplayDirection = 1;
+    // ===== Progress =====
+    let currentProgress = 0;
+    let isBefore = true;
 
-  function startAutoplay() {
-    stopAutoplay();
-    let progress = currentProgress;
-    autoplayInterval = setInterval(() => {
-      progress += autoplayDirection * 0.6;
-      if (progress >= 100) {
-        progress = 100;
-        autoplayDirection = -1;
-      } else if (progress <= 0) {
-        progress = 0;
-        autoplayDirection = 1;
+    function setProgress(progress) {
+      const clamped = Math.min(100, Math.max(0, progress));
+      currentProgress = clamped;
+      thumb.style.left = clamped + '%';
+      progressBg.style.width = clamped + '%';
+
+      const isBeforeState = clamped < 50;
+      if (isBeforeState !== isBefore) {
+        isBefore = isBeforeState;
+        updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
       }
+    }
+
+    // ===== Autoplay =====
+    let autoplayInterval = null;
+    let autoplayDirection = 1;
+
+    function startAutoplay() {
+      stopAutoplay();
+      let progress = currentProgress;
+      autoplayInterval = setInterval(() => {
+        progress += autoplayDirection * 0.6;
+        if (progress >= 100) {
+          progress = 100;
+          autoplayDirection = -1;
+        } else if (progress <= 0) {
+          progress = 0;
+          autoplayDirection = 1;
+        }
+        setProgress(progress);
+      }, 35);
+    }
+
+    function stopAutoplay() {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+    }
+
+    // ===== Drag / Touch =====
+    let isDragging = false;
+
+    function handlePointerStart(e) {
+      e.preventDefault();
+      isDragging = true;
+      stopAutoplay();
+      const rect = track.getBoundingClientRect();
+      const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+      const progress = ((clientX - rect.left) / rect.width) * 100;
       setProgress(progress);
-    }, 35);
-  }
-
-  function stopAutoplay() {
-    if (autoplayInterval) {
-      clearInterval(autoplayInterval);
-      autoplayInterval = null;
     }
-  }
 
-  // ===== Drag / Touch =====
-  let isDragging = false;
+    function handlePointerMove(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      const rect = track.getBoundingClientRect();
+      const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+      const progress = ((clientX - rect.left) / rect.width) * 100;
+      setProgress(progress);
+    }
 
-  function handlePointerStart(e) {
-    e.preventDefault();
-    isDragging = true;
-    stopAutoplay();
-    const rect = track.getBoundingClientRect();
-    const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
-    const progress = ((clientX - rect.left) / rect.width) * 100;
-    setProgress(progress);
-  }
+    function handlePointerEnd(e) {
+      if (isDragging) {
+        isDragging = false;
+        startAutoplay();
+      }
+    }
 
-  function handlePointerMove(e) {
-    if (!isDragging) return;
-    e.preventDefault();
-    const rect = track.getBoundingClientRect();
-    const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
-    const progress = ((clientX - rect.left) / rect.width) * 100;
-    setProgress(progress);
-  }
+    // Mouse events
+    track.addEventListener('mousedown', handlePointerStart);
+    document.addEventListener('mousemove', handlePointerMove);
+    document.addEventListener('mouseup', handlePointerEnd);
 
-  function handlePointerEnd(e) {
-    if (isDragging) {
-      isDragging = false;
+    // Touch events
+    track.addEventListener('touchstart', handlePointerStart, { passive: false });
+    document.addEventListener('touchmove', handlePointerMove, { passive: false });
+    document.addEventListener('touchend', handlePointerEnd);
+
+    // Click on track (jump to position)
+    track.addEventListener('click', function(e) {
+      if (e.target === thumb) return;
+      stopAutoplay();
+      const rect = track.getBoundingClientRect();
+      const progress = ((e.clientX - rect.left) / rect.width) * 100;
+      setProgress(progress);
       startAutoplay();
-    }
-  }
+    });
 
-  // Events
-  track.addEventListener('mousedown', handlePointerStart);
-  document.addEventListener('mousemove', handlePointerMove);
-  document.addEventListener('mouseup', handlePointerEnd);
+    // Label clicks
+    labelBefore.addEventListener('click', function() {
+      stopAutoplay();
+      setProgress(0);
+      startAutoplay();
+    });
+    labelAfter.addEventListener('click', function() {
+      stopAutoplay();
+      setProgress(100);
+      startAutoplay();
+    });
 
-  track.addEventListener('touchstart', handlePointerStart, { passive: false });
-  document.addEventListener('touchmove', handlePointerMove, { passive: false });
-  document.addEventListener('touchend', handlePointerEnd);
-
-  track.addEventListener('click', function(e) {
-    if (e.target === thumb) return;
-    stopAutoplay();
-    const rect = track.getBoundingClientRect();
-    const progress = ((e.clientX - rect.left) / rect.width) * 100;
-    setProgress(progress);
-    startAutoplay();
-  });
-
-  labelBefore.addEventListener('click', function() {
-    stopAutoplay();
+    // ===== Init =====
     setProgress(0);
-    startAutoplay();
-  });
-  labelAfter.addEventListener('click', function() {
-    stopAutoplay();
-    setProgress(100);
-    startAutoplay();
-  });
+    setTimeout(startAutoplay, 800);
 
-  // ===== Language change handler =====
-  function refreshUITranslation() {
-    const isBeforeState = currentProgress < 50;
-    const data = isBeforeState ? getBeforeData() : getAfterData();
-    updateUI(data, isBeforeState);
-    if (!autoplayInterval) {
-      startAutoplay();
-    }
-  }
+    // Expose for i18n updates
+    window._simulatorState = { setProgress, beforeData, afterData, updateUI };
 
-  document.addEventListener('languageChanged', refreshUITranslation);
+    // ===== Listen for language changes =====
+    document.addEventListener('languageChanged', function() {
+      // The i18n system will update data-i18n attributes, but our dynamic content
+      // uses the data objects. We re-apply the current state.
+      const isBeforeState = currentProgress < 50;
+      updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
+    });
 
-  // ===== Init =====
-  const initialData = getBeforeData();
-  updateUI(initialData, true);
-  setProgress(0);
-  setTimeout(startAutoplay, 800);
-
-  // Expose for debugging
-  window._simulatorState = {
-    setProgress,
-    refreshUITranslation,
-    getBeforeData,
-    getAfterData
-  };
-
-})();
+  })();
 </script>
 
   <!-- ===== 8-LAYER METHODOLOGY ===== -->
