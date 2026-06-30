@@ -1396,7 +1396,8 @@ footer {
 </style>
 
 <script>
-  (function() {
+  <script>
+(function() {
   'use strict';
 
   // ===== DOM refs =====
@@ -1416,68 +1417,95 @@ footer {
   const track = document.getElementById('toggleTrack');
   const progressBg = document.getElementById('progressBg');
 
-  // ===== Helper to get translated data =====
-  function getSimulatorData(isBefore) {
-    const prefix = isBefore ? 'simulator-before-' : 'simulator-after-';
-    const lang = window.currentLang || 'en';
+  // ===== DATA OBJECTS (populated by applyTranslations) =====
+  let beforeData = {};
+  let afterData = {};
+
+  // ===== Helper =====
+  function getCurrentLang() {
+    return window.currentLang || 'en';
+  }
+
+  // ===== Apply translations to data objects =====
+  function applyTranslations() {
+    const lang = getCurrentLang();
     const t = window.translations && window.translations[lang] ? window.translations[lang] : window.translations.en;
 
-    return {
-      aiText: t[prefix + 'ai'] || '',
-      stars: t[prefix + 'stars'] || (isBefore ? '★★☆☆☆' : '★★★★★'),
-      rating: t[prefix + 'rating'] || (isBefore ? '2.8' : '4.8'),
-      change: t[prefix + 'change'] || (isBefore ? '-0.4' : '+2.0'),
-      badge: t[prefix + 'badge'] || (isBefore ? '❌ NOT RECOMMENDED' : '✅ RECOMMENDED'),
-      reviews: t[prefix + 'reviews'] || (isBefore ? '📊 67 reviews' : '📊 63 reviews'),
-      removed: t[prefix + 'removed'] || (isBefore ? '🗑️ 0 removed' : '🗑️ 4 removed'),
-      stateText: t[prefix + 'state'] || (isBefore ? '⚠️ Your reputation is damaged' : '✅ Your reputation is restored!'),
-      response: t[prefix + 'response'] || (isBefore
-        ? '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»'
-        : '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»'),
-      // Colors – we keep these fixed, they are not translated
-      borderColor: isBefore ? '#ef4444' : '#22c55e',
-      boxBg: isBefore ? 'rgba(239,68,68,0.06)' : 'rgba(34,197,94,0.06)',
-      labelColor: isBefore ? '#f87171' : '#4ade80',
-      changeBg: isBefore ? 'rgba(239,68,68,0.15)' : 'rgba(34,197,94,0.15)',
-      badgeBg: isBefore ? 'rgba(239,68,68,0.12)' : 'rgba(34,197,94,0.12)',
-      badgeColor: isBefore ? '#f87171' : '#4ade80',
-      badgeBorder: isBefore ? 'rgba(239,68,68,0.1)' : 'rgba(34,197,94,0.15)',
-      removedBg: isBefore ? 'rgba(239,68,68,0.08)' : 'rgba(34,197,94,0.08)',
-      removedColor: isBefore ? '#f87171' : '#4ade80',
-      changeColor: isBefore ? '#ef4444' : '#4ade80',
+    // Before state
+    beforeData = {
+      aiText: t['simulator-before-ai'] || '<span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.',
+      stars: t['simulator-before-stars'] || '★★☆☆☆',
+      rating: t['simulator-before-rating'] || '2.8',
+      change: t['simulator-before-change'] || '-0.4',
+      changeColor: '#ef4444',
+      changeBg: 'rgba(239,68,68,0.15)',
+      badge: t['simulator-before-badge'] || '❌ NOT RECOMMENDED',
+      badgeBg: 'rgba(239,68,68,0.12)',
+      badgeColor: '#f87171',
+      badgeBorder: 'rgba(239,68,68,0.1)',
+      reviews: t['simulator-before-reviews'] || '📊 67 reviews',
+      removed: t['simulator-before-removed'] || '🗑️ 0 removed',
+      removedColor: '#f87171',
+      removedBg: 'rgba(239,68,68,0.08)',
+      borderColor: '#ef4444',
+      boxBg: 'rgba(239,68,68,0.06)',
+      response: t['simulator-before-response'] || '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»',
+      labelColor: '#f87171',
+      stateText: t['simulator-before-state'] || '⚠️ Your reputation is damaged'
     };
+
+    // After state
+    afterData = {
+      aiText: t['simulator-after-ai'] || '<span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Highly rated</span> business with excellent service. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">strongly recommend</span> this business.',
+      stars: t['simulator-after-stars'] || '★★★★★',
+      rating: t['simulator-after-rating'] || '4.8',
+      change: t['simulator-after-change'] || '+2.0',
+      changeColor: '#4ade80',
+      changeBg: 'rgba(34,197,94,0.15)',
+      badge: t['simulator-after-badge'] || '✅ RECOMMENDED',
+      badgeBg: 'rgba(34,197,94,0.12)',
+      badgeColor: '#4ade80',
+      badgeBorder: 'rgba(34,197,94,0.15)',
+      reviews: t['simulator-after-reviews'] || '📊 63 reviews',
+      removed: t['simulator-after-removed'] || '🗑️ 4 removed',
+      removedColor: '#4ade80',
+      removedBg: 'rgba(34,197,94,0.08)',
+      borderColor: '#22c55e',
+      boxBg: 'rgba(34,197,94,0.06)',
+      response: t['simulator-after-response'] || '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»',
+      labelColor: '#4ade80',
+      stateText: t['simulator-after-state'] || '✅ Your reputation is restored!'
+    };
+
+    // Update UI with current progress
+    const isBeforeState = currentProgress < 50;
+    updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
   }
 
   // ===== UI update =====
   function updateUI(data, isBeforeState) {
-    // AI text
     aiTextContent.innerHTML = data.aiText;
     aiSummaryBox.style.borderColor = data.borderColor;
     aiSummaryBox.style.background = data.boxBg;
 
-    // Stars, rating, change
     starsDisplay.textContent = data.stars;
     ratingNumber.textContent = data.rating;
     ratingChange.textContent = data.change;
     ratingChange.style.color = data.changeColor;
     ratingChange.style.background = data.changeBg;
 
-    // Badge
     aiRecommendBadge.textContent = data.badge;
     aiRecommendBadge.style.background = data.badgeBg;
     aiRecommendBadge.style.color = data.badgeColor;
     aiRecommendBadge.style.borderColor = data.badgeBorder;
 
-    // Reviews & removed
     reviewsCount.textContent = data.reviews;
     removedBadge.textContent = data.removed;
     removedBadge.style.color = data.removedColor;
     removedBadge.style.background = data.removedBg;
 
-    // AI response
     aiResponseContent.innerHTML = data.response;
 
-    // Labels and state text
     labelBefore.style.color = isBeforeState ? data.labelColor : 'rgba(255,255,255,0.2)';
     labelAfter.style.color = isBeforeState ? 'rgba(255,255,255,0.2)' : data.labelColor;
     stateLabel.textContent = data.stateText;
@@ -1496,7 +1524,7 @@ footer {
     const isBeforeState = clamped < 50;
     if (isBeforeState !== isBefore) {
       isBefore = isBeforeState;
-      const data = getSimulatorData(isBeforeState);
+      const data = isBeforeState ? beforeData : afterData;
       updateUI(data, isBeforeState);
     }
   }
@@ -1591,32 +1619,32 @@ footer {
 
   // ===== Language change handler =====
   function refreshUITranslation() {
-    const isBeforeState = currentProgress < 50;
-    const data = getSimulatorData(isBeforeState);
-    updateUI(data, isBeforeState);
-    // Also update the state text for the drag hint if it was overridden by state
-    // We already set stateLabel from data.stateText, so it's fine.
+    applyTranslations();
+    // Ensure autoplay continues after language change
+    if (!autoplayInterval) {
+      startAutoplay();
+    }
   }
 
   // Listen for language change event dispatched by setLanguage
   document.addEventListener('languageChanged', refreshUITranslation);
 
   // ===== Init =====
-  // Set initial state (before)
-  const initialData = getSimulatorData(true);
-  updateUI(initialData, true);
+  // Apply translations and set initial state
+  applyTranslations();
   setProgress(0);
   setTimeout(startAutoplay, 800);
 
   // Expose for debugging if needed
   window._simulatorState = {
     setProgress,
-    getSimulatorData,
+    applyTranslations,
     refreshUITranslation,
     currentProgress: () => currentProgress,
   };
 
 })();
+</script>
 </script>
 
   <!-- ===== 8-LAYER METHODOLOGY ===== -->
