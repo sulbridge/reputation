@@ -1190,85 +1190,6 @@ footer {
 </div>
 </div>
 
-     <!-- ===== AI REPUTATION SIMULATOR – V2 (MOBILE‑FIRST, CONVERSION‑OPTIMIZED) ===== -->
-<section class="simulator-section" style="margin: 70px 0;">
-  <div class="simulator-card" style="background: #0d0f14; border-radius: 2.4rem; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.8); padding: 2rem 1.5rem 1.8rem;">
-
-    <!-- HEADER -->
-    <div style="text-align: center; margin-bottom: 1.8rem;">
-      <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.25); font-weight: 700;" data-i18n="interactive-demo">Interactive Demo</span>
-      <h2 style="font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-top: 0.2rem; line-height: 1.2;" data-i18n="how-ai-sees">
-        How AI sees your reputation
-      </h2>
-    </div>
-
-    <!-- MAIN DISPLAY -->
-    <div id="reputationDisplay" style="background: rgba(255,255,255,0.02); border-radius: 1.8rem; padding: 1.5rem 1.2rem; border: 1px solid rgba(255,255,255,0.05); transition: border-color 0.4s ease, background 0.4s ease;">
-
-      <!-- AI Summary Box -->
-      <div id="aiSummaryBox" style="background: rgba(239,68,68,0.06); border-radius: 1.2rem; padding: 1rem 1.2rem; border-left: 4px solid #ef4444; margin-bottom: 1.2rem; transition: all 0.4s ease;">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.3rem;">
-          <span style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;" data-i18n="simulator-ai-summary-label">🤖 AI Summary</span>
-          <span id="aiPlatformBadge" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; background: rgba(96,165,250,0.12); color: #60A5FA; padding: 0.15rem 0.7rem; border-radius: 40px; border: 1px solid rgba(96,165,250,0.1);" data-i18n="simulator-ai-platform-badge">ChatGPT · Gemini</span>
-        </div>
-        <div id="aiText" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); transition: all 0.4s ease;">
-          <span id="aiTextContent"><span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.</span>
-        </div>
-      </div>
-
-      <!-- Rating Row -->
-      <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.6rem;">
-        <span id="starsDisplay" style="font-size: 1.8rem; color: #fbbf24; letter-spacing: 2px; line-height: 1;">★★☆☆☆</span>
-        <span id="ratingNumber" style="font-size: 2.2rem; font-weight: 800; color: #fff; line-height: 1;">2.8</span>
-        <span id="ratingChange" style="font-size: 0.9rem; font-weight: 700; background: rgba(239,68,68,0.15); color: #ef4444; padding: 0.1rem 0.7rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.15); transition: all 0.3s;">-0.4</span>
-        <span id="aiRecommendBadge" style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(239,68,68,0.12); color: #f87171; padding: 0.15rem 0.7rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.1); font-weight: 700;">❌ NOT RECOMMENDED</span>
-      </div>
-
-      <!-- Review Stats -->
-      <div style="display: flex; gap: 1.2rem; font-size: 0.7rem; color: rgba(255,255,255,0.35); align-items: center; flex-wrap: wrap; margin-bottom: 1.2rem;">
-        <span id="reviewsCount">📊 67 reviews</span>
-        <span id="removedBadge" style="background: rgba(239,68,68,0.08); padding: 0.1rem 0.6rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.08); color: #f87171;">🗑️ 0 removed</span>
-        <span id="fakeFlagged" style="background: rgba(255,255,255,0.04); padding: 0.1rem 0.6rem; border-radius: 100px; color: rgba(255,255,255,0.25);" data-i18n="simulator-flagged">⚠️ 8 flagged</span>
-      </div>
-
-      <!-- SLIDER (MOBILE‑FIRST) -->
-      <div style="margin: 0.8rem 0 0.4rem;">
-        <div style="display: flex; align-items: center; gap: 0.8rem;">
-          <label id="labelBefore" style="font-size: 0.7rem; font-weight: 700; color: #f87171; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none; transition: color 0.3s; flex-shrink: 0;" data-i18n="before-label">Before</label>
-
-          <div id="toggleTrack" style="flex: 1; height: 6px; border-radius: 6px; background: rgba(255,255,255,0.12); position: relative; cursor: pointer; touch-action: none;">
-            <div id="progressBg" style="height: 100%; width: 0%; background: linear-gradient(90deg, #ef4444, #22c55e); border-radius: 6px; transition: width 0.05s ease;"></div>
-            <div id="thumb" style="width: 28px; height: 28px; background: #fff; border-radius: 50%; position: absolute; top: 50%; left: 0%; transform: translate(-50%, -50%); transition: left 0.05s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.6); border: 2px solid rgba(255,255,255,0.15); cursor: grab; touch-action: none;"></div>
-          </div>
-
-          <label id="labelAfter" style="font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.2); text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none; transition: color 0.3s; flex-shrink: 0;" data-i18n="after-label">After</label>
-        </div>
-
-        <!-- State label (mobile‑friendly) -->
-        <div style="text-align: center; margin-top: 0.5rem;">
-          <span id="stateLabel" style="font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.3); letter-spacing: 0.03em;" data-i18n="before-state">👆 Drag to reveal the transformation</span>
-        </div>
-      </div>
-
-      <!-- AI Response Preview -->
-      <div style="background: rgba(255,255,255,0.03); border-radius: 1rem; padding: 0.8rem 1rem; border: 1px solid rgba(255,255,255,0.05); margin-top: 1rem;">
-        <div style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.2); font-weight: 600; margin-bottom: 0.2rem;" data-i18n="simulator-ai-response-label">💬 What AI says to your customers</div>
-        <div id="aiResponsePreview" style="font-size: 0.8rem; line-height: 1.5; color: rgba(255,255,255,0.5); font-style: italic; transition: all 0.4s ease;">
-          <span id="aiResponseContent">«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- CTA below slider -->
-    <div style="text-align: center; margin-top: 1.5rem;">
-      <a href="#contact-form-section" class="btn-primary" style="background: linear-gradient(135deg, #1E3A8A, #2563EB); padding: 0.8rem 2rem; font-size: 0.9rem; box-shadow: 0 4px 20px rgba(37,99,235,0.3);" data-i18n="hero-btn">Get Free AI Audit →</a>
-      <p style="font-size: 0.65rem; color: rgba(255,255,255,0.2); margin-top: 0.5rem;" data-i18n="form-note">No obligation • Results in 24h</p>
-    </div>
-
-  </div>
-</section>
-
 <!-- ===== AI REPUTATION SIMULATOR – V2 (MOBILE‑FIRST, CONVERSION‑OPTIMIZED) ===== -->
 <section class="simulator-section" style="margin: 70px 0;">
   <div class="simulator-card" style="background: #0d0f14; border-radius: 2.4rem; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.8); padding: 2rem 1.5rem 1.8rem;">
@@ -1495,85 +1416,65 @@ footer {
   const track = document.getElementById('toggleTrack');
   const progressBg = document.getElementById('progressBg');
 
-  // ===== Базовые данные (fallback, если переводов нет) =====
-  const defaultBefore = {
-    aiText: '<span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.',
-    stars: '★★☆☆☆',
-    rating: '2.8',
-    change: '-0.4',
-    changeColor: '#ef4444',
-    changeBg: 'rgba(239,68,68,0.15)',
-    badge: '❌ NOT RECOMMENDED',
-    badgeBg: 'rgba(239,68,68,0.12)',
-    badgeColor: '#f87171',
-    badgeBorder: 'rgba(239,68,68,0.1)',
-    reviews: '📊 67 reviews',
-    removed: '🗑️ 0 removed',
-    removedColor: '#f87171',
-    removedBg: 'rgba(239,68,68,0.08)',
-    borderColor: '#ef4444',
-    boxBg: 'rgba(239,68,68,0.06)',
-    response: '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»',
-    labelColor: '#f87171',
-    stateText: '⚠️ Your reputation is damaged'
-  };
+  // ===== Language helper =====
+  function getLang() {
+    return window.currentLang || 'en';
+  }
 
-  const defaultAfter = {
-    aiText: '<span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Highly rated</span> business with excellent service. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">strongly recommend</span> this business.',
-    stars: '★★★★★',
-    rating: '4.8',
-    change: '+2.0',
-    changeColor: '#4ade80',
-    changeBg: 'rgba(34,197,94,0.15)',
-    badge: '✅ RECOMMENDED',
-    badgeBg: 'rgba(34,197,94,0.12)',
-    badgeColor: '#4ade80',
-    badgeBorder: 'rgba(34,197,94,0.15)',
-    reviews: '📊 63 reviews',
-    removed: '🗑️ 4 removed',
-    removedColor: '#4ade80',
-    removedBg: 'rgba(34,197,94,0.08)',
-    borderColor: '#22c55e',
-    boxBg: 'rgba(34,197,94,0.06)',
-    response: '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»',
-    labelColor: '#4ade80',
-    stateText: '✅ Your reputation is restored!'
-  };
-
-  // ===== Функция получения данных с учётом языка =====
-  function getLocalizedData(isBefore) {
-    const lang = window.currentLang || 'en';
+  function getTranslation(key) {
+    const lang = getLang();
     const t = window.translations && window.translations[lang] ? window.translations[lang] : window.translations.en;
-    const prefix = isBefore ? 'simulator-before-' : 'simulator-after-';
+    return t[key] || '';
+  }
 
-    // Берём из переводов, если есть, иначе fallback
-    const fallback = isBefore ? defaultBefore : defaultAfter;
+  // ===== Data getters with translations =====
+  function getBeforeData() {
     return {
-      aiText: t[prefix + 'ai'] || fallback.aiText,
-      stars: t[prefix + 'stars'] || fallback.stars,
-      rating: t[prefix + 'rating'] || fallback.rating,
-      change: t[prefix + 'change'] || fallback.change,
-      changeColor: fallback.changeColor,
-      changeBg: fallback.changeBg,
-      badge: t[prefix + 'badge'] || fallback.badge,
-      badgeBg: fallback.badgeBg,
-      badgeColor: fallback.badgeColor,
-      badgeBorder: fallback.badgeBorder,
-      reviews: t[prefix + 'reviews'] || fallback.reviews,
-      removed: t[prefix + 'removed'] || fallback.removed,
-      removedColor: fallback.removedColor,
-      removedBg: fallback.removedBg,
-      borderColor: fallback.borderColor,
-      boxBg: fallback.boxBg,
-      response: t[prefix + 'response'] || fallback.response,
-      labelColor: fallback.labelColor,
-      stateText: t[prefix + 'state'] || fallback.stateText
+      aiText: getTranslation('simulator-before-ai') || '<span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.',
+      stars: getTranslation('simulator-before-stars') || '★★☆☆☆',
+      rating: getTranslation('simulator-before-rating') || '2.8',
+      change: getTranslation('simulator-before-change') || '-0.4',
+      changeColor: '#ef4444',
+      changeBg: 'rgba(239,68,68,0.15)',
+      badge: getTranslation('simulator-before-badge') || '❌ NOT RECOMMENDED',
+      badgeBg: 'rgba(239,68,68,0.12)',
+      badgeColor: '#f87171',
+      badgeBorder: 'rgba(239,68,68,0.1)',
+      reviews: getTranslation('simulator-before-reviews') || '📊 67 reviews',
+      removed: getTranslation('simulator-before-removed') || '🗑️ 0 removed',
+      removedColor: '#f87171',
+      removedBg: 'rgba(239,68,68,0.08)',
+      borderColor: '#ef4444',
+      boxBg: 'rgba(239,68,68,0.06)',
+      response: getTranslation('simulator-before-response') || '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»',
+      labelColor: '#f87171',
+      stateText: getTranslation('simulator-before-state') || '⚠️ Your reputation is damaged'
     };
   }
 
-  // ===== DATA (будет обновляться) =====
-  let beforeData = getLocalizedData(true);
-  let afterData = getLocalizedData(false);
+  function getAfterData() {
+    return {
+      aiText: getTranslation('simulator-after-ai') || '<span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Highly rated</span> business with excellent service. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">strongly recommend</span> this business.',
+      stars: getTranslation('simulator-after-stars') || '★★★★★',
+      rating: getTranslation('simulator-after-rating') || '4.8',
+      change: getTranslation('simulator-after-change') || '+2.0',
+      changeColor: '#4ade80',
+      changeBg: 'rgba(34,197,94,0.15)',
+      badge: getTranslation('simulator-after-badge') || '✅ RECOMMENDED',
+      badgeBg: 'rgba(34,197,94,0.12)',
+      badgeColor: '#4ade80',
+      badgeBorder: 'rgba(34,197,94,0.15)',
+      reviews: getTranslation('simulator-after-reviews') || '📊 63 reviews',
+      removed: getTranslation('simulator-after-removed') || '🗑️ 4 removed',
+      removedColor: '#4ade80',
+      removedBg: 'rgba(34,197,94,0.08)',
+      borderColor: '#22c55e',
+      boxBg: 'rgba(34,197,94,0.06)',
+      response: getTranslation('simulator-after-response') || '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»',
+      labelColor: '#4ade80',
+      stateText: getTranslation('simulator-after-state') || '✅ Your reputation is restored!'
+    };
+  }
 
   // ===== UI update =====
   function updateUI(data, isBeforeState) {
@@ -1604,14 +1505,6 @@ footer {
     stateLabel.textContent = data.stateText;
   }
 
-  // ===== Обновление данных при смене языка =====
-  function refreshTranslations() {
-    beforeData = getLocalizedData(true);
-    afterData = getLocalizedData(false);
-    const isBeforeState = currentProgress < 50;
-    updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
-  }
-
   // ===== Progress =====
   let currentProgress = 0;
   let isBefore = true;
@@ -1625,7 +1518,8 @@ footer {
     const isBeforeState = clamped < 50;
     if (isBeforeState !== isBefore) {
       isBefore = isBeforeState;
-      updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
+      const data = isBeforeState ? getBeforeData() : getAfterData();
+      updateUI(data, isBeforeState);
     }
   }
 
@@ -1685,17 +1579,15 @@ footer {
     }
   }
 
-  // Mouse events
+  // Events
   track.addEventListener('mousedown', handlePointerStart);
   document.addEventListener('mousemove', handlePointerMove);
   document.addEventListener('mouseup', handlePointerEnd);
 
-  // Touch events
   track.addEventListener('touchstart', handlePointerStart, { passive: false });
   document.addEventListener('touchmove', handlePointerMove, { passive: false });
   document.addEventListener('touchend', handlePointerEnd);
 
-  // Click on track
   track.addEventListener('click', function(e) {
     if (e.target === thumb) return;
     stopAutoplay();
@@ -1705,7 +1597,6 @@ footer {
     startAutoplay();
   });
 
-  // Label clicks
   labelBefore.addEventListener('click', function() {
     stopAutoplay();
     setProgress(0);
@@ -1717,15 +1608,31 @@ footer {
     startAutoplay();
   });
 
-  // ===== Слушаем смену языка =====
-  document.addEventListener('languageChanged', refreshTranslations);
+  // ===== Language change handler =====
+  function refreshUITranslation() {
+    const isBeforeState = currentProgress < 50;
+    const data = isBeforeState ? getBeforeData() : getAfterData();
+    updateUI(data, isBeforeState);
+    if (!autoplayInterval) {
+      startAutoplay();
+    }
+  }
+
+  document.addEventListener('languageChanged', refreshUITranslation);
 
   // ===== Init =====
+  const initialData = getBeforeData();
+  updateUI(initialData, true);
   setProgress(0);
   setTimeout(startAutoplay, 800);
 
   // Expose for debugging
-  window._simulatorState = { setProgress, refreshTranslations };
+  window._simulatorState = {
+    setProgress,
+    refreshUITranslation,
+    getBeforeData,
+    getAfterData
+  };
 
 })();
 </script>
@@ -5410,6 +5317,8 @@ footer {
   function setLanguage(lang) {
   localStorage.setItem('preferredLanguage', lang);
   currentLang = lang;
+  window.currentLang = lang; 
+
   if (lang === 'ar') {
     document.documentElement.setAttribute('dir', 'rtl');
     document.body.classList.add('rtl-mode');
@@ -5417,6 +5326,7 @@ footer {
     document.documentElement.setAttribute('dir', 'ltr');
     document.body.classList.remove('rtl-mode');
   }
+
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (translations[lang] && translations[lang][key]) {
@@ -5432,20 +5342,21 @@ footer {
       }
     }
   });
+
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
     if (translations[lang] && translations[lang][key]) {
       el.placeholder = translations[lang][key];
     }
   });
-  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-lang') === lang));
 
-  if (typeof window.updateSimulatorUI === 'function') {
-    window.updateSimulatorUI(window._simulatorState || 'before');
-  }
+  document.querySelectorAll('.lang-btn').forEach(btn =>
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang)
+  );
+
+  document.dispatchEvent(new Event('languageChanged'));
+
 }
-  document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang'))));
-  document.querySelectorAll('.faq-item').forEach(item => item.querySelector('.faq-question').addEventListener('click', () => item.classList.toggle('active')));
 
   function animateCounters() {
     const counters = document.querySelectorAll('.counter');
