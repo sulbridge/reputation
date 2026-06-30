@@ -1270,6 +1270,86 @@ footer {
 </section>
 
 <style>
+<!-- ===== AI REPUTATION SIMULATOR – V2 (MOBILE‑FIRST, CONVERSION‑OPTIMIZED) ===== -->
+<section class="simulator-section" style="margin: 70px 0;">
+  <div class="simulator-card" style="background: #0d0f14; border-radius: 2.4rem; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.8); padding: 2rem 1.5rem 1.8rem;">
+
+    <!-- HEADER -->
+    <div style="text-align: center; margin-bottom: 1.8rem;">
+      <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.25); font-weight: 700;" data-i18n="interactive-demo">Interactive Demo</span>
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-top: 0.2rem; line-height: 1.2;" data-i18n="how-ai-sees">
+        How AI sees your reputation
+      </h2>
+    </div>
+
+    <!-- MAIN DISPLAY -->
+    <div id="reputationDisplay" style="background: rgba(255,255,255,0.02); border-radius: 1.8rem; padding: 1.5rem 1.2rem; border: 1px solid rgba(255,255,255,0.05); transition: border-color 0.4s ease, background 0.4s ease;">
+
+      <!-- AI Summary Box -->
+      <div id="aiSummaryBox" style="background: rgba(239,68,68,0.06); border-radius: 1.2rem; padding: 1rem 1.2rem; border-left: 4px solid #ef4444; margin-bottom: 1.2rem; transition: all 0.4s ease;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.3rem;">
+          <span id="aiSummaryLabel" style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;">🤖 AI Summary</span>
+          <span id="aiPlatformBadge" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; background: rgba(96,165,250,0.12); color: #60A5FA; padding: 0.15rem 0.7rem; border-radius: 40px; border: 1px solid rgba(96,165,250,0.1);">ChatGPT · Gemini</span>
+        </div>
+        <div id="aiText" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); transition: all 0.4s ease;">
+          <span id="aiTextContent"><span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.</span>
+        </div>
+      </div>
+
+      <!-- Rating Row -->
+      <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.6rem;">
+        <span id="starsDisplay" style="font-size: 1.8rem; color: #fbbf24; letter-spacing: 2px; line-height: 1;">★★☆☆☆</span>
+        <span id="ratingNumber" style="font-size: 2.2rem; font-weight: 800; color: #fff; line-height: 1;">2.8</span>
+        <span id="ratingChange" style="font-size: 0.9rem; font-weight: 700; background: rgba(239,68,68,0.15); color: #ef4444; padding: 0.1rem 0.7rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.15); transition: all 0.3s;">-0.4</span>
+        <span id="aiRecommendBadge" style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(239,68,68,0.12); color: #f87171; padding: 0.15rem 0.7rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.1); font-weight: 700;">❌ NOT RECOMMENDED</span>
+      </div>
+
+      <!-- Review Stats -->
+      <div style="display: flex; gap: 1.2rem; font-size: 0.7rem; color: rgba(255,255,255,0.35); align-items: center; flex-wrap: wrap; margin-bottom: 1.2rem;">
+        <span id="reviewsCount">📊 67 reviews</span>
+        <span id="removedBadge" style="background: rgba(239,68,68,0.08); padding: 0.1rem 0.6rem; border-radius: 100px; border: 1px solid rgba(239,68,68,0.08); color: #f87171;">🗑️ 0 removed</span>
+        <span id="fakeFlagged" style="background: rgba(255,255,255,0.04); padding: 0.1rem 0.6rem; border-radius: 100px; color: rgba(255,255,255,0.25);">⚠️ 8 flagged</span>
+      </div>
+
+      <!-- SLIDER (MOBILE‑FIRST) -->
+      <div style="margin: 0.8rem 0 0.4rem;">
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+          <label id="labelBefore" style="font-size: 0.7rem; font-weight: 700; color: #f87171; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none; transition: color 0.3s; flex-shrink: 0;" data-i18n="before-label">Before</label>
+
+          <div id="toggleTrack" style="flex: 1; height: 6px; border-radius: 6px; background: rgba(255,255,255,0.12); position: relative; cursor: pointer; touch-action: none;">
+            <div id="progressBg" style="height: 100%; width: 0%; background: linear-gradient(90deg, #ef4444, #22c55e); border-radius: 6px; transition: width 0.05s ease;"></div>
+            <div id="thumb" style="width: 28px; height: 28px; background: #fff; border-radius: 50%; position: absolute; top: 50%; left: 0%; transform: translate(-50%, -50%); transition: left 0.05s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.6); border: 2px solid rgba(255,255,255,0.15); cursor: grab; touch-action: none;"></div>
+          </div>
+
+          <label id="labelAfter" style="font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.2); text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; user-select: none; transition: color 0.3s; flex-shrink: 0;" data-i18n="after-label">After</label>
+        </div>
+
+        <!-- State label (mobile‑friendly) -->
+        <div style="text-align: center; margin-top: 0.5rem;">
+          <span id="stateLabel" style="font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.3); letter-spacing: 0.03em;">👆 Drag to reveal the transformation</span>
+        </div>
+      </div>
+
+      <!-- AI Response Preview -->
+      <div style="background: rgba(255,255,255,0.03); border-radius: 1rem; padding: 0.8rem 1rem; border: 1px solid rgba(255,255,255,0.05); margin-top: 1rem;">
+        <div id="aiResponseLabel" style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.2); font-weight: 600; margin-bottom: 0.2rem;">💬 What AI says to your customers</div>
+        <div id="aiResponsePreview" style="font-size: 0.8rem; line-height: 1.5; color: rgba(255,255,255,0.5); font-style: italic; transition: all 0.4s ease;">
+          <span id="aiResponseContent">«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA below slider -->
+    <div style="text-align: center; margin-top: 1.5rem;">
+      <a href="#contact-form-section" class="btn-primary" style="background: linear-gradient(135deg, #1E3A8A, #2563EB); padding: 0.8rem 2rem; font-size: 0.9rem; box-shadow: 0 4px 20px rgba(37,99,235,0.3);" data-i18n="hero-btn">Get Free AI Audit →</a>
+      <p style="font-size: 0.65rem; color: rgba(255,255,255,0.2); margin-top: 0.5rem;" data-i18n="form-note">No obligation • Results in 24h</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
   /* ===== SIMULATOR V2 – MOBILE ENHANCEMENTS ===== */
 
   .simulator-card {
@@ -1415,6 +1495,10 @@ footer {
   const thumb = document.getElementById('thumb');
   const track = document.getElementById('toggleTrack');
   const progressBg = document.getElementById('progressBg');
+  const aiSummaryLabel = document.getElementById('aiSummaryLabel');
+  const aiPlatformBadge = document.getElementById('aiPlatformBadge');
+  const aiResponseLabel = document.getElementById('aiResponseLabel');
+  const fakeFlagged = document.getElementById('fakeFlagged');
 
   // ===== DATA OBJECTS (populated by applyTranslations) =====
   let beforeData = {};
@@ -1425,12 +1509,18 @@ footer {
     return window.currentLang || 'en';
   }
 
-  // ===== Apply translations to data objects =====
+  // ===== Apply translations to data objects AND static elements =====
   function applyTranslations() {
     const lang = getCurrentLang();
     const t = window.translations && window.translations[lang] ? window.translations[lang] : window.translations.en;
 
-    // Before state
+    // --- Static elements (updated via DOM, not data-i18n) ---
+    if (aiSummaryLabel) aiSummaryLabel.textContent = t['simulator-ai-summary-label'] || '🤖 AI Summary';
+    if (aiPlatformBadge) aiPlatformBadge.textContent = t['simulator-ai-platform-badge'] || 'ChatGPT · Gemini';
+    if (aiResponseLabel) aiResponseLabel.textContent = t['simulator-ai-response-label'] || '💬 What AI says to your customers';
+    if (fakeFlagged) fakeFlagged.textContent = t['simulator-flagged'] || '⚠️ 8 flagged';
+
+    // --- Dynamic data for before/after states ---
     beforeData = {
       aiText: t['simulator-before-ai'] || '<span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.',
       stars: t['simulator-before-stars'] || '★★☆☆☆',
@@ -1453,7 +1543,6 @@ footer {
       stateText: t['simulator-before-state'] || '⚠️ Your reputation is damaged'
     };
 
-    // After state
     afterData = {
       aiText: t['simulator-after-ai'] || '<span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Highly rated</span> business with excellent service. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">strongly recommend</span> this business.',
       stars: t['simulator-after-stars'] || '★★★★★',
@@ -1619,7 +1708,6 @@ footer {
   // ===== Language change handler =====
   function refreshUITranslation() {
     applyTranslations();
-    // Ensure autoplay continues after language change
     if (!autoplayInterval) {
       startAutoplay();
     }
@@ -1628,13 +1716,18 @@ footer {
   // Listen for language change event dispatched by setLanguage
   document.addEventListener('languageChanged', refreshUITranslation);
 
+  // Also listen for manual language updates (fallback)
+  document.addEventListener('DOMContentLoaded', function() {
+    // Small delay to ensure translations are loaded
+    setTimeout(applyTranslations, 100);
+  });
+
   // ===== Init =====
-  // Apply translations and set initial state
   applyTranslations();
   setProgress(0);
   setTimeout(startAutoplay, 800);
 
-  // Expose for debugging if needed
+  // Expose for debugging
   window._simulatorState = {
     setProgress,
     applyTranslations,
