@@ -1552,8 +1552,29 @@ footer {
   }
 }
 
-.nav-menu{
-    width:100%;
+@media (max-width:992px){
+
+    .navbar{
+        display:flex;
+        flex-wrap:wrap;
+    }
+
+    .logo{
+        flex:1;
+    }
+
+    .nav-toggle{
+        order:2;
+    }
+
+    .nav-menu{
+        order:3;
+        width:100%;
+    }
+}
+    
+.logo{
+    flex:1;
 }
 </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
