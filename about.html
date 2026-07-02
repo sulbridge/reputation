@@ -19,74 +19,165 @@
     gtag('config', 'G-31HRXQ97B1');
   </script>
 
+  <!-- Schema.org -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "@id": "https://reputationguard.pro/about.html#webpage",
-  "name": "About ReputationGuard.PRO",
-  "description": "Learn about ReputationGuard.PRO – our mission, team, and how we help businesses regain AI trust by removing fake reviews.",
-  "url": "https://reputationguard.pro/about.html",
-  "about": { "@id": "https://reputationguard.pro/#organization" },
-  "isPartOf": { "@id": "https://reputationguard.pro/#website" },
-  "breadcrumb": { "@id": "https://reputationguard.pro/about.html#breadcrumb" },
-  "inLanguage": "en",
-  "dateModified": "2026-07-02"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "@id": "https://reputationguard.pro/about.html#breadcrumb",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://reputationguard.pro" },
-    { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://reputationguard.pro/about.html" }
-  ]
-}
-</script>
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": "https://reputationguard.pro/about.html#webpage",
+    "name": "About ReputationGuard.PRO",
+    "description": "Learn about ReputationGuard.PRO – our mission, team, and how we help businesses regain AI trust by removing fake reviews.",
+    "url": "https://reputationguard.pro/about.html",
+    "about": { "@id": "https://reputationguard.pro/#organization" },
+    "isPartOf": { "@id": "https://reputationguard.pro/#website" },
+    "breadcrumb": { "@id": "https://reputationguard.pro/about.html#breadcrumb" },
+    "inLanguage": "en",
+    "dateModified": "2026-07-02"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://reputationguard.pro/about.html#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://reputationguard.pro" },
+      { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://reputationguard.pro/about.html" }
+    ]
+  }
+  </script>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: #0d0f14; color: #e5e7eb; line-height: 1.6; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     .navbar { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; flex-wrap: wrap; gap: 20px; }
-    .logo { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #60A5FA, #3B82F6); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; }
+    .logo { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #60A5FA, #3B82F6); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; letter-spacing: -0.5px; }
     .btn-primary { background: #1E3A8A; color: white; padding: 12px 28px; border-radius: 40px; font-weight: 700; border: none; font-size: 1rem; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 10px rgba(30,58,138,0.3); text-decoration: none; display: inline-block; }
     .btn-primary:hover { background: #2563EB; transform: translateY(-2px); }
     .section { margin: 60px 0; }
     .section-title { font-size: 2.2rem; font-weight: 800; color: #f9fafb; margin-bottom: 20px; }
     .section-sub { color: #9ca3af; font-size: 1.1rem; max-width: 700px; }
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0; }
-    .card { background: #1a1f2b; border-radius: 24px; padding: 28px; border: 1px solid #2d3748; }
+    .card { background: #1a1f2b; border-radius: 28px; padding: 28px 24px; border: 1px solid #2d3748; transition: 0.2s; }
+    .card:hover { transform: translateY(-4px); border-color: #3B82F6; box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5); }
     .card h3 { color: #f9fafb; font-size: 1.2rem; margin-bottom: 12px; }
+    .card h3 i { margin-right: 10px; }
     .card p { color: #9ca3af; }
-    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 30px; margin: 40px 0; }
-    .team-member { text-align: center; background: #1a1f2b; border-radius: 24px; padding: 20px; border: 1px solid #2d3748; }
-    .team-member img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; border: 2px solid #3B82F6; }
-    .team-member h4 { color: #f9fafb; font-size: 1.1rem; }
-    .team-member p { color: #9ca3af; font-size: 0.85rem; }
-    footer { border-top: 1px solid #2d3748; margin-top: 60px; padding: 32px 0; text-align: center; color: #6c757d; font-size: 0.8rem; }
-    footer a { color: #93C5FD; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+
+    
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 24px 32px;
+      border-top: 1px solid #2d3748;
+    }
+    .footer-column {
+      flex: 1;
+      min-width: 180px;
+    }
+    .footer-column h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f9fafb;
+      margin-bottom: 16px;
+    }
+    .footer-column p, .footer-column ul {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      line-height: 1.6;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-column li {
+      margin-bottom: 8px;
+    }
+    .footer-column a {
+      color: #93C5FD;
+      text-decoration: none;
+    }
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+    .footer-column p i {
+      width: 20px;
+      text-align: center;
+    }
+    .footer-lang-switch {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      justify-items: center;
+      margin-top: 8px;
+    }
+    .footer-lang-switch .lang-btn {
+      background: #1a1f2b;
+      border: none;
+      font-weight: 600;
+      font-size: 0.75rem;
+      cursor: pointer;
+      padding: 4px 0;
+      border-radius: 24px;
+      transition: 0.2s;
+      color: #9ca3af;
+      width: 70px;
+      white-space: nowrap;
+      font-family: 'Segoe UI Emoji', 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+    }
+    .footer-lang-switch .lang-btn.active {
+      background: #1E3A8A;
+      color: white;
+    }
+    .footer-lang-switch .lang-btn:hover {
+      background: #1e293b;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid #2d3748;
+      font-size: 0.7rem;
+      color: #6c757d;
+    }
+    .footer-bottom a {
+      color: #93C5FD;
+      text-decoration: none;
+    }
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 768px) {
       .grid-2 { grid-template-columns: 1fr; }
       .section-title { font-size: 1.8rem; }
+      .footer-container { flex-direction: column; text-align: center; gap: 24px; }
+      .footer-column p i { width: auto; }
+      .footer-lang-switch { grid-template-columns: repeat(3, 1fr); gap: 6px; justify-items: center; }
+      .footer-lang-switch .lang-btn { width: auto; padding: 4px 8px; }
     }
   </style>
 </head>
 <body>
+
 <div class="container">
+  <!-- Navbar -->
   <div class="navbar">
     <a href="/" class="logo">🛡️ ReputationGuard</a>
     <a href="/#contact-form-section" class="btn-primary">Free Audit</a>
   </div>
 
+  <!-- Hero -->
   <section class="section">
     <h1 class="section-title">About ReputationGuard.PRO</h1>
     <p class="section-sub">We help businesses regain trust in the AI era by removing fake reviews and building a clean digital reputation.</p>
   </section>
 
+  <!-- Mission & What We Do -->
   <section class="section">
     <div class="grid-2">
       <div class="card">
@@ -95,11 +186,12 @@
       </div>
       <div class="card">
         <h3><i class="fas fa-eye" style="color:#3B82F6;"></i> What We Do</h3>
-        <p>We combine deep knowledge of Google’s policies with a systematic approach to identify and remove fake, defamatory, and spam reviews. We then monitor your AI visibility across major LLMs to ensure your brand is recommended, not hidden.</p>
+        <p>We combine deep knowledge of Google's policies with a systematic approach to identify and remove fake, defamatory, and spam reviews. We then monitor your AI visibility across major LLMs to ensure your brand is recommended, not hidden.</p>
       </div>
     </div>
   </section>
 
+  <!-- Why Trust Us -->
   <section class="section">
     <h2 class="section-title">Why Trust Us?</h2>
     <div class="grid-2">
@@ -113,32 +205,86 @@
       </div>
       <div class="card">
         <h3><i class="fas fa-robot" style="color:#34d399;"></i> AI‑First Approach</h3>
-        <p>We don’t just remove reviews – we track how your brand appears in ChatGPT, Gemini, and Google AI Overviews, and we optimize for positive AI recommendations.</p>
+        <p>We don't just remove reviews – we track how your brand appears in ChatGPT, Gemini, and Google AI Overviews, and we optimize for positive AI recommendations.</p>
       </div>
       <div class="card">
         <h3><i class="fas fa-globe" style="color:#34d399;"></i> 12+ Countries Served</h3>
-        <p>From boutique hotels in Bali to dental clinics in Texas, we’ve helped businesses worldwide regain their AI reputation.</p>
+        <p>From boutique hotels in Bali to dental clinics in Texas, we've helped businesses worldwide regain their AI reputation.</p>
       </div>
     </div>
   </section>
 
+  <!-- CTA -->
   <section class="section" style="text-align: center;">
     <a href="/#contact-form-section" class="btn-primary">Get Your Free AI Audit →</a>
   </section>
 </div>
 
-<!-- Footer -->
+
 <footer>
-  <div class="container">
-    <p>&copy; 2026 ReputationGuard Global. All rights reserved.</p>
-    <p style="font-size: 0.7rem; color: #6c757d; margin-top: 8px;">1209 Mountain Road PL NE, STE N, Albuquerque, NM 87110, USA</p>
-    <p>
-      <a href="/">Home</a> ·
-      <a href="/about.html">About</a> ·
-      <a href="/review-removal.html">Review Removal</a> ·
-      <a href="/appeal-filing.html">Appeal Filing</a> ·
-      <a href="/reputation-monitoring.html">Monitoring</a> ·
-      <a href="/serm-consulting.html">SERM Consulting</a>
+  <div class="footer-container">
+
+    
+    <div class="footer-column">
+      <h4>ReputationGuard</h4>
+      <p>AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We don't just remove reviews — we make you visible to AI.</p>
+      <p style="margin-top: 8px;"><a href="/about.html">About Us</a></p>
+    </div>
+
+    
+    <div class="footer-column">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/review-removal.html">Google Review Removal</a></li>
+        <li><a href="/appeal-filing.html">Appeal Filing</a></li>
+        <li><a href="/reputation-monitoring.html">Reputation Monitoring</a></li>
+        <li><a href="/serm-consulting.html">SERM Consulting</a></li>
+        <li><a href="/affiliate.html">Affiliate Program</a></li>
+        <li><a href="/white-label.html">White‑Label Partnership</a></li>
+      </ul>
+    </div>
+
+    
+    <div class="footer-column">
+      <h4>Industries</h4>
+      <ul>
+        <li><a href="/hotel-reputation-management.html">🏨 Hotels</a></li>
+        <li><a href="/dental-reputation-management.html">🦷 Dental Clinics</a></li>
+        <li><a href="/restaurant-reputation-management.html">🍽️ Restaurants</a></li>
+        <li><a href="/car-rental-reputation-management.html">🚗 Car Rentals</a></li>
+        <li><a href="/tour-reputation-management.html">✈️ Tours & Travel</a></li>
+        <li><a href="/fitness-reputation-management.html">💪 Fitness & Physio</a></li>
+        <li><a href="/resort-reputation-management.html">🌴 Resorts</a></li>
+        <li><a href="/legal-reputation-management.html">⚖️ Law Firms</a></li>
+        <li><a href="/real-estate-reputation-management.html">🏠 Real Estate</a></li>
+      </ul>
+    </div>
+
+    
+    <div class="footer-column">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+        <li><a href="/refund-policy.html">Refund Policy</a></li>
+      </ul>
+    </div>
+
+    
+    <div class="footer-column">
+      <h4>Contact</h4>
+      <p><i class="fas fa-envelope"></i> defend@reputationguard.pro</p>
+      <p><i class="fas fa-globe"></i> reputationguard.pro</p>
+      <p><i class="fab fa-whatsapp"></i> <span id="dynamic-phone" style="white-space: nowrap;">+1 (505) 313‑6274</span> (WhatsApp)</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>*Results may vary. Google makes final decisions on reviews.</p>
+    <p>© 2026 ReputationGuard Global. All rights reserved.</p>
+    <p style="font-size: 0.65rem; color: #9ca3af; margin-top: 8px;">
+      1209 Mountain Road PL NE, STE N, Albuquerque, NM 87110, USA
     </p>
   </div>
 </footer>
