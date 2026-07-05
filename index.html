@@ -2319,21 +2319,19 @@ footer {
   </div>
 
   <!-- Slider Container -->
-  <div style="position:relative;overflow:hidden;border-radius:28px;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);padding:28px 16px 20px;">
+  <div id="casesSliderWrapper" style="position:relative;overflow:hidden;border-radius:28px;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);padding:28px 16px 60px 16px;">
 
     <!-- Slider Track -->
-    <div class="slider-track-modern" id="casesSliderTrack" style="display:flex;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1);gap:20px;">
+    <div id="casesSliderTrack" style="display:flex;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1);gap:20px;">
 
       <!-- ===== CASE 1 ===== -->
-      <div class="case-card-modern" style="flex:0 0 calc(100% - 20px);min-width:0;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
           <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case1_header">🏨 Boutique Hotel, Indonesia</span>
           <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #1</span>
         </div>
-
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <!-- BEFORE -->
-          <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;transition:all 0.3s;">
+          <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
             <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
               <span>⚠️</span> <span data-i18n="case1_before_label">BEFORE</span>
             </div>
@@ -2341,9 +2339,7 @@ footer {
             <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case1_before_issue">7 fake 1‑star reviews from competitor</div>
             <div style="font-size:0.75rem;color:#f87171;font-weight:600;" data-i18n="case1_before_impact">↓ 41% booking conversion</div>
           </div>
-
-          <!-- AFTER -->
-          <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;transition:all 0.3s;">
+          <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
             <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
               <span>✅</span> <span data-i18n="case1_after_label">AFTER</span>
             </div>
@@ -2352,7 +2348,6 @@ footer {
             <div style="font-size:0.75rem;color:#4ade80;font-weight:600;" data-i18n="case1_after_impact">↑ 28% revenue in 2 months</div>
           </div>
         </div>
-
         <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
           <span data-i18n="case1_foot">⏱ 6 business days • 89% success rate</span>
           <span style="font-size:0.6rem;color:#60A5FA;font-weight:600;display:flex;align-items:center;gap:4px;">
@@ -2363,7 +2358,7 @@ footer {
       </div>
 
       <!-- ===== CASE 2 ===== -->
-      <div class="case-card-modern" style="flex:0 0 calc(100% - 20px);min-width:0;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
           <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case2_header">🦷 Dental Clinic, Texas (USA)</span>
           <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #2</span>
@@ -2396,7 +2391,7 @@ footer {
       </div>
 
       <!-- ===== CASE 3 ===== -->
-      <div class="case-card-modern" style="flex:0 0 calc(100% - 20px);min-width:0;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
           <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case3_header">🍽 Restaurant, Barcelona (Spain)</span>
           <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #3</span>
@@ -2429,7 +2424,7 @@ footer {
       </div>
 
       <!-- ===== CASE 4 ===== -->
-      <div class="case-card-modern" style="flex:0 0 calc(100% - 20px);min-width:0;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
           <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case4_header">🚗 Car Rentals, Dubai (UAE)</span>
           <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #4</span>
@@ -2462,7 +2457,7 @@ footer {
       </div>
 
       <!-- ===== CASE 5 ===== -->
-      <div class="case-card-modern" style="flex:0 0 calc(100% - 20px);min-width:0;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
           <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case5_header">💪 GYM, Sydney (Australia)</span>
           <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #5</span>
@@ -2495,7 +2490,7 @@ footer {
       </div>
 
       <!-- ===== CASE 6 ===== -->
-      <div class="case-card-modern" style="flex:0 0 calc(100% - 20px);min-width:0;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
           <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case6_header">📦 Gadget Shop, Berlin (Germany)</span>
           <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #6</span>
@@ -2528,7 +2523,7 @@ footer {
       </div>
 
       <!-- ===== CASE 7 ===== -->
-      <div class="case-card-modern" style="flex:0 0 calc(100% - 20px);min-width:0;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
           <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case7_header">🌴 Resort, Phuket (Thailand)</span>
           <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #7</span>
@@ -2561,7 +2556,7 @@ footer {
       </div>
 
       <!-- ===== CASE 8 ===== -->
-      <div class="case-card-modern" style="flex:0 0 calc(100% - 20px);min-width:0;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
           <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case8_header">⚖️ Law company, Toronto (Canada)</span>
           <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #8</span>
@@ -2594,7 +2589,7 @@ footer {
       </div>
 
       <!-- ===== CASE 9 ===== -->
-      <div class="case-card-modern" style="flex:0 0 calc(100% - 20px);min-width:0;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
           <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case9_header">💒 Real Estate, Cape Town (SA)</span>
           <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #9</span>
@@ -2628,18 +2623,18 @@ footer {
 
     </div><!-- /slider-track -->
 
-    <!-- Navigation Buttons -->
-    <button id="casesPrevBtn" style="position:absolute;top:50%;left:8px;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.08);background:rgba(13,15,20,0.7);backdrop-filter:blur(8px);color:#e5e7eb;font-size:1.4rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;font-weight:300;" onmouseover="this.style.background='rgba(30,58,138,0.8)'" onmouseout="this.style.background='rgba(13,15,20,0.7)'">
+    <!-- Navigation Buttons (смещены вниз, на уровень точек) -->
+    <button id="casesPrevBtn" style="position:absolute;top:auto;bottom:24px;left:16px;transform:none;z-index:5;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.08);background:rgba(13,15,20,0.7);backdrop-filter:blur(8px);color:#e5e7eb;font-size:1.2rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;font-weight:300;padding:0;" onmouseover="this.style.background='rgba(30,58,138,0.8)'" onmouseout="this.style.background='rgba(13,15,20,0.7)'">
       ‹
     </button>
-    <button id="casesNextBtn" style="position:absolute;top:50%;right:8px;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.08);background:rgba(13,15,20,0.7);backdrop-filter:blur(8px);color:#e5e7eb;font-size:1.4rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;font-weight:300;" onmouseover="this.style.background='rgba(30,58,138,0.8)'" onmouseout="this.style.background='rgba(13,15,20,0.7)'">
+    <button id="casesNextBtn" style="position:absolute;top:auto;bottom:24px;right:16px;transform:none;z-index:5;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.08);background:rgba(13,15,20,0.7);backdrop-filter:blur(8px);color:#e5e7eb;font-size:1.2rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;font-weight:300;padding:0;" onmouseover="this.style.background='rgba(30,58,138,0.8)'" onmouseout="this.style.background='rgba(13,15,20,0.7)'">
       ›
     </button>
 
     <!-- Dots -->
     <div id="casesDots" style="display:flex;justify-content:center;gap:8px;margin-top:20px;padding-bottom:2px;"></div>
 
-  </div><!-- /slider-container -->
+  </div><!-- /slider-wrapper -->
 </section>
 
 <style>
@@ -2682,18 +2677,19 @@ footer {
     #casesPrevBtn, #casesNextBtn {
       width: 32px !important;
       height: 32px !important;
-      font-size: 1.1rem !important;
-      left: 4px !important;
+      font-size: 1rem !important;
+      bottom: 20px !important;
+      left: 8px !important;
+      right: auto !important;
     }
     #casesNextBtn {
       left: auto !important;
-      right: 4px !important;
+      right: 8px !important;
     }
     .cases-section > div:last-child {
-      padding: 16px 10px 12px !important;
+      padding: 16px 10px 52px 10px !important;
     }
     .case-card-modern {
-      flex: 0 0 calc(100% - 8px) !important;
       padding: 14px 12px 12px !important;
     }
     .case-card-modern > div:first-child {
@@ -2761,6 +2757,7 @@ footer {
 <script>
   (function() {
     const track = document.getElementById('casesSliderTrack');
+    const wrapper = document.getElementById('casesSliderWrapper');
     const prevBtn = document.getElementById('casesPrevBtn');
     const nextBtn = document.getElementById('casesNextBtn');
     const dotsContainer = document.getElementById('casesDots');
@@ -2772,23 +2769,28 @@ footer {
     let currentIndex = 0;
     let autoplayInterval = null;
     let isTransitioning = false;
+    const gap = 20;
 
     function getVisibleCards() {
-      if (window.innerWidth <= 640) return 1;
-      if (window.innerWidth <= 1024) return 2;
-      return 3;
+      return 1;
     }
 
     function getCardWidth() {
-      const containerWidth = track.parentElement.clientWidth - 32;
-      const visible = getVisibleCards();
-      const gap = 20;
-      return (containerWidth - (visible - 1) * gap) / visible;
+      const containerWidth = wrapper.clientWidth - 32;
+      return containerWidth;
     }
 
     function updateSlider() {
       const cardWidth = getCardWidth();
-      const gap = 20;
+      const maxIndex = total - 1;
+
+      cards.forEach(function(card) {
+        card.style.width = cardWidth + 'px';
+      });
+
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+      if (currentIndex < 0) currentIndex = 0;
+
       const offset = currentIndex * (cardWidth + gap);
       track.style.transform = 'translateX(-' + offset + 'px)';
       updateDots();
@@ -2803,8 +2805,7 @@ footer {
 
     function goTo(index) {
       if (isTransitioning) return;
-      const maxIndex = total - getVisibleCards();
-      if (maxIndex < 0) return;
+      const maxIndex = total - 1;
       if (index < 0) index = 0;
       if (index > maxIndex) index = maxIndex;
       if (index === currentIndex) return;
@@ -2815,7 +2816,7 @@ footer {
     }
 
     function next() {
-      const maxIndex = total - getVisibleCards();
+      const maxIndex = total - 1;
       if (currentIndex >= maxIndex) {
         goTo(0);
       } else {
@@ -2825,31 +2826,29 @@ footer {
 
     function prev() {
       if (currentIndex <= 0) {
-        const maxIndex = total - getVisibleCards();
-        goTo(maxIndex);
+        goTo(total - 1);
       } else {
         goTo(currentIndex - 1);
       }
     }
 
-    // Build dots
-    const visibleCount = getVisibleCards();
-    const dotCount = Math.max(1, total - visibleCount + 1);
-    for (var i = 0; i < dotCount; i++) {
-      var dot = document.createElement('button');
-      dot.classList.add('dot');
-      if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', function(index) {
-        return function() { goTo(index); };
-      }(i));
-      dotsContainer.appendChild(dot);
+    function buildDots() {
+      const dotCount = total;
+      dotsContainer.innerHTML = '';
+      for (var i = 0; i < dotCount; i++) {
+        var dot = document.createElement('button');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', function(index) {
+          return function() { goTo(index); };
+        }(i));
+        dotsContainer.appendChild(dot);
+      }
     }
 
-    // Event listeners
     prevBtn.addEventListener('click', prev);
     nextBtn.addEventListener('click', next);
 
-    // Autoplay
     function startAutoplay() {
       stopAutoplay();
       autoplayInterval = setInterval(next, 5000);
@@ -2861,38 +2860,18 @@ footer {
       }
     }
 
-    const wrapper = track.closest('.cases-section > div:last-child');
     wrapper.addEventListener('mouseenter', stopAutoplay);
     wrapper.addEventListener('mouseleave', startAutoplay);
 
-    // Resize
     var resizeTimer;
     window.addEventListener('resize', function() {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function() {
-        var newVisible = getVisibleCards();
-        var newDotCount = Math.max(1, total - newVisible + 1);
-        var currentDots = dotsContainer.querySelectorAll('.dot');
-        if (currentDots.length !== newDotCount) {
-          dotsContainer.innerHTML = '';
-          for (var j = 0; j < newDotCount; j++) {
-            var newDot = document.createElement('button');
-            newDot.classList.add('dot');
-            if (j === currentIndex) newDot.classList.add('active');
-            newDot.addEventListener('click', function(index) {
-              return function() { goTo(index); };
-            }(j));
-            dotsContainer.appendChild(newDot);
-          }
-        }
-        var maxIndex = total - getVisibleCards();
-        if (currentIndex > maxIndex) currentIndex = maxIndex;
-        if (currentIndex < 0) currentIndex = 0;
         updateSlider();
-      }, 200);
+      }, 150);
     });
 
-    // Init
+    buildDots();
     setTimeout(function() {
       updateSlider();
       startAutoplay();
