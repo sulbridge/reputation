@@ -4,7 +4,6 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
- 
   <url>
     <loc>https://reputationguard.pro/</loc>
     <lastmod>2026-07-02</lastmod>
@@ -19,7 +18,6 @@
     <priority>0.7</priority>
   </url>
 
-  
   <url>
     <loc>https://reputationguard.pro/review-removal.html</loc>
     <lastmod>2026-07-02</lastmod>
@@ -48,7 +46,14 @@
     <priority>0.8</priority>
   </url>
 
-  
+  <!-- NEW: 2026 AI Reputation Study (Cornerstone Content) -->
+  <url>
+    <loc>https://reputationguard.pro/ai-reputation-2026-study.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://reputationguard.pro/hotel-reputation-management.html</loc>
     <lastmod>2026-07-02</lastmod>
@@ -112,7 +117,6 @@
     <priority>0.7</priority>
   </url>
 
-  
   <url>
     <loc>https://reputationguard.pro/affiliate.html</loc>
     <lastmod>2026-07-02</lastmod>
@@ -127,7 +131,6 @@
     <priority>0.6</priority>
   </url>
 
-  
   <url>
     <loc>https://reputationguard.pro/thank-you.html</loc>
     <lastmod>2026-07-02</lastmod>
@@ -135,7 +138,6 @@
     <priority>0.3</priority>
   </url>
 
-  
   <url>
     <loc>https://reputationguard.pro/privacy-policy.html</loc>
     <lastmod>2026-07-02</lastmod>
@@ -157,7 +159,6 @@
     <priority>0.4</priority>
   </url>
 
-  
   <url>
     <loc>https://reputationguard.pro/llms-full.txt</loc>
     <lastmod>2026-07-02</lastmod>
