@@ -1668,47 +1668,62 @@ footer {
 </div>
 </div>
 
-<!-- ===== TRUST SLIDER (6 NEURAL NETWORKS + SEARCH + B2B) ===== -->
+<!-- ===== TRUST SLIDER (FIXED LOGOS + VISIBILITY) ===== -->
+<style>
+  .trust-track-logos img {
+    filter: brightness(0) invert(1) grayscale(0.3) opacity(0.85);
+    transition: opacity 0.2s ease;
+  }
+  .trust-track-logos img:hover {
+    opacity: 1;
+  }
+  @media (max-width: 640px) {
+    .trust-track-logos { gap: 32px !important; }
+    .trust-track-logos img { height: 24px !important; }
+  }
+</style>
+
 <div style="overflow:hidden;padding:16px 0;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.015);margin:0 0 10px 0;">
   <div style="display:flex;gap:48px;animation:scroll-trust-logos 30s linear infinite;width:max-content;padding-left:20px;align-items:center;" class="trust-track-logos">
 
-    <!-- 1. ChatGPT -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
+    <!-- 1. ChatGPT (with text) -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/ChatGPT-Logo.svg" alt="ChatGPT" style="height:32px;width:auto;flex-shrink:0;">
 
     <!-- 2. Gemini -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Google_Gemini_logo_2025.svg" alt="Gemini" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Google_Gemini_logo_2025.svg" alt="Gemini" style="height:32px;width:auto;flex-shrink:0;">
 
     <!-- 3. Perplexity -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Perplexity_AI_logo.svg" alt="Perplexity" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Perplexity_AI_logo.svg" alt="Perplexity" style="height:32px;width:auto;flex-shrink:0;">
 
     <!-- 4. Claude -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg" alt="Claude" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg" alt="Claude" style="height:32px;width:auto;flex-shrink:0;">
 
-    <!-- 5. DeepSeek -->
-    <img src="https://avatars.githubusercontent.com/u/148882295?s=200&v=4" alt="DeepSeek" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;border-radius:4px;">
+    <!-- 5. DeepSeek (official logo from GitHub) -->
+    <img src="https://raw.githubusercontent.com/deepseek-ai/DeepSeek-V2/main/figures/logo.svg" alt="DeepSeek" style="height:32px;width:auto;flex-shrink:0;">
 
-    <!-- 6. Grok (xAI) -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Grok_logo.svg" alt="Grok" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
+    <!-- 6. Grok (2025 official logo) -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Grok-2025-logo.svg" alt="Grok" style="height:32px;width:auto;flex-shrink:0;">
 
     <!-- Search Engines (GEO) -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Google_Logo.svg" alt="Google" style="height:28px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Bing_logo_%282016%29.svg" alt="Bing" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Google_Logo.svg" alt="Google" style="height:28px;width:auto;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Bing_logo_%282016%29.svg" alt="Bing" style="height:32px;width:auto;flex-shrink:0;">
 
     <!-- B2B Review Platforms -->
-    <img src="https://cdn.worldvectorlogo.com/logos/trustpilot-1.svg" alt="Trustpilot" style="height:28px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/TripAdvisor_Logo.svg" alt="TripAdvisor" style="height:28px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
+    <img src="https://cdn.worldvectorlogo.com/logos/trustpilot-1.svg" alt="Trustpilot" style="height:28px;width:auto;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/TripAdvisor_Logo.svg" alt="TripAdvisor" style="height:28px;width:auto;flex-shrink:0;">
 
     <!-- ===== DUPLICATE FOR SEAMLESS LOOP ===== -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Google_Gemini_logo_2025.svg" alt="Gemini" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Perplexity_AI_logo.svg" alt="Perplexity" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg" alt="Claude" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
-    <img src="https://avatars.githubusercontent.com/u/148882295?s=200&v=4" alt="DeepSeek" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;border-radius:4px;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Grok_logo.svg" alt="Grok" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Google_Logo.svg" alt="Google" style="height:28px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Bing_logo_%282016%29.svg" alt="Bing" style="height:32px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
-    <img src="https://cdn.worldvectorlogo.com/logos/trustpilot-1.svg" alt="Trustpilot" style="height:28px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/TripAdvisor_Logo.svg" alt="TripAdvisor" style="height:28px;width:auto;filter:grayscale(0.3);opacity:0.7;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/ChatGPT-Logo.svg" alt="ChatGPT" style="height:32px;width:auto;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Google_Gemini_logo_2025.svg" alt="Gemini" style="height:32px;width:auto;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Perplexity_AI_logo.svg" alt="Perplexity" style="height:32px;width:auto;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg" alt="Claude" style="height:32px;width:auto;flex-shrink:0;">
+    <img src="https://raw.githubusercontent.com/deepseek-ai/DeepSeek-V2/main/figures/logo.svg" alt="DeepSeek" style="height:32px;width:auto;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Grok-2025-logo.svg" alt="Grok" style="height:32px;width:auto;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Google_Logo.svg" alt="Google" style="height:28px;width:auto;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Bing_logo_%282016%29.svg" alt="Bing" style="height:32px;width:auto;flex-shrink:0;">
+    <img src="https://cdn.worldvectorlogo.com/logos/trustpilot-1.svg" alt="Trustpilot" style="height:28px;width:auto;flex-shrink:0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/TripAdvisor_Logo.svg" alt="TripAdvisor" style="height:28px;width:auto;flex-shrink:0;">
+
   </div>
 </div>
 
@@ -1716,10 +1731,6 @@ footer {
   @keyframes scroll-trust-logos {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
-  }
-  @media (max-width: 640px) {
-    .trust-track-logos { gap: 32px !important; }
-    .trust-track-logos img { height: 24px !important; }
   }
 </style>
 <!-- ===== END TRUST SLIDER ===== -->
