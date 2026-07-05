@@ -6473,7 +6473,7 @@ if (navLangSelect) {
   });
 }
 </script>
-<!-- ===== FLOATING LIVE COUNTER (VISIBLE ON LOAD) ===== -->
+<!-- ===== FLOATING LIVE COUNTER (ETERNAL, BOTTOM-LEFT) ===== -->
 <style>
   .floating-live-counter {
     position: fixed;
@@ -6560,21 +6560,27 @@ if (navLangSelect) {
     font-weight: 600;
   }
 
+  /* ----- MOBILE VERSION ----- */
   @media (max-width: 640px) {
     .floating-live-counter {
-      bottom: 80px;
+      bottom: 10px;
       left: 12px;
-      right: 12px;
+      right: auto;
+      width: auto;
+      max-width: calc(100vw - 24px);
       border-radius: 40px;
       padding: 6px 14px 6px 12px;
-      white-space: normal;
       gap: 6px;
+      white-space: nowrap;
     }
     .floating-live-counter .counter-number {
       font-size: 1rem;
     }
     .floating-live-counter .counter-label {
       font-size: 0.65rem;
+    }
+    .floating-live-counter .counter-label .businesses-word {
+      display: none;
     }
     .floating-live-counter .live-dot {
       width: 8px;
@@ -6594,7 +6600,9 @@ if (navLangSelect) {
   <button class="close-counter" id="closeCounterBtn">✕</button>
   <span class="live-dot"></span>
   <span class="counter-number" id="liveCounterNumber">0</span>
-  <span class="counter-label"><strong>businesses</strong> audited all time</span>
+  <span class="counter-label">
+    <strong class="businesses-word">businesses</strong> audited all time
+  </span>
 </div>
 
 <script>
@@ -6608,7 +6616,7 @@ if (navLangSelect) {
       return;
     }
 
-    const STORAGE_KEY = 'liveCounterData_v4';
+    const STORAGE_KEY = 'liveCounterData_v5';
 
     function getStoredData() {
       try {
@@ -6691,14 +6699,12 @@ if (navLangSelect) {
       }, 22000);
     }
 
-    // ---- Close ----
     closeBtn.addEventListener('click', function() {
       container.classList.remove('visible');
       localStorage.setItem('liveCounterClosed', 'true');
       setTimeout(() => { container.style.display = 'none'; }, 500);
     });
 
-    // ---- Show immediately after 1.2s delay ----
     setTimeout(function() {
       container.classList.add('visible');
       const target = calculateLiveValue();
