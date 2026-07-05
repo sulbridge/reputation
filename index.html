@@ -2473,7 +2473,7 @@ footer {
         </div>
         <button class="btn-outline btn-cta" 
         onclick="confirm('You\'re about to complete your payment.\n\nYou will be redirected to Stripe – a secure and trusted payment processor. A pop-up window will open where you can safely enter your card details.\n\nPlease note:\n• We will select one (1) review from your business that has the highest chance of removal.\n• Payment does not guarantee removal – but if we are unable to remove the review, we will issue a full refund.\n\nClick OK to proceed to Stripe.') && window.open('https://buy.stripe.com/cNi6oGdyf5vhcgx39Ibo402', '_blank')"
-        data-i18n="choose-one-time">Buy now →</button>
+        data-i18n="choose-one-time">Buy now</button>
       </div>
     </div>
   </div>
@@ -2491,7 +2491,14 @@ footer {
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1c">Monthly AI visibility report (ChatGPT, Gemini)</span></li>
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1d">AI sentiment monitoring</span></li>
       </ul>
-      <button class="btn-outline" onclick="selectPlan('Monitor')" data-i18n="choose-plan">Choose plan</button>
+      <button class="btn-outline" 
+        data-link="https://buy.stripe.com/bJe14m65N5vh80h8u2bo403" 
+        data-plan="AI Monitor" 
+        data-price="$399/month"
+        onclick="confirmAndRedirect(this)" 
+        data-i18n="choose-plan">
+  Subscribe Now
+</button>
     </div>
 
     <!-- AI Protect (MOST POPULAR) -->
@@ -2508,7 +2515,14 @@ footer {
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2e">Competitor benchmarking (up to 5 competitors)</span></li>
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2f">Monthly strategy call & advanced escalation documentation (includes prepared evidence packets for your legal counsel if needed)</span></li>
       </ul>
-      <button class="btn-primary btn-cta" onclick="selectPlan('Protect')" data-i18n="choose-plan">Choose plan →</button>
+      <button class="btn-outline" 
+        data-link="https://buy.stripe.com/4gM5kCcubbTFfsJ8u2bo404" 
+        data-plan="AI Protect" 
+        data-price="$899/month"
+        onclick="confirmAndRedirect(this)" 
+        data-i18n="choose-plan">
+  Subscribe Now
+</button>
     </div>
 
     <!-- GEO Strategy & Growth -->
@@ -2524,7 +2538,14 @@ footer {
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3e">Escalation & resolution coordination (we prepare comprehensive appeal packages, coordinate with platform support, and supply all documentation to your attorney upon request)</span></li>
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3f">GEO content strategy (optimize for AI search) – includes audit & roadmap</span></li>
       </ul>
-      <button class="btn-outline" onclick="selectPlan('Grow')" data-i18n="choose-plan">Contact us</button>
+      <button class="btn-outline" 
+        data-link="https://buy.stripe.com/6oU6oGbq79LxfsJfWubo405" 
+        data-plan="GEO Strategy & Growth" 
+        data-price="$1799/month"
+        onclick="confirmAndRedirect(this)" 
+        data-i18n="choose-plan">
+  Subscribe Now
+</button>
     </div>
 
   </div>
@@ -2693,7 +2714,25 @@ footer {
     </p>
   </div>
 </footer>
+<script>
+  function confirmAndRedirect(button) {
+    const link = button.getAttribute('data-link');
+    const plan = button.getAttribute('data-plan');
+    const price = button.getAttribute('data-price') || 'the selected plan';
 
+    const msg = `You're about to subscribe to the ${plan} plan (${price}).\n\n` +
+                `You will be redirected to Stripe – a secure and trusted payment processor. A pop-up window will open where you can safely enter your card details.\n\n` +
+                `Please note:\n` +
+                `• This is a monthly subscription – you will be charged ${price} recurring.\n` +
+                `• You can cancel anytime from your Stripe customer portal.\n` +
+                `• Payment does not guarantee removal – but if we are unable to remove the review, we will issue a full refund.\n\n` +
+                `Click OK to proceed to Stripe.`;
+
+    if (confirm(msg)) {
+        window.open(link, '_blank');
+    }
+}
+</script>
 <script>
   const translations = {
    "en": {
@@ -2767,7 +2806,7 @@ footer {
   "feature3f": "GEO content strategy (optimize for AI search) – includes audit & roadmap",
   "saving3": "Save $1,936 vs 15 one‑time removals",
 
-  "choose-plan": "Choose plan",
+  "choose-plan": "Subscribe Now",
 
   "compare-title": "In‑house vs ReputationGuard – AI Reputation Focus",
   "compare-sub": "Better expertise, lower cost, and measurable AI visibility growth.",
@@ -3149,7 +3188,7 @@ footer {
   "feature3f": "Estrategia de contenido GEO (optimización para búsqueda con IA) – incluye auditoría y hoja de ruta",
   "saving3": "Ahorre $1,936 vs 15 eliminaciones únicas",
 
-  "choose-plan": "Elegir plan",
+  "choose-plan": "Suscribirse Ahora",
 
   "compare-title": "Empleado interno vs ReputationGuard – Enfoque en Reputación IA",
   "compare-sub": "Mejor experiencia, menor costo y crecimiento medible de visibilidad IA.",
@@ -3535,7 +3574,7 @@ footer {
   "feature3f": "GEO-Content-Strategie (Optimierung für KI-Suche) – inkl. Audit & Fahrplan",
   "saving3": "Sparen Sie $1,936 gegenüber 15 einmaligen Entfernungen",
 
-  "choose-plan": "Plan wählen",
+  "choose-plan": "Jetzt Abonnieren",
 
   "compare-title": "Interne Mitarbeiter vs ReputationGuard – KI-Reputationsfokus",
   "compare-sub": "Bessere Expertise, niedrigere Kosten und messbares KI-Sichtbarkeitswachstum.",
@@ -3918,7 +3957,7 @@ footer {
   "feature3f": "Stratégie de contenu GEO (optimisation pour la recherche IA) – inclut audit et feuille de route",
   "saving3": "Économisez $1,936 vs 15 suppressions ponctuelles",
 
-  "choose-plan": "Choisir la formule",
+  "choose-plan": "S'abonner Maintenant",
 
   "compare-title": "Employé interne vs ReputationGuard – Focus réputation IA",
   "compare-sub": "Meilleure expertise, coût réduit et croissance mesurable de la visibilité IA.",
@@ -4251,7 +4290,7 @@ footer {
   "feature3f": "GEO-стратегия контента (оптимизация для AI-поиска) – включает аудит и дорожную карту",
   "saving3": "Экономия $1,936 против 15 разовых удалений",
 
-  "choose-plan": "Выбрать тариф",
+  "choose-plan": "Подписаться сейчас",
 
   "compare-title": "Сотрудник vs ReputationGuard – AI-репутация",
   "compare-sub": "Лучшая экспертиза, меньшие затраты и измеримый рост AI-видимости.",
@@ -4636,7 +4675,7 @@ footer {
   "feature3f": "Chiến lược nội dung GEO (tối ưu hóa cho tìm kiếm AI) – bao gồm đánh giá và lộ trình",
   "saving3": "Tiết kiệm $1,936 so với 15 lần xóa một lần",
 
-  "choose-plan": "Chọn gói",
+  "choose-plan": "Đăng Ký Ngay",
 
   "compare-title": "Nhân viên nội bộ vs ReputationGuard – Tập trung danh tiếng AI",
   "compare-sub": "Chuyên môn tốt hơn, chi phí thấp hơn và tăng trưởng hiển thị AI có thể đo lường được.",
@@ -5021,7 +5060,7 @@ footer {
   "feature3f": "Estratégia de conteúdo GEO (otimização para busca IA) – inclui auditoria e roteiro",
   "saving3": "Economize $1,936 vs 15 remoções únicas",
 
-  "choose-plan": "Escolher plano",
+  "choose-plan": "Assinar Agora",
 
   "compare-title": "Funcionário interno vs ReputationGuard – Foco em reputação IA",
   "compare-sub": "Melhor expertise, custo menor e crescimento mensurável da visibilidade IA.",
@@ -5406,7 +5445,7 @@ footer {
   "feature3f": "GEO içerik stratejisi (AI araması için optimize etme) – denetim ve yol haritası dahil",
   "saving3": "$1,936 tasarruf vs 15 tek seferlik kaldırma",
 
-  "choose-plan": "Plan seç",
+  "choose-plan": "Şimdi Abone Ol",
 
   "compare-title": "Şirket içi çalışan vs ReputationGuard – AI İtibar Odağı",
   "compare-sub": "Daha iyi uzmanlık, daha düşük maliyet ve ölçülebilir AI görünürlük büyümesi.",
@@ -5792,7 +5831,7 @@ footer {
   "feature3f": "استراتيجية محتوى GEO (تحسين للبحث بالذكاء الاصطناعي) – تتضمن التدقيق وخارطة الطريق",
   "saving3": "وفر 1,936 دولارًا مقابل 15 عملية إزالة لمرة واحدة",
 
-  "choose-plan": "اختر الباقة",
+  "choose-plan": "اشترك الآن",
 
   "compare-title": "موظف داخلي مقابل ReputationGuard – التركيز على سمعة الذكاء الاصطناعي",
   "compare-sub": "خبرة أفضل، تكلفة أقل، ونمو قابل للقياس في رؤية الذكاء الاصطناعي.",
