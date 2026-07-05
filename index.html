@@ -1624,6 +1624,25 @@ footer {
   </ul>
 </div>
 
+  <!-- ===== PROGRESS INDICATOR (Sticky below navbar) ===== -->
+<div style="position:sticky;top:70px;z-index:998;height:3px;background:#0d0f14;width:100%;">
+  <div id="pageProgressFill" style="height:100%;width:0%;background:linear-gradient(90deg,#3B82F6,#60A5FA,#34d399);transition:width 0.08s linear;border-radius:0 2px 2px 0;"></div>
+</div>
+
+<script>
+  (function() {
+    const fill = document.getElementById('pageProgressFill');
+    if (!fill) return;
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      fill.style.width = Math.min(100, progress) + '%';
+    }, { passive: true });
+  })();
+</script>
+<!-- ===== END PROGRESS INDICATOR ===== -->
+
   <div class="hero">
   <div class="hero-content">
     <div class="hero-badge" data-i18n="hero-badge">⚡ AI Reputation Engine</div>
@@ -1648,6 +1667,51 @@ footer {
 </p>
 </div>
 </div>
+
+<!-- ===== TRUST SLIDER (NO HEADER) ===== -->
+<div style="overflow:hidden;padding:14px 0;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.015);margin:0 0 10px 0;">
+  <div style="display:flex;gap:40px;animation:scroll-trust 28s linear infinite;width:max-content;padding-left:20px;" class="trust-track">
+    <!-- 6 LLMs -->
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#9ca3af;font-size:0.85rem;white-space:nowrap;">🧠 ChatGPT</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#9ca3af;font-size:0.85rem;white-space:nowrap;">⚡ Gemini</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#9ca3af;font-size:0.85rem;white-space:nowrap;">🔄 Perplexity</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#9ca3af;font-size:0.85rem;white-space:nowrap;">🎯 Claude</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#9ca3af;font-size:0.85rem;white-space:nowrap;">💻 Copilot</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#9ca3af;font-size:0.85rem;white-space:nowrap;">📊 DeepSeek</span>
+    <!-- Search Engines -->
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#fbbf24;font-size:0.85rem;white-space:nowrap;">🔍 Google</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#34d399;font-size:0.85rem;white-space:nowrap;">🌐 Bing</span>
+    <!-- B2B / Review Platforms -->
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#f472b6;font-size:0.85rem;white-space:nowrap;">⭐ Clutch</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#60A5FA;font-size:0.85rem;white-space:nowrap;">✅ Trustpilot</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#f97316;font-size:0.85rem;white-space:nowrap;">📍 Yelp</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#38bdf8;font-size:0.85rem;white-space:nowrap;">🏝️ TripAdvisor</span>
+    <!-- Duplicate for seamless loop (just add the same items again) -->
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#9ca3af;font-size:0.85rem;white-space:nowrap;">🧠 ChatGPT</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#9ca3af;font-size:0.85rem;white-space:nowrap;">⚡ Gemini</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#9ca3af;font-size:0.85rem;white-space:nowrap;">🔄 Perplexity</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#9ca3af;font-size:0.85rem;white-space:nowrap;">🎯 Claude</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#9ca3af;font-size:0.85rem;white-space:nowrap;">💻 Copilot</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#9ca3af;font-size:0.85rem;white-space:nowrap;">📊 DeepSeek</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#fbbf24;font-size:0.85rem;white-space:nowrap;">🔍 Google</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#34d399;font-size:0.85rem;white-space:nowrap;">🌐 Bing</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#f472b6;font-size:0.85rem;white-space:nowrap;">⭐ Clutch</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#60A5FA;font-size:0.85rem;white-space:nowrap;">✅ Trustpilot</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#f97316;font-size:0.85rem;white-space:nowrap;">📍 Yelp</span>
+    <span style="display:flex;align-items:center;gap:6px;font-weight:600;color:#38bdf8;font-size:0.85rem;white-space:nowrap;">🏝️ TripAdvisor</span>
+  </div>
+</div>
+
+<style>
+  @keyframes scroll-trust {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media (max-width: 600px) {
+    .trust-track { gap: 20px !important; font-size: 0.7rem !important; }
+  }
+</style>
+<!-- ===== END TRUST SLIDER ===== -->
 
 <!-- ===== AI REPUTATION SIMULATOR – V2 (MOBILE‑FIRST, CONVERSION‑OPTIMIZED) ===== -->
 <section class="simulator-section" style="margin: 70px 0;">
@@ -6409,6 +6473,240 @@ if (navLangSelect) {
   });
 }
 </script>
+<!-- ===== FLOATING LIVE COUNTER (VISIBLE ON LOAD) ===== -->
+<style>
+  .floating-live-counter {
+    position: fixed;
+    bottom: 90px;
+    left: 20px;
+    z-index: 9999;
+    background: rgba(13, 15, 20, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(52, 211, 153, 0.20);
+    border-radius: 60px;
+    padding: 8px 20px 8px 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), 0 0 40px rgba(52, 211, 153, 0.03);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateX(-120%);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .floating-live-counter.visible {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
 
+  .floating-live-counter .close-counter {
+    position: absolute;
+    top: -8px;
+    right: -6px;
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px solid #374151;
+    color: #6b7280;
+    font-size: 0.65rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    padding: 0;
+    line-height: 1;
+  }
+  .floating-live-counter .close-counter:hover {
+    background: #374151;
+    color: #f9fafb;
+    border-color: #6b7280;
+  }
+
+  .floating-live-counter .live-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #34d399;
+    display: inline-block;
+    animation: pulse-counter-dot 1.8s infinite;
+    box-shadow: 0 0 16px rgba(52, 211, 153, 0.3);
+    flex-shrink: 0;
+  }
+  @keyframes pulse-counter-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.25); }
+  }
+
+  .floating-live-counter .counter-number {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #f9fafb;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .floating-live-counter .counter-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #9ca3af;
+    letter-spacing: 0.02em;
+  }
+  .floating-live-counter .counter-label strong {
+    color: #e5e7eb;
+    font-weight: 600;
+  }
+
+  @media (max-width: 640px) {
+    .floating-live-counter {
+      bottom: 80px;
+      left: 12px;
+      right: 12px;
+      border-radius: 40px;
+      padding: 6px 14px 6px 12px;
+      white-space: normal;
+      gap: 6px;
+    }
+    .floating-live-counter .counter-number {
+      font-size: 1rem;
+    }
+    .floating-live-counter .counter-label {
+      font-size: 0.65rem;
+    }
+    .floating-live-counter .live-dot {
+      width: 8px;
+      height: 8px;
+    }
+    .floating-live-counter .close-counter {
+      top: -6px;
+      right: -4px;
+      width: 18px;
+      height: 18px;
+      font-size: 0.6rem;
+    }
+  }
+</style>
+
+<div class="floating-live-counter" id="floatingLiveCounter">
+  <button class="close-counter" id="closeCounterBtn">✕</button>
+  <span class="live-dot"></span>
+  <span class="counter-number" id="liveCounterNumber">0</span>
+  <span class="counter-label"><strong>businesses</strong> audited all time</span>
+</div>
+
+<script>
+  (function() {
+    const container = document.getElementById('floatingLiveCounter');
+    const closeBtn = document.getElementById('closeCounterBtn');
+    const numberEl = document.getElementById('liveCounterNumber');
+
+    if (localStorage.getItem('liveCounterClosed') === 'true') {
+      container.style.display = 'none';
+      return;
+    }
+
+    const STORAGE_KEY = 'liveCounterData_v4';
+
+    function getStoredData() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const data = JSON.parse(raw);
+          if (data && typeof data.value === 'number' && typeof data.timestamp === 'number') {
+            return data;
+          }
+        }
+      } catch (_) {}
+      return null;
+    }
+
+    function calculateLiveValue() {
+      const stored = getStoredData();
+      const now = Date.now();
+
+      if (!stored) {
+        const base = 100;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ value: base, timestamp: now }));
+        return base;
+      }
+
+      const elapsedMinutes = (now - stored.timestamp) / (1000 * 60);
+      const growth = Math.floor(elapsedMinutes * 0.5);
+      const newValue = stored.value + growth;
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        value: newValue,
+        timestamp: now
+      }));
+
+      return newValue;
+    }
+
+    let isAnimating = false;
+
+    function animateCounter(target) {
+      if (isAnimating) return;
+      isAnimating = true;
+
+      const start = parseInt(numberEl.textContent.replace(/,/g, ''), 10) || 0;
+      const diff = target - start;
+      if (diff <= 0) {
+        numberEl.textContent = target.toLocaleString();
+        isAnimating = false;
+        startLiveGrowth();
+        return;
+      }
+
+      const steps = 40;
+      const increment = Math.ceil(diff / steps);
+      let current = start;
+
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(interval);
+          isAnimating = false;
+          startLiveGrowth();
+        }
+        numberEl.textContent = current.toLocaleString();
+      }, 30);
+    }
+
+    function startLiveGrowth() {
+      setInterval(() => {
+        const current = parseInt(numberEl.textContent.replace(/,/g, ''), 10);
+        if (!isNaN(current)) {
+          const add = Math.floor(Math.random() * 2) + 1;
+          const newVal = current + add;
+          numberEl.textContent = newVal.toLocaleString();
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            value: newVal,
+            timestamp: Date.now()
+          }));
+        }
+      }, 22000);
+    }
+
+    // ---- Close ----
+    closeBtn.addEventListener('click', function() {
+      container.classList.remove('visible');
+      localStorage.setItem('liveCounterClosed', 'true');
+      setTimeout(() => { container.style.display = 'none'; }, 500);
+    });
+
+    // ---- Show immediately after 1.2s delay ----
+    setTimeout(function() {
+      container.classList.add('visible');
+      const target = calculateLiveValue();
+      animateCounter(target);
+    }, 1200);
+
+  })();
+</script>
+<!-- ===== END FLOATING LIVE COUNTER ===== -->
 </body>
 </html>
