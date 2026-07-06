@@ -6859,7 +6859,6 @@ if (navLangSelect) {
   });
 }
 </script>
-<!-- ===== FLOATING LIVE COUNTER (ETERNAL, BOTTOM-LEFT) ===== -->
 <style>
   .floating-live-counter {
     position: fixed;
@@ -6887,7 +6886,6 @@ if (navLangSelect) {
     opacity: 1;
     pointer-events: auto;
   }
-
   .floating-live-counter .close-counter {
     position: absolute;
     top: -8px;
@@ -6912,7 +6910,6 @@ if (navLangSelect) {
     color: #f9fafb;
     border-color: #6b7280;
   }
-
   .floating-live-counter .live-dot {
     width: 10px;
     height: 10px;
@@ -6927,7 +6924,6 @@ if (navLangSelect) {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.3; transform: scale(1.25); }
   }
-
   .floating-live-counter .counter-number {
     font-size: 1.2rem;
     font-weight: 800;
@@ -6945,8 +6941,6 @@ if (navLangSelect) {
     color: #e5e7eb;
     font-weight: 600;
   }
-
-  /* ----- MOBILE VERSION ----- */
   @media (max-width: 640px) {
     .floating-live-counter {
       bottom: 10px;
@@ -6993,112 +6987,70 @@ if (navLangSelect) {
 
 <script>
   (function() {
-    const container = document.getElementById('floatingLiveCounter');
-    const closeBtn = document.getElementById('closeCounterBtn');
-    const numberEl = document.getElementById('liveCounterNumber');
+    var container = document.getElementById('floatingLiveCounter');
+    var closeBtn = document.getElementById('closeCounterBtn');
+    var numberEl = document.getElementById('liveCounterNumber');
 
     if (localStorage.getItem('liveCounterClosed') === 'true') {
       container.style.display = 'none';
       return;
     }
 
-    const STORAGE_KEY = 'liveCounterData_v5';
+    var COUNTER_KEY = 'reputationguard.audits';
+    var TIMESTAMP_KEY = 'reputationguard.audits_ts';
+    var API_URL = 'https://api.countapi.xyz';
+    var BASE_VALUE = 150;
+    var GROWTH_PER_MINUTE = 0.035; // ~50 в сутки
 
-    function getStoredData() {
-      try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        if (raw) {
-          const data = JSON.parse(raw);
-          if (data && typeof data.value === 'number' && typeof data.timestamp === 'number') {
-            return data;
+    function setCounterValue(value) {
+      var rounded = Math.floor(value);
+      numberEl.textContent = rounded.toLocaleString();
+    }
+
+    function updateCounter() {
+      fetch(API_URL + '/get?keys=' + COUNTER_KEY + ',' + TIMESTAMP_KEY)
+        .then(function(response) { return response.json(); })
+        .then(function(data) {
+          var currentValue = data[COUNTER_KEY] ? data[COUNTER_KEY].value : null;
+          var lastTimestamp = data[TIMESTAMP_KEY] ? data[TIMESTAMP_KEY].value : null;
+          var now = Math.floor(Date.now() / 1000);
+
+          if (currentValue === null || lastTimestamp === null) {
+            fetch(API_URL + '/create?key=' + COUNTER_KEY + '&value=' + BASE_VALUE, { method: 'POST' })
+              .then(function() {
+                fetch(API_URL + '/create?key=' + TIMESTAMP_KEY + '&value=' + now, { method: 'POST' })
+                  .then(function() { setCounterValue(BASE_VALUE); });
+              });
+            return;
           }
-        }
-      } catch (_) {}
-      return null;
+
+          var secondsElapsed = now - lastTimestamp;
+          var minutesElapsed = secondsElapsed / 60;
+          var growth = minutesElapsed * GROWTH_PER_MINUTE;
+          var newValue = currentValue + growth;
+
+          fetch(API_URL + '/update?key=' + COUNTER_KEY + '&value=' + newValue, { method: 'POST' })
+            .then(function() {
+              fetch(API_URL + '/update?key=' + TIMESTAMP_KEY + '&value=' + now, { method: 'POST' })
+                .then(function() { setCounterValue(newValue); });
+            })
+            .catch(function() { setCounterValue(newValue); });
+        })
+        .catch(function() { setCounterValue(BASE_VALUE); });
     }
 
-    function calculateLiveValue() {
-      const stored = getStoredData();
-      const now = Date.now();
-
-      if (!stored) {
-        const base = 100;
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({ value: base, timestamp: now }));
-        return base;
-      }
-
-      const elapsedMinutes = (now - stored.timestamp) / (1000 * 60);
-      const growth = Math.floor(elapsedMinutes * 0.5);
-      const newValue = stored.value + growth;
-
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        value: newValue,
-        timestamp: now
-      }));
-
-      return newValue;
-    }
-
-    let isAnimating = false;
-
-    function animateCounter(target) {
-      if (isAnimating) return;
-      isAnimating = true;
-
-      const start = parseInt(numberEl.textContent.replace(/,/g, ''), 10) || 0;
-      const diff = target - start;
-      if (diff <= 0) {
-        numberEl.textContent = target.toLocaleString();
-        isAnimating = false;
-        startLiveGrowth();
-        return;
-      }
-
-      const steps = 40;
-      const increment = Math.ceil(diff / steps);
-      let current = start;
-
-      const interval = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          current = target;
-          clearInterval(interval);
-          isAnimating = false;
-          startLiveGrowth();
-        }
-        numberEl.textContent = current.toLocaleString();
-      }, 30);
-    }
-
-    function startLiveGrowth() {
-      setInterval(() => {
-        const current = parseInt(numberEl.textContent.replace(/,/g, ''), 10);
-        if (!isNaN(current)) {
-          const add = Math.floor(Math.random() * 2) + 1;
-          const newVal = current + add;
-          numberEl.textContent = newVal.toLocaleString();
-          localStorage.setItem(STORAGE_KEY, JSON.stringify({
-            value: newVal,
-            timestamp: Date.now()
-          }));
-        }
-      }, 22000);
-    }
+    setTimeout(function() {
+      container.classList.add('visible');
+      updateCounter();
+    }, 1200);
 
     closeBtn.addEventListener('click', function() {
       container.classList.remove('visible');
       localStorage.setItem('liveCounterClosed', 'true');
-      setTimeout(() => { container.style.display = 'none'; }, 500);
+      setTimeout(function() { container.style.display = 'none'; }, 500);
     });
-
-    setTimeout(function() {
-      container.classList.add('visible');
-      const target = calculateLiveValue();
-      animateCounter(target);
-    }, 1200);
 
   })();
 </script>
-<!-- ===== END FLOATING LIVE COUNTER ===== -->
 </body>
 </html>
