@@ -7371,6 +7371,7 @@ if (navLangSelect) {
   </span>
 </div>
 
+<script src="https://unpkg.com/@counterapi/sdk@latest/dist/index.umd.js"></script>
 <script>
   (function() {
     var container = document.getElementById('floatingLiveCounter');
@@ -7382,56 +7383,69 @@ if (navLangSelect) {
       return;
     }
 
-    var COUNTER_KEY = 'reputationguard.audits';
-    var API_URL = 'https://api.countapi.xyz';
+    var COUNTER_ID = 'reputationguard_audits';
     var BASE_VALUE = 150;
 
     function setCounterValue(value) {
       numberEl.textContent = value.toLocaleString();
     }
 
-    function incrementAndGet() {
-      fetch(API_URL + '/hit?key=' + COUNTER_KEY, { method: 'POST' })
+    function incrementCounter() {
+      fetch('https://api.counterapi.dev/v1/' + COUNTER_ID + '/increment', {
+        method: 'POST'
+      })
         .then(function(response) { return response.json(); })
         .then(function(data) {
-          if (data && data.value !== undefined) {
-            setCounterValue(data.value);
-          } else {
-            getCounter();
+          if (data && data.count !== undefined) {
+            setCounterValue(data.count);
           }
         })
-        .catch(function() {
-          getCounter();
-        });
+        .catch(function() {});
     }
 
     function getCounter() {
-      fetch(API_URL + '/get/' + COUNTER_KEY)
-        .then(function(response) { return response.json(); })
+      fetch('https://api.counterapi.dev/v1/' + COUNTER_ID)
+        .then(function(response) {
+          if (!response.ok) {
+            return { count: undefined };
+          }
+          return response.json();
+        })
         .then(function(data) {
-          if (data && data.value !== undefined) {
-            setCounterValue(data.value);
+          if (data && data.count !== undefined) {
+            setCounterValue(data.count);
+            incrementCounter();
           } else {
-            fetch(API_URL + '/create?key=' + COUNTER_KEY + '&value=' + BASE_VALUE, { method: 'POST' })
-              .then(function(res) { return res.json(); })
+            fetch('https://api.counterapi.dev/v1/' + COUNTER_ID, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ count: BASE_VALUE })
+            })
+              .then(function(response) { return response.json(); })
               .then(function(createData) {
-                if (createData && createData.value !== undefined) {
-                  setCounterValue(createData.value);
-                  fetch(API_URL + '/hit?key=' + COUNTER_KEY, { method: 'POST' })
-                    .catch(function() {});
+                if (createData && createData.count !== undefined) {
+                  setCounterValue(createData.count);
+                  incrementCounter();
                 } else {
                   setCounterValue(BASE_VALUE);
                 }
               })
-              .catch(function() { setCounterValue(BASE_VALUE); });
+              .catch(function() {
+                setCounterValue(BASE_VALUE);
+              });
           }
         })
-        .catch(function() { setCounterValue(BASE_VALUE); });
+        .catch(function() {
+          var fallback = parseInt(localStorage.getItem('fallbackCounter'), 10) || BASE_VALUE;
+          fallback = fallback + 1;
+          localStorage.setItem('fallbackCounter', fallback);
+          setCounterValue(fallback);
+        });
     }
 
     setTimeout(function() {
       container.classList.add('visible');
-      incrementAndGet();
+      getCounter();
     }, 1200);
 
     closeBtn.addEventListener('click', function() {
