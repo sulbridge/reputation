@@ -7391,7 +7391,7 @@ if (navLangSelect) {
     }
 
     function incrementAndGet() {
-      fetch(API_URL + '/increment?key=' + COUNTER_KEY, { method: 'POST' })
+      fetch(API_URL + '/hit?key=' + COUNTER_KEY, { method: 'POST' })
         .then(function(response) { return response.json(); })
         .then(function(data) {
           if (data && data.value !== undefined) {
@@ -7417,7 +7417,7 @@ if (navLangSelect) {
               .then(function(createData) {
                 if (createData && createData.value !== undefined) {
                   setCounterValue(createData.value);
-                  fetch(API_URL + '/increment?key=' + COUNTER_KEY, { method: 'POST' })
+                  fetch(API_URL + '/hit?key=' + COUNTER_KEY, { method: 'POST' })
                     .catch(function() {});
                 } else {
                   setCounterValue(BASE_VALUE);
