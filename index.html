@@ -7390,20 +7390,35 @@ if (navLangSelect) {
       numberEl.textContent = value.toLocaleString();
     }
 
+    function incrementAndGet() {
+      fetch(API_URL + '/increment?key=' + COUNTER_KEY, { method: 'POST' })
+        .then(function(response) { return response.json(); })
+        .then(function(data) {
+          if (data && data.value !== undefined) {
+            setCounterValue(data.value);
+          } else {
+            getCounter();
+          }
+        })
+        .catch(function() {
+          getCounter();
+        });
+    }
+
     function getCounter() {
       fetch(API_URL + '/get/' + COUNTER_KEY)
         .then(function(response) { return response.json(); })
         .then(function(data) {
           if (data && data.value !== undefined) {
             setCounterValue(data.value);
-            incrementCounter(data.value);
           } else {
             fetch(API_URL + '/create?key=' + COUNTER_KEY + '&value=' + BASE_VALUE, { method: 'POST' })
               .then(function(res) { return res.json(); })
               .then(function(createData) {
                 if (createData && createData.value !== undefined) {
                   setCounterValue(createData.value);
-                  incrementCounter(createData.value);
+                  fetch(API_URL + '/increment?key=' + COUNTER_KEY, { method: 'POST' })
+                    .catch(function() {});
                 } else {
                   setCounterValue(BASE_VALUE);
                 }
@@ -7414,15 +7429,9 @@ if (navLangSelect) {
         .catch(function() { setCounterValue(BASE_VALUE); });
     }
 
-    function incrementCounter(currentValue) {
-      var newValue = currentValue + 1;
-      fetch(API_URL + '/update?key=' + COUNTER_KEY + '&value=' + newValue, { method: 'POST' })
-        .catch(function() {});
-    }
-
     setTimeout(function() {
       container.classList.add('visible');
-      getCounter();
+      incrementAndGet();
     }, 1200);
 
     closeBtn.addEventListener('click', function() {
