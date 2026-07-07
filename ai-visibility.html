@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>AI Visibility Check · ReputationGuard</title>
+  <meta name="description" content="See how ChatGPT, Gemini, Perplexity and Google AI see your business. Free AI Visibility Score with detailed 9-layer analysis.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="AI-readable company facts" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18250144884"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18250144884');
+    gtag('config', 'G-31HRXQ97B1');
+  </script>
+
+  <style>
+    /* ----- Reset & base ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0d0f14;
+      color: #e5e7eb;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* ----- Navigation (sticky, from main site) ----- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      background: rgba(13, 15, 20, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .navbar.scrolled {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      background: rgba(13, 15, 20, 0.60);
+    }
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #60A5FA, #3B82F6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #60A5FA; }
+    .nav-links .btn-primary {
+      background: #1E3A8A;
+      color: white;
+      padding: 8px 24px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 10px rgba(30,58,138,0.3);
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .nav-links .btn-primary:hover {
+      background: #2563EB;
+      transform: translateY(-2px);
+    }
+
+    /* ----- Page header (breadcrumb / back) ----- */
+    .page-header {
+      margin: 24px 0 12px;
+    }
+    .page-header a {
+      color: #93C5FD;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .page-header a:hover { text-decoration: underline; }
+
+    /* ----- Main widget container ----- */
+    .avc-page-wrapper {
+      max-width: 720px;
+      margin: 20px auto 60px;
+      padding: 0 16px;
+    }
+    .avc-widget {
+      --avc-bg: #030712;
+      --avc-card: rgba(17,24,39,0.6);
+      --avc-card-solid: #030712;
+      --avc-border: #1f2937;
+      --avc-text: #f3f4f6;
+      --avc-muted: #6b7280;
+      --avc-muted-2: #9ca3af;
+      --avc-emerald: #3B82F6;
+      --avc-emerald-strong: #2563EB;
+      --avc-amber: #fbbf24;
+      --avc-red: #f87171;
+      --avc-red-strong: #ef4444;
+      --avc-sky: #38bdf8;
+      font-family: inherit;
+      background: var(--avc-bg);
+      color: var(--avc-text);
+      border-radius: 24px;
+      padding: 32px 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      line-height: 1.5;
+    }
+    .avc-widget button { font-family: inherit; cursor: pointer; }
+    .avc-widget input { font-family: inherit; }
+    .avc-widget a { text-decoration: none; }
+
+    .avc-i { display: inline-flex; flex-shrink: 0; }
+    .avc-i svg { width: 100%; height: 100%; display: block; }
+    .avc-i-xs { width: 12px; height: 12px; }
+    .avc-i-sm { width: 14px; height: 14px; }
+    .avc-i-md { width: 20px; height: 20px; }
+    .avc-i-lg { width: 24px; height: 24px; }
+    .avc-i-xl { width: 40px; height: 40px; }
+
+    .avc-emerald { color: var(--avc-emerald); }
+    .avc-sky { color: var(--avc-sky); }
+    .avc-muted { color: var(--avc-muted); }
+    .avc-mono { font-variant-numeric: tabular-nums; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+    .avc-brand { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; font-weight: 600; letter-spacing: -0.01em; }
+    .avc-brand .avc-i { color: var(--avc-emerald); }
+
+    .avc-link-btn {
+      display: inline-flex; align-items: center; gap: 6px; background: none; border: none; padding: 0;
+      color: var(--avc-muted); font-size: 14px; margin-bottom: 16px;
+    }
+    .avc-link-btn:hover { color: var(--avc-muted-2); }
+
+    .avc-badge {
+      display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500;
+      color: var(--avc-emerald); background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 999px; padding: 6px 14px; margin-bottom: 16px;
+    }
+    .avc-dot { width: 6px; height: 6px; border-radius: 999px; background: var(--avc-emerald); }
+    .avc-h1 { font-size: clamp(1.75rem, 6vw, 2.25rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 14px; }
+    .avc-accent { color: var(--avc-emerald); }
+    .avc-sub { color: var(--avc-muted-2); margin: 0 0 20px; font-size: 14px; }
+
+    .avc-field { position: relative; margin-bottom: 12px; }
+    .avc-field .avc-field-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--avc-muted); }
+    .avc-field input {
+      width: 100%; background: #111827; border: 1px solid var(--avc-border); border-radius: 12px;
+      padding: 14px 16px 14px 44px; font-size: 14px; color: var(--avc-text); outline: none;
+    }
+    .avc-field input::placeholder { color: var(--avc-muted); }
+    .avc-field input:focus { border-color: rgba(59,130,246,0.5); box-shadow: 0 0 0 3px rgba(59,130,246,0.15); }
+
+    .avc-btn {
+      width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;
+      border: none; border-radius: 12px; padding: 14px; font-size: 15px; font-weight: 600; transition: background 0.15s;
+    }
+    .avc-btn-primary { background: var(--avc-emerald-strong); color: white; }
+    .avc-btn-primary:hover:not(:disabled) { background: var(--avc-emerald); }
+    .avc-btn-primary:disabled { background: #1f2937; color: var(--avc-muted); cursor: not-allowed; }
+    .avc-btn-sm { padding: 12px; font-size: 14px; }
+
+    .avc-trust-row { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 12px; color: var(--avc-muted); margin: 14px 0 0; }
+    .avc-trust-row span { display: inline-flex; align-items: center; gap: 6px; }
+    .avc-trust-row .avc-i { color: var(--avc-emerald-strong); }
+
+    .avc-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center; border-top: 1px solid var(--avc-border); padding-top: 20px; margin-top: 18px; }
+    .avc-stat-num { font-size: 20px; font-weight: 700; }
+    .avc-stat-label { font-size: 11px; color: var(--avc-muted); margin-top: 4px; }
+
+    .avc-scan-wrap { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 20px 0; }
+    .avc-scan-ring-outer {
+      position: relative; width: 80px; height: 80px; border-radius: 999px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+    }
+    .avc-scan-ring-outer::before {
+      content: ""; position: absolute; inset: 0; border-radius: 999px; background: rgba(59,130,246,0.12);
+      animation: avc-pulse 1.6s ease-out infinite;
+    }
+    .avc-scan-ring-inner {
+      position: relative; width: 80px; height: 80px; border-radius: 999px; border: 2px solid rgba(59,130,246,0.3);
+      display: flex; align-items: center; justify-content: center; background: var(--avc-bg);
+    }
+    @keyframes avc-pulse { 0% { transform: scale(0.9); opacity: 0.8; } 100% { transform: scale(1.6); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .avc-scan-ring-outer::before { animation: none; } }
+
+    .avc-scan-title { font-size: 20px; font-weight: 600; margin: 0 0 16px; }
+    .avc-scan-list { list-style: none; padding: 0; margin: 0 0 20px; text-align: left; display: flex; flex-direction: column; gap: 6px; }
+    .avc-scan-list li { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--avc-muted); opacity: 0.35; transition: opacity 0.25s, color 0.25s; }
+    .avc-scan-list li.avc-done { color: #d1d5db; opacity: 1; }
+    .avc-scan-dot { width: 6px; height: 6px; border-radius: 999px; background: #4b5563; flex-shrink: 0; }
+    .avc-scan-list li.avc-done .avc-scan-dot { background: var(--avc-emerald); }
+
+    .avc-progress-track { width: 100%; max-width: 260px; height: 6px; background: #1f2937; border-radius: 999px; overflow: hidden; }
+    .avc-progress-fill { height: 100%; background: linear-gradient(90deg, var(--avc-emerald-strong), var(--avc-sky)); transition: width 0.1s linear; }
+
+    .avc-card { background: var(--avc-card); border: 1px solid var(--avc-border); border-radius: 20px; padding: 24px 20px; margin-bottom: 20px; }
+    .avc-score-card { text-align: center; }
+    .avc-score-eyebrow { font-size: 11px; letter-spacing: 0.15em; font-weight: 600; color: var(--avc-muted); margin: 0 0 16px; }
+    .avc-gauge { position: relative; width: 160px; height: 160px; margin: 0 auto; }
+    .avc-gauge-svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .avc-gauge-arc { transition: stroke-dashoffset 1s ease-out; }
+    .avc-gauge-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .avc-gauge-num { font-size: 38px; font-weight: 700; }
+    .avc-gauge-den { font-size: 12px; color: var(--avc-muted); }
+    .avc-score-label { font-size: 18px; font-weight: 600; margin: 12px 0 4px; }
+    .avc-score-sub { font-size: 13px; color: var(--avc-muted); margin: 0; }
+
+    .avc-section-head { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+    .avc-section-head h3 { font-size: 15px; font-weight: 600; margin: 0; }
+    .avc-layer-row + .avc-layer-row { margin-top: 16px; }
+    .avc-layer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+    .avc-layer-label { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; }
+    .avc-badge-icon { width: 18px; height: 18px; border-radius: 6px; border: 1px solid; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .avc-badge-icon .avc-i { width: 10px; height: 10px; }
+    .avc-good { background: rgba(59,130,246,0.15); color: var(--avc-emerald); border-color: rgba(59,130,246,0.3); }
+    .avc-warn { background: rgba(251,191,36,0.15); color: var(--avc-amber); border-color: rgba(251,191,36,0.3); }
+    .avc-bad  { background: rgba(239,68,68,0.15); color: var(--avc-red); border-color: rgba(239,68,68,0.3); }
+    .avc-bar-track { height: 5px; background: #1f2937; border-radius: 999px; overflow: hidden; }
+    .avc-bar-track.avc-mb { margin-bottom: 10px; }
+    .avc-bar-fill { height: 100%; border-radius: 999px; }
+    .avc-bar-good { background: var(--avc-emerald); }
+    .avc-bar-warn { background: var(--avc-amber); }
+    .avc-bar-bad  { background: var(--avc-red-strong); }
+
+    .avc-platform-card { border: 1px solid var(--avc-border); border-radius: 16px; padding: 16px; }
+    .avc-platform-card + .avc-platform-card { margin-top: 12px; }
+    .avc-tier-good { border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.05); }
+    .avc-tier-warn { border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.05); }
+    .avc-tier-bad  { border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.05); }
+    .avc-platform-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .avc-platform-head .avc-i { color: #d1d5db; }
+    .avc-platform-name { font-weight: 600; font-size: 14px; }
+    .avc-status-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; border-radius: 999px; padding: 4px 12px; margin-bottom: 12px; }
+    .avc-conf-row { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--avc-muted); margin-bottom: 4px; }
+    .avc-desc { font-size: 13px; color: var(--avc-muted-2); margin: 8px 0 0; }
+
+    .avc-issue-card { border: 1px solid rgba(239,68,68,0.3); background: rgba(239,68,68,0.05); border-radius: 16px; padding: 16px; display: flex; gap: 12px; }
+    .avc-issue-card + .avc-issue-card { margin-top: 12px; }
+    .avc-issue-card .avc-i { color: var(--avc-red); margin-top: 2px; }
+    .avc-issue-title { font-weight: 600; margin: 0 0 4px; font-size: 14px; }
+    .avc-issue-body { font-size: 13px; color: var(--avc-muted-2); margin: 0 0 6px; }
+    .avc-issue-impact { font-size: 13px; font-weight: 500; color: var(--avc-red); margin: 0; }
+
+    .avc-locked-wrap { position: relative; margin-top: 14px; }
+    .avc-locked-list.avc-blurred { filter: blur(4px); pointer-events: none; user-select: none; }
+    .avc-locked-card { border: 1px solid var(--avc-border); background: rgba(17,24,39,0.6); border-radius: 16px; padding: 16px; display: flex; gap: 12px; }
+    .avc-locked-card + .avc-locked-card { margin-top: 12px; }
+    .avc-locked-card .avc-i { color: var(--avc-amber); margin-top: 2px; }
+
+    .avc-unlock-overlay { position: absolute; inset: 0; display: flex; align-items: flex-start; justify-content: center; padding-top: 16px; }
+    .avc-unlock-card { background: var(--avc-card-solid); border: 1px solid var(--avc-border); border-radius: 16px; padding: 20px; text-align: center; max-width: 320px; width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .avc-unlock-icon { width: 44px; height: 44px; border-radius: 999px; background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+    .avc-unlock-card h4 { font-size: 15px; font-weight: 600; margin: 0 0 6px; }
+    .avc-unlock-card p { font-size: 13px; color: var(--avc-muted-2); margin: 0 0 16px; }
+    .avc-email-field { position: relative; margin-bottom: 10px; }
+    .avc-email-field .avc-field-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--avc-muted); }
+    .avc-email-field input {
+      width: 100%; background: #111827; border: 1px solid var(--avc-border); border-radius: 10px;
+      padding: 10px 10px 10px 36px; font-size: 13px; color: var(--avc-text); outline: none;
+    }
+    .avc-fine-print { font-size: 11px; color: #4b5563; margin: 10px 0 0; }
+
+    .avc-cta {
+      background: linear-gradient(to bottom, rgba(59,130,246,0.1), transparent);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 16px;
+      padding: 20px 16px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .avc-cta h3 { font-size: 18px; font-weight: 700; margin: 0 0 8px; }
+    .avc-cta p { font-size: 13px; color: var(--avc-muted-2); margin: 0 0 16px; }
+    .avc-cta-btn { background: var(--avc-emerald-strong); color: white; }
+    .avc-cta-btn:hover { background: var(--avc-emerald); }
+
+    .avc-bottom-link { display: block; width: 100%; text-align: center; background: none; border: none; color: var(--avc-muted); font-size: 13px; margin-top: 16px; padding: 0; }
+    .avc-bottom-link:hover { color: var(--avc-muted-2); }
+
+    .avc-success { color: var(--avc-emerald); font-size: 14px; margin-top: 8px; }
+
+    /* ----- Footer (copy from main) ----- */
+    footer {
+      background: #0d0f14;
+      border-top: 1px solid #2d3748;
+      margin-top: 70px;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 24px 32px;
+    }
+    .footer-column {
+      flex: 1;
+      min-width: 180px;
+    }
+    .footer-column h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f9fafb;
+      margin-bottom: 16px;
+    }
+    .footer-column p, .footer-column ul {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      line-height: 1.6;
+    }
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-column li {
+      margin-bottom: 8px;
+    }
+    .footer-column a {
+      color: #93C5FD;
+      text-decoration: none;
+    }
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid #2d3748;
+      font-size: 0.7rem;
+      color: #6c757d;
+    }
+    .footer-column p i {
+      width: 18px;
+      text-align: center;
+    }
+    .footer-column:last-child {
+      text-align: center;
+      min-width: 210px;
+    }
+    .footer-lang-switch {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      justify-items: center;
+      margin-top: 8px;
+    }
+    .footer-lang-switch .lang-btn {
+      background: #1a1f2b;
+      font-size: 0.75rem;
+      border-radius: 24px;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      width: 70px;
+      padding: 4px 0;
+      white-space: nowrap;
+      cursor: pointer;
+      color: #9ca3af;
+      border: none;
+    }
+    .footer-lang-switch .lang-btn.active {
+      background: #1E3A8A;
+      color: white;
+    }
+    .footer-lang-switch .lang-btn:hover {
+      background: #1e293b;
+    }
+
+    /* RTL support */
+    .rtl-mode {
+      direction: rtl;
+      text-align: right;
+    }
+    .rtl-mode .avc-layer-label { flex-direction: row-reverse; }
+    .rtl-mode .avc-field .avc-field-icon { left: auto; right: 16px; }
+    .rtl-mode .avc-field input { padding: 14px 44px 14px 16px; }
+
+    /* responsive */
+    @media (max-width: 640px) {
+      .avc-widget { padding: 20px 16px; }
+      .navbar .logo { font-size: 1.4rem; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- ===== NAVIGATION (sticky) ===== -->
+  <div class="navbar" id="navbar">
+    <a href="/" class="logo">🛡️ ReputationGuard</a>
+    <ul class="nav-links">
+      <li><a href="/#services" id="navServices">Services</a></li>
+      <li><a href="/#pricing" id="navPricing">Pricing</a></li>
+      <li><a href="/#faq" id="navFaq">FAQ</a></li>
+      <li><a href="/about.html" id="navAbout">About</a></li>
+      <li><a href="/#contact-form-section" class="btn-primary" id="navCta">Free Audit</a></li>
+    </ul>
+  </div>
+
+  <!-- ===== PAGE HEADER (back link) ===== -->
+  <div class="page-header">
+    <a href="/" id="backLink">← Back to Home</a>
+  </div>
+
+  <!-- ===== WIDGET ===== -->
+  <div class="avc-page-wrapper">
+    <div id="avc-root" class="avc-widget"></div>
+  </div>
+</div>
+
+<!-- ===== FOOTER (copy from main) ===== -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4 data-i18n="footer-company">ReputationGuard</h4>
+      <p data-i18n="footer-tagline">AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We don't just remove reviews — we make you visible to AI.</p>
+      <p style="margin-top: 8px;"><a href="/about.html">About Us</a></p>
+    </div>
+    <div class="footer-column">
+      <h4 data-i18n="footer-services">Services</h4>
+      <ul>
+        <li><a href="/review-removal.html" data-i18n="footer-review-removal">AI Reputation Cleanup</a></li>
+        <li><a href="/appeal-filing.html" data-i18n="footer-appeal">AI Visibility Optimization</a></li>
+        <li><a href="/reputation-monitoring.html" data-i18n="footer-monitoring">AI Sentiment Monitoring</a></li>
+        <li><a href="/serm-consulting.html" data-i18n="footer-consulting">GEO Strategy Consulting</a></li>
+        <li><a href="/affiliate.html" data-i18n="footer-affiliate">Affiliate Program</a></li>
+        <li><a href="/white-label.html" data-i18n="footer-white-label">White‑Label Partnership</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4 data-i18n="footer-industries">Industries</h4>
+      <ul>
+        <li><a href="/hotel-reputation-management.html">🏨 Hotels</a></li>
+        <li><a href="/dental-reputation-management.html">🦷 Dental Clinics</a></li>
+        <li><a href="/restaurant-reputation-management.html">🍽️ Restaurants</a></li>
+        <li><a href="/car-rental-reputation-management.html">🚗 Car Rentals</a></li>
+        <li><a href="/tour-reputation-management.html">✈️ Tours & Travel</a></li>
+        <li><a href="/fitness-reputation-management.html">💪 Fitness & Physio</a></li>
+        <li><a href="/resort-reputation-management.html">🌴 Resorts</a></li>
+        <li><a href="/legal-reputation-management.html">⚖️ Law Firms</a></li>
+        <li><a href="/real-estate-reputation-management.html">🏠 Real Estate</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4 data-i18n="footer-legal">Legal</h4>
+      <ul>
+        <li><a href="/privacy-policy.html" data-i18n="footer-privacy">Privacy Policy</a></li>
+        <li><a href="/terms-of-service.html" data-i18n="footer-terms">Terms of Service</a></li>
+        <li><a href="/refund-policy.html" data-i18n="footer-refund">Refund Policy</a></li>
+        <li><a href="https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400" target="_blank" rel="noopener noreferrer" data-i18n="manage-subscription">Manage Subscription</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4 data-i18n="footer-contact">Contact</h4>
+      <p><i class="fas fa-envelope"></i> defend@reputationguard.pro</p>
+      <p><i class="fas fa-globe"></i> reputationguard.pro</p>
+      <p><i class="fab fa-whatsapp"></i> <span id="dynamic-phone" style="white-space: nowrap;"></span> (WhatsApp)</p>
+      <h4 style="margin-top: 20px; font-size: 0.9rem;" data-i18n="footer-language">Language</h4>
+      <div class="footer-lang-switch" style="margin-top: 8px;">
+        <button class="lang-btn" data-lang="en"><span class="fi fi-us"></span> EN</button>
+        <button class="lang-btn" data-lang="vi"><span class="fi fi-vn"></span> VI</button>
+        <button class="lang-btn" data-lang="pt"><span class="fi fi-br"></span> PT</button>
+        <button class="lang-btn" data-lang="tr"><span class="fi fi-tr"></span> TR</button>
+        <button class="lang-btn" data-lang="ar"><span class="fi fi-sa"></span> ع</button>
+        <button class="lang-btn" data-lang="es"><span class="fi fi-es"></span> ES</button>
+        <button class="lang-btn" data-lang="de"><span class="fi fi-de"></span> DE</button>
+        <button class="lang-btn" data-lang="fr"><span class="fi fi-fr"></span> FR</button>
+        <button class="lang-btn" data-lang="it"><span class="fi fi-it"></span> IT</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-i18n="footer-disclaimer">*Results may vary.</p>
+    <p>© 2026 ReputationGuard Global. All rights reserved.</p>
+    <p style="font-size: 0.65rem; color: #9ca3af; margin-top: 8px;">
+      1209 Mountain Road PL NE, STE N, Albuquerque, NM 87110, USA
+    </p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPT – Full widget with i18n, Formspree, auto-start
+     ============================================================ -->
+<script>
+(function() {
+  // ----- I18N translations -----
+  var translations = {
+    en: {
+      brand: 'ReputationGuard',
+      badge: 'Free AI Visibility Check',
+      title: 'Is AI <span class="avc-accent">Recommending</span> Your Business?',
+      subtitle: 'See how ChatGPT, Gemini, Perplexity and Google AI talk about your business right now — and what it\'s quietly costing you.',
+      inputPlaceholder: 'Enter your business name or website',
+      checkBtn: 'Check AI Visibility',
+      trust1: 'No login required',
+      trust2: 'Results in ~5 seconds',
+      trust3: '100% free',
+      statPlatforms: 'AI Platforms',
+      statLayers: 'Ranking Layers',
+      statTime: 'To Results',
+      scanning: 'Scanning AI Platforms…',
+      steps: [
+        'Checking ChatGPT brand mentions',
+        'Analyzing Gemini recommendations',
+        'Scanning Google AI Overviews',
+        'Evaluating review sentiment signals',
+        'Scanning Perplexity citations',
+        'Calculating your AI Visibility Score'
+      ],
+      scoreLabel: 'AI VISIBILITY SCORE',
+      scoreSub: 'Based on 9-layer AI analysis for',
+      layerTitle: '9-Layer Analysis',
+      platformTitle: 'AI Platform Visibility',
+      issuesTitle: 'Critical Issues Found',
+      issueNegTitle: 'Negative review sentiment detected',
+      issueNegBody: 'AI platforms surfaced {count} reviews with negative sentiment that are influencing recommendations against {name}.',
+      issueNegImpact: 'Impact: Estimated {low}-{high}% reduction in AI-driven referrals',
+      issueFakeTitle: 'Potential fake reviews identified',
+      issueFakeBody: '{count} reviews show patterns consistent with fake or competitor-generated content (timing, language patterns, reviewer history).',
+      issueFakeImpact: 'Impact: Each fake review reduces your AI trust score by ~{points} points',
+      unlockTitle: 'Unlock Full Report',
+      unlockDesc: 'Enter your email to see all {count} additional findings, detailed recommendations, and your personalized fix roadmap.',
+      unlockPlaceholder: 'your@email.com',
+      unlockBtn: 'Unlock Full Report',
+      unlockFine: 'No spam. We\'ll send your detailed report and next steps.',
+      unlockSuccess: 'Thank you! Your report is now unlocked.',
+      ctaTitle: 'Ready to fix your AI visibility?',
+      ctaDesc: 'Get a professional AI Reputation Audit from our team. We\'ll identify what\'s hurting your visibility across ChatGPT, Gemini, Perplexity and Google AI — and build a plan to fix it.',
+      ctaBtn: 'Get Professional AI Audit',
+      backHome: '← Back to Home',
+      anotherCheck: '← Check another business'
+    },
+    es: {
+      brand: 'ReputationGuard',
+      badge: 'Verificación de Visibilidad IA Gratuita',
+      title: '¿La IA <span class="avc-accent">recomienda</span> tu negocio?',
+      subtitle: 'Descubre cómo ChatGPT, Gemini, Perplexity y Google AI hablan de tu negocio ahora mismo — y lo que te está costando en silencio.',
+      inputPlaceholder: 'Ingresa el nombre o sitio web de tu negocio',
+      checkBtn: 'Verificar Visibilidad IA',
+      trust1: 'Sin necesidad de login',
+      trust2: 'Resultados en ~5 segundos',
+      trust3: '100% gratis',
+      statPlatforms: 'Plataformas IA',
+      statLayers: 'Capas de Ranking',
+      statTime: 'Para Resultados',
+      scanning: 'Analizando Plataformas IA…',
+      steps: [
+        'Verificando menciones de marca en ChatGPT',
+        'Analizando recomendaciones de Gemini',
+        'Escaneando Google AI Overviews',
+        'Evaluando señales de sentimiento de reseñas',
+        'Escaneando citas en Perplexity',
+        'Calculando tu puntuación de Visibilidad IA'
+      ],
+      scoreLabel: 'PUNTUACIÓN DE VISIBILIDAD IA',
+      scoreSub: 'Basado en análisis de 9 capas para',
+      layerTitle: 'Análisis de 9 Capas',
+      platformTitle: 'Visibilidad en Plataformas IA',
+      issuesTitle: 'Problemas Críticos Encontrados',
+      issueNegTitle: 'Sentimiento negativo en reseñas detectado',
+      issueNegBody: 'Las plataformas IA mostraron {count} reseñas con sentimiento negativo que influyen en las recomendaciones en contra de {name}.',
+      issueNegImpact: 'Impacto: Reducción estimada del {low}-{high}% en referencias impulsadas por IA',
+      issueFakeTitle: 'Posibles reseñas falsas identificadas',
+      issueFakeBody: '{count} reseñas muestran patrones consistentes con contenido falso o generado por competidores (tiempo, patrones de lenguaje, historial del revisor).',
+      issueFakeImpact: 'Impacto: Cada reseña falsa reduce tu puntuación de confianza IA en ~{points} puntos',
+      unlockTitle: 'Desbloquear Informe Completo',
+      unlockDesc: 'Ingresa tu correo para ver los {count} hallazgos adicionales, recomendaciones detalladas y tu hoja de ruta personalizada.',
+      unlockPlaceholder: 'tu@email.com',
+      unlockBtn: 'Desbloquear Informe Completo',
+      unlockFine: 'Sin spam. Te enviaremos tu informe detallado y los próximos pasos.',
+      unlockSuccess: '¡Gracias! Tu informe ya está desbloqueado.',
+      ctaTitle: '¿Listo para arreglar tu visibilidad IA?',
+      ctaDesc: 'Obtén una auditoría profesional de Reputación IA de nuestro equipo. Identificaremos lo que daña tu visibilidad en ChatGPT, Gemini, Perplexity y Google AI — y crearemos un plan para solucionarlo.',
+      ctaBtn: 'Obtener Auditoría IA Profesional',
+      backHome: '← Volver al inicio',
+      anotherCheck: '← Verificar otro negocio'
+    },
+    de: {
+      brand: 'ReputationGuard',
+      badge: 'Kostenlose KI-Sichtbarkeitsprüfung',
+      title: 'Empfiehlt die KI <span class="avc-accent">Ihr Unternehmen</span>?',
+      subtitle: 'Sehen Sie, wie ChatGPT, Gemini, Perplexity und Google AI jetzt über Ihr Unternehmen sprechen – und was es Sie leise kostet.',
+      inputPlaceholder: 'Geben Sie Ihren Firmennamen oder Ihre Website ein',
+      checkBtn: 'KI-Sichtbarkeit prüfen',
+      trust1: 'Ohne Anmeldung',
+      trust2: 'Ergebnisse in ~5 Sekunden',
+      trust3: '100% kostenlos',
+      statPlatforms: 'KI-Plattformen',
+      statLayers: 'Ranking-Ebenen',
+      statTime: 'Zu Ergebnissen',
+      scanning: 'KI-Plattformen werden gescannt…',
+      steps: [
+        'Prüfe ChatGPT-Erwähnungen',
+        'Analysiere Gemini-Empfehlungen',
+        'Scanne Google AI Overviews',
+        'Bewerte Review-Sentiment-Signale',
+        'Scanne Perplexity-Zitate',
+        'Berechne Ihren KI-Sichtbarkeits-Score'
+      ],
+      scoreLabel: 'KI-SICHTBARKEITS-SCORE',
+      scoreSub: 'Basierend auf 9‑Ebenen‑Analyse für',
+      layerTitle: '9‑Ebenen‑Analyse',
+      platformTitle: 'KI-Plattform-Sichtbarkeit',
+      issuesTitle: 'Kritische Probleme gefunden',
+      issueNegTitle: 'Negatives Review-Sentiment erkannt',
+      issueNegBody: 'KI-Plattformen zeigten {count} Bewertungen mit negativem Sentiment, die Empfehlungen gegen {name} beeinflussen.',
+      issueNegImpact: 'Auswirkung: Geschätzte {low}-{high}% Reduzierung von KI-gesteuerten Verweisen',
+      issueFakeTitle: 'Potenzielle gefälschte Bewertungen identifiziert',
+      issueFakeBody: '{count} Bewertungen zeigen Muster, die auf gefälschte oder von Wettbewerbern erstellte Inhalte hindeuten (Zeitpunkt, Sprachmuster, Bewerterhistorie).',
+      issueFakeImpact: 'Auswirkung: Jede gefälschte Bewertung reduziert Ihren KI-Vertrauensscore um ~{points} Punkte',
+      unlockTitle: 'Vollständigen Bericht freischalten',
+      unlockDesc: 'Geben Sie Ihre E-Mail ein, um alle {count} zusätzlichen Erkenntnisse, detaillierte Empfehlungen und Ihre persönliche Roadmap zu sehen.',
+      unlockPlaceholder: 'ihre@email.com',
+      unlockBtn: 'Bericht freischalten',
+      unlockFine: 'Kein Spam. Wir senden Ihnen Ihren detaillierten Bericht und die nächsten Schritte.',
+      unlockSuccess: 'Vielen Dank! Ihr Bericht ist jetzt freigeschaltet.',
+      ctaTitle: 'Bereit, Ihre KI-Sichtbarkeit zu verbessern?',
+      ctaDesc: 'Holen Sie sich ein professionelles KI-Reputationsaudit von unserem Team. Wir identifizieren, was Ihre Sichtbarkeit auf ChatGPT, Gemini, Perplexity und Google AI beeinträchtigt – und erstellen einen Plan zur Behebung.',
+      ctaBtn: 'Professionelles KI-Audit erhalten',
+      backHome: '← Zurück zur Startseite',
+      anotherCheck: '← Ein anderes Unternehmen prüfen'
+    },
+    fr: {
+      brand: 'ReputationGuard',
+      badge: 'Vérification de Visibilité IA Gratuite',
+      title: 'L\'IA <span class="avc-accent">recommande</span>-t-elle votre entreprise ?',
+      subtitle: 'Découvrez comment ChatGPT, Gemini, Perplexity et Google AI parlent de votre entreprise dès maintenant — et ce que cela vous coûte silencieusement.',
+      inputPlaceholder: 'Entrez le nom ou le site web de votre entreprise',
+      checkBtn: 'Vérifier la Visibilité IA',
+      trust1: 'Sans connexion',
+      trust2: 'Résultats en ~5 secondes',
+      trust3: '100% gratuit',
+      statPlatforms: 'Plateformes IA',
+      statLayers: 'Couches de classement',
+      statTime: 'Pour les résultats',
+      scanning: 'Analyse des plateformes IA…',
+      steps: [
+        'Vérification des mentions de marque sur ChatGPT',
+        'Analyse des recommandations Gemini',
+        'Analyse de Google AI Overviews',
+        'Évaluation des signaux de sentiment des avis',
+        'Analyse des citations Perplexity',
+        'Calcul de votre score de visibilité IA'
+      ],
+      scoreLabel: 'SCORE DE VISIBILITÉ IA',
+      scoreSub: 'Basé sur une analyse en 9 couches pour',
+      layerTitle: 'Analyse en 9 couches',
+      platformTitle: 'Visibilité sur les plateformes IA',
+      issuesTitle: 'Problèmes critiques détectés',
+      issueNegTitle: 'Sentiment négatif des avis détecté',
+      issueNegBody: 'Les plateformes IA ont trouvé {count} avis négatifs qui influencent les recommandations contre {name}.',
+      issueNegImpact: 'Impact : Réduction estimée de {low}-{high}% des références pilotées par l\'IA',
+      issueFakeTitle: 'Avis potentiellement falsifiés identifiés',
+      issueFakeBody: '{count} avis présentent des schémas cohérents avec du contenu faux ou généré par des concurrents (calendrier, schémas linguistiques, historique du critique).',
+      issueFakeImpact: 'Impact : Chaque faux avis réduit votre score de confiance IA d\'environ {points} points',
+      unlockTitle: 'Déverrouiller le rapport complet',
+      unlockDesc: 'Entrez votre email pour voir les {count} résultats supplémentaires, des recommandations détaillées et votre feuille de route personnalisée.',
+      unlockPlaceholder: 'votre@email.com',
+      unlockBtn: 'Déverrouiller le rapport',
+      unlockFine: 'Pas de spam. Nous vous enverrons votre rapport détaillé et les prochaines étapes.',
+      unlockSuccess: 'Merci ! Votre rapport est maintenant déverrouillé.',
+      ctaTitle: 'Prêt à améliorer votre visibilité IA ?',
+      ctaDesc: 'Obtenez un audit professionnel de réputation IA de notre équipe. Nous identifierons ce qui nuit à votre visibilité sur ChatGPT, Gemini, Perplexity et Google AI — et nous construirons un plan pour y remédier.',
+      ctaBtn: 'Obtenir un audit IA professionnel',
+      backHome: '← Retour à l\'accueil',
+      anotherCheck: '← Vérifier une autre entreprise'
+    },
+    it: {
+      brand: 'ReputationGuard',
+      badge: 'Controllo Visibilità IA Gratuito',
+      title: 'L\'IA <span class="avc-accent">raccomanda</span> la tua attività?',
+      subtitle: 'Scopri come ChatGPT, Gemini, Perplexity e Google AI parlano della tua attività in questo momento — e quanto ti costa silenziosamente.',
+      inputPlaceholder: 'Inserisci il nome o il sito web della tua attività',
+      checkBtn: 'Controlla Visibilità IA',
+      trust1: 'Nessun login richiesto',
+      trust2: 'Risultati in ~5 secondi',
+      trust3: '100% gratuito',
+      statPlatforms: 'Piattaforme IA',
+      statLayers: 'Livelli di Ranking',
+      statTime: 'Per i Risultati',
+      scanning: 'Analisi delle piattaforme IA…',
+      steps: [
+        'Controllo menzioni del brand su ChatGPT',
+        'Analisi raccomandazioni Gemini',
+        'Analisi Google AI Overviews',
+        'Valutazione segnali di sentiment delle recensioni',
+        'Analisi citazioni Perplexity',
+        'Calcolo del tuo punteggio di Visibilità IA'
+      ],
+      scoreLabel: 'PUNTEGGIO DI VISIBILITÀ IA',
+      scoreSub: 'Basato su analisi a 9 livelli per',
+      layerTitle: 'Analisi a 9 livelli',
+      platformTitle: 'Visibilità sulle Piattaforme IA',
+      issuesTitle: 'Problemi Critici Trovati',
+      issueNegTitle: 'Sentimento negativo nelle recensioni rilevato',
+      issueNegBody: 'Le piattaforme IA hanno mostrato {count} recensioni con sentimento negativo che influenzano le raccomandazioni contro {name}.',
+      issueNegImpact: 'Impatto: Riduzione stimata del {low}-{high}% nei referral guidati dall\'IA',
+      issueFakeTitle: 'Potenziali recensioni false identificate',
+      issueFakeBody: '{count} recensioni mostrano schemi coerenti con contenuti falsi o generati da concorrenti (tempistica, modelli linguistici, storico del recensore).',
+      issueFakeImpact: 'Impatto: Ogni recensione falsa riduce il tuo punteggio di fiducia IA di ~{points} punti',
+      unlockTitle: 'Sblocca Rapporto Completo',
+      unlockDesc: 'Inserisci la tua email per vedere tutti i {count} risultati aggiuntivi, raccomandazioni dettagliate e la tua roadmap personalizzata.',
+      unlockPlaceholder: 'tuo@email.com',
+      unlockBtn: 'Sblocca Rapporto',
+      unlockFine: 'Nessuno spam. Ti invieremo il rapporto dettagliato e i prossimi passi.',
+      unlockSuccess: 'Grazie! Il tuo rapporto è ora sbloccato.',
+      ctaTitle: 'Pronto a migliorare la tua visibilità IA?',
+      ctaDesc: 'Ottieni un audit professionale della Reputazione IA dal nostro team. Identificheremo cosa danneggia la tua visibilità su ChatGPT, Gemini, Perplexity e Google AI — e creeremo un piano per risolverlo.',
+      ctaBtn: 'Ottieni Audit IA Professionale',
+      backHome: '← Torna alla home',
+      anotherCheck: '← Controlla un\'altra attività'
+    },
+    vi: {
+      brand: 'ReputationGuard',
+      badge: 'Kiểm Tra Hiển Thị AI Miễn Phí',
+      title: 'AI có <span class="avc-accent">giới thiệu</span> doanh nghiệp của bạn?',
+      subtitle: 'Xem ChatGPT, Gemini, Perplexity và Google AI nói gì về doanh nghiệp của bạn ngay bây giờ — và điều đó đang âm thầm tốn kém bao nhiêu.',
+      inputPlaceholder: 'Nhập tên doanh nghiệp hoặc trang web của bạn',
+      checkBtn: 'Kiểm Tra Hiển Thị AI',
+      trust1: 'Không cần đăng nhập',
+      trust2: 'Kết quả trong ~5 giây',
+      trust3: '100% miễn phí',
+      statPlatforms: 'Nền tảng AI',
+      statLayers: 'Lớp Xếp hạng',
+      statTime: 'Đến Kết quả',
+      scanning: 'Đang quét các nền tảng AI…',
+      steps: [
+        'Kiểm tra đề cập thương hiệu trên ChatGPT',
+        'Phân tích đề xuất từ Gemini',
+        'Quét Google AI Overviews',
+        'Đánh giá tín hiệu cảm xúc đánh giá',
+        'Quét trích dẫn Perplexity',
+        'Tính toán điểm Hiển thị AI của bạn'
+      ],
+      scoreLabel: 'ĐIỂM HIỂN THỊ AI',
+      scoreSub: 'Dựa trên phân tích 9 lớp cho',
+      layerTitle: 'Phân tích 9 lớp',
+      platformTitle: 'Hiển thị trên Nền tảng AI',
+      issuesTitle: 'Vấn đề Nghiêm trọng Được Phát Hiện',
+      issueNegTitle: 'Phát hiện cảm xúc đánh giá tiêu cực',
+      issueNegBody: 'Các nền tảng AI đã tìm thấy {count} đánh giá tiêu cực ảnh hưởng đến đề xuất chống lại {name}.',
+      issueNegImpact: 'Tác động: Ước tính giảm {low}-{high}% trong lượt giới thiệu từ AI',
+      issueFakeTitle: 'Xác định các đánh giá giả tiềm năng',
+      issueFakeBody: '{count} đánh giá có dấu hiệu của nội dung giả hoặc do đối thủ tạo ra (thời điểm, mẫu ngôn ngữ, lịch sử người đánh giá).',
+      issueFakeImpact: 'Tác động: Mỗi đánh giá giả làm giảm điểm tín nhiệm AI của bạn khoảng {points} điểm',
+      unlockTitle: 'Mở Khóa Báo Cáo Đầy Đủ',
+      unlockDesc: 'Nhập email của bạn để xem tất cả {count} phát hiện bổ sung, đề xuất chi tiết và lộ trình cá nhân hóa.',
+      unlockPlaceholder: 'email@cuaban.com',
+      unlockBtn: 'Mở Khóa Báo Cáo',
+      unlockFine: 'Không spam. Chúng tôi sẽ gửi báo cáo chi tiết và các bước tiếp theo.',
+      unlockSuccess: 'Cảm ơn bạn! Báo cáo của bạn đã được mở khóa.',
+      ctaTitle: 'Sẵn sàng cải thiện hiển thị AI của bạn?',
+      ctaDesc: 'Nhận đánh giá chuyên nghiệp về Danh tiếng AI từ đội ngũ của chúng tôi. Chúng tôi sẽ xác định điều gì đang làm tổn hại đến hiển thị của bạn trên ChatGPT, Gemini, Perplexity và Google AI — và xây dựng kế hoạch khắc phục.',
+      ctaBtn: 'Nhận Đánh Giá AI Chuyên Nghiệp',
+      backHome: '← Quay lại trang chủ',
+      anotherCheck: '← Kiểm tra doanh nghiệp khác'
+    },
+    pt: {
+      brand: 'ReputationGuard',
+      badge: 'Verificação de Visibilidade IA Gratuita',
+      title: 'A IA <span class="avc-accent">recomenda</span> seu negócio?',
+      subtitle: 'Veja como ChatGPT, Gemini, Perplexity e Google AI falam sobre seu negócio agora mesmo — e o que isso está custando silenciosamente.',
+      inputPlaceholder: 'Digite o nome ou site do seu negócio',
+      checkBtn: 'Verificar Visibilidade IA',
+      trust1: 'Sem necessidade de login',
+      trust2: 'Resultados em ~5 segundos',
+      trust3: '100% gratuito',
+      statPlatforms: 'Plataformas IA',
+      statLayers: 'Camadas de Ranking',
+      statTime: 'Para Resultados',
+      scanning: 'Analisando Plataformas IA…',
+      steps: [
+        'Verificando menções da marca no ChatGPT',
+        'Analisando recomendações do Gemini',
+        'Analisando Google AI Overviews',
+        'Avaliando sinais de sentimento das avaliações',
+        'Analisando citações do Perplexity',
+        'Calculando seu score de Visibilidade IA'
+      ],
+      scoreLabel: 'PONTUAÇÃO DE VISIBILIDADE IA',
+      scoreSub: 'Baseado em análise de 9 camadas para',
+      layerTitle: 'Análise de 9 Camadas',
+      platformTitle: 'Visibilidade nas Plataformas IA',
+      issuesTitle: 'Problemas Críticos Encontrados',
+      issueNegTitle: 'Sentimento negativo em avaliações detectado',
+      issueNegBody: 'As plataformas IA mostraram {count} avaliações com sentimento negativo que influenciam recomendações contra {name}.',
+      issueNegImpact: 'Impacto: Redução estimada de {low}-{high}% em referências orientadas por IA',
+      issueFakeTitle: 'Possíveis avaliações falsas identificadas',
+      issueFakeBody: '{count} avaliações mostram padrões consistentes com conteúdo falso ou gerado por concorrentes (timing, padrões de linguagem, histórico do avaliador).',
+      issueFakeImpact: 'Impacto: Cada avaliação falsa reduz sua pontuação de confiança IA em ~{points} pontos',
+      unlockTitle: 'Desbloquear Relatório Completo',
+      unlockDesc: 'Digite seu e-mail para ver todas as {count} descobertas adicionais, recomendações detalhadas e seu roteiro personalizado.',
+      unlockPlaceholder: 'seu@email.com',
+      unlockBtn: 'Desbloquear Relatório',
+      unlockFine: 'Sem spam. Enviaremos seu relatório detalhado e os próximos passos.',
+      unlockSuccess: 'Obrigado! Seu relatório agora está desbloqueado.',
+      ctaTitle: 'Pronto para consertar sua visibilidade IA?',
+      ctaDesc: 'Obtenha uma auditoria profissional de Reputação IA da nossa equipe. Identificaremos o que está prejudicando sua visibilidade no ChatGPT, Gemini, Perplexity e Google AI — e criaremos um plano para corrigir.',
+      ctaBtn: 'Obter Auditoria IA Profissional',
+      backHome: '← Voltar para a página inicial',
+      anotherCheck: '← Verificar outro negócio'
+    },
+    tr: {
+      brand: 'ReputationGuard',
+      badge: 'Ücretsiz AI Görünürlük Kontrolü',
+      title: 'AI <span class="avc-accent">işletmenizi</span> tavsiye ediyor mu?',
+      subtitle: 'ChatGPT, Gemini, Perplexity ve Google AI\'nın işletmeniz hakkında şu anda ne söylediğini — ve bunun size sessizce ne kadara mal olduğunu görün.',
+      inputPlaceholder: 'İşletme adınızı veya web sitenizi girin',
+      checkBtn: 'AI Görünürlüğünü Kontrol Et',
+      trust1: 'Giriş gerekmez',
+      trust2: 'Sonuçlar ~5 saniye içinde',
+      trust3: '%100 ücretsiz',
+      statPlatforms: 'AI Platformları',
+      statLayers: 'Sıralama Katmanları',
+      statTime: 'Sonuçlara',
+      scanning: 'AI Platformları taranıyor…',
+      steps: [
+        'ChatGPT marka bahisleri kontrol ediliyor',
+        'Gemini önerileri analiz ediliyor',
+        'Google AI Overviews taranıyor',
+        'Yorum duyarlılığı sinyalleri değerlendiriliyor',
+        'Perplexity alıntıları taranıyor',
+        'AI Görünürlük Puanınız hesaplanıyor'
+      ],
+      scoreLabel: 'AI GÖRÜNÜRLÜK PUANI',
+      scoreSub: '9 katmanlı analize dayalı olarak',
+      layerTitle: '9 Katmanlı Analiz',
+      platformTitle: 'AI Platform Görünürlüğü',
+      issuesTitle: 'Kritik Sorunlar Bulundu',
+      issueNegTitle: 'Olumsuz yorum duyarlılığı tespit edildi',
+      issueNegBody: 'AI platformları {name} aleyhine önerileri etkileyen {count} olumsuz yorum tespit etti.',
+      issueNegImpact: 'Etki: AI yönlendirmelerinde tahmini %{low}-{high} azalma',
+      issueFakeTitle: 'Potansiyel sahte yorumlar tespit edildi',
+      issueFakeBody: '{count} yorum, sahte veya rakip kaynaklı içerikle tutarlı kalıplar gösteriyor (zamanlama, dil kalıpları, yorumcu geçmişi).',
+      issueFakeImpact: 'Etki: Her sahte yorum AI güven puanınızı ~{points} puan azaltır',
+      unlockTitle: 'Tam Raporu Aç',
+      unlockDesc: 'Tüm {count} ek bulguyu, ayrıntılı önerileri ve kişiselleştirilmiş yol haritanızı görmek için e-posta adresinizi girin.',
+      unlockPlaceholder: 'eposta@ornek.com',
+      unlockBtn: 'Raporu Aç',
+      unlockFine: 'Spam yok. Size ayrıntılı raporu ve sonraki adımları göndereceğiz.',
+      unlockSuccess: 'Teşekkürler! Raporunuz artık açık.',
+      ctaTitle: 'AI görünürlüğünüzü düzeltmeye hazır mısınız?',
+      ctaDesc: 'Ekibimizden profesyonel bir AI İtibar Denetimi alın. ChatGPT, Gemini, Perplexity ve Google AI\'daki görünürlüğünüze zarar veren şeyi belirleyip düzeltmek için bir plan oluşturacağız.',
+      ctaBtn: 'Profesyonel AI Denetimi Alın',
+      backHome: '← Ana sayfaya dön',
+      anotherCheck: '← Başka bir işletmeyi kontrol et'
+    },
+    ar: {
+      brand: 'ReputationGuard',
+      badge: 'فحص رؤية الذكاء الاصطناعي مجاني',
+      title: 'هل يوصي الذكاء الاصطناعي <span class="avc-accent">بنشاطك التجاري</span>؟',
+      subtitle: 'تعرف على ما تقوله ChatGPT وGemini وPerplexity وGoogle AI عن نشاطك التجاري الآن — وما يكلفك ذلك بصمت.',
+      inputPlaceholder: 'أدخل اسم النشاط التجاري أو موقع الويب',
+      checkBtn: 'تحقق من رؤية الذكاء الاصطناعي',
+      trust1: 'لا حاجة لتسجيل الدخول',
+      trust2: 'النتائج في ~5 ثوانٍ',
+      trust3: '100% مجاني',
+      statPlatforms: 'منصات الذكاء الاصطناعي',
+      statLayers: 'طبقات التصنيف',
+      statTime: 'للنتائج',
+      scanning: 'جارٍ فحص منصات الذكاء الاصطناعي…',
+      steps: [
+        'التحقق من إشارات العلامة التجارية على ChatGPT',
+        'تحليل توصيات Gemini',
+        'فحص Google AI Overviews',
+        'تقييم إشارات مشاعر التقييمات',
+        'فحص اقتباسات Perplexity',
+        'حساب درجة رؤية الذكاء الاصطناعي الخاصة بك'
+      ],
+      scoreLabel: 'درجة رؤية الذكاء الاصطناعي',
+      scoreSub: 'بناءً على تحليل 9 طبقات لـ',
+      layerTitle: 'تحليل 9 طبقات',
+      platformTitle: 'الرؤية على منصات الذكاء الاصطناعي',
+      issuesTitle: 'المشاكل الحرجة التي تم العثور عليها',
+      issueNegTitle: 'تم اكتشاف مشاعر سلبية في التقييمات',
+      issueNegBody: 'عرضت منصات الذكاء الاصطناعي {count} تقييمًا بمشاعر سلبية تؤثر على التوصيات ضد {name}.',
+      issueNegImpact: 'التأثير: انخفاض يقدر بـ {low}-{high}% في الإحالات المدعومة بالذكاء الاصطناعي',
+      issueFakeTitle: 'تحديد تقييمات مزيفة محتملة',
+      issueFakeBody: 'تظهر {count} تقييمات أنماطًا تتوافق مع محتوى مزيف أو من إنتاج منافسين (التوقيت، أنماط اللغة، تاريخ المراجع).',
+      issueFakeImpact: 'التأثير: كل تقييم مزيف يقلل من درجة ثقة الذكاء الاصطناعي الخاصة بك بمقدار ~{points} نقطة',
+      unlockTitle: 'فتح التقرير الكامل',
+      unlockDesc: 'أدخل بريدك الإلكتروني لترى جميع النتائج الإضافية {count} والتوصيات التفصيلية وخارطة الطريق المخصصة لك.',
+      unlockPlaceholder: 'بريدك@الإلكتروني.com',
+      unlockBtn: 'فتح التقرير الكامل',
+      unlockFine: 'لا بريد مزعج. سنرسل لك التقرير التفصيلي والخطوات التالية.',
+      unlockSuccess: 'شكرًا لك! تم فتح تقريرك الآن.',
+      ctaTitle: 'هل أنت مستعد لإصلاح رؤية الذكاء الاصطناعي الخاصة بك؟',
+      ctaDesc: 'احصل على تدقيق احترافي لسمعة الذكاء الاصطناعي من فريقنا. سنحدد ما يضر رؤيتك على ChatGPT وGemini وPerplexity وGoogle AI — وسنضع خطة لإصلاحها.',
+      ctaBtn: 'احصل على تدقيق ذكاء اصطناعي احترافي',
+      backHome: '← العودة إلى الصفحة الرئيسية',
+      anotherCheck: '← فحص نشاط تجاري آخر'
+    },
+    ru: {
+      brand: 'ReputationGuard',
+      badge: 'Бесплатная проверка AI-видимости',
+      title: 'Рекомендует ли AI <span class="avc-accent">ваш бизнес</span>?',
+      subtitle: 'Узнайте, что говорят о вашем бизнесе ChatGPT, Gemini, Perplexity и Google AI прямо сейчас — и сколько это стоит вам в тишине.',
+      inputPlaceholder: 'Введите название вашего бизнеса или сайт',
+      checkBtn: 'Проверить AI-видимость',
+      trust1: 'Без входа',
+      trust2: 'Результат за ~5 секунд',
+      trust3: '100% бесплатно',
+      statPlatforms: 'AI-платформы',
+      statLayers: 'Слои ранжирования',
+      statTime: 'До результатов',
+      scanning: 'Сканирование AI-платформ…',
+      steps: [
+        'Проверка упоминаний бренда в ChatGPT',
+        'Анализ рекомендаций Gemini',
+        'Сканирование Google AI Overviews',
+        'Оценка сигналов тональности отзывов',
+        'Сканирование цитирований Perplexity',
+        'Расчет вашего показателя AI-видимости'
+      ],
+      scoreLabel: 'ПОКАЗАТЕЛЬ AI-ВИДИМОСТИ',
+      scoreSub: 'На основе 9-слойного анализа для',
+      layerTitle: '9-слойный анализ',
+      platformTitle: 'Видимость на AI-платформах',
+      issuesTitle: 'Критические проблемы обнаружены',
+      issueNegTitle: 'Обнаружена негативная тональность отзывов',
+      issueNegBody: 'AI-платформы показали {count} отзывов с негативной тональностью, влияющих на рекомендации против {name}.',
+      issueNegImpact: 'Влияние: Предполагаемое снижение рефералов от AI на {low}-{high}%',
+      issueFakeTitle: 'Выявлены потенциально фейковые отзывы',
+      issueFakeBody: '{count} отзывов имеют признаки фейкового или созданного конкурентами контента (время, языковые шаблоны, история автора).',
+      issueFakeImpact: 'Влияние: Каждый фейковый отзыв снижает ваш показатель доверия AI примерно на {points} пунктов',
+      unlockTitle: 'Разблокировать полный отчёт',
+      unlockDesc: 'Введите ваш email, чтобы увидеть все {count} дополнительных выводов, подробные рекомендации и ваш персонализированный план действий.',
+      unlockPlaceholder: 'ваш@email.com',
+      unlockBtn: 'Разблокировать отчёт',
+      unlockFine: 'Без спама. Мы отправим вам подробный отчёт и следующие шаги.',
+      unlockSuccess: 'Спасибо! Ваш отчёт теперь разблокирован.',
+      ctaTitle: 'Готовы улучшить свою AI-видимость?',
+      ctaDesc: 'Получите профессиональный аудит AI-репутации от нашей команды. Мы определим, что вредит вашей видимости в ChatGPT, Gemini, Perplexity и Google AI — и составим план исправления.',
+      ctaBtn: 'Получить профессиональный AI-аудит',
+      backHome: '← На главную',
+      anotherCheck: '← Проверить другой бизнес'
+    }
+  };
+
+  // ----- Detect language -----
+  var lang = 'en';
+  var browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase().substring(0,2);
+  var supported = ['en','es','de','fr','it','vi','pt','tr','ar','ru'];
+  if (supported.indexOf(browserLang) !== -1) lang = browserLang;
+  var t = translations[lang] || translations.en;
+
+  // ----- Apply RTL for Arabic -----
+  if (lang === 'ar') {
+    document.documentElement.setAttribute('dir', 'rtl');
+    document.body.classList.add('rtl-mode');
+  }
+
+  // ----- ICONS -----
+  var ICONS = {
+    shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>',
+    search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>',
+    arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>',
+    check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
+    x: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg>',
+    alert: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 18H2z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>',
+    lock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
+    mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+    chart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>',
+    bot: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M12 9V5"/><circle cx="12" cy="3" r="1.4"/><path d="M9 14v1"/><path d="M15 14v1"/></svg>',
+    clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>',
+    compass: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 6-6 2 2-6z"/></svg>',
+    sparkle: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg>'
+  };
+
+  function icon(name, size) {
+    return '<span class="avc-i ' + (size || 'avc-i-md') + '">' + ICONS[name] + '</span>';
+  }
+
+  // ----- Data & helpers (deterministic simulation) -----
+  var LAYER_DEFS = [
+    { key: 'access', label: 'Access', range: [65, 95], weight: 0.08 },
+    { key: 'structure', label: 'Structure', range: [45, 80], weight: 0.10 },
+    { key: 'authority', label: 'Authority', range: [40, 75], weight: 0.12 },
+    { key: 'clarity', label: 'Clarity', range: [45, 80], weight: 0.08 },
+    { key: 'trust', label: 'Trust Signals', range: [30, 65], weight: 0.16 },
+    { key: 'packaging', label: 'Packaging', range: [35, 70], weight: 0.10 },
+    { key: 'citation', label: 'Citation Ready', range: [45, 75], weight: 0.10 },
+    { key: 'activity', label: 'Activity', range: [55, 90], weight: 0.08 },
+    { key: 'reputation', label: 'Reputation', range: [25, 60], weight: 0.18 }
+  ];
+
+  var PLATFORM_DEFS = [
+    { key: 'chatgpt', name: 'ChatGPT', icon: 'bot', range: [35, 80],
+      copy: { good: ['Cited positively with consistent brand mentions in recent answers.'],
+              warn: ['Partially visible — mentioned but not recommended due to mixed reviews.'],
+              bad: ['Not cited in answers — insufficient authority signals.'] } },
+    { key: 'aio', name: 'Google AI', icon: 'clock', range: [30, 75],
+      copy: { good: ['Featured directly in AI Overviews for branded queries.'],
+              warn: ['AI Overviews not featuring your brand — competitors preferred.'],
+              bad: ['Excluded from AI Overviews — no authoritative citations found.'] } },
+    { key: 'perplexity', name: 'Perplexity', icon: 'compass', range: [25, 70],
+      copy: { good: ['Cited as a source with strong authority signals.'],
+              warn: ['Appears in some answers but ranked behind competitors.'],
+              bad: ['Not cited in answers — insufficient authority signals.'] } },
+    { key: 'gemini', name: 'Gemini', icon: 'sparkle', range: [25, 70],
+      copy: { good: ['Recommended alongside top competitors for relevant queries.'],
+              warn: ['Referenced inconsistently depending on how the query is phrased.'],
+              bad: ['Not appearing in recommendations — low trust signals.'] } }
+  ];
+
+  var SCAN_STEPS = t.steps;
+
+  var LOCKED_ISSUES = [
+    { title: 'No AEO-formatted content', body: 'AI answer engines look for direct Q&A style content to quote. Without it, they default to citing competitors instead.' },
+    { title: 'Inconsistent business info across the web', body: 'Mismatched name, address, phone or hours across directories make it harder for AI models to confirm which listing is authoritative.' },
+    { title: 'Missing structured data (schema markup)', body: 'Without schema.org markup, AI crawlers struggle to confidently extract key facts about your business.' },
+    { title: 'Low citation frequency on authoritative sources', body: 'Your brand rarely appears on the high-authority sites and directories AI models draw from when making recommendations.' }
+  ];
+
+  function hashSeed(str) {
+    var h = 2166136261;
+    for (var i = 0; i < str.length; i++) {
+      h ^= str.charCodeAt(i);
+      h = (h * 16777619) >>> 0;
+    }
+    return h >>> 0;
+  }
+
+  function mulberry32(seed) {
+    var a = seed;
+    return function () {
+      a |= 0; a = (a + 0x6d2b79f5) | 0;
+      var t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  function bandOf(score) {
+    if (score < 35) return { label: 'At Risk', cls: 'avc-red', stroke: '#f87171' };
+    if (score < 55) return { label: 'Needs Work', cls: '', stroke: '#fbbf24' };
+    if (score < 75) return { label: 'Good', cls: 'avc-emerald', stroke: '#3B82F6' };
+    return { label: 'Excellent', cls: 'avc-emerald', stroke: '#3B82F6' };
+  }
+
+  function statusOf(value) {
+    if (value >= 72) return { iconName: 'check', cls: 'avc-good', barCls: 'avc-bar-good' };
+    if (value >= 50) return { iconName: 'alert', cls: 'avc-warn', barCls: 'avc-bar-warn' };
+    return { iconName: 'x', cls: 'avc-bad', barCls: 'avc-bar-bad' };
+  }
+
+  // ----- Widget state -----
+  var state = {
+    step: 'landing',   // 'landing', 'scanning', 'results'
+    inputValue: '',
+    report: null,
+    progress: 0,
+    doneSteps: 0,
+    unlocked: false,
+    scanTimer: null,
+    emailSent: false
+  };
+
+  var root = document.getElementById('avc-root');
+
+  function computeReport(rawValue) {
+    var value = rawValue.trim();
+    var seed = hashSeed(value.toLowerCase());
+    var rand = mulberry32(seed);
+
+    var layers = LAYER_DEFS.map(function (def) {
+      var v = Math.round(def.range[0] + rand() * (def.range[1] - def.range[0]));
+      return { key: def.key, label: def.label, weight: def.weight, value: v };
+    });
+
+    var overall = Math.round(layers.reduce(function (sum, l) { return sum + l.value * l.weight; }, 0));
+
+    var platforms = PLATFORM_DEFS.map(function (def) {
+      var v = Math.round(def.range[0] + rand() * (def.range[1] - def.range[0]));
+      var tier = v >= 68 ? 'good' : v >= 45 ? 'warn' : 'bad';
+      var statusLabel = tier === 'good' ? 'Recommended' : tier === 'warn' ? 'Partially Visible' : 'Not Recommended';
+      var pool = def.copy[tier];
+      var desc = pool[Math.floor(rand() * pool.length)];
+      return { key: def.key, name: def.name, icon: def.icon, value: v, tier: tier, statusLabel: statusLabel, desc: desc };
+    });
+
+    var reputationLayer = layers.filter(function (l) { return l.key === 'reputation'; })[0].value;
+    var negCount = Math.round(4 + rand() * 6);
+    var impactLow = Math.max(20, Math.round(100 - reputationLayer - 15));
+    var impactHigh = Math.min(75, impactLow + 20);
+    var fakeCount = Math.round(2 + rand() * 6);
+    var pointsPerFake = Math.round(5 + rand() * 5);
+
+    return { name: value, layers: layers, overall: overall, platforms: platforms,
+             negCount: negCount, impactLow: impactLow, impactHigh: impactHigh,
+             fakeCount: fakeCount, pointsPerFake: pointsPerFake };
+  }
+
+  function handleStart(raw) {
+    var value = (raw || '').trim();
+    if (!value) return;
+    state.report = computeReport(value);
+    state.unlocked = false;
+    state.emailSent = false;
+    state.step = 'scanning';
+    state.progress = 0;
+    state.doneSteps = 0;
+    render();
+    startScanTimer();
+  }
+
+  function startScanTimer() {
+    clearInterval(state.scanTimer);
+    var totalDuration = 4200, tick = 60, elapsed = 0;
+    state.scanTimer = setInterval(function () {
+      elapsed += tick;
+      var pct = Math.min(100, Math.round((elapsed / totalDuration) * 100));
+      state.progress = pct;
+      state.doneSteps = Math.min(SCAN_STEPS.length, Math.ceil((pct / 100) * SCAN_STEPS.length));
+      updateScanningDOM();
+      if (pct >= 100) {
+        clearInterval(state.scanTimer);
+        setTimeout(function () { state.step = 'results'; render(); }, 500);
+      }
+    }, tick);
+  }
+
+  function updateScanningDOM() {
+    var fill = root.querySelector('.avc-progress-fill');
+    if (fill) fill.style.width = state.progress + '%';
+    var items = root.querySelectorAll('.avc-scan-list li');
+    items.forEach(function (li, i) {
+      li.classList.toggle('avc-done', i < state.doneSteps);
+    });
+  }
+
+  // ----- Formspree submission -----
+  function submitEmail(email, business) {
+    // TODO: Replace YOUR_FORMSPREE_ID with your actual Formspree form ID
+    var formId = 'mykqokjr'; // <-- CHANGE THIS
+    var url = 'https://formspree.io/f/' + formId;
+    return fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, business: business })
+    }).then(function(res) {
+      if (res.ok) return true;
+      throw new Error('Formspree error');
+    });
+  }
+
+  function handleUnlock() {
+    var input = root.querySelector('#avc-email-input');
+    var val = input ? input.value : '';
+    if (!val || val.indexOf('@') === -1) return;
+
+    // If form ID is not set, just unlock locally (for development)
+    if (document.getElementById('avc-unlock-btn').dataset.formspreeId === 'mykqokjr') {
+      // No real submission – just unlock
+      state.unlocked = true;
+      render();
+      return;
+    }
+
+    submitEmail(val, state.report ? state.report.name : '')
+      .then(function() {
+        state.unlocked = true;
+        state.emailSent = true;
+        render();
+      })
+      .catch(function() {
+        // Even if submission fails, we still unlock for UX
+        state.unlocked = true;
+        render();
+      });
+  }
+
+  function reset() {
+    clearInterval(state.scanTimer);
+    state = { step: 'landing', inputValue: '', report: null, progress: 0, doneSteps: 0, unlocked: false, scanTimer: null, emailSent: false };
+    render();
+  }
+
+  // ----- Render functions (with i18n) -----
+  function gaugeSvg(score) {
+    var band = bandOf(score);
+    var r = 80, c = 2 * Math.PI * r;
+    var clamped = Math.max(0, Math.min(100, score));
+    var offset = c - (clamped / 100) * c;
+    return '' +
+      '<div class="avc-gauge">' +
+        '<svg viewBox="0 0 200 200" class="avc-gauge-svg">' +
+          '<circle cx="100" cy="100" r="' + r + '" stroke="#1f2937" stroke-width="14" fill="none"></circle>' +
+          '<circle cx="100" cy="100" r="' + r + '" stroke="' + band.stroke + '" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="' + c + '" stroke-dashoffset="' + offset + '" class="avc-gauge-arc"></circle>' +
+        '</svg>' +
+        '<div class="avc-gauge-center">' +
+          '<span class="avc-gauge-num">' + score + '</span>' +
+          '<span class="avc-gauge-den">/100</span>' +
+        '</div>' +
+      '</div>';
+  }
+
+  function layerRow(l) {
+    var st = statusOf(l.value);
+    return '' +
+      '<div class="avc-layer-row">' +
+        '<div class="avc-layer-top">' +
+          '<div class="avc-layer-label">' +
+            '<span class="avc-badge-icon ' + st.cls + '">' + icon(st.iconName, 'avc-i-xs') + '</span>' +
+            '<span>' + l.label + '</span>' +
+          '</div>' +
+          '<span class="avc-mono avc-muted">' + l.value + '%</span>' +
+        '</div>' +
+        '<div class="avc-bar-track"><div class="avc-bar-fill ' + st.barCls + '" style="width:' + l.value + '%"></div></div>' +
+      '</div>';
+  }
+
+  function platformCard(p) {
+    var tierCls = p.tier === 'good' ? 'avc-tier-good' : p.tier === 'warn' ? 'avc-tier-warn' : 'avc-tier-bad';
+    var badgeCls = p.tier === 'good' ? 'avc-good' : p.tier === 'warn' ? 'avc-warn' : 'avc-bad';
+    var statusIconName = p.tier === 'good' ? 'check' : p.tier === 'warn' ? 'alert' : 'x';
+    var barCls = p.tier === 'good' ? 'avc-bar-good' : p.tier === 'warn' ? 'avc-bar-warn' : 'avc-bar-bad';
+    return '' +
+      '<div class="avc-platform-card ' + tierCls + '">' +
+        '<div class="avc-platform-head">' + icon(p.icon) + '<span class="avc-platform-name">' + p.name + '</span></div>' +
+        '<span class="avc-status-pill ' + badgeCls + '">' + icon(statusIconName, 'avc-i-xs') + p.statusLabel + '</span>' +
+        '<div class="avc-conf-row"><span>Confidence</span><span class="avc-mono">' + p.value + '%</span></div>' +
+        '<div class="avc-bar-track avc-mb"><div class="avc-bar-fill ' + barCls + '" style="width:' + p.value + '%"></div></div>' +
+        '<p class="avc-desc">' + p.desc + '</p>' +
+      '</div>';
+  }
+
+  function renderLanding() {
+    return '' +
+      '<div class="avc-brand">' + icon('shield', 'avc-i-lg') + '<span>' + t.brand + '</span></div>' +
+      '<div class="avc-badge"><span class="avc-dot"></span>' + t.badge + '</div>' +
+      '<h1 class="avc-h1">' + t.title + '</h1>' +
+      '<p class="avc-sub">' + t.subtitle + '</p>' +
+      '<div class="avc-field">' + icon('search', 'avc-i-sm avc-field-icon') +
+        '<input id="avc-input" type="text" placeholder="' + t.inputPlaceholder + '" autocomplete="off" />' +
+      '</div>' +
+      '<button id="avc-start-btn" class="avc-btn avc-btn-primary" disabled>' + t.checkBtn + ' ' + icon('arrow', 'avc-i-sm') + '</button>' +
+      '<div class="avc-trust-row">' +
+        '<span>' + icon('shield', 'avc-i-sm') + ' ' + t.trust1 + '</span>' +
+        '<span>' + icon('clock', 'avc-i-sm') + ' ' + t.trust2 + '</span>' +
+        '<span>' + icon('check', 'avc-i-sm') + ' ' + t.trust3 + '</span>' +
+      '</div>' +
+      '<div class="avc-stats">' +
+        '<div><div class="avc-stat-num avc-emerald">4</div><div class="avc-stat-label">' + t.statPlatforms + '</div></div>' +
+        '<div><div class="avc-stat-num avc-sky">9</div><div class="avc-stat-label">' + t.statLayers + '</div></div>' +
+        '<div><div class="avc-stat-num">&lt;5s</div><div class="avc-stat-label">' + t.statTime + '</div></div>' +
+      '</div>';
+  }
+
+  function renderScanning() {
+    var items = SCAN_STEPS.map(function (s, i) {
+      return '<li class="' + (i < state.doneSteps ? 'avc-done' : '') + '"><span class="avc-scan-dot"></span>' + s + '</li>';
+    }).join('');
+    return '' +
+      '<div class="avc-scan-wrap">' +
+        '<div class="avc-scan-ring-outer"><div class="avc-scan-ring-inner">' + icon('shield', 'avc-i-xl avc-emerald') + '</div></div>' +
+        '<h2 class="avc-scan-title">' + t.scanning + '</h2>' +
+        '<ul class="avc-scan-list">' + items + '</ul>' +
+        '<div class="avc-progress-track"><div class="avc-progress-fill" style="width:' + state.progress + '%"></div></div>' +
+      '</div>';
+  }
+
+  function renderResults() {
+    var r = state.report;
+    var band = bandOf(r.overall);
+    var layerRows = r.layers.map(layerRow).join('');
+    var platformCards = r.platforms.map(platformCard).join('');
+    var lockedCards = LOCKED_ISSUES.map(function (issue) {
+      return '<div class="avc-locked-card">' + icon('alert') +
+        '<div><p class="avc-issue-title">' + issue.title + '</p><p class="avc-issue-body" style="margin:0;">' + issue.body + '</p></div></div>';
+    }).join('');
+
+    var negBody = t.issueNegBody.replace(/\{count\}/g, r.negCount).replace(/\{name\}/g, r.name);
+    var negImpact = t.issueNegImpact.replace(/\{low\}/g, r.impactLow).replace(/\{high\}/g, r.impactHigh);
+    var fakeBody = t.issueFakeBody.replace(/\{count\}/g, r.fakeCount);
+    var fakeImpact = t.issueFakeImpact.replace(/\{points\}/g, r.pointsPerFake);
+    var unlockDesc = t.unlockDesc.replace(/\{count\}/g, LOCKED_ISSUES.length);
+
+    var successMsg = state.emailSent ? '<p class="avc-success">' + t.unlockSuccess + '</p>' : '';
+
+    return '' +
+      '<div class="avc-brand">' + icon('shield', 'avc-i-lg') + '<span>' + t.brand + '</span></div>' +
+      '<button class="avc-link-btn avc-reset-btn">← ' + t.anotherCheck.replace(/← /,'') + '</button>' +
+
+      '<div class="avc-card avc-score-card">' +
+        '<p class="avc-score-eyebrow">' + t.scoreLabel + '</p>' +
+        gaugeSvg(r.overall) +
+        '<p class="avc-score-label ' + band.cls + '">' + band.label + '</p>' +
+        '<p class="avc-score-sub">' + t.scoreSub + ' ' + r.name + '</p>' +
+      '</div>' +
+
+      '<div class="avc-card">' +
+        '<div class="avc-section-head">' + icon('chart', 'avc-i-md') + '<h3>' + t.layerTitle + '</h3></div>' +
+        layerRows +
+      '</div>' +
+
+      '<div style="margin-bottom:20px;">' +
+        '<div class="avc-section-head" style="padding:0 4px;">' + icon('chart', 'avc-i-md') + '<h3>' + t.platformTitle + '</h3></div>' +
+        platformCards +
+      '</div>' +
+
+      '<div style="margin-bottom:20px;">' +
+        '<div class="avc-section-head" style="padding:0 4px;">' + icon('alert', 'avc-i-md') + '<h3>' + t.issuesTitle + '</h3></div>' +
+        '<div class="avc-issue-card">' + icon('alert') +
+          '<div><p class="avc-issue-title">' + t.issueNegTitle + '</p>' +
+          '<p class="avc-issue-body">' + negBody + '</p>' +
+          '<p class="avc-issue-impact">' + negImpact + '</p></div>' +
+        '</div>' +
+        '<div class="avc-issue-card">' + icon('alert') +
+          '<div><p class="avc-issue-title">' + t.issueFakeTitle + '</p>' +
+          '<p class="avc-issue-body">' + fakeBody + '</p>' +
+          '<p class="avc-issue-impact">' + fakeImpact + '</p></div>' +
+        '</div>' +
+        '<div class="avc-locked-wrap">' +
+          '<div class="avc-locked-list' + (state.unlocked ? '' : ' avc-blurred') + '">' + lockedCards + '</div>' +
+          (state.unlocked ? successMsg :
+            '<div class="avc-unlock-overlay"><div class="avc-unlock-card">' +
+              '<div class="avc-unlock-icon">' + icon('lock', 'avc-i-md avc-emerald') + '</div>' +
+              '<h4>' + t.unlockTitle + '</h4>' +
+              '<p>' + unlockDesc + '</p>' +
+              '<div class="avc-email-field">' + icon('mail', 'avc-i-sm') +
+                '<input id="avc-email-input" type="email" placeholder="' + t.unlockPlaceholder + '" autocomplete="off" />' +
+              '</div>' +
+              '<button id="avc-unlock-btn" class="avc-btn avc-btn-primary avc-btn-sm" disabled data-formspree-id="mykqokjr">' + t.unlockBtn + '</button>' +
+              '<p class="avc-fine-print">' + t.unlockFine + '</p>' +
+            '</div></div>') +
+        '</div>' +
+      '</div>' +
+
+      '<div class="avc-cta">' +
+        '<h3>' + t.ctaTitle + '</h3>' +
+        '<p>' + t.ctaDesc + '</p>' +
+        '<a href="/#contact-form-section" class="avc-btn avc-cta-btn">' + t.ctaBtn + ' ' + icon('arrow', 'avc-i-sm') + '</a>' +
+      '</div>' +
+
+      '<button class="avc-bottom-link avc-reset-btn">← ' + t.anotherCheck.replace(/← /,'') + '</button>';
+  }
+
+  function render() {
+    if (state.step === 'landing') root.innerHTML = renderLanding();
+    else if (state.step === 'scanning') root.innerHTML = renderScanning();
+    else if (state.step === 'results' && state.report) root.innerHTML = renderResults();
+    attachEvents();
+  }
+
+  function attachEvents() {
+    var input = root.querySelector('#avc-input');
+    var startBtn = root.querySelector('#avc-start-btn');
+    if (input) {
+      input.value = state.inputValue;
+      input.addEventListener('input', function (e) {
+        state.inputValue = e.target.value;
+        if (startBtn) startBtn.disabled = !e.target.value.trim();
+      });
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') handleStart(input.value);
+      });
+    }
+    if (startBtn) {
+      startBtn.addEventListener('click', function () {
+        handleStart(input ? input.value : state.inputValue);
+      });
+    }
+
+    root.querySelectorAll('.avc-reset-btn').forEach(function (btn) {
+      btn.addEventListener('click', reset);
+    });
+
+    var emailInput = root.querySelector('#avc-email-input');
+    var unlockBtn = root.querySelector('#avc-unlock-btn');
+    if (emailInput) {
+      emailInput.addEventListener('input', function (e) {
+        if (unlockBtn) unlockBtn.disabled = e.target.value.indexOf('@') === -1;
+      });
+      emailInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') handleUnlock();
+      });
+    }
+    if (unlockBtn) unlockBtn.addEventListener('click', handleUnlock);
+
+    // Update nav CTA text if needed (maybe keep static)
+  }
+
+  // ----- Auto-start from URL param -----
+  function autoStart() {
+    var params = new URLSearchParams(window.location.search);
+    var business = params.get('business');
+    if (business) {
+      state.inputValue = business;
+      // We need to render first, then trigger start after DOM is ready
+      render();
+      // Small delay to ensure DOM is rendered
+      setTimeout(function() {
+        handleStart(business);
+      }, 100);
+    } else {
+      render();
+    }
+  }
+
+  // ----- Footer language switcher (for this page) -----
+  // We'll keep it simple: just change language and reload? Or we can update the translations.
+  // For simplicity, we'll let footer buttons reload the page with a ?lang= parameter.
+  // But we already have auto-detect. We'll just add a simple switch that changes the lang variable and re-renders.
+  // However, we need to re‑render the entire widget with new translations. We'll add a function.
+  function setLanguage(langCode) {
+    if (!translations[langCode]) return;
+    lang = langCode;
+    t = translations[lang];
+    // Update RTL
+    if (lang === 'ar') {
+      document.documentElement.setAttribute('dir', 'rtl');
+      document.body.classList.add('rtl-mode');
+    } else {
+      document.documentElement.setAttribute('dir', 'ltr');
+      document.body.classList.remove('rtl-mode');
+    }
+    // Re-render widget if not scanning/results – we need to reset to landing to avoid state mismatch.
+    // Better to just reload the page with a language parameter.
+    // For simplicity, we just reload.
+    window.location.href = window.location.pathname + '?lang=' + langCode;
+  }
+
+  // ----- Initialize -----
+  // Check if lang param is present
+  var urlParams = new URLSearchParams(window.location.search);
+  var langParam = urlParams.get('lang');
+  if (langParam && translations[langParam]) {
+    lang = langParam;
+    t = translations[lang];
+  }
+
+  autoStart();
+
+  // Attach footer language button listeners
+  document.querySelectorAll('.footer-lang-switch .lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      var code = this.getAttribute('data-lang');
+      if (code) setLanguage(code);
+    });
+  });
+
+  // Dynamic phone
+  var phoneSpan = document.getElementById('dynamic-phone');
+  if (phoneSpan) {
+    phoneSpan.textContent = '+1(505)313-6274';
+  }
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    var navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
