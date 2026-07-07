@@ -1646,16 +1646,37 @@ footer {
 
   <div class="hero">
   <div class="hero-content">
-    <div class="hero-badge" data-i18n="hero-badge">⚡ AI Visibility Engine</div>
-    <h1 data-i18n="hero-title">Why Isn't ChatGPT <span style="color:#2563EB;">Recommending</span> Your Business?</h1>
-    <div class="hero-subhead" data-i18n="hero-subhead">ChatGPT, Gemini, and Google AI read every review about you. <strong>We make sure they recommend YOU</strong> — not your competitors.</div>
-    <p data-i18n="hero-desc">Free AI Visibility Audit → See exactly how AI sees your brand and get a clear roadmap to fix it.</p>
-    <button class="btn-primary" onclick="document.getElementById('contact-form-section').scrollIntoView({behavior:'smooth'})" data-i18n="hero-btn">Get Free AI Audit →</button>
-    <div class="hero-stats">
-      <div class="stat"><span class="counter" data-target="89">89</span>% <span data-i18n="stat1">AI recommendation rate*</span></div>
-      <div class="stat"><span class="counter" data-target="12">12</span>+ <span data-i18n="stat3">countries served</span></div>
-    </div>
+  <div class="hero-badge">⚡ AI Sales Engine</div>
+  <h1>Is ChatGPT <span style="color:#2563EB;">Recommending</span> Your Business — or Your Competitors?</h1>
+  <div class="hero-subhead">
+    62% of consumers now trust AI to guide their purchase decisions. If ChatGPT, Gemini, or Perplexity doesn't mention your brand, you're losing customers — silently, every single day. <strong>We fix that.</strong>
   </div>
+  <p>See exactly how AI platforms see your business. Free 9-layer scan reveals what's hurting your visibility, which fake reviews are costing you sales, and exactly how to fix it — in minutes.</p>
+
+  <div style="display:flex; gap:12px; flex-wrap:wrap; margin: 24px 0 16px;">
+    <input
+      id="businessInput"
+      type="text"
+      placeholder="Enter your business name or website"
+      autocomplete="off"
+      style="flex:1; min-width:200px; padding:14px 18px; border-radius:40px; border:1px solid #2d3748; background:#111827; color:#f9fafb; font-size:1rem; outline:none; transition:border-color 0.2s, box-shadow 0.2s;"
+    />
+    <button
+      id="checkBtn"
+      class="btn-primary"
+      style="padding:14px 32px; white-space:nowrap; display:inline-flex; align-items:center; gap:8px;"
+      disabled
+    >
+      Check AI Visibility <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat"><span class="counter" data-target="87">87</span>% <span>of AI traffic</span></div>
+    <div class="stat"><span class="counter" data-target="82">82</span>% <span>of AI sales</span></div>
+    <div class="stat"><span class="counter" data-target="43">43</span>% <span>use AI daily</span></div>
+  </div>
+</div>
   <div class="hero-image" style="background: transparent; box-shadow: none; border: none; padding: 0; min-height: auto;">
   <img 
     src="/AI_Visibility_Audit_from_ReputationguardPRO.webp" 
@@ -7504,6 +7525,33 @@ if (navLangSelect) {
       setTimeout(function() { container.style.display = 'none'; }, 500);
     });
 
+  })();
+</script>
+<script>
+  (function() {
+    var input = document.getElementById('businessInput');
+    var btn = document.getElementById('checkBtn');
+
+    if (input && btn) {
+      input.addEventListener('input', function() {
+        btn.disabled = !this.value.trim();
+      });
+
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !btn.disabled) {
+          openAIPage();
+        }
+      });
+
+      btn.addEventListener('click', openAIPage);
+
+      function openAIPage() {
+        var value = input.value.trim();
+        if (!value) return;
+        var url = '/ai-visibility.html?business=' + encodeURIComponent(value);
+        window.open(url, '_blank');
+      }
+    }
   })();
 </script>
 </body>
