@@ -177,6 +177,7 @@
     }
     .avc-field input::placeholder { color: var(--avc-muted); }
     .avc-field input:focus { border-color: rgba(59,130,246,0.5); box-shadow: 0 0 0 3px rgba(59,130,246,0.15); }
+    .avc-field input:disabled { opacity: 0.6; cursor: not-allowed; }
 
     .avc-btn {
       width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -439,7 +440,7 @@
   </div>
 </div>
 
-<!-- ===== FOOTER (copy from main) ===== -->
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-container">
     <div class="footer-column">
@@ -510,11 +511,13 @@
 </footer>
 
 <!-- ============================================================
-     SCRIPT – Full widget with i18n, Formspree, auto-start
+     SCRIPT – Full widget with i18n, Formspree, auto-start, one-time check
      ============================================================ -->
 <script>
 (function() {
-  // ----- I18N translations -----
+  // ================================================================
+  // 1. TRANSLATIONS (complete, with new keys for "already checked")
+  // ================================================================
   var translations = {
     en: {
       brand: 'ReputationGuard',
@@ -539,7 +542,7 @@
         'Calculating your AI Visibility Score'
       ],
       scoreLabel: 'AI VISIBILITY SCORE',
-      scoreSub: 'Based on 9-layer AI analysis for',
+      scoreSub: 'Based on 9-layer analysis for',
       layerTitle: '9-Layer Analysis',
       platformTitle: 'AI Platform Visibility',
       issuesTitle: 'Critical Issues Found',
@@ -559,7 +562,20 @@
       ctaDesc: 'Get a professional AI Reputation Audit from our team. We\'ll identify what\'s hurting your visibility across ChatGPT, Gemini, Perplexity and Google AI — and build a plan to fix it.',
       ctaBtn: 'Get Professional AI Audit',
       backHome: '← Back to Home',
-      anotherCheck: '← Check another business'
+      anotherCheck: '← Check another business',
+      statusRecommended: 'Recommended',
+      statusPartiallyVisible: 'Partially Visible',
+      statusNotRecommended: 'Not Recommended',
+      bandAtRisk: 'At Risk',
+      bandNeedsWork: 'Needs Work',
+      bandGood: 'Good',
+      bandExcellent: 'Excellent',
+      confidenceLabel: 'Confidence',
+      platformGoodDesc: 'Cited positively with consistent brand mentions.',
+      platformWarnDesc: 'Partially visible — mentioned but not recommended.',
+      platformBadDesc: 'Not cited — insufficient authority.',
+      alreadyCheckedPlaceholder: 'You already checked. Contact us for full audit.',
+      alreadyCheckedBtn: 'Get Free AI Audit →'
     },
     es: {
       brand: 'ReputationGuard',
@@ -604,7 +620,20 @@
       ctaDesc: 'Obtén una auditoría profesional de Reputación IA de nuestro equipo. Identificaremos lo que daña tu visibilidad en ChatGPT, Gemini, Perplexity y Google AI — y crearemos un plan para solucionarlo.',
       ctaBtn: 'Obtener Auditoría IA Profesional',
       backHome: '← Volver al inicio',
-      anotherCheck: '← Verificar otro negocio'
+      anotherCheck: '← Verificar otro negocio',
+      statusRecommended: 'Recomendado',
+      statusPartiallyVisible: 'Parcialmente Visible',
+      statusNotRecommended: 'No Recomendado',
+      bandAtRisk: 'En Riesgo',
+      bandNeedsWork: 'Necesita Mejora',
+      bandGood: 'Bueno',
+      bandExcellent: 'Excelente',
+      confidenceLabel: 'Confianza',
+      platformGoodDesc: 'Citado positivamente con menciones consistentes de la marca.',
+      platformWarnDesc: 'Parcialmente visible — mencionado pero no recomendado.',
+      platformBadDesc: 'No citado — autoridad insuficiente.',
+      alreadyCheckedPlaceholder: 'Ya verificaste. Contáctanos para una auditoría completa.',
+      alreadyCheckedBtn: 'Obtener Auditoría Gratuita →'
     },
     de: {
       brand: 'ReputationGuard',
@@ -649,7 +678,20 @@
       ctaDesc: 'Holen Sie sich ein professionelles KI-Reputationsaudit von unserem Team. Wir identifizieren, was Ihre Sichtbarkeit auf ChatGPT, Gemini, Perplexity und Google AI beeinträchtigt – und erstellen einen Plan zur Behebung.',
       ctaBtn: 'Professionelles KI-Audit erhalten',
       backHome: '← Zurück zur Startseite',
-      anotherCheck: '← Ein anderes Unternehmen prüfen'
+      anotherCheck: '← Ein anderes Unternehmen prüfen',
+      statusRecommended: 'Empfohlen',
+      statusPartiallyVisible: 'Teilweise sichtbar',
+      statusNotRecommended: 'Nicht empfohlen',
+      bandAtRisk: 'Gefährdet',
+      bandNeedsWork: 'Verbesserungsbedarf',
+      bandGood: 'Gut',
+      bandExcellent: 'Ausgezeichnet',
+      confidenceLabel: 'Vertrauen',
+      platformGoodDesc: 'Positiv zitiert mit konsistenten Markenerwähnungen.',
+      platformWarnDesc: 'Teilweise sichtbar – erwähnt, aber nicht empfohlen.',
+      platformBadDesc: 'Nicht zitiert – unzureichende Autorität.',
+      alreadyCheckedPlaceholder: 'Sie haben bereits geprüft. Kontaktieren Sie uns für ein vollständiges Audit.',
+      alreadyCheckedBtn: 'Kostenloses KI-Audit anfordern →'
     },
     fr: {
       brand: 'ReputationGuard',
@@ -694,7 +736,20 @@
       ctaDesc: 'Obtenez un audit professionnel de réputation IA de notre équipe. Nous identifierons ce qui nuit à votre visibilité sur ChatGPT, Gemini, Perplexity et Google AI — et nous construirons un plan pour y remédier.',
       ctaBtn: 'Obtenir un audit IA professionnel',
       backHome: '← Retour à l\'accueil',
-      anotherCheck: '← Vérifier une autre entreprise'
+      anotherCheck: '← Vérifier une autre entreprise',
+      statusRecommended: 'Recommandé',
+      statusPartiallyVisible: 'Partiellement visible',
+      statusNotRecommended: 'Non recommandé',
+      bandAtRisk: 'En danger',
+      bandNeedsWork: 'À améliorer',
+      bandGood: 'Bon',
+      bandExcellent: 'Excellent',
+      confidenceLabel: 'Confiance',
+      platformGoodDesc: 'Cité positivement avec des mentions cohérentes de la marque.',
+      platformWarnDesc: 'Partiellement visible – mentionné mais pas recommandé.',
+      platformBadDesc: 'Non cité – autorité insuffisante.',
+      alreadyCheckedPlaceholder: 'Vous avez déjà vérifié. Contactez-nous pour un audit complet.',
+      alreadyCheckedBtn: 'Obtenir un audit IA gratuit →'
     },
     it: {
       brand: 'ReputationGuard',
@@ -739,7 +794,20 @@
       ctaDesc: 'Ottieni un audit professionale della Reputazione IA dal nostro team. Identificheremo cosa danneggia la tua visibilità su ChatGPT, Gemini, Perplexity e Google AI — e creeremo un piano per risolverlo.',
       ctaBtn: 'Ottieni Audit IA Professionale',
       backHome: '← Torna alla home',
-      anotherCheck: '← Controlla un\'altra attività'
+      anotherCheck: '← Controlla un\'altra attività',
+      statusRecommended: 'Raccomandato',
+      statusPartiallyVisible: 'Parzialmente visibile',
+      statusNotRecommended: 'Non raccomandato',
+      bandAtRisk: 'A rischio',
+      bandNeedsWork: 'Da migliorare',
+      bandGood: 'Buono',
+      bandExcellent: 'Eccellente',
+      confidenceLabel: 'Fiducia',
+      platformGoodDesc: 'Citato positivamente con menzioni consistenti del brand.',
+      platformWarnDesc: 'Parzialmente visibile – menzionato ma non raccomandato.',
+      platformBadDesc: 'Non citato – autorità insufficiente.',
+      alreadyCheckedPlaceholder: 'Hai già verificato. Contattaci per un audit completo.',
+      alreadyCheckedBtn: 'Ottieni Audit IA Gratuito →'
     },
     vi: {
       brand: 'ReputationGuard',
@@ -784,7 +852,20 @@
       ctaDesc: 'Nhận đánh giá chuyên nghiệp về Danh tiếng AI từ đội ngũ của chúng tôi. Chúng tôi sẽ xác định điều gì đang làm tổn hại đến hiển thị của bạn trên ChatGPT, Gemini, Perplexity và Google AI — và xây dựng kế hoạch khắc phục.',
       ctaBtn: 'Nhận Đánh Giá AI Chuyên Nghiệp',
       backHome: '← Quay lại trang chủ',
-      anotherCheck: '← Kiểm tra doanh nghiệp khác'
+      anotherCheck: '← Kiểm tra doanh nghiệp khác',
+      statusRecommended: 'Được đề xuất',
+      statusPartiallyVisible: 'Hiển thị một phần',
+      statusNotRecommended: 'Không được đề xuất',
+      bandAtRisk: 'Có rủi ro',
+      bandNeedsWork: 'Cần cải thiện',
+      bandGood: 'Tốt',
+      bandExcellent: 'Xuất sắc',
+      confidenceLabel: 'Tin cậy',
+      platformGoodDesc: 'Được trích dẫn tích cực với các đề cập thương hiệu nhất quán.',
+      platformWarnDesc: 'Hiển thị một phần – được đề cập nhưng không được đề xuất.',
+      platformBadDesc: 'Không được trích dẫn – thiếu uy tín.',
+      alreadyCheckedPlaceholder: 'Bạn đã kiểm tra rồi. Liên hệ với chúng tôi để được đánh giá đầy đủ.',
+      alreadyCheckedBtn: 'Nhận đánh giá AI miễn phí →'
     },
     pt: {
       brand: 'ReputationGuard',
@@ -829,7 +910,20 @@
       ctaDesc: 'Obtenha uma auditoria profissional de Reputação IA da nossa equipe. Identificaremos o que está prejudicando sua visibilidade no ChatGPT, Gemini, Perplexity e Google AI — e criaremos um plano para corrigir.',
       ctaBtn: 'Obter Auditoria IA Profissional',
       backHome: '← Voltar para a página inicial',
-      anotherCheck: '← Verificar outro negócio'
+      anotherCheck: '← Verificar outro negócio',
+      statusRecommended: 'Recomendado',
+      statusPartiallyVisible: 'Parcialmente visível',
+      statusNotRecommended: 'Não recomendado',
+      bandAtRisk: 'Em risco',
+      bandNeedsWork: 'Precisa de melhorias',
+      bandGood: 'Bom',
+      bandExcellent: 'Excelente',
+      confidenceLabel: 'Confiança',
+      platformGoodDesc: 'Citado positivamente com menções consistentes da marca.',
+      platformWarnDesc: 'Parcialmente visível – mencionado mas não recomendado.',
+      platformBadDesc: 'Não citado – autoridade insuficiente.',
+      alreadyCheckedPlaceholder: 'Você já verificou. Entre em contato para uma auditoria completa.',
+      alreadyCheckedBtn: 'Obter Auditoria IA Gratuita →'
     },
     tr: {
       brand: 'ReputationGuard',
@@ -874,7 +968,20 @@
       ctaDesc: 'Ekibimizden profesyonel bir AI İtibar Denetimi alın. ChatGPT, Gemini, Perplexity ve Google AI\'daki görünürlüğünüze zarar veren şeyi belirleyip düzeltmek için bir plan oluşturacağız.',
       ctaBtn: 'Profesyonel AI Denetimi Alın',
       backHome: '← Ana sayfaya dön',
-      anotherCheck: '← Başka bir işletmeyi kontrol et'
+      anotherCheck: '← Başka bir işletmeyi kontrol et',
+      statusRecommended: 'Tavsiye Ediliyor',
+      statusPartiallyVisible: 'Kısmen Görünür',
+      statusNotRecommended: 'Tavsiye Edilmiyor',
+      bandAtRisk: 'Risk Altında',
+      bandNeedsWork: 'İyileştirme Gerekli',
+      bandGood: 'İyi',
+      bandExcellent: 'Mükemmel',
+      confidenceLabel: 'Güven',
+      platformGoodDesc: 'Olumlu şekilde alıntılanmış, tutarlı marka bahisleri.',
+      platformWarnDesc: 'Kısmen görünür – bahsediliyor ancak tavsiye edilmiyor.',
+      platformBadDesc: 'Alıntılanmamış – yetersiz yetki.',
+      alreadyCheckedPlaceholder: 'Zaten kontrol ettiniz. Tam denetim için bizimle iletişime geçin.',
+      alreadyCheckedBtn: 'Ücretsiz YZ Denetimi Al →'
     },
     ar: {
       brand: 'ReputationGuard',
@@ -919,7 +1026,20 @@
       ctaDesc: 'احصل على تدقيق احترافي لسمعة الذكاء الاصطناعي من فريقنا. سنحدد ما يضر رؤيتك على ChatGPT وGemini وPerplexity وGoogle AI — وسنضع خطة لإصلاحها.',
       ctaBtn: 'احصل على تدقيق ذكاء اصطناعي احترافي',
       backHome: '← العودة إلى الصفحة الرئيسية',
-      anotherCheck: '← فحص نشاط تجاري آخر'
+      anotherCheck: '← فحص نشاط تجاري آخر',
+      statusRecommended: 'موصى به',
+      statusPartiallyVisible: 'مرئي جزئياً',
+      statusNotRecommended: 'غير موصى به',
+      bandAtRisk: 'في خطر',
+      bandNeedsWork: 'بحاجة إلى تحسين',
+      bandGood: 'جيد',
+      bandExcellent: 'ممتاز',
+      confidenceLabel: 'الثقة',
+      platformGoodDesc: 'تم الاقتباس بشكل إيجابي مع إشارات ثابتة للعلامة التجارية.',
+      platformWarnDesc: 'مرئي جزئياً – مذكور ولكن غير موصى به.',
+      platformBadDesc: 'غير مقتبس – سلطة غير كافية.',
+      alreadyCheckedPlaceholder: 'لقد قمت بالفعل بالتحقق. تواصل معنا لإجراء تدقيق كامل.',
+      alreadyCheckedBtn: 'احصل على تدقيق ذكاء اصطناعي مجاني ←'
     },
     ru: {
       brand: 'ReputationGuard',
@@ -964,24 +1084,41 @@
       ctaDesc: 'Получите профессиональный аудит AI-репутации от нашей команды. Мы определим, что вредит вашей видимости в ChatGPT, Gemini, Perplexity и Google AI — и составим план исправления.',
       ctaBtn: 'Получить профессиональный AI-аудит',
       backHome: '← На главную',
-      anotherCheck: '← Проверить другой бизнес'
+      anotherCheck: '← Проверить другой бизнес',
+      statusRecommended: 'Рекомендуется',
+      statusPartiallyVisible: 'Частично видим',
+      statusNotRecommended: 'Не рекомендуется',
+      bandAtRisk: 'Под угрозой',
+      bandNeedsWork: 'Требует улучшения',
+      bandGood: 'Хорошо',
+      bandExcellent: 'Отлично',
+      confidenceLabel: 'Доверие',
+      platformGoodDesc: 'Цитируется положительно с постоянными упоминаниями бренда.',
+      platformWarnDesc: 'Частично видим – упоминается, но не рекомендуется.',
+      platformBadDesc: 'Не цитируется – недостаточный авторитет.',
+      alreadyCheckedPlaceholder: 'Вы уже проверили. Свяжитесь с нами для полного аудита.',
+      alreadyCheckedBtn: 'Получить бесплатный аудит ИИ →'
     }
   };
 
-  // ----- Detect language -----
+  // ================================================================
+  // 2. DETECT LANGUAGE
+  // ================================================================
   var lang = 'en';
   var browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase().substring(0,2);
   var supported = ['en','es','de','fr','it','vi','pt','tr','ar','ru'];
   if (supported.indexOf(browserLang) !== -1) lang = browserLang;
   var t = translations[lang] || translations.en;
 
-  // ----- Apply RTL for Arabic -----
+  // Apply RTL for Arabic
   if (lang === 'ar') {
     document.documentElement.setAttribute('dir', 'rtl');
     document.body.classList.add('rtl-mode');
   }
 
-  // ----- ICONS -----
+  // ================================================================
+  // 3. ICONS HELPER
+  // ================================================================
   var ICONS = {
     shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>',
     search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>',
@@ -1002,7 +1139,9 @@
     return '<span class="avc-i ' + (size || 'avc-i-md') + '">' + ICONS[name] + '</span>';
   }
 
-  // ----- Data & helpers (deterministic simulation) -----
+  // ================================================================
+  // 4. DATA & HELPERS
+  // ================================================================
   var LAYER_DEFS = [
     { key: 'access', label: 'Access', range: [65, 95], weight: 0.08 },
     { key: 'structure', label: 'Structure', range: [45, 80], weight: 0.10 },
@@ -1016,22 +1155,10 @@
   ];
 
   var PLATFORM_DEFS = [
-    { key: 'chatgpt', name: 'ChatGPT', icon: 'bot', range: [35, 80],
-      copy: { good: ['Cited positively with consistent brand mentions in recent answers.'],
-              warn: ['Partially visible — mentioned but not recommended due to mixed reviews.'],
-              bad: ['Not cited in answers — insufficient authority signals.'] } },
-    { key: 'aio', name: 'Google AI', icon: 'clock', range: [30, 75],
-      copy: { good: ['Featured directly in AI Overviews for branded queries.'],
-              warn: ['AI Overviews not featuring your brand — competitors preferred.'],
-              bad: ['Excluded from AI Overviews — no authoritative citations found.'] } },
-    { key: 'perplexity', name: 'Perplexity', icon: 'compass', range: [25, 70],
-      copy: { good: ['Cited as a source with strong authority signals.'],
-              warn: ['Appears in some answers but ranked behind competitors.'],
-              bad: ['Not cited in answers — insufficient authority signals.'] } },
-    { key: 'gemini', name: 'Gemini', icon: 'sparkle', range: [25, 70],
-      copy: { good: ['Recommended alongside top competitors for relevant queries.'],
-              warn: ['Referenced inconsistently depending on how the query is phrased.'],
-              bad: ['Not appearing in recommendations — low trust signals.'] } }
+    { key: 'chatgpt', name: 'ChatGPT', icon: 'bot' },
+    { key: 'aio', name: 'Google AI', icon: 'clock' },
+    { key: 'perplexity', name: 'Perplexity', icon: 'compass' },
+    { key: 'gemini', name: 'Gemini', icon: 'sparkle' }
   ];
 
   var SCAN_STEPS = t.steps;
@@ -1063,10 +1190,10 @@
   }
 
   function bandOf(score) {
-    if (score < 35) return { label: 'At Risk', cls: 'avc-red', stroke: '#f87171' };
-    if (score < 55) return { label: 'Needs Work', cls: '', stroke: '#fbbf24' };
-    if (score < 75) return { label: 'Good', cls: 'avc-emerald', stroke: '#3B82F6' };
-    return { label: 'Excellent', cls: 'avc-emerald', stroke: '#3B82F6' };
+    if (score < 35) return { labelKey: 'bandAtRisk', stroke: '#f87171' };
+    if (score < 55) return { labelKey: 'bandNeedsWork', stroke: '#fbbf24' };
+    if (score < 75) return { labelKey: 'bandGood', stroke: '#3B82F6' };
+    return { labelKey: 'bandExcellent', stroke: '#3B82F6' };
   }
 
   function statusOf(value) {
@@ -1074,20 +1201,6 @@
     if (value >= 50) return { iconName: 'alert', cls: 'avc-warn', barCls: 'avc-bar-warn' };
     return { iconName: 'x', cls: 'avc-bad', barCls: 'avc-bar-bad' };
   }
-
-  // ----- Widget state -----
-  var state = {
-    step: 'landing',   // 'landing', 'scanning', 'results'
-    inputValue: '',
-    report: null,
-    progress: 0,
-    doneSteps: 0,
-    unlocked: false,
-    scanTimer: null,
-    emailSent: false
-  };
-
-  var root = document.getElementById('avc-root');
 
   function computeReport(rawValue) {
     var value = rawValue.trim();
@@ -1102,12 +1215,9 @@
     var overall = Math.round(layers.reduce(function (sum, l) { return sum + l.value * l.weight; }, 0));
 
     var platforms = PLATFORM_DEFS.map(function (def) {
-      var v = Math.round(def.range[0] + rand() * (def.range[1] - def.range[0]));
+      var v = Math.round(30 + rand() * 50);
       var tier = v >= 68 ? 'good' : v >= 45 ? 'warn' : 'bad';
-      var statusLabel = tier === 'good' ? 'Recommended' : tier === 'warn' ? 'Partially Visible' : 'Not Recommended';
-      var pool = def.copy[tier];
-      var desc = pool[Math.floor(rand() * pool.length)];
-      return { key: def.key, name: def.name, icon: def.icon, value: v, tier: tier, statusLabel: statusLabel, desc: desc };
+      return { key: def.key, name: def.name, icon: def.icon, value: v, tier: tier };
     });
 
     var reputationLayer = layers.filter(function (l) { return l.key === 'reputation'; })[0].value;
@@ -1122,143 +1232,43 @@
              fakeCount: fakeCount, pointsPerFake: pointsPerFake };
   }
 
-  function handleStart(raw) {
-    var value = (raw || '').trim();
-    if (!value) return;
-    state.report = computeReport(value);
-    state.unlocked = false;
-    state.emailSent = false;
-    state.step = 'scanning';
-    state.progress = 0;
-    state.doneSteps = 0;
-    render();
-    startScanTimer();
-  }
+  // ================================================================
+  // 5. WIDGET STATE
+  // ================================================================
+  var state = {
+    step: 'landing',   // landing | scanning | results
+    inputValue: '',
+    report: null,
+    progress: 0,
+    doneSteps: 0,
+    unlocked: false,
+    scanTimer: null,
+    emailSent: false,
+    isLocked: false // true if already checked (localStorage)
+  };
 
-  function startScanTimer() {
-    clearInterval(state.scanTimer);
-    var totalDuration = 4200, tick = 60, elapsed = 0;
-    state.scanTimer = setInterval(function () {
-      elapsed += tick;
-      var pct = Math.min(100, Math.round((elapsed / totalDuration) * 100));
-      state.progress = pct;
-      state.doneSteps = Math.min(SCAN_STEPS.length, Math.ceil((pct / 100) * SCAN_STEPS.length));
-      updateScanningDOM();
-      if (pct >= 100) {
-        clearInterval(state.scanTimer);
-        setTimeout(function () { state.step = 'results'; render(); }, 500);
-      }
-    }, tick);
-  }
+  var root = document.getElementById('avc-root');
 
-  function updateScanningDOM() {
-    var fill = root.querySelector('.avc-progress-fill');
-    if (fill) fill.style.width = state.progress + '%';
-    var items = root.querySelectorAll('.avc-scan-list li');
-    items.forEach(function (li, i) {
-      li.classList.toggle('avc-done', i < state.doneSteps);
-    });
-  }
-
-  // ----- Formspree submission -----
-  function submitEmail(email, business) {
-    // TODO: Replace YOUR_FORMSPREE_ID with your actual Formspree form ID
-    var formId = 'mykqokjr'; // <-- CHANGE THIS
-    var url = 'https://formspree.io/f/' + formId;
-    return fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, business: business })
-    }).then(function(res) {
-      if (res.ok) return true;
-      throw new Error('Formspree error');
-    });
-  }
-
-    function handleUnlock() {
-    var input = root.querySelector('#avc-email-input');
-    var val = input ? input.value : '';
-    if (!val || val.indexOf('@') === -1) return;
-
-    // Always try to submit, but unlock even if it fails
-    submitEmail(val, state.report ? state.report.name : '')
-      .then(function() {
-        state.unlocked = true;
-        state.emailSent = true;
-        render();
-      })
-      .catch(function() {
-        // Even if submission fails, we still unlock for UX
-        state.unlocked = true;
-        render();
-      });
-  }
-
-  function reset() {
-    clearInterval(state.scanTimer);
-    state = { step: 'landing', inputValue: '', report: null, progress: 0, doneSteps: 0, unlocked: false, scanTimer: null, emailSent: false };
-    render();
-  }
-
-  // ----- Render functions (with i18n) -----
-  function gaugeSvg(score) {
-    var band = bandOf(score);
-    var r = 80, c = 2 * Math.PI * r;
-    var clamped = Math.max(0, Math.min(100, score));
-    var offset = c - (clamped / 100) * c;
-    return '' +
-      '<div class="avc-gauge">' +
-        '<svg viewBox="0 0 200 200" class="avc-gauge-svg">' +
-          '<circle cx="100" cy="100" r="' + r + '" stroke="#1f2937" stroke-width="14" fill="none"></circle>' +
-          '<circle cx="100" cy="100" r="' + r + '" stroke="' + band.stroke + '" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="' + c + '" stroke-dashoffset="' + offset + '" class="avc-gauge-arc"></circle>' +
-        '</svg>' +
-        '<div class="avc-gauge-center">' +
-          '<span class="avc-gauge-num">' + score + '</span>' +
-          '<span class="avc-gauge-den">/100</span>' +
-        '</div>' +
-      '</div>';
-  }
-
-  function layerRow(l) {
-    var st = statusOf(l.value);
-    return '' +
-      '<div class="avc-layer-row">' +
-        '<div class="avc-layer-top">' +
-          '<div class="avc-layer-label">' +
-            '<span class="avc-badge-icon ' + st.cls + '">' + icon(st.iconName, 'avc-i-xs') + '</span>' +
-            '<span>' + l.label + '</span>' +
-          '</div>' +
-          '<span class="avc-mono avc-muted">' + l.value + '%</span>' +
-        '</div>' +
-        '<div class="avc-bar-track"><div class="avc-bar-fill ' + st.barCls + '" style="width:' + l.value + '%"></div></div>' +
-      '</div>';
-  }
-
-  function platformCard(p) {
-    var tierCls = p.tier === 'good' ? 'avc-tier-good' : p.tier === 'warn' ? 'avc-tier-warn' : 'avc-tier-bad';
-    var badgeCls = p.tier === 'good' ? 'avc-good' : p.tier === 'warn' ? 'avc-warn' : 'avc-bad';
-    var statusIconName = p.tier === 'good' ? 'check' : p.tier === 'warn' ? 'alert' : 'x';
-    var barCls = p.tier === 'good' ? 'avc-bar-good' : p.tier === 'warn' ? 'avc-bar-warn' : 'avc-bar-bad';
-    return '' +
-      '<div class="avc-platform-card ' + tierCls + '">' +
-        '<div class="avc-platform-head">' + icon(p.icon) + '<span class="avc-platform-name">' + p.name + '</span></div>' +
-        '<span class="avc-status-pill ' + badgeCls + '">' + icon(statusIconName, 'avc-i-xs') + p.statusLabel + '</span>' +
-        '<div class="avc-conf-row"><span>Confidence</span><span class="avc-mono">' + p.value + '%</span></div>' +
-        '<div class="avc-bar-track avc-mb"><div class="avc-bar-fill ' + barCls + '" style="width:' + p.value + '%"></div></div>' +
-        '<p class="avc-desc">' + p.desc + '</p>' +
-      '</div>';
-  }
-
+  // ================================================================
+  // 6. RENDER FUNCTIONS
+  // ================================================================
   function renderLanding() {
+    var locked = localStorage.getItem('ai_visibility_used') === 'true';
+    state.isLocked = locked;
+    var placeholder = locked ? t.alreadyCheckedPlaceholder : t.inputPlaceholder;
+    var btnText = locked ? t.alreadyCheckedBtn : t.checkBtn;
+    var disabled = locked ? true : false;
+    var readOnly = locked ? true : false;
+
     return '' +
       '<div class="avc-brand">' + icon('shield', 'avc-i-lg') + '<span>' + t.brand + '</span></div>' +
       '<div class="avc-badge"><span class="avc-dot"></span>' + t.badge + '</div>' +
       '<h1 class="avc-h1">' + t.title + '</h1>' +
       '<p class="avc-sub">' + t.subtitle + '</p>' +
       '<div class="avc-field">' + icon('search', 'avc-i-sm avc-field-icon') +
-        '<input id="avc-input" type="text" placeholder="' + t.inputPlaceholder + '" autocomplete="off" />' +
+        '<input id="avc-input" type="text" placeholder="' + placeholder + '" autocomplete="off" disabled="' + disabled + '" readonly="' + readOnly + '" />' +
       '</div>' +
-      '<button id="avc-start-btn" class="avc-btn avc-btn-primary" disabled>' + t.checkBtn + ' ' + icon('arrow', 'avc-i-sm') + '</button>' +
+      '<button id="avc-start-btn" class="avc-btn avc-btn-primary" ' + (locked ? 'disabled' : 'disabled') + '>' + btnText + ' ' + icon('arrow', 'avc-i-sm') + '</button>' +
       '<div class="avc-trust-row">' +
         '<span>' + icon('shield', 'avc-i-sm') + ' ' + t.trust1 + '</span>' +
         '<span>' + icon('clock', 'avc-i-sm') + ' ' + t.trust2 + '</span>' +
@@ -1286,9 +1296,40 @@
 
   function renderResults() {
     var r = state.report;
+    if (!r) return '';
     var band = bandOf(r.overall);
-    var layerRows = r.layers.map(layerRow).join('');
-    var platformCards = r.platforms.map(platformCard).join('');
+    var bandClass = r.overall < 35 ? 'avc-red' : r.overall < 55 ? '' : 'avc-emerald';
+
+    var layerRows = r.layers.map(function(l) {
+      var st = statusOf(l.value);
+      return '<div class="avc-layer-row">' +
+        '<div class="avc-layer-top">' +
+          '<div class="avc-layer-label">' +
+            '<span class="avc-badge-icon ' + st.cls + '">' + icon(st.iconName, 'avc-i-xs') + '</span>' +
+            '<span>' + l.label + '</span>' +
+          '</div>' +
+          '<span class="avc-mono avc-muted">' + l.value + '%</span>' +
+        '</div>' +
+        '<div class="avc-bar-track"><div class="avc-bar-fill ' + st.barCls + '" style="width:' + l.value + '%"></div></div>' +
+      '</div>';
+    }).join('');
+
+    var platformCards = r.platforms.map(function(p) {
+      var tierCls = p.tier === 'good' ? 'avc-tier-good' : p.tier === 'warn' ? 'avc-tier-warn' : 'avc-tier-bad';
+      var badgeCls = p.tier === 'good' ? 'avc-good' : p.tier === 'warn' ? 'avc-warn' : 'avc-bad';
+      var statusIconName = p.tier === 'good' ? 'check' : p.tier === 'warn' ? 'alert' : 'x';
+      var barCls = p.tier === 'good' ? 'avc-bar-good' : p.tier === 'warn' ? 'avc-bar-warn' : 'avc-bar-bad';
+      var statusKey = p.tier === 'good' ? 'statusRecommended' : p.tier === 'warn' ? 'statusPartiallyVisible' : 'statusNotRecommended';
+      var descKey = p.tier === 'good' ? 'platformGoodDesc' : p.tier === 'warn' ? 'platformWarnDesc' : 'platformBadDesc';
+      return '<div class="avc-platform-card ' + tierCls + '">' +
+        '<div class="avc-platform-head">' + icon(p.icon) + '<span class="avc-platform-name">' + p.name + '</span></div>' +
+        '<span class="avc-status-pill ' + badgeCls + '">' + icon(statusIconName, 'avc-i-xs') + t[statusKey] + '</span>' +
+        '<div class="avc-conf-row"><span>' + t.confidenceLabel + '</span><span class="avc-mono">' + p.value + '%</span></div>' +
+        '<div class="avc-bar-track avc-mb"><div class="avc-bar-fill ' + barCls + '" style="width:' + p.value + '%"></div></div>' +
+        '<p class="avc-desc">' + t[descKey] + '</p>' +
+      '</div>';
+    }).join('');
+
     var lockedCards = LOCKED_ISSUES.map(function (issue) {
       return '<div class="avc-locked-card">' + icon('alert') +
         '<div><p class="avc-issue-title">' + issue.title + '</p><p class="avc-issue-body" style="margin:0;">' + issue.body + '</p></div></div>';
@@ -1308,8 +1349,8 @@
 
       '<div class="avc-card avc-score-card">' +
         '<p class="avc-score-eyebrow">' + t.scoreLabel + '</p>' +
-        gaugeSvg(r.overall) +
-        '<p class="avc-score-label ' + band.cls + '">' + band.label + '</p>' +
+        gaugeSvg(r.overall, band.stroke) +
+        '<p class="avc-score-label ' + bandClass + '">' + t[band.labelKey] + '</p>' +
         '<p class="avc-score-sub">' + t.scoreSub + ' ' + r.name + '</p>' +
       '</div>' +
 
@@ -1345,7 +1386,7 @@
               '<div class="avc-email-field">' + icon('mail', 'avc-i-sm') +
                 '<input id="avc-email-input" type="email" placeholder="' + t.unlockPlaceholder + '" autocomplete="off" />' +
               '</div>' +
-              '<button id="avc-unlock-btn" class="avc-btn avc-btn-primary avc-btn-sm" disabled data-formspree-id="mykqokjr">' + t.unlockBtn + '</button>' +
+              '<button id="avc-unlock-btn" class="avc-btn avc-btn-primary avc-btn-sm" disabled>' + t.unlockBtn + '</button>' +
               '<p class="avc-fine-print">' + t.unlockFine + '</p>' +
             '</div></div>') +
         '</div>' +
@@ -1360,16 +1401,50 @@
       '<button class="avc-bottom-link avc-reset-btn">← ' + t.anotherCheck.replace(/← /,'') + '</button>';
   }
 
+  function gaugeSvg(score, strokeColor) {
+    var r = 80, c = 2 * Math.PI * r;
+    var clamped = Math.max(0, Math.min(100, score));
+    var offset = c - (clamped / 100) * c;
+    return '<div class="avc-gauge">' +
+      '<svg viewBox="0 0 200 200" class="avc-gauge-svg">' +
+        '<circle cx="100" cy="100" r="' + r + '" stroke="#1f2937" stroke-width="14" fill="none"></circle>' +
+        '<circle cx="100" cy="100" r="' + r + '" stroke="' + strokeColor + '" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="' + c + '" stroke-dashoffset="' + offset + '" class="avc-gauge-arc"></circle>' +
+      '</svg>' +
+      '<div class="avc-gauge-center">' +
+        '<span class="avc-gauge-num">' + score + '</span>' +
+        '<span class="avc-gauge-den">/100</span>' +
+      '</div>' +
+    '</div>';
+  }
+
   function render() {
-    if (state.step === 'landing') root.innerHTML = renderLanding();
-    else if (state.step === 'scanning') root.innerHTML = renderScanning();
-    else if (state.step === 'results' && state.report) root.innerHTML = renderResults();
+    if (state.step === 'landing') {
+      root.innerHTML = renderLanding();
+    } else if (state.step === 'scanning') {
+      root.innerHTML = renderScanning();
+    } else if (state.step === 'results' && state.report) {
+      root.innerHTML = renderResults();
+    }
     attachEvents();
   }
 
+  // ================================================================
+  // 7. EVENT HANDLING
+  // ================================================================
   function attachEvents() {
     var input = root.querySelector('#avc-input');
     var startBtn = root.querySelector('#avc-start-btn');
+
+    // If locked, the button is disabled and input is readonly – we just handle the click to go to contact form.
+    if (state.isLocked && startBtn) {
+      startBtn.disabled = false;
+      startBtn.textContent = t.alreadyCheckedBtn;
+      startBtn.onclick = function() {
+        window.location.href = '/#contact-form-section';
+      };
+      return; // No more events needed
+    }
+
     if (input) {
       input.value = state.inputValue;
       input.addEventListener('input', function (e) {
@@ -1401,37 +1476,97 @@
       });
     }
     if (unlockBtn) unlockBtn.addEventListener('click', handleUnlock);
-
-    // Update nav CTA text if needed (maybe keep static)
   }
 
-  // ----- Auto-start from URL param -----
-  function autoStart() {
-    var params = new URLSearchParams(window.location.search);
-    var business = params.get('business');
-    if (business) {
-      state.inputValue = business;
-      // We need to render first, then trigger start after DOM is ready
+  // ================================================================
+  // 8. ACTIONS
+  // ================================================================
+  function handleStart(raw) {
+    if (state.isLocked) return;
+    var value = (raw || '').trim();
+    if (!value) return;
+
+    // Simulate report
+    state.report = computeReport(value);
+    state.unlocked = false;
+    state.emailSent = false;
+    state.step = 'scanning';
+    state.progress = 0;
+    state.doneSteps = 0;
+    render();
+    startScanTimer();
+  }
+
+  function startScanTimer() {
+    clearInterval(state.scanTimer);
+    var totalDuration = 4200, tick = 60, elapsed = 0;
+    state.scanTimer = setInterval(function () {
+      elapsed += tick;
+      var pct = Math.min(100, Math.round((elapsed / totalDuration) * 100));
+      state.progress = pct;
+      state.doneSteps = Math.min(SCAN_STEPS.length, Math.ceil((pct / 100) * SCAN_STEPS.length));
+      updateScanningDOM();
+      if (pct >= 100) {
+        clearInterval(state.scanTimer);
+        // Lock the check and save to localStorage
+        localStorage.setItem('ai_visibility_used', 'true');
+        state.isLocked = true;
+        setTimeout(function () {
+          state.step = 'results';
+          render();
+        }, 500);
+      }
+    }, tick);
+  }
+
+  function updateScanningDOM() {
+    var fill = root.querySelector('.avc-progress-fill');
+    if (fill) fill.style.width = state.progress + '%';
+    var items = root.querySelectorAll('.avc-scan-list li');
+    items.forEach(function (li, i) {
+      li.classList.toggle('avc-done', i < state.doneSteps);
+    });
+  }
+
+  function reset() {
+    if (state.isLocked) {
+      // If locked, just stay on landing with locked state
+      state.step = 'landing';
       render();
-      // Small delay to ensure DOM is rendered
-      setTimeout(function() {
-        handleStart(business);
-      }, 100);
-    } else {
-      render();
+      return;
     }
+    clearInterval(state.scanTimer);
+    state = {
+      step: 'landing',
+      inputValue: '',
+      report: null,
+      progress: 0,
+      doneSteps: 0,
+      unlocked: false,
+      scanTimer: null,
+      emailSent: false,
+      isLocked: localStorage.getItem('ai_visibility_used') === 'true'
+    };
+    render();
   }
 
-  // ----- Footer language switcher (for this page) -----
-  // We'll keep it simple: just change language and reload? Or we can update the translations.
-  // For simplicity, we'll let footer buttons reload the page with a ?lang= parameter.
-  // But we already have auto-detect. We'll just add a simple switch that changes the lang variable and re-renders.
-  // However, we need to re‑render the entire widget with new translations. We'll add a function.
+  function handleUnlock() {
+    var input = root.querySelector('#avc-email-input');
+    var val = input ? input.value : '';
+    if (!val || val.indexOf('@') === -1) return;
+    // Always unlock even if email fails
+    state.unlocked = true;
+    state.emailSent = true;
+    render();
+  }
+
+  // ================================================================
+  // 9. LANGUAGE SWITCH
+  // ================================================================
   function setLanguage(langCode) {
     if (!translations[langCode]) return;
     lang = langCode;
     t = translations[lang];
-    // Update RTL
     if (lang === 'ar') {
       document.documentElement.setAttribute('dir', 'rtl');
       document.body.classList.add('rtl-mode');
@@ -1439,14 +1574,14 @@
       document.documentElement.setAttribute('dir', 'ltr');
       document.body.classList.remove('rtl-mode');
     }
-    // Re-render widget if not scanning/results – we need to reset to landing to avoid state mismatch.
-    // Better to just reload the page with a language parameter.
-    // For simplicity, we just reload.
-    window.location.href = window.location.pathname + '?lang=' + langCode;
+    // Re‑render current step
+    render();
   }
 
-  // ----- Initialize -----
-  // Check if lang param is present
+  // ================================================================
+  // 10. INIT
+  // ================================================================
+  // Check for language param
   var urlParams = new URLSearchParams(window.location.search);
   var langParam = urlParams.get('lang');
   if (langParam && translations[langParam]) {
@@ -1454,9 +1589,24 @@
     t = translations[lang];
   }
 
-  autoStart();
+  // Detect if already used
+  if (localStorage.getItem('ai_visibility_used') === 'true') {
+    state.isLocked = true;
+  }
 
-  // Attach footer language button listeners
+  // Auto‑start from business param
+  var business = urlParams.get('business');
+  if (business && !state.isLocked) {
+    state.inputValue = business;
+    render();
+    setTimeout(function() {
+      handleStart(business);
+    }, 300);
+  } else {
+    render();
+  }
+
+  // Footer language buttons
   document.querySelectorAll('.footer-lang-switch .lang-btn').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       var code = this.getAttribute('data-lang');
