@@ -1175,19 +1175,12 @@
     });
   }
 
-  function handleUnlock() {
+    function handleUnlock() {
     var input = root.querySelector('#avc-email-input');
     var val = input ? input.value : '';
     if (!val || val.indexOf('@') === -1) return;
 
-    // If form ID is not set, just unlock locally (for development)
-    if (document.getElementById('avc-unlock-btn').dataset.formspreeId === 'mykqokjr') {
-      // No real submission – just unlock
-      state.unlocked = true;
-      render();
-      return;
-    }
-
+    // Always try to submit, but unlock even if it fails
     submitEmail(val, state.report ? state.report.name : '')
       .then(function() {
         state.unlocked = true;
