@@ -1253,12 +1253,12 @@
   // 6. RENDER FUNCTIONS
   // ================================================================
   function renderLanding() {
-    var locked = localStorage.getItem('ai_visibility_used') === 'true';
-    state.isLocked = locked;
-    var placeholder = locked ? t.alreadyCheckedPlaceholder : t.inputPlaceholder;
-    var btnText = locked ? t.alreadyCheckedBtn : t.checkBtn;
-    var disabled = locked ? true : false;
-    var readOnly = locked ? true : false;
+    var locked = false;
+    state.isLocked = false;
+    var placeholder = t.inputPlaceholder;
+    var btnText = t.checkBtn;
+    var disabled = false;
+    var readOnly = false;
 
     return '' +
       '<div class="avc-brand">' + icon('shield', 'avc-i-lg') + '<span>' + t.brand + '</span></div>' +
@@ -1435,15 +1435,6 @@
     var input = root.querySelector('#avc-input');
     var startBtn = root.querySelector('#avc-start-btn');
 
-    // If locked, the button is disabled and input is readonly – we just handle the click to go to contact form.
-    if (state.isLocked && startBtn) {
-      startBtn.disabled = false;
-      startBtn.textContent = t.alreadyCheckedBtn;
-      startBtn.onclick = function() {
-        window.location.href = '/#contact-form-section';
-      };
-      return; // No more events needed
-    }
 
     if (input) {
       input.value = state.inputValue;
@@ -1482,7 +1473,6 @@
   // 8. ACTIONS
   // ================================================================
   function handleStart(raw) {
-    if (state.isLocked) return;
     var value = (raw || '').trim();
     if (!value) return;
 
@@ -1509,8 +1499,6 @@
       if (pct >= 100) {
         clearInterval(state.scanTimer);
         // Lock the check and save to localStorage
-        localStorage.setItem('ai_visibility_used', 'true');
-        state.isLocked = true;
         setTimeout(function () {
           state.step = 'results';
           render();
@@ -1529,12 +1517,7 @@
   }
 
   function reset() {
-    if (state.isLocked) {
-      // If locked, just stay on landing with locked state
-      state.step = 'landing';
-      render();
-      return;
-    }
+  
     clearInterval(state.scanTimer);
     state = {
       step: 'landing',
@@ -1545,7 +1528,7 @@
       unlocked: false,
       scanTimer: null,
       emailSent: false,
-      isLocked: localStorage.getItem('ai_visibility_used') === 'true'
+      isLocked: false
     };
     render();
   }
@@ -1589,10 +1572,6 @@
     t = translations[lang];
   }
 
-  // Detect if already used
-  if (localStorage.getItem('ai_visibility_used') === 'true') {
-    state.isLocked = true;
-  }
 
   // Auto‑start from business param
   var business = urlParams.get('business');
