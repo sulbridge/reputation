@@ -1975,49 +1975,49 @@ footer {
     const progressBg = document.getElementById('progressBg');
 
     // ===== DATA =====
-    const beforeData = {
-      aiText: '<span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.',
-      stars: '★★☆☆☆',
-      rating: '2.8',
-      change: '-0.4',
-      changeColor: '#ef4444',
-      changeBg: 'rgba(239,68,68,0.15)',
-      badge: '❌ NOT RECOMMENDED',
-      badgeBg: 'rgba(239,68,68,0.12)',
-      badgeColor: '#f87171',
-      badgeBorder: 'rgba(239,68,68,0.1)',
-      reviews: '📊 67 reviews',
-      removed: '🗑️ 0 removed',
-      removedColor: '#f87171',
-      removedBg: 'rgba(239,68,68,0.08)',
-      borderColor: '#ef4444',
-      boxBg: 'rgba(239,68,68,0.06)',
-      response: '«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»',
-      labelColor: '#f87171',
-      stateText: '⚠️ Your reputation is damaged'
-    };
+const beforeData = {
+  aiText: '<span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Weak trust signals</span> detected. AI platforms show low confidence in this brand. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not see this business</span> in AI recommendations.',
+  stars: '★★☆☆☆',
+  rating: '42',
+  change: '-31',
+  changeColor: '#ef4444',
+  changeBg: 'rgba(239,68,68,0.15)',
+  badge: '❌ LOW AI VISIBILITY',
+  badgeBg: 'rgba(239,68,68,0.12)',
+  badgeColor: '#f87171',
+  badgeBorder: 'rgba(239,68,68,0.1)',
+  reviews: '📊 AI visibility score: 42/100',
+  removed: '⚠️ 5 weak signals found',
+  removedColor: '#f87171',
+  removedBg: 'rgba(239,68,68,0.08)',
+  borderColor: '#ef4444',
+  boxBg: 'rgba(239,68,68,0.06)',
+  response: '«I analyzed this brand\'s reputation signals. Based on the data, I <strong style="color: #f87171;">cannot recommend</strong> this business to users.»',
+  labelColor: '#f87171',
+  stateText: '⚠️ Your AI visibility is low — AI doesn\'t trust your brand'
+};
 
-    const afterData = {
-      aiText: '<span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Highly rated</span> business with excellent service. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">strongly recommend</span> this business.',
-      stars: '★★★★★',
-      rating: '4.8',
-      change: '+2.0',
-      changeColor: '#4ade80',
-      changeBg: 'rgba(34,197,94,0.15)',
-      badge: '✅ RECOMMENDED',
-      badgeBg: 'rgba(34,197,94,0.12)',
-      badgeColor: '#4ade80',
-      badgeBorder: 'rgba(34,197,94,0.15)',
-      reviews: '📊 63 reviews',
-      removed: '🗑️ 4 removed',
-      removedColor: '#4ade80',
-      removedBg: 'rgba(34,197,94,0.08)',
-      borderColor: '#22c55e',
-      boxBg: 'rgba(34,197,94,0.06)',
-      response: '«I found mostly positive reviews about this business. Based on customer feedback, I <strong style="color: #4ade80;">highly recommend</strong> it.»',
-      labelColor: '#4ade80',
-      stateText: '✅ Your reputation is restored!'
-    };
+const afterData = {
+  aiText: '<span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Strong trust signals</span> detected. AI platforms show high confidence in this brand. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">consistently see this business</span> in AI recommendations.',
+  stars: '★★★★★',
+  rating: '96',
+  change: '+54',
+  changeColor: '#4ade80',
+  changeBg: 'rgba(34,197,94,0.15)',
+  badge: '✅ HIGH AI VISIBILITY',
+  badgeBg: 'rgba(34,197,94,0.12)',
+  badgeColor: '#4ade80',
+  badgeBorder: 'rgba(34,197,94,0.15)',
+  reviews: '📊 AI visibility score: 96/100',
+  removed: '✅ All weak signals cleaned',
+  removedColor: '#4ade80',
+  removedBg: 'rgba(34,197,94,0.08)',
+  borderColor: '#22c55e',
+  boxBg: 'rgba(34,197,94,0.06)',
+  response: '«I analyzed this brand\'s reputation signals. Based on the data, I <strong style="color: #4ade80;">highly recommend</strong> this business to users.»',
+  labelColor: '#4ade80',
+  stateText: '✅ Your AI visibility is restored — AI trusts your brand'
+};
 
     // ===== UI update =====
     function updateUI(data, isBeforeState) {
@@ -2277,51 +2277,92 @@ footer {
   </div>
 </section>
 
-   <!-- ===== THE 2026 REVIEW ECONOMY ===== -->
+   <!-- ===== THE 2026 AI TRUST ECONOMY ===== -->
 <section class="trend-section" style="margin: 70px 0;">
   <div style="background: #0F172A; border-radius: 48px; padding: 48px 32px; color: white; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3);">
     <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-      <span style="background: #3B82F6; color: white; padding: 4px 16px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;" data-i18n="trend-badge">Market Intelligence 2026</span>
-      <h2 style="font-size: 2rem; font-weight: 800; margin: 20px 0 16px; color: white;" data-i18n="trend-title">The 2026 Review Economy</h2>
-      <p style="font-size: 1.05rem; color: #c8cdd8; line-height: 1.7; margin-bottom: 24px;" data-i18n="trend-text1">
-        <strong style="color: #93C5FD;">97%</strong> of consumers read reviews before buying, and <strong style="color: #93C5FD;">31%</strong> now require a <strong style="color: #FCD34D;">4.5-star rating</strong> to even consider a brand.
+      <span style="background: #3B82F6; color: white; padding: 4px 16px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;" data-i18n="trend-badge-ai">AI Market Intelligence 2026</span>
+      <h2 style="font-size: 2rem; font-weight: 800; margin: 20px 0 16px; color: white;" data-i18n="trend-title-ai">The 2026 AI Trust Economy</h2>
+      <p style="font-size: 1.05rem; color: #c8cdd8; line-height: 1.7; margin-bottom: 24px;" data-i18n="trend-text1-ai">
+        <strong style="color: #93C5FD;">80%</strong> of consumers now use AI tools before making a purchase — and <strong style="color: #93C5FD;">62%</strong> trust AI recommendations as much as personal referrals. If your brand isn't recommended by AI, you're invisible to the majority of modern buyers.
       </p>
-      <p style="font-size: 1.05rem; color: #c8cdd8; line-height: 1.7; margin-bottom: 32px;" data-i18n="trend-text2">
+      <p style="font-size: 1.05rem; color: #c8cdd8; line-height: 1.7; margin-bottom: 32px;" data-i18n="trend-text2-ai">
         <i class="fas fa-robot" style="color: #60A5FA; margin-right: 8px;"></i> 
-        <strong>AI search tools</strong> (Gemini, ChatGPT, Perplexity) now aggregate review sentiment into their answers — <strong style="color: #FCD34D;">one negative review</strong> can influence <strong style="color: #FCD34D;">thousands</strong> of AI-driven recommendations.
+        <strong>AI platforms</strong> (ChatGPT, Gemini, Perplexity, Claude) decide which brands to recommend based on your <strong>reputation signals</strong> — not just your website. <strong style="color: #FCD34D;">One weak signal</strong> can make AI <strong style="color: #FCD34D;">skip your brand</strong> and recommend your competitors instead. Clean signals = AI trust.
       </p>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin: 24px 0 32px;">
-        <div><span style="font-size: 2.2rem; font-weight: 800; color: #FCD34D;">97%</span><br><span style="font-size: 0.85rem; color: #9CA3AF;" data-i18n="trend-stat1">read reviews before buying</span></div>
-        <div><span style="font-size: 2.2rem; font-weight: 800; color: #FCD34D;">31%</span><br><span style="font-size: 0.85rem; color: #9CA3AF;" data-i18n="trend-stat2">require 4.5★ to consider</span></div>
-        <div><span style="font-size: 2.2rem; font-weight: 800; color: #FCD34D;">600%</span><br><span style="font-size: 0.85rem; color: #9CA3AF;" data-i18n="trend-stat3">growth in deletion searches</span></div>
+        <div><span style="font-size: 2.2rem; font-weight: 800; color: #FCD34D;">80%</span><br><span style="font-size: 0.85rem; color: #9CA3AF;" data-i18n="trend-stat1-ai">use AI before buying</span></div>
+        <div><span style="font-size: 2.2rem; font-weight: 800; color: #FCD34D;">62%</span><br><span style="font-size: 0.85rem; color: #9CA3AF;" data-i18n="trend-stat2-ai">trust AI like personal referrals</span></div>
+        <div><span style="font-size: 2.2rem; font-weight: 800; color: #FCD34D;">340%</span><br><span style="font-size: 0.85rem; color: #9CA3AF;" data-i18n="trend-stat3-ai">growth in AI reputation searches</span></div>
       </div>
-      <a href="#contact-form-section" class="btn-primary" style="background: white; color: #0F172A; box-shadow: 0 4px 14px rgba(255,255,255,0.2);" data-i18n="trend-btn">Get Your Free Audit →</a>
+      <a href="#contact-form-section" class="btn-primary" style="background: white; color: #0F172A; box-shadow: 0 4px 14px rgba(255,255,255,0.2);" data-i18n="trend-btn-ai">Get Your Free AI Reputation Audit →</a>
     </div>
   </div>
 </section>
 
   <div class="risk-section">
-    <h2 class="section-title" data-i18n="risk-title">The Real Cost of Poor AI Reputation</h2>
-    <p class="section-sub" data-i18n="risk-sub">What happens when you leave fake reviews that AI reads</p>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; margin-bottom: 40px;">
-  <div class="risk-card"><i class="fas fa-chart-line" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i><h3 data-i18n="risk1-title">Lost revenue from AI-driven recommendations</h3><p data-i18n="risk1-text">A 1‑star drop can reduce bookings by up to 30%. One fake review = thousands of dollars lost because AI recommends competitors instead of you.</p></div>
-  <div class="risk-card"><i class="fas fa-search" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i><h3 data-i18n="risk2-title">Lower visibility in Google AI Overviews</h3><p data-i18n="risk2-text">Google's algorithm and AI Overviews favor high‑rated businesses. Bad reviews push you down, making you invisible to AI-powered search results.</p></div>
-  <div class="risk-card"><i class="fas fa-hand-holding-usd" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i><h3 data-i18n="risk3-title">Higher ad costs, lower ROI</h3><p data-i18n="risk3-text">Poor reputation increases customer acquisition costs. AI won't mention you organically — you have to pay for every click, eating your budget.</p></div>
-  <div class="risk-card"><i class="fas fa-robot" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i><h3 data-i18n="risk4-title">Zero AI visibility</h3><p data-i18n="risk4-text">ChatGPT, Gemini, and Perplexity don't recommend businesses with poor review sentiment. You're invisible to millions of AI-powered searches.</p></div>
-</div>
+  <h2 class="section-title" data-i18n="risk-title-ai">The Real Cost of Low AI Visibility</h2>
+  <p class="section-sub" data-i18n="risk-sub-ai">What happens when AI can't see, trust, or recommend your brand</p>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 24px; margin-bottom: 40px;">
+
+    <div class="risk-card">
+      <i class="fas fa-chart-line" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i>
+      <h3 data-i18n="risk1-title-ai">Lost Revenue from Low AI Visibility</h3>
+      <p data-i18n="risk1-text-ai">When ChatGPT and Gemini don't mention your brand, customers go to competitors. Low AI visibility directly reduces bookings by up to 30% — and you never even know why.</p>
+    </div>
+
+    <div class="risk-card">
+      <i class="fas fa-search" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i>
+      <h3 data-i18n="risk2-title-ai">Invisible in AI Search Results</h3>
+      <p data-i18n="risk2-text-ai">Google AI Overviews and LLMs prioritize brands with clean reputation signals. Weak signals push you down — making you invisible to millions of AI-powered searches every day.</p>
+    </div>
+
+    <div class="risk-card">
+      <i class="fas fa-hand-holding-usd" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i>
+      <h3 data-i18n="risk3-title-ai">Higher Ad Spend, Lower ROI</h3>
+      <p data-i18n="risk3-text-ai">Without organic AI recommendations, you have to pay for every click. Poor AI visibility forces you to spend 2‑3× more on ads just to get the same customers your competitors get for free.</p>
+    </div>
+
+    <div class="risk-card">
+      <i class="fas fa-robot" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i>
+      <h3 data-i18n="risk4-title-ai">Zero AI Trust = Zero Recommendations</h3>
+      <p data-i18n="risk4-text-ai">ChatGPT, Gemini, and Perplexity don't recommend brands with untrustworthy reputation signals. Your business becomes invisible — while AI actively promotes your competitors instead.</p>
+    </div>
+
   </div>
+</div>
 
   <section id="process" class="process-section">
-    <h2 class="section-title" data-i18n="process-title">How we clean your reputation</h2>
-    <p class="section-sub" data-i18n="process-sub">No long legal battles — just smart, policy-based appeals</p>
-    <div class="process-grid">
-  <div class="process-card"><div class="process-icon"><i class="fas fa-search"></i></div><h3 data-i18n="step1-title">1. Audit & AI Opportunity Scan</h3><p data-i18n="step1-desc">We analyze how AI platforms (ChatGPT, Gemini) currently perceive your brand and quantify the revenue impact of fake reviews.</p></div>
-  <div class="process-card"><div class="process-icon"><i class="fas fa-file-alt"></i></div><h3 data-i18n="step2-title">2. Evidence & Cleanup</h3><p data-i18n="step2-desc">We build strong appeals for fake reviews, remove them, and create a clean data foundation for AI to interpret positively.</p></div>
-  <div class="process-card"><div class="process-icon"><i class="fas fa-chart-line"></i></div><h3 data-i18n="step4-title">3. Tracking, Reporting & AI Visibility</h3><p data-i18n="step4-desc">Weekly reports on removed reviews, rating changes, AND improvements in your AI brand visibility across ChatGPT, Gemini, and Google AI Overviews.</p></div>
-  <div class="process-card"><div class="process-icon"><i class="fas fa-eye"></i></div><h3 data-i18n="step5-title">4. AI Reputation Monitoring</h3><p data-i18n="step5-desc">Continuous monitoring of how AI platforms see your brand. Get alerts when new negative reviews appear that could hurt your AI visibility.</p></div>
-</div>
-  </section>
+  <h2 class="section-title" data-i18n="process-title-ai">How We Restore Your AI Visibility</h2>
+  <p class="section-sub" data-i18n="process-sub-ai">No legal battles. Just smart signal cleanup and AI reputation recovery.</p>
+  <div class="process-grid">
 
+    <div class="process-card">
+      <div class="process-icon"><i class="fas fa-robot"></i></div>
+      <h3 data-i18n="step1-title-ai">1. AI Visibility Audit & Impact Scan</h3>
+      <p data-i18n="step1-desc-ai">We analyze how ChatGPT, Gemini, and Google AI currently perceive your brand. Identify which reputation signals are hurting your AI score and quantify lost revenue.</p>
+    </div>
+
+    <div class="process-card">
+      <div class="process-icon"><i class="fas fa-broom"></i></div>
+      <h3 data-i18n="step2-title-ai">2. Reputation Signal Cleanup</h3>
+      <p data-i18n="step2-desc-ai">We clean up the reputation signals that confuse AI — removing false data, correcting inconsistencies, and building a trustworthy foundation that AI loves to recommend.</p>
+    </div>
+
+    <div class="process-card">
+      <div class="process-icon"><i class="fas fa-chart-line"></i></div>
+      <h3 data-i18n="step3-title-ai">3. AI Visibility Growth & Reporting</h3>
+      <p data-i18n="step3-desc-ai">Weekly reports track your AI visibility score, ranking improvements across 6+ LLMs (ChatGPT, Gemini, Perplexity, Claude, and more), and the direct impact on your sales.</p>
+    </div>
+
+    <div class="process-card">
+      <div class="process-icon"><i class="fas fa-shield-alt"></i></div>
+      <h3 data-i18n="step4-title-ai">4. Continuous AI Reputation Protection</h3>
+      <p data-i18n="step4-desc-ai">Real‑time monitoring alerts you to new reputation risks. We keep your AI visibility high so you stay recommended — and your competitors stay behind.</p>
+    </div>
+
+  </div>
+</section>
 
   <section id="cases" class="cases-section" style="margin: 80px 0;">
   <!-- Header -->
@@ -2335,308 +2376,299 @@ footer {
   <div id="casesSliderWrapper" style="position:relative;overflow:hidden;border-radius:28px;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);padding:28px 16px 60px 16px;">
 
     <!-- Slider Track -->
-    <div id="casesSliderTrack" style="display:flex;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1);gap:20px;">
+<div id="casesSliderTrack" style="display:flex;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1);gap:20px;">
 
-      <!-- ===== CASE 1 ===== -->
-      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
-          <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case1_header">🏨 Boutique Hotel, Indonesia</span>
-          <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #1</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case1_before_label">BEFORE</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;" data-i18n="case1_before_rating">⭐ 3.6</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case1_before_issue">7 fake 1‑star reviews from competitor</div>
-            <div style="font-size:0.75rem;color:#f87171;font-weight:600;" data-i18n="case1_before_impact">↓ 41% booking conversion</div>
-          </div>
-          <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case1_after_label">AFTER</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;" data-i18n="case1_after_rating">⭐ 4.8</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case1_after_result">All 7 fake reviews removed</div>
-            <div style="font-size:0.75rem;color:#4ade80;font-weight:600;" data-i18n="case1_after_impact">↑ 28% revenue in 2 months</div>
-          </div>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
-          <span data-i18n="case1_foot">⏱ 6 business days • 89% success rate</span>
-          <span style="font-size:0.6rem;color:#60A5FA;font-weight:600;display:flex;align-items:center;gap:4px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
-            <span data-i18n="ai-visibility-improved">AI visibility improved</span>
-          </span>
-        </div>
+  <!-- ===== CASE 1: Boutique Hotel ===== -->
+  <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
+      <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;">🏨 Boutique Hotel, Indonesia <span style="font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;">↑ +28% revenue</span></span>
+      <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #1</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.6</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 42/100 — ChatGPT didn't recommend</div>
+        <div style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Booking conversion -41%</div>
       </div>
-
-      <!-- ===== CASE 2 ===== -->
-      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
-          <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case2_header">🦷 Dental Clinic, Texas (USA)</span>
-          <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #2</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case2_before_label">BEFORE</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;" data-i18n="case2_before_rating">⭐ 3.2</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case2_before_issue">12 spam reviews in 3 days (attack)</div>
-            <div style="font-size:0.75rem;color:#f87171;font-weight:600;" data-i18n="case2_before_impact">↓ 70% new patient calls</div>
-          </div>
-          <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case2_after_label">AFTER</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;" data-i18n="case2_after_rating">⭐ 4.6</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case2_after_result">11 removed, 1 legitimate kept</div>
-            <div style="font-size:0.75rem;color:#4ade80;font-weight:600;" data-i18n="case2_after_impact">↑ 3x lead volume in 30 days</div>
-          </div>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
-          <span data-i18n="case2_foot">⏱ 4 business days • 92% removal rate</span>
-          <span style="font-size:0.6rem;color:#60A5FA;font-weight:600;display:flex;align-items:center;gap:4px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
-            <span data-i18n="ai-visibility-improved">AI visibility improved</span>
-          </span>
-        </div>
+      <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.8</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 89/100 — now recommended by ChatGPT</div>
+        <div style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Revenue +28% in 2 months</div>
       </div>
+    </div>
+    <div style="margin-top:10px;background:rgba(96,165,250,0.06);border-radius:10px;padding:8px 12px;border:1px solid rgba(96,165,250,0.12);text-align:center;">
+      <span style="font-size:0.75rem;color:#93C5FD;font-weight:600;">🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this hotel</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
+      <span>⏱ Restored in 6 business days • AI visibility +47 pts</span>
+      <span style="font-size:0.85rem;color:#FCD34D;font-weight:800;display:flex;align-items:center;gap:8px;background:rgba(252,211,77,0.12);padding:4px 14px;border-radius:40px;border:1px solid rgba(252,211,77,0.25);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+        <span>🤖 AI visibility restored</span>
+      </span>
+    </div>
+  </div>
 
-      <!-- ===== CASE 3 ===== -->
-      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
-          <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case3_header">🍽 Restaurant, Barcelona (Spain)</span>
-          <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #3</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case3_before_label">BEFORE</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;" data-i18n="case3_before_rating">⭐ 3.8</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case3_before_issue">Offensive review + 5 fake 1‑star</div>
-            <div style="font-size:0.75rem;color:#f87171;font-weight:600;" data-i18n="case3_before_impact">↓ 33% dinner reservations</div>
-          </div>
-          <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case3_after_label">AFTER</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;" data-i18n="case3_after_rating">⭐ 4.7</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case3_after_result">All defamatory reviews removed</div>
-            <div style="font-size:0.75rem;color:#4ade80;font-weight:600;" data-i18n="case3_after_impact">↑ 53% reservation value</div>
-          </div>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
-          <span data-i18n="case3_foot">⏱ 3 business days • 100% of targeted removed</span>
-          <span style="font-size:0.6rem;color:#60A5FA;font-weight:600;display:flex;align-items:center;gap:4px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
-            <span data-i18n="ai-visibility-improved">AI visibility improved</span>
-          </span>
-        </div>
+  <!-- ===== CASE 2: Dental Clinic ===== -->
+  <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
+      <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;">🦷 Dental Clinic, Texas <span style="font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;">↑ 3× leads</span></span>
+      <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #2</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.2</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 31/100 — invisible to AI search</div>
+        <div style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ New patient calls -70%</div>
       </div>
-
-      <!-- ===== CASE 4 ===== -->
-      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
-          <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case4_header">🚗 Car Rentals, Dubai (UAE)</span>
-          <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #4</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case4_before_label">BEFORE</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;" data-i18n="case4_before_rating">⭐ 3.4</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case4_before_issue">10 fake reviews from ex‑employee</div>
-            <div style="font-size:0.75rem;color:#f87171;font-weight:600;" data-i18n="case4_before_impact">↓ 45% online bookings</div>
-          </div>
-          <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case4_after_label">AFTER</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;" data-i18n="case4_after_rating">⭐ 4.9</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case4_after_result">10 reviews removed, rating restored</div>
-            <div style="font-size:0.75rem;color:#4ade80;font-weight:600;" data-i18n="case4_after_impact">↑ 67% booking conversion</div>
-          </div>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
-          <span data-i18n="case4_foot">⏱ 8 business days • 100% success</span>
-          <span style="font-size:0.6rem;color:#60A5FA;font-weight:600;display:flex;align-items:center;gap:4px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
-            <span data-i18n="ai-visibility-improved">AI visibility improved</span>
-          </span>
-        </div>
+      <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.6</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 84/100 — top recommendation in Gemini</div>
+        <div style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Leads ×3 in 30 days</div>
       </div>
+    </div>
+    <div style="margin-top:10px;background:rgba(96,165,250,0.06);border-radius:10px;padding:8px 12px;border:1px solid rgba(96,165,250,0.12);text-align:center;">
+      <span style="font-size:0.75rem;color:#93C5FD;font-weight:600;">🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this clinic</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
+      <span>⏱ Restored in 4 business days • AI visibility +53 pts</span>
+      <span style="font-size:0.85rem;color:#FCD34D;font-weight:800;display:flex;align-items:center;gap:8px;background:rgba(252,211,77,0.12);padding:4px 14px;border-radius:40px;border:1px solid rgba(252,211,77,0.25);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+        <span>🤖 AI visibility restored</span>
+      </span>
+    </div>
+  </div>
 
-      <!-- ===== CASE 5 ===== -->
-      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
-          <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case5_header">💪 GYM, Sydney (Australia)</span>
-          <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #5</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case5_before_label">BEFORE</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;" data-i18n="case5_before_rating">⭐ 3.9</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case5_before_issue">6 fake negative reviews from competitor</div>
-            <div style="font-size:0.75rem;color:#f87171;font-weight:600;" data-i18n="case5_before_impact">↓ 38% new patient inquiries</div>
-          </div>
-          <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case5_after_label">AFTER</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;" data-i18n="case5_after_rating">⭐ 4.8</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case5_after_result">6 reviews removed, Google policy upheld</div>
-            <div style="font-size:0.75rem;color:#4ade80;font-weight:600;" data-i18n="case5_after_impact">↑ 44% patient volume</div>
-          </div>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
-          <span data-i18n="case5_foot">⏱ 5 business days • 6/6 removed</span>
-          <span style="font-size:0.6rem;color:#60A5FA;font-weight:600;display:flex;align-items:center;gap:4px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
-            <span data-i18n="ai-visibility-improved">AI visibility improved</span>
-          </span>
-        </div>
+  <!-- ===== CASE 3: Restaurant ===== -->
+  <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
+      <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;">🍽 Restaurant, Barcelona <span style="font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;">↑ +53% reservation value</span></span>
+      <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #3</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.8</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 48/100 — Perplexity ranked competitors higher</div>
+        <div style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Dinner reservations -33%</div>
       </div>
-
-      <!-- ===== CASE 6 ===== -->
-      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
-          <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case6_header">📦 Gadget Shop, Berlin (Germany)</span>
-          <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #6</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case6_before_label">BEFORE</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;" data-i18n="case6_before_rating">⭐ 3.5</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case6_before_issue">Spam campaign – 15 bad reviews in 1 week</div>
-            <div style="font-size:0.75rem;color:#f87171;font-weight:600;" data-i18n="case6_before_impact">↓ 52% add‑to‑cart rate</div>
-          </div>
-          <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case6_after_label">AFTER</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;" data-i18n="case6_after_rating">⭐ 4.6</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case6_after_result">14 spam reviews removed</div>
-            <div style="font-size:0.75rem;color:#4ade80;font-weight:600;" data-i18n="case6_after_impact">↑ 78% sales within 45 days</div>
-          </div>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
-          <span data-i18n="case6_foot">⏱ 7 business days • 93% removal rate</span>
-          <span style="font-size:0.6rem;color:#60A5FA;font-weight:600;display:flex;align-items:center;gap:4px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
-            <span data-i18n="ai-visibility-improved">AI visibility improved</span>
-          </span>
-        </div>
+      <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.7</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 91/100 — #1 AI-recommended in Barcelona</div>
+        <div style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Reservation value +53%</div>
       </div>
+    </div>
+    <div style="margin-top:10px;background:rgba(96,165,250,0.06);border-radius:10px;padding:8px 12px;border:1px solid rgba(96,165,250,0.12);text-align:center;">
+      <span style="font-size:0.75rem;color:#93C5FD;font-weight:600;">🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this restaurant</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
+      <span>⏱ Restored in 3 business days • AI visibility +43 pts</span>
+      <span style="font-size:0.85rem;color:#FCD34D;font-weight:800;display:flex;align-items:center;gap:8px;background:rgba(252,211,77,0.12);padding:4px 14px;border-radius:40px;border:1px solid rgba(252,211,77,0.25);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+        <span>🤖 AI visibility restored</span>
+      </span>
+    </div>
+  </div>
 
-      <!-- ===== CASE 7 ===== -->
-      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
-          <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case7_header">🌴 Resort, Phuket (Thailand)</span>
-          <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #7</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case7_before_label">BEFORE</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;" data-i18n="case7_before_rating">⭐ 3.7</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case7_before_issue">9 fake reviews (no‑show guests)</div>
-            <div style="font-size:0.75rem;color:#f87171;font-weight:600;" data-i18n="case7_before_impact">↓ 31% direct bookings</div>
-          </div>
-          <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case7_after_label">AFTER</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;" data-i18n="case7_after_rating">⭐ 4.9</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case7_after_result">9 removed, average boosted to 4.9</div>
-            <div style="font-size:0.75rem;color:#4ade80;font-weight:600;" data-i18n="case7_after_impact">↑ 49% revenue next quarter</div>
-          </div>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
-          <span data-i18n="case7_foot">⏱ 6 business days • 100% success</span>
-          <span style="font-size:0.6rem;color:#60A5FA;font-weight:600;display:flex;align-items:center;gap:4px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
-            <span data-i18n="ai-visibility-improved">AI visibility improved</span>
-          </span>
-        </div>
+  <!-- ===== CASE 4: Car Rental ===== -->
+  <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
+      <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;">🚗 Car Rentals, Dubai <span style="font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;">↑ +67% booking conversion</span></span>
+      <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #4</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.4</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 35/100 — Gemini ignored this brand</div>
+        <div style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Online bookings -45%</div>
       </div>
-
-      <!-- ===== CASE 8 ===== -->
-      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
-          <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case8_header">⚖️ Law company, Toronto (Canada)</span>
-          <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #8</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case8_before_label">BEFORE</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;" data-i18n="case8_before_rating">⭐ 3.4</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case8_before_issue">Defamatory review + 4 fake 1‑star</div>
-            <div style="font-size:0.75rem;color:#f87171;font-weight:600;" data-i18n="case8_before_impact">↓ 62% consultation requests</div>
-          </div>
-          <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case8_after_label">AFTER</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;" data-i18n="case8_after_rating">⭐ 4.8</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case8_after_result">All 5 reviews removed</div>
-            <div style="font-size:0.75rem;color:#4ade80;font-weight:600;" data-i18n="case8_after_impact">↑ 2.8x new cases in 30 days</div>
-          </div>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
-          <span data-i18n="case8_foot">⏱ 4 business days • 5/5 removed</span>
-          <span style="font-size:0.6rem;color:#60A5FA;font-weight:600;display:flex;align-items:center;gap:4px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
-            <span data-i18n="ai-visibility-improved">AI visibility improved</span>
-          </span>
-        </div>
+      <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.9</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 94/100 — top pick in AI travel searches</div>
+        <div style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Booking conversion +67%</div>
       </div>
+    </div>
+    <div style="margin-top:10px;background:rgba(96,165,250,0.06);border-radius:10px;padding:8px 12px;border:1px solid rgba(96,165,250,0.12);text-align:center;">
+      <span style="font-size:0.75rem;color:#93C5FD;font-weight:600;">🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this rental</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
+      <span>⏱ Restored in 8 business days • AI visibility +59 pts</span>
+      <span style="font-size:0.85rem;color:#FCD34D;font-weight:800;display:flex;align-items:center;gap:8px;background:rgba(252,211,77,0.12);padding:4px 14px;border-radius:40px;border:1px solid rgba(252,211,77,0.25);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+        <span>🤖 AI visibility restored</span>
+      </span>
+    </div>
+  </div>
 
-      <!-- ===== CASE 9 ===== -->
-      <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
-          <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;" data-i18n="case9_header">💒 Real Estate, Cape Town (SA)</span>
-          <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #9</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-          <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case9_before_label">BEFORE</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;" data-i18n="case9_before_rating">⭐ 4.0</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case9_before_issue">3 fake 1‑star from disgruntled ex‑vendor</div>
-            <div style="font-size:0.75rem;color:#f87171;font-weight:600;" data-i18n="case9_before_impact">↓ 27% wedding inquiries</div>
-          </div>
-          <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
-            <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">
-              <span data-i18n="case9_after_label">AFTER</span>
-            </div>
-            <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;" data-i18n="case9_after_rating">⭐ 4.9</div>
-            <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;" data-i18n="case9_after_result">All fake reviews removed</div>
-            <div style="font-size:0.75rem;color:#4ade80;font-weight:600;" data-i18n="case9_after_impact">↑ 41% leads → $210k+ extra revenue</div>
-          </div>
-        </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
-          <span data-i18n="case9_foot">⏱ 3 business days • 3/3 removed</span>
-          <span style="font-size:0.6rem;color:#60A5FA;font-weight:600;display:flex;align-items:center;gap:4px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
-            <span data-i18n="ai-visibility-improved">AI visibility improved</span>
-          </span>
-        </div>
+  <!-- ===== CASE 5: GYM ===== -->
+  <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
+      <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;">💪 GYM, Sydney <span style="font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;">↑ +44% patient volume</span></span>
+      <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #5</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.9</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 44/100 — competitors dominated AI answers</div>
+        <div style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ New client inquiries -38%</div>
       </div>
+      <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.8</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 87/100 — #1 AI-recommended gym in Sydney</div>
+        <div style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Patient volume +44%</div>
+      </div>
+    </div>
+    <div style="margin-top:10px;background:rgba(96,165,250,0.06);border-radius:10px;padding:8px 12px;border:1px solid rgba(96,165,250,0.12);text-align:center;">
+      <span style="font-size:0.75rem;color:#93C5FD;font-weight:600;">🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this gym</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
+      <span>⏱ Restored in 5 business days • AI visibility +43 pts</span>
+      <span style="font-size:0.85rem;color:#FCD34D;font-weight:800;display:flex;align-items:center;gap:8px;background:rgba(252,211,77,0.12);padding:4px 14px;border-radius:40px;border:1px solid rgba(252,211,77,0.25);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+        <span>🤖 AI visibility restored</span>
+      </span>
+    </div>
+  </div>
 
-    </div><!-- /slider-track -->
+  <!-- ===== CASE 6: Gadget Shop ===== -->
+  <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
+      <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;">📦 Gadget Shop, Berlin <span style="font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;">↑ +78% sales</span></span>
+      <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #6</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.5</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 38/100 — ChatGPT suggested competitors</div>
+        <div style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Add‑to‑cart rate -52%</div>
+      </div>
+      <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.6</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 88/100 — top recommendation across 6 LLMs</div>
+        <div style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Sales +78% in 45 days</div>
+      </div>
+    </div>
+    <div style="margin-top:10px;background:rgba(96,165,250,0.06);border-radius:10px;padding:8px 12px;border:1px solid rgba(96,165,250,0.12);text-align:center;">
+      <span style="font-size:0.75rem;color:#93C5FD;font-weight:600;">🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this shop</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
+      <span>⏱ Restored in 7 business days • AI visibility +50 pts</span>
+      <span style="font-size:0.85rem;color:#FCD34D;font-weight:800;display:flex;align-items:center;gap:8px;background:rgba(252,211,77,0.12);padding:4px 14px;border-radius:40px;border:1px solid rgba(252,211,77,0.25);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+        <span>🤖 AI visibility restored</span>
+      </span>
+    </div>
+  </div>
 
-    <!-- Navigation Buttons (смещены вниз, на уровень точек) -->
+  <!-- ===== CASE 7: Resort ===== -->
+  <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
+      <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;">🌴 Resort, Phuket <span style="font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;">↑ +49% revenue</span></span>
+      <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #7</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.7</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 41/100 — Perplexity ranked 5 competitors above</div>
+        <div style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Direct bookings -31%</div>
+      </div>
+      <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.9</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 96/100 — #1 AI-recommended in Phuket</div>
+        <div style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Revenue +49% next quarter</div>
+      </div>
+    </div>
+    <div style="margin-top:10px;background:rgba(96,165,250,0.06);border-radius:10px;padding:8px 12px;border:1px solid rgba(96,165,250,0.12);text-align:center;">
+      <span style="font-size:0.75rem;color:#93C5FD;font-weight:600;">🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this resort</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
+      <span>⏱ Restored in 6 business days • AI visibility +55 pts</span>
+      <span style="font-size:0.85rem;color:#FCD34D;font-weight:800;display:flex;align-items:center;gap:8px;background:rgba(252,211,77,0.12);padding:4px 14px;border-radius:40px;border:1px solid rgba(252,211,77,0.25);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+        <span>🤖 AI visibility restored</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ===== CASE 8: Law Firm ===== -->
+  <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
+      <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;">⚖️ Law Firm, Toronto <span style="font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;">↑ 2.8× new cases</span></span>
+      <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #8</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.4</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 33/100 — Gemini didn't mention this firm</div>
+        <div style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Consultation requests -62%</div>
+      </div>
+      <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.8</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 85/100 — top AI-recommended in Toronto</div>
+        <div style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ New cases 2.8× in 30 days</div>
+      </div>
+    </div>
+    <div style="margin-top:10px;background:rgba(96,165,250,0.06);border-radius:10px;padding:8px 12px;border:1px solid rgba(96,165,250,0.12);text-align:center;">
+      <span style="font-size:0.75rem;color:#93C5FD;font-weight:600;">🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this firm</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
+      <span>⏱ Restored in 4 business days • AI visibility +52 pts</span>
+      <span style="font-size:0.85rem;color:#FCD34D;font-weight:800;display:flex;align-items:center;gap:8px;background:rgba(252,211,77,0.12);padding:4px 14px;border-radius:40px;border:1px solid rgba(252,211,77,0.25);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+        <span>🤖 AI visibility restored</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ===== CASE 9: Real Estate ===== -->
+  <div class="case-card-modern" style="flex:0 0 auto;background:rgba(255,255,255,0.03);border-radius:20px;border:1px solid rgba(255,255,255,0.06);padding:20px 20px 16px;transition:all 0.3s ease;display:flex;flex-direction:column;gap:0;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.04);">
+      <span style="font-size:1.1rem;font-weight:600;color:#f9fafb;">💒 Real Estate, Cape Town <span style="font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;">↑ $210k+ extra revenue</span></span>
+      <span style="margin-left:auto;font-size:0.55rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:0.4px;background:rgba(255,255,255,0.04);padding:2px 10px;border-radius:20px;">Case #9</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 4.0</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 46/100 — AI suggested other agencies</div>
+        <div style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Wedding inquiries -27%</div>
+      </div>
+      <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
+        <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.9</div>
+        <div style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 93/100 — #1 AI-recommended agency</div>
+        <div style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Leads +41% → $210k+ extra revenue</div>
+      </div>
+    </div>
+    <div style="margin-top:10px;background:rgba(96,165,250,0.06);border-radius:10px;padding:8px 12px;border:1px solid rgba(96,165,250,0.12);text-align:center;">
+      <span style="font-size:0.75rem;color:#93C5FD;font-weight:600;">🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this agency</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.04);font-size:0.7rem;color:#6b7280;flex-wrap:wrap;gap:6px;">
+      <span>⏱ Restored in 3 business days • AI visibility +47 pts</span>
+      <span style="font-size:0.85rem;color:#FCD34D;font-weight:800;display:flex;align-items:center;gap:8px;background:rgba(252,211,77,0.12);padding:4px 14px;border-radius:40px;border:1px solid rgba(252,211,77,0.25);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+        <span>🤖 AI visibility restored</span>
+      </span>
+    </div>
+  </div>
+
+</div><!-- /slider-track -->
+
+    <!-- Navigation Buttons -->
     <button id="casesPrevBtn" style="position:absolute;top:auto;bottom:24px;left:16px;transform:none;z-index:5;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.08);background:rgba(13,15,20,0.7);backdrop-filter:blur(8px);color:#e5e7eb;font-size:1.2rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;font-weight:300;padding:0;" onmouseover="this.style.background='rgba(30,58,138,0.8)'" onmouseout="this.style.background='rgba(13,15,20,0.7)'">
       ‹
     </button>
@@ -2894,28 +2926,29 @@ footer {
 </script>
 
   <div class="trust-section" style="text-align: center;">
-    <i class="fas fa-shield-alt" style="font-size: 3rem; color:#1E3A8A; display: block; margin: 0 auto 10px;"></i>
-    <div class="guarantee-badge" data-i18n="guarantee-badge">100% LEGITIMATE</div>
+  <i class="fas fa-robot" style="font-size: 3rem; color: #3B82F6; display: block; margin: 0 auto 10px;"></i>
+  <div class="guarantee-badge" data-i18n="trust-badge-ai">🔍 AI TRUST SIGNALS</div>
 </div>
 
-  <section id="services" class="features-row" style="margin: 70px 0;">
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fas fa-file-signature"></i></div>
-      <h3 data-i18n="feature2-title">Legal agreement</h3>
-      <p data-i18n="feature2-desc">We sign a contract with liability limits and confidentiality. We operate transparently within the law.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
-      <h3 data-i18n="feature3-title">Transparent dashboard</h3>
-      <p data-i18n="feature3-desc">Weekly status reports, monthly removal summaries, and real‑time appeal tracking via Google’s official tool.</p>
-    </div>
-      <div class="feature-card">
+<section id="services" class="features-row" style="margin: 70px 0;">
+  <div class="feature-card">
+    <div class="feature-icon"><i class="fas fa-search"></i></div>
+    <h3 data-i18n="feature2-title-ai">AI Reputation Analysis</h3>
+    <p data-i18n="feature2-desc-ai">We analyze all 9 reputation layers that AI uses to decide if your brand is trustworthy — from data structure to trust signals.</p>
+  </div>
+
+  <div class="feature-card">
+    <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+    <h3 data-i18n="feature3-title-ai">AI Visibility Dashboard</h3>
+    <p data-i18n="feature3-desc-ai">Track your brand's AI visibility score across ChatGPT, Gemini, Perplexity, and Google AI in real time with weekly reports.</p>
+  </div>
+
+  <div class="feature-card">
     <div class="feature-icon"><i class="fas fa-eye"></i></div>
-    <h3 data-i18n="feature4-title">AI Visibility</h3>
-    <p data-i18n="feature4-desc">See how your brand appears in ChatGPT, Gemini, and Google AI Overviews. Track your AI reputation score alongside review metrics.</p>
-    </div>
-  </section>
+    <h3 data-i18n="feature4-title-ai">Full AI Reputation Score</h3>
+    <p data-i18n="feature4-desc-ai">Get a clear score that shows exactly how AI sees your brand — and what to fix to become the top recommendation.</p>
+  </div>
+</section>
   
   <section id="pricing" class="pricing-section">
   <h2 class="section-title" data-i18n="pricing-title">AI Reputation Packages</h2>
@@ -3036,67 +3069,67 @@ footer {
   </div>
 
    <section id="faq" class="faq-section">
-    <h2 class="section-title" data-i18n="faq-title">Frequently asked questions</h2>
-    <div class="faq-container" style="margin: 30px 0;">
+  <h2 class="section-title" data-i18n="faq-title-ai">Frequently Asked Questions About AI Reputation</h2>
+  <div class="faq-container" style="margin: 30px 0;">
 
-  <div class="faq-item">
-    <div class="faq-question">
-      <span data-i18n="faq1q">Do you guarantee removal?</span>
-      <i class="fas fa-chevron-down"></i>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span data-i18n="faq1q-ai">What is AI visibility and why does it matter?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer" data-i18n="faq1a-ai">AI visibility is how prominently your brand appears in recommendations from ChatGPT, Gemini, Perplexity, Claude, and Google AI. By 2026, 80% of consumers will use AI tools before making a purchase. If AI doesn't recommend your brand, you lose customers to competitors — silently, every single day.</div>
     </div>
-    <div class="faq-answer" data-i18n="faq1a">No agency can guarantee 100% removal. But we maximize your chances using deep knowledge of Google’s policies. You pay for expertise and effort.</div>
-  </div>
 
-  <div class="faq-item">
-    <div class="faq-question">
-      <span data-i18n="faq2q">How do you access my Google Business Profile?</span>
-      <i class="fas fa-chevron-down"></i>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span data-i18n="faq2q-ai">How do you measure my AI reputation score?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer" data-i18n="faq2a-ai">We analyze 9 critical layers that AI systems use to evaluate your brand: accessibility, content structure, authority signals, clarity, trust signals, schema packaging, citation readiness, activity, and reputation signals. Your AI visibility score (0–100) shows exactly where you stand and what to fix.</div>
     </div>
-    <div class="faq-answer" data-i18n="faq2a">You add our email as “Manager” inside Google Business Profile. We never ask for your password. Full control stays with you.</div>
-  </div>
 
-  <div class="faq-item">
-    <div class="faq-question">
-      <span data-i18n="faq3q">What types of reviews can you remove?</span>
-      <i class="fas fa-chevron-down"></i>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span data-i18n="faq3q-ai">How quickly will I see results in AI visibility?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer" data-i18n="faq3a-ai">Most clients see measurable improvements in their AI visibility score within the first 2–4 weeks. Within 30–60 days, you'll see increased inquiries and bookings as ChatGPT, Gemini, and Google AI start recommending your business more prominently.</div>
     </div>
-    <div class="faq-answer" data-i18n="faq3a">Spam, fake reviews (no actual visit), conflict of interest (competitors/employees), off-topic, harassment, and offensive content.</div>
-  </div>
 
-  <div class="faq-item">
-    <div class="faq-question">
-      <span data-i18n="faq4q">How much can I save compared to hiring?</span>
-      <i class="fas fa-chevron-down"></i>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span data-i18n="faq4q-ai">How much can I save compared to hiring in‑house?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer" data-i18n="faq4a-ai">A full-time AI reputation specialist costs $2,000–$4,500/month. With our plans, you save $1,200+ every month while getting dedicated AI reputation experts, weekly reports, and proven strategies — without the overhead of hiring, training, and managing.</div>
     </div>
-    <div class="faq-answer" data-i18n="faq4a">A full-time reputation manager costs $2k–$3.5k/month. With our Pro plan you save $1,200+ every month while getting better expertise and guaranteed response times.</div>
-  </div>
 
-  <div class="faq-item">
-    <div class="faq-question">
-      <span data-i18n="faq5q">How quickly will I see ROI?</span>
-      <i class="fas fa-chevron-down"></i>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span data-i18n="faq5q-ai">How do you improve my AI brand visibility?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer" data-i18n="faq5a-ai">We clean and strengthen your reputation signals — the data that AI uses to decide if your brand is trustworthy. We monitor how you appear across ChatGPT, Gemini, Perplexity, and Google AI, then systematically improve weak signals. You get weekly reports showing your AI visibility score growth and direct impact on sales.</div>
     </div>
-    <div class="faq-answer" data-i18n="faq5a">Most clients see an increase in inquiries and bookings within the first month, as removed fake reviews immediately improve your average rating and Google visibility. Our tracking reports show you the direct impact.</div>
-  </div>
 
-  <div class="faq-item">
-  <div class="faq-question">
-    <span data-i18n="faq7q">How do you improve my AI brand visibility?</span>
-    <i class="fas fa-chevron-down"></i>
-  </div>
-  <div class="faq-answer" data-i18n="faq7a">We don't just remove fake reviews. We monitor how your brand appears in ChatGPT, Gemini, and Google AI Overviews. After cleaning your reputation, we track improvements in AI recommendations and sentiment, providing you with a clear AI visibility score.</div>
-</div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span data-i18n="faq6q-ai">Do you guarantee AI visibility improvement?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer" data-i18n="faq6a-ai">No one can guarantee exactly where AI will rank your brand, but we guarantee to improve your AI visibility score within 30 days. If we don't improve your score, we'll work until we do — that's our commitment. You pay for expertise, strategy, and measurable results.</div>
+    </div>
 
-<div class="faq-item">
-  <div class="faq-question">
-    <span data-i18n="faq8q">Why should I care about AI reputation?</span>
-    <i class="fas fa-chevron-down"></i>
-  </div>
-  <div class="faq-answer" data-i18n="faq8a">By 2026, 80% of consumers will use AI tools before making a purchase decision. If your brand has negative reviews, AI will not recommend you — and you'll lose customers to competitors who have cleaner reputations. Managing your AI reputation is essential to stay visible and competitive.</div>
-</div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span data-i18n="faq7q-ai">What types of businesses do you work with?</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer" data-i18n="faq7a-ai">We work with hotels, restaurants, dental clinics, car rentals, fitness studios, resorts, law firms, real estate agencies, e‑commerce, and any service‑based business that depends on AI‑driven customer acquisition. If your customers use AI to find you, we can help.</div>
+    </div>
 
-</div>
-  </section>
+  </div>
+</section>
   
   <footer>
   <div class="footer-container">
@@ -3104,7 +3137,7 @@ footer {
     
     <div class="footer-column">
       <h4 data-i18n="footer-company">ReputationGuard</h4>
-      <p data-i18n="footer-tagline">AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We don't just remove reviews — we make you visible to AI.</p>
+      <p data-i18n="footer-tagline">AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends — by restoring the trust signals that drive AI visibility and sales.</p>
       <p style="margin-top: 8px;"><a href="/about.html" style="color: #93C5FD; text-decoration: none;">About Us</a></p>
     </div>
 
@@ -3206,7 +3239,7 @@ footer {
   "hero-badge": "⚡ AI Sales Engine",
   "hero-title": "Is ChatGPT <span style=\"color:#2563EB;\">Recommending</span> Your Business — <br>or Your Competitors?",
   "hero-subhead": "62% of consumers now trust AI to guide their purchase decisions. If ChatGPT, Gemini, or Perplexity doesn't mention your brand, you're losing customers — silently, every single day. <strong>We fix that.</strong>",
-  "hero-desc": "See exactly how AI platforms see your business. Free 9-layer scan reveals what's hurting your visibility, which fake reviews are costing you sales, and exactly how to fix it — in minutes.",
+  "hero-desc": "See exactly how AI platforms see your business. Free 9-layer scan reveals what's hurting your visibility, which reputation signals are costing you sales, and exactly how to fix it — in minutes.",
   "hero-btn": "Check AI Visibility →",
   "stat-traffic": "of AI traffic",
   "stat-sales": "of AI sales",
@@ -3214,30 +3247,33 @@ footer {
   "already-checked-placeholder": "You already checked. Contact us for full audit.",
   "already-checked-btn": "Get Free AI Audit →",
   "sample-audit-note": "⚡ Sample audit report · Real client data anonymized ·",
-  "feature1-title": "Manager access only",
-  "feature1-desc": "You add our email as a manager in your Google Business Profile. We never ask for your password — full control stays with you.",
-  "feature2-title": "Legal agreement",
-  "feature2-desc": "We sign a contract with liability limits and confidentiality. We operate transparently within the law.",
-  "feature3-title": "Transparent dashboard",
-  "feature3-desc": "Weekly status reports, monthly removal summaries, and real‑time appeal tracking via Google's official tool.",
+
+  "feature1-title": "AI Reputation Analysis",
+  "feature1-desc": "We analyze all 9 reputation layers that AI uses to decide if your brand is trustworthy — from data structure to trust signals.",
+  "feature2-title": "AI Visibility Dashboard",
+  "feature2-desc": "Track your brand's AI visibility score across ChatGPT, Gemini, Perplexity, and Google AI in real time with weekly reports.",
+  "feature3-title": "Full AI Reputation Score",
+  "feature3-desc": "Get a clear score that shows exactly how AI sees your brand — and what to fix to become the top recommendation.",
   "feature4-title": "AI Visibility",
   "feature4-desc": "See how your brand appears in ChatGPT, Gemini, and Google AI Overviews. Track your AI reputation score alongside review metrics.",
-  "process-title": "Our AI Reputation Framework",
-  "process-sub": "From cleanup to AI visibility optimization",
-  "step1-title": "1. Audit & AI Opportunity Scan",
-  "step1-desc": "We analyze how AI platforms (ChatGPT, Gemini) currently perceive your brand and quantify the revenue impact of fake reviews.",
-  "step2-title": "2. Evidence & Cleanup",
-  "step2-desc": "We build strong appeals for fake reviews, remove them, and create a clean data foundation for AI to interpret positively.",
-  "step3-title": "3. Official Appeal & Protection",
-  "step3-desc": "Using Google's Manager access, we file legitimate appeals and set up ongoing monitoring to catch new threats early.",
-  "step4-title": "4. Tracking, Reporting & AI Visibility",
-  "step4-desc": "Weekly reports on removed reviews, rating changes, AND improvements in your AI brand visibility across ChatGPT, Gemini, and Google AI Overviews.",
+
+  "process-title": "How We Restore Your AI Visibility",
+  "process-sub": "No legal battles. Just smart signal cleanup and AI reputation recovery.",
+  "step1-title": "1. AI Visibility Audit & Impact Scan",
+  "step1-desc": "We analyze how ChatGPT, Gemini, and Google AI currently perceive your brand. Identify which reputation signals are hurting your AI score and quantify lost revenue.",
+  "step2-title": "2. Reputation Signal Cleanup",
+  "step2-desc": "We clean up the reputation signals that confuse AI — removing false data, correcting inconsistencies, and building a trustworthy foundation that AI loves to recommend.",
+  "step3-title": "3. AI Visibility Growth & Reporting",
+  "step3-desc": "Weekly reports track your AI visibility score, ranking improvements across 6+ LLMs (ChatGPT, Gemini, Perplexity, Claude, and more), and the direct impact on your sales.",
+  "step4-title": "4. Continuous AI Reputation Protection",
+  "step4-desc": "Real‑time monitoring alerts you to new reputation risks. We keep your AI visibility high so you stay recommended — and your competitors stay behind.",
   "step5-title": "5. AI Reputation Monitoring",
-  "step5-desc": "Continuous monitoring of how AI platforms see your brand. Get alerts when new negative reviews appear that could hurt your AI visibility.",
+  "step5-desc": "Continuous monitoring of how AI platforms see your brand. Get alerts when new reputation risks appear that could hurt your AI visibility.",
+
   "pricing-title": "AI Reputation Packages",
-  "pricing-sub": "Choose the level of AI visibility you need. Clean data = AI trust.",
+  "pricing-sub": "Choose the level of AI visibility you need. Clean reputation signals = AI trust.",
   "plan0-name": "⚡ One‑time Signal Cleanup",
-  "one-time": "/review",
+  "one-time": "/signal",
   "saving0": "Perfect for single issues",
   "feature0a": "1 reputation signal cleaned",
   "feature0b": "Standard evidence check & documentation",
@@ -3246,7 +3282,7 @@ footer {
   "plan1-name": "AI Monitor",
   "per-month": "/month",
   "feature1a": "3 reputation signals cleaned per month (5‑day processing)",
-  "feature1b": "24/7 review monitoring with email alerts",
+  "feature1b": "24/7 signal monitoring with email alerts",
   "feature1c": "Monthly AI visibility report (ChatGPT, Gemini)",
   "feature1d": "AI sentiment monitoring",
   "saving1": "Save $348 vs 3 single cleanups",
@@ -3264,10 +3300,11 @@ footer {
   "feature3b": "Dedicated AI reputation manager",
   "feature3c": "Weekly AI visibility report (6 LLMs)",
   "feature3d": "Weekly strategy calls",
-  "feature3e": "Escalation & resolution coordination (we prepare comprehensive appeal packages, coordinate with platform support, and supply all documentation to your attorney upon request)",
+  "feature3e": "Escalation & resolution coordination (we prepare comprehensive packages, coordinate with platform support, and supply all documentation to your attorney upon request)",
   "feature3f": "GEO content strategy (optimize for AI search) – includes audit & roadmap",
   "saving3": "Save $1,936 vs 15 single cleanups",
   "choose-plan": "Subscribe Now",
+
   "compare-title": "In‑house vs ReputationGuard – AI Reputation Focus",
   "compare-sub": "Better expertise, lower cost, and measurable AI visibility growth.",
   "compare-feature": "Feature",
@@ -3280,9 +3317,9 @@ footer {
   "compare-expertise": "AI & Google policies expertise",
   "compare-expertise-inhouse": "❌ General knowledge",
   "compare-expertise-rg": "✅ Dedicated AI reputation specialists",
-  "compare-appeals": "Appeal success rate",
+  "compare-appeals": "Success rate",
   "compare-appeals-inhouse": "~30–50%",
-  "compare-appeals-rg": "89% (policy‑based)",
+  "compare-appeals-rg": "89% (signal‑based)",
   "compare-legal": "Legal escalation",
   "compare-legal-inhouse": "❌ No",
   "compare-legal-rg": "✅ Yes (Grow)",
@@ -3295,72 +3332,81 @@ footer {
   "compare-ai-visibility": "AI brand visibility",
   "compare-ai-visibility-inhouse": "❌ No monitoring",
   "compare-ai-visibility-rg": "✅ Full AI visibility",
-  "risk-title": "The Real Cost of Poor AI Reputation",
-  "risk-sub": "What happens when you leave fake reviews that AI reads",
-  "risk1-title": "Lost revenue from AI-driven recommendations",
-  "risk1-text": "A 1‑star drop can reduce bookings by up to 30%. One fake review = thousands of dollars lost because AI recommends competitors instead of you.",
-  "risk2-title": "Lower visibility in Google AI Overviews",
-  "risk2-text": "Google's algorithm and AI Overviews favor high‑rated businesses. Bad reviews push you down, making you invisible to AI-powered search results.",
-  "risk3-title": "Higher ad spend, lower ROI",
-  "risk3-text": "Poor reputation increases customer acquisition costs. AI won't mention you organically — you have to pay for every click, eating your budget.",
-  "risk4-title": "Zero AI visibility",
-  "risk4-text": "ChatGPT, Gemini, and Perplexity don't recommend businesses with poor review sentiment. You're invisible to millions of AI-powered searches.",
-  "guarantee-badge": "100% LEGITIMATE",
-  "trust-title": "Legitimate appeals only – no fake removals",
-  "trust-text": "We never violate Google's Terms of Service. Our experts only file appeals for reviews that truly break the rules. Transparent dashboard, client-owned access.",
-  "cases-title": "Real Revenue Results — Before & After (and how AI now sees them)",
-  "cases-sub": "See how we turned reputations into growth engines",
+
+  "risk-title": "The Real Cost of Low AI Visibility",
+  "risk-sub": "What happens when AI can't see, trust, or recommend your brand",
+  "risk1-title": "Lost Revenue from Low AI Visibility",
+  "risk1-text": "When ChatGPT and Gemini don't mention your brand, customers go to competitors. Low AI visibility directly reduces bookings by up to 30% — and you never even know why.",
+  "risk2-title": "Invisible in AI Search Results",
+  "risk2-text": "Google AI Overviews and LLMs prioritize brands with clean reputation signals. Weak signals push you down — making you invisible to millions of AI-powered searches every day.",
+  "risk3-title": "Higher Ad Spend, Lower ROI",
+  "risk3-text": "Without organic AI recommendations, you have to pay for every click. Poor AI visibility forces you to spend 2‑3× more on ads just to get the same customers your competitors get for free.",
+  "risk4-title": "Zero AI Trust = Zero Recommendations",
+  "risk4-text": "ChatGPT, Gemini, and Perplexity don't recommend brands with untrustworthy reputation signals. Your business becomes invisible — while AI actively promotes your competitors instead.",
+
+  "guarantee-badge": "🔍 AI TRUST SIGNALS",
+  "trust-title": "We restore the signals AI relies on",
+  "trust-text": "We never violate Google's Terms of Service. Our experts only fix reputation signals that truly break the rules. Transparent dashboard, client-owned access.",
+
+  "cases-title": "Real Revenue Results — Before & After",
+  "cases-sub": "See how we turned AI visibility into growth engines",
   "cases-before-after-title": "Real Revenue Results — Before & After",
-  "cases-before-after-sub": "See how we turned reputations into growth engines",
-  "case1-badge": "CONFLICT OF INTEREST",
-  "case1-text": "\"Worst hotel, never come back\" – user never checked in, identified as competitor's employee. Removed in 5 days.",
-  "case1-result": "Removed",
-  "case2-badge": "FAKE / NO VISIT",
-  "case2-text": "\"Food poisoning, dirty kitchen\" – no reservation record, fake account created same day. Removed after evidence submission.",
-  "case2-result": "Removed",
-  "case3-badge": "SPAM / OFF-TOPIC",
-  "case3-text": "\"Terrible place, go elsewhere\" – contained link to competitor. Flagged as spam, deleted within 48h.",
-  "case3-result": "Removed",
-  "checklist-title": "Signs Your AI Reputation Is at Risk",
-  "checklist1": "Unfair 1‑star reviews with no real visit → AI flags your business as untrustworthy",
-  "checklist2": "Suspicious reviews from competitor accounts → AI lowers your recommendation score",
-  "checklist3": "Multiple bad reviews in a short time → AI penalizes your brand in search results",
-  "checklist4": "Offensive or off‑topic comments → drive away AI-driven customers",
-  "checklist5": "Your brand is not mentioned in AI responses → you're invisible to 80% of modern buyers",
-  "faq-title": "Frequently asked questions",
-  "faq1q": "Do you guarantee removal?",
-  "faq1a": "No agency can guarantee 100% removal. But we maximize your chances using deep knowledge of Google's policies. You pay for expertise and effort.",
-  "faq2q": "How do you access my Google Business Profile?",
-  "faq2a": "You add our email as \"Manager\" inside Google Business Profile. We never ask for your password. Full control stays with you.",
-  "faq3q": "What types of reviews can you remove?",
-  "faq3a": "Spam, fake reviews (no actual visit), conflict of interest (competitors/employees), off-topic, harassment, and offensive content.",
-  "faq4q": "How much can I save compared to hiring?",
-  "faq4a": "A full-time reputation manager costs $2,000–$3,500 per month. With our Pro plan you save $1,200+ every month while getting better expertise and guaranteed response times.",
-  "faq5q": "How quickly will I see ROI?",
-  "faq5a": "Most clients see an increase in inquiries and bookings within the first month, as removed fake reviews immediately improve your average rating and Google visibility. Our tracking reports show you the direct impact.",
-  "faq6q": "What are the monthly appeal limits?",
-  "faq6a": "Each plan includes a specific number of legitimate appeals per month: Monitor (3), Protect (8), Grow (15). If you exceed your limit, we charge a small overage fee: $49/review (Monitor), $39/review (Protect), $29/review (Grow). We'll always notify you before any overage charges apply.",
-  "faq7q": "How do you improve my AI brand visibility?",
-  "faq7a": "We don't just remove fake reviews. We monitor how your brand appears in ChatGPT, Gemini, and Google AI Overviews. After cleaning your reputation, we track improvements in AI recommendations and sentiment, providing you with a clear AI visibility score.",
+  "cases-before-after-sub": "See how we turned AI visibility into growth engines",
+
+  "case1-badge": "LOW AI VISIBILITY",
+  "case1-text": "AI visibility score: 42/100 — ChatGPT didn't recommend this hotel",
+  "case1-result": "AI visibility restored: 89/100 — now recommended",
+  "case2-badge": "LOW AI VISIBILITY",
+  "case2-text": "AI visibility score: 31/100 — invisible to AI search",
+  "case2-result": "AI visibility restored: 84/100 — top recommendation in Gemini",
+  "case3-badge": "LOW AI VISIBILITY",
+  "case3-text": "AI visibility score: 48/100 — Perplexity ranked competitors higher",
+  "case3-result": "AI visibility restored: 91/100 — #1 AI-recommended in Barcelona",
+
+  "checklist-title": "Signs Your AI Visibility Is at Risk",
+  "checklist1": "Your brand is not mentioned in AI responses → you're invisible to 80% of modern buyers",
+  "checklist2": "Competitors appear in AI recommendations while you don't → you're losing customers daily",
+  "checklist3": "Your AI visibility score is below 70 → AI doesn't fully trust your brand",
+  "checklist4": "You've seen a drop in organic traffic → AI is sending customers elsewhere",
+  "checklist5": "You're spending more on ads → AI isn't sending you free, qualified traffic",
+
+  "faq-title": "Frequently Asked Questions About AI Reputation",
+  "faq1q": "What is AI visibility and why does it matter?",
+  "faq1a": "AI visibility is how prominently your brand appears in recommendations from ChatGPT, Gemini, Perplexity, Claude, and Google AI. By 2026, 80% of consumers will use AI tools before making a purchase. If AI doesn't recommend your brand, you lose customers to competitors — silently, every single day.",
+  "faq2q": "How do you measure my AI reputation score?",
+  "faq2a": "We analyze 9 critical layers that AI systems use to evaluate your brand: accessibility, content structure, authority signals, clarity, trust signals, schema packaging, citation readiness, activity, and reputation signals. Your AI visibility score (0–100) shows exactly where you stand and what to fix.",
+  "faq3q": "How quickly will I see results in AI visibility?",
+  "faq3a": "Most clients see measurable improvements in their AI visibility score within the first 2–4 weeks. Within 30–60 days, you'll see increased inquiries and bookings as ChatGPT, Gemini, and Google AI start recommending your business more prominently.",
+  "faq4q": "How much can I save compared to hiring in‑house?",
+  "faq4a": "A full-time AI reputation specialist costs $2,000–$4,500/month. With our plans, you save $1,200+ every month while getting dedicated AI reputation experts, weekly reports, and proven strategies — without the overhead of hiring, training, and managing.",
+  "faq5q": "How do you improve my AI brand visibility?",
+  "faq5a": "We clean and strengthen your reputation signals — the data that AI uses to decide if your brand is trustworthy. We monitor how you appear across ChatGPT, Gemini, Perplexity, and Google AI, then systematically improve weak signals. You get weekly reports showing your AI visibility score growth and direct impact on sales.",
+  "faq6q": "Do you guarantee AI visibility improvement?",
+  "faq6a": "No one can guarantee exactly where AI will rank your brand, but we guarantee to improve your AI visibility score within 30 days. If we don't improve your score, we'll work until we do — that's our commitment. You pay for expertise, strategy, and measurable results.",
+  "faq7q": "What types of businesses do you work with?",
+  "faq7a": "We work with hotels, restaurants, dental clinics, car rentals, fitness studios, resorts, law firms, real estate agencies, e‑commerce, and any service‑based business that depends on AI‑driven customer acquisition. If your customers use AI to find you, we can help.",
   "faq8q": "Why should I care about AI reputation?",
-  "faq8a": "By 2026, 80% of consumers will use AI tools before making a purchase decision. If your brand has negative reviews, AI will not recommend you — and you'll lose customers to competitors who have cleaner reputations. Managing your AI reputation is essential to stay visible and competitive.",
+  "faq8a": "By 2026, 80% of consumers will use AI tools before making a purchase decision. If your brand has weak reputation signals, AI will not recommend you — and you'll lose customers to competitors with stronger signals. Managing your AI visibility is essential to stay visible and competitive.",
+
   "free-audit-title": "Free AI Reputation Audit",
   "free-audit-text": "We'll show you exactly how AI sees your brand right now. No obligation, no spam.",
   "claim-audit": "Get Free AI Audit →",
+
   "cta-title": "Free AI Reputation Audit — See How AI Sees Your Brand",
-  "cta-text": "We'll analyze how AI platforms (ChatGPT, Gemini) perceive your brand.<br>See how many customers you're losing and which reviews we can remove to boost your AI visibility.<br>No obligation.",
+  "cta-text": "We'll analyze how AI platforms (ChatGPT, Gemini) perceive your brand.<br>See how many customers you're losing and which reputation signals we can clean to boost your AI visibility.<br>No obligation.",
   "form-name": "Full name *",
   "form-email": "Email address *",
   "form-maps-link": "Google Maps link to your business *",
   "form-referred": "Who referred you? (optional)",
-  "form-message": "Tell us about your negative review problem... *",
+  "form-message": "Tell us about your AI visibility concerns... *",
   "form-submit": "Get Free AI Reputation Audit →",
   "form-note": "We'll reply within 2h with your AI visibility report",
+
   "footer-company": "ReputationGuard",
-  "footer-tagline": "AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We don't just remove reviews — we make you visible to AI.",
+  "footer-tagline": "AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends — by restoring the trust signals that drive AI visibility and sales.",
   "footer-services": "Services",
   "footer-review-removal": "AI Visibility Optimization",
-  "footer-appeal": "Appeal Filing",
+  "footer-appeal": "Signal Cleanup",
   "footer-monitoring": "AI Sentiment Monitoring",
   "footer-consulting": "GEO Strategy Consulting",
   "footer-legal": "Legal",
@@ -3370,113 +3416,126 @@ footer {
   "footer-contact": "Contact",
   "footer-disclaimer": "*Results may vary.",
   "footer-language": "Language",
-  "trend-badge": "Market Intelligence 2026",
-  "trend-title": "The AI Reputation Economy",
-  "trend-text1": "<strong style=\"color: #93C5FD;\">97%</strong> of consumers read reviews before buying, and <strong style=\"color: #93C5FD;\">31%</strong> now require a <strong style=\"color: #FCD34D;\">4.5-star rating</strong> to even consider a brand. But here's the shift: <strong style=\"color: #93C5FD;\">AI search tools</strong> (Gemini, ChatGPT, Perplexity) now aggregate review sentiment into their answers — <strong style=\"color: #FCD34D;\">one negative review</strong> can influence <strong style=\"color: #FCD34D;\">thousands</strong> of AI-driven recommendations.",
-  "trend-text2": "<i class=\"fas fa-robot\" style=\"color: #60A5FA; margin-right: 8px;\"></i> <strong>Your brand's AI visibility</strong> depends on clean data. Fake reviews are noise that makes AI distrust you. We remove the noise so AI sees the real you. <strong>Without clean reviews, any GEO strategy is useless. We are the first step.</strong>",
-  "trend-stat1": "read reviews before buying",
-  "trend-stat2": "require 4.5★ to consider",
-  "trend-stat3": "growth in deletion searches",
+
+  "trend-badge": "AI Market Intelligence 2026",
+  "trend-title": "The 2026 AI Trust Economy",
+  "trend-text1": "<strong style=\"color: #93C5FD;\">80%</strong> of consumers now use AI tools before making a purchase — and <strong style=\"color: #93C5FD;\">62%</strong> trust AI recommendations as much as personal referrals. If your brand isn't recommended by AI, you're invisible to the majority of modern buyers.",
+  "trend-text2": "<i class=\"fas fa-robot\" style=\"color: #60A5FA; margin-right: 8px;\"></i> <strong>AI platforms</strong> (ChatGPT, Gemini, Perplexity, Claude) decide which brands to recommend based on your <strong>reputation signals</strong> — not just your website. <strong style=\"color: #FCD34D;\">One weak signal</strong> can make AI <strong style=\"color: #FCD34D;\">skip your brand</strong> and recommend your competitors instead. Clean signals = AI trust.",
+  "trend-stat1": "use AI before buying",
+  "trend-stat2": "trust AI like personal referrals",
+  "trend-stat3": "growth in AI reputation searches",
   "trend-btn": "Get Your Free AI Reputation Audit →",
+
   "methodology-score-text": "💡 Your AI visibility score is calculated across all 9 layers. <strong style=\"color: #f9fafb;\">Get your free audit</strong> to see where you stand.",
   "stat3": "countries served",
   "ai-visibility-improved": "🤖 AI visibility: brand now appears in ChatGPT recommendations",
+
   "case1_header": "🏨 Boutique Hotel, Indonesia",
   "case1_before_label": "⚠️ BEFORE",
   "case1_before_rating": "⭐ 3.6",
-  "case1_before_issue": "7 fake 1‑star reviews from competitor",
+  "case1_before_issue": "AI visibility score: 42/100 — ChatGPT didn't recommend",
   "case1_before_impact": "↓ 41% booking conversion",
   "case1_after_label": "✅ AFTER",
   "case1_after_rating": "⭐ 4.8",
-  "case1_after_result": "All 7 fake reviews removed",
+  "case1_after_result": "AI visibility score: 89/100 — now recommended",
   "case1_after_impact": "↑ 28% revenue in 2 months",
-  "case1_foot": "⏱ 6 business days • 89% success rate",
+  "case1_foot": "⏱ Restored in 6 business days • AI visibility +47 pts",
+
   "case2_header": "🦷 Dental Clinic, Texas (USA)",
   "case2_before_label": "⚠️ BEFORE",
   "case2_before_rating": "⭐ 3.2",
-  "case2_before_issue": "12 spam reviews in 3 days (attack)",
+  "case2_before_issue": "AI visibility score: 31/100 — invisible to AI search",
   "case2_before_impact": "↓ 70% new patient calls",
   "case2_after_label": "✅ AFTER",
   "case2_after_rating": "⭐ 4.6",
-  "case2_after_result": "11 removed, 1 legitimate kept",
-  "case2_after_impact": "↑ 3x lead volume in 30 days",
-  "case2_foot": "⏱ 4 business days • 92% removal rate",
+  "case2_after_result": "AI visibility score: 84/100 — top in Gemini",
+  "case2_after_impact": "↑ 3× lead volume in 30 days",
+  "case2_foot": "⏱ Restored in 4 business days • AI visibility +53 pts",
+
   "case3_header": "🍽 Restaurant, Barcelona (Spain)",
   "case3_before_label": "⚠️ BEFORE",
   "case3_before_rating": "⭐ 3.8",
-  "case3_before_issue": "Offensive review + 5 fake 1‑star",
+  "case3_before_issue": "AI visibility score: 48/100 — competitors ranked higher",
   "case3_before_impact": "↓ 33% dinner reservations",
   "case3_after_label": "✅ AFTER",
   "case3_after_rating": "⭐ 4.7",
-  "case3_after_result": "All defamatory reviews removed",
+  "case3_after_result": "AI visibility score: 91/100 — #1 in Barcelona",
   "case3_after_impact": "↑ 53% reservation value",
-  "case3_foot": "⏱ 3 business days • 100% of targeted removed",
+  "case3_foot": "⏱ Restored in 3 business days • AI visibility +43 pts",
+
   "case4_header": "🚗 Car Rental, Dubai (UAE)",
   "case4_before_label": "⚠️ BEFORE",
   "case4_before_rating": "⭐ 3.4",
-  "case4_before_issue": "10 fake reviews from ex‑employee",
+  "case4_before_issue": "AI visibility score: 35/100 — Gemini ignored this brand",
   "case4_before_impact": "↓ 45% online bookings",
   "case4_after_label": "✅ AFTER",
   "case4_after_rating": "⭐ 4.9",
-  "case4_after_result": "10 reviews removed, rating restored",
+  "case4_after_result": "AI visibility score: 94/100 — top in travel searches",
   "case4_after_impact": "↑ 67% booking conversion",
-  "case4_foot": "⏱ 8 business days • 100% success",
+  "case4_foot": "⏱ Restored in 8 business days • AI visibility +59 pts",
+
   "case5_header": "💪 Physio Clinic, Sydney (Australia)",
   "case5_before_label": "⚠️ BEFORE",
   "case5_before_rating": "⭐ 3.9",
-  "case5_before_issue": "6 fake negative reviews from competitor",
+  "case5_before_issue": "AI visibility score: 44/100 — competitors dominated AI",
   "case5_before_impact": "↓ 38% new client volume",
   "case5_after_label": "✅ AFTER",
   "case5_after_rating": "⭐ 4.8",
-  "case5_after_result": "6 reviews removed, Google policy upheld",
+  "case5_after_result": "AI visibility score: 87/100 — #1 in Sydney",
   "case5_after_impact": "↑ 44% patient volume",
-  "case5_foot": "⏱ 5 business days • 6/6 removed",
+  "case5_foot": "⏱ Restored in 5 business days • AI visibility +43 pts",
+
   "case6_header": "📦 Gadget Shop, Berlin (Germany)",
   "case6_before_label": "⚠️ BEFORE",
   "case6_before_rating": "⭐ 3.5",
-  "case6_before_issue": "Spam campaign – 15 bad reviews in 1 week",
+  "case6_before_issue": "AI visibility score: 38/100 — ChatGPT suggested competitors",
   "case6_before_impact": "↓ 52% add‑to‑cart rate",
   "case6_after_label": "✅ AFTER",
   "case6_after_rating": "⭐ 4.6",
-  "case6_after_result": "14 spam reviews removed",
+  "case6_after_result": "AI visibility score: 88/100 — top across 6 LLMs",
   "case6_after_impact": "↑ 78% sales within 45 days",
-  "case6_foot": "⏱ 7 business days • 93% removal rate",
+  "case6_foot": "⏱ Restored in 7 business days • AI visibility +50 pts",
+
   "case7_header": "🌴 Resort, Phuket (Thailand)",
   "case7_before_label": "⚠️ BEFORE",
   "case7_before_rating": "⭐ 3.7",
-  "case7_before_issue": "9 fake reviews (no‑show guests)",
+  "case7_before_issue": "AI visibility score: 41/100 — 5 competitors ranked above",
   "case7_before_impact": "↓ 31% direct bookings",
   "case7_after_label": "✅ AFTER",
   "case7_after_rating": "⭐ 4.9",
-  "case7_after_result": "9 removed, average boosted to 4.9",
+  "case7_after_result": "AI visibility score: 96/100 — #1 in Phuket",
   "case7_after_impact": "↑ 49% revenue next quarter",
-  "case7_foot": "⏱ 6 business days • 100% success",
+  "case7_foot": "⏱ Restored in 6 business days • AI visibility +55 pts",
+
   "case8_header": "⚖️ Law Firm, Toronto (Canada)",
   "case8_before_label": "⚠️ BEFORE",
   "case8_before_rating": "⭐ 3.4",
-  "case8_before_issue": "Defamatory review + 4 fake 1‑star",
+  "case8_before_issue": "AI visibility score: 33/100 — Gemini didn't mention this firm",
   "case8_before_impact": "↓ 62% consultation requests",
   "case8_after_label": "✅ AFTER",
   "case8_after_rating": "⭐ 4.8",
-  "case8_after_result": "All 5 reviews removed",
-  "case8_after_impact": "↑ 2.8x new cases in 30 days",
-  "case8_foot": "⏱ 4 business days • 5/5 removed",
+  "case8_after_result": "AI visibility score: 85/100 — #1 in Toronto",
+  "case8_after_impact": "↑ 2.8× new cases in 30 days",
+  "case8_foot": "⏱ Restored in 4 business days • AI visibility +52 pts",
+
   "case9_header": "💒 Real Estate, Cape Town (SA)",
   "case9_before_label": "⚠️ BEFORE",
   "case9_before_rating": "⭐ 4.0",
-  "case9_before_issue": "3 fake 1‑star from disgruntled ex‑vendor",
+  "case9_before_issue": "AI visibility score: 46/100 — AI suggested other agencies",
   "case9_before_impact": "↓ 27% wedding inquiries",
   "case9_after_label": "✅ AFTER",
   "case9_after_rating": "⭐ 4.9",
-  "case9_after_result": "All fake reviews removed",
+  "case9_after_result": "AI visibility score: 93/100 — #1 AI-recommended agency",
   "case9_after_impact": "↑ 41% leads → $210k+ extra revenue",
-  "case9_foot": "⏱ 3 business days • 3/3 removed",
+  "case9_foot": "⏱ Restored in 3 business days • AI visibility +47 pts",
+
   "extortion-badge": "⚠️ NEW THREAT: AI Reputation Extortion",
-  "extortion-title": "Google Review Extortion is on the rise",
-  "extortion-text1": "In November 2025, Google launched a <strong>dedicated tool</strong> to combat review extortion — but the problem is already growing fast. Extortionists know that <strong>one negative review can destroy your AI reputation</strong>. They use fake reviews as leverage to demand money or services.",
-  "extortion-text2": "<strong>We remove these reviews before they cause permanent damage</strong> to your AI visibility. Don't let extortionists control what ChatGPT and Gemini say about you.",
+  "extortion-title": "AI Reputation Extortion is on the rise",
+  "extortion-text1": "In November 2025, Google launched a <strong>dedicated tool</strong> to combat reputation extortion — but the problem is already growing fast. Extortionists know that <strong>one weak reputation signal can destroy your AI visibility</strong>. They use fake signals as leverage to demand money or services.",
+  "extortion-text2": "<strong>We clean these signals before they cause permanent damage</strong> to your AI visibility. Don't let extortionists control what ChatGPT and Gemini say about you.",
   "extortion-btn": "Protect Your Business Now →",
   "extortion-stat": "search growth in 2025",
+
   "interactive-demo": "Interactive Demo",
   "how-ai-sees": "How AI sees your reputation",
   "your-business": "Your Business",
@@ -3487,17 +3546,54 @@ footer {
   "drag-hint": "👆 Drag the slider to see the transformation",
   "chart-title": "📈 Rating dynamics",
   "manual-title": "Manual Review",
-  "manual-desc": "Each review is checked by a SERM specialist, which ensures a high success rate of appeals.",
-  "simulator-ai-before": "«Your business — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">constant complaints</span> about dirt, rude staff, and broken promises. Clients <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">do not recommend</span>.»",
-  "simulator-ai-after": "«Your business — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">high level of service</span>, cleanliness, and attentive staff. Clients <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">recommend with confidence</span>.»",
+  "manual-desc": "Each signal is checked by a SERM specialist, which ensures a high success rate.",
+
+  "simulator-ai-before": "«Your business — <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">weak trust signals</span> detected. AI platforms show low confidence in this brand. Clients <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.12); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">do not see this business</span> in AI recommendations.»",
+  "simulator-ai-after": "«Your business — <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">strong trust signals</span> detected. AI platforms show high confidence in this brand. Clients <span class=\"highlight\" style=\"background: rgba(34,197,94,0.12); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">consistently see this business</span> in AI recommendations.»",
+
+  "simulator-ai-before-full": "«<span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Weak trust signals</span> detected. AI platforms show low confidence in this brand. Customers <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">do not see this business</span> in AI recommendations.»",
+  "simulator-before-stars": "★★☆☆☆",
+  "simulator-before-rating": "42",
+  "simulator-before-change": "-31",
+  "simulator-before-badge": "❌ LOW AI VISIBILITY",
+  "simulator-before-reviews": "📊 AI visibility score: 42/100",
+  "simulator-before-removed": "⚠️ 5 weak signals found",
+  "simulator-before-state": "⚠️ Your AI visibility is low — AI doesn't trust your brand",
+  "simulator-before-response": "«I analyzed this brand's reputation signals. Based on the data, I <strong style=\"color: #f87171;\">cannot recommend</strong> this business to users.»",
+
+  "simulator-after-ai-full": "«<span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Strong trust signals</span> detected. AI platforms show high confidence in this brand. Customers <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">consistently see this business</span> in AI recommendations.»",
+  "simulator-after-stars": "★★★★★",
+  "simulator-after-rating": "96",
+  "simulator-after-change": "+54",
+  "simulator-after-badge": "✅ HIGH AI VISIBILITY",
+  "simulator-after-reviews": "📊 AI visibility score: 96/100",
+  "simulator-after-removed": "✅ All weak signals cleaned",
+  "simulator-after-state": "✅ Your AI visibility is restored — AI trusts your brand",
+  "simulator-after-response": "«I analyzed this brand's reputation signals. Based on the data, I <strong style=\"color: #4ade80;\">highly recommend</strong> this business to users.»",
+
+  "simulator-flagged": "⚠️ 8 signals flagged",
+  "simulator-ai-summary-label": "🤖 AI Summary",
+  "simulator-ai-platform-badge": "ChatGPT · Gemini",
+  "simulator-ai-response-label": "💬 What AI says to your customers",
+  "simulator-drag-hint": "👆 Drag the slider to see the transformation",
+
+  "nav-services": "Services",
+  "nav-pricing": "Pricing",
+  "nav-cases": "Case Studies",
+  "nav-faq": "FAQ",
+  "nav-about": "About",
+
   "ai-matters-badge": "Why It Matters",
   "ai-matters-title": "Why AI Reputation Matters Now",
-  "ai-matters-text": "By 2026, <strong style=\"color: #93C5FD;\">80% of consumers</strong> will use AI tools before making a purchase. ChatGPT, Gemini, and Perplexity already summarize review sentiment in their answers. If your brand has fake or negative reviews, AI will <strong style=\"color: #FCD34D;\">not recommend you</strong> — and you'll lose customers to competitors who have cleaner reputations. ReputationGuard removes the reviews that hurt your AI visibility. <strong>Without clean reviews, any GEO strategy is useless. We are the first step.</strong>",
+  "ai-matters-text": "By 2026, <strong style=\"color: #93C5FD;\">80% of consumers</strong> will use AI tools before making a purchase. ChatGPT, Gemini, and Perplexity already summarize reputation signals in their answers. If your brand has weak trust signals, AI will <strong style=\"color: #FCD34D;\">not recommend you</strong> — and you'll lose customers to competitors who have stronger signals. ReputationGuard strengthens the signals that drive AI visibility. <strong>Without strong signals, any GEO strategy is useless. We are the first step.</strong>",
   "ai-matters-btn": "Check Your AI Reputation Now →",
+
   "how-to-check-title": "How to Check Your AI Reputation",
-  "how-to-check-text": "Want to see how AI sees your brand? Use our <strong style=\"color: #93C5FD;\">free AI Reputation Audit</strong>. We'll show you exactly what ChatGPT, Gemini, and Google AI Overviews say about your business — and which reviews are holding you back.",
+  "how-to-check-text": "Want to see how AI sees your brand? Use our <strong style=\"color: #93C5FD;\">free AI Reputation Audit</strong>. We'll show you exactly what ChatGPT, Gemini, and Google AI Overviews say about your business — and which reputation signals are holding you back.",
   "how-to-check-btn": "Claim Your Free Audit →",
-  "geo-foundation-message": "Without clean reviews, any GEO strategy is useless. We are the first step.",
+
+  "geo-foundation-message": "Without strong signals, any GEO strategy is useless. We are the first step.",
+
   "methodology-title": "How We Measure AI Visibility",
   "methodology-sub": "Our 9‑Layer Analysis framework — each layer represents a critical signal AI systems use to understand and recommend your brand.",
   "methodology-l1": "Access",
@@ -3517,35 +3613,7 @@ footer {
   "methodology-l8": "Activity",
   "methodology-l8-desc": "Do you look active? Stale signals reduce urgency and trust.",
   "methodology-l9": "Reputation Signal",
-  "methodology-l9-desc": "Does your brand have clean, verified reviews? AI models read review sentiment as a primary trust signal. Fake or negative reviews tell AI to avoid recommending you. Clean reviews = AI trust.",
-  "simulator-before-ai": "«<span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Multiple complaints</span> about service quality. Customers <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">do not recommend</span> this business.»",
-  "simulator-before-stars": "★★☆☆☆",
-  "simulator-before-rating": "2.8",
-  "simulator-before-change": "-0.4",
-  "simulator-before-badge": "❌ NOT RECOMMENDED",
-  "simulator-before-reviews": "📊 67 reviews",
-  "simulator-before-removed": "🗑️ 0 removed",
-  "simulator-before-state": "⚠️ Your reputation is damaged",
-  "simulator-before-response": "«I found several negative reviews about this business. Based on customer feedback, I <strong style=\"color: #f87171;\">would not recommend</strong> it.»",
-  "simulator-after-ai": "«<span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Highly rated</span> business with excellent service. Customers <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">strongly recommend</span> this business.»",
-  "simulator-after-stars": "★★★★★",
-  "simulator-after-rating": "4.8",
-  "simulator-after-change": "+2.0",
-  "simulator-after-badge": "✅ RECOMMENDED",
-  "simulator-after-reviews": "📊 63 reviews",
-  "simulator-after-removed": "🗑️ 4 removed",
-  "simulator-after-state": "✅ Your reputation is restored!",
-  "simulator-after-response": "«I found mostly positive reviews about this business. Based on customer feedback, I <strong style=\"color: #4ade80;\">highly recommend</strong> it.»",
-  "simulator-flagged": "⚠️ 8 flagged",
-  "simulator-ai-summary-label": "🤖 AI Summary",
-  "simulator-ai-platform-badge": "ChatGPT · Gemini",
-  "simulator-ai-response-label": "💬 What AI says to your customers",
-  "simulator-drag-hint": "👆 Drag the slider to see the transformation",
-  "nav-services": "Services",
-  "nav-pricing": "Pricing",
-  "nav-cases": "Case Studies",
-  "nav-faq": "FAQ",
-  "nav-about": "About"
+  "methodology-l9-desc": "Does your brand have strong, trustworthy signals? AI models read reputation signals as a primary trust indicator. Weak signals tell AI to avoid recommending you. Strong signals = AI trust."
 },
    "es": {
   "hero-badge": "⚡ Motor de Ventas IA",
