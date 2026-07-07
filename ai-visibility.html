@@ -511,12 +511,12 @@
 </footer>
 
 <!-- ============================================================
-     SCRIPT – Full widget with i18n, Formspree, auto-start, one-time check
+     SCRIPT – Full widget with i18n, validation, Formspree
      ============================================================ -->
 <script>
 (function() {
   // ================================================================
-  // 1. TRANSLATIONS (complete, with new keys for "already checked")
+  // 1. TRANSLATIONS (complete)
   // ================================================================
   var translations = {
     en: {
@@ -1244,7 +1244,7 @@
     unlocked: false,
     scanTimer: null,
     emailSent: false,
-    isLocked: false // true if already checked (localStorage)
+    isLocked: false
   };
 
   var root = document.getElementById('avc-root');
@@ -1253,22 +1253,17 @@
   // 6. RENDER FUNCTIONS
   // ================================================================
   function renderLanding() {
-    var locked = false;
-    state.isLocked = false;
     var placeholder = t.inputPlaceholder;
     var btnText = t.checkBtn;
-    var disabled = false;
-    var readOnly = false;
-
     return '' +
       '<div class="avc-brand">' + icon('shield', 'avc-i-lg') + '<span>' + t.brand + '</span></div>' +
       '<div class="avc-badge"><span class="avc-dot"></span>' + t.badge + '</div>' +
       '<h1 class="avc-h1">' + t.title + '</h1>' +
       '<p class="avc-sub">' + t.subtitle + '</p>' +
       '<div class="avc-field">' + icon('search', 'avc-i-sm avc-field-icon') +
-        '<input id="avc-input" type="text" placeholder="' + placeholder + '" autocomplete="off" disabled="' + disabled + '" readonly="' + readOnly + '" />' +
+        '<input id="avc-input" type="text" placeholder="' + placeholder + '" autocomplete="off" />' +
       '</div>' +
-      '<button id="avc-start-btn" class="avc-btn avc-btn-primary" ' + (locked ? 'disabled' : 'disabled') + '>' + btnText + ' ' + icon('arrow', 'avc-i-sm') + '</button>' +
+      '<button id="avc-start-btn" class="avc-btn avc-btn-primary" disabled>' + btnText + ' ' + icon('arrow', 'avc-i-sm') + '</button>' +
       '<div class="avc-trust-row">' +
         '<span>' + icon('shield', 'avc-i-sm') + ' ' + t.trust1 + '</span>' +
         '<span>' + icon('clock', 'avc-i-sm') + ' ' + t.trust2 + '</span>' +
@@ -1435,7 +1430,6 @@
     var input = root.querySelector('#avc-input');
     var startBtn = root.querySelector('#avc-start-btn');
 
-
     if (input) {
       input.value = state.inputValue;
       input.addEventListener('input', function (e) {
@@ -1470,13 +1464,26 @@
   }
 
   // ================================================================
-  // 8. ACTIONS
+  // 8. ACTIONS (with validation)
   // ================================================================
   function handleStart(raw) {
     var value = (raw || '').trim();
-    if (!value) return;
 
-    // Simulate report
+    // ----- VALIDATION -----
+    if (value.length < 2) {
+      alert('Please enter a valid business name or website (at least 2 characters).');
+      return;
+    }
+    if (!/[a-zA-Zа-яА-Я]/.test(value)) {
+      alert('Please enter a business name containing letters (not just numbers or symbols).');
+      return;
+    }
+    if (/^[\d\s\W]+$/.test(value)) {
+      alert('Please enter a meaningful business name (not just numbers or special characters).');
+      return;
+    }
+    // ----------------------
+
     state.report = computeReport(value);
     state.unlocked = false;
     state.emailSent = false;
@@ -1498,7 +1505,6 @@
       updateScanningDOM();
       if (pct >= 100) {
         clearInterval(state.scanTimer);
-        // Lock the check and save to localStorage
         setTimeout(function () {
           state.step = 'results';
           render();
@@ -1517,7 +1523,6 @@
   }
 
   function reset() {
-  
     clearInterval(state.scanTimer);
     state = {
       step: 'landing',
@@ -1535,12 +1540,26 @@
 
   function handleUnlock() {
     var input = root.querySelector('#avc-email-input');
-    var val = input ? input.value : '';
-    if (!val || val.indexOf('@') === -1) return;
-    // Always unlock even if email fails
+    var email = input ? input.value.trim() : '';
+    if (!email || email.indexOf('@') === -1) return;
+
+    // Unlock UI immediately (user feedback)
     state.unlocked = true;
     state.emailSent = true;
     render();
+
+    // Send to Formspree (async)
+    var FORM_ID = 'mykqokjr'; // <-- your Formspree form ID
+    var url = 'https://formspree.io/f/' + FORM_ID;
+    var businessName = state.report ? state.report.name : 'Unknown';
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, business: businessName })
+    }).catch(function(err) {
+      // silently ignore errors; user already got the report
+      console.warn('Formspree submission error:', err);
+    });
   }
 
   // ================================================================
@@ -1557,14 +1576,12 @@
       document.documentElement.setAttribute('dir', 'ltr');
       document.body.classList.remove('rtl-mode');
     }
-    // Re‑render current step
     render();
   }
 
   // ================================================================
   // 10. INIT
   // ================================================================
-  // Check for language param
   var urlParams = new URLSearchParams(window.location.search);
   var langParam = urlParams.get('lang');
   if (langParam && translations[langParam]) {
@@ -1572,10 +1589,8 @@
     t = translations[lang];
   }
 
-
-  // Auto‑start from business param
   var business = urlParams.get('business');
-  if (business && !state.isLocked) {
+  if (business) {
     state.inputValue = business;
     render();
     setTimeout(function() {
