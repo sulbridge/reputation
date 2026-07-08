@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>AI Visibility Check · ReputationGuard</title>
-  <meta name="description" content="See how ChatGPT, Gemini, Perplexity and Google AI see your business. Free AI Visibility Score with detailed 9-layer analysis.">
+  <meta name="description" content="See how ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek and Google AI see your business. Free AI Visibility Score with detailed 9-layer analysis.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="alternate" type="text/plain" href="/llms-full.txt" title="AI-readable company facts" />
@@ -60,41 +60,105 @@
       letter-spacing: -0.5px;
       text-decoration: none;
     }
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-      list-style: none;
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #e5e7eb;
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: transform 0.25s ease;
     }
-    .nav-links a {
+    .nav-toggle.active { transform: rotate(90deg); }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 28px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    .nav-menu a {
       color: #e5e7eb;
       text-decoration: none;
       font-weight: 500;
       font-size: 0.95rem;
       transition: color 0.2s;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
     }
-    .nav-links a:hover { color: #60A5FA; }
-    .nav-links .btn-primary {
+    .nav-menu a:hover {
+      color: #60A5FA;
+      border-bottom-color: #60A5FA;
+    }
+    .nav-menu .nav-cta {
+      padding: 8px 24px;
+      font-size: 0.9rem;
       background: #1E3A8A;
       color: white;
-      padding: 8px 24px;
       border-radius: 40px;
       font-weight: 700;
-      font-size: 0.9rem;
-      box-shadow: 0 4px 10px rgba(30,58,138,0.3);
       transition: background 0.2s, transform 0.2s;
-      border: none;
-      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(30,58,138,0.3);
+      border-bottom: none;
     }
-    .nav-links .btn-primary:hover {
+    .nav-menu .nav-cta:hover {
       background: #2563EB;
       transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37,99,235,0.4);
+      border-bottom: none;
     }
 
-    /* ----- Page header (breadcrumb / back) ----- */
-    .page-header {
-      margin: 24px 0 12px;
+    @media (max-width: 992px) {
+      .nav-toggle { display: block; z-index: 10000; }
+      .nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(13, 15, 20, 0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        padding: 40px 24px;
+        z-index: 9999;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        animation: none;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li { width: 100%; text-align: center; }
+      .nav-menu a {
+        font-size: 1.4rem;
+        padding: 12px 0;
+        display: block;
+        border-bottom: none;
+        color: #f9fafb;
+      }
+      .nav-menu a:hover {
+        border-bottom: none;
+        background: rgba(59,130,246,0.08);
+        border-radius: 12px;
+      }
+      .nav-menu .nav-cta {
+        display: inline-block;
+        width: auto;
+        padding: 12px 32px;
+        font-size: 1.1rem;
+      }
     }
+
+    /* ----- Page header ----- */
+    .page-header { margin: 24px 0 12px; }
     .page-header a {
       color: #93C5FD;
       text-decoration: none;
@@ -105,12 +169,8 @@
     }
     .page-header a:hover { text-decoration: underline; }
 
-    /* ----- Main widget container ----- */
-    .avc-page-wrapper {
-      max-width: 720px;
-      margin: 20px auto 60px;
-      padding: 0 16px;
-    }
+    /* ----- Widget ----- */
+    .avc-page-wrapper { max-width: 720px; margin: 20px auto 60px; padding: 0 16px; }
     .avc-widget {
       --avc-bg: #030712;
       --avc-card: rgba(17,24,39,0.6);
@@ -307,7 +367,7 @@
 
     .avc-success { color: var(--avc-emerald); font-size: 14px; margin-top: 8px; }
 
-    /* ----- Footer (copy from main) ----- */
+    /* ----- Footer ----- */
     footer {
       background: #0d0f14;
       border-top: 1px solid #2d3748;
@@ -337,20 +397,10 @@
       color: #9ca3af;
       line-height: 1.6;
     }
-    .footer-column ul {
-      list-style: none;
-      padding: 0;
-    }
-    .footer-column li {
-      margin-bottom: 8px;
-    }
-    .footer-column a {
-      color: #93C5FD;
-      text-decoration: none;
-    }
-    .footer-column a:hover {
-      text-decoration: underline;
-    }
+    .footer-column ul { list-style: none; padding: 0; }
+    .footer-column li { margin-bottom: 8px; }
+    .footer-column a { color: #93C5FD; text-decoration: none; }
+    .footer-column a:hover { text-decoration: underline; }
     .footer-bottom {
       text-align: center;
       padding: 24px;
@@ -358,14 +408,8 @@
       font-size: 0.7rem;
       color: #6c757d;
     }
-    .footer-column p i {
-      width: 18px;
-      text-align: center;
-    }
-    .footer-column:last-child {
-      text-align: center;
-      min-width: 210px;
-    }
+    .footer-column p i { width: 18px; text-align: center; }
+    .footer-column:last-child { text-align: center; min-width: 210px; }
     .footer-lang-switch {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -393,166 +437,37 @@
       background: #1E3A8A;
       color: white;
     }
-    .footer-lang-switch .lang-btn:hover {
-      background: #1e293b;
-    }
+    .footer-lang-switch .lang-btn:hover { background: #1e293b; }
 
-    /* RTL support */
-    .rtl-mode {
-      direction: rtl;
-      text-align: right;
-    }
+    .rtl-mode { direction: rtl; text-align: right; }
     .rtl-mode .avc-layer-label { flex-direction: row-reverse; }
     .rtl-mode .avc-field .avc-field-icon { left: auto; right: 16px; }
     .rtl-mode .avc-field input { padding: 14px 44px 14px 16px; }
 
-    /* responsive */
     @media (max-width: 640px) {
       .avc-widget { padding: 20px 16px; }
       .navbar .logo { font-size: 1.4rem; }
-      .nav-links { gap: 16px; }
-      .nav-links a { font-size: 0.85rem; }
     }
-
-    /* ----- Mobile burger menu ----- */
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: #e5e7eb;
-  font-size: 1.8rem;
-  cursor: pointer;
-  padding: 4px 8px;
-  transition: transform 0.25s ease;
-}
-.nav-toggle.active {
-  transform: rotate(90deg);
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none;
-  align-items: center;
-  gap: 28px;
-  margin: 0;
-  padding: 0;
-  flex-wrap: wrap;
-}
-.nav-menu a {
-  color: #e5e7eb;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: color 0.2s;
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
-  white-space: nowrap;
-}
-.nav-menu a:hover {
-  color: #60A5FA;
-  border-bottom-color: #60A5FA;
-}
-.nav-menu .nav-cta {
-  padding: 8px 24px;
-  font-size: 0.9rem;
-  background: #1E3A8A;
-  color: white;
-  border-radius: 40px;
-  font-weight: 700;
-  transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 4px 10px rgba(30,58,138,0.3);
-  border-bottom: none;
-}
-.nav-menu .nav-cta:hover {
-  background: #2563EB;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(37,99,235,0.4);
-  border-bottom: none;
-}
-
-@media (max-width: 992px) {
-  .nav-toggle {
-    display: block;
-  }
-
-  .nav-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(13, 15, 20, 0.97);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    padding: 40px 24px;
-    z-index: 9999;
-    margin: 0;
-    border-radius: 0;
-    box-shadow: none;
-    animation: none;
-  }
-  .nav-menu.open {
-    display: flex;
-  }
-  .nav-menu li {
-    width: 100%;
-    text-align: center;
-  }
-  .nav-menu a {
-    font-size: 1.4rem;
-    padding: 12px 0;
-    display: block;
-    border-bottom: none;
-    color: #f9fafb;
-  }
-  .nav-menu a:hover {
-    border-bottom: none;
-    background: rgba(59,130,246,0.08);
-    border-radius: 12px;
-  }
-  .nav-menu .nav-cta {
-    display: inline-block;
-    width: auto;
-    padding: 12px 32px;
-    font-size: 1.1rem;
-  }
-  .nav-toggle {
-  z-index: 10000;
-}
-}
-
-@media (max-width: 480px) {
-  .nav-menu a {
-    font-size: 1rem;
-  }
-}
   </style>
 </head>
 <body>
 <div class="container">
-  <!-- ===== NAVIGATION (sticky) ===== -->
- <div class="navbar" id="navbar">
-  <a href="/" class="logo">🛡️ ReputationGuard</a>
-  
-  <button class="nav-toggle" aria-label="Toggle navigation">
-    <i class="fas fa-bars"></i>
-  </button>
-  
-  <ul class="nav-menu">
-    <li><a href="/#services" data-i18n="nav-services">Services</a></li>
-    <li><a href="/#pricing" data-i18n="nav-pricing">Pricing</a></li>
-    <li><a href="/#faq" data-i18n="nav-faq">FAQ</a></li>
-    <li><a href="/about.html" data-i18n="nav-about">About</a></li>
-    <li><a href="/#contact-form-section" class="btn-primary nav-cta" data-i18n="hero-btn">Free Audit</a></li>
-  </ul>
-</div>
+  <!-- ===== NAVIGATION ===== -->
+  <div class="navbar" id="navbar">
+    <a href="/" class="logo">🛡️ ReputationGuard</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-menu">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/#contact-form-section" class="btn-primary nav-cta">Free Audit</a></li>
+    </ul>
+  </div>
 
-  <!-- ===== PAGE HEADER (back link) ===== -->
+  <!-- ===== BACK LINK ===== -->
   <div class="page-header">
     <a href="/" id="backLink">← Back to Home</a>
   </div>
@@ -567,23 +482,23 @@
 <footer>
   <div class="footer-container">
     <div class="footer-column">
-      <h4 data-i18n="footer-company">ReputationGuard</h4>
-      <p data-i18n="footer-tagline">AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We don't just remove reviews — we make you visible to AI.</p>
+      <h4>ReputationGuard</h4>
+      <p>AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends — by restoring the trust signals that drive AI visibility and sales.</p>
       <p style="margin-top: 8px;"><a href="/about.html">About Us</a></p>
     </div>
     <div class="footer-column">
-      <h4 data-i18n="footer-services">Services</h4>
+      <h4>Services</h4>
       <ul>
-        <li><a href="/review-removal.html" data-i18n="footer-review-removal">AI Reputation Cleanup</a></li>
-        <li><a href="/appeal-filing.html" data-i18n="footer-appeal">AI Visibility Optimization</a></li>
-        <li><a href="/reputation-monitoring.html" data-i18n="footer-monitoring">AI Sentiment Monitoring</a></li>
-        <li><a href="/serm-consulting.html" data-i18n="footer-consulting">GEO Strategy Consulting</a></li>
-        <li><a href="/affiliate.html" data-i18n="footer-affiliate">Affiliate Program</a></li>
-        <li><a href="/white-label.html" data-i18n="footer-white-label">White‑Label Partnership</a></li>
+        <li><a href="/review-removal.html">AI Reputation Cleanup</a></li>
+        <li><a href="/appeal-filing.html">AI Visibility Optimization</a></li>
+        <li><a href="/reputation-monitoring.html">AI Sentiment Monitoring</a></li>
+        <li><a href="/serm-consulting.html">GEO Strategy Consulting</a></li>
+        <li><a href="/affiliate.html">Affiliate Program</a></li>
+        <li><a href="/white-label.html">White‑Label Partnership</a></li>
       </ul>
     </div>
     <div class="footer-column">
-      <h4 data-i18n="footer-industries">Industries</h4>
+      <h4>Industries</h4>
       <ul>
         <li><a href="/hotel-reputation-management.html">🏨 Hotels</a></li>
         <li><a href="/dental-reputation-management.html">🦷 Dental Clinics</a></li>
@@ -597,20 +512,20 @@
       </ul>
     </div>
     <div class="footer-column">
-      <h4 data-i18n="footer-legal">Legal</h4>
+      <h4>Legal</h4>
       <ul>
-        <li><a href="/privacy-policy.html" data-i18n="footer-privacy">Privacy Policy</a></li>
-        <li><a href="/terms-of-service.html" data-i18n="footer-terms">Terms of Service</a></li>
-        <li><a href="/refund-policy.html" data-i18n="footer-refund">Refund Policy</a></li>
-        <li><a href="https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400" target="_blank" rel="noopener noreferrer" data-i18n="manage-subscription">Manage Subscription</a></li>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+        <li><a href="/refund-policy.html">Refund Policy</a></li>
+        <li><a href="https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400" target="_blank" rel="noopener noreferrer">Manage Subscription</a></li>
       </ul>
     </div>
     <div class="footer-column">
-      <h4 data-i18n="footer-contact">Contact</h4>
+      <h4>Contact</h4>
       <p><i class="fas fa-envelope"></i> defend@reputationguard.pro</p>
       <p><i class="fas fa-globe"></i> reputationguard.pro</p>
       <p><i class="fab fa-whatsapp"></i> <span id="dynamic-phone" style="white-space: nowrap;"></span> (WhatsApp)</p>
-      <h4 style="margin-top: 20px; font-size: 0.9rem;" data-i18n="footer-language">Language</h4>
+      <h4 style="margin-top: 20px; font-size: 0.9rem;">Language</h4>
       <div class="footer-lang-switch" style="margin-top: 8px;">
         <button class="lang-btn" data-lang="en"><span class="fi fi-us"></span> EN</button>
         <button class="lang-btn" data-lang="vi"><span class="fi fi-vn"></span> VI</button>
@@ -625,7 +540,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p data-i18n="footer-disclaimer">*Results may vary.</p>
+    <p>*Results may vary.</p>
     <p>© 2026 ReputationGuard Global. All rights reserved.</p>
     <p style="font-size: 0.65rem; color: #9ca3af; margin-top: 8px;">
       1209 Mountain Road PL NE, STE N, Albuquerque, NM 87110, USA
@@ -639,18 +554,18 @@
 <script>
 (function() {
   // ================================================================
-  // 1. TRANSLATIONS (complete)
+  // 1. TRANSLATIONS
   // ================================================================
   var translations = {
     en: {
       brand: 'ReputationGuard',
-      badge: 'Free AI Visibility Check',
-      title: 'Is AI <span class="avc-accent">Recommending</span> Your Business?',
-      subtitle: 'See how ChatGPT, Gemini, Perplexity and Google AI talk about your business right now — and what it\'s quietly costing you.',
+      badge: '⚡ AI Visibility Engine',
+      title: 'Is Your Business <span class="avc-accent">Visible</span> on ChatGPT, Gemini, Claude &amp; Perplexity?',
+      subtitle: 'See exactly where your business appears — or doesn\'t appear — across <strong>ALL major AI platforms worldwide</strong>. Get a <strong>free AI visibility report</strong> with a clear plan to get listed everywhere that matters.',
       inputPlaceholder: 'Enter your business name or website',
-      checkBtn: 'Check AI Visibility',
+      checkBtn: 'Check My AI Visibility →',
       trust1: 'No login required',
-      trust2: 'Results in ~5 seconds',
+      trust2: 'Results in ~30 seconds',
       trust3: '100% free',
       statPlatforms: 'AI Platforms',
       statLayers: 'Ranking Layers',
@@ -660,8 +575,8 @@
         'Checking ChatGPT brand mentions',
         'Analyzing Gemini recommendations',
         'Scanning Google AI Overviews',
-        'Evaluating review sentiment signals',
         'Scanning Perplexity citations',
+        'Checking Claude and Grok visibility',
         'Calculating your AI Visibility Score'
       ],
       scoreLabel: 'AI VISIBILITY SCORE',
@@ -669,26 +584,26 @@
       layerTitle: '9-Layer Analysis',
       platformTitle: 'AI Platform Visibility',
       issuesTitle: 'Critical Issues Found',
-      issueNegTitle: 'Negative review sentiment detected',
-      issueNegBody: 'AI platforms surfaced {count} reviews with negative sentiment that are influencing recommendations against {name}.',
-      issueNegImpact: 'Impact: Estimated {low}-{high}% reduction in AI-driven referrals',
-      issueFakeTitle: 'Potential fake reviews identified',
-      issueFakeBody: '{count} reviews show patterns consistent with fake or competitor-generated content (timing, language patterns, reviewer history).',
-      issueFakeImpact: 'Impact: Each fake review reduces your AI trust score by ~{points} points',
+      issueNegTitle: 'Low AI Visibility Detected',
+      issueNegBody: 'Your brand appears in {count} out of 6 major AI platforms. This means you\'re invisible to millions of AI users — while your competitors get all the leads.',
+      issueNegImpact: 'Impact: Estimated {low}-{high}% reduction in AI-driven traffic',
+      issueFakeTitle: 'Weak Trust Signals Found',
+      issueFakeBody: '{count} weak trust signals detected — missing schema markup, inconsistent business data, or low authority signals that make AI avoid your brand.',
+      issueFakeImpact: 'Impact: Each weak signal reduces your AI trust score by ~{points} points',
       unlockTitle: 'Unlock Full Report',
       unlockDesc: 'Enter your email to see all {count} additional findings, detailed recommendations, and your personalized fix roadmap.',
       unlockPlaceholder: 'your@email.com',
       unlockBtn: 'Unlock Full Report',
       unlockFine: 'No spam. We\'ll send your detailed report and next steps.',
       unlockSuccess: 'Thank you! Your report is now unlocked.',
-      ctaTitle: 'Ready to fix your AI visibility?',
-      ctaDesc: 'Get a professional AI Reputation Audit from our team. We\'ll identify what\'s hurting your visibility across ChatGPT, Gemini, Perplexity and Google AI — and build a plan to fix it.',
-      ctaBtn: 'Get Professional AI Audit',
+      ctaTitle: 'Ready to boost your AI visibility?',
+      ctaDesc: 'Get a professional AI Reputation Audit from our team. We\'ll identify what\'s hurting your visibility across ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek and Google AI — and build a plan to fix it.',
+      ctaBtn: 'Boost Your AI Visibility Now',
       backHome: '← Back to Home',
       anotherCheck: '← Check another business',
       statusRecommended: 'Recommended',
       statusPartiallyVisible: 'Partially Visible',
-      statusNotRecommended: 'Not Recommended',
+      statusNotRecommended: 'Not Visible',
       bandAtRisk: 'At Risk',
       bandNeedsWork: 'Needs Work',
       bandGood: 'Good',
@@ -702,13 +617,13 @@
     },
     es: {
       brand: 'ReputationGuard',
-      badge: 'Verificación de Visibilidad IA Gratuita',
-      title: '¿La IA <span class="avc-accent">recomienda</span> tu negocio?',
-      subtitle: 'Descubre cómo ChatGPT, Gemini, Perplexity y Google AI hablan de tu negocio ahora mismo — y lo que te está costando en silencio.',
+      badge: '⚡ Motor de Visibilidad IA',
+      title: '¿Tu negocio es <span class="avc-accent">visible</span> en ChatGPT, Gemini, Claude y Perplexity?',
+      subtitle: 'Descubre exactamente dónde aparece tu negocio — o no aparece — en <strong>TODAS las principales plataformas de IA del mundo</strong>. Obtén un <strong>informe gratuito de visibilidad IA</strong> con un plan claro para aparecer en todos los lugares que importan.',
       inputPlaceholder: 'Ingresa el nombre o sitio web de tu negocio',
-      checkBtn: 'Verificar Visibilidad IA',
+      checkBtn: 'Verificar Mi Visibilidad IA →',
       trust1: 'Sin necesidad de login',
-      trust2: 'Resultados en ~5 segundos',
+      trust2: 'Resultados en ~30 segundos',
       trust3: '100% gratis',
       statPlatforms: 'Plataformas IA',
       statLayers: 'Capas de Ranking',
@@ -718,8 +633,8 @@
         'Verificando menciones de marca en ChatGPT',
         'Analizando recomendaciones de Gemini',
         'Escaneando Google AI Overviews',
-        'Evaluando señales de sentimiento de reseñas',
         'Escaneando citas en Perplexity',
+        'Verificando visibilidad en Claude y Grok',
         'Calculando tu puntuación de Visibilidad IA'
       ],
       scoreLabel: 'PUNTUACIÓN DE VISIBILIDAD IA',
@@ -727,26 +642,26 @@
       layerTitle: 'Análisis de 9 Capas',
       platformTitle: 'Visibilidad en Plataformas IA',
       issuesTitle: 'Problemas Críticos Encontrados',
-      issueNegTitle: 'Sentimiento negativo en reseñas detectado',
-      issueNegBody: 'Las plataformas IA mostraron {count} reseñas con sentimiento negativo que influyen en las recomendaciones en contra de {name}.',
-      issueNegImpact: 'Impacto: Reducción estimada del {low}-{high}% en referencias impulsadas por IA',
-      issueFakeTitle: 'Posibles reseñas falsas identificadas',
-      issueFakeBody: '{count} reseñas muestran patrones consistentes con contenido falso o generado por competidores (tiempo, patrones de lenguaje, historial del revisor).',
-      issueFakeImpact: 'Impacto: Cada reseña falsa reduce tu puntuación de confianza IA en ~{points} puntos',
+      issueNegTitle: 'Baja Visibilidad IA Detectada',
+      issueNegBody: 'Tu marca aparece en {count} de 6 plataformas principales de IA. Esto significa que eres invisible para millones de usuarios de IA — mientras tus competidores obtienen todos los clientes.',
+      issueNegImpact: 'Impacto: Reducción estimada del {low}-{high}% en tráfico impulsado por IA',
+      issueFakeTitle: 'Señales de Confianza Débiles Encontradas',
+      issueFakeBody: '{count} señales de confianza débiles detectadas — falta de marcado schema, datos de negocio inconsistentes o señales de autoridad bajas que hacen que la IA evite tu marca.',
+      issueFakeImpact: 'Impacto: Cada señal débil reduce tu puntuación de confianza IA en ~{points} puntos',
       unlockTitle: 'Desbloquear Informe Completo',
       unlockDesc: 'Ingresa tu correo para ver los {count} hallazgos adicionales, recomendaciones detalladas y tu hoja de ruta personalizada.',
       unlockPlaceholder: 'tu@email.com',
       unlockBtn: 'Desbloquear Informe Completo',
       unlockFine: 'Sin spam. Te enviaremos tu informe detallado y los próximos pasos.',
       unlockSuccess: '¡Gracias! Tu informe ya está desbloqueado.',
-      ctaTitle: '¿Listo para arreglar tu visibilidad IA?',
-      ctaDesc: 'Obtén una auditoría profesional de Reputación IA de nuestro equipo. Identificaremos lo que daña tu visibilidad en ChatGPT, Gemini, Perplexity y Google AI — y crearemos un plan para solucionarlo.',
-      ctaBtn: 'Obtener Auditoría IA Profesional',
+      ctaTitle: '¿Listo para mejorar tu visibilidad IA?',
+      ctaDesc: 'Obtén una auditoría profesional de Reputación IA de nuestro equipo. Identificaremos lo que daña tu visibilidad en ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek y Google AI — y crearemos un plan para solucionarlo.',
+      ctaBtn: 'Mejorar Mi Visibilidad IA Ahora',
       backHome: '← Volver al inicio',
       anotherCheck: '← Verificar otro negocio',
       statusRecommended: 'Recomendado',
       statusPartiallyVisible: 'Parcialmente Visible',
-      statusNotRecommended: 'No Recomendado',
+      statusNotRecommended: 'No Visible',
       bandAtRisk: 'En Riesgo',
       bandNeedsWork: 'Necesita Mejora',
       bandGood: 'Bueno',
@@ -760,13 +675,13 @@
     },
     de: {
       brand: 'ReputationGuard',
-      badge: 'Kostenlose KI-Sichtbarkeitsprüfung',
-      title: 'Empfiehlt die KI <span class="avc-accent">Ihr Unternehmen</span>?',
-      subtitle: 'Sehen Sie, wie ChatGPT, Gemini, Perplexity und Google AI jetzt über Ihr Unternehmen sprechen – und was es Sie leise kostet.',
+      badge: '⚡ KI-Sichtbarkeits-Motor',
+      title: 'Ist Ihr Unternehmen <span class="avc-accent">sichtbar</span> auf ChatGPT, Gemini, Claude und Perplexity?',
+      subtitle: 'Sehen Sie genau, wo Ihr Unternehmen erscheint — oder nicht erscheint — auf <strong>ALLEN wichtigen KI-Plattformen weltweit</strong>. Erhalten Sie einen <strong>kostenlosen KI-Sichtbarkeitsbericht</strong> mit einem klaren Plan, um überall gelistet zu werden, wo es zählt.',
       inputPlaceholder: 'Geben Sie Ihren Firmennamen oder Ihre Website ein',
-      checkBtn: 'KI-Sichtbarkeit prüfen',
+      checkBtn: 'Meine KI-Sichtbarkeit prüfen →',
       trust1: 'Ohne Anmeldung',
-      trust2: 'Ergebnisse in ~5 Sekunden',
+      trust2: 'Ergebnisse in ~30 Sekunden',
       trust3: '100% kostenlos',
       statPlatforms: 'KI-Plattformen',
       statLayers: 'Ranking-Ebenen',
@@ -776,8 +691,8 @@
         'Prüfe ChatGPT-Erwähnungen',
         'Analysiere Gemini-Empfehlungen',
         'Scanne Google AI Overviews',
-        'Bewerte Review-Sentiment-Signale',
         'Scanne Perplexity-Zitate',
+        'Prüfe Claude- und Grok-Sichtbarkeit',
         'Berechne Ihren KI-Sichtbarkeits-Score'
       ],
       scoreLabel: 'KI-SICHTBARKEITS-SCORE',
@@ -785,12 +700,12 @@
       layerTitle: '9‑Ebenen‑Analyse',
       platformTitle: 'KI-Plattform-Sichtbarkeit',
       issuesTitle: 'Kritische Probleme gefunden',
-      issueNegTitle: 'Negatives Review-Sentiment erkannt',
-      issueNegBody: 'KI-Plattformen zeigten {count} Bewertungen mit negativem Sentiment, die Empfehlungen gegen {name} beeinflussen.',
-      issueNegImpact: 'Auswirkung: Geschätzte {low}-{high}% Reduzierung von KI-gesteuerten Verweisen',
-      issueFakeTitle: 'Potenzielle gefälschte Bewertungen identifiziert',
-      issueFakeBody: '{count} Bewertungen zeigen Muster, die auf gefälschte oder von Wettbewerbern erstellte Inhalte hindeuten (Zeitpunkt, Sprachmuster, Bewerterhistorie).',
-      issueFakeImpact: 'Auswirkung: Jede gefälschte Bewertung reduziert Ihren KI-Vertrauensscore um ~{points} Punkte',
+      issueNegTitle: 'Geringe KI-Sichtbarkeit erkannt',
+      issueNegBody: 'Ihre Marke erscheint auf {count} von 6 wichtigen KI-Plattformen. Das bedeutet, Sie sind für Millionen von KI-Nutzern unsichtbar — während Ihre Konkurrenten alle Leads bekommen.',
+      issueNegImpact: 'Auswirkung: Geschätzte {low}-{high}% Reduzierung des KI-gesteuerten Traffics',
+      issueFakeTitle: 'Schwache Vertrauenssignale gefunden',
+      issueFakeBody: '{count} schwache Vertrauenssignale erkannt — fehlendes Schema-Markup, inkonsistente Geschäftsdaten oder niedrige Autoritätssignale, die KI dazu bringen, Ihre Marke zu meiden.',
+      issueFakeImpact: 'Auswirkung: Jedes schwache Signal reduziert Ihren KI-Vertrauensscore um ~{points} Punkte',
       unlockTitle: 'Vollständigen Bericht freischalten',
       unlockDesc: 'Geben Sie Ihre E-Mail ein, um alle {count} zusätzlichen Erkenntnisse, detaillierte Empfehlungen und Ihre persönliche Roadmap zu sehen.',
       unlockPlaceholder: 'ihre@email.com',
@@ -798,13 +713,13 @@
       unlockFine: 'Kein Spam. Wir senden Ihnen Ihren detaillierten Bericht und die nächsten Schritte.',
       unlockSuccess: 'Vielen Dank! Ihr Bericht ist jetzt freigeschaltet.',
       ctaTitle: 'Bereit, Ihre KI-Sichtbarkeit zu verbessern?',
-      ctaDesc: 'Holen Sie sich ein professionelles KI-Reputationsaudit von unserem Team. Wir identifizieren, was Ihre Sichtbarkeit auf ChatGPT, Gemini, Perplexity und Google AI beeinträchtigt – und erstellen einen Plan zur Behebung.',
-      ctaBtn: 'Professionelles KI-Audit erhalten',
+      ctaDesc: 'Holen Sie sich ein professionelles KI-Reputationsaudit von unserem Team. Wir identifizieren, was Ihre Sichtbarkeit auf ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek und Google AI beeinträchtigt – und erstellen einen Plan zur Behebung.',
+      ctaBtn: 'Jetzt KI-Sichtbarkeit verbessern',
       backHome: '← Zurück zur Startseite',
       anotherCheck: '← Ein anderes Unternehmen prüfen',
       statusRecommended: 'Empfohlen',
       statusPartiallyVisible: 'Teilweise sichtbar',
-      statusNotRecommended: 'Nicht empfohlen',
+      statusNotRecommended: 'Nicht sichtbar',
       bandAtRisk: 'Gefährdet',
       bandNeedsWork: 'Verbesserungsbedarf',
       bandGood: 'Gut',
@@ -818,13 +733,13 @@
     },
     fr: {
       brand: 'ReputationGuard',
-      badge: 'Vérification de Visibilité IA Gratuite',
-      title: 'L\'IA <span class="avc-accent">recommande</span>-t-elle votre entreprise ?',
-      subtitle: 'Découvrez comment ChatGPT, Gemini, Perplexity et Google AI parlent de votre entreprise dès maintenant — et ce que cela vous coûte silencieusement.',
+      badge: '⚡ Moteur de Visibilité IA',
+      title: 'Votre entreprise est-elle <span class="avc-accent">visible</span> sur ChatGPT, Gemini, Claude et Perplexity?',
+      subtitle: 'Découvrez exactement où votre entreprise apparaît — ou n\'apparaît pas — sur <strong>TOUTES les principales plateformes d\'IA mondiales</strong>. Obtenez un <strong>rapport de visibilité IA gratuit</strong> avec un plan clair pour être listé partout où cela compte.',
       inputPlaceholder: 'Entrez le nom ou le site web de votre entreprise',
-      checkBtn: 'Vérifier la Visibilité IA',
+      checkBtn: 'Vérifier Ma Visibilité IA →',
       trust1: 'Sans connexion',
-      trust2: 'Résultats en ~5 secondes',
+      trust2: 'Résultats en ~30 secondes',
       trust3: '100% gratuit',
       statPlatforms: 'Plateformes IA',
       statLayers: 'Couches de classement',
@@ -834,8 +749,8 @@
         'Vérification des mentions de marque sur ChatGPT',
         'Analyse des recommandations Gemini',
         'Analyse de Google AI Overviews',
-        'Évaluation des signaux de sentiment des avis',
         'Analyse des citations Perplexity',
+        'Vérification de la visibilité sur Claude et Grok',
         'Calcul de votre score de visibilité IA'
       ],
       scoreLabel: 'SCORE DE VISIBILITÉ IA',
@@ -843,12 +758,12 @@
       layerTitle: 'Analyse en 9 couches',
       platformTitle: 'Visibilité sur les plateformes IA',
       issuesTitle: 'Problèmes critiques détectés',
-      issueNegTitle: 'Sentiment négatif des avis détecté',
-      issueNegBody: 'Les plateformes IA ont trouvé {count} avis négatifs qui influencent les recommandations contre {name}.',
-      issueNegImpact: 'Impact : Réduction estimée de {low}-{high}% des références pilotées par l\'IA',
-      issueFakeTitle: 'Avis potentiellement falsifiés identifiés',
-      issueFakeBody: '{count} avis présentent des schémas cohérents avec du contenu faux ou généré par des concurrents (calendrier, schémas linguistiques, historique du critique).',
-      issueFakeImpact: 'Impact : Chaque faux avis réduit votre score de confiance IA d\'environ {points} points',
+      issueNegTitle: 'Faible visibilité IA détectée',
+      issueNegBody: 'Votre marque apparaît sur {count} des 6 principales plateformes IA. Cela signifie que vous êtes invisible pour des millions d\'utilisateurs IA — pendant que vos concurrents récoltent tous les leads.',
+      issueNegImpact: 'Impact : Réduction estimée de {low}-{high}% du trafic piloté par l\'IA',
+      issueFakeTitle: 'Signaux de confiance faibles trouvés',
+      issueFakeBody: '{count} signaux de confiance faibles détectés — balisage schema manquant, données commerciales incohérentes ou signaux d\'autorité faibles qui font que l\'IA évite votre marque.',
+      issueFakeImpact: 'Impact : Chaque signal faible réduit votre score de confiance IA d\'environ {points} points',
       unlockTitle: 'Déverrouiller le rapport complet',
       unlockDesc: 'Entrez votre email pour voir les {count} résultats supplémentaires, des recommandations détaillées et votre feuille de route personnalisée.',
       unlockPlaceholder: 'votre@email.com',
@@ -856,13 +771,13 @@
       unlockFine: 'Pas de spam. Nous vous enverrons votre rapport détaillé et les prochaines étapes.',
       unlockSuccess: 'Merci ! Votre rapport est maintenant déverrouillé.',
       ctaTitle: 'Prêt à améliorer votre visibilité IA ?',
-      ctaDesc: 'Obtenez un audit professionnel de réputation IA de notre équipe. Nous identifierons ce qui nuit à votre visibilité sur ChatGPT, Gemini, Perplexity et Google AI — et nous construirons un plan pour y remédier.',
-      ctaBtn: 'Obtenir un audit IA professionnel',
+      ctaDesc: 'Obtenez un audit professionnel de réputation IA de notre équipe. Nous identifierons ce qui nuit à votre visibilité sur ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek et Google AI — et nous construirons un plan pour y remédier.',
+      ctaBtn: 'Améliorer Ma Visibilité IA Maintenant',
       backHome: '← Retour à l\'accueil',
       anotherCheck: '← Vérifier une autre entreprise',
       statusRecommended: 'Recommandé',
       statusPartiallyVisible: 'Partiellement visible',
-      statusNotRecommended: 'Non recommandé',
+      statusNotRecommended: 'Non visible',
       bandAtRisk: 'En danger',
       bandNeedsWork: 'À améliorer',
       bandGood: 'Bon',
@@ -876,13 +791,13 @@
     },
     it: {
       brand: 'ReputationGuard',
-      badge: 'Controllo Visibilità IA Gratuito',
-      title: 'L\'IA <span class="avc-accent">raccomanda</span> la tua attività?',
-      subtitle: 'Scopri come ChatGPT, Gemini, Perplexity e Google AI parlano della tua attività in questo momento — e quanto ti costa silenziosamente.',
+      badge: '⚡ Motore di Visibilità IA',
+      title: 'La tua azienda è <span class="avc-accent">visibile</span> su ChatGPT, Gemini, Claude e Perplexity?',
+      subtitle: 'Scopri esattamente dove la tua azienda appare — o non appare — su <strong>TUTTE le principali piattaforme IA mondiali</strong>. Ottieni un <strong>rapporto gratuito di visibilità IA</strong> con un piano chiaro per essere presente ovunque conti.',
       inputPlaceholder: 'Inserisci il nome o il sito web della tua attività',
-      checkBtn: 'Controlla Visibilità IA',
+      checkBtn: 'Verifica la Mia Visibilità IA →',
       trust1: 'Nessun login richiesto',
-      trust2: 'Risultati in ~5 secondi',
+      trust2: 'Risultati in ~30 secondi',
       trust3: '100% gratuito',
       statPlatforms: 'Piattaforme IA',
       statLayers: 'Livelli di Ranking',
@@ -892,8 +807,8 @@
         'Controllo menzioni del brand su ChatGPT',
         'Analisi raccomandazioni Gemini',
         'Analisi Google AI Overviews',
-        'Valutazione segnali di sentiment delle recensioni',
         'Analisi citazioni Perplexity',
+        'Verifica visibilità su Claude e Grok',
         'Calcolo del tuo punteggio di Visibilità IA'
       ],
       scoreLabel: 'PUNTEGGIO DI VISIBILITÀ IA',
@@ -901,12 +816,12 @@
       layerTitle: 'Analisi a 9 livelli',
       platformTitle: 'Visibilità sulle Piattaforme IA',
       issuesTitle: 'Problemi Critici Trovati',
-      issueNegTitle: 'Sentimento negativo nelle recensioni rilevato',
-      issueNegBody: 'Le piattaforme IA hanno mostrato {count} recensioni con sentimento negativo che influenzano le raccomandazioni contro {name}.',
-      issueNegImpact: 'Impatto: Riduzione stimata del {low}-{high}% nei referral guidati dall\'IA',
-      issueFakeTitle: 'Potenziali recensioni false identificate',
-      issueFakeBody: '{count} recensioni mostrano schemi coerenti con contenuti falsi o generati da concorrenti (tempistica, modelli linguistici, storico del recensore).',
-      issueFakeImpact: 'Impatto: Ogni recensione falsa riduce il tuo punteggio di fiducia IA di ~{points} punti',
+      issueNegTitle: 'Bassa Visibilità IA Rilevata',
+      issueNegBody: 'Il tuo brand appare su {count} delle 6 principali piattaforme IA. Ciò significa che sei invisibile per milioni di utenti IA — mentre i tuoi concorrenti ottengono tutti i lead.',
+      issueNegImpact: 'Impatto: Riduzione stimata del {low}-{high}% del traffico guidato dall\'IA',
+      issueFakeTitle: 'Segnali di Fiducia Deboli Trovati',
+      issueFakeBody: '{count} segnali di fiducia deboli rilevati — markup schema mancante, dati aziendali incoerenti o segnali di autorità bassi che fanno sì che l\'IA eviti il tuo brand.',
+      issueFakeImpact: 'Impatto: Ogni segnale debole riduce il tuo punteggio di fiducia IA di ~{points} punti',
       unlockTitle: 'Sblocca Rapporto Completo',
       unlockDesc: 'Inserisci la tua email per vedere tutti i {count} risultati aggiuntivi, raccomandazioni dettagliate e la tua roadmap personalizzata.',
       unlockPlaceholder: 'tuo@email.com',
@@ -914,13 +829,13 @@
       unlockFine: 'Nessuno spam. Ti invieremo il rapporto dettagliato e i prossimi passi.',
       unlockSuccess: 'Grazie! Il tuo rapporto è ora sbloccato.',
       ctaTitle: 'Pronto a migliorare la tua visibilità IA?',
-      ctaDesc: 'Ottieni un audit professionale della Reputazione IA dal nostro team. Identificheremo cosa danneggia la tua visibilità su ChatGPT, Gemini, Perplexity e Google AI — e creeremo un piano per risolverlo.',
-      ctaBtn: 'Ottieni Audit IA Professionale',
+      ctaDesc: 'Ottieni un audit professionale della Reputazione IA dal nostro team. Identificheremo cosa danneggia la tua visibilità su ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek e Google AI — e creeremo un piano per risolverlo.',
+      ctaBtn: 'Migliora la Tua Visibilità IA Ora',
       backHome: '← Torna alla home',
       anotherCheck: '← Controlla un\'altra attività',
       statusRecommended: 'Raccomandato',
       statusPartiallyVisible: 'Parzialmente visibile',
-      statusNotRecommended: 'Non raccomandato',
+      statusNotRecommended: 'Non visibile',
       bandAtRisk: 'A rischio',
       bandNeedsWork: 'Da migliorare',
       bandGood: 'Buono',
@@ -934,13 +849,13 @@
     },
     vi: {
       brand: 'ReputationGuard',
-      badge: 'Kiểm Tra Hiển Thị AI Miễn Phí',
-      title: 'AI có <span class="avc-accent">giới thiệu</span> doanh nghiệp của bạn?',
-      subtitle: 'Xem ChatGPT, Gemini, Perplexity và Google AI nói gì về doanh nghiệp của bạn ngay bây giờ — và điều đó đang âm thầm tốn kém bao nhiêu.',
+      badge: '⚡ Công Cụ Hiển Thị AI',
+      title: 'Doanh nghiệp của bạn có <span class="avc-accent">hiển thị</span> trên ChatGPT, Gemini, Claude và Perplexity?',
+      subtitle: 'Xem chính xác doanh nghiệp của bạn xuất hiện ở đâu — hoặc không xuất hiện — trên <strong>TẤT CẢ các nền tảng AI lớn trên toàn thế giới</strong>. Nhận <strong>báo cáo hiển thị AI miễn phí</strong> với kế hoạch rõ ràng để xuất hiện ở mọi nơi quan trọng.',
       inputPlaceholder: 'Nhập tên doanh nghiệp hoặc trang web của bạn',
-      checkBtn: 'Kiểm Tra Hiển Thị AI',
+      checkBtn: 'Kiểm Tra Hiển Thị AI →',
       trust1: 'Không cần đăng nhập',
-      trust2: 'Kết quả trong ~5 giây',
+      trust2: 'Kết quả trong ~30 giây',
       trust3: '100% miễn phí',
       statPlatforms: 'Nền tảng AI',
       statLayers: 'Lớp Xếp hạng',
@@ -950,8 +865,8 @@
         'Kiểm tra đề cập thương hiệu trên ChatGPT',
         'Phân tích đề xuất từ Gemini',
         'Quét Google AI Overviews',
-        'Đánh giá tín hiệu cảm xúc đánh giá',
         'Quét trích dẫn Perplexity',
+        'Kiểm tra hiển thị trên Claude và Grok',
         'Tính toán điểm Hiển thị AI của bạn'
       ],
       scoreLabel: 'ĐIỂM HIỂN THỊ AI',
@@ -959,12 +874,12 @@
       layerTitle: 'Phân tích 9 lớp',
       platformTitle: 'Hiển thị trên Nền tảng AI',
       issuesTitle: 'Vấn đề Nghiêm trọng Được Phát Hiện',
-      issueNegTitle: 'Phát hiện cảm xúc đánh giá tiêu cực',
-      issueNegBody: 'Các nền tảng AI đã tìm thấy {count} đánh giá tiêu cực ảnh hưởng đến đề xuất chống lại {name}.',
-      issueNegImpact: 'Tác động: Ước tính giảm {low}-{high}% trong lượt giới thiệu từ AI',
-      issueFakeTitle: 'Xác định các đánh giá giả tiềm năng',
-      issueFakeBody: '{count} đánh giá có dấu hiệu của nội dung giả hoặc do đối thủ tạo ra (thời điểm, mẫu ngôn ngữ, lịch sử người đánh giá).',
-      issueFakeImpact: 'Tác động: Mỗi đánh giá giả làm giảm điểm tín nhiệm AI của bạn khoảng {points} điểm',
+      issueNegTitle: 'Phát hiện Hiển thị AI Thấp',
+      issueNegBody: 'Thương hiệu của bạn xuất hiện trên {count} trong số 6 nền tảng AI chính. Điều này có nghĩa bạn vô hình với hàng triệu người dùng AI — trong khi đối thủ của bạn nhận được tất cả khách hàng tiềm năng.',
+      issueNegImpact: 'Tác động: Ước tính giảm {low}-{high}% lưu lượng truy cập từ AI',
+      issueFakeTitle: 'Phát hiện Tín hiệu Tin cậy Yếu',
+      issueFakeBody: '{count} tín hiệu tin cậy yếu được phát hiện — thiếu đánh dấu schema, dữ liệu kinh doanh không nhất quán hoặc tín hiệu thẩm quyền thấp khiến AI tránh thương hiệu của bạn.',
+      issueFakeImpact: 'Tác động: Mỗi tín hiệu yếu làm giảm điểm tín nhiệm AI của bạn khoảng {points} điểm',
       unlockTitle: 'Mở Khóa Báo Cáo Đầy Đủ',
       unlockDesc: 'Nhập email của bạn để xem tất cả {count} phát hiện bổ sung, đề xuất chi tiết và lộ trình cá nhân hóa.',
       unlockPlaceholder: 'email@cuaban.com',
@@ -972,13 +887,13 @@
       unlockFine: 'Không spam. Chúng tôi sẽ gửi báo cáo chi tiết và các bước tiếp theo.',
       unlockSuccess: 'Cảm ơn bạn! Báo cáo của bạn đã được mở khóa.',
       ctaTitle: 'Sẵn sàng cải thiện hiển thị AI của bạn?',
-      ctaDesc: 'Nhận đánh giá chuyên nghiệp về Danh tiếng AI từ đội ngũ của chúng tôi. Chúng tôi sẽ xác định điều gì đang làm tổn hại đến hiển thị của bạn trên ChatGPT, Gemini, Perplexity và Google AI — và xây dựng kế hoạch khắc phục.',
-      ctaBtn: 'Nhận Đánh Giá AI Chuyên Nghiệp',
+      ctaDesc: 'Nhận đánh giá chuyên nghiệp về Danh tiếng AI từ đội ngũ của chúng tôi. Chúng tôi sẽ xác định điều gì đang làm tổn hại đến hiển thị của bạn trên ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek và Google AI — và xây dựng kế hoạch khắc phục.',
+      ctaBtn: 'Cải Thiện Hiển Thị AI Ngay',
       backHome: '← Quay lại trang chủ',
       anotherCheck: '← Kiểm tra doanh nghiệp khác',
       statusRecommended: 'Được đề xuất',
       statusPartiallyVisible: 'Hiển thị một phần',
-      statusNotRecommended: 'Không được đề xuất',
+      statusNotRecommended: 'Không hiển thị',
       bandAtRisk: 'Có rủi ro',
       bandNeedsWork: 'Cần cải thiện',
       bandGood: 'Tốt',
@@ -992,13 +907,13 @@
     },
     pt: {
       brand: 'ReputationGuard',
-      badge: 'Verificação de Visibilidade IA Gratuita',
-      title: 'A IA <span class="avc-accent">recomenda</span> seu negócio?',
-      subtitle: 'Veja como ChatGPT, Gemini, Perplexity e Google AI falam sobre seu negócio agora mesmo — e o que isso está custando silenciosamente.',
+      badge: '⚡ Motor de Visibilidade IA',
+      title: 'Seu negócio é <span class="avc-accent">visível</span> no ChatGPT, Gemini, Claude e Perplexity?',
+      subtitle: 'Veja exatamente onde seu negócio aparece — ou não aparece — em <strong>TODAS as principais plataformas de IA do mundo</strong>. Obtenha um <strong>relatório de visibilidade IA gratuito</strong> com um plano claro para ser listado em todos os lugares que importam.',
       inputPlaceholder: 'Digite o nome ou site do seu negócio',
-      checkBtn: 'Verificar Visibilidade IA',
+      checkBtn: 'Verificar Minha Visibilidade IA →',
       trust1: 'Sem necessidade de login',
-      trust2: 'Resultados em ~5 segundos',
+      trust2: 'Resultados em ~30 segundos',
       trust3: '100% gratuito',
       statPlatforms: 'Plataformas IA',
       statLayers: 'Camadas de Ranking',
@@ -1008,8 +923,8 @@
         'Verificando menções da marca no ChatGPT',
         'Analisando recomendações do Gemini',
         'Analisando Google AI Overviews',
-        'Avaliando sinais de sentimento das avaliações',
         'Analisando citações do Perplexity',
+        'Verificando visibilidade no Claude e Grok',
         'Calculando seu score de Visibilidade IA'
       ],
       scoreLabel: 'PONTUAÇÃO DE VISIBILIDADE IA',
@@ -1017,26 +932,26 @@
       layerTitle: 'Análise de 9 Camadas',
       platformTitle: 'Visibilidade nas Plataformas IA',
       issuesTitle: 'Problemas Críticos Encontrados',
-      issueNegTitle: 'Sentimento negativo em avaliações detectado',
-      issueNegBody: 'As plataformas IA mostraram {count} avaliações com sentimento negativo que influenciam recomendações contra {name}.',
-      issueNegImpact: 'Impacto: Redução estimada de {low}-{high}% em referências orientadas por IA',
-      issueFakeTitle: 'Possíveis avaliações falsas identificadas',
-      issueFakeBody: '{count} avaliações mostram padrões consistentes com conteúdo falso ou gerado por concorrentes (timing, padrões de linguagem, histórico do avaliador).',
-      issueFakeImpact: 'Impacto: Cada avaliação falsa reduz sua pontuação de confiança IA em ~{points} pontos',
+      issueNegTitle: 'Baixa Visibilidade IA Detectada',
+      issueNegBody: 'Sua marca aparece em {count} das 6 principais plataformas IA. Isso significa que você é invisível para milhões de usuários IA — enquanto seus concorrentes ficam com todos os leads.',
+      issueNegImpact: 'Impacto: Redução estimada de {low}-{high}% no tráfego orientado por IA',
+      issueFakeTitle: 'Sinais de Confiança Fracos Encontrados',
+      issueFakeBody: '{count} sinais de confiança fracos detectados — falta de marcação schema, dados de negócios inconsistentes ou sinais de autoridade baixos que fazem a IA evitar sua marca.',
+      issueFakeImpact: 'Impacto: Cada sinal fraco reduz sua pontuação de confiança IA em ~{points} pontos',
       unlockTitle: 'Desbloquear Relatório Completo',
       unlockDesc: 'Digite seu e-mail para ver todas as {count} descobertas adicionais, recomendações detalhadas e seu roteiro personalizado.',
       unlockPlaceholder: 'seu@email.com',
       unlockBtn: 'Desbloquear Relatório',
       unlockFine: 'Sem spam. Enviaremos seu relatório detalhado e os próximos passos.',
       unlockSuccess: 'Obrigado! Seu relatório agora está desbloqueado.',
-      ctaTitle: 'Pronto para consertar sua visibilidade IA?',
-      ctaDesc: 'Obtenha uma auditoria profissional de Reputação IA da nossa equipe. Identificaremos o que está prejudicando sua visibilidade no ChatGPT, Gemini, Perplexity e Google AI — e criaremos um plano para corrigir.',
-      ctaBtn: 'Obter Auditoria IA Profissional',
+      ctaTitle: 'Pronto para melhorar sua visibilidade IA?',
+      ctaDesc: 'Obtenha uma auditoria profissional de Reputação IA da nossa equipe. Identificaremos o que está prejudicando sua visibilidade no ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek e Google AI — e criaremos um plano para corrigir.',
+      ctaBtn: 'Melhorar Minha Visibilidade IA Agora',
       backHome: '← Voltar para a página inicial',
       anotherCheck: '← Verificar outro negócio',
       statusRecommended: 'Recomendado',
       statusPartiallyVisible: 'Parcialmente visível',
-      statusNotRecommended: 'Não recomendado',
+      statusNotRecommended: 'Não visível',
       bandAtRisk: 'Em risco',
       bandNeedsWork: 'Precisa de melhorias',
       bandGood: 'Bom',
@@ -1050,13 +965,13 @@
     },
     tr: {
       brand: 'ReputationGuard',
-      badge: 'Ücretsiz AI Görünürlük Kontrolü',
-      title: 'AI <span class="avc-accent">işletmenizi</span> tavsiye ediyor mu?',
-      subtitle: 'ChatGPT, Gemini, Perplexity ve Google AI\'nın işletmeniz hakkında şu anda ne söylediğini — ve bunun size sessizce ne kadara mal olduğunu görün.',
+      badge: '⚡ AI Görünürlük Motoru',
+      title: 'İşletmeniz ChatGPT, Gemini, Claude ve Perplexity\'de <span class="avc-accent">görünür</span> mü?',
+      subtitle: 'İşletmenizin tam olarak nerede göründüğünü — veya görünmediğini — <strong>TÜM dünya çapındaki büyük AI platformlarında</strong> görün. <strong>Ücretsiz AI görünürlük raporu</strong> ile her yerde listelenmek için net bir plan alın.',
       inputPlaceholder: 'İşletme adınızı veya web sitenizi girin',
-      checkBtn: 'AI Görünürlüğünü Kontrol Et',
+      checkBtn: 'AI Görünürlüğümü Kontrol Et →',
       trust1: 'Giriş gerekmez',
-      trust2: 'Sonuçlar ~5 saniye içinde',
+      trust2: 'Sonuçlar ~30 saniye içinde',
       trust3: '%100 ücretsiz',
       statPlatforms: 'AI Platformları',
       statLayers: 'Sıralama Katmanları',
@@ -1066,8 +981,8 @@
         'ChatGPT marka bahisleri kontrol ediliyor',
         'Gemini önerileri analiz ediliyor',
         'Google AI Overviews taranıyor',
-        'Yorum duyarlılığı sinyalleri değerlendiriliyor',
         'Perplexity alıntıları taranıyor',
+        'Claude ve Grok görünürlüğü kontrol ediliyor',
         'AI Görünürlük Puanınız hesaplanıyor'
       ],
       scoreLabel: 'AI GÖRÜNÜRLÜK PUANI',
@@ -1075,26 +990,26 @@
       layerTitle: '9 Katmanlı Analiz',
       platformTitle: 'AI Platform Görünürlüğü',
       issuesTitle: 'Kritik Sorunlar Bulundu',
-      issueNegTitle: 'Olumsuz yorum duyarlılığı tespit edildi',
-      issueNegBody: 'AI platformları {name} aleyhine önerileri etkileyen {count} olumsuz yorum tespit etti.',
+      issueNegTitle: 'Düşük AI Görünürlüğü Tespit Edildi',
+      issueNegBody: 'Markanız 6 büyük AI platformundan {count}\'inde görünüyor. Bu, milyonlarca AI kullanıcısı için görünmez olduğunuz anlamına gelir — rakipleriniz tüm potansiyel müşterileri alırken.',
       issueNegImpact: 'Etki: AI yönlendirmelerinde tahmini %{low}-{high} azalma',
-      issueFakeTitle: 'Potansiyel sahte yorumlar tespit edildi',
-      issueFakeBody: '{count} yorum, sahte veya rakip kaynaklı içerikle tutarlı kalıplar gösteriyor (zamanlama, dil kalıpları, yorumcu geçmişi).',
-      issueFakeImpact: 'Etki: Her sahte yorum AI güven puanınızı ~{points} puan azaltır',
+      issueFakeTitle: 'Zayıf Güven Sinyalleri Bulundu',
+      issueFakeBody: '{count} zayıf güven sinyali tespit edildi — eksik schema işaretlemesi, tutarsız iş verileri veya AI\'nın markanızdan kaçınmasına neden olan düşük yetki sinyalleri.',
+      issueFakeImpact: 'Etki: Her zayıf sinyal AI güven puanınızı ~{points} puan azaltır',
       unlockTitle: 'Tam Raporu Aç',
       unlockDesc: 'Tüm {count} ek bulguyu, ayrıntılı önerileri ve kişiselleştirilmiş yol haritanızı görmek için e-posta adresinizi girin.',
       unlockPlaceholder: 'eposta@ornek.com',
       unlockBtn: 'Raporu Aç',
       unlockFine: 'Spam yok. Size ayrıntılı raporu ve sonraki adımları göndereceğiz.',
       unlockSuccess: 'Teşekkürler! Raporunuz artık açık.',
-      ctaTitle: 'AI görünürlüğünüzü düzeltmeye hazır mısınız?',
-      ctaDesc: 'Ekibimizden profesyonel bir AI İtibar Denetimi alın. ChatGPT, Gemini, Perplexity ve Google AI\'daki görünürlüğünüze zarar veren şeyi belirleyip düzeltmek için bir plan oluşturacağız.',
-      ctaBtn: 'Profesyonel AI Denetimi Alın',
+      ctaTitle: 'AI görünürlüğünüzü iyileştirmeye hazır mısınız?',
+      ctaDesc: 'Ekibimizden profesyonel bir AI İtibar Denetimi alın. ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek ve Google AI\'daki görünürlüğünüze zarar veren şeyi belirleyip düzeltmek için bir plan oluşturacağız.',
+      ctaBtn: 'AI Görünürlüğümü Şimdi İyileştir',
       backHome: '← Ana sayfaya dön',
       anotherCheck: '← Başka bir işletmeyi kontrol et',
       statusRecommended: 'Tavsiye Ediliyor',
       statusPartiallyVisible: 'Kısmen Görünür',
-      statusNotRecommended: 'Tavsiye Edilmiyor',
+      statusNotRecommended: 'Görünmüyor',
       bandAtRisk: 'Risk Altında',
       bandNeedsWork: 'İyileştirme Gerekli',
       bandGood: 'İyi',
@@ -1108,13 +1023,13 @@
     },
     ar: {
       brand: 'ReputationGuard',
-      badge: 'فحص رؤية الذكاء الاصطناعي مجاني',
-      title: 'هل يوصي الذكاء الاصطناعي <span class="avc-accent">بنشاطك التجاري</span>؟',
-      subtitle: 'تعرف على ما تقوله ChatGPT وGemini وPerplexity وGoogle AI عن نشاطك التجاري الآن — وما يكلفك ذلك بصمت.',
+      badge: '⚡ محرك رؤية الذكاء الاصطناعي',
+      title: 'هل نشاطك التجاري <span class="avc-accent">مرئي</span> على ChatGPT وGemini وClaude وPerplexity؟',
+      subtitle: 'تعرف بالضبط أين يظهر نشاطك التجاري — أو لا يظهر — على <strong>جميع منصات الذكاء الاصطناعي الرئيسية في العالم</strong>. احصل على <strong>تقرير رؤية الذكاء الاصطناعي المجاني</strong> مع خطة واضحة لتكون مدرجًا في كل مكان مهم.',
       inputPlaceholder: 'أدخل اسم النشاط التجاري أو موقع الويب',
-      checkBtn: 'تحقق من رؤية الذكاء الاصطناعي',
+      checkBtn: 'تحقق من رؤية الذكاء الاصطناعي الخاصة بي ←',
       trust1: 'لا حاجة لتسجيل الدخول',
-      trust2: 'النتائج في ~5 ثوانٍ',
+      trust2: 'النتائج في ~30 ثانية',
       trust3: '100% مجاني',
       statPlatforms: 'منصات الذكاء الاصطناعي',
       statLayers: 'طبقات التصنيف',
@@ -1124,8 +1039,8 @@
         'التحقق من إشارات العلامة التجارية على ChatGPT',
         'تحليل توصيات Gemini',
         'فحص Google AI Overviews',
-        'تقييم إشارات مشاعر التقييمات',
         'فحص اقتباسات Perplexity',
+        'التحقق من الرؤية على Claude وGrok',
         'حساب درجة رؤية الذكاء الاصطناعي الخاصة بك'
       ],
       scoreLabel: 'درجة رؤية الذكاء الاصطناعي',
@@ -1133,26 +1048,26 @@
       layerTitle: 'تحليل 9 طبقات',
       platformTitle: 'الرؤية على منصات الذكاء الاصطناعي',
       issuesTitle: 'المشاكل الحرجة التي تم العثور عليها',
-      issueNegTitle: 'تم اكتشاف مشاعر سلبية في التقييمات',
-      issueNegBody: 'عرضت منصات الذكاء الاصطناعي {count} تقييمًا بمشاعر سلبية تؤثر على التوصيات ضد {name}.',
-      issueNegImpact: 'التأثير: انخفاض يقدر بـ {low}-{high}% في الإحالات المدعومة بالذكاء الاصطناعي',
-      issueFakeTitle: 'تحديد تقييمات مزيفة محتملة',
-      issueFakeBody: 'تظهر {count} تقييمات أنماطًا تتوافق مع محتوى مزيف أو من إنتاج منافسين (التوقيت، أنماط اللغة، تاريخ المراجع).',
-      issueFakeImpact: 'التأثير: كل تقييم مزيف يقلل من درجة ثقة الذكاء الاصطناعي الخاصة بك بمقدار ~{points} نقطة',
+      issueNegTitle: 'تم اكتشاف انخفاض رؤية الذكاء الاصطناعي',
+      issueNegBody: 'تظهر علامتك التجارية على {count} من 6 منصات ذكاء اصطناعي رئيسية. هذا يعني أنك غير مرئي لملايين مستخدمي الذكاء الاصطناعي — بينما يحصل منافسوك على جميع العملاء المحتملين.',
+      issueNegImpact: 'التأثير: انخفاض يقدر بـ {low}-{high}% في حركة المرور المدعومة بالذكاء الاصطناعي',
+      issueFakeTitle: 'تم العثور على إشارات ثقة ضعيفة',
+      issueFakeBody: 'تم اكتشاف {count} إشارات ثقة ضعيفة — عدم وجود ترميز schema، أو بيانات عمل غير متسقة، أو إشارات سلطة منخفضة تجعل الذكاء الاصطناعي يتجنب علامتك التجارية.',
+      issueFakeImpact: 'التأثير: كل إشارة ضعيفة تقلل من درجة ثقة الذكاء الاصطناعي الخاصة بك بمقدار ~{points} نقطة',
       unlockTitle: 'فتح التقرير الكامل',
       unlockDesc: 'أدخل بريدك الإلكتروني لترى جميع النتائج الإضافية {count} والتوصيات التفصيلية وخارطة الطريق المخصصة لك.',
       unlockPlaceholder: 'بريدك@الإلكتروني.com',
       unlockBtn: 'فتح التقرير الكامل',
       unlockFine: 'لا بريد مزعج. سنرسل لك التقرير التفصيلي والخطوات التالية.',
       unlockSuccess: 'شكرًا لك! تم فتح تقريرك الآن.',
-      ctaTitle: 'هل أنت مستعد لإصلاح رؤية الذكاء الاصطناعي الخاصة بك؟',
-      ctaDesc: 'احصل على تدقيق احترافي لسمعة الذكاء الاصطناعي من فريقنا. سنحدد ما يضر رؤيتك على ChatGPT وGemini وPerplexity وGoogle AI — وسنضع خطة لإصلاحها.',
-      ctaBtn: 'احصل على تدقيق ذكاء اصطناعي احترافي',
+      ctaTitle: 'هل أنت مستعد لتعزيز رؤية الذكاء الاصطناعي الخاصة بك؟',
+      ctaDesc: 'احصل على تدقيق احترافي لسمعة الذكاء الاصطناعي من فريقنا. سنحدد ما يضر رؤيتك على ChatGPT وGemini وClaude وPerplexity وGrok وDeepSeek وGoogle AI — وسنضع خطة لإصلاحها.',
+      ctaBtn: 'عزز رؤية الذكاء الاصطناعي الخاصة بك الآن',
       backHome: '← العودة إلى الصفحة الرئيسية',
       anotherCheck: '← فحص نشاط تجاري آخر',
       statusRecommended: 'موصى به',
       statusPartiallyVisible: 'مرئي جزئياً',
-      statusNotRecommended: 'غير موصى به',
+      statusNotRecommended: 'غير مرئي',
       bandAtRisk: 'في خطر',
       bandNeedsWork: 'بحاجة إلى تحسين',
       bandGood: 'جيد',
@@ -1166,13 +1081,13 @@
     },
     ru: {
       brand: 'ReputationGuard',
-      badge: 'Бесплатная проверка AI-видимости',
-      title: 'Рекомендует ли AI <span class="avc-accent">ваш бизнес</span>?',
-      subtitle: 'Узнайте, что говорят о вашем бизнесе ChatGPT, Gemini, Perplexity и Google AI прямо сейчас — и сколько это стоит вам в тишине.',
+      badge: '⚡ Двигатель AI-видимости',
+      title: 'Ваш бизнес <span class="avc-accent">виден</span> в ChatGPT, Gemini, Claude и Perplexity?',
+      subtitle: 'Узнайте точно, где ваш бизнес появляется — или не появляется — на <strong>ВСЕХ основных мировых AI-платформах</strong>. Получите <strong>бесплатный отчёт об AI-видимости</strong> с чётким планом, чтобы быть представленным везде, где это важно.',
       inputPlaceholder: 'Введите название вашего бизнеса или сайт',
-      checkBtn: 'Проверить AI-видимость',
+      checkBtn: 'Проверить мою AI-видимость →',
       trust1: 'Без входа',
-      trust2: 'Результат за ~5 секунд',
+      trust2: 'Результат за ~30 секунд',
       trust3: '100% бесплатно',
       statPlatforms: 'AI-платформы',
       statLayers: 'Слои ранжирования',
@@ -1182,8 +1097,8 @@
         'Проверка упоминаний бренда в ChatGPT',
         'Анализ рекомендаций Gemini',
         'Сканирование Google AI Overviews',
-        'Оценка сигналов тональности отзывов',
         'Сканирование цитирований Perplexity',
+        'Проверка видимости в Claude и Grok',
         'Расчет вашего показателя AI-видимости'
       ],
       scoreLabel: 'ПОКАЗАТЕЛЬ AI-ВИДИМОСТИ',
@@ -1191,12 +1106,12 @@
       layerTitle: '9-слойный анализ',
       platformTitle: 'Видимость на AI-платформах',
       issuesTitle: 'Критические проблемы обнаружены',
-      issueNegTitle: 'Обнаружена негативная тональность отзывов',
-      issueNegBody: 'AI-платформы показали {count} отзывов с негативной тональностью, влияющих на рекомендации против {name}.',
-      issueNegImpact: 'Влияние: Предполагаемое снижение рефералов от AI на {low}-{high}%',
-      issueFakeTitle: 'Выявлены потенциально фейковые отзывы',
-      issueFakeBody: '{count} отзывов имеют признаки фейкового или созданного конкурентами контента (время, языковые шаблоны, история автора).',
-      issueFakeImpact: 'Влияние: Каждый фейковый отзыв снижает ваш показатель доверия AI примерно на {points} пунктов',
+      issueNegTitle: 'Обнаружена низкая AI-видимость',
+      issueNegBody: 'Ваш бренд появляется на {count} из 6 основных AI-платформ. Это означает, что вы невидимы для миллионов пользователей AI — в то время как ваши конкуренты получают всех клиентов.',
+      issueNegImpact: 'Влияние: Предполагаемое снижение трафика от AI на {low}-{high}%',
+      issueFakeTitle: 'Обнаружены слабые сигналы доверия',
+      issueFakeBody: 'Обнаружено {count} слабых сигналов доверия — отсутствие schema-разметки, противоречивые данные о бизнесе или низкие сигналы авторитета, из-за которых AI избегает ваш бренд.',
+      issueFakeImpact: 'Влияние: Каждый слабый сигнал снижает ваш показатель доверия AI примерно на {points} пунктов',
       unlockTitle: 'Разблокировать полный отчёт',
       unlockDesc: 'Введите ваш email, чтобы увидеть все {count} дополнительных выводов, подробные рекомендации и ваш персонализированный план действий.',
       unlockPlaceholder: 'ваш@email.com',
@@ -1204,13 +1119,13 @@
       unlockFine: 'Без спама. Мы отправим вам подробный отчёт и следующие шаги.',
       unlockSuccess: 'Спасибо! Ваш отчёт теперь разблокирован.',
       ctaTitle: 'Готовы улучшить свою AI-видимость?',
-      ctaDesc: 'Получите профессиональный аудит AI-репутации от нашей команды. Мы определим, что вредит вашей видимости в ChatGPT, Gemini, Perplexity и Google AI — и составим план исправления.',
-      ctaBtn: 'Получить профессиональный AI-аудит',
+      ctaDesc: 'Получите профессиональный аудит AI-репутации от нашей команды. Мы определим, что вредит вашей видимости в ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek и Google AI — и составим план исправления.',
+      ctaBtn: 'Улучшить мою AI-видимость сейчас',
       backHome: '← На главную',
       anotherCheck: '← Проверить другой бизнес',
       statusRecommended: 'Рекомендуется',
       statusPartiallyVisible: 'Частично видим',
-      statusNotRecommended: 'Не рекомендуется',
+      statusNotRecommended: 'Не видим',
       bandAtRisk: 'Под угрозой',
       bandNeedsWork: 'Требует улучшения',
       bandGood: 'Хорошо',
@@ -1228,19 +1143,24 @@
   // 2. DETECT LANGUAGE
   // ================================================================
   var lang = 'en';
-  var browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase().substring(0,2);
-  var supported = ['en','es','de','fr','it','vi','pt','tr','ar','ru'];
+  var fullLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  var browserLang;
+  if (fullLang === 'es-ar') {
+    browserLang = 'es-AR';
+  } else {
+    browserLang = fullLang.substring(0,2);
+  }
+  var supported = ['en','es','es-AR','de','fr','it','vi','pt','tr','ar','ru'];
   if (supported.indexOf(browserLang) !== -1) lang = browserLang;
   var t = translations[lang] || translations.en;
 
-  // Apply RTL for Arabic
   if (lang === 'ar') {
     document.documentElement.setAttribute('dir', 'rtl');
     document.body.classList.add('rtl-mode');
   }
 
   // ================================================================
-  // 3. ICONS HELPER
+  // 3. ICONS
   // ================================================================
   var ICONS = {
     shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>',
@@ -1359,7 +1279,7 @@
   // 5. WIDGET STATE
   // ================================================================
   var state = {
-    step: 'landing',   // landing | scanning | results
+    step: 'landing',
     inputValue: '',
     report: null,
     progress: 0,
@@ -1386,16 +1306,16 @@
       '<div class="avc-field">' + icon('search', 'avc-i-sm avc-field-icon') +
         '<input id="avc-input" type="text" placeholder="' + placeholder + '" autocomplete="off" />' +
       '</div>' +
-      '<button id="avc-start-btn" class="avc-btn avc-btn-primary" disabled>' + btnText + ' ' + icon('arrow', 'avc-i-sm') + '</button>' +
+      '<button id="avc-start-btn" class="avc-btn avc-btn-primary" disabled>' + btnText + '</button>' +
       '<div class="avc-trust-row">' +
         '<span>' + icon('shield', 'avc-i-sm') + ' ' + t.trust1 + '</span>' +
         '<span>' + icon('clock', 'avc-i-sm') + ' ' + t.trust2 + '</span>' +
         '<span>' + icon('check', 'avc-i-sm') + ' ' + t.trust3 + '</span>' +
       '</div>' +
       '<div class="avc-stats">' +
-        '<div><div class="avc-stat-num avc-emerald">4</div><div class="avc-stat-label">' + t.statPlatforms + '</div></div>' +
+        '<div><div class="avc-stat-num avc-emerald">6</div><div class="avc-stat-label">' + t.statPlatforms + '</div></div>' +
         '<div><div class="avc-stat-num avc-sky">9</div><div class="avc-stat-label">' + t.statLayers + '</div></div>' +
-        '<div><div class="avc-stat-num">&lt;5s</div><div class="avc-stat-label">' + t.statTime + '</div></div>' +
+        '<div><div class="avc-stat-num">&lt;30s</div><div class="avc-stat-label">' + t.statTime + '</div></div>' +
       '</div>';
   }
 
@@ -1587,12 +1507,11 @@
   }
 
   // ================================================================
-  // 8. ACTIONS (with validation)
+  // 8. ACTIONS
   // ================================================================
   function handleStart(raw) {
     var value = (raw || '').trim();
 
-    // ----- VALIDATION -----
     if (value.length < 2) {
       alert('Please enter a valid business name or website (at least 2 characters).');
       return;
@@ -1605,7 +1524,6 @@
       alert('Please enter a meaningful business name (not just numbers or special characters).');
       return;
     }
-    // ----------------------
 
     state.report = computeReport(value);
     state.unlocked = false;
@@ -1666,13 +1584,11 @@
     var email = input ? input.value.trim() : '';
     if (!email || email.indexOf('@') === -1) return;
 
-    // Unlock UI immediately (user feedback)
     state.unlocked = true;
     state.emailSent = true;
     render();
 
-    // Send to Formspree (async)
-    var FORM_ID = 'mykqokjr'; // <-- your Formspree form ID
+    var FORM_ID = 'mykqokjr';
     var url = 'https://formspree.io/f/' + FORM_ID;
     var businessName = state.report ? state.report.name : 'Unknown';
     fetch(url, {
@@ -1680,7 +1596,6 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: email, business: businessName })
     }).catch(function(err) {
-      // silently ignore errors; user already got the report
       console.warn('Formspree submission error:', err);
     });
   }
@@ -1723,7 +1638,6 @@
     render();
   }
 
-  // Footer language buttons
   document.querySelectorAll('.footer-lang-switch .lang-btn').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       var code = this.getAttribute('data-lang');
@@ -1731,13 +1645,11 @@
     });
   });
 
-  // Dynamic phone
   var phoneSpan = document.getElementById('dynamic-phone');
   if (phoneSpan) {
     phoneSpan.textContent = '+1(505)313-6274';
   }
 
-  // Navbar scroll effect
   window.addEventListener('scroll', function() {
     var navbar = document.getElementById('navbar');
     if (window.scrollY > 50) {
@@ -1746,34 +1658,33 @@
       navbar.classList.remove('scrolled');
     }
   });
-// ===== Burger menu toggle =====
-var navToggle = document.querySelector('.nav-toggle');
-var navMenu = document.querySelector('.nav-menu');
 
-if (navToggle && navMenu) {
-  navToggle.addEventListener('click', function() {
-    navMenu.classList.toggle('open');
-    this.classList.toggle('active');
-  });
+  var navToggle = document.querySelector('.nav-toggle');
+  var navMenu = document.querySelector('.nav-menu');
 
-  
-  navMenu.querySelectorAll('a:not(.nav-cta)').forEach(function(link) {
-    link.addEventListener('click', function() {
-      navMenu.classList.remove('open');
-      navToggle.classList.remove('active');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('open');
+      this.classList.toggle('active');
     });
-  });
 
-  
-  document.addEventListener('click', function(e) {
-    if (window.innerWidth <= 992) {
-      if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+    navMenu.querySelectorAll('a:not(.nav-cta)').forEach(function(link) {
+      link.addEventListener('click', function() {
         navMenu.classList.remove('open');
         navToggle.classList.remove('active');
+      });
+    });
+
+    document.addEventListener('click', function(e) {
+      if (window.innerWidth <= 992) {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+          navMenu.classList.remove('open');
+          navToggle.classList.remove('active');
+        }
       }
-    }
-  });
-}
+    });
+  }
+
 })();
 </script>
 </body>
