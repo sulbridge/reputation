@@ -7616,6 +7616,7 @@ const afterData = {
 
  function detectBrowserLanguage() {
   const lang = navigator.language || navigator.userLanguage;
+  if (lang.startsWith('es-AR')) return 'es-AR';
   if (lang.startsWith('es')) return 'es';  
   if (lang.startsWith('de')) return 'de';  
   if (lang.startsWith('fr')) return 'fr';
