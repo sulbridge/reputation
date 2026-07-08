@@ -1681,35 +1681,37 @@ footer {
     </p>
 
     <div style="display:flex; gap:12px; flex-wrap:wrap; margin: 24px 0 16px;">
-      <input
-        id="businessInput"
-        type="text"
-        placeholder="Enter your business name or website"
-        autocomplete="off"
-        style="flex:1; min-width:200px; padding:14px 18px; border-radius:40px; border:2px solid #FBBF24; background:#1a1f2b; color:#f9fafb; font-size:1rem; outline:none; transition:border-color 0.3s, box-shadow 0.3s; box-shadow:0 0 20px rgba(251,191,36,0.08);"
-      />
-      <button
-        id="checkBtn"
-        class="btn-primary"
-        style="padding:14px 32px; white-space:nowrap; display:inline-flex; align-items:center; gap:8px; border:2px solid #FBBF24; background:#1E3A8A; color:white; transition:all 0.3s;"
-        disabled
-      >
-        Check my business
-      </button>
-    </div>
+  <input
+    id="businessInput"
+    type="text"
+    placeholder="Enter your business name or website"
+    autocomplete="off"
+    style="flex:1; min-width:200px; padding:14px 18px; border-radius:40px; border:2px solid #FBBF24; background:#1a1f2b; color:#f9fafb; font-size:1rem; outline:none; transition:border-color 0.3s, box-shadow 0.3s; box-shadow:0 0 20px rgba(251,191,36,0.08);"
+    data-i18n-placeholder="input-placeholder"
+  />
+  <button
+  id="checkBtn"
+  class="btn-primary"
+  style="padding:14px 32px; white-space:nowrap; display:inline-flex; align-items:center; gap:8px; border:2px solid #FBBF24; background:#1E3A8A; color:white; transition:all 0.3s;"
+  disabled
+  data-i18n="check-btn"
+>
+  Check my business
+</button>
+</div>
 
-    <div style="display:flex; gap:12px; flex-wrap:wrap; font-size:0.85rem; color:#9ca3af;">
-      <span>✅ No credit card required</span>
-      <span>⚡ Results in ~30 seconds</span>
-      <span>📊 9-layer AI analysis</span>
-    </div>
+<div style="display:flex; gap:12px; flex-wrap:wrap; font-size:0.85rem; color:#9ca3af;">
+  <span data-i18n="bullet-no-card">✅ No credit card required</span>
+  <span data-i18n="bullet-results">⚡ Results in ~30 seconds</span>
+  <span data-i18n="bullet-layers">📊 9-layer AI analysis</span>
+</div>
 
-    <div class="hero-stats">
-      <div class="stat"><span class="counter" data-target="87">87</span>% <span data-i18n="stat-traffic">of AI traffic</span></div>
-      <div class="stat"><span class="counter" data-target="82">82</span>% <span data-i18n="stat-sales">of AI sales</span></div>
-      <div class="stat"><span class="counter" data-target="43">43</span>% <span data-i18n="stat-daily">use AI daily</span></div>
-    </div>
-    <p class="stats-source" data-i18n="stats.source">Based on data from 150+ businesses audited</p>
+<div class="hero-stats">
+  <div class="stat"><span class="counter" data-target="87">87</span>% <span data-i18n="stat-traffic">of AI traffic</span></div>
+  <div class="stat"><span class="counter" data-target="82">82</span>% <span data-i18n="stat-sales">of AI sales</span></div>
+  <div class="stat"><span class="counter" data-target="43">43</span>% <span data-i18n="stat-daily">use AI daily</span></div>
+</div>
+<p class="stats-source" data-i18n="stats.source">Based on data from 150+ businesses audited</p>
   </div>
 </div>
 <!-- ===== TRUST SLIDER (FIXED LOGOS + VISIBILITY) ===== -->
@@ -3279,11 +3281,16 @@ const afterData = {
   "hero-badge": "⚡ AI Visibility Engine",
   "hero-title": "Get Your Business <span style=\"color:#2563EB;\">Listed</span></br> on ChatGPT, Gemini, Claude &amp; Beyond </br>and Start Getting <span style=\"color:#2563EB;\">More Sales</span>",
   "hero-subhead": "<strong>85% of buyers</strong> now use AI tools before making a purchase.</br> If your brand doesn't appear in their answers, you're invisible to millions of potential customers,</br> while your competitors get all the leads.",
-  "hero-desc": "See exactly where your business now appears or doesn't appear  </br>across <strong>ALL major AI platforms worldwide</strong>. </br>Get a <strong>free AI visibility report</strong> with a clear plan to get listed everywhere that matters:",
-  "hero-btn": "Check my business",
+  "hero-desc": "See exactly where your business appears or doesn't appear  </br>across <strong>ALL major AI platforms worldwide</strong>. </br>Get a <strong>free AI visibility report</strong> with a clear plan to get listed everywhere that matters:",
+  "check-btn": "Check my business",
+  "input-placeholder": "Enter your business name or website",
+  "bullet-no-card": "No credit card required",
+  "bullet-results": "Results in ~30 seconds",
+  "bullet-layers": "9-layer AI analysis",
   "stat-traffic": "of AI traffic",
   "stat-sales": "of AI sales",
   "stat-daily": "use AI daily",
+  "stats.source": "Based on data from 150+ businesses audited",
   "already-checked-placeholder": "Your business is already checked. Contact us for full audit.",
   "already-checked-btn": "Contact us",
   "sample-audit-note": "⚡ Sample audit report · Real client data anonymized ·",
@@ -3326,7 +3333,6 @@ const afterData = {
   "feature1c": "Monthly AI visibility report (ChatGPT, Gemini)",
   "feature1d": "Priority based on AI impact",
   "saving1": "5 expert actions per month",
-  
   "plan2-name": "AI Authority",
   "popular": "⭐ MOST POPULAR",
   "feature2a": "15 visibility fixes monthly — your brand becomes the one AI trusts and recommends",
@@ -3336,7 +3342,6 @@ const afterData = {
   "feature2e": "Competitor benchmarking (up to 5 competitors)",
   "feature2f": "Monthly strategy call & detailed roadmap",
   "saving2": "15 expert actions per month",
-  
   "plan3-name": "AI Dominate",
   "feature3a": "30+ visibility fixes monthly — you dominate AI search results in your industry",
   "feature3b": "Dedicated AI reputation manager",
@@ -3414,29 +3419,29 @@ const afterData = {
 
   "faq-title": "Frequently Asked Questions About AI Visibility",
 
-"faq1q": "What is AI visibility and why does it matter?",
-"faq1a": "AI visibility is how prominently your brand appears in recommendations from ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek, and Google AI. By 2026, 85% of consumers will use AI tools before making a purchase. If AI doesn't recommend your brand, you lose customers to competitors — silently, every single day.",
+  "faq1q": "What is AI visibility and why does it matter?",
+  "faq1a": "AI visibility is how prominently your brand appears in recommendations from ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek, and Google AI. By 2026, 85% of consumers will use AI tools before making a purchase. If AI doesn't recommend your brand, you lose customers to competitors — silently, every single day.",
 
-"faq2q": "How do you measure my AI visibility score?",
-"faq2a": "We analyze 9 critical layers that AI systems use to evaluate your brand: accessibility, content structure, authority signals, clarity, trust signals, schema packaging, citation readiness, activity, and reputation signals. Your AI visibility score (0–100) shows exactly where you stand and what to fix.",
+  "faq2q": "How do you measure my AI visibility score?",
+  "faq2a": "We analyze 9 critical layers that AI systems use to evaluate your brand: accessibility, content structure, authority signals, clarity, trust signals, schema packaging, citation readiness, activity, and reputation signals. Your AI visibility score (0–100) shows exactly where you stand and what to fix.",
 
-"faq3q": "How quickly will I see results?",
-"faq3a": "Most clients see measurable improvements in their AI visibility score within the first 2–4 weeks. Within 30–60 days, you'll see increased inquiries and bookings as ChatGPT, Gemini, and other AI platforms start recommending your business more prominently.",
+  "faq3q": "How quickly will I see results?",
+  "faq3a": "Most clients see measurable improvements in their AI visibility score within the first 2–4 weeks. Within 30–60 days, you'll see increased inquiries and bookings as ChatGPT, Gemini, and other AI platforms start recommending your business more prominently.",
 
-"faq4q": "How much can I save compared to hiring in‑house?",
-"faq4a": "A full-time AI reputation specialist costs $2,000–$4,500/month. With our plans, you save $1,200+ every month while getting dedicated AI visibility experts, weekly reports, and proven strategies — without the overhead of hiring, training, and managing.",
+  "faq4q": "How much can I save compared to hiring in‑house?",
+  "faq4a": "A full-time AI reputation specialist costs $2,000–$4,500/month. With our plans, you save $1,200+ every month while getting dedicated AI visibility experts, weekly reports, and proven strategies — without the overhead of hiring, training, and managing.",
 
-"faq5q": "What exactly do you fix?",
-"faq5a": "We fix everything that hurts your AI visibility — from fake reviews and missing schema markup to weak authority signals and inconsistent business data. Our experts identify the biggest gaps and close them systematically, so AI starts trusting and recommending your brand.",
+  "faq5q": "What exactly do you fix?",
+  "faq5a": "We fix everything that hurts your AI visibility — from fake reviews and missing schema markup to weak authority signals and inconsistent business data. Our experts identify the biggest gaps and close them systematically, so AI starts trusting and recommending your brand.",
 
-"faq6q": "Do you guarantee AI visibility improvement?",
-"faq6a": "No one can guarantee exactly where AI will rank your brand, but we guarantee to improve your AI visibility score within 30 days. If we don't improve your score, we'll work until we do — that's our commitment. You pay for expertise, strategy, and measurable results.",
+  "faq6q": "Do you guarantee AI visibility improvement?",
+  "faq6a": "No one can guarantee exactly where AI will rank your brand, but we guarantee to improve your AI visibility score within 30 days. If we don't improve your score, we'll work until we do — that's our commitment. You pay for expertise, strategy, and measurable results.",
 
-"faq7q": "What types of businesses do you work with?",
-"faq7a": "We work with hotels, restaurants, dental clinics, car rentals, fitness studios, resorts, law firms, real estate agencies, e‑commerce, and any service‑based business that depends on AI‑driven customer acquisition. If your customers use AI to find you, we can help.",
+  "faq7q": "What types of businesses do you work with?",
+  "faq7a": "We work with hotels, restaurants, dental clinics, car rentals, fitness studios, resorts, law firms, real estate agencies, e‑commerce, and any service‑based business that depends on AI‑driven customer acquisition. If your customers use AI to find you, we can help.",
 
-"faq8q": "What are 'expert actions' in your plans?",
-"faq8a": "Expert actions are the specific fixes we perform to improve your AI visibility. Each action targets a specific gap — removing a fake review, adding schema markup, writing an AEO article, fixing inconsistent business data, and more. We prioritize the most impactful actions first, so you see results faster.",
+  "faq8q": "What are 'expert actions' in your plans?",
+  "faq8a": "Expert actions are the specific fixes we perform to improve your AI visibility. Each action targets a specific gap — removing a fake review, adding schema markup, writing an AEO article, fixing inconsistent business data, and more. We prioritize the most impactful actions first, so you see results faster.",
 
   "free-audit-title": "Free AI Reputation Audit",
   "free-audit-text": "We'll show you exactly how AI sees your brand right now. No obligation, no spam.",
