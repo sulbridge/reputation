@@ -7968,24 +7968,22 @@ if (navLangSelect) {
     var alreadyUsed = localStorage.getItem('ai_visibility_used') === 'true';
 
     if (alreadyUsed) {
-      
-      input.value = t['already-checked-placeholder'] || 'You already checked. Contact us for full audit.';
-      input.readOnly = true;
-      input.style.color = '#f9fafb';        
-      input.style.opacity = '1';            
-      input.style.borderColor = '#FBBF24';  
+  input.value = t['already-checked-placeholder'] || 'You already checked. Contact us for full audit.';
+  input.readOnly = true;
+  input.style.color = '#f9fafb';
+  input.style.opacity = '1';
+  input.style.borderColor = '#FBBF24';
+  btn.removeAttribute('data-i18n');
+  btn.textContent = t['already-checked-btn'] || 'Get Free AI Audit →';
+  btn.disabled = false;
+  btn.onclick = function() {
+    document.getElementById('contact-form-section').scrollIntoView({ behavior: 'smooth' });
+  };
 
-      
-      btn.textContent = t['already-checked-btn'] || 'Get Free AI Audit →';
-      btn.disabled = false;
-      btn.onclick = function() {
-        document.getElementById('contact-form-section').scrollIntoView({ behavior: 'smooth' });
-      };
-      
-      var arrow = btn.querySelector('.fa-arrow-right');
-      if (arrow) arrow.style.display = 'none';
-      return;
-    }
+  var arrow = btn.querySelector('.fa-arrow-right');
+  if (arrow) arrow.style.display = 'none';
+  return;
+}
 
     
     input.addEventListener('input', function() {
