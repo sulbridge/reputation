@@ -2984,11 +2984,118 @@ const afterData = {
   </div>
 </section>
   
-  <section id="pricing" class="pricing-section">
+  <!-- ===== PRICING ===== -->
+<section id="pricing" class="pricing-section">
   <h2 class="section-title" data-i18n="pricing-title">AI Visibility Plans</h2>
   <p class="section-sub" data-i18n="pricing-sub">We audit your AI visibility, then use our expertise to fix what matters most. You get results — we do the work.</p>
 
-  <!-- One‑time Boost -->
+  <!-- ===== VISUAL TRACKER ===== -->
+  <div style="max-width: 680px; margin: 0 auto 50px; background: rgba(17,24,39,0.6); border-radius: 20px; padding: 24px 20px; border: 1px solid #1f2937;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+      <span style="font-weight: 600; font-size: 0.95rem;">🚀 Your path to AI recommendations</span>
+      <span style="font-size: 0.85rem; color: #60A5FA;" id="tracker-label">0 of ~50 fixes</span>
+    </div>
+    <div style="width: 100%; height: 8px; background: #1f2937; border-radius: 20px; overflow: hidden; position: relative;">
+      <div id="tracker-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #2563EB, #60A5FA); border-radius: 20px; transition: width 1s ease;"></div>
+    </div>
+    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: #6b7280; margin-top: 6px;">
+      <span>Start</span>
+      <span>~50 fixes = AI recommends your brand</span>
+    </div>
+    <p style="font-size: 0.8rem; color: #9ca3af; margin-top: 12px; text-align: center;">
+      <i class="fas fa-info-circle" style="color: #3B82F6;"></i>
+      Based on our benchmark: a typical local business needs <strong>40–65 fixes</strong> to build the trust signals AI relies on.
+    </p>
+  </div>
+
+  <!-- ===== PRICING CARDS ===== -->
+  <div class="pricing-grid">
+
+    <!-- AI Start -->
+    <div class="pricing-card">
+      <h3 data-i18n="plan1-name">AI Start</h3>
+      <div class="price">$399<span data-i18n="per-month">/month</span></div>
+      <div style="font-size: 0.9rem; color: #9ca3af; margin-bottom: 4px;">5 fixes per month</div>
+      <div style="font-size: 1.1rem; font-weight: 700; color: #fbbf24; margin-bottom: 12px;">⏱ Reach AI in 8–12 months</div>
+      <div class="saving-badge" data-i18n="saving1">Ideal for tighter budgets</div>
+      <ul class="feature-list">
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1a">5 visibility fixes per month</span></li>
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1b">Basic monitoring &amp; alerts</span></li>
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1c">Monthly report (ChatGPT + Gemini)</span></li>
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1d">Standard priority</span></li>
+      </ul>
+      <div style="font-size: 0.75rem; color: #60A5FA; background: rgba(59,130,246,0.08); padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;">
+        🛡️ 60‑day visibility score improvement guarantee
+      </div>
+      <button class="btn-outline" 
+        data-link="https://buy.stripe.com/bJe14m65N5vh80h8u2bo403" 
+        data-plan="AI Start" 
+        data-price="$399/month"
+        onclick="confirmAndRedirect(this)" 
+        data-i18n="choose-plan">Subscribe Now</button>
+    </div>
+
+    <!-- AI Accelerate (Most Popular) -->
+    <div class="pricing-card popular">
+      <div class="popular-badge" data-i18n="popular">⭐ MOST POPULAR</div>
+      <h3 data-i18n="plan2-name">AI Accelerate</h3>
+      <div class="price">$899<span data-i18n="per-month">/month</span></div>
+      <div style="font-size: 0.9rem; color: #9ca3af; margin-bottom: 4px;">15 fixes per month</div>
+      <div style="font-size: 1.1rem; font-weight: 700; color: #4ade80; margin-bottom: 12px;">⏱ Reach AI in 3–4 months</div>
+      <div class="saving-badge" data-i18n="saving2">Best value – fastest ROI</div>
+      <ul class="feature-list">
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2a">15 visibility fixes per month</span></li>
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2b">Priority processing (48‑h turnaround)</span></li>
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2c">Monthly report (4 LLMs)</span></li>
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2d">Full AI sentiment analysis</span></li>
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2e">Competitor benchmarking (up to 5)</span></li>
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2f">Monthly strategy call + roadmap</span></li>
+      </ul>
+      <div style="font-size: 0.75rem; color: #4ade80; background: rgba(74,222,128,0.08); padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;">
+        🛡️ 30‑day visibility score improvement guarantee
+      </div>
+      <button class="btn-primary" 
+        data-link="https://buy.stripe.com/4gM5kCcubbTFfsJ8u2bo404" 
+        data-plan="AI Accelerate" 
+        data-price="$899/month"
+        onclick="confirmAndRedirect(this)" 
+        data-i18n="choose-plan">Subscribe Now</button>
+    </div>
+
+    <!-- AI Dominance -->
+    <div class="pricing-card">
+      <h3 data-i18n="plan3-name">AI Dominance</h3>
+      <div class="price">$1,799<span data-i18n="per-month">/month</span></div>
+      <div style="font-size: 0.9rem; color: #9ca3af; margin-bottom: 4px;">30 fixes per month</div>
+      <div style="font-size: 1.1rem; font-weight: 700; color: #4ade80; margin-bottom: 12px;">⏱ Reach AI in 1.5–2 months</div>
+      <div class="saving-badge" data-i18n="saving3">Maximum speed – dominate your industry</div>
+      <ul class="feature-list">
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3a">30 visibility fixes per month</span></li>
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3b">Dedicated AI reputation manager</span></li>
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3c">Weekly report (6+ LLMs)</span></li>
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3d">Weekly strategy calls</span></li>
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3e">Full escalation &amp; resolution coordination</span></li>
+        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3f">GEO content strategy – audit + roadmap</span></li>
+        <li style="background: rgba(74,222,128,0.08); border-radius: 8px; padding: 8px 12px; margin-top: 4px;">
+          <i class="fas fa-video" style="color: #4ade80;"></i>
+          <strong>Exclusive Founder Interview Package:</strong>
+          45‑min interview, professional recording &amp; editing, transcript, 10 short clips, podcast distribution
+        </li>
+      </ul>
+      <div style="font-size: 0.75rem; color: #4ade80; background: rgba(74,222,128,0.08); padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;">
+        🛡️ 21‑day visibility score improvement guarantee
+      </div>
+      <button class="btn-outline" 
+        data-link="https://buy.stripe.com/6oU6oGbq79LxfsJfWubo405" 
+        data-plan="AI Dominance" 
+        data-price="$1799/month"
+        onclick="confirmAndRedirect(this)" 
+        data-i18n="choose-plan">Subscribe Now</button>
+    </div>
+
+  </div>
+
+  <!-- ===== ONE‑TIME BOOST (unchanged) ===== -->
   <div class="one-time-wrapper">
     <div class="one-time-horizontal">
       <div class="one-time-content">
@@ -3002,84 +3109,107 @@ const afterData = {
           </ul>
         </div>
         <button class="btn-outline btn-cta" 
-        onclick="confirm('You\'re about to purchase the AI Visibility Boost (deep audit + 3 critical fixes).\n\nYou will be redirected to Stripe – a secure and trusted payment processor.\n\nClick OK to proceed.') && window.open('https://buy.stripe.com/cNi6oGdyf5vhcgx39Ibo402', '_blank')"
-        data-i18n="choose-one-time">Get Started →</button>
+          onclick="confirm('You\'re about to purchase the AI Visibility Boost (deep audit + 3 critical fixes).\n\nYou will be redirected to Stripe – a secure and trusted payment processor.\n\nClick OK to proceed.') && window.open('https://buy.stripe.com/cNi6oGdyf5vhcgx39Ibo402', '_blank')"
+          data-i18n="choose-one-time">Get Started →</button>
       </div>
     </div>
   </div>
 
-  <div class="pricing-grid">
-    
-    <!-- AI Visibility -->
-    <div class="pricing-card">
-      <h3 data-i18n="plan1-name">AI Visibility</h3>
-      <div class="price">$399<span data-i18n="per-month">/month</span></div>
-      <div class="saving-badge" data-i18n="saving1">5 expert actions per month</div>
-      <ul class="feature-list">
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1a">5 AI visibility fixes per month — each fix moves your brand higher in AI recommendations</span></li>
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1b">AI visibility monitoring with alerts</span></li>
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1c">Monthly AI visibility report (ChatGPT, Gemini)</span></li>
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1d">Priority based on AI impact</span></li>
-      </ul>
-      <button class="btn-outline" 
-        data-link="https://buy.stripe.com/bJe14m65N5vh80h8u2bo403" 
-        data-plan="AI Visibility" 
-        data-price="$399/month"
-        onclick="confirmAndRedirect(this)" 
-        data-i18n="choose-plan">
-  Subscribe Now
-</button>
+  <!-- ===== ACCORDION: WHAT IS A FIX? ===== -->
+  <div style="max-width: 800px; margin: 40px auto 0;">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <span class="badge">🔧 WHAT IS A FIX?</span>
+      <h3 style="font-size: 1.4rem; font-weight: 700; margin-top: 8px;">Each fix is a concrete action that builds the signals AI trusts</h3>
     </div>
 
-    <!-- AI Authority (MOST POPULAR) -->
-    <div class="pricing-card popular">
-      <div class="popular-badge" data-i18n="popular">⭐ MOST POPULAR</div>
-      <h3 data-i18n="plan2-name">AI Authority</h3>
-      <div class="price">$899<span data-i18n="per-month">/month</span></div>
-      <div class="saving-badge" data-i18n="saving2">15 expert actions per month</div>
-      <ul class="feature-list">
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2a">12 visibility fixes monthly — your brand becomes the one AI trusts and recommends</span></li>
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2b">Priority processing (48‑hour turnaround)</span></li>
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2c">Monthly AI visibility report (4 LLMs)</span></li>
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2d">Full AI sentiment analysis</span></li>
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2e">Competitor benchmarking (up to 5 competitors)</span></li>
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2f">Monthly strategy call & detailed roadmap</span></li>
-      </ul>
-      <button class="btn-outline" 
-        data-link="https://buy.stripe.com/4gM5kCcubbTFfsJ8u2bo404" 
-        data-plan="AI Authority" 
-        data-price="$899/month"
-        onclick="confirmAndRedirect(this)" 
-        data-i18n="choose-plan">
-  Subscribe Now
-</button>
+    <div class="faq-item" style="background: rgba(17,24,39,0.4); border-radius: 16px; padding: 16px 20px; border: 1px solid #1f2937; margin-bottom: 8px;">
+      <div class="question" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+        <span>📐 Technical Foundation (site‑level)</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="answer" style="display: none; padding-top: 12px; color: #9ca3af; font-size: 0.9rem;">
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="padding: 4px 0;">• Schema.org markup (Organization, LocalBusiness, FAQ, Article)</li>
+          <li style="padding: 4px 0;">• Core Web Vitals &amp; page speed optimization</li>
+          <li style="padding: 4px 0;">• Mobile responsiveness audit</li>
+          <li style="padding: 4px 0;">• Robots.txt policy for AI crawlers (GPTBot, ClaudeBot, etc.)</li>
+          <li style="padding: 4px 0;">• JavaScript‑free content accessibility</li>
+        </ul>
+      </div>
     </div>
 
-    <!-- AI Dominate -->
-    <div class="pricing-card">
-      <h3 data-i18n="plan3-name">AI Dominate</h3>
-      <div class="price">$1799<span data-i18n="per-month">/month</span></div>
-      <div class="saving-badge" data-i18n="saving3">30 expert actions per month</div>
-      <ul class="feature-list">
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3a">30 visibility fixes monthly — you dominate AI search results in your industry</span></li>
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3b">Dedicated AI reputation manager</span></li>
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3c">Weekly AI visibility report (6 LLMs)</span></li>
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3d">Weekly strategy calls</span></li>
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3e">Full escalation & resolution coordination</span></li>
-        <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3f">GEO content strategy – includes audit & roadmap</span></li>
-      </ul>
-      <button class="btn-outline" 
-        data-link="https://buy.stripe.com/6oU6oGbq79LxfsJfWubo405" 
-        data-plan="AI Dominate" 
-        data-price="$1799/month"
-        onclick="confirmAndRedirect(this)" 
-        data-i18n="choose-plan">
-  Subscribe Now
-</button>
+    <div class="faq-item" style="background: rgba(17,24,39,0.4); border-radius: 16px; padding: 16px 20px; border: 1px solid #1f2937; margin-bottom: 8px;">
+      <div class="question" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+        <span>📝 Content Structure (page‑level)</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="answer" style="display: none; padding-top: 12px; color: #9ca3af; font-size: 0.9rem;">
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="padding: 4px 0;">• Direct answer within first 80–120 words</li>
+          <li style="padding: 4px 0;">• H2/H3 headings framed as questions</li>
+          <li style="padding: 4px 0;">• Real FAQ blocks (question‑answer format)</li>
+          <li style="padding: 4px 0;">• Named expert quotes with verifiable credentials</li>
+          <li style="padding: 4px 0;">• Specific statistics with clear sources</li>
+        </ul>
+      </div>
     </div>
 
+    <div class="faq-item" style="background: rgba(17,24,39,0.4); border-radius: 16px; padding: 16px 20px; border: 1px solid #1f2937; margin-bottom: 8px;">
+      <div class="question" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+        <span>🏆 Authority / E‑E‑A‑T</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="answer" style="display: none; padding-top: 12px; color: #9ca3af; font-size: 0.9rem;">
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="padding: 4px 0;">• Author/team pages with verifiable credentials</li>
+          <li style="padding: 4px 0;">• Measurable case studies with real results</li>
+          <li style="padding: 4px 0;">• Topic clusters (pillar + satellite content)</li>
+          <li style="padding: 4px 0;">• External citations / media mentions</li>
+          <li style="padding: 4px 0;">• Regular page refresh (30‑day cycle)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq-item" style="background: rgba(17,24,39,0.4); border-radius: 16px; padding: 16px 20px; border: 1px solid #1f2937; margin-bottom: 8px;">
+      <div class="question" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+        <span>📍 Local Presence / Multi‑LLM</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="answer" style="display: none; padding-top: 12px; color: #9ca3af; font-size: 0.9rem;">
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="padding: 4px 0;">• NAP consistency across 10–60+ directories</li>
+          <li style="padding: 4px 0;">• Full Google Business Profile optimization</li>
+          <li style="padding: 4px 0;">• Review generation (4–8 new/month)</li>
+          <li style="padding: 4px 0;">• Conversational phrasing for real customer queries</li>
+          <li style="padding: 4px 0;">• Visibility test on 4+ AI engines</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq-item" style="background: rgba(17,24,39,0.4); border-radius: 16px; padding: 16px 20px; border: 1px solid #1f2937;">
+      <div class="question" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+        <span>📊 Measurement</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="answer" style="display: none; padding-top: 12px; color: #9ca3af; font-size: 0.9rem;">
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="padding: 4px 0;">• Baseline visibility tracking</li>
+          <li style="padding: 4px 0;">• 20–50 real‑user prompts simulation</li>
+          <li style="padding: 4px 0;">• AI Share of Voice vs competitors</li>
+          <li style="padding: 4px 0;">• A/B tests on content formats</li>
+          <li style="padding: 4px 0;">• Monthly progress report</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="font-size: 0.8rem; color: #6b7280; text-align: center; margin-top: 16px;">
+      <i class="fas fa-info-circle" style="color: #3B82F6;"></i>
+      A typical local business needs <strong>40–65 fixes</strong> to reach the threshold where AI consistently recommends your brand.
+    </p>
   </div>
+
 </section>
+<!-- ===== END PRICING ===== -->
 
   <div id="contact-form-section" class="cta">
     <h2 data-i18n="cta-title">Find Your Hidden Revenue — Free AI Reputation Audit</h2>
