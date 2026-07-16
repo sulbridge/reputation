@@ -725,9 +725,14 @@ footer {
     .logo span:first-child {
     font-size: 1.3rem;
   }
-    .logo span:last-child {
+  .logo span:last-child {
     font-size: 0.55rem;
     padding: 0 6px;
+  }
+  .logo {
+    flex-wrap: wrap;
+    justify-content: center; /* или flex-start */
+    gap: 6px;
   }
 }
 @media (min-width: 769px) {
