@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>What is an AI Visibility Fix? | 25 Actions That Make AI Trust Your Brand</title>
+  <meta name="description" content="Complete breakdown of all 25 AI visibility fixes across 5 categories. Learn exactly what we do to get your brand recommended by ChatGPT, Gemini, and Google AI." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0d0f14;
+      color: #e5e7eb;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      background: rgba(13, 15, 20, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .navbar.scrolled {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      background: rgba(13, 15, 20, 0.60);
+    }
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #60A5FA, #3B82F6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #e5e7eb;
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: transform 0.25s ease;
+    }
+    .nav-toggle.active { transform: rotate(90deg); }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 28px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    .nav-menu a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .nav-menu a:hover {
+      color: #60A5FA;
+      border-bottom-color: #60A5FA;
+    }
+    .nav-menu .nav-cta {
+      padding: 8px 24px;
+      font-size: 0.9rem;
+      background: #1E3A8A;
+      color: white;
+      border-radius: 40px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 10px rgba(30,58,138,0.3);
+      border-bottom: none;
+    }
+    .nav-menu .nav-cta:hover {
+      background: #2563EB;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37,99,235,0.4);
+      border-bottom: none;
+    }
+    @media (max-width: 992px) {
+      .nav-toggle { display: block; z-index: 10000; }
+      .nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(13, 15, 20, 0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        padding: 40px 24px;
+        z-index: 9999;
+        margin: 0;
+        border-radius: 0;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li { width: 100%; text-align: center; }
+      .nav-menu a {
+        font-size: 1.4rem;
+        padding: 12px 0;
+        display: block;
+        border-bottom: none;
+        color: #f9fafb;
+      }
+      .nav-menu a:hover {
+        border-bottom: none;
+        background: rgba(59,130,246,0.08);
+        border-radius: 12px;
+      }
+      .nav-menu .nav-cta {
+        display: inline-block;
+        width: auto;
+        padding: 12px 32px;
+        font-size: 1.1rem;
+      }
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header { margin: 24px 0 12px; }
+    .page-header a {
+      color: #93C5FD;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .page-header a:hover { text-decoration: underline; }
+
+    /* ===== SECTION ===== */
+    .section { padding: 40px 0 60px; }
+    .section-title {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .section-title span { color: #3B82F6; }
+    .section-sub {
+      font-size: 1.1rem;
+      color: #9ca3af;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 40px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(59,130,246,0.1);
+      color: #60A5FA;
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 999px;
+      padding: 4px 16px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: #2563EB;
+      color: white;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn-primary:hover {
+      background: #3B82F6;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37,99,235,0.3);
+    }
+
+    /* ===== CATEGORY CARDS ===== */
+    .category-block {
+      margin-bottom: 48px;
+    }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(59,130,246,0.15);
+    }
+    .category-header .cat-icon {
+      font-size: 2rem;
+      color: #3B82F6;
+      width: 48px;
+      text-align: center;
+    }
+    .category-header h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f9fafb;
+    }
+    .category-header .cat-count {
+      font-size: 0.7rem;
+      background: #1a1f2b;
+      color: #9ca3af;
+      padding: 2px 12px;
+      border-radius: 40px;
+      border: 1px solid #2d3748;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .fix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .fix-card {
+      background: rgba(17,24,39,0.5);
+      border: 1px solid #1f2937;
+      border-radius: 16px;
+      padding: 18px 20px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .fix-card:hover {
+      border-color: rgba(59,130,246,0.25);
+      background: rgba(17,24,39,0.7);
+    }
+    .fix-card .fix-number {
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #6b7280;
+      background: #1a1f2b;
+      padding: 1px 10px;
+      border-radius: 40px;
+      display: inline-block;
+      margin-bottom: 6px;
+      border: 1px solid #2d3748;
+    }
+    .fix-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #f9fafb;
+      margin-bottom: 4px;
+    }
+    .fix-card p {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin: 0;
+      line-height: 1.5;
+    }
+    .fix-card .fix-tag {
+      display: inline-block;
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: rgba(59,130,246,0.08);
+      color: #60A5FA;
+      padding: 1px 10px;
+      border-radius: 40px;
+      margin-top: 6px;
+      border: 1px solid rgba(59,130,246,0.08);
+    }
+
+    /* ===== SUMMARY BOX ===== */
+    .summary-box {
+      background: rgba(17,24,39,0.6);
+      border: 1px solid #1f2937;
+      border-radius: 24px;
+      padding: 32px 28px;
+      margin: 40px 0 20px;
+      text-align: center;
+    }
+    .summary-box .big-number {
+      font-size: 4rem;
+      font-weight: 800;
+      color: #3B82F6;
+      line-height: 1;
+    }
+    .summary-box .big-label {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #f9fafb;
+      margin: 8px 0 4px;
+    }
+    .summary-box .big-desc {
+      color: #9ca3af;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: linear-gradient(135deg, #0F172A, #1E3A8A);
+      border-radius: 48px;
+      padding: 48px 32px;
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    .cta-section h2 { font-size: 1.8rem; font-weight: 700; color: white; margin-bottom: 12px; }
+    .cta-section p { color: #c8cdd8; max-width: 600px; margin: 0 auto 24px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0d0f14;
+      border-top: 1px solid #2d3748;
+      margin-top: 40px;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 24px 32px;
+    }
+    .footer-column { flex: 1; min-width: 180px; }
+    .footer-column h4 { font-size: 1rem; font-weight: 700; color: #f9fafb; margin-bottom: 16px; }
+    .footer-column p, .footer-column ul { font-size: 0.85rem; color: #9ca3af; line-height: 1.6; }
+    .footer-column ul { list-style: none; padding: 0; }
+    .footer-column li { margin-bottom: 8px; }
+    .footer-column a { color: #93C5FD; text-decoration: none; }
+    .footer-column a:hover { text-decoration: underline; }
+    .footer-bottom {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid #2d3748;
+      font-size: 0.7rem;
+      color: #6c757d;
+    }
+
+    @media (max-width: 768px) {
+      .fix-grid { grid-template-columns: 1fr; }
+      .category-header h2 { font-size: 1.2rem; }
+      .summary-box .big-number { font-size: 2.8rem; }
+      .cta-section { padding: 32px 20px; }
+      .footer-container { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<div class="container">
+  <div class="navbar" id="navbar">
+    <a href="/" class="logo">🛡️ ReputationGuard</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-menu">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/#contact-form-section" class="btn-primary nav-cta">Free Audit</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== PAGE CONTENT ===== -->
+<div class="container">
+
+  <!-- BACK LINK -->
+  <div class="page-header">
+    <a href="/#pricing">← Back to Pricing</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="section" style="padding-top: 20px;">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+      <span class="badge">🔧 THE 25 FIXES</span>
+      <h1 class="section-title">Every <span>Fix</span> Is a Signal AI Trusts</h1>
+      <p class="section-sub" style="margin-bottom: 20px;">
+        We perform <strong>discrete, measurable actions</strong> — each one strengthens the signals that AI engines use to decide whether to recommend your brand. 
+        These 25 fixes are organized into 5 categories. A typical local business needs <strong>40–65 fixes</strong> to reach the threshold where AI consistently recommends your brand.
+      </p>
+      <a href="/#contact-form-section" class="btn-primary">Get Your Free AI Audit →</a>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORY A ===== -->
+  <div class="category-block">
+    <div class="category-header">
+      <span class="cat-icon">📐</span>
+      <h2>Technical Foundation</h2>
+      <span class="cat-count">5 fixes</span>
+    </div>
+    <div class="fix-grid">
+      <div class="fix-card">
+        <span class="fix-number">#1</span>
+        <h4>Schema.org Markup</h4>
+        <p>Add Organization, LocalBusiness, FAQPage, Article, and Product/Service schema to help AI understand your business structure.</p>
+        <span class="fix-tag">site‑level</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#2</span>
+        <h4>Core Web Vitals / Page Speed</h4>
+        <p>Optimize loading speed and Core Web Vitals — AI crawlers penalize slow, unresponsive pages.</p>
+        <span class="fix-tag">site‑level</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#3</span>
+        <h4>Mobile Adaptation</h4>
+        <p>Ensure your site is fully mobile‑responsive — over 60% of AI searches happen on mobile devices.</p>
+        <span class="fix-tag">site‑level</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#4</span>
+        <h4>Robots.txt for AI Crawlers</h4>
+        <p>Configure robots.txt to allow AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended) to access your content.</p>
+        <span class="fix-tag">site‑level</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#5</span>
+        <h4>JavaScript‑Free Content Accessibility</h4>
+        <p>Make your core content accessible without JavaScript — AI crawlers often don't render JS properly.</p>
+        <span class="fix-tag">site‑level</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CATEGORY B ===== -->
+  <div class="category-block">
+    <div class="category-header">
+      <span class="cat-icon">📝</span>
+      <h2>Content Structure</h2>
+      <span class="cat-count">5 fixes</span>
+    </div>
+    <div class="fix-grid">
+      <div class="fix-card">
+        <span class="fix-number">#6</span>
+        <h4>Direct Answer in First 80–120 Words</h4>
+        <p>Put the core answer to the user's question within the first 80–120 words — AI extracts this as a direct snippet.</p>
+        <span class="fix-tag">page‑level</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#7</span>
+        <h4>H2/H3 Headings in Question Form</h4>
+        <p>Frame subheadings as questions users actually ask — AI matches these to query intent.</p>
+        <span class="fix-tag">page‑level</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#8</span>
+        <h4>Real FAQ Blocks</h4>
+        <p>Add genuine FAQ sections with question‑answer format — AI loves structured Q&A for featured snippets.</p>
+        <span class="fix-tag">page‑level</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#9</span>
+        <h4>Named Expert Quotes</h4>
+        <p>Include quotes from named experts with verifiable credentials — this builds E‑E‑A‑T authority.</p>
+        <span class="fix-tag">page‑level</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#10</span>
+        <h4>Specific Statistics with Sources</h4>
+        <p>Use concrete statistics and cite their sources — AI models prioritize data‑backed content.</p>
+        <span class="fix-tag">page‑level</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CATEGORY C ===== -->
+  <div class="category-block">
+    <div class="category-header">
+      <span class="cat-icon">🏆</span>
+      <h2>Authority / E‑E‑A‑T</h2>
+      <span class="cat-count">5 fixes</span>
+    </div>
+    <div class="fix-grid">
+      <div class="fix-card">
+        <span class="fix-number">#11</span>
+        <h4>Author/Team Pages with Credentials</h4>
+        <p>Create verifiable author and team pages with real credentials, experience, and links — AI uses this to assess expertise.</p>
+        <span class="fix-tag">authority</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#12</span>
+        <h4>Case Studies with Measurable Results</h4>
+        <p>Document real client outcomes with specific numbers — AI cites measurable success as trust signals.</p>
+        <span class="fix-tag">authority</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#13</span>
+        <h4>Topic Clusters (Pillar + Satellites)</h4>
+        <p>Build pillar pages with satellite articles that interlink — AI sees this as subject‑matter depth.</p>
+        <span class="fix-tag">authority</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#14</span>
+        <h4>External Citations / Media Mentions</h4>
+        <p>Earn or create external citations and media mentions — AI counts these as third‑party validation.</p>
+        <span class="fix-tag">authority</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#15</span>
+        <h4>Periodic Page Refresh (30‑Day Cycle)</h4>
+        <p>Regularly update key pages with fresh content — AI prioritizes recently updated, active content.</p>
+        <span class="fix-tag">authority</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CATEGORY D ===== -->
+  <div class="category-block">
+    <div class="category-header">
+      <span class="cat-icon">📍</span>
+      <h2>Local Presence / Multi‑LLM</h2>
+      <span class="cat-count">8 fixes</span>
+    </div>
+    <div class="fix-grid">
+      <div class="fix-card">
+        <span class="fix-number">#16</span>
+        <h4>Visibility Test on 4+ Engines</h4>
+        <p>Test your brand's visibility across ChatGPT, Gemini, Perplexity, and Claude to establish a baseline.</p>
+        <span class="fix-tag">multi‑LLM</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#17</span>
+        <h4>Google AI Overviews Monitoring</h4>
+        <p>Track whether your brand appears in Google AI Overviews — this indicates citation readiness.</p>
+        <span class="fix-tag">multi‑LLM</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#18</span>
+        <h4>Reddit / Quora Presence</h4>
+        <p>Establish presence on Reddit and Quora in your niche — AI models frequently cite these platforms.</p>
+        <span class="fix-tag">multi‑LLM</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#19</span>
+        <h4>Industry Directories</h4>
+        <p>Get listed in relevant industry directories — AI uses these to verify your existence and authority.</p>
+        <span class="fix-tag">local</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#20</span>
+        <h4>Conversational Phrasing of Content</h4>
+        <p>Rewrite content in conversational language that matches how real customers ask questions.</p>
+        <span class="fix-tag">local</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#21</span>
+        <h4>NAP Consistency (10–60+ Directories)</h4>
+        <p>Ensure Name, Address, Phone are identical across 10–60+ directories — inconsistent data confuses AI.</p>
+        <span class="fix-tag">local</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#22</span>
+        <h4>Full Google Business Profile</h4>
+        <p>Complete all 8–10 sub‑items of your Google Business Profile — AI reads GBP as a primary trust source.</p>
+        <span class="fix-tag">local</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#23</span>
+        <h4>Review Generation (4–8 New/Month)</h4>
+        <p>Generate 4–8 new reviews monthly. Threshold: 20 for entry, 50+ for confident visibility, 300+ for competitive markets.</p>
+        <span class="fix-tag">local</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CATEGORY E ===== -->
+  <div class="category-block">
+    <div class="category-header">
+      <span class="cat-icon">📊</span>
+      <h2>Measurement</h2>
+      <span class="cat-count">5 fixes</span>
+    </div>
+    <div class="fix-grid">
+      <div class="fix-card">
+        <span class="fix-number">#24</span>
+        <h4>Baseline Visibility Tracking</h4>
+        <p>Establish a baseline for your AI visibility score — you can't improve what you don't measure.</p>
+        <span class="fix-tag">measurement</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#25</span>
+        <h4>20–50 Real‑User Prompts</h4>
+        <p>Simulate 20–50 real user queries to see how AI responds about your brand across different contexts.</p>
+        <span class="fix-tag">measurement</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#26</span>
+        <h4>AI Share of Voice</h4>
+        <p>Measure your AI Share of Voice vs. competitors — how often does AI mention your brand vs. others?</p>
+        <span class="fix-tag">measurement</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#27</span>
+        <h4>A/B Tests of Content Formats</h4>
+        <p>Test different content formats (FAQs, listicles, how‑tos) to see which AI engines prefer.</p>
+        <span class="fix-tag">measurement</span>
+      </div>
+      <div class="fix-card">
+        <span class="fix-number">#28</span>
+        <h4>Monthly Progress Report</h4>
+        <p>Receive a detailed monthly report showing your AI visibility score, improvements, and recommendations.</p>
+        <span class="fix-tag">measurement</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SUMMARY BOX ===== -->
+  <div class="summary-box">
+    <div class="big-number">40–65</div>
+    <div class="big-label">Fixes to Reach AI Recommendation Threshold</div>
+    <div class="big-desc">
+      A typical local business needs <strong>40–65 fixes</strong> to build the trust signals AI relies on. 
+      After that, ongoing maintenance (5–10 fixes/month) keeps your brand recommended.
+    </div>
+  </div>
+
+  <!-- ===== CTA ===== -->
+  <div class="cta-section">
+    <h2>Ready to Start Building Your AI Trust Signals?</h2>
+    <p>Get a free AI visibility audit. We'll analyze where you stand and show you exactly which fixes will move the needle fastest.</p>
+    <a href="/#contact-form-section" class="btn-primary" style="background: white; color: #0F172A; box-shadow: 0 4px 14px rgba(255,255,255,0.2);">Get Free AI Audit →</a>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>ReputationGuard</h4>
+      <p>AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends — by restoring the trust signals that drive AI visibility and sales.</p>
+    </div>
+    <div class="footer-column">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/review-removal.html">AI Reputation Cleanup</a></li>
+        <li><a href="/appeal-filing.html">AI Visibility Optimization</a></li>
+        <li><a href="/reputation-monitoring.html">AI Sentiment Monitoring</a></li>
+        <li><a href="/serm-consulting.html">GEO Strategy Consulting</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+        <li><a href="/refund-policy.html">Refund Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Contact</h4>
+      <p><i class="fas fa-envelope"></i> defend@reputationguard.pro</p>
+      <p><i class="fas fa-globe"></i> reputationguard.pro</p>
+      <p><i class="fab fa-whatsapp"></i> +1(505)313-6274</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>*Results may vary.</p>
+    <p>© 2026 ReputationGuard Global. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ===== NAVBAR SCROLL ===== -->
+<script>
+  window.addEventListener('scroll', function() {
+    var navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  var navToggle = document.querySelector('.nav-toggle');
+  var navMenu = document.querySelector('.nav-menu');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('open');
+      this.classList.toggle('active');
+    });
+    navMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navMenu.classList.remove('open');
+        navToggle.classList.remove('active');
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
