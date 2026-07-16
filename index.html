@@ -8337,66 +8337,81 @@ if (navLangSelect) {
 </script>
 <script>
   (function() {
-    // Animate tracker on scroll into view
+    'use strict';
+
+    // FAQ accordion
+    var faqContainer = document.querySelector('.faq-container');
+    if (faqContainer) {
+      faqContainer.addEventListener('click', function(e) {
+        var question = e.target.closest('.faq-question');
+        if (question) {
+          var item = question.closest('.faq-item');
+          if (item) {
+            item.classList.toggle('active');
+          }
+        }
+      });
+    }
+
+    // "What is a fix?" accordion
+    var fixContainer = document.querySelector('[style*="max-width: 800px; margin: 40px auto 0;"]');
+    if (!fixContainer) {
+      var firstQuestion = document.querySelector('.question');
+      if (firstQuestion) {
+        fixContainer = firstQuestion.closest('div[style*="max-width"]');
+      }
+    }
+
+    if (fixContainer) {
+      fixContainer.addEventListener('click', function(e) {
+        var questionDiv = e.target.closest('.question');
+        if (questionDiv) {
+          var answer = questionDiv.nextElementSibling;
+          if (answer) {
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+          }
+          questionDiv.classList.toggle('open');
+          var icon = questionDiv.querySelector('.fa-chevron-down');
+          if (icon) {
+            icon.style.transform = questionDiv.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+          }
+        }
+      });
+    }
+
+    // Tracker animation
     var tracker = document.querySelector('#tracker-bar');
     var label = document.querySelector('#tracker-label');
-    if (!tracker) return;
-
-    function animateTracker() {
-      var targetWidth = 65; // 40-65 fixes = 65% as example
-      var current = 0;
-      var interval = setInterval(function() {
-        current += 1;
-        if (current >= targetWidth) {
-          current = targetWidth;
-          clearInterval(interval);
-        }
-        tracker.style.width = current + '%';
-        if (label) {
-          var fixes = Math.round((current / 100) * 50);
-          label.textContent = fixes + ' of ~50 fixes';
-        }
-      }, 20);
+    if (tracker) {
+      var animated = false;
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !animated) {
+            animated = true;
+            var targetWidth = 65;
+            var current = 0;
+            var interval = setInterval(function() {
+              current += 1;
+              if (current >= targetWidth) {
+                current = targetWidth;
+                clearInterval(interval);
+              }
+              tracker.style.width = current + '%';
+              if (label) {
+                var fixes = Math.round((current / 100) * 50);
+                label.textContent = fixes + ' of ~50 fixes';
+              }
+            }, 20);
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      var trackerContainer = tracker.closest('div');
+      if (trackerContainer) {
+        observer.observe(trackerContainer);
+      }
     }
 
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          animateTracker();
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    var trackerContainer = document.querySelector('#tracker-bar').closest('div');
-    if (trackerContainer) {
-      observer.observe(trackerContainer);
-    }
-  })();
-</script>
-<script>
-  (function() {
-    // Fix for FAQ accordion
-    var faqItems = document.querySelectorAll('.faq-item .faq-question');
-    faqItems.forEach(function(q) {
-      q.addEventListener('click', function(e) {
-        var parent = this.closest('.faq-item');
-        if (parent) {
-          parent.classList.toggle('active');
-        }
-      });
-    });
-
-    // Fix for "What is a fix?" accordion — already handled by inline onclick
-    // But also add rotation for chevron icons
-    document.querySelectorAll('.question').forEach(function(q) {
-      q.addEventListener('click', function() {
-        var icon = this.querySelector('.fa-chevron-down');
-        if (icon) {
-          icon.style.transform = this.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
-        }
-      });
-    });
   })();
 </script>
 </body>
