@@ -3054,9 +3054,9 @@ const afterData = {
   <!-- ===== PRICING CARDS ===== -->
   <div class="pricing-grid">
 
-    <!-- AI Start -->
+    <!-- AI Visibility -->
     <div class="pricing-card">
-      <h3 data-i18n="plan1-name">AI Start</h3>
+      <h3 data-i18n="plan1-name">AI Visibility</h3>
       <div class="price">$399<span data-i18n="per-month">/month</span></div>
       <div style="font-size: 0.9rem; color: #9ca3af; margin-bottom: 4px;">5 boosts per month</div>
       <div style="font-size: 1.1rem; font-weight: 700; color: #fbbf24; margin-bottom: 12px;">⏱ Reach AI in 8–12 months</div>
@@ -3072,7 +3072,7 @@ const afterData = {
       </div>
       <button class="btn-outline" 
         data-link="https://buy.stripe.com/bJe14m65N5vh80h8u2bo403" 
-        data-plan="AI Start" 
+        data-plan="AI Visibility" 
         data-price="$399/month"
         onclick="confirmAndRedirect(this)" 
         data-i18n="choose-plan">Subscribe Now</button>
@@ -3108,9 +3108,9 @@ const afterData = {
         data-i18n="choose-plan">Subscribe Now</button>
     </div>
 
-    <!-- AI Dominance -->
+    <!-- AI Dominate -->
     <div class="pricing-card">
-      <h3 data-i18n="plan3-name">AI Dominance</h3>
+      <h3 data-i18n="plan3-name">AI Dominate</h3>
       <div class="price">$1,799<span data-i18n="per-month">/month</span></div>
       <div style="font-size: 0.9rem; color: #9ca3af; margin-bottom: 4px;">30 boosts per month</div>
       <div style="font-size: 1.1rem; font-weight: 700; color: #4ade80; margin-bottom: 12px;">⏱ Reach AI in 1.5–2 months</div>
@@ -3136,7 +3136,7 @@ const afterData = {
 </div>
       <button class="btn-outline" 
         data-link="https://buy.stripe.com/6oU6oGbq79LxfsJfWubo405" 
-        data-plan="AI Dominance" 
+        data-plan="AI Dominate" 
         data-price="$1799/month"
         onclick="confirmAndRedirect(this)" 
         data-i18n="choose-plan">Subscribe Now</button>
@@ -3382,7 +3382,7 @@ const afterData = {
     </p>
     <p style="color: #9ca3af; font-size: 0.85rem; margin-top: 8px;">
       <i class="fas fa-info-circle" style="color: #3B82F6;"></i>
-      The exact timeline depends on your plan: <strong>AI Start</strong> (8–12 months), <strong>AI Authority</strong> (3–4 months), or <strong>AI Dominance</strong> (1.5–2 months).
+      The exact timeline depends on your plan: <strong>AI Visibility</strong> (8–12 months), <strong>AI Authority</strong> (3–4 months), or <strong>AI Dominate</strong> (1.5–2 months).
     </p>
     <p style="color: #9ca3af; font-size: 0.85rem; margin-top: 4px;">
       <i class="fas fa-check-circle" style="color: #4ade80;"></i>
@@ -5269,7 +5269,7 @@ const afterData = {
     "faq9q": "What level of AI visibility do you promise?",
     "faq9a": "We promise to get your brand to 55–75% on the AI Visibility Score scale. This is the 'Strong' level — where ChatGPT, Gemini, Claude, and Perplexity regularly recommend your brand in response to relevant customer queries. According to industry benchmarks: 55–75% = 'Strong' (GrackerAI) — AI engines lead with your brand in many responses; 51–80% = 'Competitive' (Rank Prompt) — you appear in most relevant answers; ~80% = 'Strong Performance' (Milestone Inc.). We don't promise 100% or top‑1 ranking — nobody controls AI retrieval indices. We promise to improve your signals so AI trusts and recommends your brand. That's measurable, achievable, and backed by data.",
     "faq10q": "What exactly do I get as a client?",
-    "faq10a": "You get a complete AI visibility transformation, measured and documented. You receive: a baseline audit showing your starting AI visibility score across 6+ LLMs; 5–30 boosts per month building trust signals (25 types across 5 categories); weekly or monthly reports showing your AI visibility score, Share of Voice, and competitor benchmarks; and a dedicated manager with strategy calls, escalation coordination, and GEO content strategy on higher plans. You get results: your brand goes from 'invisible' to 'recommended' — and we show you the numbers every step of the way. The exact timeline depends on your plan: AI Start (8–12 months), AI Authority (3–4 months), or AI Dominance (1.5–2 months). All plans include our visibility score improvement guarantee — if we don't improve your score, we keep working until we do.",
+    "faq10a": "You get a complete AI visibility transformation, measured and documented. You receive: a baseline audit showing your starting AI visibility score across 6+ LLMs; 5–30 boosts per month building trust signals (25 types across 5 categories); weekly or monthly reports showing your AI visibility score, Share of Voice, and competitor benchmarks; and a dedicated manager with strategy calls, escalation coordination, and GEO content strategy on higher plans. You get results: your brand goes from 'invisible' to 'recommended' — and we show you the numbers every step of the way. The exact timeline depends on your plan: AI Visibility (8–12 months), AI Authority (3–4 months), or AI Dominate (1.5–2 months). All plans include our visibility score improvement guarantee — if we don't improve your score, we keep working until we do.",
     "faq4q-ai": "How much can I save compared to hiring in‑house?",
     "faq4a-ai": "A full-time AI reputation specialist costs $2,000–$4,500/month. With our plans, you save $1,200+ every month while getting dedicated AI visibility experts, weekly reports, and proven strategies — without the overhead of hiring, training, and managing.",
     "faq5q-ai": "How do you improve my AI brand visibility?",
@@ -7788,6 +7788,72 @@ if (navLangSelect) {
     }
   }
 })();
+</script>
+
+<style>
+  .back-to-top-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #1E3A8A;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    z-index: 900;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease, visibility 0.25s;
+  }
+  .back-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .back-to-top-btn:hover {
+    background: #2563EB;
+  }
+  @media (max-width: 640px) {
+    .back-to-top-btn {
+      width: 42px;
+      height: 42px;
+      bottom: 16px;
+      right: 16px;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<button class="back-to-top-btn" id="backToTopBtn" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+  (function() {
+    var btn = document.getElementById('backToTopBtn');
+    if (!btn) return;
+
+    var visible = false;
+    window.addEventListener('scroll', function() {
+      var shouldShow = window.scrollY > 500;
+      if (shouldShow !== visible) {
+        visible = shouldShow;
+        btn.classList.toggle('visible', visible);
+      }
+    });
+
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
 </script>
 </body>
 </html>
