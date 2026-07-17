@@ -266,9 +266,23 @@ body {
 .hero-content { flex: 1; min-width: 260px; }
 .hero-badge { background: #1e293b; color: #93C5FD; padding: 6px 14px; border-radius: 40px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-bottom: 20px; }
 .hero h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 16px; color: #f9fafb; }
-.hero-subhead { font-size: 1.25rem; color: #9ca3af; margin-bottom: 20px; font-weight: 500; border-left: 3px solid #3B82F6; padding-left: 16px; }
+.hero-subhead { font-size: 1.2rem; color: #cbd5e1; margin-bottom: 22px; font-weight: 400; line-height: 1.55; max-width: 560px; }
+.hero-subhead strong { color: #60A5FA; font-weight: 800; font-size: 1.35em; }
+.hero-desc { font-size: 1.02rem; color: #8b93a3; line-height: 1.6; max-width: 540px; margin-bottom: 4px; }
+.hero-desc strong { color: #93C5FD; font-weight: 600; }
 .hero p { font-size: 1.1rem; color: #9ca3af; margin-bottom: 32px; max-width: 90%; }
 .hero-stats { display: flex; justify-content: flex-start; gap: 32px; margin-top: 24px; flex-wrap: wrap; margin-bottom: 0; }
+.hero-trust-chips { display: flex; gap: 10px; flex-wrap: wrap; }
+.hero-trust-chip {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #d1d5db;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 6px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
 .stat span.counter { font-size: 1.8rem; font-weight: 800; color: #60A5FA; display: inline-block; }
 .hero-image { flex: 1; background: #1a1f2b; border-radius: 48px; padding: 24px 20px; text-align: center; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.8); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 280px; border: 1px solid #2d3748; }
 .hero-image i { font-size: 5rem; color: #3B82F6; transition: transform 0.3s ease; margin-bottom: 8px; }
@@ -298,6 +312,7 @@ body {
 .pricing-card { background: #1a1f2b; border-radius: 32px; padding: 32px 24px; width: 300px; box-shadow: 0 12px 24px rgba(0,0,0,0.3); border: 1px solid #2d3748; transition: 0.25s; position: relative; }
 .pricing-card.popular { border: 2px solid #3B82F6; }
 .popular-badge { position: absolute; top: -12px; left: 20px; background: #3B82F6; color: white; padding: 4px 12px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; }
+.bonus-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #4ade80; color: #0F172A; padding: 4px 12px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; white-space: nowrap; }
 .price { font-size: 2.7rem; font-weight: 800; margin: 16px 0; color: #f9fafb; }
 .price span { font-size: 1rem; font-weight: 400; color: #9ca3af; }
 .saving-badge { background: #1e293b; border-radius: 20px; padding: 6px 12px; font-size: 0.7rem; font-weight: 700; color: #93C5FD; margin-top: 8px; display: inline-block; }
@@ -786,11 +801,9 @@ footer {
     direction: rtl;
     text-align: right;
 }
-.rtl-mode .hero-subhead {
-    border-left: none;
-    border-right: 3px solid #3B82F6;
-    padding-left: 0;
-    padding-right: 16px;
+.rtl-mode .hero-subhead,
+.rtl-mode .hero-desc {
+    margin-left: auto;
 }
 .rtl-mode .comparison-table .feature-cell {
     text-align: right;
@@ -863,7 +876,194 @@ footer {
   transform: translateY(-2px);
 }
 
+/* ===== ONE-TIME BOOST — redesigned ===== */
+.one-time-horizontal {
+  position: relative;
+  background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(26,31,43,1) 40%);
+  border: 1px solid rgba(96,165,250,0.25);
+  overflow: hidden;
+}
+.one-time-horizontal::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #60A5FA, #3B82F6, #60A5FA);
+}
+.one-time-eyebrow {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #FBBF24;
+  background: rgba(251,191,36,0.08);
+  border: 1px solid rgba(251,191,36,0.2);
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin: 0 auto 18px;
+  width: fit-content;
+}
+.one-time-horizontal .one-time-content {
+  align-items: center;
+  gap: 28px;
+}
+.one-time-horizontal .one-time-left {
+  flex: 1.4;
+  align-items: center;
+  gap: 16px;
+}
+.one-time-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #3B82F6, #1E3A8A);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: white;
+  box-shadow: 0 6px 16px rgba(59,130,246,0.35);
+}
+.one-time-horizontal .one-time-title {
+  color: #93C5FD;
+  font-size: 1.05rem;
+  margin-bottom: 2px;
+}
+.one-time-horizontal .one-time-price {
+  font-size: 1.9rem;
+}
+.one-time-horizontal .one-time-features {
+  flex: 2;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.one-time-horizontal .one-time-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  white-space: normal;
+  line-height: 1.4;
+}
+.one-time-horizontal .one-time-features li i {
+  color: #34d399;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.one-time-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.one-time-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(30,58,138,0.45);
+}
+@media (max-width: 860px) {
+  .one-time-horizontal .one-time-content {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  .one-time-horizontal .one-time-left {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .one-time-horizontal .one-time-features {
+    align-items: center;
+    text-align: left;
+  }
+  .one-time-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* Pricing cards */
+.boost-info-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: #6b7280;
+  cursor: pointer;
+  outline: none;
+  flex-shrink: 0;
+}
+.boost-info-icon i {
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+.boost-info-icon:hover i,
+.boost-info-icon:focus i {
+  color: #60A5FA;
+}
+.boost-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: 240px;
+  background: #111827;
+  border: 1px solid #2d3748;
+  color: #e5e7eb;
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  z-index: 50;
+}
+.boost-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #111827;
+}
+.boost-info-icon:hover .boost-tooltip,
+.boost-info-icon:focus .boost-tooltip,
+.boost-info-icon:focus-within .boost-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+@media (max-width: 480px) {
+  .boost-tooltip {
+    width: 200px;
+    left: auto;
+    right: -20px;
+    transform: translateY(4px);
+  }
+  .boost-tooltip::after {
+    left: auto;
+    right: 22px;
+  }
+  .boost-info-icon:hover .boost-tooltip,
+  .boost-info-icon:focus .boost-tooltip,
+  .boost-info-icon:focus-within .boost-tooltip {
+    transform: translateY(0);
+  }
+}
 .pricing-card {
   background: rgba(26, 31, 43, 0.7);
   backdrop-filter: blur(8px);
@@ -1724,10 +1924,10 @@ footer {
   Get Recommended by <span style="color: #2563EB;">ChatGPT, Gemini &amp; More</span>
 </h1>
     <div class="hero-subhead" data-i18n="hero-subhead">
-      <strong>85% of buyers</strong> now use AI tools before making a purchase. <br>If your brand doesn't appear in their answers, you're invisible to millions of potential customers.<br><br>
+      <strong>85% of buyers</strong> now use AI tools before making a purchase. <br>If your brand doesn't appear in their answers, you're invisible to millions of potential customers.
     </div>
-    <p data-i18n="hero-desc">
-      See exactly where your business appears<br> across <strong>ALL major AI platforms worldwide</strong>. <br>Get a <strong>free AI visibility report</strong> with a clear plan to get listed everywhere that matters.
+    <p class="hero-desc" data-i18n="hero-desc">
+      See exactly where your business appears<br> across <strong>ALL major AI platforms worldwide</strong>. <br>Get a <strong>Free AI Audit</strong> with a clear plan to get listed everywhere that matters.
     </p>
 
     <div style="display:flex; gap:12px; flex-wrap:wrap; margin: 24px 0 16px;">
@@ -1750,10 +1950,10 @@ footer {
 </button>
 </div>
 
-<div style="display:flex; gap:12px; flex-wrap:wrap; font-size:0.85rem; color:#9ca3af;">
-  <span data-i18n="bullet-no-card">✅ No credit card required</span>
-  <span data-i18n="bullet-results">⚡ Results in ~30 seconds</span>
-  <span data-i18n="bullet-layers">📊 9-layer AI analysis</span>
+<div class="hero-trust-chips">
+  <span class="hero-trust-chip" data-i18n="bullet-no-card">✅ No credit card required</span>
+  <span class="hero-trust-chip" data-i18n="bullet-results">⚡ Results in ~30 seconds</span>
+  <span class="hero-trust-chip" data-i18n="bullet-layers">📊 9-layer AI analysis</span>
 </div>
 
 <div class="hero-stats">
@@ -1761,7 +1961,7 @@ footer {
   <div class="stat"><span class="counter" data-target="82">82</span>% <span data-i18n="stat-sales">of AI sales</span></div>
   <div class="stat"><span class="counter" data-target="43">43</span>% <span data-i18n="stat-daily">use AI daily</span></div>
 </div>
-<p class="stats-source" data-i18n="stats.source">Based on data from 150+ businesses audited</p>
+<p class="stats-source" data-i18n="stats.source">Based on data from <span id="heroStatsCount">150</span>+ businesses audited</p>
   </div>
 </div>
 <!-- ===== TRUST SLIDER (FIXED LOGOS + VISIBILITY) ===== -->
@@ -3074,7 +3274,13 @@ const afterData = {
     <div class="pricing-card">
       <h3 data-i18n="plan1-name">AI Visibility</h3>
       <div class="price">$399<span data-i18n="per-month">/month</span></div>
-      <div style="font-size: 0.9rem; color: #9ca3af; margin-bottom: 4px;">5 boosts per month</div>
+      <div style="font-size: 0.9rem; color: #9ca3af; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+        <span data-i18n="plan1-boosts-label">5 boosts per month</span>
+        <span class="boost-info-icon" tabindex="0" role="button" aria-label="What is a boost?">
+          <i class="fas fa-circle-info"></i>
+          <span class="boost-tooltip" data-i18n="boost-tooltip-text">A boost is a concrete action that strengthens a trust signal AI uses to decide whether to recommend you: schema markup, review responses, citation fixes, and more. See the full breakdown below.</span>
+        </span>
+      </div>
       <div style="font-size: 1.1rem; font-weight: 700; color: #fbbf24; margin-bottom: 12px;">⏱ Reach AI in 8–12 months</div>
       <div class="saving-badge" data-i18n="saving1">Ideal for tighter budgets</div>
       <ul class="feature-list">
@@ -3083,7 +3289,7 @@ const afterData = {
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1c">Monthly report (ChatGPT + Gemini)</span></li>
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature1d">Standard priority</span></li>
       </ul>
-      <div style="font-size: 0.75rem; color: #60A5FA; background: rgba(59,130,246,0.08); padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;">
+      <div style="font-size: 0.75rem; color: #60A5FA; background: rgba(59,130,246,0.08); padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;" data-i18n="guarantee-badge-60">
         🛡️ 60‑day visibility score improvement guarantee
       </div>
       <button class="btn-outline" 
@@ -3099,7 +3305,13 @@ const afterData = {
       <div class="popular-badge" data-i18n="popular">⭐ MOST POPULAR</div>
       <h3 data-i18n="plan2-name">AI Authority</h3>
       <div class="price">$899<span data-i18n="per-month">/month</span></div>
-      <div style="font-size: 0.9rem; color: #9ca3af; margin-bottom: 4px;">15 boosts per month</div>
+      <div style="font-size: 0.9rem; color: #9ca3af; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+        <span data-i18n="plan2-boosts-label">15 boosts per month</span>
+        <span class="boost-info-icon" tabindex="0" role="button" aria-label="What is a boost?">
+          <i class="fas fa-circle-info"></i>
+          <span class="boost-tooltip" data-i18n="boost-tooltip-text">A boost is a concrete action that strengthens a trust signal AI uses to decide whether to recommend you: schema markup, review responses, citation fixes, and more. See the full breakdown below.</span>
+        </span>
+      </div>
       <div style="font-size: 1.1rem; font-weight: 700; color: #4ade80; margin-bottom: 12px;">⏱ Reach AI in 3–4 months</div>
       <div class="saving-badge" data-i18n="saving2">Best value – fastest ROI</div>
       <ul class="feature-list">
@@ -3110,11 +3322,11 @@ const afterData = {
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2e">Competitor benchmarking (up to 5)</span></li>
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature2f">Monthly strategy call + roadmap</span></li>
       </ul>
-      <div style="font-size: 0.75rem; color: #4ade80; background: rgba(74,222,128,0.08); padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;">
+      <div style="font-size: 0.75rem; color: #4ade80; background: rgba(74,222,128,0.08); padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;" data-i18n="guarantee-badge-30">
         🛡️ 30‑day visibility score improvement guarantee
       </div>
-      <div style="font-size: 0.75rem; color: #60A5FA; background: rgba(59,130,246,0.08); padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;">
-  🔄 After reaching target visibility, switch to AI Visibility plan — save up to 60%
+      <div style="font-size: 0.75rem; color: #60A5FA; background: rgba(59,130,246,0.08); padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;" data-i18n="switch-plan-60">
+  🔄 Once you hit your target, switch to AI Visibility and save up to 60%
 </div>
       <button class="btn-primary" 
         data-link="https://buy.stripe.com/4gM5kCcubbTFfsJ8u2bo404" 
@@ -3126,9 +3338,16 @@ const afterData = {
 
     <!-- AI Dominate -->
     <div class="pricing-card">
+      <div class="bonus-badge" data-i18n="founder-interview-badge">🎥 + Founder for AI Interview Bonus</div>
       <h3 data-i18n="plan3-name">AI Dominate</h3>
       <div class="price">$1,799<span data-i18n="per-month">/month</span></div>
-      <div style="font-size: 0.9rem; color: #9ca3af; margin-bottom: 4px;">30 boosts per month</div>
+      <div style="font-size: 0.9rem; color: #9ca3af; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+        <span data-i18n="plan3-boosts-label">30 boosts per month</span>
+        <span class="boost-info-icon" tabindex="0" role="button" aria-label="What is a boost?">
+          <i class="fas fa-circle-info"></i>
+          <span class="boost-tooltip" data-i18n="boost-tooltip-text">A boost is a concrete action that strengthens a trust signal AI uses to decide whether to recommend you: schema markup, review responses, citation fixes, and more. See the full breakdown below.</span>
+        </span>
+      </div>
       <div style="font-size: 1.1rem; font-weight: 700; color: #4ade80; margin-bottom: 12px;">⏱ Reach AI in 1.5–2 months</div>
       <div class="saving-badge" data-i18n="saving3">Maximum speed – dominate your industry</div>
       <ul class="feature-list">
@@ -3138,17 +3357,12 @@ const afterData = {
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3d">Weekly strategy calls</span></li>
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3e">Full escalation &amp; resolution coordination</span></li>
         <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature3f">GEO content strategy – audit + roadmap</span></li>
-        <li style="background: rgba(74,222,128,0.08); border-radius: 8px; padding: 8px 12px; margin-top: 4px;">
-          <i class="fas fa-video" style="color: #4ade80;"></i>
-          <strong>Exclusive Founder Interview Package:</strong>
-          45‑min interview, professional recording &amp; editing, transcript, 10 short clips, podcast distribution
-        </li>
       </ul>
-      <div style="font-size: 0.75rem; color: #4ade80; background: rgba(74,222,128,0.08); padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;">
+      <div style="font-size: 0.75rem; color: #4ade80; background: rgba(74,222,128,0.08); padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;" data-i18n="guarantee-badge-21">
         🛡️ 21‑day visibility score improvement guarantee
       </div>
-      <div style="font-size: 0.75rem; color: #4ade80; background: rgba(74,222,128,0.08); padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;">
-  🔄 After reaching target visibility, switch to AI Visibility plan — save up to 70%
+      <div style="font-size: 0.75rem; color: #4ade80; background: rgba(74,222,128,0.08); padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;" data-i18n="switch-plan-70">
+  🔄 Once you hit your target, switch to AI Visibility and save up to 70%
 </div>
       <button class="btn-outline" 
         data-link="https://buy.stripe.com/6oU6oGbq79LxfsJfWubo405" 
@@ -3160,22 +3374,26 @@ const afterData = {
 
   </div>
 
-  <!-- ===== ONE‑TIME BOOST (unchanged) ===== -->
+  <!-- ===== ONE‑TIME BOOST ===== -->
   <div class="one-time-wrapper">
     <div class="one-time-horizontal">
+      <div class="one-time-eyebrow"><i class="fas fa-bolt"></i> <span data-i18n="one-time-eyebrow">No commitment. The perfect way to start</span></div>
       <div class="one-time-content">
         <div class="one-time-left">
-          <div class="one-time-title" data-i18n="plan0-name">⚡ AI Visibility Boost</div>
-          <div class="one-time-price">$249 <span data-i18n="one-time">/one‑time</span></div>
-          <ul class="one-time-features">
-            <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature0a">Full deep AI visibility audit (9 layers) to identify what's holding you back</span></li>
-            <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature0b">We fix 3 critical issues identified in your audit</span></li>
-            <li><i class="fas fa-check-circle" style="color: #34d399;"></i> <span data-i18n="feature0c">Detailed AI visibility score report with recommendations</span></li>
-          </ul>
+          <div class="one-time-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+          <div>
+            <div class="one-time-title" data-i18n="plan0-name">⚡ AI Visibility Boost</div>
+            <div class="one-time-price">$249 <span data-i18n="one-time">/one‑time</span></div>
+          </div>
         </div>
-        <button class="btn-outline btn-cta" 
+        <ul class="one-time-features">
+          <li><i class="fas fa-check-circle"></i> <span data-i18n="feature0a">Full deep AI visibility audit (9 layers) to identify what's holding you back</span></li>
+          <li><i class="fas fa-check-circle"></i> <span data-i18n="feature0b">We fix 3 critical issues identified in your audit</span></li>
+          <li><i class="fas fa-check-circle"></i> <span data-i18n="feature0c">Detailed AI visibility score report with recommendations</span></li>
+        </ul>
+        <button class="btn-primary one-time-btn"
           onclick="openCheckoutModal('https://buy.stripe.com/cNi6oGdyf5vhcgx39Ibo402', 'AI Visibility Boost — deep audit + 3 critical fixes', '$249 one-time', true)"
-          data-i18n="choose-one-time">Get Started →</button>
+          data-i18n="choose-one-time">Get Started <i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
   </div>
@@ -5146,6 +5364,17 @@ const afterData = {
     "nav-about": "About",
     "hero-btn": "Free Audit",
     "hero-badge": "⚡ AI Visibility Engine",
+    "plan1-boosts-label": "5 boosts per month",
+    "plan2-boosts-label": "15 boosts per month",
+    "plan3-boosts-label": "30 boosts per month",
+    "boost-tooltip-text": "A boost is a concrete action that strengthens a trust signal AI uses to decide whether to recommend you: schema markup, review responses, citation fixes, and more. See the full breakdown below.",
+    "one-time-eyebrow": "No commitment. The perfect way to start",
+    "founder-interview-badge": "🎥 + Founder for AI Interview Bonus",
+    "guarantee-badge-60": "🛡️ 60-day visibility score improvement guarantee",
+    "guarantee-badge-30": "🛡️ 30-day visibility score improvement guarantee",
+    "guarantee-badge-21": "🛡️ 21-day visibility score improvement guarantee",
+    "switch-plan-60": "🔄 Once you hit your target, switch to AI Visibility and save up to 60%",
+    "switch-plan-70": "🔄 Once you hit your target, switch to AI Visibility and save up to 70%",
     "urgency-title-prefix": "New client onboarding for",
     "urgency-title-suffix": "is open now",
     "urgency-text-prefix": "We cap monthly intake so every account gets a dedicated manager and weekly reports — once this month's cohort fills, next availability is",
@@ -5228,7 +5457,7 @@ const afterData = {
     "guarantee-banner-text": "If your AI visibility score doesn't improve within your plan's guarantee window, we keep working for free until it does.",
     "hero-title": "Dominate AI Search<br>Get Recommended by <span style=\"color:#2563EB;\">ChatGPT, Gemini &amp; More</span>",
     "hero-subhead": "<strong>85% of buyers</strong> now use AI tools before making a purchase.</br> If your brand doesn't appear in their answers, you're invisible to millions of potential customers.",
-    "hero-desc": "See exactly where your business appears</br>across <strong>ALL major AI platforms worldwide</strong>. </br>Get a <strong>free AI visibility report</strong> with a clear plan to get listed everywhere that matters:",
+    "hero-desc": "See exactly where your business appears</br>across <strong>ALL major AI platforms worldwide</strong>. </br>Get a <strong>Free AI Audit</strong> with a clear plan to get listed everywhere that matters:",
     "input-placeholder": "Enter your business name or website",
     "check-btn": "Check my business",
     "bullet-no-card": "✅ No credit card required",
@@ -5237,7 +5466,7 @@ const afterData = {
     "stat-traffic": "of AI traffic",
     "stat-sales": "of AI sales",
     "stat-daily": "use AI daily",
-    "stats.source": "Based on data from 150+ businesses audited",
+    "stats.source": "Based on data from <span id=\"heroStatsCount\">150</span>+ businesses audited",
     "interactive-demo": "Interactive Demo",
     "how-ai-sees": "How AI sees your business",
     "simulator-ai-summary-label": "🤖 AI Summary",
@@ -5266,7 +5495,7 @@ const afterData = {
     "methodology-l7-desc": "Are you cite-ready? Low readiness means AI may avoid citing you.",
     "methodology-l8": "Activity",
     "methodology-l8-desc": "Do you look active? Stale signals reduce urgency and trust.",
-    "methodology-l9": "Does your brand have strong, trustworthy signals? AI models read reputation signals as a primary trust indicator. Weak signals tell AI to avoid recommending you. Strong signals = AI trust.",
+    "methodology-l9": "Reputation Signal",
     "methodology-l9-desc": "Does your brand have clean, verified reviews? AI models read review sentiment as a primary trust signal. Fake or negative reviews tell AI to avoid recommending you. Clean reviews = AI trust.",
     "methodology-score-text": "💡 Your AI visibility score is calculated across all 9 layers. <strong style=\"color: #f9fafb;\">Get your free audit</strong> to see where you stand.",
     "claim-audit": "Get Free AI Audit",
@@ -5304,7 +5533,7 @@ const afterData = {
     "pricing-sub": "We audit your AI visibility, then use our expertise to fix what matters most. You get results — we do the work.",
     "plan1-name": "AI Visibility",
     "per-month": "/month",
-    "saving1": "5 boosts per month",
+    "saving1": "Ideal for tighter budgets",
     "feature1a": "5 visibility boosts per month — each boost strengthens your AI trust signals",
     "feature1b": "AI visibility monitoring with alerts",
     "feature1c": "Monthly AI visibility report (ChatGPT, Gemini)",
@@ -5312,7 +5541,7 @@ const afterData = {
     "choose-plan": "Subscribe Now",
     "popular": "⭐ MOST POPULAR",
     "plan2-name": "AI Authority",
-    "saving2": "15 boosts per month",
+    "saving2": "Best value – fastest ROI",
     "feature2a": "15 visibility boosts monthly — your brand becomes the one AI trusts and recommends",
     "feature2b": "Priority processing (48‑hour turnaround)",
     "feature2c": "Monthly AI visibility report (4 LLMs)",
@@ -5320,7 +5549,7 @@ const afterData = {
     "feature2e": "Competitor benchmarking (up to 5 competitors)",
     "feature2f": "Monthly strategy call & detailed roadmap",
     "plan3-name": "AI Dominate",
-    "saving3": "30 boosts per month",
+    "saving3": "Maximum speed – dominate your industry",
     "feature3a": "30 visibility boosts per month — you dominate AI search results in your industry",
     "feature3b": "Dedicated AI reputation manager",
     "feature3c": "Weekly AI visibility report (6 LLMs)",
@@ -5404,6 +5633,17 @@ const afterData = {
     "nav-about": "Sobre Nosotros",
     "hero-btn": "Auditoría Gratuita",
     "hero-badge": "⚡ Motor de Visibilidad en IA",
+    "plan1-boosts-label": "5 boosts al mes",
+    "plan2-boosts-label": "15 boosts al mes",
+    "plan3-boosts-label": "30 boosts al mes",
+    "boost-tooltip-text": "Un boost es una acción concreta que fortalece una señal de confianza que la IA usa para decidir si recomendarlo: marcado schema, respuestas a reseñas, correcciones de citas y más. Vea el detalle completo más abajo.",
+    "one-time-eyebrow": "Sin compromiso. La forma perfecta de empezar",
+    "founder-interview-badge": "🎥 + Bono Entrevista Fundador",
+    "guarantee-badge-60": "🛡️ Garantía de mejora del puntaje en 60 días",
+    "guarantee-badge-30": "🛡️ Garantía de mejora del puntaje en 30 días",
+    "guarantee-badge-21": "🛡️ Garantía de mejora del puntaje en 21 días",
+    "switch-plan-60": "🔄 Al alcanzar su objetivo, cambie a AI Visibility y ahorre hasta 60%",
+    "switch-plan-70": "🔄 Al alcanzar su objetivo, cambie a AI Visibility y ahorre hasta 70%",
     "urgency-title-prefix": "La incorporación de nuevos clientes para",
     "urgency-title-suffix": "está abierta ahora",
     "urgency-text-prefix": "Limitamos la incorporación mensual para que cada cuenta tenga un gestor dedicado e reportes semanales — una vez completado el cupo de este mes, la próxima disponibilidad es",
@@ -5486,7 +5726,7 @@ const afterData = {
     "guarantee-banner-text": "Si su puntuación de visibilidad en IA no mejora dentro del plazo de garantía de su plan, seguimos trabajando gratis hasta lograrlo.",
     "hero-title": "Domine la Búsqueda con IA<br>Logre que <span style=\"color:#2563EB;\">ChatGPT, Gemini y más</span> lo recomienden",
     "hero-subhead": "<strong>El 85% de los compradores</strong> ya utilizan herramientas de IA antes de realizar una compra.</br> Si su marca no aparece en sus respuestas, usted es invisible para millones de clientes potenciales,</br> mientras que sus competidores se llevan todos los leads.",
-    "hero-desc": "Descubra exactamente dónde aparece o no aparece su negocio </br>en <strong>TODAS las principales plataformas de IA del mundo</strong>. </br>Obtenga un <strong>reporte gratuito de visibilidad en IA</strong> con un plan claro para aparecer en todos los lugares que importan:",
+    "hero-desc": "Descubra exactamente dónde aparece o no aparece su negocio </br>en <strong>TODAS las principales plataformas de IA del mundo</strong>. </br>Obtenga una <strong>Auditoría IA Gratuita</strong> con un plan claro para aparecer en todos los lugares que importan:",
     "input-placeholder": "Ingrese el nombre de su negocio o sitio web",
     "check-btn": "Analizar mi negocio",
     "bullet-no-card": "✅ No se requiere tarjeta de crédito",
@@ -5495,7 +5735,7 @@ const afterData = {
     "stat-traffic": "del tráfico de IA",
     "stat-sales": "de las ventas por IA",
     "stat-daily": "usan IA a diario",
-    "stats.source": "Basado en datos de más de 150 negocios auditados",
+    "stats.source": "Basado en datos de más de <span id=\"heroStatsCount\">150</span> negocios auditados",
     "interactive-demo": "Demostración Interactiva",
     "how-ai-sees": "Cómo ve la IA a su negocio",
     "simulator-ai-summary-label": "🤖 Resumen de IA",
@@ -5562,7 +5802,7 @@ const afterData = {
     "pricing-sub": "Auditamos su visibilidad en IA y luego utilizamos nuestra experiencia para corregir lo que más importa. Usted obtiene resultados, nosotros hacemos el trabajo.",
     "plan1-name": "Visibilidad en IA",
     "per-month": "/mes",
-    "saving1": "5 boosts al mes",
+    "saving1": "Ideal para presupuestos ajustados",
     "feature1a": "5 boosts de visibilidad en IA al mes — cada boost fortalece sus señales de confianza en IA",
     "feature1b": "Monitorización de visibilidad en IA con alertas",
     "feature1c": "Reporte mensual de visibilidad en IA (ChatGPT, Gemini)",
@@ -5570,7 +5810,7 @@ const afterData = {
     "choose-plan": "Suscribirse Ahora",
     "popular": "⭐ MÁS POPULAR",
     "plan2-name": "Autoridad en IA",
-    "saving2": "15 boosts al mes",
+    "saving2": "Mejor relación calidad-precio – ROI más rápido",
     "feature2a": "15 boosts de visibilidad al mes — su marca se convierte en la que la IA confía y recomienda",
     "feature2b": "Procesamiento prioritario (respuesta en 48 horas)",
     "feature2c": "Reporte mensual de visibilidad en IA (4 LLM)",
@@ -5578,7 +5818,7 @@ const afterData = {
     "feature2e": "Benchmarking de competidores (hasta 5 competidores)",
     "feature2f": "Llamada de estrategia mensual y hoja de ruta detallada",
     "plan3-name": "Dominio en IA",
-    "saving3": "30 boosts al mes",
+    "saving3": "Máxima velocidad – domine su industria",
     "feature3a": "30 boosts de visibilidad al mes — domina los resultados de búsqueda de IA en su sector",
     "feature3b": "Gestor de reputación en IA dedicado",
     "feature3c": "Reporte semanal de visibilidad en IA (6 LLM)",
@@ -5662,6 +5902,17 @@ const afterData = {
     "nav-about": "Sobre Nosotros",
     "hero-btn": "Auditoría Gratuita",
     "hero-badge": "⚡ Motor de Visibilidad en IA",
+    "plan1-boosts-label": "5 boosts al mes",
+    "plan2-boosts-label": "15 boosts al mes",
+    "plan3-boosts-label": "30 boosts al mes",
+    "boost-tooltip-text": "Un boost es una acción concreta que refuerza una señal de confianza que la IA usa para decidir si recomendarle: marcado schema, respuestas a reseñas, correcciones de citas y más. Vea el detalle completo más abajo.",
+    "one-time-eyebrow": "Sin compromiso. La forma perfecta de empezar",
+    "founder-interview-badge": "🎥 + Bono Entrevista Fundador",
+    "guarantee-badge-60": "🛡️ Garantía de mejora del puntaje en 60 días",
+    "guarantee-badge-30": "🛡️ Garantía de mejora del puntaje en 30 días",
+    "guarantee-badge-21": "🛡️ Garantía de mejora del puntaje en 21 días",
+    "switch-plan-60": "🔄 Al alcanzar su objetivo, cambie a AI Visibility y ahorre hasta 60%",
+    "switch-plan-70": "🔄 Al alcanzar su objetivo, cambie a AI Visibility y ahorre hasta 70%",
     "urgency-title-prefix": "La incorporación de nuevos clientes para",
     "urgency-title-suffix": "está abierta ahora",
     "urgency-text-prefix": "Limitamos la incorporación mensual para que cada cuenta tenga un gestor dedicado e informes semanales — una vez completado el cupo de este mes, la próxima disponibilidad es",
@@ -5744,7 +5995,7 @@ const afterData = {
     "guarantee-banner-text": "Si su puntuación de visibilidad en IA no mejora dentro del plazo de garantía de su plan, seguimos trabajando gratis hasta lograrlo.",
     "hero-title": "Domine la Búsqueda con IA<br>Consiga que <span style=\"color:#2563EB;\">ChatGPT, Gemini y más</span> le recomienden",
     "hero-subhead": "<strong>El 85% de los compradores</strong> ya utilizan herramientas de IA antes de realizar una compra.</br> Si su marca no aparece en sus respuestas, usted es invisible para millones de clientes potenciales,</br> mientras que sus competidores se llevan todos los leads.",
-    "hero-desc": "Descubra exactamente dónde aparece o no aparece su negocio </br>en <strong>TODAS las principales plataformas de IA del mundo</strong>. </br>Obtenga un <strong>informe gratuito de visibilidad en IA</strong> con un plan claro para aparecer en todos los lugares que importan:",
+    "hero-desc": "Descubra exactamente dónde aparece o no aparece su negocio </br>en <strong>TODAS las principales plataformas de IA del mundo</strong>. </br>Obtenga una <strong>Auditoría IA Gratuita</strong> con un plan claro para aparecer en todos los lugares que importan:",
     "input-placeholder": "Ingrese el nombre de su negocio o sitio web",
     "check-btn": "Analizar mi negocio",
     "bullet-no-card": "✅ No se requiere tarjeta de crédito",
@@ -5753,7 +6004,7 @@ const afterData = {
     "stat-traffic": "del tráfico de IA",
     "stat-sales": "de las ventas por IA",
     "stat-daily": "usan IA a diario",
-    "stats.source": "Basado en datos de más de 150 negocios auditados",
+    "stats.source": "Basado en datos de más de <span id=\"heroStatsCount\">150</span> negocios auditados",
     "interactive-demo": "Demostración Interactiva",
     "how-ai-sees": "Cómo ve la IA a su negocio",
     "simulator-ai-summary-label": "🤖 Resumen de IA",
@@ -5820,7 +6071,7 @@ const afterData = {
     "pricing-sub": "Auditamos su visibilidad en IA y luego utilizamos nuestra experiencia para corregir lo que más importa. Usted obtiene resultados, nosotros hacemos el trabajo.",
     "plan1-name": "Visibilidad en IA",
     "per-month": "/mes",
-    "saving1": "5 boosts al mes",
+    "saving1": "Ideal para presupuestos ajustados",
     "feature1a": "5 boosts de visibilidad en IA al mes — cada boost fortalece sus señales de confianza en IA",
     "feature1b": "Monitorización de visibilidad en IA con alertas",
     "feature1c": "Informe mensual de visibilidad en IA (ChatGPT, Gemini)",
@@ -5828,7 +6079,7 @@ const afterData = {
     "choose-plan": "Suscribirse Ahora",
     "popular": "⭐ MÁS POPULAR",
     "plan2-name": "Autoridad en IA",
-    "saving2": "15 boosts al mes",
+    "saving2": "Mejor relación calidad-precio – ROI más rápido",
     "feature2a": "15 boosts de visibilidad al mes — su marca se convierte en la que la IA confía y recomienda",
     "feature2b": "Procesamiento prioritario (respuesta en 48 horas)",
     "feature2c": "Informe mensual de visibilidad en IA (4 LLM)",
@@ -5836,7 +6087,7 @@ const afterData = {
     "feature2e": "Benchmarking de competidores (hasta 5 competidores)",
     "feature2f": "Llamada de estrategia mensual y hoja de ruta detallada",
     "plan3-name": "Dominio en IA",
-    "saving3": "30 boosts al mes",
+    "saving3": "Máxima velocidad – domine su sector",
     "feature3a": "30 boosts de visibilidad al mes — domina los resultados de búsqueda de IA en su sector",
     "feature3b": "Gestor de reputación en IA dedicado",
     "feature3c": "Informe semanal de visibilidad en IA (6 LLM)",
@@ -5920,6 +6171,17 @@ const afterData = {
     "nav-about": "Über uns",
     "hero-btn": "Kostenloses Audit",
     "hero-badge": "⚡ KI-Sichtbarkeits-Engine",
+    "plan1-boosts-label": "5 Boosts pro Monat",
+    "plan2-boosts-label": "15 Boosts pro Monat",
+    "plan3-boosts-label": "30 Boosts pro Monat",
+    "boost-tooltip-text": "Ein Boost ist eine konkrete Maßnahme, die ein Vertrauenssignal stärkt, anhand dessen die KI entscheidet, ob sie Sie empfiehlt: Schema-Markup, Bewertungsantworten, Zitat-Korrekturen und mehr. Die vollständige Aufschlüsselung finden Sie weiter unten.",
+    "one-time-eyebrow": "Keine Verpflichtung. Der perfekte Einstieg",
+    "founder-interview-badge": "🎥 + Gründer-Interview Bonus",
+    "guarantee-badge-60": "🛡️ 60 Tage Garantie zur Verbesserung des Sichtbarkeits-Scores",
+    "guarantee-badge-30": "🛡️ 30 Tage Garantie zur Verbesserung des Sichtbarkeits-Scores",
+    "guarantee-badge-21": "🛡️ 21 Tage Garantie zur Verbesserung des Sichtbarkeits-Scores",
+    "switch-plan-60": "🔄 Nach Erreichen Ihres Ziels zu AI Visibility wechseln und bis zu 60% sparen",
+    "switch-plan-70": "🔄 Nach Erreichen Ihres Ziels zu AI Visibility wechseln und bis zu 70% sparen",
     "urgency-title-prefix": "Die Neukundenaufnahme für",
     "urgency-title-suffix": "ist jetzt geöffnet",
     "urgency-text-prefix": "Wir begrenzen die monatliche Aufnahme, damit jedes Konto einen dedizierten Manager und wöchentliche Berichte erhält — sobald die Kapazität dieses Monats erreicht ist, ist die nächste Verfügbarkeit",
@@ -6002,7 +6264,7 @@ const afterData = {
     "guarantee-banner-text": "Verbessert sich Ihr KI-Sichtbarkeits-Score nicht innerhalb des Garantiezeitraums Ihres Plans, arbeiten wir kostenlos weiter, bis es soweit ist.",
     "hero-title": "Dominieren Sie die KI-Suche<br>Lassen Sie sich von <span style=\"color:#2563EB;\">ChatGPT, Gemini &amp; Co.</span> empfehlen",
     "hero-subhead": "<strong>85 % der Käufer</strong> nutzen bereits KI-Tools, bevor sie einen Kauf tätigen.</br> Wenn Ihre Marke in deren Antworten nicht auftaucht, sind Sie für Millionen potenzieller Kunden unsichtbar,</br> während Ihre Wettbewerber alle Leads erhalten.",
-    "hero-desc": "Sehen Sie genau, wo Ihr Unternehmen erscheint oder nicht erscheint </br>auf <strong>ALLEN wichtigen KI-Plattformen weltweit</strong>. </br>Erhalten Sie einen <strong>kostenlosen KI-Sichtbarkeitsbericht</strong> mit einem klaren Plan, um überall gelistet zu werden, wo es zählt:",
+    "hero-desc": "Sehen Sie genau, wo Ihr Unternehmen erscheint oder nicht erscheint </br>auf <strong>ALLEN wichtigen KI-Plattformen weltweit</strong>. </br>Holen Sie sich ein <strong>kostenloses KI-Audit</strong> mit einem klaren Plan, um überall gelistet zu werden, wo es zählt:",
     "input-placeholder": "Firmenname oder Website eingeben",
     "check-btn": "Mein Unternehmen prüfen",
     "bullet-no-card": "✅ Keine Kreditkarte erforderlich",
@@ -6011,7 +6273,7 @@ const afterData = {
     "stat-traffic": "des KI-Traffics",
     "stat-sales": "der KI-Umsätze",
     "stat-daily": "nutzen KI täglich",
-    "stats.source": "Basierend auf Daten von über 150 geprüften Unternehmen",
+    "stats.source": "Basierend auf Daten von über <span id=\"heroStatsCount\">150</span> geprüften Unternehmen",
     "interactive-demo": "Interaktive Demo",
     "how-ai-sees": "Wie KI Ihr Unternehmen sieht",
     "simulator-ai-summary-label": "🤖 KI-Zusammenfassung",
@@ -6078,7 +6340,7 @@ const afterData = {
     "pricing-sub": "Wir prüfen Ihre KI-Sichtbarkeit und nutzen dann unser Fachwissen, um das Wichtigste zu beheben. Sie erhalten Ergebnisse – wir erledigen die Arbeit.",
     "plan1-name": "KI-Sichtbarkeit",
     "per-month": "/Monat",
-    "saving1": "5 Boosts pro Monat",
+    "saving1": "Ideal für knappere Budgets",
     "feature1a": "5 Sichtbarkeits-Boosts pro Monat – jeder Boost stärkt Ihre KI-Vertrauenssignale",
     "feature1b": "Überwachung der KI-Sichtbarkeit mit Warnungen",
     "feature1c": "Monatlicher KI-Sichtbarkeitsbericht (ChatGPT, Gemini)",
@@ -6086,7 +6348,7 @@ const afterData = {
     "choose-plan": "Jetzt abonnieren",
     "popular": "⭐ AM BELIEBTESTEN",
     "plan2-name": "KI-Autorität",
-    "saving2": "15 Boosts pro Monat",
+    "saving2": "Bestes Preis-Leistungs-Verhältnis – schnellster ROI",
     "feature2a": "15 Sichtbarkeits-Boosts pro Monat – Ihre Marke wird zu der, der die KI vertraut und die sie empfiehlt",
     "feature2b": "Priorisierte Bearbeitung (48-Stunden-Bearbeitungszeit)",
     "feature2c": "Monatlicher KI-Sichtbarkeitsbericht (4 LLMs)",
@@ -6094,7 +6356,7 @@ const afterData = {
     "feature2e": "Wettbewerber-Benchmarking (bis zu 5 Wettbewerber)",
     "feature2f": "Monatliches Strategiegespräch & detaillierte Roadmap",
     "plan3-name": "KI-Dominanz",
-    "saving3": "30 Boosts pro Monat",
+    "saving3": "Maximale Geschwindigkeit – dominieren Sie Ihre Branche",
     "feature3a": "30 Sichtbarkeits-Boosts pro Monat – Sie dominieren die KI-Suchergebnisse in Ihrer Branche",
     "feature3b": "Dedizierter KI-Reputationsmanager",
     "feature3c": "Wöchentlicher KI-Sichtbarkeitsbericht (6 LLMs)",
@@ -6178,6 +6440,17 @@ const afterData = {
     "nav-about": "À Propos",
     "hero-btn": "Audit Gratuit",
     "hero-badge": "⚡ Moteur de Visibilité IA",
+    "plan1-boosts-label": "5 boosts par mois",
+    "plan2-boosts-label": "15 boosts par mois",
+    "plan3-boosts-label": "30 boosts par mois",
+    "boost-tooltip-text": "Un boost est une action concrète qui renforce un signal de confiance que l'IA utilise pour décider de vous recommander : balisage schema, réponses aux avis, corrections de citations, et plus encore. Voir le détail complet ci-dessous.",
+    "one-time-eyebrow": "Sans engagement. La façon idéale de commencer",
+    "founder-interview-badge": "🎥 + Bonus Interview Fondateur",
+    "guarantee-badge-60": "🛡️ Garantie d'amélioration du score sous 60 jours",
+    "guarantee-badge-30": "🛡️ Garantie d'amélioration du score sous 30 jours",
+    "guarantee-badge-21": "🛡️ Garantie d'amélioration du score sous 21 jours",
+    "switch-plan-60": "🔄 Une fois votre objectif atteint, passez à AI Visibility et économisez jusqu'à 60%",
+    "switch-plan-70": "🔄 Une fois votre objectif atteint, passez à AI Visibility et économisez jusqu'à 70%",
     "urgency-title-prefix": "L'intégration de nouveaux clients pour",
     "urgency-title-suffix": "est ouverte maintenant",
     "urgency-text-prefix": "Nous limitons l'intégration mensuelle pour que chaque compte ait un chargé de compte dédié et des rapports hebdomadaires — une fois le quota de ce mois atteint, la prochaine disponibilité sera",
@@ -6260,7 +6533,7 @@ const afterData = {
     "guarantee-banner-text": "Si votre score de visibilité IA ne s’améliore pas dans le délai de garantie de votre plan, nous continuons à travailler gratuitement jusqu’à ce que ce soit le cas.",
     "hero-title": "Dominez la recherche IA<br>Faites-vous recommander par <span style=\"color:#2563EB;\">ChatGPT, Gemini et plus</span>",
     "hero-subhead": "<strong>85 % des acheteurs</strong> utilisent déjà des outils d'IA avant d'effectuer un achat.</br> Si votre marque n'apparaît pas dans leurs réponses, vous êtes invisible pour des millions de clients potentiels,</br> tandis que vos concurrents récupèrent tous les leads.",
-    "hero-desc": "Découvrez exactement où votre entreprise apparaît ou n'apparaît pas </br>sur <strong>TOUTES les principales plateformes d'IA dans le monde</strong>. </br>Obtenez un <strong>rapport gratuit de visibilité IA</strong> avec un plan clair pour être listé partout où cela compte :",
+    "hero-desc": "Découvrez exactement où votre entreprise apparaît ou n'apparaît pas </br>sur <strong>TOUTES les principales plateformes d'IA dans le monde</strong>. </br>Obtenez un <strong>audit IA gratuit</strong> avec un plan clair pour être listé partout où cela compte :",
     "input-placeholder": "Entrez le nom ou le site de votre entreprise",
     "check-btn": "Analyser mon entreprise",
     "bullet-no-card": "✅ Carte de crédit non requise",
@@ -6269,7 +6542,7 @@ const afterData = {
     "stat-traffic": "du trafic IA",
     "stat-sales": "des ventes via IA",
     "stat-daily": "utilisent l'IA quotidiennement",
-    "stats.source": "Basé sur les données de plus de 150 entreprises auditées",
+    "stats.source": "Basé sur les données de plus de <span id=\"heroStatsCount\">150</span> entreprises auditées",
     "interactive-demo": "Démonstration Interactive",
     "how-ai-sees": "Comment l'IA perçoit votre entreprise",
     "simulator-ai-summary-label": "🤖 Résumé IA",
@@ -6336,7 +6609,7 @@ const afterData = {
     "pricing-sub": "Nous auditions votre visibilité IA, puis utilisons notre expertise pour corriger ce qui compte le plus. Vous obtenez des résultats — nous faisons le travail.",
     "plan1-name": "Visibilité IA",
     "per-month": "/mois",
-    "saving1": "5 boosts par mois",
+    "saving1": "Idéal pour les budgets serrés",
     "feature1a": "5 boosts de visibilité IA par mois — chaque boost renforce vos signaux de confiance IA",
     "feature1b": "Surveillance de la visibilité IA avec alertes",
     "feature1c": "Rapport mensuel de visibilité IA (ChatGPT, Gemini)",
@@ -6344,7 +6617,7 @@ const afterData = {
     "choose-plan": "S'abonner maintenant",
     "popular": "⭐ LE PLUS POPULAIRE",
     "plan2-name": "Autorité IA",
-    "saving2": "15 boosts par mois",
+    "saving2": "Meilleur rapport qualité-prix – ROI le plus rapide",
     "feature2a": "15 boosts de visibilité par mois — votre marque devient celle en qui l'IA a confiance et qu'elle recommande",
     "feature2b": "Traitement prioritaire (délai de 48 heures)",
     "feature2c": "Rapport mensuel de visibilité IA (4 LLM)",
@@ -6352,7 +6625,7 @@ const afterData = {
     "feature2e": "Analyse comparative des concurrents (jusqu'à 5 concurrents)",
     "feature2f": "Appel stratégique mensuel et feuille de route détaillée",
     "plan3-name": "Domination IA",
-    "saving3": "30 boosts par mois",
+    "saving3": "Vitesse maximale – dominez votre secteur",
     "feature3a": "30 boosts de visibilité par mois — vous dominez les résultats de recherche IA dans votre secteur",
     "feature3b": "Responsable dédié de la réputation IA",
     "feature3c": "Rapport hebdomadaire de visibilité IA (6 LLM)",
@@ -6436,6 +6709,17 @@ const afterData = {
     "nav-about": "О нас",
     "hero-btn": "Бесплатный аудит",
     "hero-badge": "⚡ Двигатель видимости в ИИ",
+    "plan1-boosts-label": "5 бустов в месяц",
+    "plan2-boosts-label": "15 бустов в месяц",
+    "plan3-boosts-label": "30 бустов в месяц",
+    "boost-tooltip-text": "Буст - это конкретное действие, которое укрепляет сигнал доверия и помогает ИИ решить, рекомендовать вас или нет: разметка schema, ответы на отзывы, исправление цитирований и другое. Полный список ниже.",
+    "one-time-eyebrow": "Без обязательств. Идеальный старт",
+    "founder-interview-badge": "🎥 + Бонус: интервью с основателем",
+    "guarantee-badge-60": "🛡️ Гарантия улучшения рейтинга за 60 дней",
+    "guarantee-badge-30": "🛡️ Гарантия улучшения рейтинга за 30 дней",
+    "guarantee-badge-21": "🛡️ Гарантия улучшения рейтинга за 21 день",
+    "switch-plan-60": "🔄 По достижении цели перейдите на AI Visibility и экономьте до 60%",
+    "switch-plan-70": "🔄 По достижении цели перейдите на AI Visibility и экономьте до 70%",
     "urgency-title-prefix": "Приём новых клиентов на",
     "urgency-title-suffix": "открыт",
     "urgency-text-prefix": "Мы ограничиваем ежемесячный набор, чтобы у каждого клиента был выделенный менеджер и еженедельные отчёты — как только квота этого месяца заполнится, следующий набор будет открыт в",
@@ -6518,7 +6802,7 @@ const afterData = {
     "guarantee-banner-text": "Если ваш рейтинг видимости в ИИ не улучшится в течение гарантийного окна вашего тарифа, мы продолжаем работу бесплатно, пока не добьёмся результата.",
     "hero-title": "Доминируйте в поиске ИИ<br>Пусть вас рекомендуют <span style=\"color:#2563EB;\">ChatGPT, Gemini и другие</span>",
     "hero-subhead": "<strong>85% покупателей</strong> уже используют инструменты ИИ перед совершением покупки.</br> Если вашего бренда нет в их ответах, вы невидимы для миллионов потенциальных клиентов,</br> а ваши конкуренты получают все лиды.",
-    "hero-desc": "Узнайте точно, где ваш бизнес появляется или не появляется </br>на <strong>ВСЕХ основных мировых ИИ-платформах</strong>. </br>Получите <strong>бесплатный отчёт о видимости в ИИ</strong> с чётким планом, как попасть во все важные места:",
+    "hero-desc": "Узнайте точно, где ваш бизнес появляется или не появляется </br>на <strong>ВСЕХ основных мировых ИИ-платформах</strong>. </br>Получите <strong>бесплатный аудит ИИ</strong> с чётким планом, как попасть во все важные места:",
     "input-placeholder": "Введите название вашего бизнеса или сайт",
     "check-btn": "Проверить мой бизнес",
     "bullet-no-card": "✅ Кредитная карта не требуется",
@@ -6527,7 +6811,7 @@ const afterData = {
     "stat-traffic": "трафика из ИИ",
     "stat-sales": "продаж через ИИ",
     "stat-daily": "используют ИИ ежедневно",
-    "stats.source": "На основе данных более 150 проверенных компаний",
+    "stats.source": "На основе данных более <span id=\"heroStatsCount\">150</span> проверенных компаний",
     "interactive-demo": "Интерактивная демонстрация",
     "how-ai-sees": "Как ИИ видит ваш бизнес",
     "simulator-ai-summary-label": "🤖 Резюме от ИИ",
@@ -6594,7 +6878,7 @@ const afterData = {
     "pricing-sub": "Мы проводим аудит вашей видимости в ИИ, а затем используем наши знания, чтобы исправить самое важное. Вы получаете результаты — мы делаем работу.",
     "plan1-name": "Видимость в ИИ",
     "per-month": "/мес.",
-    "saving1": "5 бустов в месяц",
+    "saving1": "Идеально для ограниченного бюджета",
     "feature1a": "5 бустов видимости в ИИ в месяц — каждый буст усиливает сигналы доверия ИИ к вашему бренду",
     "feature1b": "Мониторинг видимости в ИИ с оповещениями",
     "feature1c": "Ежемесячный отчёт о видимости в ИИ (ChatGPT, Gemini)",
@@ -6602,7 +6886,7 @@ const afterData = {
     "choose-plan": "Подписаться сейчас",
     "popular": "⭐ САМЫЙ ПОПУЛЯРНЫЙ",
     "plan2-name": "Авторитет в ИИ",
-    "saving2": "15 бустов в месяц",
+    "saving2": "Лучшее соотношение цены и результата",
     "feature2a": "15 бустов видимости в месяц — ваш бренд становится тем, кому ИИ доверяет и кого рекомендует",
     "feature2b": "Приоритетная обработка (ответ в течение 48 часов)",
     "feature2c": "Ежемесячный отчёт о видимости в ИИ (4 LLM)",
@@ -6610,7 +6894,7 @@ const afterData = {
     "feature2e": "Бенчмаркинг конкурентов (до 5 конкурентов)",
     "feature2f": "Ежемесячный стратегический звонок и детальная дорожная карта",
     "plan3-name": "Доминирование в ИИ",
-    "saving3": "30 бустов в месяц",
+    "saving3": "Максимальная скорость, доминирование в отрасли",
     "feature3a": "30 бустов видимости в месяц — вы доминируете в результатах поиска ИИ в своей отрасли",
     "feature3b": "Выделенный менеджер по репутации в ИИ",
     "feature3c": "Еженедельный отчёт о видимости в ИИ (6 LLM)",
@@ -6694,6 +6978,17 @@ const afterData = {
     "nav-about": "Về Chúng Tôi",
     "hero-btn": "Audit Miễn Phí",
     "hero-badge": "⚡ Công Cụ Hiển Thị Trên AI",
+    "plan1-boosts-label": "5 lượt boost mỗi tháng",
+    "plan2-boosts-label": "15 lượt boost mỗi tháng",
+    "plan3-boosts-label": "30 lượt boost mỗi tháng",
+    "boost-tooltip-text": "Boost là một hành động cụ thể giúp củng cố tín hiệu tin cậy mà AI dùng để quyết định có đề xuất bạn hay không: đánh dấu schema, phản hồi đánh giá, sửa lỗi trích dẫn và nhiều hơn nữa. Xem chi tiết đầy đủ bên dưới.",
+    "one-time-eyebrow": "Không ràng buộc. Cách bắt đầu hoàn hảo",
+    "founder-interview-badge": "🎥 + Thưởng Phỏng Vấn Sáng Lập",
+    "guarantee-badge-60": "🛡️ Cam kết cải thiện điểm trong 60 ngày",
+    "guarantee-badge-30": "🛡️ Cam kết cải thiện điểm trong 30 ngày",
+    "guarantee-badge-21": "🛡️ Cam kết cải thiện điểm trong 21 ngày",
+    "switch-plan-60": "🔄 Khi đạt mục tiêu, chuyển sang gói AI Visibility và tiết kiệm đến 60%",
+    "switch-plan-70": "🔄 Khi đạt mục tiêu, chuyển sang gói AI Visibility và tiết kiệm đến 70%",
     "urgency-title-prefix": "Tiếp nhận khách hàng mới cho",
     "urgency-title-suffix": "hiện đã mở",
     "urgency-text-prefix": "Chúng tôi giới hạn số lượng tiếp nhận hàng tháng để mỗi tài khoản có quản lý chuyên trách và báo cáo hàng tuần — khi hết chỗ của tháng này, đợt tiếp nhận tiếp theo sẽ là",
@@ -6776,7 +7071,7 @@ const afterData = {
     "guarantee-banner-text": "Nếu điểm hiển thị AI của bạn không cải thiện trong thời gian bảo đảm của gói, chúng tôi tiếp tục làm việc miễn phí cho đến khi đạt được.",
     "hero-title": "Thống Lĩnh Tìm Kiếm AI<br>Được <span style=\"color:#2563EB;\">ChatGPT, Gemini và hơn thế nữa</span> đề xuất",
     "hero-subhead": "<strong>85% người mua</strong> hiện đã sử dụng công cụ AI trước khi quyết định mua hàng.</br> Nếu thương hiệu của bạn không xuất hiện trong câu trả lời của họ, bạn đang vô hình trước hàng triệu khách hàng tiềm năng,</br> trong khi đối thủ cạnh tranh giành hết mọi khách hàng tiềm năng.",
-    "hero-desc": "Xem chính xác doanh nghiệp của bạn xuất hiện hoặc không xuất hiện ở đâu </br>trên <strong>TẤT CẢ các nền tảng AI lớn trên toàn thế giới</strong>. </br>Nhận <strong>báo cáo hiển thị trên AI miễn phí</strong> với kế hoạch rõ ràng để xuất hiện ở mọi nơi quan trọng:",
+    "hero-desc": "Xem chính xác doanh nghiệp của bạn xuất hiện hoặc không xuất hiện ở đâu </br>trên <strong>TẤT CẢ các nền tảng AI lớn trên toàn thế giới</strong>. </br>Nhận <strong>Kiểm Tra AI Miễn Phí</strong> với kế hoạch rõ ràng để xuất hiện ở mọi nơi quan trọng:",
     "input-placeholder": "Nhập tên doanh nghiệp hoặc trang web của bạn",
     "check-btn": "Kiểm tra doanh nghiệp của tôi",
     "bullet-no-card": "✅ Không cần thẻ tín dụng",
@@ -6785,7 +7080,7 @@ const afterData = {
     "stat-traffic": "lượng truy cập từ AI",
     "stat-sales": "doanh số từ AI",
     "stat-daily": "sử dụng AI hàng ngày",
-    "stats.source": "Dựa trên dữ liệu từ hơn 150 doanh nghiệp đã được kiểm toán",
+    "stats.source": "Dựa trên dữ liệu từ hơn <span id=\"heroStatsCount\">150</span> doanh nghiệp đã được kiểm toán",
     "interactive-demo": "Bản Giới Thiệu Tương Tác",
     "how-ai-sees": "Cách AI nhìn nhận doanh nghiệp của bạn",
     "simulator-ai-summary-label": "🤖 Tóm Tắt AI",
@@ -6852,7 +7147,7 @@ const afterData = {
     "pricing-sub": "Chúng tôi kiểm toán hiển thị trên AI của bạn, sau đó sử dụng chuyên môn của mình để sửa những gì quan trọng nhất. Bạn nhận được kết quả — chúng tôi thực hiện công việc.",
     "plan1-name": "Hiển Thị Trên AI",
     "per-month": "/tháng",
-    "saving1": "5 lượt boost mỗi tháng",
+    "saving1": "Lý tưởng cho ngân sách hạn chế",
     "feature1a": "5 lượt boost hiển thị AI mỗi tháng — mỗi lượt boost củng cố tín hiệu tin cậy AI của bạn",
     "feature1b": "Giám sát hiển thị trên AI với cảnh báo",
     "feature1c": "Báo cáo hiển thị trên AI hàng tháng (ChatGPT, Gemini)",
@@ -6860,7 +7155,7 @@ const afterData = {
     "choose-plan": "Đăng Ký Ngay",
     "popular": "⭐ PHỔ BIẾN NHẤT",
     "plan2-name": "Uy Tín AI",
-    "saving2": "15 lượt boost mỗi tháng",
+    "saving2": "Giá trị tốt nhất – ROI nhanh nhất",
     "feature2a": "15 lượt boost hiển thị mỗi tháng — thương hiệu của bạn trở thành thương hiệu mà AI tin tưởng và đề xuất",
     "feature2b": "Xử lý ưu tiên (hoàn thành trong 48 giờ)",
     "feature2c": "Báo cáo hiển thị trên AI hàng tháng (4 LLM)",
@@ -6868,7 +7163,7 @@ const afterData = {
     "feature2e": "So sánh đối thủ cạnh tranh (tối đa 5 đối thủ)",
     "feature2f": "Cuộc gọi chiến lược hàng tháng và lộ trình chi tiết",
     "plan3-name": "Thống Lĩnh AI",
-    "saving3": "30 lượt boost mỗi tháng",
+    "saving3": "Tốc độ tối đa – thống lĩnh ngành của bạn",
     "feature3a": "30 lượt boost hiển thị mỗi tháng — bạn thống lĩnh kết quả tìm kiếm AI trong ngành của mình",
     "feature3b": "Quản lý uy tín AI chuyên biệt",
     "feature3c": "Báo cáo hiển thị trên AI hàng tuần (6 LLM)",
@@ -6952,6 +7247,17 @@ const afterData = {
     "nav-about": "Sobre Nós",
     "hero-btn": "Auditoria Grátis",
     "hero-badge": "⚡ Motor de Visibilidade em IA",
+    "plan1-boosts-label": "5 boosts por mês",
+    "plan2-boosts-label": "15 boosts por mês",
+    "plan3-boosts-label": "30 boosts por mês",
+    "boost-tooltip-text": "Um boost é uma ação concreta que fortalece um sinal de confiança que a IA usa para decidir se recomenda você: marcação schema, respostas a avaliações, correções de citações e mais. Veja o detalhamento completo abaixo.",
+    "one-time-eyebrow": "Sem compromisso. A forma perfeita de começar",
+    "founder-interview-badge": "🎥 + Bônus Entrevista Fundador",
+    "guarantee-badge-60": "🛡️ Garantia de melhoria da pontuação em 60 dias",
+    "guarantee-badge-30": "🛡️ Garantia de melhoria da pontuação em 30 dias",
+    "guarantee-badge-21": "🛡️ Garantia de melhoria da pontuação em 21 dias",
+    "switch-plan-60": "🔄 Ao atingir sua meta, mude para o AI Visibility e economize até 60%",
+    "switch-plan-70": "🔄 Ao atingir sua meta, mude para o AI Visibility e economize até 70%",
     "urgency-title-prefix": "A admissão de novos clientes para",
     "urgency-title-suffix": "está aberta agora",
     "urgency-text-prefix": "Limitamos a admissão mensal para que cada conta tenha um gerente dedicado e relatórios semanais — assim que a cota deste mês se esgotar, a próxima disponibilidade será",
@@ -7034,7 +7340,7 @@ const afterData = {
     "guarantee-banner-text": "Se sua pontuação de visibilidade em IA não melhorar dentro do prazo de garantia do seu plano, continuamos trabalhando de graça até conseguir.",
     "hero-title": "Domine a Busca por IA<br>Seja recomendado por <span style=\"color:#2563EB;\">ChatGPT, Gemini e mais</span>",
     "hero-subhead": "<strong>85% dos compradores</strong> já usam ferramentas de IA antes de fazer uma compra.</br> Se sua marca não aparece nas respostas deles, você fica invisível para milhões de clientes em potencial,</br> enquanto seus concorrentes ficam com todos os leads.",
-    "hero-desc": "Descubra exatamente onde sua empresa aparece ou não aparece </br>em <strong>TODAS as principais plataformas de IA do mundo</strong>. </br>Receba um <strong>relatório gratuito de visibilidade em IA</strong> com um plano claro para aparecer em todos os lugares que importam:",
+    "hero-desc": "Descubra exatamente onde sua empresa aparece ou não aparece </br>em <strong>TODAS as principais plataformas de IA do mundo</strong>. </br>Receba uma <strong>Auditoria de IA Gratuita</strong> com um plano claro para aparecer em todos os lugares que importam:",
     "input-placeholder": "Digite o nome ou site do seu negócio",
     "check-btn": "Analisar meu negócio",
     "bullet-no-card": "✅ Não é necessário cartão de crédito",
@@ -7043,7 +7349,7 @@ const afterData = {
     "stat-traffic": "do tráfego de IA",
     "stat-sales": "das vendas por IA",
     "stat-daily": "usam IA diariamente",
-    "stats.source": "Com base em dados de mais de 150 empresas auditadas",
+    "stats.source": "Com base em dados de mais de <span id=\"heroStatsCount\">150</span> empresas auditadas",
     "interactive-demo": "Demonstração Interativa",
     "how-ai-sees": "Como a IA vê seu negócio",
     "simulator-ai-summary-label": "🤖 Resumo da IA",
@@ -7110,7 +7416,7 @@ const afterData = {
     "pricing-sub": "Auditamos sua visibilidade em IA e depois usamos nossa experiência para corrigir o que mais importa. Você obtém resultados — nós fazemos o trabalho.",
     "plan1-name": "Visibilidade em IA",
     "per-month": "/mês",
-    "saving1": "5 boosts por mês",
+    "saving1": "Ideal para orçamentos mais apertados",
     "feature1a": "5 boosts de visibilidade em IA por mês — cada boost fortalece seus sinais de confiança de IA",
     "feature1b": "Monitoramento de visibilidade em IA com alertas",
     "feature1c": "Relatório mensal de visibilidade em IA (ChatGPT, Gemini)",
@@ -7118,7 +7424,7 @@ const afterData = {
     "choose-plan": "Assinar Agora",
     "popular": "⭐ MAIS POPULAR",
     "plan2-name": "Autoridade em IA",
-    "saving2": "15 boosts por mês",
+    "saving2": "Melhor custo-benefício – ROI mais rápido",
     "feature2a": "15 boosts de visibilidade por mês — sua marca se torna aquela em que a IA confia e recomenda",
     "feature2b": "Processamento prioritário (resposta em 48 horas)",
     "feature2c": "Relatório mensal de visibilidade em IA (4 LLMs)",
@@ -7126,7 +7432,7 @@ const afterData = {
     "feature2e": "Benchmarking de concorrentes (até 5 concorrentes)",
     "feature2f": "Ligação estratégica mensal e roteiro detalhado",
     "plan3-name": "Domínio em IA",
-    "saving3": "30 boosts por mês",
+    "saving3": "Velocidade máxima – domine seu setor",
     "feature3a": "30 boosts de visibilidade por mês — você domina os resultados de busca de IA no seu setor",
     "feature3b": "Gerente de reputação em IA dedicado",
     "feature3c": "Relatório semanal de visibilidade em IA (6 LLMs)",
@@ -7210,6 +7516,17 @@ const afterData = {
     "nav-about": "Hakkımızda",
     "hero-btn": "Ücretsiz Denetim",
     "hero-badge": "⚡ AI Görünürlük Motoru",
+    "plan1-boosts-label": "Ayda 5 boost",
+    "plan2-boosts-label": "Ayda 15 boost",
+    "plan3-boosts-label": "Ayda 30 boost",
+    "boost-tooltip-text": "Boost, yapay zekanın sizi önerip önermeyeceğine karar verirken kullandığı bir güven sinyalini güçlendiren somut bir eylemdir: schema işaretleme, yorum yanıtları, atıf düzeltmeleri ve daha fazlası. Tam dökümü aşağıda görebilirsiniz.",
+    "one-time-eyebrow": "Taahhüt yok. Başlamak için ideal yol",
+    "founder-interview-badge": "🎥 + Kurucu Röportajı Bonusu",
+    "guarantee-badge-60": "🛡️ 60 günde puan iyileştirme garantisi",
+    "guarantee-badge-30": "🛡️ 30 günde puan iyileştirme garantisi",
+    "guarantee-badge-21": "🛡️ 21 günde puan iyileştirme garantisi",
+    "switch-plan-60": "🔄 Hedefinize ulaştığınızda AI Visibility'e geçin ve %60'a varan tasarruf edin",
+    "switch-plan-70": "🔄 Hedefinize ulaştığınızda AI Visibility'e geçin ve %70'e varan tasarruf edin",
     "urgency-title-prefix": "Yeni müşteri kabulü",
     "urgency-title-suffix": "için şu anda açık",
     "urgency-text-prefix": "Her hesabın özel bir yöneticisi ve haftalık raporları olsun diye aylık alım kotasını sınırlıyoruz — bu ayın kontenjanı dolduğunda, bir sonraki müsaitlik",
@@ -7292,7 +7609,7 @@ const afterData = {
     "guarantee-banner-text": "AI görünürlük puanınız, planınızın garanti süresi içinde iyileşmezse, biz başarana kadar ücretsiz çalışmaya devam ederiz.",
     "hero-title": "AI Aramasına Hakim Olun<br><span style=\"color:#2563EB;\">ChatGPT, Gemini ve daha fazlası</span> tarafından önerilin",
     "hero-subhead": "<strong>Alıcıların %85'i</strong> satın alma işlemi yapmadan önce AI araçlarını kullanıyor.</br> Markanız bu yanıtlarda yer almıyorsa, milyonlarca potansiyel müşteri için görünmezsiniz,</br> rakipleriniz tüm potansiyel müşterileri alırken.",
-    "hero-desc": "İşletmenizin <strong>dünyadaki TÜM büyük AI platformlarında</strong> tam olarak nerede göründüğünü veya görünmediğini keşfedin. </br>Önemli olan her yerde listelenmek için net bir planla birlikte <strong>ücretsiz bir AI görünürlük raporu</strong> alın:",
+    "hero-desc": "İşletmenizin <strong>dünyadaki TÜM büyük AI platformlarında</strong> tam olarak nerede göründüğünü veya görünmediğini keşfedin. </br>Önemli olan her yerde listelenmek için net bir planla birlikte <strong>Ücretsiz AI Denetimi</strong> alın:",
     "input-placeholder": "İşletme adınızı veya web sitenizi girin",
     "check-btn": "İşletmemi kontrol et",
     "bullet-no-card": "✅ Kredi kartı gerekmez",
@@ -7301,7 +7618,7 @@ const afterData = {
     "stat-traffic": "AI trafiğinin",
     "stat-sales": "AI satışlarının",
     "stat-daily": "AI'yi günlük kullanıyor",
-    "stats.source": "150'den fazla denetlenen işletmeden alınan verilere dayanmaktadır",
+    "stats.source": "<span id=\"heroStatsCount\">150</span>'den fazla denetlenen işletmeden alınan verilere dayanmaktadır",
     "interactive-demo": "Etkileşimli Demo",
     "how-ai-sees": "AI işletmenizi nasıl görüyor",
     "simulator-ai-summary-label": "🤖 AI Özeti",
@@ -7368,7 +7685,7 @@ const afterData = {
     "pricing-sub": "AI görünürlüğünüzü denetliyor, ardından en önemli şeyleri düzeltmek için uzmanlığımızı kullanıyoruz. Sonuçları siz alırsınız — işi biz yaparız.",
     "plan1-name": "AI Görünürlük",
     "per-month": "/ay",
-    "saving1": "Ayda 5 boost",
+    "saving1": "Kısıtlı bütçeler için ideal",
     "feature1a": "Ayda 5 görünürlük boost'u — her boost, AI güven sinyallerinizi güçlendirir",
     "feature1b": "Uyarılarla AI görünürlük izleme",
     "feature1c": "Aylık AI görünürlük raporu (ChatGPT, Gemini)",
@@ -7376,7 +7693,7 @@ const afterData = {
     "choose-plan": "Şimdi Abone Ol",
     "popular": "⭐ EN POPÜLER",
     "plan2-name": "AI Otoritesi",
-    "saving2": "Ayda 15 boost",
+    "saving2": "En iyi değer – en hızlı yatırım getirisi",
     "feature2a": "Ayda 15 görünürlük boost'u — markanız yapay zekanın güvendiği ve önerdiği marka haline gelir",
     "feature2b": "Öncelikli işlem (48 saatte geri dönüş)",
     "feature2c": "Aylık AI görünürlük raporu (4 LLM)",
@@ -7384,7 +7701,7 @@ const afterData = {
     "feature2e": "Rakip kıyaslaması (5 rakibe kadar)",
     "feature2f": "Aylık strateji görüşmesi ve ayrıntılı yol haritası",
     "plan3-name": "AI Hakimiyeti",
-    "saving3": "Ayda 30 boost",
+    "saving3": "Maksimum hız – sektörünüze hakim olun",
     "feature3a": "Ayda 30 görünürlük boost'u — sektörünüzdeki AI arama sonuçlarına hakim olursunuz",
     "feature3b": "Özel AI itibar yöneticisi",
     "feature3c": "Haftalık AI görünürlük raporu (6 LLM)",
@@ -7468,6 +7785,17 @@ const afterData = {
     "nav-about": "Chi Siamo",
     "hero-btn": "Audit Gratuito",
     "hero-badge": "⚡ Motore di Visibilità nell'IA",
+    "plan1-boosts-label": "5 boost al mese",
+    "plan2-boosts-label": "15 boost al mese",
+    "plan3-boosts-label": "30 boost al mese",
+    "boost-tooltip-text": "Un boost è un'azione concreta che rafforza un segnale di fiducia che l'IA usa per decidere se consigliarti: markup schema, risposte alle recensioni, correzioni delle citazioni e altro. Vedi il dettaglio completo più sotto.",
+    "one-time-eyebrow": "Nessun impegno. Il modo perfetto per iniziare",
+    "founder-interview-badge": "🎥 + Bonus Intervista Fondatore",
+    "guarantee-badge-60": "🛡️ Garanzia di miglioramento del punteggio in 60 giorni",
+    "guarantee-badge-30": "🛡️ Garanzia di miglioramento del punteggio in 30 giorni",
+    "guarantee-badge-21": "🛡️ Garanzia di miglioramento del punteggio in 21 giorni",
+    "switch-plan-60": "🔄 Al raggiungimento del tuo obiettivo, passa ad AI Visibility e risparmia fino al 60%",
+    "switch-plan-70": "🔄 Al raggiungimento del tuo obiettivo, passa ad AI Visibility e risparmia fino al 70%",
     "urgency-title-prefix": "L'inserimento di nuovi clienti per",
     "urgency-title-suffix": "è aperto ora",
     "urgency-text-prefix": "Limitiamo l'inserimento mensile in modo che ogni account abbia un account manager dedicato e report settimanali — una volta esaurita la quota di questo mese, la prossima disponibilità sarà",
@@ -7550,7 +7878,7 @@ const afterData = {
     "guarantee-banner-text": "Se il tuo punteggio di visibilità nell'IA non migliora entro la finestra di garanzia del tuo piano, continuiamo a lavorare gratis finché non ci riusciamo.",
     "hero-title": "Domina la Ricerca IA<br>Fatti consigliare da <span style=\"color:#2563EB;\">ChatGPT, Gemini e altri</span>",
     "hero-subhead": "<strong>L'85% degli acquirenti</strong> utilizza già strumenti di IA prima di effettuare un acquisto.</br> Se il tuo marchio non appare nelle loro risposte, sei invisibile a milioni di potenziali clienti,</br> mentre i tuoi concorrenti si accaparrano tutti i lead.",
-    "hero-desc": "Scopri esattamente dove la tua azienda appare o non appare </br>su <strong>TUTTE le principali piattaforme IA a livello mondiale</strong>. </br>Ottieni un <strong>report gratuito sulla visibilità nell'IA</strong> con un piano chiaro per essere elencato ovunque conti:",
+    "hero-desc": "Scopri esattamente dove la tua azienda appare o non appare </br>su <strong>TUTTE le principali piattaforme IA a livello mondiale</strong>. </br>Ottieni un <strong>Audit IA Gratuito</strong> con un piano chiaro per essere elencato ovunque conti:",
     "input-placeholder": "Inserisci il nome o il sito della tua attività",
     "check-btn": "Analizza la mia attività",
     "bullet-no-card": "✅ Nessuna carta di credito richiesta",
@@ -7559,7 +7887,7 @@ const afterData = {
     "stat-traffic": "del traffico IA",
     "stat-sales": "delle vendite IA",
     "stat-daily": "usano l'IA quotidianamente",
-    "stats.source": "Basato su dati di oltre 150 aziende sottoposte ad audit",
+    "stats.source": "Basato su dati di oltre <span id=\"heroStatsCount\">150</span> aziende sottoposte ad audit",
     "interactive-demo": "Dimostrazione Interattiva",
     "how-ai-sees": "Come l'IA vede la tua azienda",
     "simulator-ai-summary-label": "🤖 Riepilogo IA",
@@ -7626,7 +7954,7 @@ const afterData = {
     "pricing-sub": "Effettuiamo un audit della tua visibilità IA, poi utilizziamo la nostra esperienza per correggere ciò che conta di più. Tu ottieni risultati — noi facciamo il lavoro.",
     "plan1-name": "Visibilità nell'IA",
     "per-month": "/mese",
-    "saving1": "5 boost al mese",
+    "saving1": "Ideale per budget più contenuti",
     "feature1a": "5 boost di visibilità IA al mese — ogni boost rafforza i tuoi segnali di fiducia IA",
     "feature1b": "Monitoraggio della visibilità IA con avvisi",
     "feature1c": "Report mensile di visibilità IA (ChatGPT, Gemini)",
@@ -7634,7 +7962,7 @@ const afterData = {
     "choose-plan": "Abbonati Ora",
     "popular": "⭐ PIÙ POPOLARE",
     "plan2-name": "Autorità nell'IA",
-    "saving2": "15 boost al mese",
+    "saving2": "Miglior rapporto qualità-prezzo – ROI più rapido",
     "feature2a": "15 boost di visibilità al mese — il tuo marchio diventa quello di cui l'IA si fida e che raccomanda",
     "feature2b": "Elaborazione prioritaria (risposta entro 48 ore)",
     "feature2c": "Report mensile di visibilità IA (4 LLM)",
@@ -7642,7 +7970,7 @@ const afterData = {
     "feature2e": "Benchmarking dei concorrenti (fino a 5 concorrenti)",
     "feature2f": "Chiamata strategica mensile e road map dettagliata",
     "plan3-name": "Dominio nell'IA",
-    "saving3": "30 boost al mese",
+    "saving3": "Velocità massima – domina il tuo settore",
     "feature3a": "30 boost di visibilità al mese — domini i risultati di ricerca IA nel tuo settore",
     "feature3b": "Responsabile di reputazione IA dedicato",
     "feature3c": "Report settimanale di visibilità IA (6 LLM)",
@@ -7726,6 +8054,17 @@ const afterData = {
     "nav-about": "من نحن",
     "hero-btn": "تدقيق مجاني",
     "hero-badge": "⚡ محرك ظهور الذكاء الاصطناعي",
+    "plan1-boosts-label": "5 دفعات تعزيز شهريًا",
+    "plan2-boosts-label": "15 دفعة تعزيز شهريًا",
+    "plan3-boosts-label": "30 دفعة تعزيز شهريًا",
+    "boost-tooltip-text": "التعزيز هو إجراء ملموس يقوّي إشارة ثقة يستخدمها الذكاء الاصطناعي لتقرير ما إذا كان سيوصي بك: ترميز schema، الردود على المراجعات، تصحيحات الاستشهادات، والمزيد. شاهد التفاصيل الكاملة أدناه.",
+    "one-time-eyebrow": "بدون التزام، الطريقة المثالية للبدء",
+    "founder-interview-badge": "🎥 + مكافأة مقابلة المؤسس",
+    "guarantee-badge-60": "🛡️ ضمان تحسين الدرجة خلال 60 يومًا",
+    "guarantee-badge-30": "🛡️ ضمان تحسين الدرجة خلال 30 يومًا",
+    "guarantee-badge-21": "🛡️ ضمان تحسين الدرجة خلال 21 يومًا",
+    "switch-plan-60": "🔄 عند بلوغ هدفك، انتقل إلى AI Visibility ووفّر حتى 60%",
+    "switch-plan-70": "🔄 عند بلوغ هدفك، انتقل إلى AI Visibility ووفّر حتى 70%",
     "urgency-title-prefix": "استقبال العملاء الجدد لشهر",
     "urgency-title-suffix": "مفتوح الآن",
     "urgency-text-prefix": "نحدّ من عدد العملاء الجدد شهريًا لضمان حصول كل حساب على مدير مخصص وتقارير أسبوعية — بمجرد اكتمال حصة هذا الشهر، سيكون الموعد التالي المتاح هو شهر",
@@ -7808,7 +8147,7 @@ const afterData = {
     "guarantee-banner-text": "إذا لم تتحسن درجة ظهورك في الذكاء الاصطناعي خلال فترة الضمان الخاصة بخطتك، سنواصل العمل مجانًا حتى نحقق ذلك.",
     "hero-title": "تصدَّر نتائج البحث بالذكاء الاصطناعي<br>احصل على توصية من <span style=\"color:#2563EB;\">ChatGPT وGemini والمزيد</span>",
     "hero-subhead": "<strong>85% من المشترين</strong> يستخدمون بالفعل أدوات الذكاء الاصطناعي قبل إجراء عملية شراء.</br> إذا لم تظهر علامتك التجارية في إجاباتهم، فأنت غير مرئي لملايين العملاء المحتملين،</br> بينما يحصل منافسوك على جميع العملاء المحتملين.",
-    "hero-desc": "اكتشف بالضبط أين يظهر نشاطك التجاري أو لا يظهر </br>على <strong>جميع منصات الذكاء الاصطناعي الرئيسية في العالم</strong>. </br>احصل على <strong>تقرير مجاني للظهور في الذكاء الاصطناعي</strong> مع خطة واضحة لتظهر في كل مكان مهم:",
+    "hero-desc": "اكتشف بالضبط أين يظهر نشاطك التجاري أو لا يظهر </br>على <strong>جميع منصات الذكاء الاصطناعي الرئيسية في العالم</strong>. </br>احصل على <strong>تدقيق ذكاء اصطناعي مجاني</strong> مع خطة واضحة لتظهر في كل مكان مهم:",
     "input-placeholder": "أدخل اسم نشاطك التجاري أو موقع الويب",
     "check-btn": "افحص نشاطي التجاري",
     "bullet-no-card": "✅ لا حاجة لبطاقة ائتمان",
@@ -7817,7 +8156,7 @@ const afterData = {
     "stat-traffic": "من حركة الذكاء الاصطناعي",
     "stat-sales": "من مبيعات الذكاء الاصطناعي",
     "stat-daily": "يستخدمون الذكاء الاصطناعي يوميًا",
-    "stats.source": "استنادًا إلى بيانات من أكثر من 150 نشاطًا تجاريًا تم تدقيقها",
+    "stats.source": "استنادًا إلى بيانات من أكثر من <span id=\"heroStatsCount\">150</span> نشاطًا تجاريًا تم تدقيقها",
     "interactive-demo": "عرض تفاعلي",
     "how-ai-sees": "كيف يرى الذكاء الاصطناعي نشاطك التجاري",
     "simulator-ai-summary-label": "🤖 ملخص الذكاء الاصطناعي",
@@ -7884,7 +8223,7 @@ const afterData = {
     "pricing-sub": "ندقق ظهورك في الذكاء الاصطناعي، ثم نستخدم خبرتنا لإصلاح ما هو أكثر أهمية. أنت تحصل على النتائج — ونحن نقوم بالعمل.",
     "plan1-name": "الظهور في الذكاء الاصطناعي",
     "per-month": "/شهر",
-    "saving1": "5 دفعات تعزيز شهريًا",
+    "saving1": "مثالي للميزانيات المحدودة",
     "feature1a": "5 دفعات تعزيز للظهور في الذكاء الاصطناعي شهريًا — كل دفعة تعزز إشارات ثقة الذكاء الاصطناعي بعلامتك",
     "feature1b": "مراقبة الظهور في الذكاء الاصطناعي مع تنبيهات",
     "feature1c": "تقرير شهري للظهور في الذكاء الاصطناعي (ChatGPT، Gemini)",
@@ -7892,7 +8231,7 @@ const afterData = {
     "choose-plan": "اشترك الآن",
     "popular": "⭐ الأكثر شيوعًا",
     "plan2-name": "سلطة الذكاء الاصطناعي",
-    "saving2": "15 دفعة تعزيز شهريًا",
+    "saving2": "أفضل قيمة، أسرع عائد على الاستثمار",
     "feature2a": "15 دفعة تعزيز للظهور شهريًا — تصبح علامتك التجارية تلك التي يثق بها الذكاء الاصطناعي ويوصي بها",
     "feature2b": "معالجة ذات أولوية (رد خلال 48 ساعة)",
     "feature2c": "تقرير شهري للظهور في الذكاء الاصطناعي (4 نماذج لغوية كبيرة)",
@@ -7900,7 +8239,7 @@ const afterData = {
     "feature2e": "مقارنة مع المنافسين (حتى 5 منافسين)",
     "feature2f": "مكالمة استراتيجية شهرية وخارطة طريق مفصلة",
     "plan3-name": "الهيمنة في الذكاء الاصطناعي",
-    "saving3": "30 دفعة تعزيز شهريًا",
+    "saving3": "أقصى سرعة، تصدّر مجالك",
     "feature3a": "30 دفعة تعزيز للظهور شهريًا — تهيمن على نتائج بحث الذكاء الاصطناعي في مجالك",
     "feature3b": "مدير سمعة مخصص في الذكاء الاصطناعي",
     "feature3c": "تقرير أسبوعي للظهور في الذكاء الاصطناعي (6 نماذج لغوية كبيرة)",
@@ -8030,6 +8369,12 @@ const afterData = {
 
   if (typeof window.updateSimulatorUI === 'function') {
     window.updateSimulatorUI(window._simulatorState || 'before');
+  }
+
+  // Language switch rebuilds this element's innerHTML from the translation string,
+  // which resets the live count back to its "150" placeholder — resync immediately.
+  if (typeof window.resyncHeroLiveCount === 'function') {
+    window.resyncHeroLiveCount();
   }
 }
   document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang'))));
@@ -8406,7 +8751,16 @@ if (navLangSelect) {
     function setCounterValue(value) {
       currentValue = value;
       numberEl.textContent = value.toLocaleString();
+      var heroCountEl = document.getElementById('heroStatsCount');
+      if (heroCountEl) heroCountEl.textContent = value.toLocaleString();
     }
+
+    // Called after a language switch rebuilds the hero text's innerHTML (which resets
+    // the count back to its "150" placeholder) — reapplies the last known real value.
+    window.resyncHeroLiveCount = function() {
+      var heroCountEl = document.getElementById('heroStatsCount');
+      if (heroCountEl) heroCountEl.textContent = currentValue.toLocaleString();
+    };
 
     function pulse() {
       numberEl.classList.add('counter-pulse');
