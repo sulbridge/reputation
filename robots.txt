@@ -1,4 +1,38 @@
+# ReputationGuardPro Enterprise — robots.txt
+# Explicitly allows major AI/answer-engine crawlers, per our own
+# "Robots.txt policy for AI crawlers" boost (Technical Foundation #4).
+# Production URL: https://reputationguard.pro/enterprise.html
+
 User-agent: *
+Allow: /
+
+# OpenAI (ChatGPT browsing / search)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Google AI Overviews / Gemini grounding
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl (feeds many LLM training/retrieval pipelines)
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://reputationguard.pro/sitemap.xml
