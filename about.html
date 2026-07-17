@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>About ReputationGuard.PRO | AI Visibility Engine</title>
-  <meta name="description" content="We help businesses get recommended by ChatGPT, Gemini, Claude & more. Fix your AI visibility with our 9-layer analysis." />
+  <title>About ReputationGuardPro | AI Visibility Engine</title>
+  <meta name="description" content="We help businesses get recommended by ChatGPT, Gemini, Claude & more. Restore your AI visibility with our 9-layer analysis and 28 boost types." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E✅%3C/text%3E%3C/svg%3E" />
@@ -25,14 +25,14 @@
     "@context": "https://schema.org",
     "@type": "AboutPage",
     "@id": "https://reputationguard.pro/about.html#webpage",
-    "name": "About ReputationGuard.PRO – AI Visibility Engine",
-    "description": "We help businesses get recommended by ChatGPT, Gemini, Claude & more. Fix your AI visibility with our 9-layer analysis.",
+    "name": "About ReputationGuardPro – AI Visibility Engine",
+    "description": "We help businesses get recommended by ChatGPT, Gemini, Claude & more. Restore your AI visibility with our 9-layer analysis and 28 boost types.",
     "url": "https://reputationguard.pro/about.html",
     "about": { "@id": "https://reputationguard.pro/#organization" },
     "isPartOf": { "@id": "https://reputationguard.pro/#website" },
     "breadcrumb": { "@id": "https://reputationguard.pro/about.html#breadcrumb" },
     "inLanguage": "en",
-    "dateModified": "2026-07-08"
+    "dateModified": "2026-07-17"
   }
   </script>
   <script type="application/ld+json">
@@ -49,25 +49,249 @@
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #0d0f14; color: #e5e7eb; line-height: 1.6; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; flex-wrap: wrap; gap: 20px; }
-    .logo { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #60A5FA, #3B82F6); -webkit-background-clip: text; background-clip: text; color: transparent; text-decoration: none; letter-spacing: -0.5px; }
-    .btn-primary { background: #1E3A8A; color: white; padding: 12px 28px; border-radius: 40px; font-weight: 700; border: none; font-size: 1rem; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 10px rgba(30,58,138,0.3); text-decoration: none; display: inline-block; }
-    .btn-primary:hover { background: #2563EB; transform: translateY(-2px); }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0d0f14;
+      color: #e5e7eb;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== NAVBAR (единый стиль с главной) ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      background: rgba(13, 15, 20, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .navbar.scrolled {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      background: rgba(13, 15, 20, 0.60);
+    }
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .navbar .logo .brand {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #60A5FA, #3B82F6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+    }
+    .navbar .logo .badge-smb {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #9ca3af;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.6;
+      white-space: nowrap;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #e5e7eb;
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: transform 0.25s ease;
+    }
+    .nav-toggle.active { transform: rotate(90deg); }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 28px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    .nav-menu a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .nav-menu a:hover {
+      color: #60A5FA;
+      border-bottom-color: #60A5FA;
+    }
+    .nav-menu .nav-cta {
+      padding: 8px 24px;
+      font-size: 0.9rem;
+      background: #1E3A8A;
+      color: white;
+      border-radius: 40px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 10px rgba(30,58,138,0.3);
+      border-bottom: none;
+    }
+    .nav-menu .nav-cta:hover {
+      background: #2563EB;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37,99,235,0.4);
+      border-bottom: none;
+    }
+
+    @media (max-width: 992px) {
+      .nav-toggle { display: block; z-index: 10000; }
+      .nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(13, 15, 20, 0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        padding: 40px 24px;
+        z-index: 9999;
+        margin: 0;
+        border-radius: 0;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li { width: 100%; text-align: center; }
+      .nav-menu a {
+        font-size: 1.4rem;
+        padding: 12px 0;
+        display: block;
+        border-bottom: none;
+        color: #f9fafb;
+      }
+      .nav-menu a:hover {
+        border-bottom: none;
+        background: rgba(59,130,246,0.08);
+        border-radius: 12px;
+      }
+      .nav-menu .nav-cta {
+        display: inline-block;
+        width: auto;
+        padding: 12px 32px;
+        font-size: 1.1rem;
+      }
+      .navbar .logo .brand { font-size: 1.3rem; }
+      .navbar .logo .badge-smb { font-size: 0.55rem; padding: 0 6px; }
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      display: inline-block;
+      background: #1E3A8A;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 700;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 4px 10px rgba(30,58,138,0.3);
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background: #2563EB;
+      transform: translateY(-2px);
+    }
+
+    /* ===== SECTIONS ===== */
     .section { margin: 60px 0; }
-    .section-title { font-size: 2.2rem; font-weight: 800; color: #f9fafb; margin-bottom: 20px; }
-    .section-sub { color: #9ca3af; font-size: 1.1rem; max-width: 700px; }
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0; }
-    .card { background: #1a1f2b; border-radius: 28px; padding: 28px 24px; border: 1px solid #2d3748; transition: 0.2s; }
-    .card:hover { transform: translateY(-4px); border-color: #3B82F6; box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5); }
-    .card h3 { color: #f9fafb; font-size: 1.2rem; margin-bottom: 12px; }
-    .card h3 i { margin-right: 10px; }
+    .section-title {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 800;
+      color: #f9fafb;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .section-title span { color: #2563EB; }
+    .section-sub {
+      color: #9ca3af;
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
+
+    .badge-ai {
+      display: inline-block;
+      background: rgba(59,130,246,0.12);
+      color: #60A5FA;
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(59,130,246,0.1);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 40px 0;
+    }
+    .card {
+      background: #1a1f2b;
+      border-radius: 28px;
+      padding: 28px 24px;
+      border: 1px solid #2d3748;
+      transition: 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #3B82F6;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.5);
+    }
+    .card h3 {
+      color: #f9fafb;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+    .card h3 i { margin-right: 10px; color: #3B82F6; }
     .card p { color: #9ca3af; }
+    .card .stat-highlight {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 8px;
+    }
 
-    .badge-ai { display: inline-block; background: rgba(59,130,246,0.12); color: #60A5FA; padding: 4px 14px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; border: 1px solid rgba(59,130,246,0.1); }
-
-    /* Footer */
+    /* ===== FOOTER (единый с главной) ===== */
+    footer {
+      background: #0d0f14;
+      border-top: 1px solid #2d3748;
+      margin-top: 40px;
+    }
     .footer-container {
       display: flex;
       flex-wrap: wrap;
@@ -76,12 +300,8 @@
       max-width: 1280px;
       margin: 0 auto;
       padding: 48px 24px 32px;
-      border-top: 1px solid #2d3748;
     }
-    .footer-column {
-      flex: 1;
-      min-width: 180px;
-    }
+    .footer-column { flex: 1; min-width: 180px; }
     .footer-column h4 {
       font-size: 1rem;
       font-weight: 700;
@@ -166,34 +386,56 @@
 </head>
 <body>
 
+<!-- ===== NAVBAR ===== -->
 <div class="container">
-  <!-- Navbar -->
-  <div class="navbar">
-    <a href="/" class="logo">🛡️ ReputationGuard</a>
-    <a href="/#contact-form-section" class="btn-primary">Free Audit</a>
+  <div class="navbar" id="navbar">
+    <a href="/" class="logo">
+      <span class="brand">🛡️ ReputationGuardPro</span>
+      <span class="badge-smb">SMB</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-menu">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#cases">Case Studies</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/enterprise.html">Enterprise</a></li>
+      <li><a href="/#contact-form-section" class="btn-primary nav-cta">Free Audit</a></li>
+    </ul>
   </div>
+</div>
 
-  <!-- Hero -->
-  <section class="section">
+<!-- ===== HERO ===== -->
+<div class="container">
+  <section class="section" style="padding-top: 20px;">
     <span class="badge-ai">⚡ AI Visibility Engine</span>
-    <h1 class="section-title">We Make Your Brand <span style="color:#2563EB;">Visible</span> to AI</h1>
-    <p class="section-sub">ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek — if your business isn't recommended by AI, you're invisible to 85% of modern buyers. We fix that.</p>
+    <h1 class="section-title">Dominate AI Search —<br><span>Get Recommended</span> by ChatGPT, Gemini &amp; More</h1>
+    <p class="section-sub" style="max-width: 720px; margin-bottom: 24px;">
+      If your brand isn't recommended by AI, you're invisible to 85% of modern buyers.<br>
+      We boost the signals that make AI trust — or ignore — your brand. No fluff. No guesswork.
+    </p>
+    <a href="/#contact-form-section" class="btn-primary">Get Free AI Audit →</a>
   </section>
+</div>
 
-  <!-- Our Story -->
+<!-- ===== OUR STORY ===== -->
+<div class="container">
   <section class="section">
     <div class="grid-2" style="align-items: center;">
       <div>
         <h2 class="section-title" style="font-size:1.8rem;">Our Story</h2>
         <p style="color:#9ca3af; font-size:1.1rem; margin-bottom:12px;">
-  We watched a family‑owned boutique hotel lose over $200k in bookings — not because of bad service, but because <strong>AI stopped recommending them</strong>. Their reputation signals had been damaged, and AI trusted the noise over reality.
-</p>
-<p style="color:#9ca3af; font-size:1.1rem; margin-bottom:12px;">
-  That's when we realised: <strong>traditional reputation management is dead</strong>. You can't just fix your Google rating. You need to fix how AI sees your brand.
-</p>
-<p style="color:#9ca3af; font-size:1.1rem;">
-  We built ReputationGuard.PRO as the first <strong>AI Visibility Engine</strong> — a system that audits, cleans, and optimises the signals AI uses to decide whether to recommend you. Today, we serve businesses from Texas to Tokyo, making sure AI sees them for who they truly are.
-</p>
+          We watched a family‑owned boutique hotel lose over <strong>$200k in bookings</strong> — not because of bad service, but because <strong>AI stopped recommending them</strong>. Their reputation signals had been damaged, and AI trusted the noise over reality.
+        </p>
+        <p style="color:#9ca3af; font-size:1.1rem; margin-bottom:12px;">
+          That's when we realised: <strong>traditional reputation management is dead</strong>. You can't just fix your Google rating. You need to fix how AI sees your brand.
+        </p>
+        <p style="color:#9ca3af; font-size:1.1rem;">
+          We built ReputationGuardPro as the first <strong>AI Visibility Engine</strong> — a system that audits, cleans, and <strong>boosts</strong> the signals AI uses to decide whether to recommend you. Today, we serve businesses from Texas to Tokyo, making sure AI sees them for who they truly are.
+        </p>
       </div>
       <div style="background: #1a1f2b; border-radius: 28px; padding: 32px 24px; border: 1px solid #2d3748; text-align: center;">
         <div style="font-size: 4rem; margin-bottom: 12px;">🚀</div>
@@ -203,91 +445,100 @@
       </div>
     </div>
   </section>
+</div>
 
-  <!-- What We Do (AI-Focused) -->
+<!-- ===== WHAT WE DO ===== -->
+<div class="container">
   <section class="section">
     <h2 class="section-title">What We Do</h2>
-    <p class="section-sub" style="margin-bottom: 20px;">We don't just remove reviews. We restore your brand's AI visibility — systematically, layer by layer.</p>
+    <p class="section-sub" style="margin-bottom: 20px;">We don't just clean reviews. We <strong>boost</strong> your brand's AI visibility — systematically, layer by layer.</p>
     <div class="grid-2">
       <div class="card">
-        <h3><i class="fas fa-search" style="color:#3B82F6;"></i> 9‑Layer AI Audit</h3>
+        <h3><i class="fas fa-search"></i> 9‑Layer AI Audit</h3>
         <p>We scan your brand across all major AI platforms. Identify exactly which signals are hurting your visibility — from fake reviews to weak schema markup.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-broom" style="color:#3B82F6;"></i> Reputation Signal Cleanup</h3>
-        <p>We clean the data AI relies on. Remove fake reviews, fix inconsistencies, and strengthen trust signals so AI starts recommending your brand with confidence.</p>
+        <h3><i class="fas fa-broom"></i> Signal Cleanup &amp; Boosts</h3>
+        <p>We clean the data AI relies on. Remove fake reviews, fix inconsistencies, and apply targeted <strong>boosts</strong> so AI starts recommending your brand with confidence.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-chart-line" style="color:#3B82F6;"></i> AI Visibility Monitoring</h3>
+        <h3><i class="fas fa-chart-line"></i> AI Visibility Monitoring</h3>
         <p>Weekly reports track your AI visibility score across ChatGPT, Gemini, Perplexity, Claude, and more. You see exactly when your brand starts winning AI recommendations.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-shield-alt" style="color:#3B82F6;"></i> Continuous Protection</h3>
+        <h3><i class="fas fa-shield-alt"></i> Continuous Protection</h3>
         <p>Real‑time alerts notify you of new reputation risks. We keep your AI visibility high so your competitors stay behind — and AI keeps recommending you.</p>
       </div>
     </div>
   </section>
+</div>
 
-  <!-- Why Trust Us (Updated) -->
+<!-- ===== WHY TRUST US ===== -->
+<div class="container">
   <section class="section">
     <h2 class="section-title">Why Businesses Trust Us</h2>
     <div class="grid-2">
       <div class="card">
-        <h3><i class="fas fa-robot" style="color:#34d399;"></i> 9‑Layer AI Expertise</h3>
+        <h3><i class="fas fa-robot"></i> 9‑Layer AI Expertise</h3>
         <p>We don't guess. We analyse the 9 specific layers that AI models use to evaluate trust. You get a clear score and a roadmap to improve it.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-check-circle" style="color:#34d399;"></i> 89% Signal Cleanup Success</h3>
+        <h3><i class="fas fa-check-circle"></i> 89% Signal Cleanup Success</h3>
         <p>Our policy‑based approach consistently outperforms industry averages. We know exactly what signals to target and how to fix them.</p>
-        <p style="font-size:0.8rem; color:#6b7280; margin-top:8px;">*Based on 500+ audits processed in 2025. Individual results vary.</p>
+        <p class="stat-highlight">*Based on 500+ audits processed in 2025. Individual results vary.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-globe" style="color:#34d399;"></i> Trusted in 12+ Countries</h3>
+        <h3><i class="fas fa-globe"></i> Trusted in 12+ Countries</h3>
         <p>From boutique hotels in Bali to dental clinics in Texas — we've helped businesses worldwide get recommended by AI.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-shield-alt" style="color:#34d399;"></i> 100% Transparent</h3>
+        <h3><i class="fas fa-shield-alt"></i> 100% Transparent</h3>
         <p>You keep full control. We work as trusted partners, not owners. No hidden fees, no surprises — just results you can see.</p>
       </div>
     </div>
   </section>
+</div>
 
-  <!-- Not a Law Firm (Kept, but updated wording) -->
+<!-- ===== NOT A LAW FIRM ===== -->
+<div class="container">
   <section class="section">
     <div class="card" style="border-color:#F59E0B; background: #1e222e;">
       <h3 style="color:#F59E0B;"><i class="fas fa-balance-scale"></i> Important: We Are Not a Law Firm</h3>
       <p style="color:#d1d5db;">
-        ReputationGuard is an <strong>AI visibility and reputation technology company</strong>, not a legal practice. We do not provide legal advice or represent clients in court. Our work focuses on identifying weak reputation signals, preparing evidence‑based appeals, and filing them through official platform channels. If legal action is required, we compile a complete evidence brief for your licensed attorney. We always encourage clients to consult qualified legal counsel for defamation or related claims.
+        ReputationGuardPro is an <strong>AI visibility and reputation technology company</strong>, not a legal practice. We do not provide legal advice or represent clients in court. Our work focuses on identifying weak reputation signals, preparing evidence‑based appeals, and filing them through official platform channels. If legal action is required, we compile a complete evidence brief for your licensed attorney. We always encourage clients to consult qualified legal counsel for defamation or related claims.
       </p>
     </div>
   </section>
+</div>
 
-  <!-- CTA -->
+<!-- ===== CTA ===== -->
+<div class="container">
   <section class="section" style="text-align: center;">
     <p style="color: #9ca3af; font-size: 1.05rem; margin-bottom: 24px;">See exactly where your brand stands — free.</p>
     <a href="/#contact-form-section" class="btn-primary">Get Your Free AI Visibility Audit →</a>
   </section>
 </div>
 
-<!-- Footer -->
+<!-- ===== FOOTER (единый с главной) ===== -->
 <footer>
   <div class="footer-container">
 
     <div class="footer-column">
       <h4>ReputationGuard</h4>
-      <p>AI visibility management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends.</p>
+      <p>AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends — by restoring the trust signals that drive AI visibility and sales.</p>
       <p style="margin-top: 8px;"><a href="/about.html">About Us</a></p>
     </div>
 
     <div class="footer-column">
       <h4>Services</h4>
       <ul>
-        <li><a href="/review-removal.html">AI Reputation Cleanup</a></li>
-        <li><a href="/appeal-filing.html">AI Visibility Optimization</a></li>
+        <li><a href="/review-removal.html">AI Visibility Optimization</a></li>
+        <li><a href="/appeal-filing.html">Signal Cleanup</a></li>
         <li><a href="/reputation-monitoring.html">AI Sentiment Monitoring</a></li>
         <li><a href="/serm-consulting.html">GEO Strategy Consulting</a></li>
         <li><a href="/affiliate.html">Affiliate Program</a></li>
         <li><a href="/white-label.html">White‑Label Partnership</a></li>
+        <li><a href="/enterprise.html">Enterprise</a></li>
       </ul>
     </div>
 
@@ -312,6 +563,7 @@
         <li><a href="/privacy-policy.html">Privacy Policy</a></li>
         <li><a href="/terms-of-service.html">Terms of Service</a></li>
         <li><a href="/refund-policy.html">Refund Policy</a></li>
+        <li><a href="https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400" target="_blank">Manage Subscription</a></li>
       </ul>
     </div>
 
@@ -336,6 +588,33 @@
     </p>
   </div>
 </footer>
+
+<!-- ===== NAVBAR SCROLL & BURGER ===== -->
+<script>
+  window.addEventListener('scroll', function() {
+    var navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  var navToggle = document.querySelector('.nav-toggle');
+  var navMenu = document.querySelector('.nav-menu');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('open');
+      this.classList.toggle('active');
+    });
+    navMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navMenu.classList.remove('open');
+        navToggle.classList.remove('active');
+      });
+    });
+  }
+</script>
 
 </body>
 </html>
