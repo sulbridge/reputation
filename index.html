@@ -1470,7 +1470,7 @@ footer {
   display: flex;
   list-style: none;
   align-items: center;
-  gap: 14px;
+  gap: 11px;
   margin: 0;
   padding: 0;
   flex-wrap: wrap;
@@ -1484,7 +1484,7 @@ footer {
   color: #e5e7eb;
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   transition: color 0.2s, border-bottom 0.2s;
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
@@ -6689,10 +6689,10 @@ const afterData = {
   "vi": {
     "nav-services": "Dịch Vụ",
     "nav-pricing": "Bảng Giá",
-    "nav-cases": "Nghiên Cứu Tình Huống",
-    "nav-faq": "Câu Hỏi Thường Gặp",
+    "nav-cases": "Case Study",
+    "nav-faq": "FAQ",
     "nav-about": "Về Chúng Tôi",
-    "hero-btn": "Kiểm Tra Miễn Phí",
+    "hero-btn": "Audit Miễn Phí",
     "hero-badge": "⚡ Công Cụ Hiển Thị Trên AI",
     "urgency-title-prefix": "Tiếp nhận khách hàng mới cho",
     "urgency-title-suffix": "hiện đã mở",
@@ -6947,10 +6947,10 @@ const afterData = {
   "pt": {
     "nav-services": "Serviços",
     "nav-pricing": "Preços",
-    "nav-cases": "Cases de Sucesso",
-    "nav-faq": "Perguntas Frequentes",
+    "nav-cases": "Cases",
+    "nav-faq": "FAQ",
     "nav-about": "Sobre Nós",
-    "hero-btn": "Auditoria Gratuita",
+    "hero-btn": "Auditoria Grátis",
     "hero-badge": "⚡ Motor de Visibilidade em IA",
     "urgency-title-prefix": "A admissão de novos clientes para",
     "urgency-title-suffix": "está aberta agora",
@@ -8386,7 +8386,6 @@ if (navLangSelect) {
   </span>
 </div>
 
-<script src="https://unpkg.com/@counterapi/sdk@latest/dist/index.umd.js"></script>
 <script>
   (function() {
     var container = document.getElementById('floatingLiveCounter');
@@ -8398,9 +8397,11 @@ if (navLangSelect) {
       return;
     }
 
-    var COUNTER_ID = 'reputationguard_audits';
+    var COUNTER_NAMESPACE = 'reputationguard.pro';
+    var COUNTER_KEY = 'ai_visibility_audits';
     var BASE_VALUE = 150;
     var currentValue = BASE_VALUE;
+    var LAST_KNOWN_KEY = 'lastKnownRealCount';
 
     function setCounterValue(value) {
       currentValue = value;
@@ -8412,51 +8413,65 @@ if (navLangSelect) {
       setTimeout(function() { numberEl.classList.remove('counter-pulse'); }, 600);
     }
 
+    function getLastKnownReal() {
+      var v = parseInt(localStorage.getItem(LAST_KNOWN_KEY), 10);
+      return isNaN(v) ? 0 : v;
+    }
+
+    function saveLastKnownReal(real) {
+      localStorage.setItem(LAST_KNOWN_KEY, real);
+    }
+
     // Read-only fetch on page load — this NO LONGER increments the count.
     // The count only grows when a visitor actually clicks "Check my business" (see window.growLiveCounter below).
+    // BASE_VALUE is a fixed display offset added on top of the real, globally-shared count from Abacus
+    // (a free, no-auth, CORS-enabled counter service — https://abacus.jasoncameron.dev).
     function loadCounter() {
-      fetch('https://api.counterapi.dev/v1/' + COUNTER_ID)
+      fetch('https://abacus.jasoncameron.dev/get/' + COUNTER_NAMESPACE + '/' + COUNTER_KEY)
         .then(function(response) {
-          if (!response.ok) { return { count: undefined }; }
+          if (!response.ok) { throw new Error('HTTP ' + response.status); }
           return response.json();
         })
         .then(function(data) {
-          if (data && data.count !== undefined) {
-            setCounterValue(data.count);
-          } else {
-            // Counter doesn't exist yet on the service — create it once at BASE_VALUE, still no increment.
-            fetch('https://api.counterapi.dev/v1/' + COUNTER_ID, {
-              method: 'PUT',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ count: BASE_VALUE })
-            })
-              .then(function(response) { return response.json(); })
-              .then(function(createData) {
-                setCounterValue(createData && createData.count !== undefined ? createData.count : BASE_VALUE);
-              })
-              .catch(function() { setCounterValue(BASE_VALUE); });
-          }
+          var real = (data && typeof data.value === 'number') ? data.value : 0;
+          console.log('[live counter] GET ok, real value from server =', real, '(displayed as', BASE_VALUE + real, ')');
+          saveLastKnownReal(real);
+          setCounterValue(BASE_VALUE + real);
         })
-        .catch(function() {
-          var fallback = parseInt(localStorage.getItem('fallbackCounter'), 10) || BASE_VALUE;
-          setCounterValue(fallback);
+        .catch(function(err) {
+          // Network/CORS/ad-blocker failure, or the counter genuinely has 0 hits yet (404,
+          // meaning nobody has successfully hit it yet — expected until the first real click).
+          // Fall back to the last value we successfully confirmed (from this browser's own
+          // history) instead of silently resetting to the base number.
+          console.warn('[live counter] GET failed, using last known value locally:', err && err.message);
+          setCounterValue(BASE_VALUE + getLastKnownReal());
         });
     }
 
     // Shared, global increment — called from the "Check my business" button so the number
     // grows for every visitor, everywhere, the moment someone actually runs an audit.
+    // The "hit" endpoint creates the counter automatically the first time it's called.
     window.growLiveCounter = function() {
-      fetch('https://api.counterapi.dev/v1/' + COUNTER_ID + '/increment', { method: 'POST' })
-        .then(function(response) { return response.json(); })
+      fetch('https://abacus.jasoncameron.dev/hit/' + COUNTER_NAMESPACE + '/' + COUNTER_KEY)
+        .then(function(response) {
+          if (!response.ok) { throw new Error('HTTP ' + response.status); }
+          return response.json();
+        })
         .then(function(data) {
-          setCounterValue(data && data.count !== undefined ? data.count : currentValue + 1);
+          var real = (data && typeof data.value === 'number') ? data.value : (getLastKnownReal() + 1);
+          console.log('[live counter] HIT ok, new real value from server =', real, '(displayed as', BASE_VALUE + real, ')');
+          saveLastKnownReal(real);
+          setCounterValue(BASE_VALUE + real);
           pulse();
         })
-        .catch(function() {
-          var fallback = parseInt(localStorage.getItem('fallbackCounter'), 10) || currentValue;
-          fallback = fallback + 1;
-          localStorage.setItem('fallbackCounter', fallback);
-          setCounterValue(fallback);
+        .catch(function(err) {
+          // Offline/blocked fallback — keeps the UI moving for this visitor and persists
+          // locally, so at least THIS browser stays consistent across reloads even when
+          // the shared counter service can't be reached.
+          console.warn('[live counter] HIT failed, incrementing locally only:', err && err.message);
+          var fallbackReal = getLastKnownReal() + 1;
+          saveLastKnownReal(fallbackReal);
+          setCounterValue(BASE_VALUE + fallbackReal);
           pulse();
         });
     };
