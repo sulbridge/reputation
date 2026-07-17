@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms of Service – ReputationGuard.PRO</title>
-  <meta name="description" content="ReputationGuard.PRO terms of service. Learn about our AI visibility plans, fair use policy, refund terms, and legal agreements." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Terms of Service – ReputationGuardPro</title>
+  <meta name="description" content="ReputationGuardPro terms of service. Learn about our AI visibility plans, fair use policy, refund terms, and legal agreements." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🛡️%3C/text%3E%3C/svg%3E" />
@@ -25,7 +25,7 @@
     "@type": "WebPage",
     "@id": "https://reputationguard.pro/terms-of-service.html#webpage",
     "name": "Terms of Service – AI Visibility Engine",
-    "description": "ReputationGuard.PRO terms of service. Learn about our AI visibility plans, fair use policy, refund terms, and legal agreements.",
+    "description": "ReputationGuardPro terms of service. Learn about our AI visibility plans, fair use policy, refund terms, and legal agreements.",
     "url": "https://reputationguard.pro/terms-of-service.html",
     "isPartOf": {
       "@id": "https://reputationguard.pro/#website"
@@ -34,7 +34,7 @@
       "@id": "https://reputationguard.pro/terms-of-service.html#breadcrumb"
     },
     "inLanguage": "en",
-    "dateModified": "2026-07-08"
+    "dateModified": "2026-07-17"
   }
   </script>
   <script type="application/ld+json">
@@ -61,26 +61,249 @@
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #111827; line-height: 1.6; padding: 0 20px; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-    .header { margin-bottom: 40px; border-bottom: 2px solid #eef2ff; padding-bottom: 20px; }
-    .back-link { display: inline-block; margin-bottom: 20px; color: #1E3A8A; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+    body { font-family: 'Inter', sans-serif; background: #0d0f14; color: #e5e7eb; line-height: 1.6; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      background: rgba(13, 15, 20, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .navbar.scrolled {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      background: rgba(13, 15, 20, 0.60);
+    }
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .navbar .logo .brand {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #60A5FA, #3B82F6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+    }
+    .navbar .logo .badge-smb {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #9ca3af;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.6;
+      white-space: nowrap;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #e5e7eb;
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: transform 0.25s ease;
+    }
+    .nav-toggle.active { transform: rotate(90deg); }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 28px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    .nav-menu a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .nav-menu a:hover {
+      color: #60A5FA;
+      border-bottom-color: #60A5FA;
+    }
+    .nav-menu .nav-cta {
+      padding: 8px 24px;
+      font-size: 0.9rem;
+      background: #1E3A8A;
+      color: white;
+      border-radius: 40px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 10px rgba(30,58,138,0.3);
+      border-bottom: none;
+    }
+    .nav-menu .nav-cta:hover {
+      background: #2563EB;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37,99,235,0.4);
+      border-bottom: none;
+    }
+
+    @media (max-width: 992px) {
+      .nav-toggle { display: block; z-index: 10000; }
+      .nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(13, 15, 20, 0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        padding: 40px 24px;
+        z-index: 9999;
+        margin: 0;
+        border-radius: 0;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li { width: 100%; text-align: center; }
+      .nav-menu a {
+        font-size: 1.4rem;
+        padding: 12px 0;
+        display: block;
+        border-bottom: none;
+        color: #f9fafb;
+      }
+      .nav-menu a:hover {
+        border-bottom: none;
+        background: rgba(59,130,246,0.08);
+        border-radius: 12px;
+      }
+      .nav-menu .nav-cta {
+        display: inline-block;
+        width: auto;
+        padding: 12px 32px;
+        font-size: 1.1rem;
+      }
+      .navbar .logo .brand { font-size: 1.3rem; }
+      .navbar .logo .badge-smb { font-size: 0.55rem; padding: 0 6px; }
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      display: inline-block;
+      background: #1E3A8A;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 700;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 4px 10px rgba(30,58,138,0.3);
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background: #2563EB;
+      transform: translateY(-2px);
+    }
+
+    /* ===== PAGE CONTENT ===== */
+    .page-content {
+      background: #f8fafc;
+      color: #111827;
+      padding: 40px 0;
+      margin-top: 20px;
+      border-radius: 24px;
+    }
+    .page-content .container {
+      max-width: 1000px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #1E3A8A;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
     .back-link i { margin-right: 8px; }
     .back-link:hover { color: #2563EB; text-decoration: underline; }
-    h1 { font-size: 2.2rem; font-weight: 800; color: #0F172A; margin-bottom: 8px; }
-    .effective-date { color: #6c757d; font-size: 0.9rem; margin-bottom: 24px; }
-    .intro { font-size: 1.05rem; color: #1e293b; margin-bottom: 24px; }
-    h2 { font-size: 1.4rem; font-weight: 700; color: #1E3A8A; margin: 32px 0 12px; }
-    h2 i { margin-right: 10px; color: #3B82F6; }
-    h3 { font-size: 1.1rem; font-weight: 600; color: #1E3A8A; margin: 20px 0 8px; }
-    p, li { color: #334155; margin-bottom: 12px; }
-    ul { padding-left: 24px; margin: 16px 0; }
-    ul li { margin-bottom: 8px; }
-    strong { color: #0F172A; }
-    code { background: #eef2ff; padding: 2px 10px; border-radius: 6px; font-family: inherit; font-weight: 600; color: #1E3A8A; }
-    .highlight-box { background: #f0f7ff; border-left: 4px solid #1E3A8A; padding: 16px 24px; border-radius: 8px; margin: 20px 0; }
-    .highlight-box p { margin-bottom: 0; }
-    .highlight-box ul { margin-top: 8px; }
+    .page-content h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 8px;
+    }
+    .page-content .effective-date {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+    .page-content .intro {
+      font-size: 1.05rem;
+      color: #1e293b;
+      margin-bottom: 24px;
+    }
+    .page-content h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1E3A8A;
+      margin: 32px 0 12px;
+    }
+    .page-content h2 i { margin-right: 10px; color: #3B82F6; }
+    .page-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1E3A8A;
+      margin: 20px 0 8px;
+    }
+    .page-content p, .page-content li {
+      color: #334155;
+      margin-bottom: 12px;
+    }
+    .page-content ul { padding-left: 24px; margin: 16px 0; }
+    .page-content ul li { margin-bottom: 8px; }
+    .page-content strong { color: #0F172A; }
+    .page-content code {
+      background: #eef2ff;
+      padding: 2px 10px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-weight: 600;
+      color: #1E3A8A;
+    }
+    .page-content .highlight-box {
+      background: #f0f7ff;
+      border-left: 4px solid #1E3A8A;
+      padding: 16px 24px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .page-content .highlight-box p { margin-bottom: 0; }
+    .page-content .highlight-box ul { margin-top: 8px; }
     .pricing-table {
       width: 100%;
       border-collapse: collapse;
@@ -103,9 +326,7 @@
       border-bottom: 1px solid #e2e8f0;
       vertical-align: top;
     }
-    .pricing-table tr:last-child td {
-      border-bottom: none;
-    }
+    .pricing-table tr:last-child td { border-bottom: none; }
     .pricing-table .plan-name {
       font-weight: 700;
       color: #0F172A;
@@ -148,233 +369,445 @@
     .pricing-table .popular-row td {
       border-color: #FCD34D;
     }
-    .last-updated { color: #6c757d; font-size: 0.85rem; margin-top: 40px; border-top: 1px solid #eef2ff; padding-top: 20px; }
-    .footer { text-align: center; margin-top: 40px; font-size: 0.75rem; color: #6c757d; }
-    .footer a { color: #1E3A8A; text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
-    @media (max-width: 700px) {
-      .container { padding: 20px; }
-      h1 { font-size: 1.6rem; }
-      h2 { font-size: 1.2rem; }
+    .page-content .last-updated {
+      color: #6c757d;
+      font-size: 0.85rem;
+      margin-top: 40px;
+      border-top: 1px solid #eef2ff;
+      padding-top: 20px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0d0f14;
+      border-top: 1px solid #2d3748;
+      margin-top: 40px;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 24px 32px;
+    }
+    .footer-column { flex: 1; min-width: 180px; }
+    .footer-column h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f9fafb;
+      margin-bottom: 16px;
+    }
+    .footer-column p, .footer-column ul {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      line-height: 1.6;
+    }
+    .footer-column ul { list-style: none; padding: 0; }
+    .footer-column li { margin-bottom: 8px; }
+    .footer-column a { color: #93C5FD; text-decoration: none; }
+    .footer-column a:hover { text-decoration: underline; }
+    .footer-column p i { width: 20px; text-align: center; margin-right: 4px; }
+
+    .footer-lang-switch {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      justify-items: center;
+      margin-top: 8px;
+    }
+    .footer-lang-switch .lang-btn {
+      background: #1a1f2b;
+      border: none;
+      font-weight: 600;
+      font-size: 0.75rem;
+      cursor: pointer;
+      padding: 4px 0;
+      border-radius: 24px;
+      transition: 0.2s;
+      color: #9ca3af;
+      width: 70px;
+      white-space: nowrap;
+      font-family: 'Segoe UI Emoji', 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+    }
+    .footer-lang-switch .lang-btn.active {
+      background: #1E3A8A;
+      color: white;
+    }
+    .footer-lang-switch .lang-btn:hover {
+      background: #1e293b;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid #2d3748;
+      font-size: 0.7rem;
+      color: #6c757d;
+    }
+    .footer-bottom a { color: #93C5FD; text-decoration: none; }
+    .footer-bottom a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .page-content .container { padding: 0 16px; }
+      .page-content h1 { font-size: 1.6rem; }
+      .page-content h2 { font-size: 1.2rem; }
       .pricing-table { font-size: 0.85rem; }
       .pricing-table th, .pricing-table td { padding: 8px 10px; }
+      .footer-container { flex-direction: column; text-align: center; gap: 24px; }
+      .footer-lang-switch { grid-template-columns: repeat(3, 1fr); gap: 6px; justify-items: center; }
+      .footer-lang-switch .lang-btn { width: auto; padding: 4px 8px; }
     }
   </style>
 </head>
 <body>
 
+<!-- ===== NAVBAR ===== -->
 <div class="container">
-  <div class="header">
-    <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to ReputationGuard</a>
-    <h1>Terms of Service</h1>
-    <p class="effective-date"><i class="fas fa-calendar-alt"></i> Effective date: <strong>July 8, 2026</strong></p>
-  </div>
-
-  <p class="intro">These Terms of Service ("Terms") govern your access to and use of our AI Visibility Engine, website, and related tools (collectively, the "Services"). By using our Services, you agree to be bound by these Terms. If you do not agree, please do not use our Services.</p>
-
-  <h2><i class="fas fa-book"></i> 1. Definitions</h2>
-  <ul>
-    <li><strong>"AI Visibility Boost"</strong> – a one‑time service that includes a full 9‑layer AI visibility audit and 3 critical fixes, for a one‑time fee of <strong>$249.00</strong>.</li>
-    <li><strong>"Expert Action"</strong> – a specific fix we perform to improve your AI visibility. Each action targets a specific gap — removing a fake review, adding schema markup, writing an AEO article, fixing inconsistent business data, and more.</li>
-    <li><strong>"Subscription Plan"</strong> – a recurring monthly service that includes a set number of Expert Actions per month, AI visibility monitoring, and reporting. Available as <strong>AI Visibility, AI Authority, and AI Dominate</strong>.</li>
-    <li><strong>"Pilot Period"</strong> – an optional one‑month trial of a Subscription Plan, available only for new clients who have not previously subscribed.</li>
-    <li><strong>"Minimum Commitment"</strong> – the minimum number of months you agree to remain subscribed after the Pilot Period (or immediately, if you choose to skip the Pilot). The Minimum Commitment is <strong>three (3) months</strong>.</li>
-    <li><strong>"AI Visibility Score"</strong> – our proprietary 0–100 score that measures how prominently your brand appears in AI recommendations across ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek, and Google AI.</li>
-    <li><strong>"Fair Use Policy"</strong> – each Subscription Plan includes a reasonable number of Expert Actions per month (as defined in the table below). If you exceed this number, additional fees apply.</li>
-  </ul>
-
-  <h2><i class="fas fa-cogs"></i> 2. Services Description</h2>
-  <p>ReputationGuard provides the following AI visibility services:</p>
-  <ul>
-    <li><strong>AI Visibility Audit</strong> – comprehensive 9‑layer analysis of how AI platforms perceive your brand, including accessibility, content structure, authority signals, clarity, trust signals, schema packaging, citation readiness, activity, and reputation signals.</li>
-    <li><strong>Reputation Signal Cleanup</strong> – targeted fixes to remove or correct weak signals that confuse AI, including fake reviews, missing schema markup, inconsistent business data, and low authority signals.</li>
-    <li><strong>AI Visibility Monitoring</strong> – tracking how your brand appears across ChatGPT, Gemini, Perplexity, Claude, and other LLMs, with weekly or monthly reports (depending on your plan).</li>
-    <li><strong>GEO Content Strategy</strong> – for higher-tier plans, we provide content strategy to optimize your brand for AI search, including audit and roadmap.</li>
-    <li><strong>Competitor Benchmarking</strong> – analysis of how your AI visibility compares to up to 5 competitors, with actionable recommendations.</li>
-  </ul>
-  <p><strong>We do not guarantee specific AI rankings or positions.</strong> AI platforms make independent decisions based on complex algorithms. Our service is an attempt to strengthen your reputation signals so AI trusts and recommends your brand more consistently.</p>
-
-  <h2><i class="fas fa-user-check"></i> 3. Client Responsibilities</h2>
-  <ul>
-    <li>Provide accurate and complete information about your business and website(s).</li>
-    <li>Grant <code>defend@reputationguard.pro</code> the necessary access to your Google Business Profile(s), website analytics, or other platforms as needed for service delivery. This is a <strong>mandatory condition</strong> for most services.</li>
-    <li>Promptly respond to any requests for additional information or clarification.</li>
-    <li>Not submit fraudulent or knowingly false information. We reserve the right to terminate the agreement immediately if we suspect abuse.</li>
-    <li>Inform us of any changes to your business name, website, or contact details.</li>
-  </ul>
-  <p>Failure to fulfill these responsibilities may result in delays or cancellation of services, without refund.</p>
-
-  <h2><i class="fas fa-money-bill-wave"></i> 4. Fees and Payment</h2>
-
-  <h3><i class="fas fa-bolt"></i> 4.1 AI Visibility Boost (One‑Time)</h3>
-  <ul>
-    <li><strong>Fee:</strong> $249.00 (one‑time).</li>
-    <li><strong>Includes:</strong> Full deep AI visibility audit (9 layers) + 3 critical fixes + detailed AI visibility score report with recommendations.</li>
-    <li><strong>Billing:</strong> One‑time payment, due in full before we commence work.</li>
-    <li><strong>Refund:</strong> If we are unable to complete the audit and fixes, we will issue a <strong>full refund</strong> within 5 business days.</li>
-  </ul>
-
-  <h3><i class="fas fa-calendar-alt"></i> 4.2 Subscription Plans</h3>
-  <table class="pricing-table">
-    <thead>
-      <tr>
-        <th>Plan</th>
-        <th>Monthly Fee</th>
-        <th>Features</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="plan-name">AI Visibility</td>
-        <td class="fee">$399</td>
-        <td>
-          <ul>
-            <li><strong>5 Expert Actions</strong> per month — each fix moves your brand higher in AI recommendations</li>
-            <li>AI visibility monitoring with alerts</li>
-            <li>Monthly AI visibility report (ChatGPT, Gemini)</li>
-            <li>Priority based on AI impact</li>
-          </ul>
-          <div class="fair-use">Fair use: 5 Expert Actions/month included • $49/extra action</div>
-        </td>
-      </tr>
-      <tr class="popular-row">
-        <td class="plan-name">AI Authority <span class="popular-badge">⭐ Most Popular</span></td>
-        <td class="fee">$899</td>
-        <td>
-          <ul>
-            <li><strong>15 Expert Actions</strong> per month — your brand becomes the one AI trusts and recommends</li>
-            <li>Priority processing (48‑hour turnaround)</li>
-            <li><strong>Monthly AI visibility report (4 LLMs)</strong></li>
-            <li>Full AI sentiment analysis</li>
-            <li>Competitor benchmarking (up to 5 competitors)</li>
-            <li>Monthly strategy call & detailed roadmap</li>
-          </ul>
-          <div class="fair-use">Fair use: 15 Expert Actions/month included • $39/extra action</div>
-        </td>
-      </tr>
-      <tr>
-        <td class="plan-name">AI Dominate</td>
-        <td class="fee">$1,799</td>
-        <td>
-          <ul>
-            <li><strong>30+ Expert Actions</strong> per month — you dominate AI search results in your industry</li>
-            <li>Dedicated AI reputation manager</li>
-            <li><strong>Weekly AI visibility report (6 LLMs)</strong></li>
-            <li>Weekly strategy calls</li>
-            <li>Full escalation & resolution coordination</li>
-            <li>GEO content strategy – includes audit & roadmap</li>
-          </ul>
-          <div class="fair-use">Fair use: 30 Expert Actions/month included • $29/extra action</div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="highlight-box">
-    <p><strong><i class="fas fa-balance-scale"></i> Fair Use & Overage Fees:</strong></p>
-    <p>Each plan includes a reasonable number of Expert Actions per month under our Fair Use Policy. If you exceed your plan's fair use limit, additional overage fees apply:</p>
-    <ul>
-      <li><strong>AI Visibility:</strong> $49 per extra action</li>
-      <li><strong>AI Authority:</strong> $39 per extra action</li>
-      <li><strong>AI Dominate:</strong> $29 per extra action</li>
+  <div class="navbar" id="navbar">
+    <a href="/" class="logo">
+      <span class="brand">🛡️ ReputationGuardPro</span>
+      <span class="badge-smb">SMB</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-menu">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#cases">Case Studies</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/enterprise.html">Enterprise</a></li>
+      <li><a href="/#contact-form-section" class="btn-primary nav-cta">Free Audit</a></li>
     </ul>
-    <p>We will notify you before any overage charges are applied.</p>
-  </div>
-
-  <h3><i class="fas fa-play-circle"></i> 4.3 Pilot Period (Optional)</h3>
-  <ul>
-    <li>New clients may subscribe to a <strong>one‑month Pilot Period</strong> for any Subscription Plan.</li>
-    <li>During the Pilot, you pay the regular monthly fee (as above) and receive full service.</li>
-    <li>The Pilot Period is <strong>non‑renewable</strong> and can be used only once per client.</li>
-  </ul>
-
-  <h3><i class="fas fa-handshake"></i> 4.4 Minimum Commitment</h3>
-  <ul>
-    <li>After the Pilot Period (or immediately if you skip the Pilot), your subscription enters a <strong>Minimum Commitment of three (3) consecutive months</strong>.</li>
-    <li>You are billed monthly during this period. The commitment starts on the date your first regular (non‑Pilot) month begins.</li>
-    <li>After the Minimum Commitment, the subscription automatically continues on a month‑to‑month basis unless cancelled as per Section 7.</li>
-  </ul>
-
-  <h3><i class="fas fa-sync-alt"></i> 4.5 Automatic Renewal and Billing</h3>
-  <ul>
-    <li>All Subscription Plans renew automatically each month on the same day of the month as the original sign‑up date.</li>
-    <li>We charge the card on file for each renewal. It is your responsibility to keep your payment information current.</li>
-    <li>If a payment fails, we will attempt to notify you and retry. After two consecutive failed attempts, we may suspend your service.</li>
-  </ul>
-
-  <h3><i class="fas fa-arrow-up"></i> 4.6 Price Changes</h3>
-  <ul>
-    <li>We reserve the right to adjust subscription fees. Any price increase will be communicated to you at least 30 days in advance. If you do not agree, you may cancel before the increase takes effect.</li>
-  </ul>
-
-  <h2><i class="fas fa-undo-alt"></i> 5. Refund Policy</h2>
-  <ul>
-    <li><strong>AI Visibility Boost (One‑Time):</strong> Full refund if we cannot complete the audit and fixes.</li>
-    <li><strong>Subscription Plans:</strong> Because of the nature of ongoing work, we do not offer refunds for partial months. If you cancel after the Minimum Commitment, your cancellation will take effect at the end of the current billing month, and no refund will be issued for the remaining days of that month.</li>
-    <li><strong>Pilot Period:</strong> No refund during the Pilot, but you may cancel at the end of the Pilot without further obligation.</li>
-    <li>For details, please see our separate <a href="/refund-policy.html" style="color:#1E3A8A;">Refund Policy</a> page.</li>
-  </ul>
-
-  <h2><i class="fas fa-times-circle"></i> 6. Cancellation and Termination</h2>
-
-  <h3>6.1 Client Cancellation</h3>
-  <ul>
-    <li><strong>During Minimum Commitment:</strong> You may not cancel before the 3‑month commitment ends. If you request early cancellation, we will continue to bill you for the remaining committed months.</li>
-    <li><strong>After Minimum Commitment:</strong> You may cancel at any time through your <strong>Stripe Customer Portal</strong> at <a href="https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400" target="_blank" style="color:#1E3A8A;">https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400</a>. Your cancellation will take effect at the end of the current billing period. No email or manual request is required.</li>
-  </ul>
-
-  <h3>6.2 Termination by Us</h3>
-  <ul>
-    <li>We may terminate or suspend your access immediately if you breach these Terms (including non‑payment or failure to provide access), if we suspect fraudulent activity, or if we are legally required to do so.</li>
-    <li>Upon termination, you remain liable for all fees accrued up to the termination date, and for any outstanding Minimum Commitment payments.</li>
-  </ul>
-
-  <h3>6.3 Service Completion (One‑Time)</h3>
-  <ul>
-    <li>The one‑time agreement automatically terminates when we complete the audit and fixes and deliver your AI visibility report.</li>
-  </ul>
-
-  <h2><i class="fas fa-exclamation-triangle"></i> 7. Disclaimer of Warranties</h2>
-  <p>THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE." TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON‑INFRINGEMENT. WE DO NOT WARRANT THAT YOUR AI VISIBILITY SCORE WILL INCREASE BY A SPECIFIC AMOUNT OR THAT AI PLATFORMS WILL RECOMMEND YOUR BRAND IN A PARTICULAR WAY.</p>
-
-  <h2><i class="fas fa-gavel"></i> 8. Limitation of Liability</h2>
-  <p>IN NO EVENT SHALL REPUTATIONGUARD BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES, INCLUDING LOSS OF REVENUE, PROFITS, OR REPUTATION, ARISING OUT OF OR RELATED TO THESE TERMS OR OUR SERVICES. OUR TOTAL LIABILITY TO YOU FOR ANY CLAIM SHALL NOT EXCEED THE TOTAL FEES PAID BY YOU TO US IN THE THREE (3) MONTHS PRECEDING THE EVENT GIVING RISE TO THE CLAIM.</p>
-
-  <h2><i class="fas fa-shield"></i> 9. Indemnification</h2>
-  <p>You agree to indemnify, defend, and hold harmless ReputationGuard and its officers, employees, and agents from any claims, damages, or expenses (including legal fees) arising from your breach of these Terms, your misuse of our Services, or your violation of any law or third‑party rights (including Google's terms of service).</p>
-
-  <h2><i class="fas fa-gavel"></i> 10. Governing Law and Dispute Resolution</h2>
-  <p>These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, USA, without regard to its conflict of laws provisions.</p>
-  <p>Any dispute arising from these Terms shall be resolved through <strong>binding arbitration</strong> administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules. The arbitration shall be held in Delaware, and judgment on the award may be entered in any court having jurisdiction.</p>
-
-  <h2><i class="fas fa-pen"></i> 11. Changes to These Terms</h2>
-  <p>We may update these Terms from time to time. Material changes will be communicated to you via email or a prominent notice on our website at least 15 days in advance. Your continued use of the Services after the effective date of the changes constitutes your acceptance of the revised Terms.</p>
-
-  <h2><i class="fas fa-file-alt"></i> 12. Entire Agreement</h2>
-  <p>These Terms constitute the entire agreement between you and ReputationGuard regarding the Services and supersede all prior agreements, understandings, or representations.</p>
-
-  <h2><i class="fas fa-headset"></i> 13. Contact Information</h2>
-  <p>For any questions, complaints, or cancellation requests, please contact us:</p>
-  <ul>
-    <li><strong>Email:</strong> <code>defend@reputationguard.pro</code> (primary)</li>
-    <li><strong>WhatsApp:</strong> <a href="https://wa.me/15053136274" target="_blank" style="color:#1E3A8A;">https://wa.me/15053136274</a></li>
-    <li><strong>Website:</strong> <a href="https://reputationguard.pro" target="_blank" style="color:#1E3A8A;">https://reputationguard.pro</a></li>
-    <li><strong>Manage Your Subscription:</strong> <a href="https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400" target="_blank" style="color:#1E3A8A;">Stripe Customer Portal</a> – cancel, update payment method, or view billing history</li>
-  </ul>
-
-  <div class="last-updated">
-    <i class="fas fa-calendar-alt"></i> Last updated: <strong>July 8, 2026</strong>
-  </div>
-
-  <div class="footer">
-    <p>© 2026 <a href="/">ReputationGuard.pro</a>. All rights reserved.</p>
-    <p style="margin-top: 4px;">
-      <a href="/privacy-policy.html">Privacy Policy</a> ·
-      <a href="/terms-of-service.html">Terms of Service</a> ·
-      <a href="/refund-policy.html">Refund Policy</a>
-    </p>
   </div>
 </div>
+
+<!-- ===== PAGE CONTENT ===== -->
+<div class="page-content">
+  <div class="container">
+    <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to ReputationGuardPro</a>
+    <h1>Terms of Service</h1>
+    <p class="effective-date"><i class="fas fa-calendar-alt"></i> Effective date: <strong>July 17, 2026</strong></p>
+
+    <p class="intro">These Terms of Service ("Terms") govern your access to and use of our AI Visibility Engine, website, and related tools (collectively, the "Services"). By using our Services, you agree to be bound by these Terms. If you do not agree, please do not use our Services.</p>
+
+    <h2><i class="fas fa-book"></i> 1. Definitions</h2>
+    <ul>
+      <li><strong>"AI Visibility Boost"</strong> – a one‑time service that includes a full 9‑layer AI visibility audit and 3 critical signal boosts, for a one‑time fee of <strong>$249.00</strong>.</li>
+      <li><strong>"Boost" (or "Action")</strong> – a specific fix we perform to improve your AI visibility. Each boost targets a specific gap — removing a fake review, adding schema markup, writing an AEO article, fixing inconsistent business data, and more.</li>
+      <li><strong>"Subscription Plan"</strong> – a recurring monthly service that includes a set number of Boosts per month, AI visibility monitoring, and reporting. Available as <strong>AI Visibility, AI Authority, and AI Dominate</strong>.</li>
+      <li><strong>"Pilot Period"</strong> – an optional one‑month trial of a Subscription Plan, available only for new clients who have not previously subscribed.</li>
+      <li><strong>"Minimum Commitment"</strong> – the minimum number of months you agree to remain subscribed after the Pilot Period (or immediately, if you choose to skip the Pilot). The Minimum Commitment is <strong>three (3) months</strong>.</li>
+      <li><strong>"AI Visibility Score"</strong> – our proprietary 0–100 score that measures how prominently your brand appears in AI recommendations across ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek, and Google AI.</li>
+      <li><strong>"Fair Use Policy"</strong> – each Subscription Plan includes a reasonable number of Boosts per month (as defined in the table below). If you exceed this number, additional fees apply.</li>
+    </ul>
+
+    <h2><i class="fas fa-cogs"></i> 2. Services Description</h2>
+    <p>ReputationGuardPro provides the following AI visibility services:</p>
+    <ul>
+      <li><strong>AI Visibility Audit</strong> – comprehensive 9‑layer analysis of how AI platforms perceive your brand, including accessibility, content structure, authority signals, clarity, trust signals, schema packaging, citation readiness, activity, and reputation signals.</li>
+      <li><strong>Signal Boosts &amp; Cleanup</strong> – targeted actions to strengthen weak signals, remove fake reviews, correct missing schema markup, fix inconsistent business data, and build authority signals that AI trusts.</li>
+      <li><strong>AI Visibility Monitoring</strong> – tracking how your brand appears across ChatGPT, Gemini, Perplexity, Claude, and other LLMs, with weekly or monthly reports (depending on your plan).</li>
+      <li><strong>GEO Content Strategy</strong> – for higher-tier plans, we provide content strategy to optimize your brand for AI search, including audit and roadmap.</li>
+      <li><strong>Competitor Benchmarking</strong> – analysis of how your AI visibility compares to up to 5 competitors, with actionable recommendations.</li>
+    </ul>
+    <p><strong>We do not guarantee specific AI rankings or positions.</strong> AI platforms make independent decisions based on complex algorithms. Our service is an attempt to strengthen your reputation signals so AI trusts and recommends your brand more consistently.</p>
+
+    <h2><i class="fas fa-user-check"></i> 3. Client Responsibilities</h2>
+    <ul>
+      <li>Provide accurate and complete information about your business and website(s).</li>
+      <li>Grant <code>defend@reputationguard.pro</code> the necessary access to your Google Business Profile(s), website analytics, or other platforms as needed for service delivery. This is a <strong>mandatory condition</strong> for most services.</li>
+      <li>Promptly respond to any requests for additional information or clarification.</li>
+      <li>Not submit fraudulent or knowingly false information. We reserve the right to terminate the agreement immediately if we suspect abuse.</li>
+      <li>Inform us of any changes to your business name, website, or contact details.</li>
+    </ul>
+    <p>Failure to fulfill these responsibilities may result in delays or cancellation of services, without refund.</p>
+
+    <h2><i class="fas fa-money-bill-wave"></i> 4. Fees and Payment</h2>
+
+    <h3><i class="fas fa-bolt"></i> 4.1 AI Visibility Boost (One‑Time)</h3>
+    <ul>
+      <li><strong>Fee:</strong> $249.00 (one‑time).</li>
+      <li><strong>Includes:</strong> Full deep AI visibility audit (9 layers) + 3 critical boosts + detailed AI visibility score report with recommendations.</li>
+      <li><strong>Billing:</strong> One‑time payment, due in full before we commence work.</li>
+      <li><strong>Refund:</strong> If we are unable to complete the audit and boosts, we will issue a <strong>full refund</strong> within 5 business days.</li>
+    </ul>
+
+    <h3><i class="fas fa-calendar-alt"></i> 4.2 Subscription Plans</h3>
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Plan</th>
+          <th>Monthly Fee</th>
+          <th>Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="plan-name">AI Visibility</td>
+          <td class="fee">$399</td>
+          <td>
+            <ul>
+              <li><strong>5 Boosts</strong> per month — each boost strengthens your AI trust signals</li>
+              <li>AI visibility monitoring with alerts</li>
+              <li>Monthly AI visibility report (ChatGPT, Gemini)</li>
+              <li>Priority based on AI impact</li>
+            </ul>
+            <div class="fair-use">Fair use: 5 boosts/month included • $49/extra boost</div>
+          </td>
+        </tr>
+        <tr class="popular-row">
+          <td class="plan-name">AI Authority <span class="popular-badge">⭐ Most Popular</span></td>
+          <td class="fee">$899</td>
+          <td>
+            <ul>
+              <li><strong>15 Boosts</strong> per month — your brand becomes the one AI trusts and recommends</li>
+              <li>Priority processing (48‑hour turnaround)</li>
+              <li><strong>Monthly AI visibility report (4 LLMs)</strong></li>
+              <li>Full AI sentiment analysis</li>
+              <li>Competitor benchmarking (up to 5 competitors)</li>
+              <li>Monthly strategy call & detailed roadmap</li>
+            </ul>
+            <div class="fair-use">Fair use: 15 boosts/month included • $39/extra boost</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="plan-name">AI Dominate</td>
+          <td class="fee">$1,799</td>
+          <td>
+            <ul>
+              <li><strong>30 Boosts</strong> per month — you dominate AI search results in your industry</li>
+              <li>Dedicated AI reputation manager</li>
+              <li><strong>Weekly AI visibility report (6 LLMs)</strong></li>
+              <li>Weekly strategy calls</li>
+              <li>Full escalation & resolution coordination</li>
+              <li>GEO content strategy – includes audit & roadmap</li>
+            </ul>
+            <div class="fair-use">Fair use: 30 boosts/month included • $29/extra boost</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box">
+      <p><strong><i class="fas fa-balance-scale"></i> Fair Use & Overage Fees:</strong></p>
+      <p>Each plan includes a reasonable number of Boosts per month under our Fair Use Policy. If you exceed your plan's fair use limit, additional overage fees apply:</p>
+      <ul>
+        <li><strong>AI Visibility:</strong> $49 per extra boost</li>
+        <li><strong>AI Authority:</strong> $39 per extra boost</li>
+        <li><strong>AI Dominate:</strong> $29 per extra boost</li>
+      </ul>
+      <p>We will notify you before any overage charges are applied.</p>
+    </div>
+
+    <h3><i class="fas fa-play-circle"></i> 4.3 Pilot Period (Optional)</h3>
+    <ul>
+      <li>New clients may subscribe to a <strong>one‑month Pilot Period</strong> for any Subscription Plan.</li>
+      <li>During the Pilot, you pay the regular monthly fee (as above) and receive full service.</li>
+      <li>The Pilot Period is <strong>non‑renewable</strong> and can be used only once per client.</li>
+    </ul>
+
+    <h3><i class="fas fa-handshake"></i> 4.4 Minimum Commitment</h3>
+    <ul>
+      <li>After the Pilot Period (or immediately if you skip the Pilot), your subscription enters a <strong>Minimum Commitment of three (3) consecutive months</strong>.</li>
+      <li>You are billed monthly during this period. The commitment starts on the date your first regular (non‑Pilot) month begins.</li>
+      <li>After the Minimum Commitment, the subscription automatically continues on a month‑to‑month basis unless cancelled as per Section 7.</li>
+    </ul>
+
+    <h3><i class="fas fa-sync-alt"></i> 4.5 Automatic Renewal and Billing</h3>
+    <ul>
+      <li>All Subscription Plans renew automatically each month on the same day of the month as the original sign‑up date.</li>
+      <li>We charge the card on file for each renewal. It is your responsibility to keep your payment information current.</li>
+      <li>If a payment fails, we will attempt to notify you and retry. After two consecutive failed attempts, we may suspend your service.</li>
+    </ul>
+
+    <h3><i class="fas fa-arrow-up"></i> 4.6 Price Changes</h3>
+    <ul>
+      <li>We reserve the right to adjust subscription fees. Any price increase will be communicated to you at least 30 days in advance. If you do not agree, you may cancel before the increase takes effect.</li>
+    </ul>
+
+    <h2><i class="fas fa-undo-alt"></i> 5. Refund Policy</h2>
+    <ul>
+      <li><strong>AI Visibility Boost (One‑Time):</strong> Full refund if we cannot complete the audit and boosts.</li>
+      <li><strong>Subscription Plans:</strong> Because of the nature of ongoing work, we do not offer refunds for partial months. If you cancel after the Minimum Commitment, your cancellation will take effect at the end of the current billing month, and no refund will be issued for the remaining days of that month.</li>
+      <li><strong>Pilot Period:</strong> No refund during the Pilot, but you may cancel at the end of the Pilot without further obligation.</li>
+      <li>For details, please see our separate <a href="/refund-policy.html" style="color:#1E3A8A;">Refund Policy</a> page.</li>
+    </ul>
+
+    <h2><i class="fas fa-times-circle"></i> 6. Cancellation and Termination</h2>
+
+    <h3>6.1 Client Cancellation</h3>
+    <ul>
+      <li><strong>During Minimum Commitment:</strong> You may not cancel before the 3‑month commitment ends. If you request early cancellation, we will continue to bill you for the remaining committed months.</li>
+      <li><strong>After Minimum Commitment:</strong> You may cancel at any time through your <strong>Stripe Customer Portal</strong> at <a href="https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400" target="_blank" style="color:#1E3A8A;">https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400</a>. Your cancellation will take effect at the end of the current billing period. No email or manual request is required.</li>
+    </ul>
+
+    <h3>6.2 Termination by Us</h3>
+    <ul>
+      <li>We may terminate or suspend your access immediately if you breach these Terms (including non‑payment or failure to provide access), if we suspect fraudulent activity, or if we are legally required to do so.</li>
+      <li>Upon termination, you remain liable for all fees accrued up to the termination date, and for any outstanding Minimum Commitment payments.</li>
+    </ul>
+
+    <h3>6.3 Service Completion (One‑Time)</h3>
+    <ul>
+      <li>The one‑time agreement automatically terminates when we complete the audit and boosts and deliver your AI visibility report.</li>
+    </ul>
+
+    <h2><i class="fas fa-exclamation-triangle"></i> 7. Disclaimer of Warranties</h2>
+    <p>THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE." TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON‑INFRINGEMENT. WE DO NOT WARRANT THAT YOUR AI VISIBILITY SCORE WILL INCREASE BY A SPECIFIC AMOUNT OR THAT AI PLATFORMS WILL RECOMMEND YOUR BRAND IN A PARTICULAR WAY.</p>
+
+    <h2><i class="fas fa-gavel"></i> 8. Limitation of Liability</h2>
+    <p>IN NO EVENT SHALL REPUTATIONGUARD BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES, INCLUDING LOSS OF REVENUE, PROFITS, OR REPUTATION, ARISING OUT OF OR RELATED TO THESE TERMS OR OUR SERVICES. OUR TOTAL LIABILITY TO YOU FOR ANY CLAIM SHALL NOT EXCEED THE TOTAL FEES PAID BY YOU TO US IN THE THREE (3) MONTHS PRECEDING THE EVENT GIVING RISE TO THE CLAIM.</p>
+
+    <h2><i class="fas fa-shield"></i> 9. Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless ReputationGuardPro and its officers, employees, and agents from any claims, damages, or expenses (including legal fees) arising from your breach of these Terms, your misuse of our Services, or your violation of any law or third‑party rights (including Google's terms of service).</p>
+
+    <h2><i class="fas fa-gavel"></i> 10. Governing Law and Dispute Resolution</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of the State of Delaware, USA, without regard to its conflict of laws provisions.</p>
+    <p>Any dispute arising from these Terms shall be resolved through <strong>binding arbitration</strong> administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules. The arbitration shall be held in Delaware, and judgment on the award may be entered in any court having jurisdiction.</p>
+
+    <h2><i class="fas fa-pen"></i> 11. Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. Material changes will be communicated to you via email or a prominent notice on our website at least 15 days in advance. Your continued use of the Services after the effective date of the changes constitutes your acceptance of the revised Terms.</p>
+
+    <h2><i class="fas fa-file-alt"></i> 12. Entire Agreement</h2>
+    <p>These Terms constitute the entire agreement between you and ReputationGuardPro regarding the Services and supersede all prior agreements, understandings, or representations.</p>
+
+    <h2><i class="fas fa-headset"></i> 13. Contact Information</h2>
+    <p>For any questions, complaints, or cancellation requests, please contact us:</p>
+    <ul>
+      <li><strong>Email:</strong> <code>defend@reputationguard.pro</code> (primary)</li>
+      <li><strong>WhatsApp:</strong> <a href="https://wa.me/15053136274" target="_blank" style="color:#1E3A8A;">https://wa.me/15053136274</a></li>
+      <li><strong>Website:</strong> <a href="https://reputationguard.pro" target="_blank" style="color:#1E3A8A;">https://reputationguard.pro</a></li>
+      <li><strong>Manage Your Subscription:</strong> <a href="https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400" target="_blank" style="color:#1E3A8A;">Stripe Customer Portal</a> – cancel, update payment method, or view billing history</li>
+    </ul>
+
+    <div class="last-updated">
+      <i class="fas fa-calendar-alt"></i> Last updated: <strong>July 17, 2026</strong>
+    </div>
+
+    <div style="margin-top: 24px; border-top: 1px solid #eef2ff; padding-top: 20px; display: flex; gap: 16px; flex-wrap: wrap;">
+      <a href="/privacy-policy.html" style="color:#1E3A8A; text-decoration:none;">Privacy Policy</a>
+      <a href="/terms-of-service.html" style="color:#1E3A8A; text-decoration:none;">Terms of Service</a>
+      <a href="/refund-policy.html" style="color:#1E3A8A; text-decoration:none;">Refund Policy</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-container">
+
+    <div class="footer-column">
+      <h4>ReputationGuard</h4>
+      <p>AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends — by restoring the trust signals that drive AI visibility and sales.</p>
+      <p style="margin-top: 8px;"><a href="/about.html">About Us</a></p>
+    </div>
+
+    <div class="footer-column">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="/review-removal.html">AI Visibility Optimization</a></li>
+        <li><a href="/appeal-filing.html">Signal Cleanup</a></li>
+        <li><a href="/reputation-monitoring.html">AI Sentiment Monitoring</a></li>
+        <li><a href="/serm-consulting.html">GEO Strategy Consulting</a></li>
+        <li><a href="/affiliate.html">Affiliate Program</a></li>
+        <li><a href="/white-label.html">White‑Label Partnership</a></li>
+        <li><a href="/enterprise.html">Enterprise</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Industries</h4>
+      <ul>
+        <li><a href="/hotel-reputation-management.html">🏨 Hotels</a></li>
+        <li><a href="/dental-reputation-management.html">🦷 Dental Clinics</a></li>
+        <li><a href="/restaurant-reputation-management.html">🍽️ Restaurants</a></li>
+        <li><a href="/car-rental-reputation-management.html">🚗 Car Rentals</a></li>
+        <li><a href="/tour-reputation-management.html">✈️ Tours &amp; Travel</a></li>
+        <li><a href="/fitness-reputation-management.html">💪 Fitness &amp; Physio</a></li>
+        <li><a href="/resort-reputation-management.html">🌴 Resorts</a></li>
+        <li><a href="/legal-reputation-management.html">⚖️ Law Firms</a></li>
+        <li><a href="/real-estate-reputation-management.html">🏠 Real Estate</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms-of-service.html">Terms of Service</a></li>
+        <li><a href="/refund-policy.html">Refund Policy</a></li>
+        <li><a href="https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400" target="_blank">Manage Subscription</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Contact</h4>
+      <p><i class="fas fa-envelope"></i> defend@reputationguard.pro</p>
+      <p><i class="fas fa-globe"></i> reputationguard.pro</p>
+      <p>
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:+15053136274" style="color:#93C5FD;">+1 (505) 313‑6274</a>
+        <span style="color:#9ca3af; display:block; font-size:0.75rem; margin-top:2px;">Call / WhatsApp · Mon–Fri 9am–6pm EST</span>
+      </p>
+      <h4 style="margin-top: 20px; font-size: 0.9rem;">Language</h4>
+      <div class="footer-lang-switch" style="margin-top: 8px;">
+        <button class="lang-btn" data-lang="en"><span class="fi fi-us"></span> EN</button>
+        <button class="lang-btn" data-lang="vi"><span class="fi fi-vn"></span> VI</button>
+        <button class="lang-btn" data-lang="pt"><span class="fi fi-br"></span> PT</button>
+        <button class="lang-btn" data-lang="tr"><span class="fi fi-tr"></span> TR</button>
+        <button class="lang-btn" data-lang="ar"><span class="fi fi-sa"></span> ع</button>
+        <button class="lang-btn" data-lang="es"><span class="fi fi-es"></span> ES</button>
+        <button class="lang-btn" data-lang="de"><span class="fi fi-de"></span> DE</button>
+        <button class="lang-btn" data-lang="fr"><span class="fi fi-fr"></span> FR</button>
+        <button class="lang-btn" data-lang="it"><span class="fi fi-it"></span> IT</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>*Results may vary. AI platforms make independent recommendation decisions.</p>
+    <p>© 2026 ReputationGuard Global. All rights reserved.</p>
+    <p style="font-size: 0.65rem; color: #9ca3af; margin-top: 8px;">
+      1209 Mountain Road PL NE, STE N, Albuquerque, NM 87110, USA
+    </p>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    var navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Burger menu
+  var navToggle = document.querySelector('.nav-toggle');
+  var navMenu = document.querySelector('.nav-menu');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('open');
+      this.classList.toggle('active');
+    });
+    navMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navMenu.classList.remove('open');
+        navToggle.classList.remove('active');
+      });
+    });
+  }
+</script>
+
+<!-- Flag icons (CDN) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
 
 </body>
 </html>
