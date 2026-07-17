@@ -8497,10 +8497,13 @@ if (navLangSelect) {
     if (!input || !btn) return;
 
     
-    var lang = localStorage.getItem('preferredLanguage') || 'en';
-    var t = translations[lang] || translations.en;
-
     function applyAlreadyCheckedState() {
+      // Re-read the language fresh on every call — language auto-detection can finish
+      // (and persist to localStorage) after this script first ran, so a value captured
+      // once at load time could still be stale English when this fires mid-session.
+      var lang = localStorage.getItem('preferredLanguage') || 'en';
+      var t = translations[lang] || translations.en;
+
       input.value = t['already-checked-placeholder'] || 'Business already checked. Contact us for full audit.';
       input.readOnly = true;
       input.style.color = '#f9fafb';
