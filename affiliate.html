@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Affiliate Program – Earn Lifetime Recurring Commissions | ReputationGuard</title>
-  <meta name="description" content="Join ReputationGuard affiliate program. Earn lifetime recurring commissions up to 10% by promoting AI Visibility services. Apply today.">
+  <title>Affiliate Program – Earn Lifetime Recurring Commissions | ReputationGuardPro</title>
+  <meta name="description" content="Join ReputationGuardPro affiliate program. Earn lifetime recurring commissions up to 10% by promoting AI Visibility services. Apply today.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <style>
@@ -13,17 +13,164 @@
     body { font-family: 'Inter', sans-serif; background: #0d0f14; color: #e5e7eb; line-height: 1.5; scroll-behavior: smooth; }
 
     .container { width: min(1280px, calc(100% - 48px)); margin: 0 auto; padding: 0; box-sizing: border-box; }
-    .navbar { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; flex-wrap: wrap; gap: 20px; }
-    .logo { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #60A5FA, #3B82F6); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.5px; text-decoration: none; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      background: rgba(13, 15, 20, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .navbar.scrolled {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      background: rgba(13, 15, 20, 0.60);
+    }
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .navbar .logo .brand {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #60A5FA, #3B82F6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+    }
+    .navbar .logo .badge-smb {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 0 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #9ca3af;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.6;
+      white-space: nowrap;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #e5e7eb;
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: transform 0.25s ease;
+    }
+    .nav-toggle.active { transform: rotate(90deg); }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 28px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    .nav-menu a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .nav-menu a:hover {
+      color: #60A5FA;
+      border-bottom-color: #60A5FA;
+    }
+    .nav-menu .nav-cta {
+      padding: 8px 24px;
+      font-size: 0.9rem;
+      background: #1E3A8A;
+      color: white;
+      border-radius: 40px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 10px rgba(30,58,138,0.3);
+      border-bottom: none;
+    }
+    .nav-menu .nav-cta:hover {
+      background: #2563EB;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37,99,235,0.4);
+      border-bottom: none;
+    }
+    @media (max-width: 992px) {
+      .nav-toggle { display: block; z-index: 10000; }
+      .nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(13, 15, 20, 0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        padding: 40px 24px;
+        z-index: 9999;
+        margin: 0;
+        border-radius: 0;
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu li { width: 100%; text-align: center; }
+      .nav-menu a {
+        font-size: 1.4rem;
+        padding: 12px 0;
+        display: block;
+        border-bottom: none;
+        color: #f9fafb;
+      }
+      .nav-menu a:hover {
+        border-bottom: none;
+        background: rgba(59,130,246,0.08);
+        border-radius: 12px;
+      }
+      .nav-menu .nav-cta {
+        display: inline-block;
+        width: auto;
+        padding: 12px 32px;
+        font-size: 1.1rem;
+      }
+      .navbar .logo .brand { font-size: 1.3rem; }
+      .navbar .logo .badge-smb { font-size: 0.55rem; padding: 0 6px; }
+    }
+
+    /* ===== BUTTONS ===== */
     .btn-primary { background: #1E3A8A; color: white; padding: 12px 28px; border-radius: 40px; font-weight: 700; border: none; font-size: 1rem; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 10px rgba(30,58,138,0.3); display: inline-block; text-decoration: none; }
     .btn-primary:hover { background: #2563EB; transform: translateY(-2px); }
     .btn-success { background: #10B981; color: white; padding: 14px 36px; border-radius: 40px; font-weight: 700; border: none; font-size: 1rem; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 14px rgba(16,185,129,0.25); display: inline-block; text-decoration: none; }
     .btn-success:hover { background: #059669; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(16,185,129,0.3); }
     .btn-outline { background: transparent; border: 2px solid #3B82F6; color: #3B82F6; padding: 10px 24px; border-radius: 40px; font-weight: 700; cursor: pointer; transition: 0.2s; text-decoration: none; display: inline-block; }
     .btn-outline:hover { background: #1E3A8A; color: white; border-color: #1E3A8A; }
+
+    /* ===== SECTIONS ===== */
+    .section { width: 100%; margin: 80px auto; }
     .section-title { font-size: 2.2rem; font-weight: 800; text-align: center; margin-bottom: 16px; color: #f9fafb; }
     .section-sub { text-align: center; color: #9ca3af; max-width: 700px; margin: 0 auto 48px; }
-    .section { width: 100%; margin: 80px auto; }
     .gray-box { background: #1a1f2b; border-radius: 48px; padding: 40px 24px; border: 1px solid #2d3748; text-align: center; }
     .dark-box { background: #0F172A; border-radius: 48px; padding: 40px 24px; color: white; text-align: center; border: 1px solid #1e293b; }
     .card-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 40px; }
@@ -32,6 +179,7 @@
     .card-icon { font-size: 2.5rem; color: #3B82F6; margin-bottom: 16px; }
     .card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: #f9fafb; }
     .card p { color: #9ca3af; line-height: 1.6; }
+
     .hero-affiliate { background: linear-gradient(135deg, #0F172A, #1E3A8A); border-radius: 48px; padding: 64px 48px; color: white; margin: 40px 0 60px; text-align: center; border: 1px solid #1e293b; box-shadow: 0 30px 60px -12px rgba(0,0,0,0.6); }
     .hero-affiliate h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
     .hero-affiliate p { font-size: 1.2rem; color: #c8cdd8; max-width: 700px; margin: 0 auto 24px; }
@@ -39,6 +187,7 @@
     .hero-affiliate .stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); }
     .hero-affiliate .stats div { font-size: 0.95rem; color: #9CA3AF; text-align: center; }
     .hero-affiliate .stats span { display: block; font-size: 2rem; font-weight: 800; color: white; }
+
     .commission-table { width: 100%; max-width: 1000px; margin: 32px auto; border-collapse: collapse; background: #1a1f2b; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
     .commission-table th { background: #0F172A; color: #f9fafb; padding: 16px; text-align: center; font-weight: 700; border-bottom: 2px solid #2d3748; }
     .commission-table td { padding: 14px 16px; border-bottom: 1px solid #2d3748; color: #e5e7eb; text-align: center; }
@@ -47,15 +196,26 @@
     .commission-table .upfront { color: #93C5FD; font-weight: 600; }
     .commission-table .recurring { color: #34d399; font-weight: 600; }
     .commission-table .actions { color: #FCD34D; font-weight: 600; }
+
     .example-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin: 32px 0; }
     .example-card { background: #1a1f2b; border-radius: 20px; padding: 24px; text-align: center; border: 1px solid #2d3748; box-shadow: 0 4px 10px rgba(0,0,0,0.2); flex: 1 1 200px; max-width: 220px; }
     .example-card .amount { font-size: 2rem; font-weight: 800; color: #34d399; }
     .example-card .label { color: #9ca3af; margin-top: 8px; font-size:0.85rem; }
     .example-card.highlight { border-color: #10B981; background: #0f2a1f; }
+    .example-card.popular { border-color: #FCD34D; background: #1e2a1f; }
+
     .benefits-flex { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 24px; }
     .benefit-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: #e5e7eb; display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-radius: 40px; flex: 1 1 calc(33.333% - 20px); min-width: 200px; max-width: 360px; box-sizing: border-box; }
     .benefit-item i { color: #FCD34D; font-size: 1.2rem; flex-shrink: 0; }
     .benefit-item span { font-size: 0.95rem; }
+
+    .info-box { background: #1a1f2b; border-radius: 28px; padding: 24px 32px; border: 1px solid #2d3748; max-width: 820px; margin: 0 auto; }
+    .info-box h3 { color: #f9fafb; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; justify-content: center; }
+    .info-box p { color: #9ca3af; line-height: 1.6; }
+
+    .tag { background: #1e293b; color: #93C5FD; padding: 6px 16px; border-radius: 40px; font-weight: 600; display: inline-block; border: 1px solid #2d3748; }
+    .tag-green { background: #0f2a1f; color: #34d399; border-color: #1a4d33; }
+
     .form-affiliate { max-width: 720px; margin: 0 auto; background: #1a1f2b; border-radius: 32px; padding: 40px 36px; border: 1px solid #2d3748; }
     .form-group { margin-bottom: 24px; text-align: left; }
     .form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: #f9fafb; }
@@ -64,16 +224,14 @@
     .form-group textarea { resize: vertical; min-height: 100px; }
     .form-status { margin-top: 16px; font-size: 0.85rem; text-align: center; color: #9ca3af; }
     .form-help { font-size: 0.8rem; color: #9ca3af; margin-top: 4px; }
+
     .faq-container { max-width: 800px; margin: 32px auto 0; }
     .faq-item { background: #1a1f2b; border-radius: 24px; padding: 20px 28px; margin-bottom: 16px; border: 1px solid #2d3748; cursor: pointer; text-align: left; }
     .faq-question { font-weight: 700; font-size: 1.1rem; display: flex; justify-content: space-between; align-items: center; color: #f9fafb; }
     .faq-answer { margin-top: 12px; color: #9ca3af; display: none; line-height: 1.6; }
     .faq-item.active .faq-answer { display: block; }
-    .info-box { background: #1a1f2b; border-radius: 28px; padding: 24px 32px; border: 1px solid #2d3748; max-width: 820px; margin: 0 auto; }
-    .info-box h3 { color: #f9fafb; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-    .info-box p { color: #9ca3af; line-height: 1.6; }
-    .tag { background: #1e293b; color: #93C5FD; padding: 6px 16px; border-radius: 40px; font-weight: 600; display: inline-block; border: 1px solid #2d3748; }
-    .tag-green { background: #0f2a1f; color: #34d399; border-color: #1a4d33; }
+
+    /* ===== FOOTER ===== */
     footer { background: #0d0f14; border-top: 1px solid #2d3748; margin-top: 70px; }
     .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; max-width: 1280px; margin: 0 auto; padding: 48px 24px 32px; }
     .footer-column { flex: 1; min-width: 180px; }
@@ -85,6 +243,7 @@
     .footer-column a:hover { text-decoration: underline; }
     .footer-column p i { width: 18px; text-align: center; margin-right: 8px; }
     .footer-bottom { text-align: center; padding: 24px; border-top: 1px solid #2d3748; font-size: 0.7rem; color: #6c757d; }
+
     @media (max-width: 768px) {
       .hero-affiliate { padding: 32px 20px; }
       .hero-affiliate h1 { font-size: 2rem; }
@@ -97,65 +256,78 @@
       .card { flex: 1 1 100%; max-width: 100%; }
       .gray-box, .dark-box { padding: 24px 16px; }
       .info-box { padding: 20px 16px; }
+      .footer-column p i { width: auto; }
     }
     @media (max-width: 480px) {
       .benefit-item { flex: 1 1 100%; }
       .commission-table th, .commission-table td { font-size: 0.7rem; padding: 6px 4px; }
     }
   </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18250144884"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18250144884');
-  gtag('config', 'G-31HRXQ97B1');
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://reputationguard.pro/affiliate.html#webpage",
-  "name": "Affiliate Program",
-  "description": "Join the ReputationGuard.PRO affiliate program and earn commissions by promoting AI Visibility services.",
-  "url": "https://reputationguard.pro/affiliate.html",
-  "isPartOf": { "@id": "https://reputationguard.pro/#website" },
-  "breadcrumb": { "@id": "https://reputationguard.pro/affiliate.html#breadcrumb" },
-  "inLanguage": "en",
-  "dateModified": "2026-07-02"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "@id": "https://reputationguard.pro/affiliate.html#breadcrumb",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://reputationguard.pro" },
-    { "@type": "ListItem", "position": 2, "name": "Affiliate Program", "item": "https://reputationguard.pro/affiliate.html" }
-  ]
-}
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18250144884"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18250144884');
+    gtag('config', 'G-31HRXQ97B1');
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://reputationguard.pro/affiliate.html#webpage",
+    "name": "Affiliate Program",
+    "description": "Join the ReputationGuardPro affiliate program and earn commissions by promoting AI Visibility services.",
+    "url": "https://reputationguard.pro/affiliate.html",
+    "isPartOf": { "@id": "https://reputationguard.pro/#website" },
+    "breadcrumb": { "@id": "https://reputationguard.pro/affiliate.html#breadcrumb" },
+    "inLanguage": "en",
+    "dateModified": "2026-07-17"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://reputationguard.pro/affiliate.html#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://reputationguard.pro" },
+      { "@type": "ListItem", "position": 2, "name": "Affiliate Program", "item": "https://reputationguard.pro/affiliate.html" }
+    ]
+  }
+  </script>
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- ===== NAVBAR ===== -->
 <div class="container">
-  <div class="navbar">
-    <a href="/" class="logo">🛡️ ReputationGuard</a>
-    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-      <a href="/" class="btn-outline" style="padding: 6px 18px; font-size: 0.85rem;">← Home</a>
-    </div>
+  <div class="navbar" id="navbar">
+    <a href="/" class="logo">
+      <span class="brand">🛡️ ReputationGuardPro</span>
+      <span class="badge-smb">SMB</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-menu">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#cases">Case Studies</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/enterprise.html">Enterprise</a></li>
+      <li><a href="/#contact-form-section" class="btn-primary nav-cta">Free Audit</a></li>
+    </ul>
   </div>
 </div>
 
-<!-- HERO -->
+<!-- ===== HERO ===== -->
 <section class="section">
   <div class="container">
     <div class="hero-affiliate">
       <h1>Earn <span class="highlight">Lifetime Recurring</span> Commissions</h1>
-      <p><strong>Help businesses get listed</strong> on ChatGPT, Gemini, Claude, Perplexity, Grok &amp; DeepSeek — and earn 10% recurring commission on every subscription, for life.</p>
+      <p><strong>Help businesses get recommended</strong> by ChatGPT, Gemini, Claude, Perplexity, Grok &amp; DeepSeek — and earn 10% recurring commission on every subscription, for life.</p>
       <p style="font-size: 1rem; color: #9CA3AF; margin-bottom: 20px;">⚠️ 100% commission-based contractor opportunity. No fixed salary.</p>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
         <a href="#apply" class="btn-success">Apply Now →</a>
@@ -171,13 +343,13 @@
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ===== ABOUT ===== -->
 <section class="section">
   <div class="container">
-    <h2 class="section-title">About ReputationGuard.pro</h2>
-    <p class="section-sub">We help businesses become visible to AI — fixing reputation signals, improving trust, and getting them recommended by AI search platforms.</p>
+    <h2 class="section-title">About ReputationGuardPro</h2>
+    <p class="section-sub">We help businesses become visible to AI — boosting reputation signals, building trust, and getting them recommended by every major AI platform.</p>
     <div class="card-grid">
-      <div class="card"><i class="fas fa-robot card-icon"></i><h3>Get Listed on AI</h3><p>Ensure your brand appears in ChatGPT, Gemini, Claude, Perplexity, Grok and DeepSeek recommendations.</p></div>
+      <div class="card"><i class="fas fa-robot card-icon"></i><h3>Get Recommended on AI</h3><p>Ensure your brand appears in ChatGPT, Gemini, Claude, Perplexity, Grok and DeepSeek recommendations.</p></div>
       <div class="card"><i class="fas fa-shield-alt card-icon"></i><h3>Clean Reputation Signals</h3><p>Remove fake reviews and fix weak trust signals that make AI avoid your brand.</p></div>
       <div class="card"><i class="fas fa-star card-icon"></i><h3>Build AI Authority</h3><p>Optimize content, schema, and authority signals so AI trusts your business.</p></div>
       <div class="card"><i class="fas fa-chart-line card-icon"></i><h3>Drive Revenue Growth</h3><p>Higher AI visibility = more qualified leads and higher conversion rates.</p></div>
@@ -185,7 +357,7 @@
   </div>
 </section>
 
-<!-- COMMISSION STRUCTURE -->
+<!-- ===== COMMISSION STRUCTURE ===== -->
 <section id="structure" class="section">
   <div class="container">
     <h2 class="section-title">Commission Structure</h2>
@@ -195,7 +367,7 @@
         <tr>
           <th>Service / Plan</th>
           <th>Price</th>
-          <th style="text-align:center;">Actions / Month</th>
+          <th style="text-align:center;">Boosts / Month</th>
           <th>One‑Time Bonus</th>
           <th>Recurring Monthly</th>
         </tr>
@@ -204,28 +376,28 @@
         <tr>
           <td>AI Visibility Boost</td>
           <td>$249 (one‑time)</td>
-          <td style="text-align:center;" class="actions">3 fixes</td>
+          <td style="text-align:center;" class="actions">3 boosts</td>
           <td class="upfront">$50 (20%)</td>
           <td>—</td>
         </tr>
         <tr>
           <td>AI Visibility</td>
           <td>$399/mo</td>
-          <td style="text-align:center;" class="actions">5 actions/mo</td>
+          <td style="text-align:center;" class="actions">5 boosts/mo</td>
           <td class="upfront">$60 (15%)</td>
           <td class="recurring">$40 (10%)</td>
         </tr>
         <tr>
           <td>AI Authority</td>
           <td>$899/mo</td>
-          <td style="text-align:center;" class="actions">15 actions/mo</td>
+          <td style="text-align:center;" class="actions">15 boosts/mo</td>
           <td class="upfront">$135 (15%)</td>
           <td class="recurring">$90 (10%)</td>
         </tr>
         <tr class="highlight-cell">
-          <td>AI Dominate</td>
+          <td>AI Dominance</td>
           <td>$1,799/mo</td>
-          <td style="text-align:center;" class="actions">30+ actions/mo</td>
+          <td style="text-align:center;" class="actions">30+ boosts/mo</td>
           <td class="upfront">$270 (15%)</td>
           <td class="recurring">$180 (10%)</td>
         </tr>
@@ -237,17 +409,17 @@
   </div>
 </section>
 
-<!-- EXAMPLE RECURRING INCOME -->
+<!-- ===== EXAMPLE RECURRING INCOME ===== -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">Example Recurring Income</h2>
     <p class="section-sub">See how your income grows with different portfolio mixes. All figures based on 10% lifetime recurring commission.</p>
     <div class="example-grid">
-      <div class="example-card"><div class="amount">$310</div><div class="label">3 Visibility + 2 Authority + 1 Dominate<br><span style="font-size:0.8rem; color:#6b7280;">(3×$40 + 2×$90 + 1×$180 = $310/mo)</span></div></div>
-      <div class="example-card"><div class="amount">$580</div><div class="label">5 Authority + 2 Visibility + 1 Dominate<br><span style="font-size:0.8rem; color:#6b7280;">(5×$90 + 2×$40 + 1×$180 = $580/mo)</span></div></div>
-      <div class="example-card"><div class="amount">$900</div><div class="label">10 Authority + 5 Visibility<br><span style="font-size:0.8rem; color:#6b7280;">(10×$90 + 5×$40 = $900/mo)</span></div></div>
-      <div class="example-card highlight"><div class="amount">$2,700</div><div class="label">20 Authority + 10 Visibility + 5 Dominate<br><span style="font-size:0.8rem; color:#6b7280;">(20×$90 + 10×$40 + 5×$180 = $2,700/mo)</span></div></div>
-      <div class="example-card" style="border-color: #FCD34D; background: #1e2a1f;"><div class="amount" style="color: #FCD34D;">$4,500</div><div class="label">30 Authority + 20 Visibility + 10 Dominate<br><span style="font-size:0.8rem; color:#6b7280;">(30×$90 + 20×$40 + 10×$180 = $4,500/mo)</span></div></div>
+      <div class="example-card"><div class="amount">$310</div><div class="label">3 Visibility + 2 Accelerate + 1 Dominance<br><span style="font-size:0.8rem; color:#6b7280;">(3×$40 + 2×$90 + 1×$180 = $310/mo)</span></div></div>
+      <div class="example-card"><div class="amount">$580</div><div class="label">5 Accelerate + 2 Visibility + 1 Dominance<br><span style="font-size:0.8rem; color:#6b7280;">(5×$90 + 2×$40 + 1×$180 = $580/mo)</span></div></div>
+      <div class="example-card"><div class="amount">$900</div><div class="label">10 Accelerate + 5 Visibility<br><span style="font-size:0.8rem; color:#6b7280;">(10×$90 + 5×$40 = $900/mo)</span></div></div>
+      <div class="example-card highlight"><div class="amount">$2,700</div><div class="label">20 Accelerate + 10 Visibility + 5 Dominance<br><span style="font-size:0.8rem; color:#6b7280;">(20×$90 + 10×$40 + 5×$180 = $2,700/mo)</span></div></div>
+      <div class="example-card popular"><div class="amount" style="color: #FCD34D;">$4,500</div><div class="label">30 Accelerate + 20 Visibility + 10 Dominance<br><span style="font-size:0.8rem; color:#6b7280;">(30×$90 + 20×$40 + 10×$180 = $4,500/mo)</span></div></div>
     </div>
     <p style="text-align: center; color: #9ca3af; margin-top: 16px;">
       <i class="fas fa-plus-circle" style="color: #34d399;"></i> Plus one‑time bonuses from every new sale — paid on the first invoice.
@@ -255,7 +427,7 @@
   </div>
 </section>
 
-<!-- CONTRACT & PAYMENT -->
+<!-- ===== CONTRACT & PAYMENT ===== -->
 <section class="section">
   <div class="container">
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto;">
@@ -273,7 +445,7 @@
   </div>
 </section>
 
-<!-- TERRITORY & TRACKING -->
+<!-- ===== TERRITORY & TRACKING ===== -->
 <section class="section">
   <div class="container">
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto;">
@@ -291,20 +463,20 @@
   </div>
 </section>
 
-<!-- WHAT YOU'LL DO -->
+<!-- ===== WHAT YOU'LL DO ===== -->
 <section class="section">
   <div class="container gray-box">
     <h2 class="section-title">What You'll Do</h2>
     <div class="card-grid">
       <div class="card"><i class="fas fa-bullseye card-icon"></i><h3>Identify & Approach</h3><p>Find potential clients worldwide through LinkedIn, networking, referrals, and email outreach.</p></div>
-      <div class="card"><i class="fas fa-handshake card-icon"></i><h3>Refer & Close</h3><p>Introduce ReputationGuard AI Visibility services to business owners. We handle the rest — you earn the commission.</p></div>
+      <div class="card"><i class="fas fa-handshake card-icon"></i><h3>Refer & Close</h3><p>Introduce ReputationGuardPro AI Visibility services to business owners. We handle the rest — you earn the commission.</p></div>
       <div class="card"><i class="fas fa-users card-icon"></i><h3>Build Relationships</h3><p>Develop long‑term client relationships and manage your own sales pipeline.</p></div>
       <div class="card"><i class="fas fa-laptop-house card-icon"></i><h3>Work Independently</h3><p>Operate remotely from anywhere with full flexibility.</p></div>
     </div>
   </div>
 </section>
 
-<!-- IDEAL CANDIDATE -->
+<!-- ===== IDEAL CANDIDATE ===== -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">Ideal Candidate</h2>
@@ -317,7 +489,7 @@
   </div>
 </section>
 
-<!-- BENEFITS -->
+<!-- ===== BENEFITS ===== -->
 <section class="section">
   <div class="container dark-box">
     <h2 class="section-title" style="color: white;">Benefits</h2>
@@ -336,7 +508,7 @@
   </div>
 </section>
 
-<!-- HOW TO APPLY + FORM -->
+<!-- ===== HOW TO APPLY + FORM ===== -->
 <section id="apply" class="section">
   <div class="container">
     <h2 class="section-title">How To Apply</h2>
@@ -362,7 +534,7 @@
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- ===== FAQ ===== -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">Frequently Asked Questions</h2>
@@ -372,29 +544,31 @@
       <div class="faq-item"><div class="faq-question"><span>Is there a minimum payout threshold?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">No. We pay you the full amount due every month, no matter how small.</div></div>
       <div class="faq-item"><div class="faq-question"><span>Do you provide marketing materials?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Yes. You'll get access to banners, email templates, case studies, and sales scripts.</div></div>
       <div class="faq-item"><div class="faq-question"><span>Is my territory exclusive?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Yes. Once approved, all clients from your region are exclusively attributed to you.</div></div>
-      <div class="faq-item"><div class="faq-question"><span>What exactly are the AI Visibility services?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">We help businesses get listed on ChatGPT, Gemini, Claude, Perplexity, Grok and DeepSeek — by fixing reputation signals, removing fake reviews, optimizing content, and building trust signals that AI platforms look for when making recommendations.</div></div>
+      <div class="faq-item"><div class="faq-question"><span>What exactly are the AI Visibility services?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">We help businesses get recommended on ChatGPT, Gemini, Claude, Perplexity, Grok and DeepSeek — by boosting reputation signals, removing fake reviews, optimizing content, and building trust signals that AI platforms look for when making recommendations.</div></div>
       <div class="faq-item"><div class="faq-question"><span>Do I need to sign a contract?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Yes. We sign a formal partnership agreement that outlines commission structures, territory rights, confidentiality, and payment terms.</div></div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-container">
     <div class="footer-column">
       <h4>ReputationGuard</h4>
-      <p>AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, resorts, law firms, and real estate. We make your brand the one AI recommends.</p>
+      <p>AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends — by restoring the trust signals that drive AI visibility and sales.</p>
+      <p style="margin-top: 8px;"><a href="/about.html">About Us</a></p>
     </div>
 
     <div class="footer-column">
       <h4>Services</h4>
       <ul>
-        <li><a href="/review-removal.html">AI Reputation Cleanup</a></li>
-        <li><a href="/appeal-filing.html">AI Visibility Optimization</a></li>
+        <li><a href="/review-removal.html">AI Visibility Optimization</a></li>
+        <li><a href="/appeal-filing.html">Signal Cleanup</a></li>
         <li><a href="/reputation-monitoring.html">AI Sentiment Monitoring</a></li>
         <li><a href="/serm-consulting.html">GEO Strategy Consulting</a></li>
         <li><a href="/affiliate.html" style="font-weight:600; color:#34d399;">Affiliate Program</a></li>
         <li><a href="/white-label.html" style="font-weight:600; color:#93C5FD;">White‑Label Partnership</a></li>
+        <li><a href="/enterprise.html">Enterprise</a></li>
       </ul>
     </div>
 
@@ -419,6 +593,7 @@
         <li><a href="/privacy-policy.html">Privacy Policy</a></li>
         <li><a href="/terms-of-service.html">Terms of Service</a></li>
         <li><a href="/refund-policy.html">Refund Policy</a></li>
+        <li><a href="https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400" target="_blank">Manage Subscription</a></li>
       </ul>
     </div>
 
@@ -427,6 +602,7 @@
       <p><i class="fas fa-envelope"></i> defend@reputationguard.pro</p>
       <p><i class="fas fa-globe"></i> reputationguard.pro</p>
       <p><i class="fab fa-whatsapp"></i> +1(505)313-6274</p>
+      <p><i class="fas fa-phone-alt"></i> +1 (505) 313‑6274</p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -435,6 +611,33 @@
 </footer>
 
 <script>
+  // ===== NAVBAR SCROLL =====
+  window.addEventListener('scroll', function() {
+    var navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // ===== BURGER TOGGLE =====
+  var navToggle = document.querySelector('.nav-toggle');
+  var navMenu = document.querySelector('.nav-menu');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('open');
+      this.classList.toggle('active');
+    });
+    navMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navMenu.classList.remove('open');
+        navToggle.classList.remove('active');
+      });
+    });
+  }
+
+  // ===== FAQ ACCORDION =====
   document.querySelectorAll('.faq-item').forEach(function(item) {
     item.querySelector('.faq-question').addEventListener('click', function() {
       item.classList.toggle('active');
