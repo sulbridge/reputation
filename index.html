@@ -988,6 +988,52 @@ footer {
 }
 
 /* Pricing cards */
+.enterprise-callout {
+  max-width: 900px; margin: 40px auto 0;
+  background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(17,24,39,0.6));
+  border: 1px solid rgba(139,92,246,0.3);
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.enterprise-callout-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; color: white;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(139,92,246,0.35);
+}
+.enterprise-callout-text { flex: 1; min-width: 240px; }
+.enterprise-callout-text h3 { font-size: 1.15rem; font-weight: 700; color: #f9fafb; margin: 0 0 6px; }
+.enterprise-callout-text p { font-size: 0.88rem; color: #9ca3af; margin: 0; line-height: 1.5; }
+.enterprise-callout-btn {
+  flex-shrink: 0;
+  border: 2px solid #8B5CF6;
+  color: #C4B5FD;
+  background: transparent;
+  padding: 12px 28px;
+  border-radius: 40px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.enterprise-callout-btn:hover {
+  background: #8B5CF6;
+  color: white;
+  transform: translateY(-2px);
+}
+@media (max-width: 640px) {
+  .enterprise-callout { flex-direction: column; text-align: center; padding: 24px 20px; }
+}
 .roi-calc {
   max-width: 680px; margin: 0 auto 32px;
   background: rgba(17,24,39,0.6);
@@ -3578,6 +3624,15 @@ const afterData = {
   </a>
 </div>
 
+<div class="enterprise-callout">
+  <div class="enterprise-callout-icon"><i class="fas fa-building"></i></div>
+  <div class="enterprise-callout-text">
+    <h3 data-i18n="enterprise-title">Need something bigger?</h3>
+    <p data-i18n="enterprise-desc">Custom plans for multi-location brands, franchises, and agencies managing AI visibility across dozens of locations. Dedicated infrastructure, custom reporting, volume pricing.</p>
+  </div>
+  <a href="/enterprise.html" class="enterprise-callout-btn" data-i18n="enterprise-cta">Talk to Sales <i class="fas fa-arrow-right"></i></a>
+</div>
+
 </section>
 <!-- ===== END PRICING ===== -->
 
@@ -5499,6 +5554,9 @@ const afterData = {
     "nav-about": "About",
     "hero-btn": "Free Audit",
     "hero-badge": "⚡ AI Visibility Engine",
+    "enterprise-title": "Need something bigger?",
+    "enterprise-desc": "Custom plans for multi-location brands, franchises, and agencies managing AI visibility across dozens of locations. Dedicated infrastructure, custom reporting, volume pricing.",
+    "enterprise-cta": "Talk to Sales",
     "roi-title": "What's Your AI Visibility Worth?",
     "roi-revenue-label": "Average monthly revenue",
     "roi-score-label": "Current AI visibility score",
@@ -5778,6 +5836,9 @@ const afterData = {
     "nav-about": "Sobre Nosotros",
     "hero-btn": "Auditoría Gratuita",
     "hero-badge": "⚡ Motor de Visibilidad en IA",
+    "enterprise-title": "¿Necesita algo más grande?",
+    "enterprise-desc": "Planes a medida para marcas multi-sucursal, franquicias y agencias que gestionan visibilidad en IA en decenas de ubicaciones. Infraestructura dedicada, informes personalizados, precios por volumen.",
+    "enterprise-cta": "Hablar con Ventas",
     "roi-title": "¿Cuánto vale su visibilidad en IA?",
     "roi-revenue-label": "Ingreso mensual promedio",
     "roi-score-label": "Puntuación actual de visibilidad en IA",
@@ -6057,6 +6118,9 @@ const afterData = {
     "nav-about": "Sobre Nosotros",
     "hero-btn": "Auditoría Gratuita",
     "hero-badge": "⚡ Motor de Visibilidad en IA",
+    "enterprise-title": "¿Necesita algo más grande?",
+    "enterprise-desc": "Planes a medida para marcas multi-sucursal, franquicias y agencias que gestionan visibilidad en IA en decenas de ubicaciones. Infraestructura dedicada, informes personalizados, precios por volumen.",
+    "enterprise-cta": "Hablar con Ventas",
     "roi-title": "¿Cuánto vale su visibilidad en IA?",
     "roi-revenue-label": "Ingreso mensual promedio",
     "roi-score-label": "Puntuación actual de visibilidad en IA",
@@ -6336,6 +6400,9 @@ const afterData = {
     "nav-about": "Über uns",
     "hero-btn": "Kostenloses Audit",
     "hero-badge": "⚡ KI-Sichtbarkeits-Engine",
+    "enterprise-title": "Brauchen Sie mehr?",
+    "enterprise-desc": "Individuelle Pläne für Marken mit mehreren Standorten, Franchises und Agenturen, die KI-Sichtbarkeit über Dutzende Standorte hinweg verwalten. Dedizierte Infrastruktur, individuelle Berichte, Mengenpreise.",
+    "enterprise-cta": "Vertrieb kontaktieren",
     "roi-title": "Was ist Ihre KI-Sichtbarkeit wert?",
     "roi-revenue-label": "Durchschnittlicher monatlicher Umsatz",
     "roi-score-label": "Aktueller KI-Sichtbarkeits-Score",
@@ -6615,6 +6682,9 @@ const afterData = {
     "nav-about": "À Propos",
     "hero-btn": "Audit Gratuit",
     "hero-badge": "⚡ Moteur de Visibilité IA",
+    "enterprise-title": "Besoin de plus grand ?",
+    "enterprise-desc": "Des plans sur mesure pour les marques multi-sites, les franchises et les agences qui gèrent la visibilité IA sur des dizaines d'emplacements. Infrastructure dédiée, rapports personnalisés, tarification au volume.",
+    "enterprise-cta": "Contacter les Ventes",
     "roi-title": "Combien vaut votre visibilité IA ?",
     "roi-revenue-label": "Revenu mensuel moyen",
     "roi-score-label": "Score de visibilité IA actuel",
@@ -6894,6 +6964,9 @@ const afterData = {
     "nav-about": "О нас",
     "hero-btn": "Бесплатный аудит",
     "hero-badge": "⚡ Двигатель видимости в ИИ",
+    "enterprise-title": "Нужно что-то масштабнее?",
+    "enterprise-desc": "Индивидуальные планы для сетевых брендов, франшиз и агентств, управляющих видимостью в ИИ по десяткам локаций сразу. Выделенная инфраструктура, индивидуальная отчётность, объёмные цены.",
+    "enterprise-cta": "Связаться с отделом продаж",
     "roi-title": "Сколько стоит ваша видимость в ИИ?",
     "roi-revenue-label": "Средняя месячная выручка",
     "roi-score-label": "Текущий рейтинг видимости в ИИ",
@@ -7173,6 +7246,9 @@ const afterData = {
     "nav-about": "Về Chúng Tôi",
     "hero-btn": "Audit Miễn Phí",
     "hero-badge": "⚡ Công Cụ Hiển Thị Trên AI",
+    "enterprise-title": "Cần một giải pháp lớn hơn?",
+    "enterprise-desc": "Gói tùy chỉnh dành cho thương hiệu đa chi nhánh, nhượng quyền và các agency quản lý hiển thị AI trên hàng chục địa điểm. Hạ tầng riêng, báo cáo tùy chỉnh, giá theo khối lượng.",
+    "enterprise-cta": "Liên Hệ Bộ Phận Kinh Doanh",
     "roi-title": "Hiển Thị AI Của Bạn Đáng Giá Bao Nhiêu?",
     "roi-revenue-label": "Doanh thu trung bình hàng tháng",
     "roi-score-label": "Điểm hiển thị AI hiện tại",
@@ -7452,6 +7528,9 @@ const afterData = {
     "nav-about": "Sobre Nós",
     "hero-btn": "Auditoria Grátis",
     "hero-badge": "⚡ Motor de Visibilidade em IA",
+    "enterprise-title": "Precisa de algo maior?",
+    "enterprise-desc": "Planos personalizados para marcas com múltiplas unidades, franquias e agências que gerenciam visibilidade em IA em dezenas de locais. Infraestrutura dedicada, relatórios personalizados, preços por volume.",
+    "enterprise-cta": "Falar com Vendas",
     "roi-title": "Quanto Vale Sua Visibilidade em IA?",
     "roi-revenue-label": "Receita média mensal",
     "roi-score-label": "Pontuação atual de visibilidade em IA",
@@ -7731,6 +7810,9 @@ const afterData = {
     "nav-about": "Hakkımızda",
     "hero-btn": "Ücretsiz Denetim",
     "hero-badge": "⚡ AI Görünürlük Motoru",
+    "enterprise-title": "Daha büyük bir şeye mi ihtiyacınız var?",
+    "enterprise-desc": "Onlarca lokasyonda AI görünürlüğünü yöneten çok şubeli markalar, franchise'lar ve ajanslar için özel planlar. Özel altyapı, özel raporlama, hacim bazlı fiyatlandırma.",
+    "enterprise-cta": "Satış Ekibiyle Görüşün",
     "roi-title": "AI Görünürlüğünüz Ne Kadar Değerli?",
     "roi-revenue-label": "Ortalama aylık gelir",
     "roi-score-label": "Mevcut AI görünürlük puanı",
@@ -8010,6 +8092,9 @@ const afterData = {
     "nav-about": "Chi Siamo",
     "hero-btn": "Audit Gratuito",
     "hero-badge": "⚡ Motore di Visibilità nell'IA",
+    "enterprise-title": "Ti serve qualcosa di più grande?",
+    "enterprise-desc": "Piani su misura per brand multi-sede, franchising e agenzie che gestiscono la visibilità nell'IA su decine di sedi. Infrastruttura dedicata, reportistica personalizzata, prezzi a volume.",
+    "enterprise-cta": "Parla con le Vendite",
     "roi-title": "Quanto Vale la Tua Visibilità nell'IA?",
     "roi-revenue-label": "Ricavi mensili medi",
     "roi-score-label": "Punteggio attuale di visibilità nell'IA",
@@ -8289,6 +8374,9 @@ const afterData = {
     "nav-about": "من نحن",
     "hero-btn": "تدقيق مجاني",
     "hero-badge": "⚡ محرك ظهور الذكاء الاصطناعي",
+    "enterprise-title": "تحتاج إلى شيء أكبر؟",
+    "enterprise-desc": "خطط مخصصة للعلامات التجارية متعددة الفروع والامتيازات التجارية والوكالات التي تدير الظهور في الذكاء الاصطناعي عبر عشرات المواقع. بنية تحتية مخصصة، تقارير مخصصة، أسعار حسب الحجم.",
+    "enterprise-cta": "تحدث مع فريق المبيعات",
     "roi-title": "كم تساوي رؤية علامتك التجارية في الذكاء الاصطناعي؟",
     "roi-revenue-label": "متوسط الإيرادات الشهرية",
     "roi-score-label": "درجة الظهور الحالية في الذكاء الاصطناعي",
