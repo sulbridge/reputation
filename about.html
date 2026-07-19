@@ -286,6 +286,75 @@
       margin-top: 8px;
     }
 
+    /* ===== TIMELINE (Our Story) ===== */
+    .timeline {
+      position: relative;
+      margin: 40px 0 8px;
+      padding-left: 36px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 9px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(180deg, #3B82F6, #2d3748 85%);
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 32px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -36px;
+      top: 4px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #0d0f14;
+      border: 2px solid #3B82F6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .timeline-dot::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #60A5FA;
+    }
+    .timeline-item.is-now .timeline-dot {
+      border-color: #60A5FA;
+      box-shadow: 0 0 0 4px rgba(96,165,250,0.15);
+    }
+    .timeline-year {
+      display: inline-block;
+      color: #60A5FA;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 4px;
+    }
+    .timeline-item h4 {
+      color: #f9fafb;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .timeline-item p {
+      color: #9ca3af;
+      font-size: 0.98rem;
+      max-width: 620px;
+    }
+
+    @media (max-width: 768px) {
+      .timeline { padding-left: 30px; }
+      .timeline-dot { left: -30px; }
+    }
+
     /* ===== FOOTER (единый с главной) ===== */
     footer {
       background: #0d0f14;
@@ -408,40 +477,62 @@
   </div>
 </div>
 
-<!-- ===== HERO ===== -->
-<div class="container">
-  <section class="section" style="padding-top: 20px;">
-    <span class="badge-ai">⚡ AI Visibility Engine</span>
-    <h1 class="section-title">Dominate AI Search —<br><span>Get Recommended</span> by ChatGPT, Gemini &amp; More</h1>
-    <p class="section-sub" style="max-width: 720px; margin-bottom: 24px;">
-      If your brand isn't recommended by AI, you're invisible to 85% of modern buyers.<br>
-      We boost the signals that make AI trust — or ignore — your brand. No fluff. No guesswork.
-    </p>
-    <a href="/#contact-form-section" class="btn-primary">Get Free AI Audit →</a>
-  </section>
-</div>
-
 <!-- ===== OUR STORY ===== -->
 <div class="container">
   <section class="section">
-    <div class="grid-2" style="align-items: center;">
-      <div>
-        <h2 class="section-title" style="font-size:1.8rem;">Our Story</h2>
-        <p style="color:#9ca3af; font-size:1.1rem; margin-bottom:12px;">
-          We watched a family‑owned boutique hotel lose over <strong>$200k in bookings</strong> — not because of bad service, but because <strong>AI stopped recommending them</strong>. Their reputation signals had been damaged, and AI trusted the noise over reality.
-        </p>
-        <p style="color:#9ca3af; font-size:1.1rem; margin-bottom:12px;">
-          That's when we realised: <strong>traditional reputation management is dead</strong>. You can't just fix your Google rating. You need to fix how AI sees your brand.
-        </p>
-        <p style="color:#9ca3af; font-size:1.1rem;">
-          We built ReputationGuardPro as the first <strong>AI Visibility Engine</strong> — a system that audits, cleans, and <strong>boosts</strong> the signals AI uses to decide whether to recommend you. Today, we serve businesses from Texas to Tokyo, making sure AI sees them for who they truly are.
-        </p>
+    <span class="badge-ai">Since 2008</span>
+    <h1 class="section-title" style="font-size:1.8rem; margin-bottom: 8px;">Our Story</h1>
+    <p class="section-sub" style="margin-bottom: 8px;">
+      We didn't discover AI visibility yesterday. We've spent almost two decades learning how brands earn trust online, first from search engines, now from AI.
+    </p>
+
+    <div class="grid-2" style="align-items: start;">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <span class="timeline-year">2008</span>
+          <h4>Our first website, for a supply business</h4>
+          <p>It started with a single hand‑coded HTML site built for a supply‑chain business. No frameworks, no shortcuts, just learning, line by line, what makes a business believable online.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <span class="timeline-year">2009 – 2018</span>
+          <h4>The SEO decade</h4>
+          <p>That first site turned into hundreds more. We moved deep into SEO, built and grew dozens of technology and internet businesses, and spent a decade figuring out exactly what search engines, and the people behind them, trust and reward.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <span class="timeline-year">2019 – 2022</span>
+          <h4>The rise of neural networks</h4>
+          <p>As the first large language models emerged, we saw the shift coming early: the gatekeeper to customers was changing from search rankings to AI answers. We started studying how these models form opinions about brands.</p>
+        </div>
+        <div class="timeline-item is-now">
+          <div class="timeline-dot"></div>
+          <span class="timeline-year">Today</span>
+          <h4>AI recommendations, automated at scale</h4>
+          <p>Now most of the process is automated: continuous audits, signal cleanup, and monitoring across ChatGPT, Gemini, Claude and Perplexity. That's 18 years of hands‑on experience, from one HTML page to a full AI Visibility Engine, distilled into a system built to get you recommended.</p>
+        </div>
       </div>
-      <div style="background: #1a1f2b; border-radius: 28px; padding: 32px 24px; border: 1px solid #2d3748; text-align: center;">
-        <div style="font-size: 4rem; margin-bottom: 12px;">🚀</div>
-        <p style="color: #f9fafb; font-weight: 700; font-size: 1.2rem;">AI Visibility Score</p>
-        <p style="color: #60A5FA; font-size: 3rem; font-weight: 800;">0–100</p>
-        <p style="color: #9ca3af; font-size: 0.9rem;">We don't guess. We measure exactly where you stand across 9 critical layers.</p>
+
+      <div>
+        <div style="background: #1a1f2b; border-radius: 28px; padding: 32px 24px; border: 1px solid #2d3748; text-align: center; position: sticky; top: 96px;">
+          <img src="https://reputationguard.pro/founderreputationguardpro.png" alt="Aleksei Zlobin, Founder & CEO of ReputationGuardPro" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #3B82F6; margin: 0 auto 16px;" />
+          <p style="color: #f9fafb; font-weight: 700; font-size: 1.15rem; margin-bottom: 2px;">Aleksei Zlobin</p>
+          <p style="color: #60A5FA; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">Founder &amp; CEO</p>
+          <p style="color: #9ca3af; font-size: 0.9rem; text-align: left; margin-bottom: 16px;">
+            Aleksei has spent almost two decades in web and search, starting with a single hand‑coded HTML site in 2008 and going on to build hundreds more. He led the shift from classic SEO into AI visibility early, and now heads the team behind ReputationGuardPro's 9‑layer audit system.
+          </p>
+          <a href="https://www.linkedin.com/in/aivisibility/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; color: #93C5FD; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+            <i class="fab fa-linkedin"></i> Connect on LinkedIn
+          </a>
+        </div>
+
+        <div style="background: #1a1f2b; border-radius: 28px; padding: 28px 24px; border: 1px solid #2d3748; text-align: center; margin-top: 24px;">
+          <div style="font-size: 4rem; margin-bottom: 12px;">🚀</div>
+          <p style="color: #f9fafb; font-weight: 700; font-size: 1.2rem;">AI Visibility Score</p>
+          <p style="color: #60A5FA; font-size: 3rem; font-weight: 800;">0–100</p>
+          <p style="color: #9ca3af; font-size: 0.9rem;">We don't guess. We measure exactly where you stand across 9 critical layers, built on nearly two decades of experience in what makes brands trusted online.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -451,15 +542,15 @@
 <div class="container">
   <section class="section">
     <h2 class="section-title">What We Do</h2>
-    <p class="section-sub" style="margin-bottom: 20px;">We don't just clean reviews. We <strong>boost</strong> your brand's AI visibility — systematically, layer by layer.</p>
+    <p class="section-sub" style="margin-bottom: 20px;">We don't just clean reviews. We <strong>boost</strong> your brand's AI visibility, systematically, layer by layer.</p>
     <div class="grid-2">
       <div class="card">
         <h3><i class="fas fa-search"></i> 9‑Layer AI Audit</h3>
-        <p>We scan your brand across all major AI platforms. Identify exactly which signals are hurting your visibility — from fake reviews to weak schema markup.</p>
+        <p>We scan your brand across all major AI platforms. Identify exactly which signals are hurting your visibility, from inconsistent listings to weak schema markup.</p>
       </div>
       <div class="card">
         <h3><i class="fas fa-broom"></i> Signal Cleanup &amp; Boosts</h3>
-        <p>We clean the data AI relies on. Remove fake reviews, fix inconsistencies, and apply targeted <strong>boosts</strong> so AI starts recommending your brand with confidence.</p>
+        <p>We clean the data AI relies on. Fix inconsistencies and apply targeted <strong>boosts</strong> so AI starts recommending your brand with confidence.</p>
       </div>
       <div class="card">
         <h3><i class="fas fa-chart-line"></i> AI Visibility Monitoring</h3>
@@ -467,7 +558,7 @@
       </div>
       <div class="card">
         <h3><i class="fas fa-shield-alt"></i> Continuous Protection</h3>
-        <p>Real‑time alerts notify you of new reputation risks. We keep your AI visibility high so your competitors stay behind — and AI keeps recommending you.</p>
+        <p>Real‑time alerts notify you of new reputation risks. We keep your AI visibility high so your competitors stay behind, and AI keeps recommending you.</p>
       </div>
     </div>
   </section>
@@ -489,11 +580,11 @@
       </div>
       <div class="card">
         <h3><i class="fas fa-globe"></i> Trusted in 12+ Countries</h3>
-        <p>From boutique hotels in Bali to dental clinics in Texas — we've helped businesses worldwide get recommended by AI.</p>
+        <p>From boutique hotels in Bali to dental clinics in Texas, we've helped businesses worldwide get recommended by AI.</p>
       </div>
       <div class="card">
         <h3><i class="fas fa-shield-alt"></i> 100% Transparent</h3>
-        <p>You keep full control. We work as trusted partners, not owners. No hidden fees, no surprises — just results you can see.</p>
+        <p>You keep full control. We work as trusted partners, not owners. No hidden fees, no surprises, just results you can see.</p>
       </div>
     </div>
   </section>
@@ -514,7 +605,7 @@
 <!-- ===== CTA ===== -->
 <div class="container">
   <section class="section" style="text-align: center;">
-    <p style="color: #9ca3af; font-size: 1.05rem; margin-bottom: 24px;">See exactly where your brand stands — free.</p>
+    <p style="color: #9ca3af; font-size: 1.05rem; margin-bottom: 24px;">See exactly where your brand stands, free.</p>
     <a href="/#contact-form-section" class="btn-primary">Get Your Free AI Visibility Audit →</a>
   </section>
 </div>
@@ -525,7 +616,7 @@
 
     <div class="footer-column">
       <h4>ReputationGuard</h4>
-      <p>AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends — by restoring the trust signals that drive AI visibility and sales.</p>
+      <p>AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends, by restoring the trust signals that drive AI visibility and sales.</p>
       <p style="margin-top: 8px;"><a href="/about.html">About Us</a></p>
     </div>
 
