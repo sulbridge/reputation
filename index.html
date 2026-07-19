@@ -273,6 +273,22 @@ body {
 .hero p { font-size: 1.1rem; color: #9ca3af; margin-bottom: 32px; max-width: 90%; }
 .hero-stats { display: flex; justify-content: flex-start; gap: 32px; margin-top: 24px; flex-wrap: wrap; margin-bottom: 0; }
 .hero-trust-chips { display: flex; gap: 10px; flex-wrap: wrap; }
+
+@keyframes goldFieldPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(251,191,36,0.08); border-color: #FBBF24; }
+  50% { box-shadow: 0 0 34px rgba(251,191,36,0.32); border-color: #FDE68A; }
+}
+.business-input-glow {
+  animation: goldFieldPulse 2.6s ease-in-out infinite;
+}
+.business-input-glow:focus {
+  animation: none;
+  border-color: #FDE68A;
+  box-shadow: 0 0 20px rgba(251,191,36,0.18);
+}
+@media (prefers-reduced-motion: reduce) {
+  .business-input-glow { animation: none; }
+}
 .hero-trust-chip {
   font-size: 0.8rem;
   font-weight: 600;
@@ -2009,6 +2025,7 @@ footer {
     type="text"
     placeholder="Enter your business name or website"
     autocomplete="off"
+    class="business-input-glow"
     style="flex:1; min-width:200px; padding:14px 18px; border-radius:40px; border:2px solid #FBBF24; background:#1a1f2b; color:#f9fafb; font-size:1rem; outline:none; transition:border-color 0.3s, box-shadow 0.3s; box-shadow:0 0 20px rgba(251,191,36,0.08);"
     data-i18n-placeholder="input-placeholder"
   />
@@ -2177,7 +2194,7 @@ footer {
 
     <!-- CTA below slider -->
     <div style="text-align: center; margin-top: 1.5rem;">
-      <a href="#contact-form-section" class="btn-primary" style="background: linear-gradient(135deg, #1E3A8A, #2563EB); padding: 0.8rem 2rem; font-size: 0.9rem; box-shadow: 0 4px 20px rgba(37,99,235,0.3);" data-i18n="hero-btn">Get Free AI Audit →</a>
+      <a href="#contact-form-section" class="btn-primary" style="background: linear-gradient(135deg, #1E3A8A, #2563EB); padding: 0.8rem 2rem; font-size: 0.9rem; box-shadow: 0 4px 20px rgba(37,99,235,0.3);" data-i18n="hero-btn">Get Free AI Audit</a>
       <p style="font-size: 0.65rem; color: rgba(255,255,255,0.2); margin-top: 0.5rem;" data-i18n="form-note">No obligation • Results in 24h</p>
     </div>
 
@@ -2705,7 +2722,7 @@ const afterData = {
   <span style="color: #60A5FA;">💡</span> Your AI visibility score is calculated across all 9 layers. 
   <strong style="color: #f9fafb;">Get your free audit</strong> to see where you stand.
 </p>
-      <a href="#contact-form-section" class="btn-primary" style="background: linear-gradient(135deg, #1E3A8A, #2563EB); padding: 12px 32px; font-size: 0.95rem; box-shadow: 0 4px 20px rgba(37,99,235,0.3); text-decoration: none; display: inline-block;" data-i18n="claim-audit">Get Free AI Audit →</a>
+      <a href="#contact-form-section" class="btn-primary" style="background: linear-gradient(135deg, #1E3A8A, #2563EB); padding: 12px 32px; font-size: 0.95rem; box-shadow: 0 4px 20px rgba(37,99,235,0.3); text-decoration: none; display: inline-block;" data-i18n="claim-audit">Get Free AI Audit</a>
     </div>
   </div>
 </section>
@@ -2728,7 +2745,7 @@ const afterData = {
         <div><span style="font-size: 2.2rem; font-weight: 800; color: #FCD34D;">62%</span><br><span style="font-size: 0.85rem; color: #9CA3AF;" data-i18n="trend-stat2-ai">trust AI like personal referrals</span></div>
         <div><span style="font-size: 2.2rem; font-weight: 800; color: #FCD34D;">340%</span><br><span style="font-size: 0.85rem; color: #9CA3AF;" data-i18n="trend-stat3-ai">growth in AI reputation searches</span></div>
       </div>
-      <a href="#contact-form-section" class="btn-primary" style="background: white; color: #0F172A; box-shadow: 0 4px 14px rgba(255,255,255,0.2);" data-i18n="trend-btn-ai">Get Your Free AI Reputation Audit →</a>
+      <a href="#contact-form-section" class="btn-primary" style="background: white; color: #0F172A; box-shadow: 0 4px 14px rgba(255,255,255,0.2);" data-i18n="trend-btn-ai">Get Your Free AI Reputation Audit</a>
     </div>
   </div>
 </section>
@@ -3687,7 +3704,7 @@ const afterData = {
   </p>
   <a href="/what-is-a-boost.html" style="color: #60A5FA; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;" data-i18n="fix-see-types">
     <i class="fas fa-arrow-right"></i>
-    See the 28 boost types →
+    See the 28 boost types
   </a>
 </div>
 
@@ -3719,7 +3736,7 @@ const afterData = {
     <input type="text" name="referred_by" placeholder="Who referred you? (optional)" data-i18n-placeholder="form-referred">
   </div>
   <div class="form-group"><textarea name="message" placeholder="Tell us about your AI visibility concerns... *" required data-i18n-placeholder="form-message"></textarea></div>
-  <button type="submit" class="btn-primary" style="width:100%;" data-i18n="form-submit">Get Free AI Reputation Audit →</button>
+  <button type="submit" class="btn-primary" style="width:100%;" data-i18n="form-submit">Get Free AI Reputation Audit</button>
 <p class="form-status" data-i18n="form-note">We'll reply within 2h with your AI visibility report</p>
 </form>
   </div>
@@ -4476,7 +4493,7 @@ const afterData = {
       title: 'Is Your Business <span class="avc-accent">Visible</span> on ChatGPT, Gemini, Claude &amp; Perplexity?',
       subtitle: 'See exactly where your business appears — or doesn\'t appear — across <strong>ALL major AI platforms worldwide</strong>. Get a <strong>free AI visibility report</strong> with a clear plan to get listed everywhere that matters.',
       inputPlaceholder: 'Enter your business name or website',
-      checkBtn: 'Check My AI Visibility →',
+      checkBtn: 'Check My AI Visibility',
       trust1: 'No login required',
       trust2: 'Results in ~30 seconds',
       trust3: '100% free',
@@ -4526,7 +4543,7 @@ const afterData = {
       platformWarnDesc: 'Partially visible — mentioned but not recommended.',
       platformBadDesc: 'Not cited — insufficient authority.',
       alreadyCheckedPlaceholder: 'You already checked. Contact us for full audit.',
-      alreadyCheckedBtn: 'Get Free AI Audit →'
+      alreadyCheckedBtn: 'Get Free AI Audit'
     },
     es: {
       brand: 'ReputationGuard',
@@ -4534,7 +4551,7 @@ const afterData = {
       title: '¿Tu negocio es <span class="avc-accent">visible</span> en ChatGPT, Gemini, Claude y Perplexity?',
       subtitle: 'Descubre exactamente dónde aparece tu negocio — o no aparece — en <strong>TODAS las principales plataformas de IA del mundo</strong>. Obtén un <strong>informe gratuito de visibilidad IA</strong> con un plan claro para aparecer en todos los lugares que importan.',
       inputPlaceholder: 'Ingresa el nombre o sitio web de tu negocio',
-      checkBtn: 'Verificar Mi Visibilidad IA →',
+      checkBtn: 'Verificar Mi Visibilidad IA',
       trust1: 'Sin necesidad de login',
       trust2: 'Resultados en ~30 segundos',
       trust3: '100% gratis',
@@ -4584,7 +4601,7 @@ const afterData = {
       platformWarnDesc: 'Parcialmente visible — mencionado pero no recomendado.',
       platformBadDesc: 'No citado — autoridad insuficiente.',
       alreadyCheckedPlaceholder: 'Ya verificaste. Contáctanos para una auditoría completa.',
-      alreadyCheckedBtn: 'Obtener Auditoría Gratuita →'
+      alreadyCheckedBtn: 'Obtener Auditoría Gratuita'
     },
     de: {
       brand: 'ReputationGuard',
@@ -4592,7 +4609,7 @@ const afterData = {
       title: 'Ist Ihr Unternehmen <span class="avc-accent">sichtbar</span> auf ChatGPT, Gemini, Claude und Perplexity?',
       subtitle: 'Sehen Sie genau, wo Ihr Unternehmen erscheint — oder nicht erscheint — auf <strong>ALLEN wichtigen KI-Plattformen weltweit</strong>. Erhalten Sie einen <strong>kostenlosen KI-Sichtbarkeitsbericht</strong> mit einem klaren Plan, um überall gelistet zu werden, wo es zählt.',
       inputPlaceholder: 'Geben Sie Ihren Firmennamen oder Ihre Website ein',
-      checkBtn: 'Meine KI-Sichtbarkeit prüfen →',
+      checkBtn: 'Meine KI-Sichtbarkeit prüfen',
       trust1: 'Ohne Anmeldung',
       trust2: 'Ergebnisse in ~30 Sekunden',
       trust3: '100% kostenlos',
@@ -4642,7 +4659,7 @@ const afterData = {
       platformWarnDesc: 'Teilweise sichtbar – erwähnt, aber nicht empfohlen.',
       platformBadDesc: 'Nicht zitiert – unzureichende Autorität.',
       alreadyCheckedPlaceholder: 'Sie haben bereits geprüft. Kontaktieren Sie uns für ein vollständiges Audit.',
-      alreadyCheckedBtn: 'Kostenloses KI-Audit anfordern →'
+      alreadyCheckedBtn: 'Kostenloses KI-Audit anfordern'
     },
     fr: {
       brand: 'ReputationGuard',
@@ -4650,7 +4667,7 @@ const afterData = {
       title: 'Votre entreprise est-elle <span class="avc-accent">visible</span> sur ChatGPT, Gemini, Claude et Perplexity?',
       subtitle: 'Découvrez exactement où votre entreprise apparaît — ou n\'apparaît pas — sur <strong>TOUTES les principales plateformes d\'IA mondiales</strong>. Obtenez un <strong>rapport de visibilité IA gratuit</strong> avec un plan clair pour être listé partout où cela compte.',
       inputPlaceholder: 'Entrez le nom ou le site web de votre entreprise',
-      checkBtn: 'Vérifier Ma Visibilité IA →',
+      checkBtn: 'Vérifier Ma Visibilité IA',
       trust1: 'Sans connexion',
       trust2: 'Résultats en ~30 secondes',
       trust3: '100% gratuit',
@@ -4700,7 +4717,7 @@ const afterData = {
       platformWarnDesc: 'Partiellement visible – mentionné mais pas recommandé.',
       platformBadDesc: 'Non cité – autorité insuffisante.',
       alreadyCheckedPlaceholder: 'Vous avez déjà vérifié. Contactez-nous pour un audit complet.',
-      alreadyCheckedBtn: 'Obtenir un audit IA gratuit →'
+      alreadyCheckedBtn: 'Obtenir un audit IA gratuit'
     },
     it: {
       brand: 'ReputationGuard',
@@ -4708,7 +4725,7 @@ const afterData = {
       title: 'La tua azienda è <span class="avc-accent">visibile</span> su ChatGPT, Gemini, Claude e Perplexity?',
       subtitle: 'Scopri esattamente dove la tua azienda appare — o non appare — su <strong>TUTTE le principali piattaforme IA mondiali</strong>. Ottieni un <strong>rapporto gratuito di visibilità IA</strong> con un piano chiaro per essere presente ovunque conti.',
       inputPlaceholder: 'Inserisci il nome o il sito web della tua attività',
-      checkBtn: 'Verifica la Mia Visibilità IA →',
+      checkBtn: 'Verifica la Mia Visibilità IA',
       trust1: 'Nessun login richiesto',
       trust2: 'Risultati in ~30 secondi',
       trust3: '100% gratuito',
@@ -4758,7 +4775,7 @@ const afterData = {
       platformWarnDesc: 'Parzialmente visibile – menzionato ma non raccomandato.',
       platformBadDesc: 'Non citato – autorità insufficiente.',
       alreadyCheckedPlaceholder: 'Hai già verificato. Contattaci per un audit completo.',
-      alreadyCheckedBtn: 'Ottieni Audit IA Gratuito →'
+      alreadyCheckedBtn: 'Ottieni Audit IA Gratuito'
     },
     vi: {
       brand: 'ReputationGuard',
@@ -4766,7 +4783,7 @@ const afterData = {
       title: 'Doanh nghiệp của bạn có <span class="avc-accent">hiển thị</span> trên ChatGPT, Gemini, Claude và Perplexity?',
       subtitle: 'Xem chính xác doanh nghiệp của bạn xuất hiện ở đâu — hoặc không xuất hiện — trên <strong>TẤT CẢ các nền tảng AI lớn trên toàn thế giới</strong>. Nhận <strong>báo cáo hiển thị AI miễn phí</strong> với kế hoạch rõ ràng để xuất hiện ở mọi nơi quan trọng.',
       inputPlaceholder: 'Nhập tên doanh nghiệp hoặc trang web của bạn',
-      checkBtn: 'Kiểm Tra Hiển Thị AI →',
+      checkBtn: 'Kiểm Tra Hiển Thị AI',
       trust1: 'Không cần đăng nhập',
       trust2: 'Kết quả trong ~30 giây',
       trust3: '100% miễn phí',
@@ -4816,7 +4833,7 @@ const afterData = {
       platformWarnDesc: 'Hiển thị một phần – được đề cập nhưng không được đề xuất.',
       platformBadDesc: 'Không được trích dẫn – thiếu uy tín.',
       alreadyCheckedPlaceholder: 'Bạn đã kiểm tra rồi. Liên hệ với chúng tôi để được đánh giá đầy đủ.',
-      alreadyCheckedBtn: 'Nhận đánh giá AI miễn phí →'
+      alreadyCheckedBtn: 'Nhận đánh giá AI miễn phí'
     },
     pt: {
       brand: 'ReputationGuard',
@@ -4824,7 +4841,7 @@ const afterData = {
       title: 'Seu negócio é <span class="avc-accent">visível</span> no ChatGPT, Gemini, Claude e Perplexity?',
       subtitle: 'Veja exatamente onde seu negócio aparece — ou não aparece — em <strong>TODAS as principais plataformas de IA do mundo</strong>. Obtenha um <strong>relatório de visibilidade IA gratuito</strong> com um plano claro para ser listado em todos os lugares que importam.',
       inputPlaceholder: 'Digite o nome ou site do seu negócio',
-      checkBtn: 'Verificar Minha Visibilidade IA →',
+      checkBtn: 'Verificar Minha Visibilidade IA',
       trust1: 'Sem necessidade de login',
       trust2: 'Resultados em ~30 segundos',
       trust3: '100% gratuito',
@@ -4874,7 +4891,7 @@ const afterData = {
       platformWarnDesc: 'Parcialmente visível – mencionado mas não recomendado.',
       platformBadDesc: 'Não citado – autoridade insuficiente.',
       alreadyCheckedPlaceholder: 'Você já verificou. Entre em contato para uma auditoria completa.',
-      alreadyCheckedBtn: 'Obter Auditoria IA Gratuita →'
+      alreadyCheckedBtn: 'Obter Auditoria IA Gratuita'
     },
     tr: {
       brand: 'ReputationGuard',
@@ -4882,7 +4899,7 @@ const afterData = {
       title: 'İşletmeniz ChatGPT, Gemini, Claude ve Perplexity\'de <span class="avc-accent">görünür</span> mü?',
       subtitle: 'İşletmenizin tam olarak nerede göründüğünü — veya görünmediğini — <strong>TÜM dünya çapındaki büyük AI platformlarında</strong> görün. <strong>Ücretsiz AI görünürlük raporu</strong> ile her yerde listelenmek için net bir plan alın.',
       inputPlaceholder: 'İşletme adınızı veya web sitenizi girin',
-      checkBtn: 'AI Görünürlüğümü Kontrol Et →',
+      checkBtn: 'AI Görünürlüğümü Kontrol Et',
       trust1: 'Giriş gerekmez',
       trust2: 'Sonuçlar ~30 saniye içinde',
       trust3: '%100 ücretsiz',
@@ -4932,7 +4949,7 @@ const afterData = {
       platformWarnDesc: 'Kısmen görünür – bahsediliyor ancak tavsiye edilmiyor.',
       platformBadDesc: 'Alıntılanmamış – yetersiz yetki.',
       alreadyCheckedPlaceholder: 'Zaten kontrol ettiniz. Tam denetim için bizimle iletişime geçin.',
-      alreadyCheckedBtn: 'Ücretsiz YZ Denetimi Al →'
+      alreadyCheckedBtn: 'Ücretsiz YZ Denetimi Al'
     },
     ar: {
       brand: 'ReputationGuard',
@@ -4998,7 +5015,7 @@ const afterData = {
       title: 'Ваш бизнес <span class="avc-accent">виден</span> в ChatGPT, Gemini, Claude и Perplexity?',
       subtitle: 'Узнайте точно, где ваш бизнес появляется — или не появляется — на <strong>ВСЕХ основных мировых AI-платформах</strong>. Получите <strong>бесплатный отчёт об AI-видимости</strong> с чётким планом, чтобы быть представленным везде, где это важно.',
       inputPlaceholder: 'Введите название вашего бизнеса или сайт',
-      checkBtn: 'Проверить мою AI-видимость →',
+      checkBtn: 'Проверить мою AI-видимость',
       trust1: 'Без входа',
       trust2: 'Результат за ~30 секунд',
       trust3: '100% бесплатно',
@@ -5048,7 +5065,7 @@ const afterData = {
       platformWarnDesc: 'Частично видим – упоминается, но не рекомендуется.',
       platformBadDesc: 'Не цитируется – недостаточный авторитет.',
       alreadyCheckedPlaceholder: 'Вы уже проверили. Свяжитесь с нами для полного аудита.',
-      alreadyCheckedBtn: 'Получить бесплатный аудит ИИ →'
+      alreadyCheckedBtn: 'Получить бесплатный аудит ИИ'
     }
   };
 
@@ -5724,7 +5741,7 @@ const afterData = {
     "checkout-modal-cancel": "Not ready yet — take me back",
     "checkout-modal-secure": "Payments processed by Stripe. We never see your card details.",
     "already-checked-placeholder": "Business already checked. Contact us for full audit.",
-    "already-checked-btn": "Get Free AI Audit →",
+    "already-checked-btn": "Get Free AI Audit",
     "trust-logos-caption": "We monitor and optimize your visibility across",
     "guarantee-banner-title": "Every plan is backed by our visibility score improvement guarantee",
     "guarantee-banner-text": "If your AI visibility score doesn't improve within your plan's guarantee window, we keep working for free until it does.",
@@ -5779,7 +5796,7 @@ const afterData = {
     "trend-stat1-ai": "use AI before buying",
     "trend-stat2-ai": "trust AI like personal referrals",
     "trend-stat3-ai": "growth in AI reputation searches",
-    "trend-btn-ai": "Get Your Free AI Reputation Audit →",
+    "trend-btn-ai": "Get Your Free AI Reputation Audit",
     "risk-title-ai": "The Real Cost of Low AI Visibility",
     "risk-sub-ai": "What happens when AI can't see, trust, or recommend your brand",
     "risk1-title-ai": "Lost Revenue from Low AI Visibility",
@@ -5848,7 +5865,7 @@ const afterData = {
     "fix-measurement-title": "📊 Measurement\n        <i class=\"fas fa-chevron-down\" style=\"transition: transform 0.25s; color:#3B82F6;\"></i>",
     "fix-measurement-list": "<ul style=\"list-style: none; padding: 0; margin: 0;\">\n<li style=\"padding: 4px 0;\">• Baseline visibility tracking</li>\n<li style=\"padding: 4px 0;\">• 20–50 real‑user prompts simulation</li>\n<li style=\"padding: 4px 0;\">• AI Share of Voice vs competitors</li>\n<li style=\"padding: 4px 0;\">• A/B tests on content formats</li>\n<li style=\"padding: 4px 0;\">• Monthly progress report</li>\n</ul>",
     "fix-instances": "40–65 — applied instances of those <strong>28 boost types</strong> per location — not a bigger catalog, the same actions repeated where they matter. A NAP fix alone applies across 10–60+ directories; review responses count per review. That repetition is what adds up to 40–65 before AI consistently recommends a location.",
-    "fix-see-types": "See the 28 boost types →",
+    "fix-see-types": "See the 28 boost types",
     "cta-title": "Free AI Reputation Audit — See How AI Sees Your Brand",
     "cta-text": "We'll analyze how AI platforms (ChatGPT, Gemini) perceive your brand.<br>See how many customers you're losing and which reputation signals we can clean to boost your AI visibility.<br>No obligation.",
     "form-name": "Full name *",
@@ -5856,7 +5873,7 @@ const afterData = {
     "form-maps-link": "Google Maps link or website *",
     "form-referred": "Who referred you? (optional)",
     "form-message": "Tell us about your AI visibility concerns... *",
-    "form-submit": "Get Free AI Reputation Audit →",
+    "form-submit": "Get Free AI Reputation Audit",
     "faq-title-ai": "Frequently Asked Questions About AI Reputation",
     "faq1q-ai": "What is AI visibility and why does it matter?",
     "faq1a-ai": "AI visibility is how prominently your brand appears in recommendations from ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek, and Google AI. By 2026, 85% of consumers will use AI tools before making a purchase. If AI doesn't recommend your brand, you lose customers to competitors — silently, every single day.",
@@ -6009,7 +6026,7 @@ const afterData = {
     "checkout-modal-cancel": "Aún no estoy listo — volver",
     "checkout-modal-secure": "Pagos procesados por Stripe. Nunca vemos los datos de su tarjeta.",
     "already-checked-placeholder": "Este negocio ya fue analizado. Contáctenos para la auditoría completa.",
-    "already-checked-btn": "Obtener Auditoría IA Gratuita →",
+    "already-checked-btn": "Obtener Auditoría IA Gratuita",
     "trust-logos-caption": "Monitoreamos y optimizamos su visibilidad en",
     "guarantee-banner-title": "Todos los planes incluyen nuestra garantía de mejora del puntaje de visibilidad",
     "guarantee-banner-text": "Si su puntuación de visibilidad en IA no mejora dentro del plazo de garantía de su plan, seguimos trabajando gratis hasta lograrlo.",
@@ -6056,7 +6073,7 @@ const afterData = {
     "methodology-l9": "Señal de Reputación",
     "methodology-l9-desc": "¿Su marca tiene reseñas limpias y verificadas? Los modelos de IA leen el sentimiento de las reseñas como una señal de confianza clave. Las reseñas falsas o negativas indican a la IA que no debe recomendarlo. Reseñas limpias = confianza de la IA.",
     "methodology-score-text": "💡 Su puntuación de visibilidad en IA se calcula a través de las 9 capas. <strong style=\"color: #f9fafb;\">Obtenga su auditoría gratuita</strong> para ver su situación.",
-    "claim-audit": "Obtener Auditoría IA Gratuita →",
+    "claim-audit": "Obtener Auditoría IA Gratuita",
     "trend-badge-ai": "Inteligencia de Mercado IA 2026",
     "trend-title-ai": "La Economía de la Confianza en IA 2026",
     "trend-text1-ai": "<strong style=\"color: #93C5FD;\">El 80%</strong> de los consumidores ya utiliza herramientas de IA antes de realizar una compra, y <strong style=\"color: #93C5FD;\">el 62%</strong> confía en las recomendaciones de IA tanto como en las referencias personales. Si su marca no es recomendada por la IA, es invisible para la mayoría de los compradores modernos.",
@@ -6064,7 +6081,7 @@ const afterData = {
     "trend-stat1-ai": "usan IA antes de comprar",
     "trend-stat2-ai": "confían en la IA como en referencias",
     "trend-stat3-ai": "crecimiento en búsquedas de reputación IA",
-    "trend-btn-ai": "Obtenga su Auditoría Gratuita de Reputación IA →",
+    "trend-btn-ai": "Obtenga su Auditoría Gratuita de Reputación IA",
     "risk-title-ai": "El Costo Real de una Baja Visibilidad en IA",
     "risk-sub-ai": "Lo que ocurre cuando la IA no puede ver, confiar o recomendar su marca",
     "risk1-title-ai": "Ingresos Perdidos por Baja Visibilidad en IA",
@@ -6133,7 +6150,7 @@ const afterData = {
     "fix-measurement-title": "📊 Medición\n        <i class=\"fas fa-chevron-down\" style=\"transition: transform 0.25s; color:#3B82F6;\"></i>",
     "fix-measurement-list": "<ul style=\"list-style: none; padding: 0; margin: 0;\">\n<li style=\"padding: 4px 0;\">• Seguimiento de la visibilidad inicial</li>\n<li style=\"padding: 4px 0;\">• Simulación de 20–50 prompts de usuarios reales</li>\n<li style=\"padding: 4px 0;\">• Share of Voice en IA frente a competidores</li>\n<li style=\"padding: 4px 0;\">• Pruebas A/B en formatos de contenido</li>\n<li style=\"padding: 4px 0;\">• Reporte de progreso mensual</li>\n</ul>",
     "fix-instances": "40–65 instancias aplicadas de esos <strong>28 tipos de boost</strong> por ubicación — no es un catálogo más grande, son las mismas acciones repetidas donde importan. Solo la corrección de NAP se aplica en 10–60+ directorios; las respuestas a reseñas cuentan por reseña. Esa repetición es lo que suma 40–65 antes de que la IA recomiende una ubicación de forma consistente.",
-    "fix-see-types": "Ver los 28 tipos de boost →",
+    "fix-see-types": "Ver los 28 tipos de boost",
     "cta-title": "Auditoría Gratuita de Reputación en IA — Vea Cómo la IA Ve su Marca",
     "cta-text": "Analizaremos cómo las plataformas de IA (ChatGPT, Gemini) perciben su marca.<br>Vea cuántos clientes está perdiendo y qué señales de reputación podemos limpiar para aumentar su visibilidad en IA.<br>Sin compromiso.",
     "form-name": "Nombre completo *",
@@ -6141,7 +6158,7 @@ const afterData = {
     "form-maps-link": "Enlace de Google Maps o sitio web *",
     "form-referred": "¿Quién le recomendó? (opcional)",
     "form-message": "Cuéntenos sus preocupaciones sobre la visibilidad en IA... *",
-    "form-submit": "Obtener Auditoría Gratuita de Reputación IA →",
+    "form-submit": "Obtener Auditoría Gratuita de Reputación IA",
     "faq-title-ai": "Preguntas Frecuentes sobre Visibilidad en IA",
     "faq1q-ai": "¿Qué es la visibilidad en IA y por qué es importante?",
     "faq1a-ai": "La visibilidad en IA es la prominencia con la que su marca aparece en las recomendaciones de ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek y Google AI. Para 2026, el 85% de los consumidores utilizarán herramientas de IA antes de realizar una compra. Si la IA no recomienda su marca, usted pierde clientes frente a la competencia, de forma silenciosa, cada día.",
@@ -6294,7 +6311,7 @@ const afterData = {
     "checkout-modal-cancel": "Aún no estoy listo — volver",
     "checkout-modal-secure": "Pagos procesados por Stripe. Nunca vemos los datos de su tarjeta.",
     "already-checked-placeholder": "Este negocio ya fue analizado. Contáctenos para la auditoría completa.",
-    "already-checked-btn": "Obtener Auditoría IA Gratuita →",
+    "already-checked-btn": "Obtener Auditoría IA Gratuita",
     "trust-logos-caption": "Monitoreamos y optimizamos su visibilidad en",
     "guarantee-banner-title": "Todos los planes incluyen nuestra garantía de mejora del puntaje de visibilidad",
     "guarantee-banner-text": "Si su puntuación de visibilidad en IA no mejora dentro del plazo de garantía de su plan, seguimos trabajando gratis hasta lograrlo.",
@@ -6341,7 +6358,7 @@ const afterData = {
     "methodology-l9": "Señal de Reputación",
     "methodology-l9-desc": "¿Su marca tiene reseñas limpias y verificadas? Los modelos de IA leen el sentimiento de las reseñas como una señal de confianza clave. Las reseñas falsas o negativas indican a la IA que no debe recomendarlo. Reseñas limpias = confianza de la IA.",
     "methodology-score-text": "💡 Su puntuación de visibilidad en IA se calcula a través de las 9 capas. <strong style=\"color: #f9fafb;\">Obtenga su auditoría gratuita</strong> para ver su situación.",
-    "claim-audit": "Obtener Auditoría IA Gratuita →",
+    "claim-audit": "Obtener Auditoría IA Gratuita",
     "trend-badge-ai": "Inteligencia de Mercado IA 2026",
     "trend-title-ai": "La Economía de la Confianza en IA 2026",
     "trend-text1-ai": "<strong style=\"color: #93C5FD;\">El 80%</strong> de los consumidores ya utiliza herramientas de IA antes de realizar una compra, y <strong style=\"color: #93C5FD;\">el 62%</strong> confía en las recomendaciones de IA tanto como en las referencias personales. Si su marca no es recomendada por la IA, es invisible para la mayoría de los compradores modernos.",
@@ -6349,7 +6366,7 @@ const afterData = {
     "trend-stat1-ai": "usan IA antes de comprar",
     "trend-stat2-ai": "confían en la IA como en referencias",
     "trend-stat3-ai": "crecimiento en búsquedas de reputación IA",
-    "trend-btn-ai": "Obtenga su Auditoría Gratuita de Reputación IA →",
+    "trend-btn-ai": "Obtenga su Auditoría Gratuita de Reputación IA",
     "risk-title-ai": "El Coste Real de una Baja Visibilidad en IA",
     "risk-sub-ai": "Lo que ocurre cuando la IA no puede ver, confiar o recomendar su marca",
     "risk1-title-ai": "Ingresos Perdidos por Baja Visibilidad en IA",
@@ -6418,7 +6435,7 @@ const afterData = {
     "fix-measurement-title": "📊 Medición\n        <i class=\"fas fa-chevron-down\" style=\"transition: transform 0.25s; color:#3B82F6;\"></i>",
     "fix-measurement-list": "<ul style=\"list-style: none; padding: 0; margin: 0;\">\n<li style=\"padding: 4px 0;\">• Seguimiento de la visibilidad inicial</li>\n<li style=\"padding: 4px 0;\">• Simulación de 20–50 prompts de usuarios reales</li>\n<li style=\"padding: 4px 0;\">• Share of Voice en IA frente a competidores</li>\n<li style=\"padding: 4px 0;\">• Pruebas A/B en formatos de contenido</li>\n<li style=\"padding: 4px 0;\">• Informe de progreso mensual</li>\n</ul>",
     "fix-instances": "De 40 a 65 instancias aplicadas de esos <strong>28 tipos de boost</strong> por ubicación — no es un catálogo más amplio, son las mismas acciones repetidas allí donde importan. Solo la corrección de NAP se aplica en 10–60+ directorios; las respuestas a reseñas cuentan por reseña. Esa repetición es lo que suma entre 40 y 65 antes de que la IA recomiende una ubicación de forma consistente.",
-    "fix-see-types": "Ver los 28 tipos de boost →",
+    "fix-see-types": "Ver los 28 tipos de boost",
     "cta-title": "Auditoría Gratuita de Reputación en IA — Vea Cómo la IA Ve su Marca",
     "cta-text": "Analizaremos cómo las plataformas de IA (ChatGPT, Gemini) perciben su marca.<br>Vea cuántos clientes está perdiendo y qué señales de reputación podemos limpiar para aumentar su visibilidad en IA.<br>Sin compromiso.",
     "form-name": "Nombre completo *",
@@ -6426,7 +6443,7 @@ const afterData = {
     "form-maps-link": "Enlace de Google Maps o sitio web *",
     "form-referred": "¿Quién le recomendó? (opcional)",
     "form-message": "Cuéntenos sus preocupaciones sobre la visibilidad en IA... *",
-    "form-submit": "Obtener Auditoría Gratuita de Reputación IA →",
+    "form-submit": "Obtener Auditoría Gratuita de Reputación IA",
     "faq-title-ai": "Preguntas Frecuentes sobre Visibilidad en IA",
     "faq1q-ai": "¿Qué es la visibilidad en IA y por qué es importante?",
     "faq1a-ai": "La visibilidad en IA es la prominencia con la que su marca aparece en las recomendaciones de ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek y Google AI. Para 2026, el 85% de los consumidores utilizarán herramientas de IA antes de realizar una compra. Si la IA no recomienda su marca, usted pierde clientes frente a la competencia, de forma silenciosa, cada día.",
@@ -6579,7 +6596,7 @@ const afterData = {
     "checkout-modal-cancel": "Noch nicht bereit — zurück",
     "checkout-modal-secure": "Zahlungen werden von Stripe verarbeitet. Wir sehen Ihre Kartendaten nie.",
     "already-checked-placeholder": "Dieses Unternehmen wurde bereits geprüft. Kontaktieren Sie uns für das vollständige Audit.",
-    "already-checked-btn": "Kostenloses KI-Audit erhalten →",
+    "already-checked-btn": "Kostenloses KI-Audit erhalten",
     "trust-logos-caption": "Wir überwachen und optimieren Ihre Sichtbarkeit auf",
     "guarantee-banner-title": "Jeder Plan ist durch unsere Garantie zur Verbesserung des Sichtbarkeits-Scores abgesichert",
     "guarantee-banner-text": "Verbessert sich Ihr KI-Sichtbarkeits-Score nicht innerhalb des Garantiezeitraums Ihres Plans, arbeiten wir kostenlos weiter, bis es soweit ist.",
@@ -6626,7 +6643,7 @@ const afterData = {
     "methodology-l9": "Reputationssignal",
     "methodology-l9-desc": "Hat Ihre Marke saubere, verifizierte Bewertungen? KI‑Modelle lesen die Bewertungsstimmung als zentrales Vertrauenssignal. Gefälschte oder negative Bewertungen sagen der KI, Sie nicht zu empfehlen. Saubere Bewertungen = Vertrauen der KI.",
     "methodology-score-text": "💡 Ihr KI-Sichtbarkeitswert wird über alle 9 Ebenen berechnet. <strong style=\"color: #f9fafb;\">Holen Sie sich Ihr kostenloses Audit</strong>, um zu sehen, wo Sie stehen.",
-    "claim-audit": "Kostenloses KI-Audit erhalten →",
+    "claim-audit": "Kostenloses KI-Audit erhalten",
     "trend-badge-ai": "KI-Marktintelligenz 2026",
     "trend-title-ai": "Die KI-Vertrauensökonomie 2026",
     "trend-text1-ai": "<strong style=\"color: #93C5FD;\">80 %</strong> der Verbraucher nutzen bereits KI-Tools, bevor sie einen Kauf tätigen, und <strong style=\"color: #93C5FD;\">62 %</strong> vertrauen KI-Empfehlungen genauso wie persönlichen Empfehlungen. Wenn Ihre Marke nicht von KI empfohlen wird, sind Sie für die Mehrheit der modernen Käufer unsichtbar.",
@@ -6634,7 +6651,7 @@ const afterData = {
     "trend-stat1-ai": "nutzen KI vor dem Kauf",
     "trend-stat2-ai": "vertrauen KI wie persönlichen Empfehlungen",
     "trend-stat3-ai": "Wachstum bei KI-Reputationssuchanfragen",
-    "trend-btn-ai": "Holen Sie sich Ihr kostenloses KI-Reputationsaudit →",
+    "trend-btn-ai": "Holen Sie sich Ihr kostenloses KI-Reputationsaudit",
     "risk-title-ai": "Die wahren Kosten geringer KI-Sichtbarkeit",
     "risk-sub-ai": "Was passiert, wenn KI Ihre Marke nicht sehen, ihr nicht vertrauen oder sie nicht empfehlen kann",
     "risk1-title-ai": "Umsatzverlust durch geringe KI-Sichtbarkeit",
@@ -6703,7 +6720,7 @@ const afterData = {
     "fix-measurement-title": "📊 Messung\n        <i class=\"fas fa-chevron-down\" style=\"transition: transform 0.25s; color:#3B82F6;\"></i>",
     "fix-measurement-list": "<ul style=\"list-style: none; padding: 0; margin: 0;\">\n<li style=\"padding: 4px 0;\">• Basis‑Sichtbarkeits‑Tracking</li>\n<li style=\"padding: 4px 0;\">• Simulation von 20–50 echten Nutzeranfragen</li>\n<li style=\"padding: 4px 0;\">• KI‑Share‑of‑Voice im Vergleich zu Mitbewerbern</li>\n<li style=\"padding: 4px 0;\">• A/B‑Tests von Inhaltsformaten</li>\n<li style=\"padding: 4px 0;\">• Monatlicher Fortschrittsbericht</li>\n</ul>",
     "fix-instances": "40–65 angewendete Fälle dieser <strong>28 Boost‑Typen</strong> pro Standort — kein größerer Katalog, sondern dieselben Maßnahmen dort wiederholt, wo sie wirken. Allein eine NAP‑Korrektur betrifft 10–60+ Verzeichnisse; Bewertungsantworten zählen pro Bewertung. Diese Wiederholung summiert sich auf 40–65, bevor die KI einen Standort konsistent empfiehlt.",
-    "fix-see-types": "Alle 28 Boost‑Typen ansehen →",
+    "fix-see-types": "Alle 28 Boost‑Typen ansehen",
     "cta-title": "Kostenloses KI-Reputationsaudit – Sehen Sie, wie KI Ihre Marke sieht",
     "cta-text": "Wir analysieren, wie KI-Plattformen (ChatGPT, Gemini) Ihre Marke wahrnehmen.<br>Sehen Sie, wie viele Kunden Sie verlieren und welche Reputationssignale wir bereinigen können, um Ihre KI-Sichtbarkeit zu steigern.<br>Ohne Verpflichtung.",
     "form-name": "Vollständiger Name *",
@@ -6711,7 +6728,7 @@ const afterData = {
     "form-maps-link": "Google Maps-Link oder Website *",
     "form-referred": "Wer hat Sie empfohlen? (optional)",
     "form-message": "Erzählen Sie uns von Ihren Bedenken bezüglich der KI-Sichtbarkeit... *",
-    "form-submit": "Kostenloses KI-Reputationsaudit erhalten →",
+    "form-submit": "Kostenloses KI-Reputationsaudit erhalten",
     "faq-title-ai": "Häufig gestellte Fragen zur KI-Sichtbarkeit",
     "faq1q-ai": "Was ist KI-Sichtbarkeit und warum ist sie wichtig?",
     "faq1a-ai": "KI-Sichtbarkeit ist die prominente Darstellung Ihrer Marke in Empfehlungen von ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek und Google AI. Bis 2026 werden 85 % der Verbraucher KI-Tools nutzen, bevor sie einen Kauf tätigen. Wenn KI Ihre Marke nicht empfiehlt, verlieren Sie Kunden an Wettbewerber – still und leise, jeden Tag.",
@@ -6864,7 +6881,7 @@ const afterData = {
     "checkout-modal-cancel": "Pas encore prêt — retour",
     "checkout-modal-secure": "Paiements traités par Stripe. Nous ne voyons jamais les détails de votre carte.",
     "already-checked-placeholder": "Cette entreprise a déjà été vérifiée. Contactez-nous pour l’audit complet.",
-    "already-checked-btn": "Obtenir l’audit IA gratuit →",
+    "already-checked-btn": "Obtenir l’audit IA gratuit",
     "trust-logos-caption": "Nous surveillons et optimisons votre visibilité sur",
     "guarantee-banner-title": "Chaque plan est couvert par notre garantie d’amélioration du score de visibilité",
     "guarantee-banner-text": "Si votre score de visibilité IA ne s’améliore pas dans le délai de garantie de votre plan, nous continuons à travailler gratuitement jusqu’à ce que ce soit le cas.",
@@ -6911,7 +6928,7 @@ const afterData = {
     "methodology-l9": "Signal de Réputation",
     "methodology-l9-desc": "Votre marque a‑t‑elle des avis propres et vérifiés ? Les modèles d’IA lisent le sentiment des avis comme un signal de confiance majeur. Des avis faux ou négatifs indiquent à l’IA de ne pas vous recommander. Des avis propres = la confiance de l’IA.",
     "methodology-score-text": "💡 Votre score de visibilité IA est calculé sur l'ensemble des 9 couches. <strong style=\"color: #f9fafb;\">Obtenez votre audit gratuit</strong> pour voir où vous en êtes.",
-    "claim-audit": "Obtenir l'audit IA gratuit →",
+    "claim-audit": "Obtenir l'audit IA gratuit",
     "trend-badge-ai": "Intelligence du Marché IA 2026",
     "trend-title-ai": "L'Économie de la Confiance IA 2026",
     "trend-text1-ai": "<strong style=\"color: #93C5FD;\">80 %</strong> des consommateurs utilisent déjà des outils d'IA avant un achat, et <strong style=\"color: #93C5FD;\">62 %</strong> font autant confiance aux recommandations IA qu'aux recommandations personnelles. Si votre marque n'est pas recommandée par l'IA, vous êtes invisible pour la majorité des acheteurs modernes.",
@@ -6919,7 +6936,7 @@ const afterData = {
     "trend-stat1-ai": "utilisent l'IA avant d'acheter",
     "trend-stat2-ai": "font confiance à l'IA comme aux recommandations",
     "trend-stat3-ai": "croissance des recherches de réputation IA",
-    "trend-btn-ai": "Obtenez votre audit gratuit de réputation IA →",
+    "trend-btn-ai": "Obtenez votre audit gratuit de réputation IA",
     "risk-title-ai": "Le Coût Réel d'une Faible Visibilité IA",
     "risk-sub-ai": "Ce qui se produit quand l'IA ne peut pas voir, ne fait pas confiance ou ne recommande pas votre marque",
     "risk1-title-ai": "Revenus Perdus à Cause d'une Faible Visibilité IA",
@@ -6988,7 +7005,7 @@ const afterData = {
     "fix-measurement-title": "📊 Mesure\n        <i class=\"fas fa-chevron-down\" style=\"transition: transform 0.25s; color:#3B82F6;\"></i>",
     "fix-measurement-list": "<ul style=\"list-style: none; padding: 0; margin: 0;\">\n<li style=\"padding: 4px 0;\">• Suivi de la visibilité de référence</li>\n<li style=\"padding: 4px 0;\">• Simulation de 20 à 50 requêtes d’utilisateurs réels</li>\n<li style=\"padding: 4px 0;\">• Part de voix IA face aux concurrents</li>\n<li style=\"padding: 4px 0;\">• Tests A/B sur les formats de contenu</li>\n<li style=\"padding: 4px 0;\">• Rapport de progression mensuel</li>\n</ul>",
     "fix-instances": "40 à 65 applications concrètes de ces <strong>28 types de boosts</strong> par site — pas un catalogue plus large, mais les mêmes actions répétées là où elles comptent. La seule correction du NAP s'applique sur 10 à 60+ annuaires ; les réponses aux avis comptent par avis. Cette répétition est ce qui totalise 40 à 65 avant que l'IA ne recommande un site de façon constante.",
-    "fix-see-types": "Voir les 28 types de boosts →",
+    "fix-see-types": "Voir les 28 types de boosts",
     "cta-title": "Audit Gratuit de Réputation IA — Voyez Comment l'IA Perçoit Votre Marque",
     "cta-text": "Nous analyserons comment les plateformes d'IA (ChatGPT, Gemini) perçoivent votre marque.<br>Voyez combien de clients vous perdez et quels signaux de réputation nous pouvons nettoyer pour booster votre visibilité IA.<br>Sans engagement.",
     "form-name": "Nom complet *",
@@ -6996,7 +7013,7 @@ const afterData = {
     "form-maps-link": "Lien Google Maps ou site web *",
     "form-referred": "Qui vous a recommandé ? (facultatif)",
     "form-message": "Parlez-nous de vos préoccupations concernant la visibilité IA... *",
-    "form-submit": "Obtenir l'audit gratuit de réputation IA →",
+    "form-submit": "Obtenir l'audit gratuit de réputation IA",
     "faq-title-ai": "Questions Fréquemment Posées sur la Visibilité IA",
     "faq1q-ai": "Qu'est-ce que la visibilité IA et pourquoi est-elle importante ?",
     "faq1a-ai": "La visibilité IA est la proéminence avec laquelle votre marque apparaît dans les recommandations de ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek et Google AI. D'ici 2026, 85 % des consommateurs utiliseront des outils d'IA avant d'effectuer un achat. Si l'IA ne recommande pas votre marque, vous perdez des clients face à la concurrence — silencieusement, chaque jour.",
@@ -7149,7 +7166,7 @@ const afterData = {
     "checkout-modal-cancel": "Пока не готов — вернуться",
     "checkout-modal-secure": "Платежи обрабатываются через Stripe. Мы никогда не видим данные вашей карты.",
     "already-checked-placeholder": "Этот бизнес уже проверен. Свяжитесь с нами для полного аудита.",
-    "already-checked-btn": "Получить бесплатный аудит ИИ →",
+    "already-checked-btn": "Получить бесплатный аудит ИИ",
     "trust-logos-caption": "Мы отслеживаем и повышаем вашу видимость на",
     "guarantee-banner-title": "Каждый тариф покрыт нашей гарантией улучшения рейтинга видимости",
     "guarantee-banner-text": "Если ваш рейтинг видимости в ИИ не улучшится в течение гарантийного окна вашего тарифа, мы продолжаем работу бесплатно, пока не добьёмся результата.",
@@ -7196,7 +7213,7 @@ const afterData = {
     "methodology-l9": "Сигнал репутации",
     "methodology-l9-desc": "Есть ли у вашего бренда чистые, проверенные отзывы? Модели ИИ читают тональность отзывов как ключевой сигнал доверия. Поддельные или негативные отзывы говорят ИИ не рекомендовать вас. Чистые отзывы = доверие ИИ.",
     "methodology-score-text": "💡 Ваш рейтинг видимости в ИИ рассчитывается по всем 9 уровням. <strong style=\"color: #f9fafb;\">Получите бесплатный аудит</strong>, чтобы узнать, на каком вы месте.",
-    "claim-audit": "Получить бесплатный аудит ИИ →",
+    "claim-audit": "Получить бесплатный аудит ИИ",
     "trend-badge-ai": "Маркетинговый анализ ИИ 2026",
     "trend-title-ai": "Экономика доверия к ИИ 2026",
     "trend-text1-ai": "<strong style=\"color: #93C5FD;\">80%</strong> потребителей уже используют инструменты ИИ перед покупкой, и <strong style=\"color: #93C5FD;\">62%</strong> доверяют рекомендациям ИИ так же, как личным рекомендациям. Если ваш бренд не рекомендован ИИ, вы невидимы для большинства современных покупателей.",
@@ -7204,7 +7221,7 @@ const afterData = {
     "trend-stat1-ai": "используют ИИ перед покупкой",
     "trend-stat2-ai": "доверяют ИИ как личным рекомендациям",
     "trend-stat3-ai": "рост поисковых запросов о репутации ИИ",
-    "trend-btn-ai": "Получите бесплатный аудит репутации в ИИ →",
+    "trend-btn-ai": "Получите бесплатный аудит репутации в ИИ",
     "risk-title-ai": "Реальная цена низкой видимости в ИИ",
     "risk-sub-ai": "Что происходит, когда ИИ не может видеть, доверять или рекомендовать ваш бренд",
     "risk1-title-ai": "Потеря выручки из-за низкой видимости в ИИ",
@@ -7273,7 +7290,7 @@ const afterData = {
     "fix-measurement-title": "📊 Измерение\n        <i class=\"fas fa-chevron-down\" style=\"transition: transform 0.25s; color:#3B82F6;\"></i>",
     "fix-measurement-list": "<ul style=\"list-style: none; padding: 0; margin: 0;\">\n<li style=\"padding: 4px 0;\">• Отслеживание базовой видимости</li>\n<li style=\"padding: 4px 0;\">• Симуляция 20–50 реальных пользовательских запросов</li>\n<li style=\"padding: 4px 0;\">• Доля голоса в ИИ относительно конкурентов</li>\n<li style=\"padding: 4px 0;\">• A/B‑тесты форматов контента</li>\n<li style=\"padding: 4px 0;\">• Ежемесячный отчёт о прогрессе</li>\n</ul>",
     "fix-instances": "40–65 — это применённые экземпляры тех же <strong>28 типов бустов</strong> на локацию — не расширенный каталог, а одни и те же действия, повторяемые там, где они важны. Одно только исправление NAP применяется в 10–60+ справочниках; ответы на отзывы считаются за каждый отзыв отдельно. Именно эта повторяемость и складывается в 40–65, прежде чем ИИ начнёт стабильно рекомендовать локацию.",
-    "fix-see-types": "Смотреть все 28 типов бустов →",
+    "fix-see-types": "Смотреть все 28 типов бустов",
     "cta-title": "Бесплатный аудит репутации в ИИ — узнайте, как ИИ видит ваш бренд",
     "cta-text": "Мы проанализируем, как платформы ИИ (ChatGPT, Gemini) воспринимают ваш бренд.<br>Узнайте, сколько клиентов вы теряете и какие сигналы репутации мы можем очистить, чтобы повысить вашу видимость в ИИ.<br>Без обязательств.",
     "form-name": "Полное имя *",
@@ -7281,7 +7298,7 @@ const afterData = {
     "form-maps-link": "Ссылка на Google Maps или сайт *",
     "form-referred": "Кто вас порекомендовал? (необязательно)",
     "form-message": "Расскажите о ваших проблемах с видимостью в ИИ... *",
-    "form-submit": "Получить бесплатный аудит репутации в ИИ →",
+    "form-submit": "Получить бесплатный аудит репутации в ИИ",
     "faq-title-ai": "Часто задаваемые вопросы о видимости в ИИ",
     "faq1q-ai": "Что такое видимость в ИИ и почему это важно?",
     "faq1a-ai": "Видимость в ИИ — это то, насколько заметно ваш бренд появляется в рекомендациях ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek и Google AI. К 2026 году 85% потребителей будут использовать инструменты ИИ перед покупкой. Если ИИ не рекомендует ваш бренд, вы теряете клиентов в пользу конкурентов — молча, каждый день.",
@@ -7434,7 +7451,7 @@ const afterData = {
     "checkout-modal-cancel": "Chưa sẵn sàng — quay lại",
     "checkout-modal-secure": "Thanh toán được xử lý bởi Stripe. Chúng tôi không bao giờ thấy thông tin thẻ của bạn.",
     "already-checked-placeholder": "Doanh nghiệp này đã được kiểm tra. Liên hệ với chúng tôi để được kiểm tra đầy đủ.",
-    "already-checked-btn": "Nhận Kiểm Tra AI Miễn Phí →",
+    "already-checked-btn": "Nhận Kiểm Tra AI Miễn Phí",
     "trust-logos-caption": "Chúng tôi theo dõi và tối ưu khả năng hiển thị của bạn trên",
     "guarantee-banner-title": "Mọi gói đều được bảo đảm bởi cam kết cải thiện điểm hiển thị AI của chúng tôi",
     "guarantee-banner-text": "Nếu điểm hiển thị AI của bạn không cải thiện trong thời gian bảo đảm của gói, chúng tôi tiếp tục làm việc miễn phí cho đến khi đạt được.",
@@ -7481,7 +7498,7 @@ const afterData = {
     "methodology-l9": "Tín Hiệu Uy Tín",
     "methodology-l9-desc": "Thương hiệu của bạn có đánh giá sạch, đã xác minh không? Các mô hình AI đọc cảm xúc đánh giá như một tín hiệu tin cậy chính. Đánh giá giả hoặc tiêu cực khiến AI không đề xuất bạn. Đánh giá sạch = AI tin tưởng.",
     "methodology-score-text": "💡 Điểm hiển thị trên AI của bạn được tính toán qua tất cả 9 lớp. <strong style=\"color: #f9fafb;\">Nhận kiểm toán miễn phí</strong> để xem vị trí của bạn.",
-    "claim-audit": "Nhận Kiểm Toán AI Miễn Phí →",
+    "claim-audit": "Nhận Kiểm Toán AI Miễn Phí",
     "trend-badge-ai": "Thông Tin Thị Trường AI 2026",
     "trend-title-ai": "Nền Kinh Tế Niềm Tin AI 2026",
     "trend-text1-ai": "<strong style=\"color: #93C5FD;\">80%</strong> người tiêu dùng đã sử dụng công cụ AI trước khi mua hàng, và <strong style=\"color: #93C5FD;\">62%</strong> tin tưởng đề xuất của AI nhiều như giới thiệu cá nhân. Nếu thương hiệu của bạn không được AI đề xuất, bạn vô hình trước phần lớn người mua hiện đại.",
@@ -7489,7 +7506,7 @@ const afterData = {
     "trend-stat1-ai": "sử dụng AI trước khi mua",
     "trend-stat2-ai": "tin tưởng AI như giới thiệu cá nhân",
     "trend-stat3-ai": "tăng trưởng tìm kiếm uy tín AI",
-    "trend-btn-ai": "Nhận Kiểm Toán Uy Tín Trên AI Miễn Phí →",
+    "trend-btn-ai": "Nhận Kiểm Toán Uy Tín Trên AI Miễn Phí",
     "risk-title-ai": "Chi Phí Thực Sự Của Hiển Thị Trên AI Thấp",
     "risk-sub-ai": "Điều gì xảy ra khi AI không thể nhìn thấy, tin tưởng hoặc đề xuất thương hiệu của bạn",
     "risk1-title-ai": "Doanh Thu Bị Mất Do Hiển Thị Trên AI Thấp",
@@ -7558,7 +7575,7 @@ const afterData = {
     "fix-measurement-title": "📊 Đo Lường\n        <i class=\"fas fa-chevron-down\" style=\"transition: transform 0.25s; color:#3B82F6;\"></i>",
     "fix-measurement-list": "<ul style=\"list-style: none; padding: 0; margin: 0;\">\n<li style=\"padding: 4px 0;\">• Theo dõi mức hiển thị cơ sở</li>\n<li style=\"padding: 4px 0;\">• Mô phỏng 20–50 câu truy vấn người dùng thực tế</li>\n<li style=\"padding: 4px 0;\">• Thị phần tiếng nói AI so với đối thủ</li>\n<li style=\"padding: 4px 0;\">• Thử nghiệm A/B trên định dạng nội dung</li>\n<li style=\"padding: 4px 0;\">• Báo cáo tiến độ hàng tháng</li>\n</ul>",
     "fix-instances": "40–65 lần áp dụng thực tế của <strong>28 loại boost</strong> đó cho mỗi địa điểm — không phải danh mục lớn hơn, mà là những hành động tương tự được lặp lại ở nơi quan trọng. Chỉ riêng việc sửa NAP đã áp dụng trên 10–60+ thư mục; phản hồi đánh giá được tính theo từng đánh giá. Chính sự lặp lại đó cộng dồn thành 40–65 trước khi AI liên tục đề xuất một địa điểm.",
-    "fix-see-types": "Xem 28 loại boost →",
+    "fix-see-types": "Xem 28 loại boost",
     "cta-title": "Kiểm Toán Uy Tín Trên AI Miễn Phí — Xem AI Nhìn Nhận Thương Hiệu Của Bạn Như Thế Nào",
     "cta-text": "Chúng tôi sẽ phân tích cách các nền tảng AI (ChatGPT, Gemini) nhìn nhận thương hiệu của bạn.<br>Xem bạn đang mất bao nhiêu khách hàng và tín hiệu uy tín nào chúng tôi có thể làm sạch để tăng hiển thị trên AI của bạn.<br>Không có nghĩa vụ.",
     "form-name": "Họ và tên *",
@@ -7566,7 +7583,7 @@ const afterData = {
     "form-maps-link": "Liên kết Google Maps hoặc trang web *",
     "form-referred": "Ai đã giới thiệu bạn? (tùy chọn)",
     "form-message": "Hãy cho chúng tôi biết về mối quan tâm về hiển thị trên AI của bạn... *",
-    "form-submit": "Nhận Kiểm Toán Uy Tín Trên AI Miễn Phí →",
+    "form-submit": "Nhận Kiểm Toán Uy Tín Trên AI Miễn Phí",
     "faq-title-ai": "Câu Hỏi Thường Gặp Về Hiển Thị Trên AI",
     "faq1q-ai": "Hiển thị trên AI là gì và tại sao nó quan trọng?",
     "faq1a-ai": "Hiển thị trên AI là mức độ nổi bật mà thương hiệu của bạn xuất hiện trong các đề xuất từ ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek và Google AI. Đến năm 2026, 85% người tiêu dùng sẽ sử dụng công cụ AI trước khi mua hàng. Nếu AI không đề xuất thương hiệu của bạn, bạn mất khách hàng vào tay đối thủ — một cách âm thầm, mỗi ngày.",
@@ -7719,7 +7736,7 @@ const afterData = {
     "checkout-modal-cancel": "Ainda não estou pronto — voltar",
     "checkout-modal-secure": "Pagamentos processados pela Stripe. Nunca vemos os dados do seu cartão.",
     "already-checked-placeholder": "Este negócio já foi verificado. Entre em contato para a auditoria completa.",
-    "already-checked-btn": "Obter Auditoria de IA Gratuita →",
+    "already-checked-btn": "Obter Auditoria de IA Gratuita",
     "trust-logos-caption": "Monitoramos e otimizamos sua visibilidade em",
     "guarantee-banner-title": "Todo plano é respaldado pela nossa garantia de melhoria da pontuação de visibilidade",
     "guarantee-banner-text": "Se sua pontuação de visibilidade em IA não melhorar dentro do prazo de garantia do seu plano, continuamos trabalhando de graça até conseguir.",
@@ -7766,7 +7783,7 @@ const afterData = {
     "methodology-l9": "Sinal de Reputação",
     "methodology-l9-desc": "Sua marca tem avaliações limpas e verificadas? Os modelos de IA leem o sentimento das avaliações como um sinal de confiança primário. Avaliações falsas ou negativas dizem à IA para não recomendá‑lo. Avaliações limpas = confiança da IA.",
     "methodology-score-text": "💡 Sua pontuação de visibilidade em IA é calculada em todas as 9 camadas. <strong style=\"color: #f9fafb;\">Obtenha sua auditoria gratuita</strong> para ver onde você está.",
-    "claim-audit": "Obter Auditoria de IA Gratuita →",
+    "claim-audit": "Obter Auditoria de IA Gratuita",
     "trend-badge-ai": "Inteligência de Mercado de IA 2026",
     "trend-title-ai": "A Economia da Confiança em IA 2026",
     "trend-text1-ai": "<strong style=\"color: #93C5FD;\">80%</strong> dos consumidores já usam ferramentas de IA antes de comprar, e <strong style=\"color: #93C5FD;\">62%</strong> confiam nas recomendações de IA tanto quanto em indicações pessoais. Se sua marca não for recomendada pela IA, você fica invisível para a maioria dos compradores modernos.",
@@ -7774,7 +7791,7 @@ const afterData = {
     "trend-stat1-ai": "usam IA antes de comprar",
     "trend-stat2-ai": "confiam na IA como em indicações",
     "trend-stat3-ai": "crescimento em pesquisas de reputação de IA",
-    "trend-btn-ai": "Obtenha sua Auditoria Gratuita de Reputação em IA →",
+    "trend-btn-ai": "Obtenha sua Auditoria Gratuita de Reputação em IA",
     "risk-title-ai": "O Custo Real da Baixa Visibilidade em IA",
     "risk-sub-ai": "O que acontece quando a IA não consegue ver, confiar ou recomendar sua marca",
     "risk1-title-ai": "Receita Perdida Devido à Baixa Visibilidade em IA",
@@ -7843,7 +7860,7 @@ const afterData = {
     "fix-measurement-title": "📊 Medição\n        <i class=\"fas fa-chevron-down\" style=\"transition: transform 0.25s; color:#3B82F6;\"></i>",
     "fix-measurement-list": "<ul style=\"list-style: none; padding: 0; margin: 0;\">\n<li style=\"padding: 4px 0;\">• Rastreamento da visibilidade inicial</li>\n<li style=\"padding: 4px 0;\">• Simulação de 20–50 prompts de usuários reais</li>\n<li style=\"padding: 4px 0;\">• Share of Voice em IA frente aos concorrentes</li>\n<li style=\"padding: 4px 0;\">• Testes A/B em formatos de conteúdo</li>\n<li style=\"padding: 4px 0;\">• Relatório mensal de progresso</li>\n</ul>",
     "fix-instances": "40–65 instâncias aplicadas desses <strong>28 tipos de boost</strong> por local — não é um catálogo maior, são as mesmas ações repetidas onde importam. Só a correção de NAP é aplicada em 10–60+ diretórios; as respostas a avaliações contam por avaliação. É essa repetição que soma 40–65 antes de a IA recomendar um local de forma consistente.",
-    "fix-see-types": "Ver os 28 tipos de boost →",
+    "fix-see-types": "Ver os 28 tipos de boost",
     "cta-title": "Auditoria Gratuita de Reputação em IA — Veja Como a IA Vê Sua Marca",
     "cta-text": "Analisaremos como as plataformas de IA (ChatGPT, Gemini) percebem sua marca.<br>Veja quantos clientes você está perdendo e quais sinais de reputação podemos limpar para aumentar sua visibilidade em IA.<br>Sem compromisso.",
     "form-name": "Nome completo *",
@@ -7851,7 +7868,7 @@ const afterData = {
     "form-maps-link": "Link do Google Maps ou site *",
     "form-referred": "Quem indicou você? (opcional)",
     "form-message": "Conte-nos sobre suas preocupações com a visibilidade em IA... *",
-    "form-submit": "Obter Auditoria Gratuita de Reputação em IA →",
+    "form-submit": "Obter Auditoria Gratuita de Reputação em IA",
     "faq-title-ai": "Perguntas Frequentes sobre Visibilidade em IA",
     "faq1q-ai": "O que é visibilidade em IA e por que ela é importante?",
     "faq1a-ai": "Visibilidade em IA é o destaque com que sua marca aparece nas recomendações do ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek e Google AI. Até 2026, 85% dos consumidores usarão ferramentas de IA antes de fazer uma compra. Se a IA não recomendar sua marca, você perde clientes para os concorrentes — silenciosamente, todos os dias.",
@@ -8004,7 +8021,7 @@ const afterData = {
     "checkout-modal-cancel": "Henüz hazır değilim — geri dön",
     "checkout-modal-secure": "Ödemeler Stripe tarafından işlenir. Kart bilgilerinizi asla görmeyiz.",
     "already-checked-placeholder": "Bu işletme zaten kontrol edildi. Tam denetim için bizimle iletişime geçin.",
-    "already-checked-btn": "Ücretsiz AI Denetimi Alın →",
+    "already-checked-btn": "Ücretsiz AI Denetimi Alın",
     "trust-logos-caption": "Görünürlüğünüzü şu platformlarda izliyor ve optimize ediyoruz",
     "guarantee-banner-title": "Her plan, görünürlük puanı iyileştirme garantimizle güvence altındadır",
     "guarantee-banner-text": "AI görünürlük puanınız, planınızın garanti süresi içinde iyileşmezse, biz başarana kadar ücretsiz çalışmaya devam ederiz.",
@@ -8051,7 +8068,7 @@ const afterData = {
     "methodology-l9": "İtibar Sinyali",
     "methodology-l9-desc": "Markanızın temiz, doğrulanmış yorumları var mı? Yapay zeka modelleri, yorum duygusunu birincil güven sinyali olarak okur. Sahte veya olumsuz yorumlar yapay zekaya sizi önermemesini söyler. Temiz yorumlar = yapay zeka güveni.",
     "methodology-score-text": "💡 AI görünürlük puanınız 9 katmanın tamamında hesaplanır. <strong style=\"color: #f9fafb;\">Ücretsiz denetiminizi alın</strong> ve nerede durduğunuzu görün.",
-    "claim-audit": "Ücretsiz AI Denetimi Alın →",
+    "claim-audit": "Ücretsiz AI Denetimi Alın",
     "trend-badge-ai": "AI Pazar Zekası 2026",
     "trend-title-ai": "2026 AI Güven Ekonomisi",
     "trend-text1-ai": "<strong style=\"color: #93C5FD;\">Tüketicilerin %80'i</strong> satın almadan önce AI araçlarını zaten kullanıyor ve <strong style=\"color: #93C5FD;\">%62'si</strong> AI tavsiyelerine kişisel referanslar kadar güveniyor. Markanız AI tarafından tavsiye edilmiyorsa, modern alıcıların çoğunluğu için görünmezsiniz.",
@@ -8059,7 +8076,7 @@ const afterData = {
     "trend-stat1-ai": "satın almadan önce AI kullanıyor",
     "trend-stat2-ai": "AI'ya kişisel referanslar kadar güveniyor",
     "trend-stat3-ai": "AI itibar aramalarında büyüme",
-    "trend-btn-ai": "Ücretsiz AI İtibar Denetiminizi Alın →",
+    "trend-btn-ai": "Ücretsiz AI İtibar Denetiminizi Alın",
     "risk-title-ai": "Düşük AI Görünürlüğünün Gerçek Maliyeti",
     "risk-sub-ai": "AI markanızı göremediğinde, güvenmediğinde veya tavsiye edemediğinde neler olur",
     "risk1-title-ai": "Düşük AI Görünürlüğü Nedeniyle Kaybedilen Gelir",
@@ -8128,7 +8145,7 @@ const afterData = {
     "fix-measurement-title": "📊 Ölçüm\n        <i class=\"fas fa-chevron-down\" style=\"transition: transform 0.25s; color:#3B82F6;\"></i>",
     "fix-measurement-list": "<ul style=\"list-style: none; padding: 0; margin: 0;\">\n<li style=\"padding: 4px 0;\">• Temel görünürlük takibi</li>\n<li style=\"padding: 4px 0;\">• 20–50 gerçek kullanıcı istemi simülasyonu</li>\n<li style=\"padding: 4px 0;\">• Rakiplere karşı AI Share of Voice</li>\n<li style=\"padding: 4px 0;\">• İçerik formatlarında A/B testleri</li>\n<li style=\"padding: 4px 0;\">• Aylık ilerleme raporu</li>\n</ul>",
     "fix-instances": "Lokasyon başına o <strong>28 boost türünün</strong> uygulanan 40–65 örneği — daha büyük bir katalog değil, önemli olan yerlerde tekrarlanan aynı eylemler. Yalnızca NAP düzeltmesi 10–60+ dizinde uygulanır; yorum yanıtları her yorum için ayrı sayılır. Yapay zekanın bir lokasyonu tutarlı biçimde önermesinden önce 40–65'e ulaşan şey bu tekrardır.",
-    "fix-see-types": "28 boost türünü görün →",
+    "fix-see-types": "28 boost türünü görün",
     "cta-title": "Ücretsiz AI İtibar Denetimi — AI Markanızı Nasıl Görüyor Görün",
     "cta-text": "AI platformlarının (ChatGPT, Gemini) markanızı nasıl algıladığını analiz edeceğiz.<br>Kaç müşteri kaybettiğinizi ve AI görünürlüğünüzü artırmak için hangi itibar sinyallerini temizleyebileceğimizi görün.<br>Taahhüt yok.",
     "form-name": "Ad soyad *",
@@ -8136,7 +8153,7 @@ const afterData = {
     "form-maps-link": "Google Maps bağlantısı veya web sitesi *",
     "form-referred": "Sizi kim yönlendirdi? (isteğe bağlı)",
     "form-message": "AI görünürlük endişelerinizi bize anlatın... *",
-    "form-submit": "Ücretsiz AI İtibar Denetimi Alın →",
+    "form-submit": "Ücretsiz AI İtibar Denetimi Alın",
     "faq-title-ai": "AI Görünürlüğü Hakkında Sık Sorulan Sorular",
     "faq1q-ai": "AI görünürlüğü nedir ve neden önemlidir?",
     "faq1a-ai": "AI görünürlüğü, markanızın ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek ve Google AI tavsiyelerinde ne kadar belirgin göründüğüdür. 2026'ya kadar tüketicilerin %85'i satın alma işlemi yapmadan önce AI araçlarını kullanacak. AI markanızı tavsiye etmezse, müşterilerinizi sessizce, her gün rakiplerinize kaptırırsınız.",
@@ -8289,7 +8306,7 @@ const afterData = {
     "checkout-modal-cancel": "Non sono ancora pronto — torna indietro",
     "checkout-modal-secure": "Pagamenti elaborati da Stripe. Non vediamo mai i dati della tua carta.",
     "already-checked-placeholder": "Questa attività è già stata verificata. Contattaci per l'audit completo.",
-    "already-checked-btn": "Ottieni l'Audit IA Gratuito →",
+    "already-checked-btn": "Ottieni l'Audit IA Gratuito",
     "trust-logos-caption": "Monitoriamo e ottimizziamo la tua visibilità su",
     "guarantee-banner-title": "Ogni piano è coperto dalla nostra garanzia di miglioramento del punteggio di visibilità",
     "guarantee-banner-text": "Se il tuo punteggio di visibilità nell'IA non migliora entro la finestra di garanzia del tuo piano, continuiamo a lavorare gratis finché non ci riusciamo.",
@@ -8336,7 +8353,7 @@ const afterData = {
     "methodology-l9": "Segnale di Reputazione",
     "methodology-l9-desc": "Il tuo brand ha recensioni pulite e verificate? I modelli IA leggono il sentiment delle recensioni come segnale di fiducia primario. Recensioni false o negative dicono all'IA di non consigliarti. Recensioni pulite = fiducia dell'IA.",
     "methodology-score-text": "💡 Il tuo punteggio di visibilità IA viene calcolato su tutti i 9 livelli. <strong style=\"color: #f9fafb;\">Ottieni il tuo audit gratuito</strong> per vedere dove ti trovi.",
-    "claim-audit": "Ottieni l'Audit IA Gratuito →",
+    "claim-audit": "Ottieni l'Audit IA Gratuito",
     "trend-badge-ai": "Intelligence di Mercato IA 2026",
     "trend-title-ai": "L'Economia della Fiducia nell'IA 2026",
     "trend-text1-ai": "<strong style=\"color: #93C5FD;\">L'80%</strong> dei consumatori utilizza già strumenti IA prima di acquistare, e il <strong style=\"color: #93C5FD;\">62%</strong> si fida delle raccomandazioni IA tanto quanto dei passaparola personali. Se il tuo marchio non viene raccomandato dall'IA, sei invisibile per la maggior parte degli acquirenti moderni.",
@@ -8344,7 +8361,7 @@ const afterData = {
     "trend-stat1-ai": "usano l'IA prima di acquistare",
     "trend-stat2-ai": "si fidano dell'IA come dei passaparola",
     "trend-stat3-ai": "crescita delle ricerche sulla reputazione IA",
-    "trend-btn-ai": "Ottieni il tuo Audit Gratuito di Reputazione IA →",
+    "trend-btn-ai": "Ottieni il tuo Audit Gratuito di Reputazione IA",
     "risk-title-ai": "Il Costo Reale di una Bassa Visibilità nell'IA",
     "risk-sub-ai": "Cosa succede quando l'IA non può vedere, fidarsi o raccomandare il tuo marchio",
     "risk1-title-ai": "Ricavi Perduti a Causa della Bassa Visibilità nell'IA",
@@ -8413,7 +8430,7 @@ const afterData = {
     "fix-measurement-title": "📊 Misurazione\n        <i class=\"fas fa-chevron-down\" style=\"transition: transform 0.25s; color:#3B82F6;\"></i>",
     "fix-measurement-list": "<ul style=\"list-style: none; padding: 0; margin: 0;\">\n<li style=\"padding: 4px 0;\">• Monitoraggio della visibilità di base</li>\n<li style=\"padding: 4px 0;\">• Simulazione di 20–50 prompt di utenti reali</li>\n<li style=\"padding: 4px 0;\">• Share of Voice nell'IA rispetto ai concorrenti</li>\n<li style=\"padding: 4px 0;\">• Test A/B sui formati dei contenuti</li>\n<li style=\"padding: 4px 0;\">• Report mensile sui progressi</li>\n</ul>",
     "fix-instances": "40–65 istanze applicate di quei <strong>28 tipi di boost</strong> per sede — non un catalogo più ampio, ma le stesse azioni ripetute dove contano. La sola correzione NAP si applica su 10–60+ directory; le risposte alle recensioni contano per ogni recensione. È questa ripetizione a sommarsi fino a 40–65 prima che l'IA raccomandi una sede in modo costante.",
-    "fix-see-types": "Vedi i 28 tipi di boost →",
+    "fix-see-types": "Vedi i 28 tipi di boost",
     "cta-title": "Audit Gratuito della Reputazione nell'IA — Scopri Come l'IA Vede il Tuo Marchio",
     "cta-text": "Analizzeremo come le piattaforme IA (ChatGPT, Gemini) percepiscono il tuo marchio.<br>Scopri quanti clienti stai perdendo e quali segnali di reputazione possiamo pulire per aumentare la tua visibilità IA.<br>Senza impegno.",
     "form-name": "Nome completo *",
@@ -8421,7 +8438,7 @@ const afterData = {
     "form-maps-link": "Link Google Maps o sito web *",
     "form-referred": "Chi ti ha segnalato? (opzionale)",
     "form-message": "Raccontaci le tue preoccupazioni riguardo alla visibilità IA... *",
-    "form-submit": "Ottieni l'Audit Gratuito di Reputazione IA →",
+    "form-submit": "Ottieni l'Audit Gratuito di Reputazione IA",
     "faq-title-ai": "Domande Frequenti sulla Visibilità nell'IA",
     "faq1q-ai": "Cos'è la visibilità nell'IA e perché è importante?",
     "faq1a-ai": "La visibilità nell'IA è la prominenza con cui il tuo marchio appare nelle raccomandazioni di ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek e Google AI. Entro il 2026, l'85% dei consumatori utilizzerà strumenti IA prima di effettuare un acquisto. Se l'IA non raccomanda il tuo marchio, perdi clienti a favore dei concorrenti — silenziosamente, ogni giorno.",
@@ -8621,7 +8638,7 @@ const afterData = {
     "methodology-l9": "إشارة السمعة",
     "methodology-l9-desc": "هل تتمتع علامتك التجارية بمراجعات نظيفة وموثقة؟ تقرأ نماذج الذكاء الاصطناعي مشاعر المراجعات كإشارة ثقة أساسية. المراجعات المزيفة أو السلبية تخبر الذكاء الاصطناعي بعدم التوصية بك. مراجعات نظيفة = ثقة الذكاء الاصطناعي.",
     "methodology-score-text": "💡 تحسب درجة ظهورك في الذكاء الاصطناعي عبر جميع الطبقات التسع. <strong style=\"color: #f9fafb;\">احصل على تدقيقك المجاني</strong> لترى أين تقف.",
-    "claim-audit": "احصل على تدقيق الذكاء الاصطناعي المجاني →",
+    "claim-audit": "احصل على تدقيق الذكاء الاصطناعي المجاني",
     "trend-badge-ai": "ذكاء سوق الذكاء الاصطناعي 2026",
     "trend-title-ai": "اقتصاد الثقة في الذكاء الاصطناعي 2026",
     "trend-text1-ai": "<strong style=\"color: #93C5FD;\">80%</strong> من المستهلكين يستخدمون بالفعل أدوات الذكاء الاصطناعي قبل الشراء، و<strong style=\"color: #93C5FD;\">62%</strong> يثقون في توصيات الذكاء الاصطناعي بقدر توصيات المعارف الشخصية. إذا لم تكن علامتك التجارية موصى بها من الذكاء الاصطناعي، فأنت غير مرئي لغالبية المشترين العصريين.",
@@ -8629,7 +8646,7 @@ const afterData = {
     "trend-stat1-ai": "يستخدمون الذكاء الاصطناعي قبل الشراء",
     "trend-stat2-ai": "يثقون بالذكاء الاصطناعي مثل التوصيات الشخصية",
     "trend-stat3-ai": "نمو في عمليات البحث عن سمعة الذكاء الاصطناعي",
-    "trend-btn-ai": "احصل على تدقيق السمعة المجاني في الذكاء الاصطناعي →",
+    "trend-btn-ai": "احصل على تدقيق السمعة المجاني في الذكاء الاصطناعي",
     "risk-title-ai": "التكلفة الحقيقية لانخفاض الظهور في الذكاء الاصطناعي",
     "risk-sub-ai": "ما يحدث عندما لا يستطيع الذكاء الاصطناعي رؤية علامتك التجارية أو الوثوق بها أو التوصية بها",
     "risk1-title-ai": "الإيرادات المفقودة بسبب انخفاض الظهور في الذكاء الاصطناعي",
@@ -8706,7 +8723,7 @@ const afterData = {
     "form-maps-link": "رابط Google Maps أو الموقع الإلكتروني *",
     "form-referred": "من أحالك؟ (اختياري)",
     "form-message": "أخبرنا عن مخاوفك بشأن الظهور في الذكاء الاصطناعي... *",
-    "form-submit": "احصل على تدقيق السمعة المجاني في الذكاء الاصطناعي →",
+    "form-submit": "احصل على تدقيق السمعة المجاني في الذكاء الاصطناعي",
     "faq-title-ai": "أسئلة شائعة حول الظهور في الذكاء الاصطناعي",
     "faq1q-ai": "ما هو الظهور في الذكاء الاصطناعي ولماذا هو مهم؟",
     "faq1a-ai": "الظهور في الذكاء الاصطناعي هو مدى بروز علامتك التجارية في توصيات ChatGPT وGemini وClaude وPerplexity وGrok وDeepSeek وGoogle AI. بحلول عام 2026، سيكون 85% من المستهلكين قد استخدموا أدوات الذكاء الاصطناعي قبل الشراء. إذا لم يوصِ الذكاء الاصطناعي بعلامتك التجارية، فستفقد عملاءك لصالح المنافسين — بصمت، كل يوم.",
@@ -9291,13 +9308,14 @@ if (navLangSelect) {
       var lang = localStorage.getItem('preferredLanguage') || 'en';
       var t = translations[lang] || translations.en;
 
+      input.classList.remove('business-input-glow');
       input.value = t['already-checked-placeholder'] || 'Business already checked. Contact us for full audit.';
       input.readOnly = true;
       input.style.color = '#f9fafb';
       input.style.opacity = '1';
       input.style.borderColor = '#FBBF24';
       btn.removeAttribute('data-i18n');
-      btn.textContent = t['already-checked-btn'] || 'Get Free AI Audit →';
+      btn.textContent = t['already-checked-btn'] || 'Get Free AI Audit';
       btn.disabled = false;
       btn.onclick = function() {
         document.getElementById('contact-form-section').scrollIntoView({ behavior: 'smooth' });
