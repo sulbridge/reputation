@@ -2513,49 +2513,243 @@ footer {
     const progressBg = document.getElementById('progressBg');
 
     // ===== DATA =====
-const beforeData = {
-  aiText: '<span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Weak trust signals</span> detected. AI platforms show low confidence in this brand. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not see this business</span> in AI recommendations.',
-  stars: '★★☆☆☆',
-  rating: '42',
-  change: '-31',
-  changeColor: '#ef4444',
-  changeBg: 'rgba(239,68,68,0.15)',
-  badge: '❌ LOW AI VISIBILITY',
-  badgeBg: 'rgba(239,68,68,0.12)',
-  badgeColor: '#f87171',
-  badgeBorder: 'rgba(239,68,68,0.1)',
-  reviews: '📊 AI visibility score: 42/100',
-  removed: '⚠️ 5 weak signals found',
-  removedColor: '#f87171',
-  removedBg: 'rgba(239,68,68,0.08)',
-  borderColor: '#ef4444',
-  boxBg: 'rgba(239,68,68,0.06)',
-  response: '«I analyzed this brand\'s reputation signals. Based on the data, I <strong style="color: #f87171;">cannot recommend</strong> this business to users.»',
-  labelColor: '#f87171',
-  stateText: '⚠️ Your AI visibility is low. AI doesn\'t trust your brand'
+    // Translatable copy lives in SIMULATOR_I18N (keyed by language); everything
+    // else here (colors, star ratings, numeric scores) is language-independent.
+var SIMULATOR_I18N = {
+  "en": {
+    before: {
+      "aiText": "<span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Weak trust signals</span> detected. AI platforms show low confidence in this brand. Customers <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">do not see this business</span> in AI recommendations.",
+      "badge": "❌ LOW AI VISIBILITY",
+      "reviews": "📊 AI visibility score: 42/100",
+      "removed": "⚠️ 5 weak signals found",
+      "response": "«I analyzed this brand's reputation signals. Based on the data, I <strong style=\"color: #f87171;\">cannot recommend</strong> this business to users.»",
+      "stateText": "⚠️ Your AI visibility is low. AI doesn't trust your brand",
+    },
+    after: {
+      "aiText": "<span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Strong trust signals</span> detected. AI platforms show high confidence in this brand. Customers <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">consistently see this business</span> in AI recommendations.",
+      "badge": "✅ HIGH AI VISIBILITY",
+      "reviews": "📊 AI visibility score: 96/100",
+      "removed": "✅ All weak signals cleaned",
+      "response": "«I analyzed this brand's reputation signals. Based on the data, I <strong style=\"color: #4ade80;\">highly recommend</strong> this business to users.»",
+      "stateText": "✅ Your AI visibility is restored. AI trusts your brand",
+    }
+  },
+  "es-AR": {
+    before: {
+      "aiText": "<span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Señales de confianza débiles</span> detectadas. Las plataformas de IA muestran baja confianza en esta marca. Los clientes <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">no ven este negocio</span> en las recomendaciones de IA.",
+      "badge": "❌ BAJA VISIBILIDAD EN IA",
+      "reviews": "📊 Puntuación de visibilidad en IA: 42/100",
+      "removed": "⚠️ 5 señales débiles encontradas",
+      "response": "«Analicé las señales de reputación de esta marca. Según los datos, <strong style=\"color: #f87171;\">no puedo recomendar</strong> este negocio a los usuarios.»",
+      "stateText": "⚠️ Su visibilidad en IA es baja. La IA no confía en su marca",
+    },
+    after: {
+      "aiText": "<span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Señales de confianza fuertes</span> detectadas. Las plataformas de IA muestran alta confianza en esta marca. Los clientes <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">ven este negocio de forma constante</span> en las recomendaciones de IA.",
+      "badge": "✅ ALTA VISIBILIDAD EN IA",
+      "reviews": "📊 Puntuación de visibilidad en IA: 96/100",
+      "removed": "✅ Todas las señales débiles corregidas",
+      "response": "«Analicé las señales de reputación de esta marca. Según los datos, <strong style=\"color: #4ade80;\">recomiendo ampliamente</strong> este negocio a los usuarios.»",
+      "stateText": "✅ Su visibilidad en IA se restauró. La IA confía en su marca",
+    }
+  },
+  "es": {
+    before: {
+      "aiText": "<span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Señales de confianza débiles</span> detectadas. Las plataformas de IA muestran baja confianza en esta marca. Los clientes <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">no ven este negocio</span> en las recomendaciones de IA.",
+      "badge": "❌ BAJA VISIBILIDAD EN IA",
+      "reviews": "📊 Puntuación de visibilidad en IA: 42/100",
+      "removed": "⚠️ 5 señales débiles encontradas",
+      "response": "«Analicé las señales de reputación de esta marca. Según los datos, <strong style=\"color: #f87171;\">no puedo recomendar</strong> este negocio a los usuarios.»",
+      "stateText": "⚠️ Su visibilidad en IA es baja. La IA no confía en su marca",
+    },
+    after: {
+      "aiText": "<span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Señales de confianza fuertes</span> detectadas. Las plataformas de IA muestran alta confianza en esta marca. Los clientes <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">ven este negocio de forma constante</span> en las recomendaciones de IA.",
+      "badge": "✅ ALTA VISIBILIDAD EN IA",
+      "reviews": "📊 Puntuación de visibilidad en IA: 96/100",
+      "removed": "✅ Todas las señales débiles corregidas",
+      "response": "«Analicé las señales de reputación de esta marca. Según los datos, <strong style=\"color: #4ade80;\">recomiendo ampliamente</strong> este negocio a los usuarios.»",
+      "stateText": "✅ Su visibilidad en IA se restauró. La IA confía en su marca",
+    }
+  },
+  "de": {
+    before: {
+      "aiText": "<span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Schwache Vertrauenssignale</span> erkannt. KI-Plattformen zeigen wenig Vertrauen in diese Marke. Kunden <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">sehen dieses Unternehmen nicht</span> in KI-Empfehlungen.",
+      "badge": "❌ NIEDRIGE KI-SICHTBARKEIT",
+      "reviews": "📊 KI-Sichtbarkeits-Score: 42/100",
+      "removed": "⚠️ 5 schwache Signale gefunden",
+      "response": "«Ich habe die Reputationssignale dieser Marke analysiert. Basierend auf den Daten kann ich dieses Unternehmen <strong style=\"color: #f87171;\">nicht empfehlen</strong>.»",
+      "stateText": "⚠️ Ihre KI-Sichtbarkeit ist niedrig. Die KI vertraut Ihrer Marke nicht",
+    },
+    after: {
+      "aiText": "<span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Starke Vertrauenssignale</span> erkannt. KI-Plattformen zeigen hohes Vertrauen in diese Marke. Kunden <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">sehen dieses Unternehmen konsequent</span> in KI-Empfehlungen.",
+      "badge": "✅ HOHE KI-SICHTBARKEIT",
+      "reviews": "📊 KI-Sichtbarkeits-Score: 96/100",
+      "removed": "✅ Alle schwachen Signale bereinigt",
+      "response": "«Ich habe die Reputationssignale dieser Marke analysiert. Basierend auf den Daten <strong style=\"color: #4ade80;\">empfehle ich</strong> dieses Unternehmen ausdrücklich.»",
+      "stateText": "✅ Ihre KI-Sichtbarkeit ist wiederhergestellt. Die KI vertraut Ihrer Marke",
+    }
+  },
+  "fr": {
+    before: {
+      "aiText": "<span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Signaux de confiance faibles</span> détectés. Les plateformes IA montrent peu de confiance envers cette marque. Les clients <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">ne voient pas cette entreprise</span> dans les recommandations IA.",
+      "badge": "❌ FAIBLE VISIBILITÉ IA",
+      "reviews": "📊 Score de visibilité IA : 42/100",
+      "removed": "⚠️ 5 signaux faibles détectés",
+      "response": "«J'ai analysé les signaux de réputation de cette marque. D'après les données, je <strong style=\"color: #f87171;\">ne peux pas recommander</strong> cette entreprise aux utilisateurs.»",
+      "stateText": "⚠️ Votre visibilité IA est faible. L'IA ne fait pas confiance à votre marque",
+    },
+    after: {
+      "aiText": "<span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Signaux de confiance forts</span> détectés. Les plateformes IA montrent une grande confiance envers cette marque. Les clients <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">voient constamment cette entreprise</span> dans les recommandations IA.",
+      "badge": "✅ FORTE VISIBILITÉ IA",
+      "reviews": "📊 Score de visibilité IA : 96/100",
+      "removed": "✅ Tous les signaux faibles corrigés",
+      "response": "«J'ai analysé les signaux de réputation de cette marque. D'après les données, je <strong style=\"color: #4ade80;\">recommande vivement</strong> cette entreprise aux utilisateurs.»",
+      "stateText": "✅ Votre visibilité IA est rétablie. L'IA fait confiance à votre marque",
+    }
+  },
+  "ru": {
+    before: {
+      "aiText": "Обнаружены <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">слабые сигналы доверия</span>. Платформы ИИ демонстрируют низкое доверие к этому бренду. Клиенты <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">не видят этот бизнес</span> в рекомендациях ИИ.",
+      "badge": "❌ НИЗКАЯ ВИДИМОСТЬ В ИИ",
+      "reviews": "📊 Рейтинг видимости в ИИ: 42/100",
+      "removed": "⚠️ Найдено 5 слабых сигналов",
+      "response": "«Я проанализировал сигналы репутации этого бренда. На основе данных я <strong style=\"color: #f87171;\">не могу рекомендовать</strong> этот бизнес пользователям.»",
+      "stateText": "⚠️ Ваша видимость в ИИ низкая. ИИ не доверяет вашему бренду",
+    },
+    after: {
+      "aiText": "Обнаружены <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">сильные сигналы доверия</span>. Платформы ИИ демонстрируют высокое доверие к этому бренду. Клиенты <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">стабильно видят этот бизнес</span> в рекомендациях ИИ.",
+      "badge": "✅ ВЫСОКАЯ ВИДИМОСТЬ В ИИ",
+      "reviews": "📊 Рейтинг видимости в ИИ: 96/100",
+      "removed": "✅ Все слабые сигналы устранены",
+      "response": "«Я проанализировал сигналы репутации этого бренда. На основе данных я <strong style=\"color: #4ade80;\">настоятельно рекомендую</strong> этот бизнес пользователям.»",
+      "stateText": "✅ Ваша видимость в ИИ восстановлена. ИИ доверяет вашему бренду",
+    }
+  },
+  "vi": {
+    before: {
+      "aiText": "Phát hiện <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">tín hiệu tin cậy yếu</span>. Các nền tảng AI cho thấy độ tin cậy thấp với thương hiệu này. Khách hàng <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">không thấy doanh nghiệp này</span> trong các đề xuất của AI.",
+      "badge": "❌ HIỂN THỊ AI THẤP",
+      "reviews": "📊 Điểm hiển thị AI: 42/100",
+      "removed": "⚠️ Phát hiện 5 tín hiệu yếu",
+      "response": "«Tôi đã phân tích các tín hiệu uy tín của thương hiệu này. Dựa trên dữ liệu, tôi <strong style=\"color: #f87171;\">không thể đề xuất</strong> doanh nghiệp này cho người dùng.»",
+      "stateText": "⚠️ Hiển thị AI của bạn đang thấp. AI không tin tưởng thương hiệu của bạn",
+    },
+    after: {
+      "aiText": "Phát hiện <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">tín hiệu tin cậy mạnh</span>. Các nền tảng AI cho thấy độ tin cậy cao với thương hiệu này. Khách hàng <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">luôn thấy doanh nghiệp này</span> trong các đề xuất của AI.",
+      "badge": "✅ HIỂN THỊ AI CAO",
+      "reviews": "📊 Điểm hiển thị AI: 96/100",
+      "removed": "✅ Đã khắc phục mọi tín hiệu yếu",
+      "response": "«Tôi đã phân tích các tín hiệu uy tín của thương hiệu này. Dựa trên dữ liệu, tôi <strong style=\"color: #4ade80;\">đặc biệt đề xuất</strong> doanh nghiệp này cho người dùng.»",
+      "stateText": "✅ Hiển thị AI của bạn đã được khôi phục. AI tin tưởng thương hiệu của bạn",
+    }
+  },
+  "pt": {
+    before: {
+      "aiText": "<span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Sinais fracos de confiança</span> detectados. As plataformas de IA mostram baixa confiança nesta marca. Os clientes <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">não veem este negócio</span> nas recomendações de IA.",
+      "badge": "❌ BAIXA VISIBILIDADE EM IA",
+      "reviews": "📊 Pontuação de visibilidade em IA: 42/100",
+      "removed": "⚠️ 5 sinais fracos encontrados",
+      "response": "«Analisei os sinais de reputação desta marca. Com base nos dados, eu <strong style=\"color: #f87171;\">não posso recomendar</strong> este negócio aos usuários.»",
+      "stateText": "⚠️ Sua visibilidade em IA está baixa. A IA não confia na sua marca",
+    },
+    after: {
+      "aiText": "<span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Sinais fortes de confiança</span> detectados. As plataformas de IA mostram alta confiança nesta marca. Os clientes <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">veem este negócio de forma consistente</span> nas recomendações de IA.",
+      "badge": "✅ ALTA VISIBILIDADE EM IA",
+      "reviews": "📊 Pontuação de visibilidade em IA: 96/100",
+      "removed": "✅ Todos os sinais fracos corrigidos",
+      "response": "«Analisei os sinais de reputação desta marca. Com base nos dados, eu <strong style=\"color: #4ade80;\">recomendo fortemente</strong> este negócio aos usuários.»",
+      "stateText": "✅ Sua visibilidade em IA foi restaurada. A IA confia na sua marca",
+    }
+  },
+  "tr": {
+    before: {
+      "aiText": "<span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Zayıf güven sinyalleri</span> tespit edildi. AI platformları bu markaya düşük güven gösteriyor. Müşteriler AI önerilerinde <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">bu işletmeyi görmüyor</span>.",
+      "badge": "❌ DÜŞÜK AI GÖRÜNÜRLÜĞÜ",
+      "reviews": "📊 AI görünürlük puanı: 42/100",
+      "removed": "⚠️ 5 zayıf sinyal bulundu",
+      "response": "«Bu markanın itibar sinyallerini analiz ettim. Verilere dayanarak, bu işletmeyi kullanıcılara <strong style=\"color: #f87171;\">önermiyorum</strong>.»",
+      "stateText": "⚠️ AI görünürlüğünüz düşük. Yapay zeka markanıza güvenmiyor",
+    },
+    after: {
+      "aiText": "<span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Güçlü güven sinyalleri</span> tespit edildi. AI platformları bu markaya yüksek güven gösteriyor. Müşteriler AI önerilerinde <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">bu işletmeyi tutarlı şekilde görüyor</span>.",
+      "badge": "✅ YÜKSEK AI GÖRÜNÜRLÜĞÜ",
+      "reviews": "📊 AI görünürlük puanı: 96/100",
+      "removed": "✅ Tüm zayıf sinyaller temizlendi",
+      "response": "«Bu markanın itibar sinyallerini analiz ettim. Verilere dayanarak, bu işletmeyi kullanıcılara <strong style=\"color: #4ade80;\">kesinlikle öneriyorum</strong>.»",
+      "stateText": "✅ AI görünürlüğünüz geri kazanıldı. Yapay zeka markanıza güveniyor",
+    }
+  },
+  "it": {
+    before: {
+      "aiText": "<span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Segnali di fiducia deboli</span> rilevati. Le piattaforme IA mostrano bassa fiducia in questo brand. I clienti <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">non vedono questa attività</span> nelle raccomandazioni IA.",
+      "badge": "❌ BASSA VISIBILITÀ IA",
+      "reviews": "📊 Punteggio di visibilità IA: 42/100",
+      "removed": "⚠️ 5 segnali deboli trovati",
+      "response": "«Ho analizzato i segnali di reputazione di questo brand. In base ai dati, <strong style=\"color: #f87171;\">non posso consigliare</strong> questa attività agli utenti.»",
+      "stateText": "⚠️ La tua visibilità IA è bassa. L'IA non si fida del tuo brand",
+    },
+    after: {
+      "aiText": "<span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">Segnali di fiducia forti</span> rilevati. Le piattaforme IA mostrano alta fiducia in questo brand. I clienti <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">vedono costantemente questa attività</span> nelle raccomandazioni IA.",
+      "badge": "✅ ALTA VISIBILITÀ IA",
+      "reviews": "📊 Punteggio di visibilità IA: 96/100",
+      "removed": "✅ Tutti i segnali deboli risolti",
+      "response": "«Ho analizzato i segnali di reputazione di questo brand. In base ai dati, <strong style=\"color: #4ade80;\">consiglio vivamente</strong> questa attività agli utenti.»",
+      "stateText": "✅ La tua visibilità IA è stata ripristinata. L'IA si fida del tuo brand",
+    }
+  },
+  "ar": {
+    before: {
+      "aiText": "تم اكتشاف <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">إشارات ثقة ضعيفة</span>. تُظهر منصات الذكاء الاصطناعي ثقة منخفضة بهذه العلامة التجارية. العملاء <span class=\"neg-highlight\" style=\"background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">لا يرون هذا النشاط التجاري</span> في توصيات الذكاء الاصطناعي.",
+      "badge": "❌ ظهور منخفض في الذكاء الاصطناعي",
+      "reviews": "📊 درجة الظهور في الذكاء الاصطناعي: 42/100",
+      "removed": "⚠️ تم العثور على 5 إشارات ضعيفة",
+      "response": "«حللت إشارات سمعة هذه العلامة التجارية. بناءً على البيانات، لا <strong style=\"color: #f87171;\">أستطيع التوصية</strong> بهذا النشاط التجاري للمستخدمين.»",
+      "stateText": "⚠️ ظهورك في الذكاء الاصطناعي منخفض. الذكاء الاصطناعي لا يثق بعلامتك التجارية",
+    },
+    after: {
+      "aiText": "تم اكتشاف <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">إشارات ثقة قوية</span>. تُظهر منصات الذكاء الاصطناعي ثقة عالية بهذه العلامة التجارية. العملاء <span class=\"pos-highlight\" style=\"background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;\">يرون هذا النشاط التجاري باستمرار</span> في توصيات الذكاء الاصطناعي.",
+      "badge": "✅ ظهور عالٍ في الذكاء الاصطناعي",
+      "reviews": "📊 درجة الظهور في الذكاء الاصطناعي: 96/100",
+      "removed": "✅ تم تنظيف جميع الإشارات الضعيفة",
+      "response": "«حللت إشارات سمعة هذه العلامة التجارية. بناءً على البيانات، أنا <strong style=\"color: #4ade80;\">أوصي بشدة</strong> بهذا النشاط التجاري للمستخدمين.»",
+      "stateText": "✅ تم استعادة ظهورك في الذكاء الاصطناعي. الذكاء الاصطناعي يثق بعلامتك التجارية",
+    }
+  }
 };
 
-const afterData = {
-  aiText: '<span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Strong trust signals</span> detected. AI platforms show high confidence in this brand. Customers <span class="pos-highlight" style="background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">consistently see this business</span> in AI recommendations.',
-  stars: '★★★★★',
-  rating: '96',
-  change: '+54',
-  changeColor: '#4ade80',
-  changeBg: 'rgba(34,197,94,0.15)',
-  badge: '✅ HIGH AI VISIBILITY',
-  badgeBg: 'rgba(34,197,94,0.12)',
-  badgeColor: '#4ade80',
-  badgeBorder: 'rgba(34,197,94,0.15)',
-  reviews: '📊 AI visibility score: 96/100',
-  removed: '✅ All weak signals cleaned',
-  removedColor: '#4ade80',
-  removedBg: 'rgba(34,197,94,0.08)',
-  borderColor: '#22c55e',
-  boxBg: 'rgba(34,197,94,0.06)',
-  response: '«I analyzed this brand\'s reputation signals. Based on the data, I <strong style="color: #4ade80;">highly recommend</strong> this business to users.»',
-  labelColor: '#4ade80',
-  stateText: '✅ Your AI visibility is restored. AI trusts your brand'
+var SIMULATOR_STATIC_BEFORE = {
+  stars: '★★☆☆☆', rating: '42', change: '-31',
+  changeColor: '#ef4444', changeBg: 'rgba(239,68,68,0.15)',
+  badgeBg: 'rgba(239,68,68,0.12)', badgeColor: '#f87171', badgeBorder: 'rgba(239,68,68,0.1)',
+  removedColor: '#f87171', removedBg: 'rgba(239,68,68,0.08)',
+  borderColor: '#ef4444', boxBg: 'rgba(239,68,68,0.06)', labelColor: '#f87171'
 };
+var SIMULATOR_STATIC_AFTER = {
+  stars: '★★★★★', rating: '96', change: '+54',
+  changeColor: '#4ade80', changeBg: 'rgba(34,197,94,0.15)',
+  badgeBg: 'rgba(34,197,94,0.12)', badgeColor: '#4ade80', badgeBorder: 'rgba(34,197,94,0.15)',
+  removedColor: '#4ade80', removedBg: 'rgba(34,197,94,0.08)',
+  borderColor: '#22c55e', boxBg: 'rgba(34,197,94,0.06)', labelColor: '#4ade80'
+};
+
+function buildBeforeData() {
+  var lang = localStorage.getItem('preferredLanguage') || 'en';
+  var t = (SIMULATOR_I18N[lang] || SIMULATOR_I18N.en).before;
+  var merged = {};
+  for (var k in SIMULATOR_STATIC_BEFORE) merged[k] = SIMULATOR_STATIC_BEFORE[k];
+  for (var k2 in t) merged[k2] = t[k2];
+  return merged;
+}
+function buildAfterData() {
+  var lang = localStorage.getItem('preferredLanguage') || 'en';
+  var t = (SIMULATOR_I18N[lang] || SIMULATOR_I18N.en).after;
+  var merged = {};
+  for (var k in SIMULATOR_STATIC_AFTER) merged[k] = SIMULATOR_STATIC_AFTER[k];
+  for (var k2 in t) merged[k2] = t[k2];
+  return merged;
+}
+
+var beforeData = buildBeforeData();
+var afterData = buildAfterData();
 
     // ===== Height calibration (prevents layout jump between before/after states) =====
     // Measures the real rendered height of both states off-screen (works correctly
@@ -2764,8 +2958,12 @@ const afterData = {
 
     // ===== Listen for language changes =====
     document.addEventListener('languageChanged', function() {
-      // The i18n system will update data-i18n attributes, but our dynamic content
-      // uses the data objects. We re-apply the current state.
+      // Rebuild both states from the new language before re-applying, then
+      // recalibrate heights since translated text can be longer or shorter.
+      beforeData = buildBeforeData();
+      afterData = buildAfterData();
+      window._simulatorState.beforeData = beforeData;
+      window._simulatorState.afterData = afterData;
       const isBeforeState = currentProgress < 50;
       updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
       calibrateAllHeights();
@@ -9014,9 +9212,9 @@ const afterData = {
   });
   document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-lang') === lang));
 
-  if (typeof window.updateSimulatorUI === 'function') {
-    window.updateSimulatorUI(window._simulatorState || 'before');
-  }
+  // Notify listeners (e.g. the AI-visibility simulator) that the language
+  // just changed, so they can rebuild any dynamically-set text and re-measure.
+  document.dispatchEvent(new Event('languageChanged'));
 
   // Language switch rebuilds this element's innerHTML from the translation string,
   // which resets the live count back to its "150" placeholder — resync immediately.
