@@ -8,18 +8,18 @@
 
     <!-- ============================================================
          SEO / GEO / AEO markup
-         Production URL: https://reputationguard.pro/enterprise.html
+         Production URL: https://reputationguard.pro/enterprise/
          og-image-enterprise.png still needs to be created and uploaded.
          ============================================================ -->
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="https://reputationguard.pro/enterprise.html" />
+    <link rel="canonical" href="https://reputationguard.pro/enterprise/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ReputationGuardPro Enterprise" />
     <meta property="og:title" content="Multi‑Location AI Visibility | ReputationGuardPro Enterprise" />
     <meta property="og:description" content="We execute AI‑visibility boosts at every location of your chain or franchise — until ChatGPT, Gemini, Claude & Perplexity recommend you." />
-    <meta property="og:url" content="https://reputationguard.pro/enterprise.html" />
+    <meta property="og:url" content="https://reputationguard.pro/enterprise/" />
     <meta property="og:image" content="https://reputationguard.pro/og-image-enterprise.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -36,7 +36,7 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "ReputationGuardPro Enterprise",
-        "url": "https://reputationguard.pro/enterprise.html",
+        "url": "https://reputationguard.pro/enterprise/",
         "description": "AI visibility execution for multi‑location businesses — we get every location of a chain or franchise recommended by ChatGPT, Gemini, Claude, and Perplexity.",
         "parentOrganization": {
             "@type": "Organization",
@@ -48,7 +48,7 @@
         "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "sales",
-            "url": "https://reputationguard.pro/enterprise.html#contact"
+            "url": "https://reputationguard.pro/enterprise/#contact"
         }
     }
     </script>
@@ -125,7 +125,7 @@
                 "name": "Is this a monitoring tool, or do you actually do the work?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We do the work. ReputationGuardPro Enterprise runs the same boost‑by‑boost methodology as our single‑location plans — schema, NAP/directory consistency, local content, review responses and removal — executed by real experts at every one of your locations. Visibility monitoring and reporting exists too, but it's a byproduct of the execution, not the product itself; it's also available white‑label if you'd rather report it under your own brand."
+                    "text": "We do the work. ReputationGuardPro Enterprise runs the same boost‑by‑boost methodology as our single‑location plans — schema, NAP/directory consistency, local content, and review responses — executed by real experts at every one of your locations. Visibility monitoring and reporting exists too, but it's a byproduct of the execution, not the product itself; it's also available white‑label if you'd rather report it under your own brand."
                 }
             },
             {
@@ -158,6 +158,22 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Each location typically needs ≈40–65 applied boosts (out of 28 boost types — many, like NAP consistency or review responses, apply repeatedly) to reach AI‑recommended baseline visibility. How fast that happens depends on your tier: roughly 8–12 months per location on AI Visibility (5 boosts/mo), 3–4 months on AI Authority (15 boosts/mo), or 1.5–2 months on AI Dominate (30 boosts/mo). More locations means broader reach across your chain — it doesn't change the per‑location timeline, which is why we quote it per tier rather than as a blanket promise."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens if we acquire new locations mid‑contract?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "New locations are onboarded at your current plan's per‑location rate and join the boost queue right away, starting with a baseline audit. There's no separate setup fee for locations added mid‑contract — they follow the same ramp‑up‑then‑maintenance path as the rest of your portfolio."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if a location's score doesn't improve?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your plan's visibility score improvement guarantee (60 days on AI Visibility, 30 on AI Authority, 21 on AI Dominate) means we keep working that location's boost backlog until the score moves. If a location genuinely doesn't respond within that window, we review the backlog for structural gaps — an incomplete Google Business Profile, unclaimed listings, and so on — and adjust the plan for that specific location."
                 }
             }
         ]
@@ -664,6 +680,103 @@
             -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
         }
 
+        /* ===== COST OF INVISIBILITY CALCULATOR ===== */
+        .cost-calc {
+            margin-top: 40px;
+            background: linear-gradient(180deg, var(--bg-card), var(--bg-secondary));
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 32px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+        }
+        .cost-calc-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .cost-calc-header .icon-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(245,166,35,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .cost-calc-header h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+        .cost-calc-header p {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            margin: 0;
+        }
+        .cost-calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        .cost-calc-field label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        .cost-calc-field label .val {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .cost-calc-field input[type="number"] {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .cost-calc-field input[type="range"] {
+            width: 100%;
+            accent-color: var(--accent);
+        }
+        .cost-calc-result {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            background: rgba(245,166,35,0.08);
+            border: 1px solid rgba(245,166,35,0.3);
+            border-radius: 14px;
+            padding: 20px 24px;
+        }
+        .cost-calc-result .cost-num {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--warning);
+            letter-spacing: -0.02em;
+        }
+        .cost-calc-result p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            max-width: 420px;
+            margin: 0;
+        }
+        .cost-calc-disclaimer {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            margin-top: 16px;
+            line-height: 1.5;
+        }
+
         /* ===== THE SHIFT ===== */
         .shift-grid {
             display: grid;
@@ -878,6 +991,51 @@
             padding: 2px 12px;
             border-radius: 20px;
             align-self: flex-start;
+        }
+        .feature-card .fc-pain {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            margin-bottom: 4px;
+        }
+        .feature-card .fc-outcome {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--success);
+            margin-top: 2px;
+        }
+        .dont-do-list {
+            margin-top: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px 32px;
+        }
+        .dont-do-list h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .dont-do-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 8px;
+            padding: 10px 0;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.88rem;
+        }
+        .dont-do-item:first-of-type {
+            border-top: none;
+        }
+        .dont-do-item .no {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        .dont-do-item .instead {
+            color: var(--text-tertiary);
         }
 
         /* ===== WHAT IS A BOOST ===== */
@@ -1275,6 +1433,13 @@
         .location-calc-hint-row {
             display: flex;
             justify-content: center;
+        }
+        .inhouse-compare {
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
+            margin-top: 12px;
+            margin-bottom: 0;
         }
         .calc-hint {
             display: inline-flex;
@@ -2133,10 +2298,47 @@
                     <ul>
                         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Every location gets its own boost roadmap</li>
                         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> NAP normalized across 10–60+ directories per location</li>
-                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Reviews answered, eligible removals pursued</li>
+                        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Reviews answered on a fixed cadence, every location</li>
                         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> A real monthly quota of boosts — executed, not just recommended</li>
                     </ul>
                 </div>
+            </div>
+
+            <div class="cost-calc" id="costCalc">
+                <div class="cost-calc-header">
+                    <span class="icon-badge">💸</span>
+                    <div>
+                        <h3>What's invisibility costing you?</h3>
+                        <p>A rough, transparent estimate — using your own numbers and adjustable assumptions.</p>
+                    </div>
+                </div>
+                <div class="cost-calc-grid">
+                    <div class="cost-calc-field">
+                        <label for="ccLocations">Number of locations <span class="val" id="ccLocationsVal">50</span></label>
+                        <input type="number" id="ccLocations" min="1" value="50" step="1" />
+                    </div>
+                    <div class="cost-calc-field">
+                        <label for="ccRevenue">Avg. monthly revenue / location <span class="val" id="ccRevenueVal">$15,000</span></label>
+                        <input type="number" id="ccRevenue" min="0" value="15000" step="500" />
+                    </div>
+                    <div class="cost-calc-field">
+                        <label for="ccScore">Your rough AI visibility estimate <span class="val" id="ccScoreVal">35/100</span></label>
+                        <input type="range" id="ccScore" min="0" max="100" value="35" step="1" />
+                    </div>
+                    <div class="cost-calc-field">
+                        <label for="ccInfluence">Assumed share of revenue AI‑influenced <span class="val" id="ccInfluenceVal">10%</span></label>
+                        <input type="range" id="ccInfluence" min="5" max="20" value="10" step="1" />
+                    </div>
+                </div>
+                <div class="cost-calc-result">
+                    <div>
+                        <div class="cost-num" id="ccResult">$0</div>
+                        <div style="font-size:0.75rem;color:var(--text-tertiary);">per month, at risk across your portfolio</div>
+                    </div>
+                    <p>Based on your inputs: AI‑influenced revenue across all locations, times the share your current score suggests may be going to competitors instead. Adjust the sliders — this is your model, not ours.</p>
+                    <a href="#hero" class="btn btn-secondary">Get your real score →</a>
+                </div>
+                <p class="cost-calc-disclaimer">This is an illustrative estimate built entirely from the numbers and assumptions you enter above — not a claim about your actual traffic or revenue. For a real, location‑by‑location score, run the free audit.</p>
             </div>
         </div>
     </section>
@@ -2258,39 +2460,67 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="icon">🧰</div>
-                    <h4>Fix Execution Engine</h4>
-                    <p>Schema, FAQ pages, and local content generated, human‑QA'd, and shipped location by location — never left in your inbox as a PDF.</p>
+                    <span class="fc-pain">❌ Audit PDFs pile up, nobody executes them</span>
+                    <h4>Boost Execution Engine</h4>
+                    <p>Schema, FAQ pages, and local content generated, human‑QA'd, and shipped location by location.</p>
+                    <span class="fc-outcome">📈 Boosts go live, not into an inbox</span>
                     <span class="tag">Core</span>
                 </div>
                 <div class="feature-card">
                     <div class="icon">📍</div>
+                    <span class="fc-pain">❌ Each location's info is inconsistent online</span>
                     <h4>Bulk NAP &amp; Directory Sync</h4>
                     <p>Name, address, and phone normalized across 10–60+ directories per location, submitted and verified by our team.</p>
+                    <span class="fc-outcome">📈 AI sees one consistent signal per location</span>
                     <span class="tag">Core</span>
                 </div>
                 <div class="feature-card">
                     <div class="icon">⭐</div>
-                    <h4>Review Response &amp; Removal</h4>
-                    <p>Every location's reviews get responded to on a cadence; eligible negative reviews are contested for removal (billed separately, success‑based).</p>
+                    <span class="fc-pain">❌ Reviews sit unanswered, volume stalls</span>
+                    <h4>Review Response &amp; Generation</h4>
+                    <p>Every location's reviews get responded to on a fixed cadence, with new reviews actively generated to build volume and trust signals.</p>
+                    <span class="fc-outcome">📈 Stronger trust signal, location by location</span>
                     <span class="tag">Core</span>
                 </div>
                 <div class="feature-card">
                     <div class="icon">📊</div>
+                    <span class="fc-pain">❌ No visibility into what's actually moving</span>
                     <h4>Visibility Reporting</h4>
                     <p>Track mentions, sentiment, and citation share per location — available natively, or via white‑label integration with your own BI stack.</p>
+                    <span class="fc-outcome">📈 See the score move, per location</span>
                     <span class="tag">Optional</span>
                 </div>
                 <div class="feature-card">
                     <div class="icon">🏆</div>
+                    <span class="fc-pain">❌ Not sure why a competitor outranks you locally</span>
                     <h4>Local Competitor Benchmarking</h4>
                     <p>See exactly what the top‑ranked competitor near each of your locations is doing right — and where the gap actually is.</p>
+                    <span class="fc-outcome">📈 A concrete gap to close, not a guess</span>
                     <span class="tag">Strategy</span>
                 </div>
                 <div class="feature-card">
                     <div class="icon">🔐</div>
+                    <span class="fc-pain">❌ Handing over access to your locations feels risky</span>
                     <h4>Security &amp; Compliance</h4>
                     <p>Read‑only by default, approval gates, full audit logs, and GDPR/CCPA‑aligned data handling across every location we touch.</p>
+                    <span class="fc-outcome">📈 Nothing goes live without your sign‑off</span>
                     <span class="tag">Enterprise</span>
+                </div>
+            </div>
+
+            <div class="dont-do-list">
+                <h4>🚫 What we don't do</h4>
+                <div class="dont-do-item">
+                    <span class="no">We don't build you a dashboard you have to check daily.</span>
+                    <span class="instead">→ We execute the boosts and report results — not another login to remember.</span>
+                </div>
+                <div class="dont-do-item">
+                    <span class="no">We don't publish anything without your approval.</span>
+                    <span class="instead">→ Every change is staged; you sign off before it goes live.</span>
+                </div>
+                <div class="dont-do-item">
+                    <span class="no">We don't show you placeholder scores.</span>
+                    <span class="instead">→ Every number comes from a real per‑location audit, not an instant guess.</span>
                 </div>
             </div>
         </div>
@@ -2402,6 +2632,7 @@
                 <div class="location-calc-hint-row">
                     <span class="calc-hint" id="calcHint"></span>
                 </div>
+                <p class="inhouse-compare" id="inhouseCompare"></p>
             </div>
 
             <div class="pricing-grid" id="pricingGrid">
@@ -2469,7 +2700,7 @@
                     <a href="#contact" class="btn btn-secondary">Talk to sales</a>
                 </div>
             </div>
-            <p class="pricing-footnote" id="pricingFootnote">Volume pricing shown above applies at 10+ locations. Expert actions are weighted by effort (e.g. a review reply ≈ 0.5 action, a schema/content boost ≈ 1 action), so your monthly quota flexes to what each location actually needs. AI Authority and AI Dominate are ramp‑up tiers, billed monthly for as long as it takes to reach AI‑recommended status (3–4 and 1.5–2 months respectively) — once a location gets there, it automatically steps down to AI Visibility's ongoing annual maintenance rate. AI Visibility itself is the maintenance tier: priced annually because it runs indefinitely. Review removal is billed separately at $99 per approved removal, success‑based. Visibility score improvement guarantees apply portfolio‑wide and are measured against your baseline audit. Fewer than 10 locations? Use our <a href="https://reputationguard.pro" target="_blank" rel="noopener">single‑location plans</a>. 200+ locations get custom volume pricing — <a href="#contact">talk to us</a>.</p>
+            <p class="pricing-footnote" id="pricingFootnote">Volume pricing shown above applies at 10+ locations. Expert actions are weighted by effort (e.g. a review reply ≈ 0.5 action, a schema/content boost ≈ 1 action), so your monthly quota flexes to what each location actually needs. AI Authority and AI Dominate are ramp‑up tiers, billed monthly for as long as it takes to reach AI‑recommended status (3–4 and 1.5–2 months respectively) — once a location gets there, it automatically steps down to AI Visibility's ongoing annual maintenance rate. AI Visibility itself is the maintenance tier: priced annually because it runs indefinitely. Visibility score improvement guarantees apply portfolio‑wide and are measured against your baseline audit. Fewer than 10 locations? Use our <a href="https://reputationguard.pro" target="_blank" rel="noopener">single‑location plans</a>. 200+ locations get custom volume pricing — <a href="#contact">talk to us</a>.</p>
         </div>
     </section>
 
@@ -2559,7 +2790,7 @@
                     </div>
                     <div class="num">40–65</div>
                     <p>Applied instances of those 28 boost types per location — not a bigger catalog, the same actions repeated where they matter. A NAP boost alone applies across 10–60+ directories; review responses count per review. That repetition is what adds up to 40–65 before AI consistently recommends a location.</p>
-                    <a href="https://reputationguard.pro/what-is-a-boost.html" target="_blank" rel="noopener" class="btn btn-secondary">See the 28 boost types →</a>
+                    <a href="https://reputationguard.pro/what-is-a-boost/" target="_blank" rel="noopener" class="btn btn-secondary">See the 28 boost types →</a>
                 </div>
             </div>
         </div>
@@ -2586,7 +2817,7 @@
                         <h3>Is this a monitoring tool, or do you actually do the work?</h3>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </div>
-                    <div class="answer">We do the work. ReputationGuardPro Enterprise runs the same boost‑by‑boost methodology as our single‑location plans — schema, NAP/directory consistency, local content, review responses and removal — executed by real experts at every one of your locations. Visibility monitoring and reporting exists too, but it's a byproduct of the execution, not the product itself; it's also available white‑label if you'd rather report it under your own brand.</div>
+                    <div class="answer">We do the work. ReputationGuardPro Enterprise runs the same boost‑by‑boost methodology as our single‑location plans — schema, NAP/directory consistency, local content, and review responses — executed by real experts at every one of your locations. Visibility monitoring and reporting exists too, but it's a byproduct of the execution, not the product itself; it's also available white‑label if you'd rather report it under your own brand.</div>
                 </div>
                 <div class="faq-item">
                     <div class="question">
@@ -2615,6 +2846,20 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </div>
                     <div class="answer">Each location typically needs ≈40–65 applied boosts (out of 28 boost types — many, like NAP consistency or review responses, apply repeatedly) to reach AI‑recommended baseline visibility. How fast that happens depends on your tier: roughly 8–12 months per location on AI Visibility (5 boosts/mo), 3–4 months on AI Authority (15 boosts/mo), or 1.5–2 months on AI Dominate (30 boosts/mo). More locations means broader reach across your chain — it doesn't change the per‑location timeline, which is why we quote it per tier rather than as a blanket promise.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question">
+                        <h3>What happens if we acquire new locations mid‑contract?</h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="answer">New locations are onboarded at your current plan's per‑location rate and join the boost queue right away, starting with a baseline audit. There's no separate setup fee for locations added mid‑contract — they follow the same ramp‑up‑then‑maintenance path as the rest of your portfolio.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question">
+                        <h3>What if a location's score doesn't improve?</h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="answer">Your plan's visibility score improvement guarantee (60 days on AI Visibility, 30 on AI Authority, 21 on AI Dominate) means we keep working that location's boost backlog until the score moves. If a location genuinely doesn't respond within that window, we review the backlog for structural gaps — an incomplete Google Business Profile, unclaimed listings, and so on — and adjust the plan for that specific location.</div>
                 </div>
             </div>
         </div>
@@ -2720,7 +2965,7 @@
                     <h5>Resources</h5>
                     <ul>
                         <li><a href="#cases">Case studies</a></li>
-                        <li><a href="/ai-reputation-2026-study.html">Research</a></li>
+                        <li><a href="/ai-reputation-2026-study/">Research</a></li>
                     </ul>
                 </div>
                 <div>
@@ -2728,7 +2973,7 @@
                     <ul>
                         <li><a href="https://reputationguard.pro">ReputationGuard.pro</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="https://reputationguard.pro/privacy-policy.html" target="_blank" rel="noopener">Privacy policy</a></li>
+                        <li><a href="https://reputationguard.pro/privacy-policy/" target="_blank" rel="noopener">Privacy policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -2876,6 +3121,49 @@
                 });
             }
 
+            // ===== Cost of Invisibility calculator =====
+            (function() {
+                const locEl = document.getElementById('ccLocations');
+                const revEl = document.getElementById('ccRevenue');
+                const scoreEl = document.getElementById('ccScore');
+                const influenceEl = document.getElementById('ccInfluence');
+                if (!locEl) return;
+
+                const locVal = document.getElementById('ccLocationsVal');
+                const revVal = document.getElementById('ccRevenueVal');
+                const scoreVal = document.getElementById('ccScoreVal');
+                const influenceVal = document.getElementById('ccInfluenceVal');
+                const resultEl = document.getElementById('ccResult');
+
+                function fmtUSD(n) {
+                    return '$' + Math.round(n).toLocaleString('en-US');
+                }
+
+                function updateCostCalc() {
+                    const locations = Math.max(1, parseInt(locEl.value, 10) || 1);
+                    const revenue = Math.max(0, parseFloat(revEl.value) || 0);
+                    const score = Math.min(100, Math.max(0, parseInt(scoreEl.value, 10) || 0));
+                    const influencePct = Math.min(20, Math.max(5, parseInt(influenceEl.value, 10) || 10));
+
+                    locVal.textContent = locations.toLocaleString('en-US');
+                    revVal.textContent = fmtUSD(revenue);
+                    scoreVal.textContent = score + '/100';
+                    influenceVal.textContent = influencePct + '%';
+
+                    const portfolioRevenue = locations * revenue;
+                    const aiInfluencedRevenue = portfolioRevenue * (influencePct / 100);
+                    const atRiskShare = (100 - score) / 100;
+                    const atRisk = aiInfluencedRevenue * atRiskShare;
+
+                    resultEl.textContent = fmtUSD(atRisk);
+                }
+
+                [locEl, revEl, scoreEl, influenceEl].forEach(function(el) {
+                    el.addEventListener('input', updateCostCalc);
+                });
+                updateCostCalc();
+            })();
+
             // ===== Enterprise location pricing calculator =====
             const PRICING_TIERS = {
                 visibility: { band1: 349, band2: 299, band3: 249, list: 399, type: 'maintenance' },
@@ -2920,6 +3208,13 @@
 
                 const band = locationBand(n);
                 hint.classList.remove('tier-none', 'tier-band1', 'tier-band2', 'tier-band3');
+
+                const inhouseEl = document.getElementById('inhouseCompare');
+                if (inhouseEl) {
+                    const specialists = Math.max(1, Math.ceil(n / 15));
+                    const inhouseCost = specialists * 4500;
+                    inhouseEl.innerHTML = '💡 Compare: an in‑house team for ' + n.toLocaleString('en-US') + ' locations would run roughly <strong style="color:var(--text-secondary);">$' + inhouseCost.toLocaleString('en-US') + '/mo</strong> (≈1 specialist per 15 locations at $4,500/mo fully loaded — a rough industry reference, not a quote).';
+                }
                 if (!band) {
                     hint.innerHTML = '⚠️ ' + n + ' location' + (n === 1 ? '' : 's') + ' — below our 10‑location minimum. See single‑location plans.';
                     hint.classList.add('tier-none');
@@ -3126,13 +3421,44 @@
                     return;
                 }
                 const domain = auditInput.value.trim() || 'your domain';
-                modalDomain2.textContent = domain;
-                modalEmailConfirm.textContent = email;
-                modalLayers.style.display = 'none';
-                modalEmailStep.style.display = 'none';
-                statusText.style.display = 'none';
-                modal.querySelector('.progress-bar').style.display = 'none';
-                modalConfirm.style.display = '';
+
+                const originalBtnText = submitEmailBtn.textContent;
+                submitEmailBtn.disabled = true;
+                submitEmailBtn.textContent = 'Sending…';
+
+                function showConfirmation() {
+                    modalDomain2.textContent = domain;
+                    modalEmailConfirm.textContent = email;
+                    modalLayers.style.display = 'none';
+                    modalEmailStep.style.display = 'none';
+                    statusText.style.display = 'none';
+                    modal.querySelector('.progress-bar').style.display = 'none';
+                    modalConfirm.style.display = '';
+                    submitEmailBtn.disabled = false;
+                    submitEmailBtn.textContent = originalBtnText;
+                }
+
+                fetch('https://formsubmit.co/ajax/defend@reputationguard.pro', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        _subject: 'New AI Visibility Audit request — ' + domain,
+                        domain: domain,
+                        email: email,
+                        source: 'Enterprise site — hero audit modal'
+                    })
+                })
+                .then(function(res) { return res.json().catch(function() { return {}; }); })
+                .then(function() { showConfirmation(); })
+                .catch(function(err) {
+                    console.error('Audit request failed to send:', err);
+                    // Still confirm to the visitor — but flag it in console for us to catch.
+                    // If this starts firing often, formsubmit.co may be down or blocked.
+                    showConfirmation();
+                });
             });
 
             auditEmail.addEventListener('keydown', function(e) {
