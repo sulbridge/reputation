@@ -134,7 +134,7 @@
       "name": "What is AI visibility and why does it matter?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "AI visibility is how prominently your brand appears in recommendations from ChatGPT, Gemini, Perplexity, Claude, and Google AI. By 2026, 80% of consumers will use AI tools before making a purchase. If AI doesn't recommend your brand, you lose customers to competitors — silently, every single day."
+        "text": "AI visibility is how prominently your brand appears in recommendations from ChatGPT, Gemini, Perplexity, Claude, and Google AI. By 2026, 80% of consumers will use AI tools before making a purchase. If AI doesn't recommend your brand, you lose customers to competitors, silently, every single day."
       }
     },
     {
@@ -158,7 +158,7 @@
       "name": "How much can I save compared to hiring in‑house?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A full-time AI reputation specialist costs $2,000–$4,500/month. With our plans, you save $1,200+ every month while getting dedicated AI reputation experts, weekly reports, and proven strategies — without the overhead of hiring, training, and managing."
+        "text": "A full-time AI reputation specialist costs $2,000–$4,500/month. With our plans, you save $1,200+ every month while getting dedicated AI reputation experts, weekly reports, and proven strategies, without the overhead of hiring, training, and managing."
       }
     },
     {
@@ -166,7 +166,7 @@
       "name": "How do you improve my AI brand visibility?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We clean and strengthen your reputation signals — the data that AI uses to decide if your brand is trustworthy. We monitor how you appear across ChatGPT, Gemini, Perplexity, and Google AI, then systematically improve weak signals. You get weekly reports showing your AI visibility score growth and direct impact on sales."
+        "text": "We clean and strengthen your reputation signals: the data that AI uses to decide if your brand is trustworthy. We monitor how you appear across ChatGPT, Gemini, Perplexity, and Google AI, then systematically improve weak signals. You get weekly reports showing your AI visibility score growth and direct impact on sales."
       }
     },
     {
@@ -174,7 +174,7 @@
       "name": "Do you guarantee AI visibility improvement?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No one can guarantee exactly where AI will rank your brand, but we guarantee to improve your AI visibility score within 30 days. If we don't improve your score, we'll work until we do — that's our commitment. You pay for expertise, strategy, and measurable results."
+        "text": "No one can guarantee exactly where AI will rank your brand, but we guarantee to improve your AI visibility score within 30 days. If we don't improve your score, we'll work until we do. That's our commitment. You pay for expertise, strategy, and measurable results."
       }
     },
     {
@@ -300,6 +300,33 @@ body {
   white-space: nowrap;
 }
 .stat span.counter { font-size: 1.8rem; font-weight: 800; color: #60A5FA; display: inline-block; }
+
+.hero-stats-rings { display: flex; gap: 14px; margin-top: 20px; margin-bottom: 0; }
+.stat-ring-card { display: flex; flex-direction: column; align-items: center; text-align: center; width: 72px; flex-shrink: 0; }
+.stat-ring-wrap { position: relative; width: 42px; height: 42px; }
+.stat-ring-svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.stat-ring-track { fill: none; stroke: rgba(255,255,255,0.08); stroke-width: 10; }
+.stat-ring-arc {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 264;
+  stroke-dashoffset: 264;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stat-ring-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0;
+}
+.stat-ring-center i { display: none; }
+.stat-ring-center span { font-size: 0.68rem; font-weight: 800; color: #f9fafb; font-variant-numeric: tabular-nums; }
+.stat-ring-label { font-size: 0.6rem; color: #9ca3af; margin-top: 5px; line-height: 1.25; }
+@media (max-width: 480px) {
+  .hero-stats-rings { gap: 10px; }
+  .stat-ring-card { width: 62px; }
+  .stat-ring-wrap { width: 38px; height: 38px; }
+}
 .hero-image { flex: 1; background: #1a1f2b; border-radius: 48px; padding: 24px 20px; text-align: center; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.8); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 280px; border: 1px solid #2d3748; }
 .hero-image i { font-size: 5rem; color: #3B82F6; transition: transform 0.3s ease; margin-bottom: 8px; }
 .hero-image p { margin-top: 12px; font-weight: 500; max-width: 100%; word-break: break-word; white-space: normal; line-height: 1.4; color: #c8cdd8; }
@@ -1710,7 +1737,7 @@ footer {
   }
 
   .stats-source {
-    margin-top: 0.75rem;
+    margin-top: 0;
     font-size: 0.7rem;
     text-align: left;          
     padding-left: 0;
@@ -2046,10 +2073,46 @@ footer {
   <span class="hero-trust-chip" data-i18n="bullet-layers">📊 9-layer AI analysis</span>
 </div>
 
-<div class="hero-stats">
-  <div class="stat"><span class="counter" data-target="87">87</span>% <span data-i18n="stat-traffic">of AI traffic</span></div>
-  <div class="stat"><span class="counter" data-target="82">82</span>% <span data-i18n="stat-sales">of AI sales</span></div>
-  <div class="stat"><span class="counter" data-target="43">43</span>% <span data-i18n="stat-daily">use AI daily</span></div>
+<div class="hero-stats-rings" id="heroStatsRings">
+  <div class="stat-ring-card">
+    <div class="stat-ring-wrap">
+      <svg viewBox="0 0 100 100" class="stat-ring-svg">
+        <circle cx="50" cy="50" r="42" class="stat-ring-track"></circle>
+        <circle cx="50" cy="50" r="42" class="stat-ring-arc" data-target="87" style="stroke: #60A5FA;"></circle>
+      </svg>
+      <div class="stat-ring-center">
+        <i class="fas fa-chart-line"></i>
+        <span><span class="stat-ring-num" data-target="87">0</span>%</span>
+      </div>
+    </div>
+    <p class="stat-ring-label" data-i18n="stat-traffic">of AI traffic</p>
+  </div>
+  <div class="stat-ring-card">
+    <div class="stat-ring-wrap">
+      <svg viewBox="0 0 100 100" class="stat-ring-svg">
+        <circle cx="50" cy="50" r="42" class="stat-ring-track"></circle>
+        <circle cx="50" cy="50" r="42" class="stat-ring-arc" data-target="82" style="stroke: #4ade80;"></circle>
+      </svg>
+      <div class="stat-ring-center">
+        <i class="fas fa-cart-shopping"></i>
+        <span><span class="stat-ring-num" data-target="82">0</span>%</span>
+      </div>
+    </div>
+    <p class="stat-ring-label" data-i18n="stat-sales">of AI sales</p>
+  </div>
+  <div class="stat-ring-card">
+    <div class="stat-ring-wrap">
+      <svg viewBox="0 0 100 100" class="stat-ring-svg">
+        <circle cx="50" cy="50" r="42" class="stat-ring-track"></circle>
+        <circle cx="50" cy="50" r="42" class="stat-ring-arc" data-target="43" style="stroke: #FBBF24;"></circle>
+      </svg>
+      <div class="stat-ring-center">
+        <i class="fas fa-clock"></i>
+        <span><span class="stat-ring-num" data-target="43">0</span>%</span>
+      </div>
+    </div>
+    <p class="stat-ring-label" data-i18n="stat-daily">use AI daily</p>
+  </div>
 </div>
 <p class="stats-source" data-i18n="stats.source">Based on data from <span id="heroStatsCount">150</span>+ businesses audited</p>
   </div>
@@ -2328,7 +2391,7 @@ footer {
 
   .stats-source {
   text-align: left;           
-  margin-top: 0.5rem;
+  margin-top: 0;
   font-size: 0.75rem;
   color: #6b7280;
   opacity: 0.8;
@@ -2627,7 +2690,7 @@ const afterData = {
     <div style="max-width: 800px; margin: 0 auto; text-align: center;">
       <span style="background: #3B82F6; color: white; padding: 4px 16px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;" data-i18n="methodology-title">How We Measure AI Visibility</span>
       <h2 style="font-size: 2rem; font-weight: 800; margin: 20px 0 16px; color: white;" data-i18n="methodology-title">How We Measure AI Visibility</h2>
-      <p style="font-size: 1rem; color: #9ca3af; max-width: 600px; margin: 0 auto 32px;" data-i18n="methodology-sub">Our 8‑Layer Analysis framework — each layer represents a critical signal AI systems use to understand and recommend your brand.</p>
+      <p style="font-size: 1rem; color: #9ca3af; max-width: 600px; margin: 0 auto 32px;" data-i18n="methodology-sub">Our 8‑Layer Analysis framework. Each layer represents a critical signal AI systems use to understand and recommend your brand.</p>
     </div>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; max-width: 960px; margin: 0 auto;">
@@ -2734,11 +2797,11 @@ const afterData = {
       <span style="background: #3B82F6; color: white; padding: 4px 16px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;" data-i18n="trend-badge-ai">AI Market Intelligence 2026</span>
       <h2 style="font-size: 2rem; font-weight: 800; margin: 20px 0 16px; color: white;" data-i18n="trend-title-ai">The 2026 AI Trust Economy</h2>
       <p style="font-size: 1.05rem; color: #c8cdd8; line-height: 1.7; margin-bottom: 24px;" data-i18n="trend-text1-ai">
-        <strong style="color: #93C5FD;">80%</strong> of consumers now use AI tools before making a purchase — and <strong style="color: #93C5FD;">62%</strong> trust AI recommendations as much as personal referrals. If your brand isn't recommended by AI, you're invisible to the majority of modern buyers.
+        <strong style="color: #93C5FD;">80%</strong> of consumers now use AI tools before making a purchase, and <strong style="color: #93C5FD;">62%</strong> trust AI recommendations as much as personal referrals. If your brand isn't recommended by AI, you're invisible to the majority of modern buyers.
       </p>
       <p style="font-size: 1.05rem; color: #c8cdd8; line-height: 1.7; margin-bottom: 32px;" data-i18n="trend-text2-ai">
         <i class="fas fa-robot" style="color: #60A5FA; margin-right: 8px;"></i> 
-        <strong>AI platforms</strong> (ChatGPT, Gemini, Perplexity, Claude) decide which brands to recommend based on your <strong>reputation signals</strong> — not just your website. <strong style="color: #FCD34D;">One weak signal</strong> can make AI <strong style="color: #FCD34D;">skip your brand</strong> and recommend your competitors instead. Clean signals = AI trust.
+        <strong>AI platforms</strong> (ChatGPT, Gemini, Perplexity, Claude) decide which brands to recommend based on your <strong>reputation signals</strong>, not just your website. <strong style="color: #FCD34D;">One weak signal</strong> can make AI <strong style="color: #FCD34D;">skip your brand</strong> and recommend your competitors instead. Clean signals = AI trust.
       </p>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin: 24px 0 32px;">
         <div><span style="font-size: 2.2rem; font-weight: 800; color: #FCD34D;">80%</span><br><span style="font-size: 0.85rem; color: #9CA3AF;" data-i18n="trend-stat1-ai">use AI before buying</span></div>
@@ -2758,13 +2821,13 @@ const afterData = {
     <div class="risk-card">
       <i class="fas fa-chart-line" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i>
       <h3 data-i18n="risk1-title-ai">Lost Revenue from Low AI Visibility</h3>
-      <p data-i18n="risk1-text-ai">When ChatGPT and Gemini don't mention your brand, customers go to competitors. Low AI visibility directly reduces bookings by up to 30% — and you never even know why.</p>
+      <p data-i18n="risk1-text-ai">When ChatGPT and Gemini don't mention your brand, customers go to competitors. Low AI visibility directly reduces bookings by up to 30%, and you never even know why.</p>
     </div>
 
     <div class="risk-card">
       <i class="fas fa-search" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i>
       <h3 data-i18n="risk2-title-ai">Invisible in AI Search Results</h3>
-      <p data-i18n="risk2-text-ai">Google AI Overviews and LLMs prioritize brands with clean reputation signals. Weak signals push you down — making you invisible to millions of AI-powered searches every day.</p>
+      <p data-i18n="risk2-text-ai">Google AI Overviews and LLMs prioritize brands with clean reputation signals. Weak signals push you down, making you invisible to millions of AI-powered searches every day.</p>
     </div>
 
     <div class="risk-card">
@@ -2776,7 +2839,7 @@ const afterData = {
     <div class="risk-card">
       <i class="fas fa-robot" style="color:#E53E3E; margin-bottom: 12px; display: inline-block;"></i>
       <h3 data-i18n="risk4-title-ai">Zero AI Trust = Zero Recommendations</h3>
-      <p data-i18n="risk4-text-ai">ChatGPT, Gemini, and Perplexity don't recommend brands with untrustworthy reputation signals. Your business becomes invisible — while AI actively promotes your competitors instead.</p>
+      <p data-i18n="risk4-text-ai">ChatGPT, Gemini, and Perplexity don't recommend brands with untrustworthy reputation signals. Your business becomes invisible while AI actively promotes your competitors instead.</p>
     </div>
 
   </div>
@@ -2784,31 +2847,31 @@ const afterData = {
 
   <section id="process" class="process-section">
   <h2 class="section-title" data-i18n="process-title-ai">Turn AI into Your #1 Lead Generator</h2>
-  <p class="section-sub" data-i18n="process-sub-ai">We boost the signals that make AI trust — or ignore — your brand. No fluff. No guesswork.</p>
+  <p class="section-sub" data-i18n="process-sub-ai">We boost the signals that make AI trust your brand, instead of ignoring it. No fluff. No guesswork.</p>
   <div class="process-grid">
 
     <div class="process-card">
       <div class="process-icon"><i class="fas fa-robot"></i></div>
       <h3 data-i18n="step1-title-ai">1. Expose Every Signal Gap Costing You Customers</h3>
-      <p data-i18n="step1-desc-ai">We scan how ChatGPT, Gemini, and Google AI see your brand right now. Every missing signal, every trust gap, every reason AI recommends competitors instead of you — mapped and measured in dollars lost.</p>
+      <p data-i18n="step1-desc-ai">We scan how ChatGPT, Gemini, and Google AI see your brand right now. Every missing signal, every trust gap, every reason AI recommends competitors instead of you: mapped and measured in dollars lost.</p>
     </div>
 
     <div class="process-card">
       <div class="process-icon"><i class="fas fa-broom"></i></div>
       <h3 data-i18n="step2-title-ai">2. Eliminate the Invisible Barriers That Hold Your Brand Back</h3>
-      <p data-i18n="step2-desc-ai">We remove false signals, fix inconsistencies, and rebuild your reputation foundation from the ground up. When AI looks at your brand, it sees authority — not noise.</p>
+      <p data-i18n="step2-desc-ai">We remove false signals, fix inconsistencies, and rebuild your reputation foundation from the ground up. When AI looks at your brand, it sees authority, not noise.</p>
     </div>
 
     <div class="process-card">
       <div class="process-icon"><i class="fas fa-chart-line"></i></div>
-      <h3 data-i18n="step3-title-ai">3. Track Your AI Dominance — Week by Week</h3>
-      <p data-i18n="step3-desc-ai">Weekly reports show your AI visibility score, Share of Voice across 6+ LLMs, and the direct revenue impact. You'll see exactly which boost moved the needle — and by how much.</p>
+      <h3 data-i18n="step3-title-ai">3. Track Your AI Dominance, Week by Week</h3>
+      <p data-i18n="step3-desc-ai">Weekly reports show your AI visibility score, Share of Voice across 6+ LLMs, and the direct revenue impact. You'll see exactly which boost moved the needle, and by how much.</p>
     </div>
 
     <div class="process-card">
       <div class="process-icon"><i class="fas fa-shield-alt"></i></div>
-      <h3 data-i18n="step4-title-ai">4. Own the AI Conversation — Permanently</h3>
-      <p data-i18n="step4-desc-ai">Real-time monitoring catches new threats before they hurt you. We keep your brand at the top of AI recommendations — while your competitors stay invisible.</p>
+      <h3 data-i18n="step4-title-ai">4. Own the AI Conversation. Permanently.</h3>
+      <p data-i18n="step4-desc-ai">Real-time monitoring catches new threats before they hurt you. We keep your brand at the top of AI recommendations while your competitors stay invisible.</p>
     </div>
 
   </div>
@@ -2818,7 +2881,7 @@ const afterData = {
   <!-- Header -->
   <div style="text-align:center;margin-bottom:48px;">
     <span data-i18n="cases-real-results-badge" style="display:inline-block;padding:4px 16px;border-radius:40px;background:rgba(52,211,153,0.10);border:1px solid rgba(52,211,153,0.15);font-size:0.7rem;font-weight:700;color:#34d399;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;">⚡ Real Results</span>
-    <h2 class="section-title" data-i18n="cases-title" style="font-size:2.4rem;font-weight:800;color:#f9fafb;margin-bottom:8px;letter-spacing:-0.02em;">Real Revenue Results — Before &amp; After</h2>
+    <h2 class="section-title" data-i18n="cases-title" style="font-size:2.4rem;font-weight:800;color:#f9fafb;margin-bottom:8px;letter-spacing:-0.02em;">Real Revenue Results: Before &amp; After</h2>
     <p class="section-sub" data-i18n="cases-sub" style="color:#9ca3af;max-width:560px;margin:0 auto;font-size:1.05rem;line-height:1.6;">See how we turned AI visibility into growth engines</p>
   </div>
 
@@ -2838,13 +2901,13 @@ const afterData = {
       <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
         <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.6</div>
-        <div data-i18n="case1-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 42/100 — ChatGPT didn't recommend</div>
+        <div data-i18n="case1-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 42/100. ChatGPT didn't recommend</div>
         <div data-i18n="case1-before-impact" style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Booking conversion -41%</div>
       </div>
       <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
         <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.8</div>
-        <div data-i18n="case1-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 89/100 — now recommended by ChatGPT</div>
+        <div data-i18n="case1-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 89/100. Now recommended by ChatGPT</div>
         <div data-i18n="case1-after-impact" style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Revenue +28% in 2 months</div>
       </div>
     </div>
@@ -2870,13 +2933,13 @@ const afterData = {
       <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
         <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.2</div>
-        <div data-i18n="case2-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 31/100 — invisible to AI search</div>
+        <div data-i18n="case2-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 31/100. Invisible to AI search</div>
         <div data-i18n="case2-before-impact" style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ New patient calls -70%</div>
       </div>
       <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
         <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.6</div>
-        <div data-i18n="case2-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 84/100 — top recommendation in Gemini</div>
+        <div data-i18n="case2-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 84/100. Top recommendation in Gemini</div>
         <div data-i18n="case2-after-impact" style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Leads ×3 in 30 days</div>
       </div>
     </div>
@@ -2902,13 +2965,13 @@ const afterData = {
       <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
         <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.8</div>
-        <div data-i18n="case3-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 48/100 — Perplexity ranked competitors higher</div>
+        <div data-i18n="case3-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 48/100. Perplexity ranked competitors higher</div>
         <div data-i18n="case3-before-impact" style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Dinner reservations -33%</div>
       </div>
       <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
         <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.7</div>
-        <div data-i18n="case3-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 91/100 — #1 AI-recommended in Barcelona</div>
+        <div data-i18n="case3-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 91/100. #1 AI-recommended in Barcelona</div>
         <div data-i18n="case3-after-impact" style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Reservation value +53%</div>
       </div>
     </div>
@@ -2934,13 +2997,13 @@ const afterData = {
       <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
         <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.4</div>
-        <div data-i18n="case4-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 35/100 — Gemini ignored this brand</div>
+        <div data-i18n="case4-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 35/100. Gemini ignored this brand</div>
         <div data-i18n="case4-before-impact" style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Online bookings -45%</div>
       </div>
       <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
         <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.9</div>
-        <div data-i18n="case4-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 94/100 — top pick in AI travel searches</div>
+        <div data-i18n="case4-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 94/100. Top pick in AI travel searches</div>
         <div data-i18n="case4-after-impact" style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Booking conversion +67%</div>
       </div>
     </div>
@@ -2966,13 +3029,13 @@ const afterData = {
       <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
         <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.9</div>
-        <div data-i18n="case5-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 44/100 — competitors dominated AI answers</div>
+        <div data-i18n="case5-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 44/100. Competitors dominated AI answers</div>
         <div data-i18n="case5-before-impact" style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ New client inquiries -38%</div>
       </div>
       <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
         <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.8</div>
-        <div data-i18n="case5-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 87/100 — #1 AI-recommended gym in Sydney</div>
+        <div data-i18n="case5-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 87/100. #1 AI-recommended gym in Sydney</div>
         <div data-i18n="case5-after-impact" style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Patient volume +44%</div>
       </div>
     </div>
@@ -2998,13 +3061,13 @@ const afterData = {
       <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
         <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.5</div>
-        <div data-i18n="case6-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 38/100 — ChatGPT suggested competitors</div>
+        <div data-i18n="case6-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 38/100. ChatGPT suggested competitors</div>
         <div data-i18n="case6-before-impact" style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Add‑to‑cart rate -52%</div>
       </div>
       <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
         <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.6</div>
-        <div data-i18n="case6-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 88/100 — top recommendation across 6 LLMs</div>
+        <div data-i18n="case6-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 88/100. Top recommendation across 6 LLMs</div>
         <div data-i18n="case6-after-impact" style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Sales +78% in 45 days</div>
       </div>
     </div>
@@ -3030,13 +3093,13 @@ const afterData = {
       <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
         <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.7</div>
-        <div data-i18n="case7-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 41/100 — Perplexity ranked 5 competitors above</div>
+        <div data-i18n="case7-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 41/100. Perplexity ranked 5 competitors above</div>
         <div data-i18n="case7-before-impact" style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Direct bookings -31%</div>
       </div>
       <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
         <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.9</div>
-        <div data-i18n="case7-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 96/100 — #1 AI-recommended in Phuket</div>
+        <div data-i18n="case7-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 96/100. #1 AI-recommended in Phuket</div>
         <div data-i18n="case7-after-impact" style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Revenue +49% next quarter</div>
       </div>
     </div>
@@ -3062,13 +3125,13 @@ const afterData = {
       <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
         <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 3.4</div>
-        <div data-i18n="case8-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 33/100 — Gemini didn't mention this firm</div>
+        <div data-i18n="case8-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 33/100. Gemini didn't mention this firm</div>
         <div data-i18n="case8-before-impact" style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Consultation requests -62%</div>
       </div>
       <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
         <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.8</div>
-        <div data-i18n="case8-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 85/100 — top AI-recommended in Toronto</div>
+        <div data-i18n="case8-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 85/100. Top AI-recommended in Toronto</div>
         <div data-i18n="case8-after-impact" style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ New cases 2.8× in 30 days</div>
       </div>
     </div>
@@ -3094,13 +3157,13 @@ const afterData = {
       <div style="background:rgba(239,68,68,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #ef4444;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#f87171;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">⚠️ BEFORE</div>
         <div style="font-size:1.6rem;font-weight:800;color:#f87171;margin-bottom:2px;">⭐ 4.0</div>
-        <div data-i18n="case9-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 46/100 — AI suggested other agencies</div>
+        <div data-i18n="case9-before-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 46/100. AI suggested other agencies</div>
         <div data-i18n="case9-before-impact" style="font-size:0.75rem;color:#f87171;font-weight:600;">↓ Wedding inquiries -27%</div>
       </div>
       <div style="background:rgba(52,211,153,0.06);border-radius:14px;padding:14px 14px;border-left:3px solid #34d399;">
         <div style="display:flex;align-items:center;gap:6px;font-size:0.55rem;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">✅ AFTER</div>
         <div style="font-size:1.6rem;font-weight:800;color:#4ade80;margin-bottom:2px;">⭐ 4.9</div>
-        <div data-i18n="case9-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 93/100 — #1 AI-recommended agency</div>
+        <div data-i18n="case9-after-score" style="font-size:0.8rem;color:#e5e7eb;margin-bottom:2px;line-height:1.4;">AI visibility score: 93/100. #1 AI-recommended agency</div>
         <div data-i18n="case9-after-impact" style="font-size:0.75rem;color:#4ade80;font-weight:600;">↑ Leads +41% → $210k+ extra revenue</div>
       </div>
     </div>
@@ -3378,7 +3441,7 @@ const afterData = {
   <!-- ===== PRICING ===== -->
 <section id="pricing" class="pricing-section">
   <h2 class="section-title" data-i18n="pricing-title">AI Visibility Plans</h2>
-  <p class="section-sub" data-i18n="pricing-sub">We audit your AI visibility, then use our expertise to fix what matters most. You get results — we do the work.</p>
+  <p class="section-sub" data-i18n="pricing-sub">We audit your AI visibility, then use our expertise to fix what matters most. You get results. We do the work.</p>
 
   <!-- ===== GUARANTEE BANNER ===== -->
   <div style="max-width: 680px; margin: 20px auto 12px; display: flex; align-items: center; gap: 14px; background: rgba(74,222,128,0.06); border: 1px solid rgba(74,222,128,0.25); border-radius: 16px; padding: 16px 20px;">
@@ -3399,7 +3462,7 @@ const afterData = {
         <span data-i18n="urgency-title-suffix">is open now</span>
       </div>
       <div style="font-size: 0.82rem; color: #9ca3af; margin-top: 2px;">
-        <span data-i18n="urgency-text-prefix">We cap monthly intake so every account gets a dedicated manager and weekly reports — once this month's cohort fills, next availability is</span>
+        <span data-i18n="urgency-text-prefix">We cap monthly intake so every account gets a dedicated manager and weekly reports. Once this month's cohort fills, next availability is</span>
         <span id="urgencyNextMonth" style="color: #e5e7eb; font-weight: 600;"></span><span>.</span>
       </div>
     </div>
@@ -3589,7 +3652,7 @@ const afterData = {
           <li><i class="fas fa-check-circle"></i> <span data-i18n="feature0c">Detailed AI visibility score report with recommendations</span></li>
         </ul>
         <button class="btn-primary one-time-btn"
-          onclick="openCheckoutModal('https://buy.stripe.com/cNi6oGdyf5vhcgx39Ibo402', 'AI Visibility Boost — deep audit + 3 critical fixes', '$249 one-time', true)"
+          onclick="openCheckoutModal('https://buy.stripe.com/cNi6oGdyf5vhcgx39Ibo402', 'AI Visibility Boost: deep audit + 3 critical fixes', '$249 one-time', true)"
           data-i18n="choose-one-time">Get Started <i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
@@ -3700,7 +3763,7 @@ const afterData = {
   
   <div style="background: rgba(17,24,39,0.4); border-radius: 12px; padding: 16px 20px; border: 1px solid #1f2937; margin-top: 20px;">
   <p style="font-size: 0.85rem; color: #9ca3af; margin: 0 0 8px 0; line-height: 1.6;" data-i18n="fix-instances">
-    40–65 — applied instances of those <strong>28 boost types</strong> per location — not a bigger catalog, the same actions repeated where they matter. A NAP fix alone applies across 10–60+ directories; review responses count per review. That repetition is what adds up to 40–65 before AI consistently recommends a location.
+    That's 40 to 65 applied instances of those <strong>28 boost types</strong> per location, not a bigger catalog: the same actions repeated where they matter. A NAP fix alone applies across 10–60+ directories; review responses count per review. That repetition is what adds up to 40–65 before AI consistently recommends a location.
   </p>
   <a href="/what-is-a-boost.html" style="color: #60A5FA; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;" data-i18n="fix-see-types">
     <i class="fas fa-arrow-right"></i>
@@ -3721,7 +3784,7 @@ const afterData = {
 <!-- ===== END PRICING ===== -->
 
   <div id="contact-form-section" class="cta">
-    <h2 data-i18n="cta-title">Free AI Reputation Audit — See How AI Sees Your Brand</h2>
+    <h2 data-i18n="cta-title">Free AI Reputation Audit: See How AI Sees Your Brand</h2>
     <p data-i18n="cta-text">We'll analyze how AI platforms (ChatGPT, Gemini) perceive your brand.<br>See how many customers you're losing and which reputation signals we can clean to boost your AI visibility.<br>No obligation.</p>
    <form id="contactForm" class="contact-form" action="https://formsubmit.co/defend@reputationguard.pro" method="POST">
   <input type="hidden" name="_captcha" value="false">
@@ -3750,7 +3813,7 @@ const afterData = {
         <span data-i18n="faq1q-ai">What is AI visibility and why does it matter?</span>
         <i class="fas fa-chevron-down"></i>
       </div>
-      <div class="faq-answer" data-i18n="faq1a-ai">AI visibility is how prominently your brand appears in recommendations from ChatGPT, Gemini, Perplexity, Claude, and Google AI. By 2026, 80% of consumers will use AI tools before making a purchase. If AI doesn't recommend your brand, you lose customers to competitors — silently, every single day.</div>
+      <div class="faq-answer" data-i18n="faq1a-ai">AI visibility is how prominently your brand appears in recommendations from ChatGPT, Gemini, Perplexity, Claude, and Google AI. By 2026, 80% of consumers will use AI tools before making a purchase. If AI doesn't recommend your brand, you lose customers to competitors, silently, every single day.</div>
     </div>
 
     <div class="faq-item">
@@ -3777,16 +3840,16 @@ const afterData = {
   </div>
   <div class="faq-answer" data-i18n="faq9a">
     <p><strong>We promise to get your brand to 55–75% on the AI Visibility Score scale.</strong></p>
-    <p style="margin-top: 8px;">This is the <strong>"Strong"</strong> level — where ChatGPT, Gemini, Claude, and Perplexity <strong>regularly recommend your brand</strong> in response to relevant customer queries.</p>
+    <p style="margin-top: 8px;">This is the <strong>"Strong"</strong> level: where ChatGPT, Gemini, Claude, and Perplexity <strong>regularly recommend your brand</strong> in response to relevant customer queries.</p>
     <p style="margin-top: 8px;">According to industry benchmarks:</p>
     <ul style="list-style: none; padding: 0; margin: 8px 0 0;">
-      <li style="padding: 4px 0;">• <strong>55–75%</strong> = "Strong" (GrackerAI) — AI engines lead with your brand in many responses</li>
-      <li style="padding: 4px 0;">• <strong>51–80%</strong> = "Competitive" (Rank Prompt) — you appear in most relevant answers</li>
+      <li style="padding: 4px 0;">• <strong>55–75%</strong> = "Strong" (GrackerAI): AI engines lead with your brand in many responses</li>
+      <li style="padding: 4px 0;">• <strong>51–80%</strong> = "Competitive" (Rank Prompt): you appear in most relevant answers</li>
       <li style="padding: 4px 0;">• <strong>~80%</strong> = "Strong Performance" (Milestone Inc.)</li>
     </ul>
     <p style="margin-top: 8px; color: #60A5FA; font-size: 0.9rem;">
       <i class="fas fa-shield-alt" style="margin-right: 6px;"></i>
-      <strong>We don't promise 100% or top‑1 ranking</strong> — nobody controls AI retrieval indices. We promise to improve your signals so AI <strong>trusts and recommends</strong> your brand. That's measurable, achievable, and backed by data.
+      <strong>We don't promise 100% or top‑1 ranking</strong>. Nobody controls AI retrieval indices. We promise to improve your signals so AI <strong>trusts and recommends</strong> your brand. That's measurable, achievable, and backed by data.
     </p>
   </div>
 </div>
@@ -3818,7 +3881,7 @@ const afterData = {
       </div>
     </div>
     <p style="color: #e5e7eb; font-size: 0.95rem; margin-top: 8px;">
-      <strong>You get results:</strong> your brand goes from "invisible" to "recommended" — and we show you the numbers every step of the way.
+      <strong>You get results:</strong> your brand goes from "invisible" to "recommended," and we show you the numbers every step of the way.
     </p>
     <p style="color: #9ca3af; font-size: 0.85rem; margin-top: 8px;">
       <i class="fas fa-info-circle" style="color: #3B82F6;"></i>
@@ -3826,7 +3889,7 @@ const afterData = {
     </p>
     <p style="color: #9ca3af; font-size: 0.85rem; margin-top: 4px;">
       <i class="fas fa-check-circle" style="color: #4ade80;"></i>
-      All plans include our <strong>visibility score improvement guarantee</strong> — if we don't improve your score, we keep working until we do.
+      All plans include our <strong>visibility score improvement guarantee</strong>: if we don't improve your score, we keep working until we do.
     </p>
   </div>
 </div>
@@ -3836,7 +3899,7 @@ const afterData = {
         <span data-i18n="faq4q-ai">How much can I save compared to hiring in‑house?</span>
         <i class="fas fa-chevron-down"></i>
       </div>
-      <div class="faq-answer" data-i18n="faq4a-ai">A full-time AI reputation specialist costs $2,000–$4,500/month. With our plans, you save $1,200+ every month while getting dedicated AI reputation experts, weekly reports, and proven strategies — without the overhead of hiring, training, and managing.</div>
+      <div class="faq-answer" data-i18n="faq4a-ai">A full-time AI reputation specialist costs $2,000–$4,500/month. With our plans, you save $1,200+ every month while getting dedicated AI reputation experts, weekly reports, and proven strategies, without the overhead of hiring, training, and managing.</div>
     </div>
 
     <div class="faq-item">
@@ -3844,7 +3907,7 @@ const afterData = {
         <span data-i18n="faq5q-ai">How do you improve my AI brand visibility?</span>
         <i class="fas fa-chevron-down"></i>
       </div>
-      <div class="faq-answer" data-i18n="faq5a-ai">We clean and strengthen your reputation signals — the data that AI uses to decide if your brand is trustworthy. We monitor how you appear across ChatGPT, Gemini, Perplexity, and Google AI, then systematically improve weak signals. You get weekly reports showing your AI visibility score growth and direct impact on sales.</div>
+      <div class="faq-answer" data-i18n="faq5a-ai">We clean and strengthen your reputation signals: the data that AI uses to decide if your brand is trustworthy. We monitor how you appear across ChatGPT, Gemini, Perplexity, and Google AI, then systematically improve weak signals. You get weekly reports showing your AI visibility score growth and direct impact on sales.</div>
     </div>
 
     <div class="faq-item">
@@ -3852,7 +3915,7 @@ const afterData = {
         <span data-i18n="faq6q-ai">Do you guarantee AI visibility improvement?</span>
         <i class="fas fa-chevron-down"></i>
       </div>
-      <div class="faq-answer" data-i18n="faq6a-ai">No one can guarantee exactly where AI will rank your brand, but we guarantee to improve your AI visibility score within 30 days. If we don't improve your score, we'll work until we do — that's our commitment. You pay for expertise, strategy, and measurable results.</div>
+      <div class="faq-answer" data-i18n="faq6a-ai">No one can guarantee exactly where AI will rank your brand, but we guarantee to improve your AI visibility score within 30 days. If we don't improve your score, we'll work until we do. That's our commitment. You pay for expertise, strategy, and measurable results.</div>
     </div>
 
     <div class="faq-item">
@@ -3868,7 +3931,7 @@ const afterData = {
     <span data-i18n="faq11q">What happens after I reach my target AI visibility?</span>
     <i class="fas fa-chevron-down"></i>
   </div>
-  <div class="faq-answer" data-i18n="faq11a">Once your brand consistently appears in AI recommendations (55–75% on our score), you no longer need the intensive monthly boosts. You can switch to our AI Visibility plan — a lower-cost maintenance plan that keeps your signals clean and your brand recommended. This way, you pay only for what you need, when you need it.</div>
+  <div class="faq-answer" data-i18n="faq11a">Once your brand consistently appears in AI recommendations (55–75% on our score), you no longer need the intensive monthly boosts. You can switch to our AI Visibility plan, a lower-cost maintenance plan that keeps your signals clean and your brand recommended. This way, you pay only for what you need, when you need it.</div>
 </div>
 
     <div class="faq-item">
@@ -3888,7 +3951,7 @@ const afterData = {
     
     <div class="footer-column">
       <h4 data-i18n="footer-company">ReputationGuard</h4>
-      <p data-i18n="footer-tagline">AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends — by restoring the trust signals that drive AI visibility and sales.</p>
+      <p data-i18n="footer-tagline">AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends by restoring the trust signals that drive AI visibility and sales.</p>
       <p style="margin-top: 8px;"><a href="/about.html" style="color: #93C5FD; text-decoration: none;">About Us</a></p>
     </div>
 
@@ -4040,12 +4103,12 @@ const afterData = {
     <div class="checkout-price" id="checkoutModalPrice">$0</div>
     <div class="checkout-modal-lines">
       <div><i class="fas fa-lock"></i> <span data-i18n="checkout-modal-line1">You'll be taken to Stripe, our secure payment processor, to enter your card details.</span></div>
-      <div id="checkoutModalRecurringLine"><i class="fas fa-rotate"></i> <span data-i18n="checkout-modal-recurring">Recurring monthly. Cancel anytime from your Stripe customer portal — no phone call needed.</span></div>
-      <div><i class="fas fa-shield-alt"></i> <span data-i18n="checkout-modal-line3">Backed by our visibility score improvement guarantee — see plan details above.</span></div>
+      <div id="checkoutModalRecurringLine"><i class="fas fa-rotate"></i> <span data-i18n="checkout-modal-recurring">Recurring monthly. Cancel anytime from your Stripe customer portal. No phone call needed.</span></div>
+      <div><i class="fas fa-shield-alt"></i> <span data-i18n="checkout-modal-line3">Backed by our visibility score improvement guarantee. See plan details above.</span></div>
     </div>
     <div class="checkout-modal-actions">
       <button class="btn-primary" id="checkoutModalProceed"><span data-i18n="checkout-modal-proceed">Continue to secure payment</span> <i class="fas fa-arrow-right"></i></button>
-      <button class="checkout-modal-cancel" id="checkoutModalCancel" data-i18n="checkout-modal-cancel">Not ready yet — take me back</button>
+      <button class="checkout-modal-cancel" id="checkoutModalCancel" data-i18n="checkout-modal-cancel">Not ready yet, take me back</button>
     </div>
     <div class="checkout-modal-secure"><i class="fas fa-lock"></i> <span data-i18n="checkout-modal-secure">Payments processed by Stripe. We never see your card details.</span></div>
   </div>
@@ -4491,7 +4554,7 @@ const afterData = {
       brand: 'ReputationGuard',
       badge: '⚡ AI Visibility Engine',
       title: 'Is Your Business <span class="avc-accent">Visible</span> on ChatGPT, Gemini, Claude &amp; Perplexity?',
-      subtitle: 'See exactly where your business appears — or doesn\'t appear — across <strong>ALL major AI platforms worldwide</strong>. Get a <strong>free AI visibility report</strong> with a clear plan to get listed everywhere that matters.',
+      subtitle: 'See exactly where your business appears, or doesn\'t appear, across <strong>ALL major AI platforms worldwide</strong>. Get a <strong>free AI visibility report</strong> with a clear plan to get listed everywhere that matters.',
       inputPlaceholder: 'Enter your business name or website',
       checkBtn: 'Check My AI Visibility',
       trust1: 'No login required',
@@ -4515,10 +4578,10 @@ const afterData = {
       platformTitle: 'AI Platform Visibility',
       issuesTitle: 'Critical Issues Found',
       issueNegTitle: 'Low AI Visibility Detected',
-      issueNegBody: 'Your brand appears in {count} out of 6 major AI platforms. This means you\'re invisible to millions of AI users — while your competitors get all the leads.',
+      issueNegBody: 'Your brand appears in {count} out of 6 major AI platforms. This means you\'re invisible to millions of AI users, while your competitors get all the leads.',
       issueNegImpact: 'Impact: Estimated {low}-{high}% reduction in AI-driven traffic',
       issueFakeTitle: 'Weak Trust Signals Found',
-      issueFakeBody: '{count} weak trust signals detected — missing schema markup, inconsistent business data, or low authority signals that make AI avoid your brand.',
+      issueFakeBody: '{count} weak trust signals detected: missing schema markup, inconsistent business data, or low authority signals that make AI avoid your brand.',
       issueFakeImpact: 'Impact: Each weak signal reduces your AI trust score by ~{points} points',
       unlockTitle: 'Unlock Full Report',
       unlockDesc: 'Enter your email to see all {count} additional findings, detailed recommendations, and your personalized fix roadmap.',
@@ -4527,7 +4590,7 @@ const afterData = {
       unlockFine: 'No spam. We\'ll send your detailed report and next steps.',
       unlockSuccess: 'Thank you! Your report is now unlocked.',
       ctaTitle: 'Ready to boost your AI visibility?',
-      ctaDesc: 'Get a professional AI Reputation Audit from our team. We\'ll identify what\'s hurting your visibility across ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek and Google AI — and build a plan to fix it.',
+      ctaDesc: 'Get a professional AI Reputation Audit from our team. We\'ll identify what\'s hurting your visibility across ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek and Google AI, and build a plan to fix it.',
       ctaBtn: 'Boost Your AI Visibility Now',
       backHome: '← Back to Home',
       anotherCheck: '← Check another business',
@@ -4540,8 +4603,8 @@ const afterData = {
       bandExcellent: 'Excellent',
       confidenceLabel: 'Confidence',
       platformGoodDesc: 'Cited positively with consistent brand mentions.',
-      platformWarnDesc: 'Partially visible — mentioned but not recommended.',
-      platformBadDesc: 'Not cited — insufficient authority.',
+      platformWarnDesc: 'Partially visible: mentioned but not recommended.',
+      platformBadDesc: 'Not cited: insufficient authority.',
       alreadyCheckedPlaceholder: 'You already checked. Contact us for full audit.',
       alreadyCheckedBtn: 'Get Free AI Audit'
     },
@@ -5667,67 +5730,67 @@ const afterData = {
     "switch-plan-70": "🔄 Once you hit your target, switch to AI Visibility and save up to 70%",
     "urgency-title-prefix": "New client onboarding for",
     "urgency-title-suffix": "is open now",
-    "urgency-text-prefix": "We cap monthly intake so every account gets a dedicated manager and weekly reports — once this month's cohort fills, next availability is",
+    "urgency-text-prefix": "We cap monthly intake so every account gets a dedicated manager and weekly reports. Once this month's cohort fills, next availability is",
     "case1-header": "🏨 Boutique Hotel, Indonesia <span style=\"font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;\">↑ +28% revenue</span>",
-    "case1-before-score": "AI visibility score: 42/100 — ChatGPT didn't recommend",
+    "case1-before-score": "AI visibility score: 42/100. ChatGPT didn't recommend",
     "case1-before-impact": "↓ Booking conversion -41%",
-    "case1-after-score": "AI visibility score: 89/100 — now recommended by ChatGPT",
+    "case1-after-score": "AI visibility score: 89/100. Now recommended by ChatGPT",
     "case1-after-impact": "↑ Revenue +28% in 2 months",
     "case1-insight": "🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this hotel",
     "case1-footer": "⏱ Restored in 20 business days • AI visibility +47 pts",
     "case2-header": "🦷 Dental Clinic, Texas <span style=\"font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;\">↑ 3× leads</span>",
-    "case2-before-score": "AI visibility score: 31/100 — invisible to AI search",
+    "case2-before-score": "AI visibility score: 31/100. Invisible to AI search",
     "case2-before-impact": "↓ New patient calls -70%",
-    "case2-after-score": "AI visibility score: 84/100 — top recommendation in Gemini",
+    "case2-after-score": "AI visibility score: 84/100. Top recommendation in Gemini",
     "case2-after-impact": "↑ Leads ×3 in 30 days",
     "case2-insight": "🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this clinic",
     "case2-footer": "⏱ Restored in 25 business days • AI visibility +53 pts",
     "case3-header": "🍽 Restaurant, Barcelona <span style=\"font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;\">↑ +53% reservation value</span>",
-    "case3-before-score": "AI visibility score: 48/100 — Perplexity ranked competitors higher",
+    "case3-before-score": "AI visibility score: 48/100. Perplexity ranked competitors higher",
     "case3-before-impact": "↓ Dinner reservations -33%",
-    "case3-after-score": "AI visibility score: 91/100 — #1 AI-recommended in Barcelona",
+    "case3-after-score": "AI visibility score: 91/100. #1 AI-recommended in Barcelona",
     "case3-after-impact": "↑ Reservation value +53%",
     "case3-insight": "🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this restaurant",
     "case3-footer": "⏱ Restored in 30 business days • AI visibility +43 pts",
     "case4-header": "🚗 Car Rentals, Dubai <span style=\"font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;\">↑ +67% booking conversion</span>",
-    "case4-before-score": "AI visibility score: 35/100 — Gemini ignored this brand",
+    "case4-before-score": "AI visibility score: 35/100. Gemini ignored this brand",
     "case4-before-impact": "↓ Online bookings -45%",
-    "case4-after-score": "AI visibility score: 94/100 — top pick in AI travel searches",
+    "case4-after-score": "AI visibility score: 94/100. Top pick in AI travel searches",
     "case4-after-impact": "↑ Booking conversion +67%",
     "case4-insight": "🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this rental",
     "case4-footer": "⏱ Restored in 40 business days • AI visibility +59 pts",
     "case5-header": "💪 GYM, Sydney <span style=\"font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;\">↑ +44% patient volume</span>",
-    "case5-before-score": "AI visibility score: 44/100 — competitors dominated AI answers",
+    "case5-before-score": "AI visibility score: 44/100. Competitors dominated AI answers",
     "case5-before-impact": "↓ New client inquiries -38%",
-    "case5-after-score": "AI visibility score: 87/100 — #1 AI-recommended gym in Sydney",
+    "case5-after-score": "AI visibility score: 87/100. #1 AI-recommended gym in Sydney",
     "case5-after-impact": "↑ Patient volume +44%",
     "case5-insight": "🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this gym",
     "case5-footer": "⏱ Restored in 30 business days • AI visibility +43 pts",
     "case6-header": "📦 Gadget Shop, Berlin <span style=\"font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;\">↑ +78% sales</span>",
-    "case6-before-score": "AI visibility score: 38/100 — ChatGPT suggested competitors",
+    "case6-before-score": "AI visibility score: 38/100. ChatGPT suggested competitors",
     "case6-before-impact": "↓ Add‑to‑cart rate -52%",
-    "case6-after-score": "AI visibility score: 88/100 — top recommendation across 6 LLMs",
+    "case6-after-score": "AI visibility score: 88/100. Top recommendation across 6 LLMs",
     "case6-after-impact": "↑ Sales +78% in 45 days",
     "case6-insight": "🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this shop",
     "case6-footer": "⏱ Restored in 22 business days • AI visibility +50 pts",
     "case7-header": "🌴 Resort, Phuket <span style=\"font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;\">↑ +49% revenue</span>",
-    "case7-before-score": "AI visibility score: 41/100 — Perplexity ranked 5 competitors above",
+    "case7-before-score": "AI visibility score: 41/100. Perplexity ranked 5 competitors above",
     "case7-before-impact": "↓ Direct bookings -31%",
-    "case7-after-score": "AI visibility score: 96/100 — #1 AI-recommended in Phuket",
+    "case7-after-score": "AI visibility score: 96/100. #1 AI-recommended in Phuket",
     "case7-after-impact": "↑ Revenue +49% next quarter",
     "case7-insight": "🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this resort",
     "case7-footer": "⏱ Restored in 15 business days • AI visibility +55 pts",
     "case8-header": "⚖️ Law Firm, Toronto <span style=\"font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;\">↑ 2.8× new cases</span>",
-    "case8-before-score": "AI visibility score: 33/100 — Gemini didn't mention this firm",
+    "case8-before-score": "AI visibility score: 33/100. Gemini didn't mention this firm",
     "case8-before-impact": "↓ Consultation requests -62%",
-    "case8-after-score": "AI visibility score: 85/100 — top AI-recommended in Toronto",
+    "case8-after-score": "AI visibility score: 85/100. Top AI-recommended in Toronto",
     "case8-after-impact": "↑ New cases 2.8× in 30 days",
     "case8-insight": "🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this firm",
     "case8-footer": "⏱ Restored in 20 business days • AI visibility +52 pts",
     "case9-header": "💒 Real Estate, Cape Town <span style=\"font-size:0.85rem;color:#34d399;font-weight:700;margin-left:8px;\">↑ $210k+ extra revenue</span>",
-    "case9-before-score": "AI visibility score: 46/100 — AI suggested other agencies",
+    "case9-before-score": "AI visibility score: 46/100. AI suggested other agencies",
     "case9-before-impact": "↓ Wedding inquiries -27%",
-    "case9-after-score": "AI visibility score: 93/100 — #1 AI-recommended agency",
+    "case9-after-score": "AI visibility score: 93/100. #1 AI-recommended agency",
     "case9-after-impact": "↑ Leads +41% → $210k+ extra revenue",
     "case9-insight": "🧠 Recovered AI visibility: ChatGPT & Google AI now recommend this agency",
     "case9-footer": "⏱ Restored in 15 business days • AI visibility +47 pts",
@@ -5735,10 +5798,10 @@ const afterData = {
     "case-restored-badge": "🤖 AI visibility restored",
     "checkout-modal-badge": "Visibility score improvement guarantee",
     "checkout-modal-line1": "You'll be taken to Stripe, our secure payment processor, to enter your card details.",
-    "checkout-modal-recurring": "Recurring monthly. Cancel anytime from your Stripe customer portal — no phone call needed.",
-    "checkout-modal-line3": "Backed by our visibility score improvement guarantee — see plan details above.",
+    "checkout-modal-recurring": "Recurring monthly. Cancel anytime from your Stripe customer portal. No phone call needed.",
+    "checkout-modal-line3": "Backed by our visibility score improvement guarantee. See plan details above.",
     "checkout-modal-proceed": "Continue to secure payment",
-    "checkout-modal-cancel": "Not ready yet — take me back",
+    "checkout-modal-cancel": "Not ready yet, take me back",
     "checkout-modal-secure": "Payments processed by Stripe. We never see your card details.",
     "already-checked-placeholder": "Business already checked. Contact us for full audit.",
     "already-checked-btn": "Get Free AI Audit",
@@ -5768,7 +5831,7 @@ const afterData = {
     "simulator-ai-response-label": "💬 What AI says to your customers",
     "form-note": "We'll reply within 2h with your AI visibility report",
     "methodology-title": "How We Measure AI Visibility",
-    "methodology-sub": "Our 9‑Layer Analysis framework — each layer represents a critical signal AI systems use to understand and recommend your brand.",
+    "methodology-sub": "Our 9‑Layer Analysis framework. Each layer represents a critical signal AI systems use to understand and recommend your brand.",
     "methodology-l1": "Access",
     "methodology-l1-desc": "Can AI crawlers reach your website? If blocked, buyers get answers from competitors.",
     "methodology-l2": "Structure",
@@ -5791,8 +5854,8 @@ const afterData = {
     "claim-audit": "Get Free AI Audit",
     "trend-badge-ai": "AI Market Intelligence 2026",
     "trend-title-ai": "The 2026 AI Trust Economy",
-    "trend-text1-ai": "<strong style=\"color: #93C5FD;\">80%</strong> of consumers now use AI tools before making a purchase — and <strong style=\"color: #93C5FD;\">62%</strong> trust AI recommendations as much as personal referrals. If your brand isn't recommended by AI, you're invisible to the majority of modern buyers.",
-    "trend-text2-ai": "<i class=\"fas fa-robot\" style=\"color: #60A5FA; margin-right: 8px;\"></i> <strong>AI platforms</strong> (ChatGPT, Gemini, Perplexity, Claude) decide which brands to recommend based on your <strong>reputation signals</strong> — not just your website. <strong style=\"color: #FCD34D;\">One weak signal</strong> can make AI <strong style=\"color: #FCD34D;\">skip your brand</strong> and recommend your competitors instead. Clean signals = AI trust.",
+    "trend-text1-ai": "<strong style=\"color: #93C5FD;\">80%</strong> of consumers now use AI tools before making a purchase, and <strong style=\"color: #93C5FD;\">62%</strong> trust AI recommendations as much as personal referrals. If your brand isn't recommended by AI, you're invisible to the majority of modern buyers.",
+    "trend-text2-ai": "<i class=\"fas fa-robot\" style=\"color: #60A5FA; margin-right: 8px;\"></i> <strong>AI platforms</strong> (ChatGPT, Gemini, Perplexity, Claude) decide which brands to recommend based on your <strong>reputation signals</strong>, not just your website. <strong style=\"color: #FCD34D;\">One weak signal</strong> can make AI <strong style=\"color: #FCD34D;\">skip your brand</strong> and recommend your competitors instead. Clean signals = AI trust.",
     "trend-stat1-ai": "use AI before buying",
     "trend-stat2-ai": "trust AI like personal referrals",
     "trend-stat3-ai": "growth in AI reputation searches",
@@ -5800,31 +5863,31 @@ const afterData = {
     "risk-title-ai": "The Real Cost of Low AI Visibility",
     "risk-sub-ai": "What happens when AI can't see, trust, or recommend your brand",
     "risk1-title-ai": "Lost Revenue from Low AI Visibility",
-    "risk1-text-ai": "When ChatGPT and Gemini don't mention your brand, customers go to competitors. Low AI visibility directly reduces bookings by up to 30% — and you never even know why.",
+    "risk1-text-ai": "When ChatGPT and Gemini don't mention your brand, customers go to competitors. Low AI visibility directly reduces bookings by up to 30%, and you never even know why.",
     "risk2-title-ai": "Invisible in AI Search Results",
-    "risk2-text-ai": "Google AI Overviews and LLMs prioritize brands with clean reputation signals. Weak signals push you down — making you invisible to millions of AI-powered searches every day.",
+    "risk2-text-ai": "Google AI Overviews and LLMs prioritize brands with clean reputation signals. Weak signals push you down, making you invisible to millions of AI-powered searches every day.",
     "risk3-title-ai": "Higher Ad Spend, Lower ROI",
     "risk3-text-ai": "Without organic AI recommendations, you have to pay for every click. Poor AI visibility forces you to spend 2‑3× more on ads just to get the same customers your competitors get for free.",
     "risk4-title-ai": "Zero AI Trust = Zero Recommendations",
-    "risk4-text-ai": "ChatGPT, Gemini, and Perplexity don't recommend brands with untrustworthy reputation signals. Your business becomes invisible — while AI actively promotes your competitors instead.",
+    "risk4-text-ai": "ChatGPT, Gemini, and Perplexity don't recommend brands with untrustworthy reputation signals. Your business becomes invisible while AI actively promotes your competitors instead.",
     "process-title-ai": "Turn AI into Your #1 Lead Generator",
-    "process-sub-ai": "We boost the signals that make AI trust — or ignore — your brand. No fluff. No guesswork.",
+    "process-sub-ai": "We boost the signals that make AI trust your brand, instead of ignoring it. No fluff. No guesswork.",
     "step1-title-ai": "1. Expose Every Signal Gap Costing You Customers",
-    "step1-desc-ai": "We scan how ChatGPT, Gemini, and Google AI see your brand right now. Every missing signal, every trust gap, every reason AI recommends competitors instead of you — mapped and measured in dollars lost.",
+    "step1-desc-ai": "We scan how ChatGPT, Gemini, and Google AI see your brand right now. Every missing signal, every trust gap, every reason AI recommends competitors instead of you: mapped and measured in dollars lost.",
     "step2-title-ai": "2. Eliminate the Invisible Barriers That Hold Your Brand Back",
-    "step2-desc-ai": "We remove false signals, fix inconsistencies, and rebuild your reputation foundation from the ground up. When AI looks at your brand, it sees authority — not noise.",
-    "step3-title-ai": "3. Track Your AI Dominance — Week by Week",
-    "step3-desc-ai": "Weekly reports show your AI visibility score, Share of Voice across 6+ LLMs, and the direct revenue impact. You'll see exactly which boost moved the needle — and by how much.",
-    "step4-title-ai": "4. Own the AI Conversation — Permanently",
-    "step4-desc-ai": "Real-time monitoring catches new threats before they hurt you. We keep your brand at the top of AI recommendations — while your competitors stay invisible.",
-    "cases-title": "Real Revenue Results — Before & After",
+    "step2-desc-ai": "We remove false signals, fix inconsistencies, and rebuild your reputation foundation from the ground up. When AI looks at your brand, it sees authority, not noise.",
+    "step3-title-ai": "3. Track Your AI Dominance, Week by Week",
+    "step3-desc-ai": "Weekly reports show your AI visibility score, Share of Voice across 6+ LLMs, and the direct revenue impact. You'll see exactly which boost moved the needle, and by how much.",
+    "step4-title-ai": "4. Own the AI Conversation. Permanently.",
+    "step4-desc-ai": "Real-time monitoring catches new threats before they hurt you. We keep your brand at the top of AI recommendations while your competitors stay invisible.",
+    "cases-title": "Real Revenue Results: Before & After",
     "cases-sub": "See how we turned AI visibility into growth engines",
     "pricing-title": "AI Visibility Plans",
-    "pricing-sub": "We audit your AI visibility, then use our expertise to fix what matters most. You get results — we do the work.",
+    "pricing-sub": "We audit your AI visibility, then use our expertise to fix what matters most. You get results. We do the work.",
     "plan1-name": "AI Visibility",
     "per-month": "/month",
     "saving1": "Ideal for tighter budgets",
-    "feature1a": "5 visibility boosts per month — each boost strengthens your AI trust signals",
+    "feature1a": "5 visibility boosts per month. Each boost strengthens your AI trust signals",
     "feature1b": "AI visibility monitoring with alerts",
     "feature1c": "Monthly AI visibility report (ChatGPT, Gemini)",
     "feature1d": "Priority based on AI impact",
@@ -5832,7 +5895,7 @@ const afterData = {
     "popular": "⭐ MOST POPULAR",
     "plan2-name": "AI Authority",
     "saving2": "Best value – fastest ROI",
-    "feature2a": "15 visibility boosts monthly — your brand becomes the one AI trusts and recommends",
+    "feature2a": "15 visibility boosts monthly. Your brand becomes the one AI trusts and recommends",
     "feature2b": "Priority processing (48‑hour turnaround)",
     "feature2c": "Monthly AI visibility report (4 LLMs)",
     "feature2d": "Full AI sentiment analysis",
@@ -5840,7 +5903,7 @@ const afterData = {
     "feature2f": "Monthly strategy call & detailed roadmap",
     "plan3-name": "AI Dominate",
     "saving3": "Maximum speed – dominate your industry",
-    "feature3a": "30 visibility boosts per month — you dominate AI search results in your industry",
+    "feature3a": "30 visibility boosts per month. You dominate AI search results in your industry",
     "feature3b": "Dedicated AI reputation manager",
     "feature3c": "Weekly AI visibility report (6 LLMs)",
     "feature3d": "Weekly strategy calls",
@@ -5864,9 +5927,9 @@ const afterData = {
     "fix-local-list": "<ul style=\"list-style: none; padding: 0; margin: 0;\">\n<li style=\"padding: 4px 0;\">• NAP consistency across 10–60+ directories</li>\n<li style=\"padding: 4px 0;\">• Full Google Business Profile optimization</li>\n<li style=\"padding: 4px 0;\">• Review generation (4–8 new/month)</li>\n<li style=\"padding: 4px 0;\">• Conversational phrasing for real customer queries</li>\n<li style=\"padding: 4px 0;\">• Visibility test on 4+ AI engines</li>\n</ul>",
     "fix-measurement-title": "📊 Measurement\n        <i class=\"fas fa-chevron-down\" style=\"transition: transform 0.25s; color:#3B82F6;\"></i>",
     "fix-measurement-list": "<ul style=\"list-style: none; padding: 0; margin: 0;\">\n<li style=\"padding: 4px 0;\">• Baseline visibility tracking</li>\n<li style=\"padding: 4px 0;\">• 20–50 real‑user prompts simulation</li>\n<li style=\"padding: 4px 0;\">• AI Share of Voice vs competitors</li>\n<li style=\"padding: 4px 0;\">• A/B tests on content formats</li>\n<li style=\"padding: 4px 0;\">• Monthly progress report</li>\n</ul>",
-    "fix-instances": "40–65 — applied instances of those <strong>28 boost types</strong> per location — not a bigger catalog, the same actions repeated where they matter. A NAP fix alone applies across 10–60+ directories; review responses count per review. That repetition is what adds up to 40–65 before AI consistently recommends a location.",
+    "fix-instances": "That's 40 to 65 applied instances of those <strong>28 boost types</strong> per location, not a bigger catalog: the same actions repeated where they matter. A NAP fix alone applies across 10–60+ directories; review responses count per review. That repetition is what adds up to 40–65 before AI consistently recommends a location.",
     "fix-see-types": "See the 28 boost types",
-    "cta-title": "Free AI Reputation Audit — See How AI Sees Your Brand",
+    "cta-title": "Free AI Reputation Audit: See How AI Sees Your Brand",
     "cta-text": "We'll analyze how AI platforms (ChatGPT, Gemini) perceive your brand.<br>See how many customers you're losing and which reputation signals we can clean to boost your AI visibility.<br>No obligation.",
     "form-name": "Full name *",
     "form-email": "Email address *",
@@ -5876,27 +5939,27 @@ const afterData = {
     "form-submit": "Get Free AI Reputation Audit",
     "faq-title-ai": "Frequently Asked Questions About AI Reputation",
     "faq1q-ai": "What is AI visibility and why does it matter?",
-    "faq1a-ai": "AI visibility is how prominently your brand appears in recommendations from ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek, and Google AI. By 2026, 85% of consumers will use AI tools before making a purchase. If AI doesn't recommend your brand, you lose customers to competitors — silently, every single day.",
+    "faq1a-ai": "AI visibility is how prominently your brand appears in recommendations from ChatGPT, Gemini, Claude, Perplexity, Grok, DeepSeek, and Google AI. By 2026, 85% of consumers will use AI tools before making a purchase. If AI doesn't recommend your brand, you lose customers to competitors, silently, every single day.",
     "faq2q-ai": "How do you measure my AI reputation score?",
     "faq2a-ai": "We analyze 9 critical layers that AI systems use to evaluate your brand: accessibility, content structure, authority signals, clarity, trust signals, schema packaging, citation readiness, activity, and reputation signals. Your AI visibility score (0–100) shows exactly where you stand and what to fix.",
     "faq3q-ai": "How quickly will I see results in AI visibility?",
     "faq3a-ai": "Most clients see measurable improvements in their AI visibility score within the first 2–4 weeks. Within 30–60 days, you'll see increased inquiries and bookings as ChatGPT, Gemini, and other AI platforms start recommending your business more prominently.",
     "faq9q": "What level of AI visibility do you promise?",
-    "faq9a": "We promise to get your brand to 55–75% on the AI Visibility Score scale. This is the 'Strong' level — where ChatGPT, Gemini, Claude, and Perplexity regularly recommend your brand in response to relevant customer queries. According to industry benchmarks: 55–75% = 'Strong' (GrackerAI) — AI engines lead with your brand in many responses; 51–80% = 'Competitive' (Rank Prompt) — you appear in most relevant answers; ~80% = 'Strong Performance' (Milestone Inc.). We don't promise 100% or top‑1 ranking — nobody controls AI retrieval indices. We promise to improve your signals so AI trusts and recommends your brand. That's measurable, achievable, and backed by data.",
+    "faq9a": "We promise to get your brand to 55–75% on the AI Visibility Score scale. This is the 'Strong' level: where ChatGPT, Gemini, Claude, and Perplexity regularly recommend your brand in response to relevant customer queries. According to industry benchmarks: 55–75% equals 'Strong' (GrackerAI), meaning AI engines lead with your brand in many responses. 51–80% equals 'Competitive' (Rank Prompt), meaning you appear in most relevant answers. About 80% equals 'Strong Performance' (Milestone Inc.). We don't promise 100% or top‑1 ranking. Nobody controls AI retrieval indices. We promise to improve your signals so AI trusts and recommends your brand. That's measurable, achievable, and backed by data.",
     "faq10q": "What exactly do I get as a client?",
-    "faq10a": "You get a complete AI visibility transformation, measured and documented. You receive: a baseline audit showing your starting AI visibility score across 6+ LLMs; 5–30 boosts per month building trust signals (25 types across 5 categories); weekly or monthly reports showing your AI visibility score, Share of Voice, and competitor benchmarks; and a dedicated manager with strategy calls, escalation coordination, and GEO content strategy on higher plans. You get results: your brand goes from 'invisible' to 'recommended' — and we show you the numbers every step of the way. The exact timeline depends on your plan: AI Visibility (8–12 months), AI Authority (3–4 months), or AI Dominate (1.5–2 months). All plans include our visibility score improvement guarantee — if we don't improve your score, we keep working until we do.",
+    "faq10a": "You get a complete AI visibility transformation, measured and documented. You receive: a baseline audit showing your starting AI visibility score across 6+ LLMs; 5–30 boosts per month building trust signals (25 types across 5 categories); weekly or monthly reports showing your AI visibility score, Share of Voice, and competitor benchmarks; and a dedicated manager with strategy calls, escalation coordination, and GEO content strategy on higher plans. You get results: your brand goes from 'invisible' to 'recommended,' and we show you the numbers every step of the way. The exact timeline depends on your plan: AI Visibility (8–12 months), AI Authority (3–4 months), or AI Dominate (1.5–2 months). All plans include our visibility score improvement guarantee: if we don't improve your score, we keep working until we do.",
     "faq4q-ai": "How much can I save compared to hiring in‑house?",
-    "faq4a-ai": "A full-time AI reputation specialist costs $2,000–$4,500/month. With our plans, you save $1,200+ every month while getting dedicated AI visibility experts, weekly reports, and proven strategies — without the overhead of hiring, training, and managing.",
+    "faq4a-ai": "A full-time AI reputation specialist costs $2,000–$4,500/month. With our plans, you save $1,200+ every month while getting dedicated AI visibility experts, weekly reports, and proven strategies, without the overhead of hiring, training, and managing.",
     "faq5q-ai": "How do you improve my AI brand visibility?",
-    "faq5a-ai": "We clean and strengthen your reputation signals — the data that AI uses to decide if your brand is trustworthy. We monitor how you appear across ChatGPT, Gemini, Perplexity, and Google AI, then systematically improve weak signals. You get weekly reports showing your AI visibility score growth and direct impact on sales.",
+    "faq5a-ai": "We clean and strengthen your reputation signals: the data that AI uses to decide if your brand is trustworthy. We monitor how you appear across ChatGPT, Gemini, Perplexity, and Google AI, then systematically improve weak signals. You get weekly reports showing your AI visibility score growth and direct impact on sales.",
     "faq6q-ai": "Do you guarantee AI visibility improvement?",
-    "faq6a-ai": "No one can guarantee exactly where AI will rank your brand, but we guarantee to improve your AI visibility score within 30 days. If we don't improve your score, we'll work until we do — that's our commitment. You pay for expertise, strategy, and measurable results.",
+    "faq6a-ai": "No one can guarantee exactly where AI will rank your brand, but we guarantee to improve your AI visibility score within 30 days. If we don't improve your score, we'll work until we do. That's our commitment. You pay for expertise, strategy, and measurable results.",
     "faq7q-ai": "What types of businesses do you work with?",
     "faq7a-ai": "We work with hotels, restaurants, dental clinics, car rentals, fitness studios, resorts, law firms, real estate agencies, e‑commerce, and any service‑based business that depends on AI‑driven customer acquisition. If your customers use AI to find you, we can help.",
     "faq11q": "What happens after I reach my target AI visibility?",
-    "faq11a": "Once your brand consistently appears in AI recommendations (55–75% on our score), you no longer need the intensive monthly boosts. You can switch to our AI Visibility plan — a lower-cost maintenance plan that keeps your signals clean and your brand recommended. This way, you pay only for what you need, when you need it.",
+    "faq11a": "Once your brand consistently appears in AI recommendations (55–75% on our score), you no longer need the intensive monthly boosts. You can switch to our AI Visibility plan, a lower-cost maintenance plan that keeps your signals clean and your brand recommended. This way, you pay only for what you need, when you need it.",
     "footer-company": "ReputationGuard",
-    "footer-tagline": "AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends — by restoring the trust signals that drive AI visibility and sales.",
+    "footer-tagline": "AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends by restoring the trust signals that drive AI visibility and sales.",
     "footer-services": "Services",
     "footer-review-removal": "AI Visibility Optimization",
     "footer-appeal": "Signal Cleanup",
@@ -8830,6 +8893,38 @@ const afterData = {
   document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang'))));
   
   function animateCounters() {
+    const RING_CIRCUMFERENCE = 264;
+    const rings = document.querySelectorAll('.stat-ring-card');
+    rings.forEach(card => {
+      const numEl = card.querySelector('.stat-ring-num');
+      const arcEl = card.querySelector('.stat-ring-arc');
+      if (!numEl) return;
+      const target = +numEl.getAttribute('data-target');
+
+      if (arcEl) {
+        const offset = RING_CIRCUMFERENCE - (target / 100) * RING_CIRCUMFERENCE;
+        // rAF tick lets the browser register the starting dashoffset before
+        // transitioning, so the ring actually animates instead of snapping.
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            arcEl.style.strokeDashoffset = offset;
+          });
+        });
+      }
+
+      const duration = 1400;
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        numEl.textContent = Math.round(target * eased);
+        if (progress < 1) requestAnimationFrame(tick);
+        else numEl.textContent = target;
+      }
+      requestAnimationFrame(tick);
+    });
+
+    // Legacy flat counters, if any remain elsewhere on the page.
     const counters = document.querySelectorAll('.counter');
     counters.forEach(counter => {
       const target = +counter.getAttribute('data-target');
@@ -8850,14 +8945,14 @@ const afterData = {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        if (entry.target.classList.contains('hero-stats') || entry.target.querySelector('.counter')) {
+        if (entry.target.id === 'heroStatsRings' || entry.target.classList.contains('hero-stats') || entry.target.querySelector('.counter')) {
           animateCounters();
         }
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.5 });
-  const statsSection = document.querySelector('.hero-stats');
+  const statsSection = document.getElementById('heroStatsRings') || document.querySelector('.hero-stats');
   if (statsSection) observer.observe(statsSection);
 
   function initLanguage() {
