@@ -273,6 +273,20 @@ body {
 .hero p { font-size: 1.1rem; color: #9ca3af; margin-bottom: 32px; max-width: 90%; }
 .hero-stats { display: flex; justify-content: flex-start; gap: 32px; margin-top: 24px; flex-wrap: wrap; margin-bottom: 0; }
 .hero-trust-chips { display: flex; gap: 10px; flex-wrap: wrap; }
+.hero-title-break { display: none; }
+@media (min-width: 769px) {
+  .hero-title-break { display: inline; }
+}
+.stats-source {
+  text-align: left;
+  margin: 0;
+  font-size: 0.62rem;
+  max-width: 340px;
+  line-height: 1.35;
+  color: #6b7280;
+  opacity: 0.8;
+  padding-left: 0;
+}
 
 @keyframes goldFieldPulse {
   0%, 100% { box-shadow: 0 0 20px rgba(251,191,36,0.08); border-color: #FBBF24; }
@@ -1738,7 +1752,9 @@ footer {
 
   .stats-source {
     margin-top: 0;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
+    max-width: 280px;
+    line-height: 1.3;
     text-align: left;          
     padding-left: 0;
   }
@@ -2036,7 +2052,7 @@ footer {
   <div class="hero-content">
     <div class="hero-badge" data-i18n="hero-badge">⚡ AI Visibility Engine</div>
    <h1 data-i18n="hero-title">
-  Get Your Business Recommended by <span style="color: #2563EB;">ChatGPT, Gemini &amp; More</span><br>
+  Get Your Business Recommended by<br class="hero-title-break"> <span style="color: #2563EB;">ChatGPT, Gemini &amp; More</span><br>
   Or Your Competitors Will
 </h1>
     <div class="hero-subhead" data-i18n="hero-subhead">
@@ -2392,7 +2408,9 @@ footer {
   .stats-source {
   text-align: left;           
   margin-top: 0;
-  font-size: 0.75rem;
+  font-size: 0.62rem;
+  max-width: 340px;
+  line-height: 1.35;
   color: #6b7280;
   opacity: 0.8;
   padding-left: 0;           
@@ -5808,7 +5826,7 @@ const afterData = {
     "trust-logos-caption": "We monitor and optimize your visibility across",
     "guarantee-banner-title": "Every plan is backed by our visibility score improvement guarantee",
     "guarantee-banner-text": "If your AI visibility score doesn't improve within your plan's guarantee window, we keep working for free until it does.",
-    "hero-title": "Get Your Business Recommended by <span style=\"color:#2563EB;\">ChatGPT, Gemini &amp; More</span><br>Or Your Competitors Will",
+    "hero-title": "Get Your Business Recommended by<br class=\"hero-title-break\"> <span style=\"color:#2563EB;\">ChatGPT, Gemini &amp; More</span><br>Or Your Competitors Will",
     "hero-subhead": "<strong>Most buyers</strong> now use AI tools before making a purchase.</br> If your brand doesn't appear in their answers, you're invisible to millions of potential customers.",
     "hero-desc": "See exactly where your business appears</br>across <strong>ALL major AI platforms worldwide</strong>. </br>Get a <strong>Free AI Audit</strong> with a clear plan to get listed everywhere that matters:",
     "input-placeholder": "Enter your business name or website",
@@ -6093,7 +6111,7 @@ const afterData = {
     "trust-logos-caption": "Monitoreamos y optimizamos su visibilidad en",
     "guarantee-banner-title": "Todos los planes incluyen nuestra garantía de mejora del puntaje de visibilidad",
     "guarantee-banner-text": "Si su puntuación de visibilidad en IA no mejora dentro del plazo de garantía de su plan, seguimos trabajando gratis hasta lograrlo.",
-    "hero-title": "Consiga que su Negocio sea Recomendado por <span style=\"color:#2563EB;\">ChatGPT, Gemini y más</span><br>O lo Serán sus Competidores",
+    "hero-title": "Consiga que su Negocio sea Recomendado por<br class=\"hero-title-break\"> <span style=\"color:#2563EB;\">ChatGPT, Gemini y más</span><br>O lo Serán sus Competidores",
     "hero-subhead": "<strong>La mayoría de los compradores</strong> ya utilizan herramientas de IA antes de realizar una compra.</br> Si su marca no aparece en sus respuestas, usted es invisible para millones de clientes potenciales,</br> mientras que sus competidores se llevan todos los leads.",
     "hero-desc": "Descubra exactamente dónde aparece o no aparece su negocio </br>en <strong>TODAS las principales plataformas de IA del mundo</strong>. </br>Obtenga una <strong>Auditoría IA Gratuita</strong> con un plan claro para aparecer en todos los lugares que importan:",
     "input-placeholder": "Ingrese el nombre de su negocio o sitio web",
@@ -6378,7 +6396,7 @@ const afterData = {
     "trust-logos-caption": "Monitoreamos y optimizamos su visibilidad en",
     "guarantee-banner-title": "Todos los planes incluyen nuestra garantía de mejora del puntaje de visibilidad",
     "guarantee-banner-text": "Si su puntuación de visibilidad en IA no mejora dentro del plazo de garantía de su plan, seguimos trabajando gratis hasta lograrlo.",
-    "hero-title": "Consiga que su Negocio sea Recomendado por <span style=\"color:#2563EB;\">ChatGPT, Gemini y más</span><br>O lo Serán sus Competidores",
+    "hero-title": "Consiga que su Negocio sea Recomendado por<br class=\"hero-title-break\"> <span style=\"color:#2563EB;\">ChatGPT, Gemini y más</span><br>O lo Serán sus Competidores",
     "hero-subhead": "<strong>La mayoría de los compradores</strong> ya utilizan herramientas de IA antes de realizar una compra.</br> Si su marca no aparece en sus respuestas, usted es invisible para millones de clientes potenciales,</br> mientras que sus competidores se llevan todos los leads.",
     "hero-desc": "Descubra exactamente dónde aparece o no aparece su negocio </br>en <strong>TODAS las principales plataformas de IA del mundo</strong>. </br>Obtenga una <strong>Auditoría IA Gratuita</strong> con un plan claro para aparecer en todos los lugares que importan:",
     "input-placeholder": "Ingrese el nombre de su negocio o sitio web",
@@ -6663,7 +6681,7 @@ const afterData = {
     "trust-logos-caption": "Wir überwachen und optimieren Ihre Sichtbarkeit auf",
     "guarantee-banner-title": "Jeder Plan ist durch unsere Garantie zur Verbesserung des Sichtbarkeits-Scores abgesichert",
     "guarantee-banner-text": "Verbessert sich Ihr KI-Sichtbarkeits-Score nicht innerhalb des Garantiezeitraums Ihres Plans, arbeiten wir kostenlos weiter, bis es soweit ist.",
-    "hero-title": "Lassen Sie Ihr Unternehmen von <span style=\"color:#2563EB;\">ChatGPT, Gemini &amp; Co.</span> empfehlen<br>Oder Ihre Konkurrenz Wird Es Tun",
+    "hero-title": "Lassen Sie Ihr Unternehmen von<br class=\"hero-title-break\"> <span style=\"color:#2563EB;\">ChatGPT, Gemini &amp; Co.</span> empfehlen<br>Oder Ihre Konkurrenz Wird Es Tun",
     "hero-subhead": "<strong>Die meisten Käufer</strong> nutzen bereits KI-Tools, bevor sie einen Kauf tätigen.</br> Wenn Ihre Marke in deren Antworten nicht auftaucht, sind Sie für Millionen potenzieller Kunden unsichtbar,</br> während Ihre Wettbewerber alle Leads erhalten.",
     "hero-desc": "Sehen Sie genau, wo Ihr Unternehmen erscheint oder nicht erscheint </br>auf <strong>ALLEN wichtigen KI-Plattformen weltweit</strong>. </br>Holen Sie sich ein <strong>kostenloses KI-Audit</strong> mit einem klaren Plan, um überall gelistet zu werden, wo es zählt:",
     "input-placeholder": "Firmenname oder Website eingeben",
@@ -6948,7 +6966,7 @@ const afterData = {
     "trust-logos-caption": "Nous surveillons et optimisons votre visibilité sur",
     "guarantee-banner-title": "Chaque plan est couvert par notre garantie d’amélioration du score de visibilité",
     "guarantee-banner-text": "Si votre score de visibilité IA ne s’améliore pas dans le délai de garantie de votre plan, nous continuons à travailler gratuitement jusqu’à ce que ce soit le cas.",
-    "hero-title": "Faites Recommander Votre Entreprise par <span style=\"color:#2563EB;\">ChatGPT, Gemini et plus</span><br>Ou vos Concurrents le Feront",
+    "hero-title": "Faites Recommander Votre Entreprise par<br class=\"hero-title-break\"> <span style=\"color:#2563EB;\">ChatGPT, Gemini et plus</span><br>Ou vos Concurrents le Feront",
     "hero-subhead": "<strong>La plupart des acheteurs</strong> utilisent déjà des outils d'IA avant d'effectuer un achat.</br> Si votre marque n'apparaît pas dans leurs réponses, vous êtes invisible pour des millions de clients potentiels,</br> tandis que vos concurrents récupèrent tous les leads.",
     "hero-desc": "Découvrez exactement où votre entreprise apparaît ou n'apparaît pas </br>sur <strong>TOUTES les principales plateformes d'IA dans le monde</strong>. </br>Obtenez un <strong>audit IA gratuit</strong> avec un plan clair pour être listé partout où cela compte :",
     "input-placeholder": "Entrez le nom ou le site de votre entreprise",
@@ -7233,7 +7251,7 @@ const afterData = {
     "trust-logos-caption": "Мы отслеживаем и повышаем вашу видимость на",
     "guarantee-banner-title": "Каждый тариф покрыт нашей гарантией улучшения рейтинга видимости",
     "guarantee-banner-text": "Если ваш рейтинг видимости в ИИ не улучшится в течение гарантийного окна вашего тарифа, мы продолжаем работу бесплатно, пока не добьёмся результата.",
-    "hero-title": "Пусть ваш бизнес рекомендуют <span style=\"color:#2563EB;\">ChatGPT, Gemini и другие</span><br>Или это сделают ваши конкуренты",
+    "hero-title": "Пусть ваш бизнес рекомендуют<br class=\"hero-title-break\"> <span style=\"color:#2563EB;\">ChatGPT, Gemini и другие</span><br>Или это сделают ваши конкуренты",
     "hero-subhead": "<strong>Большинство покупателей</strong> уже используют инструменты ИИ перед совершением покупки.</br> Если вашего бренда нет в их ответах, вы невидимы для миллионов потенциальных клиентов,</br> а ваши конкуренты получают все лиды.",
     "hero-desc": "Узнайте точно, где ваш бизнес появляется или не появляется </br>на <strong>ВСЕХ основных мировых ИИ-платформах</strong>. </br>Получите <strong>бесплатный аудит ИИ</strong> с чётким планом, как попасть во все важные места:",
     "input-placeholder": "Введите название вашего бизнеса или сайт",
@@ -7518,7 +7536,7 @@ const afterData = {
     "trust-logos-caption": "Chúng tôi theo dõi và tối ưu khả năng hiển thị của bạn trên",
     "guarantee-banner-title": "Mọi gói đều được bảo đảm bởi cam kết cải thiện điểm hiển thị AI của chúng tôi",
     "guarantee-banner-text": "Nếu điểm hiển thị AI của bạn không cải thiện trong thời gian bảo đảm của gói, chúng tôi tiếp tục làm việc miễn phí cho đến khi đạt được.",
-    "hero-title": "Để Doanh Nghiệp Của Bạn Được <span style=\"color:#2563EB;\">ChatGPT, Gemini và hơn thế nữa</span> Đề Xuất<br>Nếu Không, Đối Thủ Của Bạn Sẽ Được Đề Xuất",
+    "hero-title": "Để Doanh Nghiệp Của Bạn Được<br class=\"hero-title-break\"> <span style=\"color:#2563EB;\">ChatGPT, Gemini và hơn thế nữa</span> Đề Xuất<br>Nếu Không, Đối Thủ Của Bạn Sẽ Được Đề Xuất",
     "hero-subhead": "<strong>Phần lớn người mua</strong> hiện đã sử dụng công cụ AI trước khi quyết định mua hàng.</br> Nếu thương hiệu của bạn không xuất hiện trong câu trả lời của họ, bạn đang vô hình trước hàng triệu khách hàng tiềm năng,</br> trong khi đối thủ cạnh tranh giành hết mọi khách hàng tiềm năng.",
     "hero-desc": "Xem chính xác doanh nghiệp của bạn xuất hiện hoặc không xuất hiện ở đâu </br>trên <strong>TẤT CẢ các nền tảng AI lớn trên toàn thế giới</strong>. </br>Nhận <strong>Kiểm Tra AI Miễn Phí</strong> với kế hoạch rõ ràng để xuất hiện ở mọi nơi quan trọng:",
     "input-placeholder": "Nhập tên doanh nghiệp hoặc trang web của bạn",
@@ -7803,7 +7821,7 @@ const afterData = {
     "trust-logos-caption": "Monitoramos e otimizamos sua visibilidade em",
     "guarantee-banner-title": "Todo plano é respaldado pela nossa garantia de melhoria da pontuação de visibilidade",
     "guarantee-banner-text": "Se sua pontuação de visibilidade em IA não melhorar dentro do prazo de garantia do seu plano, continuamos trabalhando de graça até conseguir.",
-    "hero-title": "Faça sua Empresa ser Recomendada por <span style=\"color:#2563EB;\">ChatGPT, Gemini e mais</span><br>Ou seus Concorrentes Serão",
+    "hero-title": "Faça sua Empresa ser Recomendada por<br class=\"hero-title-break\"> <span style=\"color:#2563EB;\">ChatGPT, Gemini e mais</span><br>Ou seus Concorrentes Serão",
     "hero-subhead": "<strong>A maioria dos compradores</strong> já usa ferramentas de IA antes de fazer uma compra.</br> Se sua marca não aparece nas respostas deles, você fica invisível para milhões de clientes em potencial,</br> enquanto seus concorrentes ficam com todos os leads.",
     "hero-desc": "Descubra exatamente onde sua empresa aparece ou não aparece </br>em <strong>TODAS as principais plataformas de IA do mundo</strong>. </br>Receba uma <strong>Auditoria de IA Gratuita</strong> com um plano claro para aparecer em todos os lugares que importam:",
     "input-placeholder": "Digite o nome ou site do seu negócio",
@@ -8088,7 +8106,7 @@ const afterData = {
     "trust-logos-caption": "Görünürlüğünüzü şu platformlarda izliyor ve optimize ediyoruz",
     "guarantee-banner-title": "Her plan, görünürlük puanı iyileştirme garantimizle güvence altındadır",
     "guarantee-banner-text": "AI görünürlük puanınız, planınızın garanti süresi içinde iyileşmezse, biz başarana kadar ücretsiz çalışmaya devam ederiz.",
-    "hero-title": "İşletmenizin <span style=\"color:#2563EB;\">ChatGPT, Gemini ve daha fazlası</span> Tarafından Önerilmesini Sağlayın<br>Yoksa Rakipleriniz Önerilecek",
+    "hero-title": "İşletmenizin<br class=\"hero-title-break\"> <span style=\"color:#2563EB;\">ChatGPT, Gemini ve daha fazlası</span> Tarafından Önerilmesini Sağlayın<br>Yoksa Rakipleriniz Önerilecek",
     "hero-subhead": "<strong>Alıcıların çoğu</strong> satın alma işlemi yapmadan önce AI araçlarını kullanıyor.</br> Markanız bu yanıtlarda yer almıyorsa, milyonlarca potansiyel müşteri için görünmezsiniz,</br> rakipleriniz tüm potansiyel müşterileri alırken.",
     "hero-desc": "İşletmenizin <strong>dünyadaki TÜM büyük AI platformlarında</strong> tam olarak nerede göründüğünü veya görünmediğini keşfedin. </br>Önemli olan her yerde listelenmek için net bir planla birlikte <strong>Ücretsiz AI Denetimi</strong> alın:",
     "input-placeholder": "İşletme adınızı veya web sitenizi girin",
@@ -8373,7 +8391,7 @@ const afterData = {
     "trust-logos-caption": "Monitoriamo e ottimizziamo la tua visibilità su",
     "guarantee-banner-title": "Ogni piano è coperto dalla nostra garanzia di miglioramento del punteggio di visibilità",
     "guarantee-banner-text": "Se il tuo punteggio di visibilità nell'IA non migliora entro la finestra di garanzia del tuo piano, continuiamo a lavorare gratis finché non ci riusciamo.",
-    "hero-title": "Fai Raccomandare la Tua Azienda da <span style=\"color:#2563EB;\">ChatGPT, Gemini e altri</span><br>O lo Faranno i Tuoi Concorrenti",
+    "hero-title": "Fai Raccomandare la Tua Azienda da<br class=\"hero-title-break\"> <span style=\"color:#2563EB;\">ChatGPT, Gemini e altri</span><br>O lo Faranno i Tuoi Concorrenti",
     "hero-subhead": "<strong>La maggior parte degli acquirenti</strong> utilizza già strumenti di IA prima di effettuare un acquisto.</br> Se il tuo marchio non appare nelle loro risposte, sei invisibile a milioni di potenziali clienti,</br> mentre i tuoi concorrenti si accaparrano tutti i lead.",
     "hero-desc": "Scopri esattamente dove la tua azienda appare o non appare </br>su <strong>TUTTE le principali piattaforme IA a livello mondiale</strong>. </br>Ottieni un <strong>Audit IA Gratuito</strong> con un piano chiaro per essere elencato ovunque conti:",
     "input-placeholder": "Inserisci il nome o il sito della tua attività",
@@ -8658,7 +8676,7 @@ const afterData = {
     "trust-logos-caption": "نراقب ونحسّن ظهورك عبر",
     "guarantee-banner-title": "كل خطة مدعومة بضمان تحسين درجة الظهور الخاص بنا",
     "guarantee-banner-text": "إذا لم تتحسن درجة ظهورك في الذكاء الاصطناعي خلال فترة الضمان الخاصة بخطتك، سنواصل العمل مجانًا حتى نحقق ذلك.",
-    "hero-title": "اجعل نشاطك التجاري يحظى بتوصية من <span style=\"color:#2563EB;\">ChatGPT وGemini والمزيد</span><br>وإلا فسيحظى بها منافسوك",
+    "hero-title": "اجعل نشاطك التجاري يحظى بتوصية من<br class=\"hero-title-break\"> <span style=\"color:#2563EB;\">ChatGPT وGemini والمزيد</span><br>وإلا فسيحظى بها منافسوك",
     "hero-subhead": "<strong>معظم المشترين</strong> يستخدمون بالفعل أدوات الذكاء الاصطناعي قبل إجراء عملية شراء.</br> إذا لم تظهر علامتك التجارية في إجاباتهم، فأنت غير مرئي لملايين العملاء المحتملين،</br> بينما يحصل منافسوك على جميع العملاء المحتملين.",
     "hero-desc": "اكتشف بالضبط أين يظهر نشاطك التجاري أو لا يظهر </br>على <strong>جميع منصات الذكاء الاصطناعي الرئيسية في العالم</strong>. </br>احصل على <strong>تدقيق ذكاء اصطناعي مجاني</strong> مع خطة واضحة لتظهر في كل مكان مهم:",
     "input-placeholder": "أدخل اسم نشاطك التجاري أو موقع الويب",
