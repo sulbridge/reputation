@@ -2325,6 +2325,7 @@ footer {
 
     // ===== DOM refs =====
     const aiSummaryBox = document.getElementById('aiSummaryBox');
+    const aiText = document.getElementById('aiText');
     const aiTextContent = document.getElementById('aiTextContent');
     const starsDisplay = document.getElementById('starsDisplay');
     const ratingNumber = document.getElementById('ratingNumber');
@@ -2332,6 +2333,7 @@ footer {
     const aiRecommendBadge = document.getElementById('aiRecommendBadge');
     const reviewsCount = document.getElementById('reviewsCount');
     const removedBadge = document.getElementById('removedBadge');
+    const aiResponsePreview = document.getElementById('aiResponsePreview');
     const aiResponseContent = document.getElementById('aiResponseContent');
     const stateLabel = document.getElementById('stateLabel');
     const labelBefore = document.getElementById('labelBefore');
@@ -2384,6 +2386,34 @@ const afterData = {
   labelColor: '#4ade80',
   stateText: '✅ Your AI visibility is restored. AI trusts your brand'
 };
+
+    // ===== Height calibration (prevents layout jump between before/after states) =====
+    // Measures the real rendered height of both states off-screen (works correctly
+    // regardless of language, font, or viewport width) and locks in the taller one.
+    function calibrateHeight(el, htmlA, htmlB) {
+      if (!el) return;
+      var clone = el.cloneNode(false);
+      clone.style.position = 'absolute';
+      clone.style.visibility = 'hidden';
+      clone.style.pointerEvents = 'none';
+      clone.style.minHeight = '0';
+      clone.style.width = el.getBoundingClientRect().width + 'px';
+      document.body.appendChild(clone);
+
+      clone.innerHTML = htmlA;
+      var heightA = clone.scrollHeight;
+      clone.innerHTML = htmlB;
+      var heightB = clone.scrollHeight;
+
+      document.body.removeChild(clone);
+      el.style.minHeight = Math.max(heightA, heightB) + 'px';
+    }
+
+    function calibrateAllHeights() {
+      calibrateHeight(aiText, beforeData.aiText, afterData.aiText);
+      calibrateHeight(aiResponsePreview, beforeData.response, afterData.response);
+      calibrateHeight(stateLabel, beforeData.stateText, afterData.stateText);
+    }
 
     // ===== UI update =====
     function updateUI(data, isBeforeState) {
@@ -2446,6 +2476,10 @@ const afterData = {
         } else if (progress <= 0) {
           progress = 0;
           autoplayDirection = 1;
+          autoplayCyclesRemaining--;
+          if (autoplayCyclesRemaining <= 0) {
+            stopAutoplay();
+          }
         }
         setProgress(progress);
       }, 35);
@@ -2483,7 +2517,7 @@ const afterData = {
     function handlePointerEnd(e) {
       if (isDragging) {
         isDragging = false;
-        startAutoplay();
+        startAutoplayIfAllowed();
       }
     }
 
@@ -2504,24 +2538,56 @@ const afterData = {
       const rect = track.getBoundingClientRect();
       const progress = ((e.clientX - rect.left) / rect.width) * 100;
       setProgress(progress);
-      startAutoplay();
+      startAutoplayIfAllowed();
     });
 
     // Label clicks
     labelBefore.addEventListener('click', function() {
       stopAutoplay();
       setProgress(0);
-      startAutoplay();
+      startAutoplayIfAllowed();
     });
     labelAfter.addEventListener('click', function() {
       stopAutoplay();
       setProgress(100);
-      startAutoplay();
+      startAutoplayIfAllowed();
     });
 
     // ===== Init =====
+    calibrateAllHeights();
     setProgress(0);
-    setTimeout(startAutoplay, 800);
+
+    var autoplayCyclesRemaining = 2; // stop for good after this many full before<->after passes
+    var isInViewport = false;
+
+    function startAutoplayIfAllowed() {
+      if (autoplayCyclesRemaining > 0 && isInViewport && !isDragging) {
+        startAutoplay();
+      }
+    }
+
+    if (typeof IntersectionObserver !== 'undefined') {
+      var simulatorCard = document.querySelector('.simulator-card');
+      if (simulatorCard) {
+        var visibilityObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            isInViewport = entry.isIntersecting;
+            if (isInViewport) {
+              startAutoplayIfAllowed();
+            } else {
+              stopAutoplay(); // freeze the moment it scrolls out of view — no reflow while off-screen
+            }
+          });
+        }, { threshold: 0.3 });
+        visibilityObserver.observe(simulatorCard);
+      } else {
+        isInViewport = true;
+        setTimeout(startAutoplayIfAllowed, 800);
+      }
+    } else {
+      isInViewport = true;
+      setTimeout(startAutoplayIfAllowed, 800);
+    }
 
     // Expose for i18n updates
     window._simulatorState = { setProgress, beforeData, afterData, updateUI };
@@ -2532,6 +2598,7 @@ const afterData = {
       // uses the data objects. We re-apply the current state.
       const isBeforeState = currentProgress < 50;
       updateUI(isBeforeState ? beforeData : afterData, isBeforeState);
+      calibrateAllHeights();
     });
 
   })();
@@ -5554,6 +5621,9 @@ const afterData = {
     "nav-about": "About",
     "hero-btn": "Free Audit",
     "hero-badge": "⚡ AI Visibility Engine",
+    "listen-btn-label": "Listen (90s)",
+    "listen-btn-playing": "Playing...",
+    "listen-pitch-text": "Quick question. Right now, this second, what does ChatGPT say about your business? You don't know. Nobody does, until we check. And that's the problem. Somebody's asking that exact question right now, about a business exactly like yours, and ChatGPT is answering with your competitor's name. Not yours. Not because they're better. Because their signals are clean, and yours are a question mark. Eighty seven percent of buyers ask AI before they touch Google. Eighty seven percent. And you just told me you don't know what it's saying about you. That's the gap. That's the whole pitch. Here's what closes it. We show you exactly what AI says about your business right now, across every major platform. We fix what's broken: your reviews, your listings, every signal costing you customers. And we guarantee it. Your score improves, or we keep working, free. When you're back at a screen, come to this page, type in your business name. Thirty seconds, and that question I just asked you? You'll finally have the answer. Do it.",
     "enterprise-title": "Need something bigger?",
     "enterprise-desc": "Custom plans for multi-location brands, franchises, and agencies managing AI visibility across dozens of locations. Dedicated infrastructure, custom reporting, volume pricing.",
     "enterprise-cta": "Talk to Sales",
@@ -5836,6 +5906,9 @@ const afterData = {
     "nav-about": "Sobre Nosotros",
     "hero-btn": "Auditoría Gratuita",
     "hero-badge": "⚡ Motor de Visibilidad en IA",
+    "listen-btn-label": "Escuchar (90s)",
+    "listen-btn-playing": "Reproduciendo...",
+    "listen-pitch-text": "Pregunta rápida. Ahora mismo, en este segundo, ¿qué dice ChatGPT de su negocio? No sabe. Nadie sabe, hasta que lo revisamos. Y ese es el problema. Alguien está haciendo esa misma pregunta ahora mismo, sobre un negocio igual al suyo, y ChatGPT está respondiendo con el nombre de su competencia. No con el suyo. No porque sean mejores. Porque sus señales están limpias, y las suyas son un signo de pregunta. Ochenta y siete por ciento de los compradores le pregunta a la IA antes de tocar Google. Ochenta y siete por ciento. Y usted recién me dijo que no sabe qué está diciendo de usted. Ese es el vacío. Ese es todo el mensaje. Esto es lo que lo cierra. Le mostramos exactamente qué dice la IA de su negocio ahora mismo, en cada plataforma importante. Corregimos lo que está roto: sus reseñas, sus listados, cada señal que le cuesta clientes. Y se lo garantizamos. Su puntuación mejora, o seguimos trabajando, gratis. Cuando esté de nuevo frente a una pantalla, venga a esta página, escriba el nombre de su negocio. Treinta segundos, y esa pregunta que le hice recién, por fin va a tener la respuesta. Hágalo.",
     "enterprise-title": "¿Necesita algo más grande?",
     "enterprise-desc": "Planes a medida para marcas multi-sucursal, franquicias y agencias que gestionan visibilidad en IA en decenas de ubicaciones. Infraestructura dedicada, informes personalizados, precios por volumen.",
     "enterprise-cta": "Hablar con Ventas",
@@ -6118,6 +6191,9 @@ const afterData = {
     "nav-about": "Sobre Nosotros",
     "hero-btn": "Auditoría Gratuita",
     "hero-badge": "⚡ Motor de Visibilidad en IA",
+    "listen-btn-label": "Escuchar (90s)",
+    "listen-btn-playing": "Reproduciendo...",
+    "listen-pitch-text": "Pregunta rápida. Ahora mismo, en este segundo, ¿qué dice ChatGPT de su negocio? No lo sabe. Nadie lo sabe, hasta que lo comprobamos. Y ese es el problema. Alguien está haciendo esa misma pregunta ahora mismo, sobre un negocio igual al suyo, y ChatGPT está respondiendo con el nombre de su competencia. No con el suyo. No porque sean mejores. Porque sus señales están limpias, y las suyas son un signo de interrogación. Ochenta y siete por ciento de los compradores pregunta a la IA antes de tocar Google. Ochenta y siete por ciento. Y usted acaba de decirme que no sabe qué está diciendo de usted. Ese es el vacío. Ese es todo el mensaje. Esto es lo que lo cierra. Le mostramos exactamente qué dice la IA de su negocio ahora mismo, en cada plataforma importante. Corregimos lo que está roto: sus reseñas, sus fichas, cada señal que le cuesta clientes. Y se lo garantizamos. Su puntuación mejora, o seguimos trabajando, gratis. Cuando esté de nuevo frente a una pantalla, venga a esta página, escriba el nombre de su negocio. Treinta segundos, y esa pregunta que le acabo de hacer, por fin tendrá la respuesta. Hágalo.",
     "enterprise-title": "¿Necesita algo más grande?",
     "enterprise-desc": "Planes a medida para marcas multi-sucursal, franquicias y agencias que gestionan visibilidad en IA en decenas de ubicaciones. Infraestructura dedicada, informes personalizados, precios por volumen.",
     "enterprise-cta": "Hablar con Ventas",
@@ -6400,6 +6476,9 @@ const afterData = {
     "nav-about": "Über uns",
     "hero-btn": "Kostenloses Audit",
     "hero-badge": "⚡ KI-Sichtbarkeits-Engine",
+    "listen-btn-label": "Anhören (90s)",
+    "listen-btn-playing": "Wird abgespielt...",
+    "listen-pitch-text": "Kurze Frage. Genau jetzt, in dieser Sekunde, was sagt ChatGPT über Ihr Unternehmen? Sie wissen es nicht. Niemand weiß es, bis wir es prüfen. Und das ist das Problem. Genau diese Frage stellt gerade jemand, über ein Unternehmen genau wie Ihres, und ChatGPT antwortet mit dem Namen Ihrer Konkurrenz. Nicht Ihrem. Nicht weil sie besser sind. Weil deren Signale sauber sind, und Ihre ein Fragezeichen. Siebenundachtzig Prozent der Käufer fragen die KI, bevor sie Google überhaupt anfassen. Siebenundachtzig Prozent. Und Sie haben mir gerade gesagt, Sie wissen nicht, was sie über Sie sagt. Das ist die Lücke. Das ist der ganze Pitch. Das schließt sie. Wir zeigen Ihnen genau, was die KI gerade jetzt über Ihr Unternehmen sagt, auf jeder wichtigen Plattform. Wir reparieren, was kaputt ist: Ihre Bewertungen, Ihre Einträge, jedes Signal, das Sie Kunden kostet. Und wir garantieren es. Ihr Score verbessert sich, oder wir arbeiten weiter, kostenlos. Wenn Sie wieder an einem Bildschirm sitzen, kommen Sie auf diese Seite, tippen Sie Ihren Firmennamen ein. Dreißig Sekunden, und die Frage, die ich Ihnen gerade gestellt habe? Die haben Sie dann endlich beantwortet. Tun Sie es.",
     "enterprise-title": "Brauchen Sie mehr?",
     "enterprise-desc": "Individuelle Pläne für Marken mit mehreren Standorten, Franchises und Agenturen, die KI-Sichtbarkeit über Dutzende Standorte hinweg verwalten. Dedizierte Infrastruktur, individuelle Berichte, Mengenpreise.",
     "enterprise-cta": "Vertrieb kontaktieren",
@@ -6682,6 +6761,9 @@ const afterData = {
     "nav-about": "À Propos",
     "hero-btn": "Audit Gratuit",
     "hero-badge": "⚡ Moteur de Visibilité IA",
+    "listen-btn-label": "Écouter (90s)",
+    "listen-btn-playing": "Lecture...",
+    "listen-pitch-text": "Question rapide. Là, maintenant, à cette seconde, qu'est-ce que ChatGPT dit de votre entreprise ? Vous ne savez pas. Personne ne sait, tant qu'on n'a pas vérifié. Et c'est ça, le problème. Quelqu'un pose exactement cette question là, maintenant, sur une entreprise exactement comme la vôtre, et ChatGPT répond avec le nom de votre concurrent. Pas le vôtre. Pas parce qu'il est meilleur. Parce que ses signaux sont propres, et les vôtres, un point d'interrogation. Quatre vingt sept pour cent des acheteurs interrogent l'IA avant même de toucher Google. Quatre vingt sept pour cent. Et vous venez de me dire que vous ne savez pas ce qu'elle dit de vous. Voilà le vide. Voilà tout le pitch. Voilà ce qui le comble. On vous montre exactement ce que l'IA dit de votre entreprise là, maintenant, sur chaque plateforme majeure. On corrige ce qui cloche : vos avis, vos fiches, chaque signal qui vous coûte des clients. Et on le garantit. Votre score s'améliore, ou on continue à travailler, gratuitement. Quand vous serez de nouveau devant un écran, venez sur cette page, tapez le nom de votre entreprise. Trente secondes, et la question que je viens de vous poser, vous aurez enfin la réponse. Faites-le.",
     "enterprise-title": "Besoin de plus grand ?",
     "enterprise-desc": "Des plans sur mesure pour les marques multi-sites, les franchises et les agences qui gèrent la visibilité IA sur des dizaines d'emplacements. Infrastructure dédiée, rapports personnalisés, tarification au volume.",
     "enterprise-cta": "Contacter les Ventes",
@@ -6964,6 +7046,9 @@ const afterData = {
     "nav-about": "О нас",
     "hero-btn": "Бесплатный аудит",
     "hero-badge": "⚡ Двигатель видимости в ИИ",
+    "listen-btn-label": "Слушать (90 сек)",
+    "listen-btn-playing": "Воспроизведение...",
+    "listen-pitch-text": "Быстрый вопрос. Прямо сейчас, в эту секунду, что ChatGPT говорит о твоём бизнесе? Ты не знаешь. Никто не знает, пока мы не проверим. И вот в чём проблема. Кто-то прямо сейчас задаёт этот же вопрос про бизнес точно такой же, как твой, и ChatGPT отвечает именем твоего конкурента. Не твоим. Не потому что они лучше. Потому что их сигналы чистые, а твои, по сути, знак вопроса. Восемьдесят семь процентов покупателей спрашивают ИИ ещё до того, как открыть Google. Восемьдесят семь процентов. А ты только что сказал мне, что не знаешь, что он говорит о тебе. Вот он, пробел. Вот и вся суть. Вот что его закрывает. Мы показываем тебе, что именно ИИ говорит о твоём бизнесе прямо сейчас, на каждой крупной платформе. Исправляем, что сломано: отзывы, карточки в справочниках, каждый сигнал, который стоит тебе клиентов. И даём на это гарантию. Рейтинг растёт, или мы продолжаем работать бесплатно. Когда снова будешь у экрана, зайди на эту страницу, впиши название бизнеса. Тридцать секунд, и на тот вопрос, что я только что задал, у тебя наконец будет ответ. Сделай это.",
     "enterprise-title": "Нужно что-то масштабнее?",
     "enterprise-desc": "Индивидуальные планы для сетевых брендов, франшиз и агентств, управляющих видимостью в ИИ по десяткам локаций сразу. Выделенная инфраструктура, индивидуальная отчётность, объёмные цены.",
     "enterprise-cta": "Связаться с отделом продаж",
@@ -7246,6 +7331,9 @@ const afterData = {
     "nav-about": "Về Chúng Tôi",
     "hero-btn": "Audit Miễn Phí",
     "hero-badge": "⚡ Công Cụ Hiển Thị Trên AI",
+    "listen-btn-label": "Nghe (90s)",
+    "listen-btn-playing": "Đang phát...",
+    "listen-pitch-text": "Câu hỏi nhanh. Ngay bây giờ, giây phút này, ChatGPT đang nói gì về doanh nghiệp của bạn? Bạn không biết. Không ai biết, cho đến khi chúng tôi kiểm tra. Và đó chính là vấn đề. Ai đó đang hỏi đúng câu hỏi này ngay lúc này, về một doanh nghiệp y hệt như của bạn, và ChatGPT đang trả lời bằng tên đối thủ của bạn. Không phải tên bạn. Không phải vì họ giỏi hơn. Mà vì tín hiệu của họ sạch, còn của bạn là một dấu chấm hỏi. Tám mươi bảy phần trăm người mua hỏi AI trước khi họ chạm vào Google. Tám mươi bảy phần trăm. Và bạn vừa nói với tôi rằng bạn không biết nó đang nói gì về bạn. Đó là khoảng trống. Đó là toàn bộ vấn đề. Đây là cách lấp đầy nó. Chúng tôi cho bạn thấy chính xác AI đang nói gì về doanh nghiệp của bạn ngay lúc này, trên mọi nền tảng lớn. Chúng tôi sửa những gì bị hỏng: đánh giá của bạn, thông tin doanh nghiệp của bạn, mọi tín hiệu đang khiến bạn mất khách. Và chúng tôi cam kết điều đó. Điểm của bạn cải thiện, hoặc chúng tôi tiếp tục làm việc, miễn phí. Khi bạn ngồi lại trước màn hình, hãy vào trang này, gõ tên doanh nghiệp của bạn. Ba mươi giây, và câu hỏi tôi vừa hỏi bạn đó? Cuối cùng bạn sẽ có câu trả lời. Làm đi.",
     "enterprise-title": "Cần một giải pháp lớn hơn?",
     "enterprise-desc": "Gói tùy chỉnh dành cho thương hiệu đa chi nhánh, nhượng quyền và các agency quản lý hiển thị AI trên hàng chục địa điểm. Hạ tầng riêng, báo cáo tùy chỉnh, giá theo khối lượng.",
     "enterprise-cta": "Liên Hệ Bộ Phận Kinh Doanh",
@@ -7528,6 +7616,9 @@ const afterData = {
     "nav-about": "Sobre Nós",
     "hero-btn": "Auditoria Grátis",
     "hero-badge": "⚡ Motor de Visibilidade em IA",
+    "listen-btn-label": "Ouvir (90s)",
+    "listen-btn-playing": "Reproduzindo...",
+    "listen-pitch-text": "Pergunta rápida. Agora mesmo, neste segundo, o que o ChatGPT diz sobre o seu negócio? Você não sabe. Ninguém sabe, até a gente checar. E esse é o problema. Alguém está fazendo exatamente essa pergunta agora, sobre um negócio igual ao seu, e o ChatGPT está respondendo com o nome do seu concorrente. Não o seu. Não porque ele é melhor. Porque os sinais dele estão limpos, e os seus são uma interrogação. Oitenta e sete por cento dos compradores perguntam pra IA antes de sequer tocar no Google. Oitenta e sete por cento. E você acabou de me dizer que não sabe o que ela está dizendo sobre você. Esse é o vazio. Esse é o pitch inteiro. É isso que fecha ele. A gente mostra exatamente o que a IA diz sobre o seu negócio agora mesmo, em cada plataforma importante. A gente corrige o que está quebrado: suas avaliações, seus cadastros, cada sinal que está te custando clientes. E a gente garante isso. Sua pontuação melhora, ou continuamos trabalhando, de graça. Quando estiver de novo na frente de uma tela, venha pra essa página, digite o nome do seu negócio. Trinta segundos, e aquela pergunta que acabei de fazer? Você finalmente vai ter a resposta. Faz isso.",
     "enterprise-title": "Precisa de algo maior?",
     "enterprise-desc": "Planos personalizados para marcas com múltiplas unidades, franquias e agências que gerenciam visibilidade em IA em dezenas de locais. Infraestrutura dedicada, relatórios personalizados, preços por volume.",
     "enterprise-cta": "Falar com Vendas",
@@ -7810,6 +7901,9 @@ const afterData = {
     "nav-about": "Hakkımızda",
     "hero-btn": "Ücretsiz Denetim",
     "hero-badge": "⚡ AI Görünürlük Motoru",
+    "listen-btn-label": "Dinle (90sn)",
+    "listen-btn-playing": "Oynatılıyor...",
+    "listen-pitch-text": "Hızlı bir soru. Tam şu anda, bu saniyede, ChatGPT işletmen hakkında ne söylüyor? Bilmiyorsun. Kontrol edene kadar kimse bilmiyor. Ve işte sorun bu. Şu anda tam da bu soruyu, senin işletmen gibi bir işletme için soran biri var, ve ChatGPT rakibinin adıyla cevap veriyor. Seninkiyle değil. Daha iyi oldukları için değil. Onların sinyalleri temiz, seninkiler bir soru işareti. Alıcıların yüzde seksen yedisi Google'a dokunmadan önce yapay zekaya soruyor. Yüzde seksen yedi. Ve az önce bana onun senin hakkında ne söylediğini bilmediğini söyledin. İşte boşluk bu. İşte bütün mesele bu. İşte bunu kapatan şey. Sana yapay zekanın işletmen hakkında şu anda, her büyük platformda tam olarak ne söylediğini gösteriyoruz. Bozuk olanı onarıyoruz: yorumların, işletme kayıtların, seni müşteriye mal eden her sinyal. Ve bunu garanti ediyoruz. Puanın yükselir, ya da bedava çalışmaya devam ederiz. Tekrar bir ekranın başına geçtiğinde, bu sayfaya gel, işletmenin adını yaz. Otuz saniye, ve az önce sana sorduğum o soru, sonunda cevabını alacaksın. Yap şunu.",
     "enterprise-title": "Daha büyük bir şeye mi ihtiyacınız var?",
     "enterprise-desc": "Onlarca lokasyonda AI görünürlüğünü yöneten çok şubeli markalar, franchise'lar ve ajanslar için özel planlar. Özel altyapı, özel raporlama, hacim bazlı fiyatlandırma.",
     "enterprise-cta": "Satış Ekibiyle Görüşün",
@@ -8092,6 +8186,9 @@ const afterData = {
     "nav-about": "Chi Siamo",
     "hero-btn": "Audit Gratuito",
     "hero-badge": "⚡ Motore di Visibilità nell'IA",
+    "listen-btn-label": "Ascolta (90s)",
+    "listen-btn-playing": "Riproduzione...",
+    "listen-pitch-text": "Domanda veloce. Proprio adesso, in questo secondo, cosa dice ChatGPT della tua attività? Non lo sai. Nessuno lo sa, finché non controlliamo. Ed è questo il problema. Qualcuno sta facendo esattamente questa domanda proprio ora, su un'attività identica alla tua, e ChatGPT sta rispondendo con il nome del tuo concorrente. Non il tuo. Non perché sia migliore. Perché i suoi segnali sono puliti, e i tuoi sono un punto interrogativo. L'ottantasette per cento degli acquirenti chiede all'IA prima ancora di toccare Google. Ottantasette per cento. E mi hai appena detto che non sai cosa dice di te. Questo è il vuoto. Questo è tutto il pitch. Ecco cosa lo colma. Ti mostriamo esattamente cosa dice l'IA della tua attività proprio adesso, su ogni piattaforma importante. Sistemiamo quello che è rotto: le tue recensioni, le tue schede, ogni segnale che ti costa clienti. E lo garantiamo. Il tuo punteggio migliora, o continuiamo a lavorare, gratis. Quando sarai di nuovo davanti a uno schermo, vieni su questa pagina, scrivi il nome della tua attività. Trenta secondi, e quella domanda che ti ho appena fatto? Finalmente avrai la risposta. Fallo.",
     "enterprise-title": "Ti serve qualcosa di più grande?",
     "enterprise-desc": "Piani su misura per brand multi-sede, franchising e agenzie che gestiscono la visibilità nell'IA su decine di sedi. Infrastruttura dedicata, reportistica personalizzata, prezzi a volume.",
     "enterprise-cta": "Parla con le Vendite",
@@ -8374,6 +8471,9 @@ const afterData = {
     "nav-about": "من نحن",
     "hero-btn": "تدقيق مجاني",
     "hero-badge": "⚡ محرك ظهور الذكاء الاصطناعي",
+    "listen-btn-label": "استمع (90 ثانية)",
+    "listen-btn-playing": "قيد التشغيل...",
+    "listen-pitch-text": "سؤال سريع. الآن، في هذه اللحظة بالذات، ماذا يقول ChatGPT عن نشاطك التجاري؟ أنت لا تعرف. لا أحد يعرف، حتى نتحقق. وهذه هي المشكلة. هناك من يسأل هذا السؤال بالضبط الآن، عن نشاط تجاري مثل نشاطك تمامًا، وChatGPT يجيب باسم منافسك. ليس اسمك. ليس لأنه أفضل. لأن إشاراته نظيفة، وإشاراتك علامة استفهام. سبعة وثمانون بالمئة من المشترين يسألون الذكاء الاصطناعي قبل أن يلمسوا جوجل أصلًا. سبعة وثمانون بالمئة. وأنت للتو أخبرتني أنك لا تعرف ماذا يقول عنك. هذه هي الفجوة. هذا هو جوهر الأمر كله. وهذا ما يسدّها. نُريك بالضبط ماذا يقول الذكاء الاصطناعي عن نشاطك التجاري الآن، عبر كل منصة رئيسية. نُصلح ما هو معطل: مراجعاتك، قوائم نشاطك، كل إشارة تكلفك عملاء. ونضمن ذلك. درجتك تتحسن، أو نواصل العمل مجانًا. عندما تعود أمام شاشة، تعال إلى هذه الصفحة، اكتب اسم نشاطك التجاري. ثلاثون ثانية، وذلك السؤال الذي طرحته للتو؟ ستحصل أخيرًا على الإجابة. افعلها.",
     "enterprise-title": "تحتاج إلى شيء أكبر؟",
     "enterprise-desc": "خطط مخصصة للعلامات التجارية متعددة الفروع والامتيازات التجارية والوكالات التي تدير الظهور في الذكاء الاصطناعي عبر عشرات المواقع. بنية تحتية مخصصة، تقارير مخصصة، أسعار حسب الحجم.",
     "enterprise-cta": "تحدث مع فريق المبيعات",
@@ -9389,7 +9489,63 @@ if (navLangSelect) {
       font-size: 1rem;
     }
   }
+
+  .listen-pitch-btn {
+    position: fixed;
+    bottom: 84px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 40px;
+    background: #111827;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #f9fafb;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    z-index: 900;
+    transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  }
+  .listen-pitch-btn:hover {
+    background: #1f2937;
+    transform: translateY(-2px);
+  }
+  .listen-pitch-btn .listen-icon {
+    color: #60A5FA;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+  .listen-pitch-btn.playing {
+    border-color: rgba(96,165,250,0.5);
+  }
+  .listen-pitch-btn.playing .listen-icon {
+    color: #4ade80;
+    animation: listenPulse 1.1s ease-in-out infinite;
+  }
+  @keyframes listenPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(1.15); }
+  }
+  @media (max-width: 640px) {
+    .listen-pitch-btn {
+      bottom: 68px;
+      right: 16px;
+      padding: 9px 14px;
+      font-size: 0.76rem;
+    }
+  }
+  @media (max-width: 380px) {
+    .listen-pitch-btn span.listen-label-text { display: none; }
+  }
 </style>
+
+<button class="listen-pitch-btn" id="listenPitchBtn" aria-label="Listen to a short pitch" style="display:none;">
+  <i class="fas fa-headphones listen-icon"></i>
+  <span class="listen-label-text" data-i18n="listen-btn-label">Listen (90s)</span>
+</button>
 
 <button class="back-to-top-btn" id="backToTopBtn" aria-label="Back to top">
   <i class="fas fa-arrow-up"></i>
@@ -9496,6 +9652,100 @@ if (navLangSelect) {
 
     revenueInput.addEventListener('input', update);
     scoreInput.addEventListener('input', update);
+  })();
+</script>
+<script>
+  (function() {
+    var btn = document.getElementById('listenPitchBtn');
+    if (!btn || !('speechSynthesis' in window)) return;
+
+    btn.style.display = 'flex';
+
+    var synth = window.speechSynthesis;
+    var isPlaying = false;
+
+    var LANG_MAP = {
+      en: 'en-US', 'es-AR': 'es-AR', es: 'es-ES', de: 'de-DE', fr: 'fr-FR',
+      ru: 'ru-RU', vi: 'vi-VN', pt: 'pt-PT', tr: 'tr-TR', it: 'it-IT', ar: 'ar-SA'
+    };
+
+    // Voices whose names commonly indicate a more natural, less "robotic" engine
+    // (Chrome's Google voices, macOS/iOS "Enhanced"/"Premium" voices, Edge's "Natural"/"Online" voices).
+    var QUALITY_HINTS = ['google', 'natural', 'enhanced', 'premium', 'neural', 'online', 'siri'];
+
+    function currentTranslations() {
+      var lang = localStorage.getItem('preferredLanguage') || 'en';
+      return (typeof translations !== 'undefined' && translations[lang]) ? translations[lang] : (typeof translations !== 'undefined' ? translations.en : {});
+    }
+
+    function langPrefix() {
+      var lang = localStorage.getItem('preferredLanguage') || 'en';
+      return (LANG_MAP[lang] || 'en-US').split('-')[0];
+    }
+
+    function voicesForCurrentLang() {
+      var prefix = langPrefix();
+      var all = synth.getVoices();
+      return all.filter(function(v) { return v.lang && v.lang.toLowerCase().indexOf(prefix) === 0; });
+    }
+
+    function scoreVoice(v) {
+      var name = (v.name || '').toLowerCase();
+      for (var i = 0; i < QUALITY_HINTS.length; i++) {
+        if (name.indexOf(QUALITY_HINTS[i]) !== -1) return 2;
+      }
+      return v.localService === false ? 1 : 0; // remote/online voices are usually better than compact local ones
+    }
+
+    // Auto-picks the least "robotic"-sounding voice available for the current
+    // language, instead of whatever the browser happens to default to.
+    function pickBestVoice() {
+      var list = voicesForCurrentLang();
+      if (!list.length) return null;
+      var sorted = list.slice().sort(function(a, b) { return scoreVoice(b) - scoreVoice(a); });
+      return sorted[0];
+    }
+
+    function setPlayingUI(playing) {
+      isPlaying = playing;
+      btn.classList.toggle('playing', playing);
+      var t = currentTranslations();
+      var label = btn.querySelector('.listen-label-text');
+      var icon = btn.querySelector('.listen-icon');
+      if (label) label.textContent = playing ? (t['listen-btn-playing'] || 'Playing...') : (t['listen-btn-label'] || 'Listen (90s)');
+      if (icon) icon.className = playing ? 'fas fa-stop listen-icon' : 'fas fa-headphones listen-icon';
+    }
+
+    btn.addEventListener('click', function() {
+      if (isPlaying) {
+        synth.cancel();
+        setPlayingUI(false);
+        return;
+      }
+
+      synth.cancel();
+      var t = currentTranslations();
+      var text = t['listen-pitch-text'];
+      if (!text) return;
+
+      var lang = localStorage.getItem('preferredLanguage') || 'en';
+      var utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = LANG_MAP[lang] || 'en-US';
+      utterance.rate = 1.0;
+
+      var bestVoice = pickBestVoice();
+      if (bestVoice) utterance.voice = bestVoice;
+
+      utterance.onend = function() { setPlayingUI(false); };
+      utterance.onerror = function() { setPlayingUI(false); };
+
+      synth.speak(utterance);
+      setPlayingUI(true);
+    });
+
+    window.addEventListener('beforeunload', function() {
+      synth.cancel();
+    });
   })();
 </script>
 </body>
