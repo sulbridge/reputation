@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Dominate AI Search. Get Recommended by ChatGPT, Gemini & More</title>
+  <title>Get Recommended by ChatGPT, Gemini & More. Or Your Competitors Will</title>
   <meta name="description" content="Free AI reputation audit. See how ChatGPT, Gemini & Google AI perceive your business. Identify weak signals hurting your AI visibility. Start now." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -988,6 +988,33 @@ footer {
 }
 
 /* Pricing cards */
+.roi-calc {
+  max-width: 680px; margin: 0 auto 32px;
+  background: rgba(17,24,39,0.6);
+  border: 1px solid #1f2937;
+  border-radius: 20px;
+  padding: 24px 22px;
+}
+.roi-calc-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.roi-calc-header i { color: #60A5FA; font-size: 1.3rem; }
+.roi-calc-header h3 { font-size: 1.1rem; font-weight: 700; margin: 0; color: #f9fafb; }
+.roi-calc-inputs { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
+.roi-field { flex: 1; min-width: 200px; }
+.roi-field label { display: block; font-size: 0.8rem; color: #9ca3af; margin-bottom: 6px; font-weight: 600; }
+.roi-input-wrap { display: flex; align-items: center; background: #111827; border: 1px solid #2d3748; border-radius: 10px; padding: 0 12px; }
+.roi-input-wrap span { color: #9ca3af; }
+.roi-input-wrap input { flex: 1; background: transparent; border: none; outline: none; color: #f9fafb; padding: 10px 6px; font-size: 0.95rem; width: 100%; }
+.roi-input-wrap input::-webkit-outer-spin-button,
+.roi-input-wrap input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.roi-slider-wrap { display: flex; align-items: center; gap: 12px; background: #111827; border: 1px solid #2d3748; border-radius: 10px; padding: 10px 14px; height: 41px; box-sizing: border-box; }
+.roi-slider-wrap input[type=range] { flex: 1; accent-color: #3B82F6; }
+.roi-slider-wrap span { font-weight: 700; color: #60A5FA; font-size: 0.9rem; white-space: nowrap; }
+.roi-calc-results { border-top: 1px solid #1f2937; padding-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+.roi-result-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 0.88rem; color: #d1d5db; }
+.roi-result-row strong { color: #f9fafb; }
+.roi-result-highlight { background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.25); border-radius: 10px; padding: 10px 14px; }
+.roi-result-highlight strong { color: #4ade80; font-size: 1.1rem; }
+.roi-disclaimer { font-size: 0.72rem; color: #6b7280; margin: 14px 0 0; text-align: center; }
 .boost-info-icon {
   position: relative;
   display: inline-flex;
@@ -1920,11 +1947,11 @@ footer {
   <div class="hero-content">
     <div class="hero-badge" data-i18n="hero-badge">⚡ AI Visibility Engine</div>
    <h1 data-i18n="hero-title">
-  Dominate AI Search<br>
-  Get Recommended by <span style="color: #2563EB;">ChatGPT, Gemini &amp; More</span>
+  Get Your Business Recommended by <span style="color: #2563EB;">ChatGPT, Gemini &amp; More</span><br>
+  Or Your Competitors Will
 </h1>
     <div class="hero-subhead" data-i18n="hero-subhead">
-      <strong>85% of buyers</strong> now use AI tools before making a purchase. <br>If your brand doesn't appear in their answers, you're invisible to millions of potential customers.
+      <strong>Most buyers</strong> now use AI tools before making a purchase. <br>If your brand doesn't appear in their answers, you're invisible to millions of potential customers.
     </div>
     <p class="hero-desc" data-i18n="hero-desc">
       See exactly where your business appears<br> across <strong>ALL major AI platforms worldwide</strong>. <br>Get a <strong>Free AI Audit</strong> with a clear plan to get listed everywhere that matters.
@@ -2053,7 +2080,7 @@ footer {
           <span style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.3); font-weight: 700;" data-i18n="simulator-ai-summary-label">🤖 AI Summary</span>
           <span id="aiPlatformBadge" style="font-size: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; background: rgba(96,165,250,0.12); color: #60A5FA; padding: 0.15rem 0.7rem; border-radius: 40px; border: 1px solid rgba(96,165,250,0.1);" data-i18n="simulator-ai-platform-badge">ChatGPT · Gemini</span>
         </div>
-        <div id="aiText" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); transition: all 0.4s ease;">
+        <div id="aiText" style="font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.85); transition: all 0.4s ease; min-height: 3.1rem;">
           <span id="aiTextContent"><span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">Multiple complaints</span> about service quality. Customers <span class="neg-highlight" style="background: rgba(239,68,68,0.15); color: #f87171; padding: 0.05rem 0.3rem; border-radius: 6px; font-weight: 600;">do not recommend</span> this business.</span>
         </div>
       </div>
@@ -2088,14 +2115,14 @@ footer {
 
         <!-- State label (mobile‑friendly) -->
         <div style="text-align: center; margin-top: 0.5rem;">
-          <span id="stateLabel" style="font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.3); letter-spacing: 0.03em;" data-i18n="drag-hint">👆 Drag to reveal the transformation</span>
+          <span id="stateLabel" style="font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.3); letter-spacing: 0.03em; display: inline-block; min-height: 2.2rem; line-height: 1.4;" data-i18n="drag-hint">👆 Drag to reveal the transformation</span>
         </div>
       </div>
 
       <!-- AI Response Preview -->
       <div style="background: rgba(255,255,255,0.03); border-radius: 1rem; padding: 0.8rem 1rem; border: 1px solid rgba(255,255,255,0.05); margin-top: 1rem;">
         <div style="font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.2); font-weight: 600; margin-bottom: 0.2rem;" data-i18n="simulator-ai-response-label">💬 What AI says to your customers</div>
-        <div id="aiResponsePreview" style="font-size: 0.8rem; line-height: 1.5; color: rgba(255,255,255,0.5); font-style: italic; transition: all 0.4s ease;">
+        <div id="aiResponsePreview" style="font-size: 0.8rem; line-height: 1.5; color: rgba(255,255,255,0.5); font-style: italic; transition: all 0.4s ease; min-height: 2.4rem;">
           <span id="aiResponseContent">«I found several negative reviews about this business. Based on customer feedback, I <strong style="color: #f87171;">would not recommend</strong> it.»</span>
         </div>
       </div>
@@ -2287,7 +2314,7 @@ const beforeData = {
   boxBg: 'rgba(239,68,68,0.06)',
   response: '«I analyzed this brand\'s reputation signals. Based on the data, I <strong style="color: #f87171;">cannot recommend</strong> this business to users.»',
   labelColor: '#f87171',
-  stateText: '⚠️ Your AI visibility is low — AI doesn\'t trust your brand'
+  stateText: '⚠️ Your AI visibility is low. AI doesn\'t trust your brand'
 };
 
 const afterData = {
@@ -2309,7 +2336,7 @@ const afterData = {
   boxBg: 'rgba(34,197,94,0.06)',
   response: '«I analyzed this brand\'s reputation signals. Based on the data, I <strong style="color: #4ade80;">highly recommend</strong> this business to users.»',
   labelColor: '#4ade80',
-  stateText: '✅ Your AI visibility is restored — AI trusts your brand'
+  stateText: '✅ Your AI visibility is restored. AI trusts your brand'
 };
 
     // ===== UI update =====
@@ -3248,6 +3275,46 @@ const afterData = {
     </div>
   </div>
 
+  <!-- ===== ROI CALCULATOR ===== -->
+  <div class="roi-calc">
+    <div class="roi-calc-header">
+      <i class="fas fa-calculator"></i>
+      <h3 data-i18n="roi-title">What's Your AI Visibility Worth?</h3>
+    </div>
+    <div class="roi-calc-inputs">
+      <div class="roi-field">
+        <label data-i18n="roi-revenue-label">Average monthly revenue</label>
+        <div class="roi-input-wrap">
+          <span>$</span>
+          <input type="number" id="roiRevenue" placeholder="10,000" min="0" inputmode="numeric" />
+        </div>
+      </div>
+      <div class="roi-field">
+        <label data-i18n="roi-score-label">Current AI visibility score</label>
+        <div class="roi-slider-wrap">
+          <input type="range" id="roiScore" min="0" max="100" value="40" />
+          <span><span id="roiScoreValue">40</span>/100</span>
+        </div>
+      </div>
+    </div>
+    <div class="roi-calc-results" id="roiResults" style="display:none;">
+      <div class="roi-result-row">
+        <span data-i18n="roi-result-leads-prefix">A stronger AI visibility score could drive</span>
+        <strong id="roiLeadsPct">15–25%</strong>
+        <span data-i18n="roi-result-leads-suffix">more qualified leads</span>
+      </div>
+      <div class="roi-result-row roi-result-highlight">
+        <span data-i18n="roi-result-revenue-label">Estimated additional revenue</span>
+        <strong id="roiRevenueGain">$0/mo</strong>
+      </div>
+      <div class="roi-result-row">
+        <span data-i18n="roi-result-payback-label">Could pay for itself in</span>
+        <strong id="roiPayback">N/A</strong>
+      </div>
+    </div>
+    <p class="roi-disclaimer" data-i18n="roi-disclaimer">Estimates only, based on typical patterns. Actual results vary by industry and starting point.</p>
+  </div>
+
   <!-- ===== VISUAL TRACKER ===== -->
   <div style="max-width: 680px; margin: 0 auto 50px; background: rgba(17,24,39,0.6); border-radius: 20px; padding: 24px 20px; border: 1px solid #1f2937;">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
@@ -3663,6 +3730,14 @@ const afterData = {
     <i class="fas fa-chevron-down"></i>
   </div>
   <div class="faq-answer" data-i18n="faq11a">Once your brand consistently appears in AI recommendations (55–75% on our score), you no longer need the intensive monthly boosts. You can switch to our AI Visibility plan — a lower-cost maintenance plan that keeps your signals clean and your brand recommended. This way, you pay only for what you need, when you need it.</div>
+</div>
+
+    <div class="faq-item">
+  <div class="faq-question">
+    <span data-i18n="faq12q">Do I get a client dashboard?</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+  <div class="faq-answer" data-i18n="faq12a">No, and that's intentional. Instead of another login to check, you get a focused weekly briefing straight to your inbox: your updated AI visibility score, screenshots of what ChatGPT and Gemini say about you now, and what we worked on that week. No dashboard, no noise, just results.</div>
 </div>
 
   </div>
@@ -5424,6 +5499,16 @@ const afterData = {
     "nav-about": "About",
     "hero-btn": "Free Audit",
     "hero-badge": "⚡ AI Visibility Engine",
+    "roi-title": "What's Your AI Visibility Worth?",
+    "roi-revenue-label": "Average monthly revenue",
+    "roi-score-label": "Current AI visibility score",
+    "roi-result-leads-prefix": "A stronger AI visibility score could drive",
+    "roi-result-leads-suffix": "more qualified leads",
+    "roi-result-revenue-label": "Estimated additional revenue",
+    "roi-result-payback-label": "Could pay for itself in",
+    "roi-disclaimer": "Estimates only, based on typical patterns. Actual results vary by industry and starting point.",
+    "faq12q": "Do I get a client dashboard?",
+    "faq12a": "No, and that's intentional. Instead of another login to check, you get a focused weekly briefing straight to your inbox: your updated AI visibility score, screenshots of what ChatGPT and Gemini say about you now, and what we worked on that week. No dashboard, no noise, just results.",
     "plan1-boosts-label": "5 boosts per month",
     "plan2-boosts-label": "15 boosts per month",
     "plan3-boosts-label": "30 boosts per month",
@@ -5515,8 +5600,8 @@ const afterData = {
     "trust-logos-caption": "We monitor and optimize your visibility across",
     "guarantee-banner-title": "Every plan is backed by our visibility score improvement guarantee",
     "guarantee-banner-text": "If your AI visibility score doesn't improve within your plan's guarantee window, we keep working for free until it does.",
-    "hero-title": "Dominate AI Search<br>Get Recommended by <span style=\"color:#2563EB;\">ChatGPT, Gemini &amp; More</span>",
-    "hero-subhead": "<strong>85% of buyers</strong> now use AI tools before making a purchase.</br> If your brand doesn't appear in their answers, you're invisible to millions of potential customers.",
+    "hero-title": "Get Your Business Recommended by <span style=\"color:#2563EB;\">ChatGPT, Gemini &amp; More</span><br>Or Your Competitors Will",
+    "hero-subhead": "<strong>Most buyers</strong> now use AI tools before making a purchase.</br> If your brand doesn't appear in their answers, you're invisible to millions of potential customers.",
     "hero-desc": "See exactly where your business appears</br>across <strong>ALL major AI platforms worldwide</strong>. </br>Get a <strong>Free AI Audit</strong> with a clear plan to get listed everywhere that matters:",
     "input-placeholder": "Enter your business name or website",
     "check-btn": "Check my business",
@@ -5693,6 +5778,16 @@ const afterData = {
     "nav-about": "Sobre Nosotros",
     "hero-btn": "Auditoría Gratuita",
     "hero-badge": "⚡ Motor de Visibilidad en IA",
+    "roi-title": "¿Cuánto vale su visibilidad en IA?",
+    "roi-revenue-label": "Ingreso mensual promedio",
+    "roi-score-label": "Puntuación actual de visibilidad en IA",
+    "roi-result-leads-prefix": "Una puntuación de visibilidad más alta podría generar",
+    "roi-result-leads-suffix": "más leads calificados",
+    "roi-result-revenue-label": "Ingresos adicionales estimados",
+    "roi-result-payback-label": "Podría amortizarse en",
+    "roi-disclaimer": "Solo estimaciones, basadas en patrones típicos. Los resultados reales varían según la industria y el punto de partida.",
+    "faq12q": "¿Tengo acceso a un panel de cliente?",
+    "faq12a": "No, y es intencional. En lugar de otro inicio de sesión para revisar, recibe un informe semanal directo a su correo: su puntuación de visibilidad en IA actualizada, capturas de lo que ChatGPT y Gemini dicen de usted ahora, y en qué trabajamos esa semana. Sin panel, sin ruido, solo resultados.",
     "plan1-boosts-label": "5 boosts al mes",
     "plan2-boosts-label": "15 boosts al mes",
     "plan3-boosts-label": "30 boosts al mes",
@@ -5784,8 +5879,8 @@ const afterData = {
     "trust-logos-caption": "Monitoreamos y optimizamos su visibilidad en",
     "guarantee-banner-title": "Todos los planes incluyen nuestra garantía de mejora del puntaje de visibilidad",
     "guarantee-banner-text": "Si su puntuación de visibilidad en IA no mejora dentro del plazo de garantía de su plan, seguimos trabajando gratis hasta lograrlo.",
-    "hero-title": "Domine la Búsqueda con IA<br>Logre que <span style=\"color:#2563EB;\">ChatGPT, Gemini y más</span> lo recomienden",
-    "hero-subhead": "<strong>El 85% de los compradores</strong> ya utilizan herramientas de IA antes de realizar una compra.</br> Si su marca no aparece en sus respuestas, usted es invisible para millones de clientes potenciales,</br> mientras que sus competidores se llevan todos los leads.",
+    "hero-title": "Consiga que su Negocio sea Recomendado por <span style=\"color:#2563EB;\">ChatGPT, Gemini y más</span><br>O lo Serán sus Competidores",
+    "hero-subhead": "<strong>La mayoría de los compradores</strong> ya utilizan herramientas de IA antes de realizar una compra.</br> Si su marca no aparece en sus respuestas, usted es invisible para millones de clientes potenciales,</br> mientras que sus competidores se llevan todos los leads.",
     "hero-desc": "Descubra exactamente dónde aparece o no aparece su negocio </br>en <strong>TODAS las principales plataformas de IA del mundo</strong>. </br>Obtenga una <strong>Auditoría IA Gratuita</strong> con un plan claro para aparecer en todos los lugares que importan:",
     "input-placeholder": "Ingrese el nombre de su negocio o sitio web",
     "check-btn": "Analizar mi negocio",
@@ -5962,6 +6057,16 @@ const afterData = {
     "nav-about": "Sobre Nosotros",
     "hero-btn": "Auditoría Gratuita",
     "hero-badge": "⚡ Motor de Visibilidad en IA",
+    "roi-title": "¿Cuánto vale su visibilidad en IA?",
+    "roi-revenue-label": "Ingreso mensual promedio",
+    "roi-score-label": "Puntuación actual de visibilidad en IA",
+    "roi-result-leads-prefix": "Una puntuación de visibilidad más alta podría generar",
+    "roi-result-leads-suffix": "más leads cualificados",
+    "roi-result-revenue-label": "Ingresos adicionales estimados",
+    "roi-result-payback-label": "Podría amortizarse en",
+    "roi-disclaimer": "Solo estimaciones, basadas en patrones típicos. Los resultados reales varían según el sector y el punto de partida.",
+    "faq12q": "¿Tengo acceso a un panel de cliente?",
+    "faq12a": "No, y es intencional. En lugar de otro inicio de sesión para revisar, recibe un informe semanal directo a su correo: su puntuación de visibilidad en IA actualizada, capturas de lo que ChatGPT y Gemini dicen de usted ahora, y en qué trabajamos esa semana. Sin panel, sin ruido, solo resultados.",
     "plan1-boosts-label": "5 boosts al mes",
     "plan2-boosts-label": "15 boosts al mes",
     "plan3-boosts-label": "30 boosts al mes",
@@ -6053,8 +6158,8 @@ const afterData = {
     "trust-logos-caption": "Monitoreamos y optimizamos su visibilidad en",
     "guarantee-banner-title": "Todos los planes incluyen nuestra garantía de mejora del puntaje de visibilidad",
     "guarantee-banner-text": "Si su puntuación de visibilidad en IA no mejora dentro del plazo de garantía de su plan, seguimos trabajando gratis hasta lograrlo.",
-    "hero-title": "Domine la Búsqueda con IA<br>Consiga que <span style=\"color:#2563EB;\">ChatGPT, Gemini y más</span> le recomienden",
-    "hero-subhead": "<strong>El 85% de los compradores</strong> ya utilizan herramientas de IA antes de realizar una compra.</br> Si su marca no aparece en sus respuestas, usted es invisible para millones de clientes potenciales,</br> mientras que sus competidores se llevan todos los leads.",
+    "hero-title": "Consiga que su Negocio sea Recomendado por <span style=\"color:#2563EB;\">ChatGPT, Gemini y más</span><br>O lo Serán sus Competidores",
+    "hero-subhead": "<strong>La mayoría de los compradores</strong> ya utilizan herramientas de IA antes de realizar una compra.</br> Si su marca no aparece en sus respuestas, usted es invisible para millones de clientes potenciales,</br> mientras que sus competidores se llevan todos los leads.",
     "hero-desc": "Descubra exactamente dónde aparece o no aparece su negocio </br>en <strong>TODAS las principales plataformas de IA del mundo</strong>. </br>Obtenga una <strong>Auditoría IA Gratuita</strong> con un plan claro para aparecer en todos los lugares que importan:",
     "input-placeholder": "Ingrese el nombre de su negocio o sitio web",
     "check-btn": "Analizar mi negocio",
@@ -6231,6 +6336,16 @@ const afterData = {
     "nav-about": "Über uns",
     "hero-btn": "Kostenloses Audit",
     "hero-badge": "⚡ KI-Sichtbarkeits-Engine",
+    "roi-title": "Was ist Ihre KI-Sichtbarkeit wert?",
+    "roi-revenue-label": "Durchschnittlicher monatlicher Umsatz",
+    "roi-score-label": "Aktueller KI-Sichtbarkeits-Score",
+    "roi-result-leads-prefix": "Ein stärkerer KI-Sichtbarkeits-Score könnte",
+    "roi-result-leads-suffix": "mehr qualifizierte Leads bringen",
+    "roi-result-revenue-label": "Geschätzter zusätzlicher Umsatz",
+    "roi-result-payback-label": "Könnte sich amortisieren in",
+    "roi-disclaimer": "Nur Schätzungen, basierend auf typischen Mustern. Tatsächliche Ergebnisse variieren je nach Branche und Ausgangslage.",
+    "faq12q": "Bekomme ich ein Kunden-Dashboard?",
+    "faq12a": "Nein, und das ist Absicht. Statt eines weiteren Logins erhalten Sie ein fokussiertes wöchentliches Briefing direkt in Ihr Postfach: Ihren aktualisierten KI-Sichtbarkeits-Score, Screenshots davon, was ChatGPT und Gemini jetzt über Sie sagen, und woran wir diese Woche gearbeitet haben. Kein Dashboard, kein Lärm, nur Ergebnisse.",
     "plan1-boosts-label": "5 Boosts pro Monat",
     "plan2-boosts-label": "15 Boosts pro Monat",
     "plan3-boosts-label": "30 Boosts pro Monat",
@@ -6322,8 +6437,8 @@ const afterData = {
     "trust-logos-caption": "Wir überwachen und optimieren Ihre Sichtbarkeit auf",
     "guarantee-banner-title": "Jeder Plan ist durch unsere Garantie zur Verbesserung des Sichtbarkeits-Scores abgesichert",
     "guarantee-banner-text": "Verbessert sich Ihr KI-Sichtbarkeits-Score nicht innerhalb des Garantiezeitraums Ihres Plans, arbeiten wir kostenlos weiter, bis es soweit ist.",
-    "hero-title": "Dominieren Sie die KI-Suche<br>Lassen Sie sich von <span style=\"color:#2563EB;\">ChatGPT, Gemini &amp; Co.</span> empfehlen",
-    "hero-subhead": "<strong>85 % der Käufer</strong> nutzen bereits KI-Tools, bevor sie einen Kauf tätigen.</br> Wenn Ihre Marke in deren Antworten nicht auftaucht, sind Sie für Millionen potenzieller Kunden unsichtbar,</br> während Ihre Wettbewerber alle Leads erhalten.",
+    "hero-title": "Lassen Sie Ihr Unternehmen von <span style=\"color:#2563EB;\">ChatGPT, Gemini &amp; Co.</span> empfehlen<br>Oder Ihre Konkurrenz Wird Es Tun",
+    "hero-subhead": "<strong>Die meisten Käufer</strong> nutzen bereits KI-Tools, bevor sie einen Kauf tätigen.</br> Wenn Ihre Marke in deren Antworten nicht auftaucht, sind Sie für Millionen potenzieller Kunden unsichtbar,</br> während Ihre Wettbewerber alle Leads erhalten.",
     "hero-desc": "Sehen Sie genau, wo Ihr Unternehmen erscheint oder nicht erscheint </br>auf <strong>ALLEN wichtigen KI-Plattformen weltweit</strong>. </br>Holen Sie sich ein <strong>kostenloses KI-Audit</strong> mit einem klaren Plan, um überall gelistet zu werden, wo es zählt:",
     "input-placeholder": "Firmenname oder Website eingeben",
     "check-btn": "Mein Unternehmen prüfen",
@@ -6500,6 +6615,16 @@ const afterData = {
     "nav-about": "À Propos",
     "hero-btn": "Audit Gratuit",
     "hero-badge": "⚡ Moteur de Visibilité IA",
+    "roi-title": "Combien vaut votre visibilité IA ?",
+    "roi-revenue-label": "Revenu mensuel moyen",
+    "roi-score-label": "Score de visibilité IA actuel",
+    "roi-result-leads-prefix": "Un score de visibilité IA plus élevé pourrait générer",
+    "roi-result-leads-suffix": "plus de leads qualifiés",
+    "roi-result-revenue-label": "Revenus supplémentaires estimés",
+    "roi-result-payback-label": "Pourrait être rentabilisé en",
+    "roi-disclaimer": "Estimations uniquement, basées sur des tendances habituelles. Les résultats réels varient selon le secteur et le point de départ.",
+    "faq12q": "Ai-je accès à un tableau de bord client ?",
+    "faq12a": "Non, et c'est volontaire. Plutôt qu'une connexion de plus à vérifier, vous recevez un point hebdomadaire directement dans votre boîte mail : votre score de visibilité IA actualisé, des captures de ce que ChatGPT et Gemini disent de vous désormais, et ce sur quoi nous avons travaillé cette semaine‑là. Pas de tableau de bord, pas de bruit, juste des résultats.",
     "plan1-boosts-label": "5 boosts par mois",
     "plan2-boosts-label": "15 boosts par mois",
     "plan3-boosts-label": "30 boosts par mois",
@@ -6591,8 +6716,8 @@ const afterData = {
     "trust-logos-caption": "Nous surveillons et optimisons votre visibilité sur",
     "guarantee-banner-title": "Chaque plan est couvert par notre garantie d’amélioration du score de visibilité",
     "guarantee-banner-text": "Si votre score de visibilité IA ne s’améliore pas dans le délai de garantie de votre plan, nous continuons à travailler gratuitement jusqu’à ce que ce soit le cas.",
-    "hero-title": "Dominez la recherche IA<br>Faites-vous recommander par <span style=\"color:#2563EB;\">ChatGPT, Gemini et plus</span>",
-    "hero-subhead": "<strong>85 % des acheteurs</strong> utilisent déjà des outils d'IA avant d'effectuer un achat.</br> Si votre marque n'apparaît pas dans leurs réponses, vous êtes invisible pour des millions de clients potentiels,</br> tandis que vos concurrents récupèrent tous les leads.",
+    "hero-title": "Faites Recommander Votre Entreprise par <span style=\"color:#2563EB;\">ChatGPT, Gemini et plus</span><br>Ou vos Concurrents le Feront",
+    "hero-subhead": "<strong>La plupart des acheteurs</strong> utilisent déjà des outils d'IA avant d'effectuer un achat.</br> Si votre marque n'apparaît pas dans leurs réponses, vous êtes invisible pour des millions de clients potentiels,</br> tandis que vos concurrents récupèrent tous les leads.",
     "hero-desc": "Découvrez exactement où votre entreprise apparaît ou n'apparaît pas </br>sur <strong>TOUTES les principales plateformes d'IA dans le monde</strong>. </br>Obtenez un <strong>audit IA gratuit</strong> avec un plan clair pour être listé partout où cela compte :",
     "input-placeholder": "Entrez le nom ou le site de votre entreprise",
     "check-btn": "Analyser mon entreprise",
@@ -6769,6 +6894,16 @@ const afterData = {
     "nav-about": "О нас",
     "hero-btn": "Бесплатный аудит",
     "hero-badge": "⚡ Двигатель видимости в ИИ",
+    "roi-title": "Сколько стоит ваша видимость в ИИ?",
+    "roi-revenue-label": "Средняя месячная выручка",
+    "roi-score-label": "Текущий рейтинг видимости в ИИ",
+    "roi-result-leads-prefix": "Более высокий рейтинг видимости может принести на",
+    "roi-result-leads-suffix": "больше квалифицированных лидов",
+    "roi-result-revenue-label": "Расчётная дополнительная выручка",
+    "roi-result-payback-label": "Может окупиться за",
+    "roi-disclaimer": "Только оценка, основанная на типичных паттернах. Реальные результаты зависят от отрасли и стартовой точки.",
+    "faq12q": "Будет ли у меня личный кабинет?",
+    "faq12a": "Нет, и это осознанное решение. Вместо ещё одного логина для проверки вы получаете сфокусированный еженедельный отчёт прямо на почту: обновлённый рейтинг видимости в ИИ, скриншоты того, что ChatGPT и Gemini говорят о вас сейчас, и над чем мы работали на этой неделе. Без личного кабинета, без лишнего шума, только результат.",
     "plan1-boosts-label": "5 бустов в месяц",
     "plan2-boosts-label": "15 бустов в месяц",
     "plan3-boosts-label": "30 бустов в месяц",
@@ -6860,8 +6995,8 @@ const afterData = {
     "trust-logos-caption": "Мы отслеживаем и повышаем вашу видимость на",
     "guarantee-banner-title": "Каждый тариф покрыт нашей гарантией улучшения рейтинга видимости",
     "guarantee-banner-text": "Если ваш рейтинг видимости в ИИ не улучшится в течение гарантийного окна вашего тарифа, мы продолжаем работу бесплатно, пока не добьёмся результата.",
-    "hero-title": "Доминируйте в поиске ИИ<br>Пусть вас рекомендуют <span style=\"color:#2563EB;\">ChatGPT, Gemini и другие</span>",
-    "hero-subhead": "<strong>85% покупателей</strong> уже используют инструменты ИИ перед совершением покупки.</br> Если вашего бренда нет в их ответах, вы невидимы для миллионов потенциальных клиентов,</br> а ваши конкуренты получают все лиды.",
+    "hero-title": "Пусть ваш бизнес рекомендуют <span style=\"color:#2563EB;\">ChatGPT, Gemini и другие</span><br>Или это сделают ваши конкуренты",
+    "hero-subhead": "<strong>Большинство покупателей</strong> уже используют инструменты ИИ перед совершением покупки.</br> Если вашего бренда нет в их ответах, вы невидимы для миллионов потенциальных клиентов,</br> а ваши конкуренты получают все лиды.",
     "hero-desc": "Узнайте точно, где ваш бизнес появляется или не появляется </br>на <strong>ВСЕХ основных мировых ИИ-платформах</strong>. </br>Получите <strong>бесплатный аудит ИИ</strong> с чётким планом, как попасть во все важные места:",
     "input-placeholder": "Введите название вашего бизнеса или сайт",
     "check-btn": "Проверить мой бизнес",
@@ -7038,6 +7173,16 @@ const afterData = {
     "nav-about": "Về Chúng Tôi",
     "hero-btn": "Audit Miễn Phí",
     "hero-badge": "⚡ Công Cụ Hiển Thị Trên AI",
+    "roi-title": "Hiển Thị AI Của Bạn Đáng Giá Bao Nhiêu?",
+    "roi-revenue-label": "Doanh thu trung bình hàng tháng",
+    "roi-score-label": "Điểm hiển thị AI hiện tại",
+    "roi-result-leads-prefix": "Điểm hiển thị AI mạnh hơn có thể mang lại thêm",
+    "roi-result-leads-suffix": "khách hàng tiềm năng chất lượng",
+    "roi-result-revenue-label": "Doanh thu bổ sung ước tính",
+    "roi-result-payback-label": "Có thể hoàn vốn trong",
+    "roi-disclaimer": "Chỉ là ước tính, dựa trên các mẫu hình điển hình. Kết quả thực tế thay đổi theo ngành và điểm khởi đầu.",
+    "faq12q": "Tôi có được cấp bảng điều khiển khách hàng không?",
+    "faq12a": "Không, và đó là chủ đích. Thay vì thêm một tài khoản để kiểm tra, bạn nhận được bản tóm tắt hàng tuần gửi thẳng vào hộp thư: điểm hiển thị AI được cập nhật, ảnh chụp màn hình những gì ChatGPT và Gemini nói về bạn lúc này, và những gì chúng tôi đã thực hiện trong tuần đó. Không bảng điều khiển, không ồn ào, chỉ có kết quả.",
     "plan1-boosts-label": "5 lượt boost mỗi tháng",
     "plan2-boosts-label": "15 lượt boost mỗi tháng",
     "plan3-boosts-label": "30 lượt boost mỗi tháng",
@@ -7129,8 +7274,8 @@ const afterData = {
     "trust-logos-caption": "Chúng tôi theo dõi và tối ưu khả năng hiển thị của bạn trên",
     "guarantee-banner-title": "Mọi gói đều được bảo đảm bởi cam kết cải thiện điểm hiển thị AI của chúng tôi",
     "guarantee-banner-text": "Nếu điểm hiển thị AI của bạn không cải thiện trong thời gian bảo đảm của gói, chúng tôi tiếp tục làm việc miễn phí cho đến khi đạt được.",
-    "hero-title": "Thống Lĩnh Tìm Kiếm AI<br>Được <span style=\"color:#2563EB;\">ChatGPT, Gemini và hơn thế nữa</span> đề xuất",
-    "hero-subhead": "<strong>85% người mua</strong> hiện đã sử dụng công cụ AI trước khi quyết định mua hàng.</br> Nếu thương hiệu của bạn không xuất hiện trong câu trả lời của họ, bạn đang vô hình trước hàng triệu khách hàng tiềm năng,</br> trong khi đối thủ cạnh tranh giành hết mọi khách hàng tiềm năng.",
+    "hero-title": "Để Doanh Nghiệp Của Bạn Được <span style=\"color:#2563EB;\">ChatGPT, Gemini và hơn thế nữa</span> Đề Xuất<br>Nếu Không, Đối Thủ Của Bạn Sẽ Được Đề Xuất",
+    "hero-subhead": "<strong>Phần lớn người mua</strong> hiện đã sử dụng công cụ AI trước khi quyết định mua hàng.</br> Nếu thương hiệu của bạn không xuất hiện trong câu trả lời của họ, bạn đang vô hình trước hàng triệu khách hàng tiềm năng,</br> trong khi đối thủ cạnh tranh giành hết mọi khách hàng tiềm năng.",
     "hero-desc": "Xem chính xác doanh nghiệp của bạn xuất hiện hoặc không xuất hiện ở đâu </br>trên <strong>TẤT CẢ các nền tảng AI lớn trên toàn thế giới</strong>. </br>Nhận <strong>Kiểm Tra AI Miễn Phí</strong> với kế hoạch rõ ràng để xuất hiện ở mọi nơi quan trọng:",
     "input-placeholder": "Nhập tên doanh nghiệp hoặc trang web của bạn",
     "check-btn": "Kiểm tra doanh nghiệp của tôi",
@@ -7307,6 +7452,16 @@ const afterData = {
     "nav-about": "Sobre Nós",
     "hero-btn": "Auditoria Grátis",
     "hero-badge": "⚡ Motor de Visibilidade em IA",
+    "roi-title": "Quanto Vale Sua Visibilidade em IA?",
+    "roi-revenue-label": "Receita média mensal",
+    "roi-score-label": "Pontuação atual de visibilidade em IA",
+    "roi-result-leads-prefix": "Uma pontuação de visibilidade em IA mais forte pode gerar",
+    "roi-result-leads-suffix": "mais leads qualificados",
+    "roi-result-revenue-label": "Receita adicional estimada",
+    "roi-result-payback-label": "Pode se pagar em",
+    "roi-disclaimer": "Apenas estimativas, baseadas em padrões típicos. Os resultados reais variam conforme o setor e o ponto de partida.",
+    "faq12q": "Eu recebo um painel de cliente?",
+    "faq12a": "Não, e isso é intencional. Em vez de mais um login para checar, você recebe um resumo semanal direto no seu e-mail: sua pontuação de visibilidade em IA atualizada, capturas de tela do que ChatGPT e Gemini dizem sobre você agora, e no que trabalhamos naquela semana. Sem painel, sem ruído, só resultados.",
     "plan1-boosts-label": "5 boosts por mês",
     "plan2-boosts-label": "15 boosts por mês",
     "plan3-boosts-label": "30 boosts por mês",
@@ -7398,8 +7553,8 @@ const afterData = {
     "trust-logos-caption": "Monitoramos e otimizamos sua visibilidade em",
     "guarantee-banner-title": "Todo plano é respaldado pela nossa garantia de melhoria da pontuação de visibilidade",
     "guarantee-banner-text": "Se sua pontuação de visibilidade em IA não melhorar dentro do prazo de garantia do seu plano, continuamos trabalhando de graça até conseguir.",
-    "hero-title": "Domine a Busca por IA<br>Seja recomendado por <span style=\"color:#2563EB;\">ChatGPT, Gemini e mais</span>",
-    "hero-subhead": "<strong>85% dos compradores</strong> já usam ferramentas de IA antes de fazer uma compra.</br> Se sua marca não aparece nas respostas deles, você fica invisível para milhões de clientes em potencial,</br> enquanto seus concorrentes ficam com todos os leads.",
+    "hero-title": "Faça sua Empresa ser Recomendada por <span style=\"color:#2563EB;\">ChatGPT, Gemini e mais</span><br>Ou seus Concorrentes Serão",
+    "hero-subhead": "<strong>A maioria dos compradores</strong> já usa ferramentas de IA antes de fazer uma compra.</br> Se sua marca não aparece nas respostas deles, você fica invisível para milhões de clientes em potencial,</br> enquanto seus concorrentes ficam com todos os leads.",
     "hero-desc": "Descubra exatamente onde sua empresa aparece ou não aparece </br>em <strong>TODAS as principais plataformas de IA do mundo</strong>. </br>Receba uma <strong>Auditoria de IA Gratuita</strong> com um plano claro para aparecer em todos os lugares que importam:",
     "input-placeholder": "Digite o nome ou site do seu negócio",
     "check-btn": "Analisar meu negócio",
@@ -7576,6 +7731,16 @@ const afterData = {
     "nav-about": "Hakkımızda",
     "hero-btn": "Ücretsiz Denetim",
     "hero-badge": "⚡ AI Görünürlük Motoru",
+    "roi-title": "AI Görünürlüğünüz Ne Kadar Değerli?",
+    "roi-revenue-label": "Ortalama aylık gelir",
+    "roi-score-label": "Mevcut AI görünürlük puanı",
+    "roi-result-leads-prefix": "Daha güçlü bir AI görünürlük puanı",
+    "roi-result-leads-suffix": "daha fazla nitelikli potansiyel müşteri getirebilir",
+    "roi-result-revenue-label": "Tahmini ek gelir",
+    "roi-result-payback-label": "Kendini şu sürede amorti edebilir:",
+    "roi-disclaimer": "Sadece tipik kalıplara dayalı tahminlerdir. Gerçek sonuçlar sektöre ve başlangıç noktasına göre değişir.",
+    "faq12q": "Bir müşteri paneli alıyor muyum?",
+    "faq12a": "Hayır, ve bu bilinçli bir tercih. Kontrol etmeniz gereken bir giriş daha yerine, doğrudan gelen kutunuza odaklı bir haftalık özet alırsınız: güncellenmiş AI görünürlük puanınız, ChatGPT ve Gemini'nin sizin hakkınızda şu anda söylediklerinin ekran görüntüleri ve o hafta üzerinde çalıştığımız şeyler. Panel yok, gürültü yok, sadece sonuçlar.",
     "plan1-boosts-label": "Ayda 5 boost",
     "plan2-boosts-label": "Ayda 15 boost",
     "plan3-boosts-label": "Ayda 30 boost",
@@ -7667,8 +7832,8 @@ const afterData = {
     "trust-logos-caption": "Görünürlüğünüzü şu platformlarda izliyor ve optimize ediyoruz",
     "guarantee-banner-title": "Her plan, görünürlük puanı iyileştirme garantimizle güvence altındadır",
     "guarantee-banner-text": "AI görünürlük puanınız, planınızın garanti süresi içinde iyileşmezse, biz başarana kadar ücretsiz çalışmaya devam ederiz.",
-    "hero-title": "AI Aramasına Hakim Olun<br><span style=\"color:#2563EB;\">ChatGPT, Gemini ve daha fazlası</span> tarafından önerilin",
-    "hero-subhead": "<strong>Alıcıların %85'i</strong> satın alma işlemi yapmadan önce AI araçlarını kullanıyor.</br> Markanız bu yanıtlarda yer almıyorsa, milyonlarca potansiyel müşteri için görünmezsiniz,</br> rakipleriniz tüm potansiyel müşterileri alırken.",
+    "hero-title": "İşletmenizin <span style=\"color:#2563EB;\">ChatGPT, Gemini ve daha fazlası</span> Tarafından Önerilmesini Sağlayın<br>Yoksa Rakipleriniz Önerilecek",
+    "hero-subhead": "<strong>Alıcıların çoğu</strong> satın alma işlemi yapmadan önce AI araçlarını kullanıyor.</br> Markanız bu yanıtlarda yer almıyorsa, milyonlarca potansiyel müşteri için görünmezsiniz,</br> rakipleriniz tüm potansiyel müşterileri alırken.",
     "hero-desc": "İşletmenizin <strong>dünyadaki TÜM büyük AI platformlarında</strong> tam olarak nerede göründüğünü veya görünmediğini keşfedin. </br>Önemli olan her yerde listelenmek için net bir planla birlikte <strong>Ücretsiz AI Denetimi</strong> alın:",
     "input-placeholder": "İşletme adınızı veya web sitenizi girin",
     "check-btn": "İşletmemi kontrol et",
@@ -7845,6 +8010,16 @@ const afterData = {
     "nav-about": "Chi Siamo",
     "hero-btn": "Audit Gratuito",
     "hero-badge": "⚡ Motore di Visibilità nell'IA",
+    "roi-title": "Quanto Vale la Tua Visibilità nell'IA?",
+    "roi-revenue-label": "Ricavi mensili medi",
+    "roi-score-label": "Punteggio attuale di visibilità nell'IA",
+    "roi-result-leads-prefix": "Un punteggio di visibilità IA più forte potrebbe generare",
+    "roi-result-leads-suffix": "più lead qualificati",
+    "roi-result-revenue-label": "Ricavi aggiuntivi stimati",
+    "roi-result-payback-label": "Potrebbe ripagarsi in",
+    "roi-disclaimer": "Solo stime, basate su pattern tipici. I risultati reali variano in base al settore e al punto di partenza.",
+    "faq12q": "Ricevo una dashboard cliente?",
+    "faq12a": "No, ed è intenzionale. Invece di un altro login da controllare, ricevi un riepilogo settimanale mirato direttamente nella tua casella email: il tuo punteggio di visibilità IA aggiornato, screenshot di cosa dicono ora di te ChatGPT e Gemini, e su cosa abbiamo lavorato quella settimana. Nessuna dashboard, nessun rumore, solo risultati.",
     "plan1-boosts-label": "5 boost al mese",
     "plan2-boosts-label": "15 boost al mese",
     "plan3-boosts-label": "30 boost al mese",
@@ -7936,8 +8111,8 @@ const afterData = {
     "trust-logos-caption": "Monitoriamo e ottimizziamo la tua visibilità su",
     "guarantee-banner-title": "Ogni piano è coperto dalla nostra garanzia di miglioramento del punteggio di visibilità",
     "guarantee-banner-text": "Se il tuo punteggio di visibilità nell'IA non migliora entro la finestra di garanzia del tuo piano, continuiamo a lavorare gratis finché non ci riusciamo.",
-    "hero-title": "Domina la Ricerca IA<br>Fatti consigliare da <span style=\"color:#2563EB;\">ChatGPT, Gemini e altri</span>",
-    "hero-subhead": "<strong>L'85% degli acquirenti</strong> utilizza già strumenti di IA prima di effettuare un acquisto.</br> Se il tuo marchio non appare nelle loro risposte, sei invisibile a milioni di potenziali clienti,</br> mentre i tuoi concorrenti si accaparrano tutti i lead.",
+    "hero-title": "Fai Raccomandare la Tua Azienda da <span style=\"color:#2563EB;\">ChatGPT, Gemini e altri</span><br>O lo Faranno i Tuoi Concorrenti",
+    "hero-subhead": "<strong>La maggior parte degli acquirenti</strong> utilizza già strumenti di IA prima di effettuare un acquisto.</br> Se il tuo marchio non appare nelle loro risposte, sei invisibile a milioni di potenziali clienti,</br> mentre i tuoi concorrenti si accaparrano tutti i lead.",
     "hero-desc": "Scopri esattamente dove la tua azienda appare o non appare </br>su <strong>TUTTE le principali piattaforme IA a livello mondiale</strong>. </br>Ottieni un <strong>Audit IA Gratuito</strong> con un piano chiaro per essere elencato ovunque conti:",
     "input-placeholder": "Inserisci il nome o il sito della tua attività",
     "check-btn": "Analizza la mia attività",
@@ -8114,6 +8289,16 @@ const afterData = {
     "nav-about": "من نحن",
     "hero-btn": "تدقيق مجاني",
     "hero-badge": "⚡ محرك ظهور الذكاء الاصطناعي",
+    "roi-title": "كم تساوي رؤية علامتك التجارية في الذكاء الاصطناعي؟",
+    "roi-revenue-label": "متوسط الإيرادات الشهرية",
+    "roi-score-label": "درجة الظهور الحالية في الذكاء الاصطناعي",
+    "roi-result-leads-prefix": "يمكن لدرجة ظهور أقوى في الذكاء الاصطناعي أن تجلب",
+    "roi-result-leads-suffix": "المزيد من العملاء المحتملين المؤهلين",
+    "roi-result-revenue-label": "الإيرادات الإضافية المقدرة",
+    "roi-result-payback-label": "يمكن أن تسترد تكلفتها خلال",
+    "roi-disclaimer": "تقديرات فقط، بناءً على أنماط نموذجية. تختلف النتائج الفعلية حسب المجال ونقطة البداية.",
+    "faq12q": "هل أحصل على لوحة تحكم للعميل؟",
+    "faq12a": "لا، وهذا مقصود. بدلاً من تسجيل دخول آخر للمتابعة، تحصل على ملخص أسبوعي مركّز يصل مباشرة إلى بريدك الإلكتروني: درجة ظهورك المحدّثة في الذكاء الاصطناعي، ولقطات شاشة لما يقوله ChatGPT وGemini عنك الآن، وما الذي عملنا عليه في ذلك الأسبوع. بلا لوحة تحكم، بلا ضجيج، نتائج فقط.",
     "plan1-boosts-label": "5 دفعات تعزيز شهريًا",
     "plan2-boosts-label": "15 دفعة تعزيز شهريًا",
     "plan3-boosts-label": "30 دفعة تعزيز شهريًا",
@@ -8205,8 +8390,8 @@ const afterData = {
     "trust-logos-caption": "نراقب ونحسّن ظهورك عبر",
     "guarantee-banner-title": "كل خطة مدعومة بضمان تحسين درجة الظهور الخاص بنا",
     "guarantee-banner-text": "إذا لم تتحسن درجة ظهورك في الذكاء الاصطناعي خلال فترة الضمان الخاصة بخطتك، سنواصل العمل مجانًا حتى نحقق ذلك.",
-    "hero-title": "تصدَّر نتائج البحث بالذكاء الاصطناعي<br>احصل على توصية من <span style=\"color:#2563EB;\">ChatGPT وGemini والمزيد</span>",
-    "hero-subhead": "<strong>85% من المشترين</strong> يستخدمون بالفعل أدوات الذكاء الاصطناعي قبل إجراء عملية شراء.</br> إذا لم تظهر علامتك التجارية في إجاباتهم، فأنت غير مرئي لملايين العملاء المحتملين،</br> بينما يحصل منافسوك على جميع العملاء المحتملين.",
+    "hero-title": "اجعل نشاطك التجاري يحظى بتوصية من <span style=\"color:#2563EB;\">ChatGPT وGemini والمزيد</span><br>وإلا فسيحظى بها منافسوك",
+    "hero-subhead": "<strong>معظم المشترين</strong> يستخدمون بالفعل أدوات الذكاء الاصطناعي قبل إجراء عملية شراء.</br> إذا لم تظهر علامتك التجارية في إجاباتهم، فأنت غير مرئي لملايين العملاء المحتملين،</br> بينما يحصل منافسوك على جميع العملاء المحتملين.",
     "hero-desc": "اكتشف بالضبط أين يظهر نشاطك التجاري أو لا يظهر </br>على <strong>جميع منصات الذكاء الاصطناعي الرئيسية في العالم</strong>. </br>احصل على <strong>تدقيق ذكاء اصطناعي مجاني</strong> مع خطة واضحة لتظهر في كل مكان مهم:",
     "input-placeholder": "أدخل اسم نشاطك التجاري أو موقع الويب",
     "check-btn": "افحص نشاطي التجاري",
@@ -9166,6 +9351,63 @@ if (navLangSelect) {
       currentEl.textContent = fmtFallback.format(now);
       nextEl.textContent = fmtFallback.format(nextMonthDate);
     }
+  })();
+</script>
+<script>
+  (function() {
+    var revenueInput = document.getElementById('roiRevenue');
+    var scoreInput = document.getElementById('roiScore');
+    var scoreValueEl = document.getElementById('roiScoreValue');
+    var resultsEl = document.getElementById('roiResults');
+    var leadsPctEl = document.getElementById('roiLeadsPct');
+    var revenueGainEl = document.getElementById('roiRevenueGain');
+    var paybackEl = document.getElementById('roiPayback');
+    if (!revenueInput || !scoreInput) return;
+
+    var PLAN_PRICE = 899; // reference: AI Authority (mid-tier) monthly price
+    var TARGET_SCORE = 75; // the "Strong" tier threshold used elsewhere on the site
+
+    function update() {
+      var revenue = parseFloat(revenueInput.value);
+      var score = parseInt(scoreInput.value, 10);
+      scoreValueEl.textContent = score;
+
+      // The lower the current score, the more room there is to grow —
+      // scales from the full 15-25% range at score 0 down toward ~0 at/above the target.
+      var gap = Math.max(0, TARGET_SCORE - score);
+      var scaleFactor = Math.min(1, gap / TARGET_SCORE);
+      var leadLow = Math.round(scaleFactor * 15);
+      var leadHigh = Math.round(scaleFactor * 25);
+      if (leadHigh < 2) { leadLow = 0; leadHigh = 2; }
+
+      leadsPctEl.textContent = leadLow + '\u2013' + leadHigh + '%';
+
+      if (!revenue || revenue <= 0) {
+        resultsEl.style.display = 'none';
+        return;
+      }
+      resultsEl.style.display = 'flex';
+
+      var gainLow = revenue * (leadLow / 100);
+      var gainHigh = revenue * (leadHigh / 100);
+      var avgGain = (gainLow + gainHigh) / 2;
+
+      revenueGainEl.textContent = '$' + Math.round(gainLow).toLocaleString() + '\u2013$' + Math.round(gainHigh).toLocaleString() + '/mo';
+
+      if (avgGain <= 0) {
+        paybackEl.textContent = 'N/A';
+      } else {
+        var months = PLAN_PRICE / avgGain;
+        if (months <= 1) {
+          paybackEl.textContent = '< 1 mo';
+        } else {
+          paybackEl.textContent = '~' + (Math.round(months * 10) / 10) + ' mo';
+        }
+      }
+    }
+
+    revenueInput.addEventListener('input', update);
+    scoreInput.addEventListener('input', update);
   })();
 </script>
 </body>
