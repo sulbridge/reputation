@@ -9858,11 +9858,6 @@ if (navLangSelect) {
     var closeBtn = document.getElementById('closeCounterBtn');
     var numberEl = document.getElementById('liveCounterNumber');
 
-    if (sessionStorage.getItem('liveCounterClosed') === 'true') {
-      container.style.display = 'none';
-      return;
-    }
-
     var COUNTER_NAMESPACE = 'reputationguard.pro';
     var COUNTER_KEY = 'ai_visibility_audits';
     var BASE_VALUE = 150;
@@ -9958,7 +9953,8 @@ if (navLangSelect) {
 
     closeBtn.addEventListener('click', function() {
       container.classList.remove('visible');
-      sessionStorage.setItem('liveCounterClosed', 'true');
+      // Intentionally not saved anywhere — a fresh page load brings it back,
+      // same as the listen-pitch button.
       setTimeout(function() { container.style.display = 'none'; }, 500);
     });
 
