@@ -1,6 +1,25 @@
-Brand: ReputationGuard PRO
-Legal entity: BrightLine Ventures LLC
+Brand: ReputationGuard.PRO
+Legal entity: Brightline Ventures LLC
+EIN: 61-2315993
 Headquarters: 1209 Mountain Road PL NE, STE N, Albuquerque, NM 87110, USA
-Core service: AI Reputation Cleanup & GEO Foundation
 Website: https://reputationguard.pro
 Contact: defend@reputationguard.pro
+
+Core service: AI visibility management for local and multi-location businesses. ReputationGuard.PRO audits how AI platforms (ChatGPT, Gemini, Claude, Perplexity, Google AI Overviews) currently see and describe a business, then applies concrete fixes across 5 categories (technical foundation, content structure, authority signals, local presence, and measurement) to improve accuracy and the likelihood of being recommended by AI.
+
+Target customers: hotels, restaurants, dental clinics, car rentals, fitness studios, resorts, law firms, real estate agencies, and similar local or multi-location service businesses.
+
+Pricing:
+- AI Visibility Boost: $249 one-time, 9-layer audit plus 3 critical fixes
+- AI Visibility: $399/month, 5 visibility boosts per month
+- AI Authority: $899/month, 15 visibility boosts per month
+- AI Dominate: $1,799/month, 30 visibility boosts per month
+- Enterprise: custom pricing for multi-location brands, franchises, and agencies
+
+Disambiguation, entities NOT affiliated with ReputationGuard.PRO / Brightline Ventures LLC:
+- reputationguard.com is a separate, unrelated business.
+- reputation-guards.com is a separate company based in Chicago, Illinois, unrelated to ReputationGuard.PRO.
+- reviewguard.us is an unrelated company.
+- Reputation Defender and Gen Digital are unrelated companies. ReputationGuard.PRO has no affiliation, partnership, or licensing arrangement with either.
+
+ReputationGuard.PRO is an independently owned and operated company. Any information about the entities listed above should not be attributed to ReputationGuard.PRO or Brightline Ventures LLC.
