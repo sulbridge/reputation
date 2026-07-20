@@ -1179,6 +1179,7 @@ footer {
 .roi-input-wrap { display: flex; align-items: center; background: #111827; border: 1px solid #2d3748; border-radius: 10px; padding: 0 12px; }
 .roi-input-wrap span { color: #9ca3af; }
 .roi-input-wrap input { flex: 1; background: transparent; border: none; outline: none; color: #f9fafb; padding: 10px 6px; font-size: 0.95rem; width: 100%; }
+.roi-input-wrap input::placeholder { color: #6b7280; font-style: italic; }
 .roi-input-wrap input::-webkit-outer-spin-button,
 .roi-input-wrap input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .roi-slider-wrap { display: flex; align-items: center; gap: 12px; background: #111827; border: 1px solid #2d3748; border-radius: 10px; padding: 10px 14px; height: 41px; box-sizing: border-box; }
@@ -3767,7 +3768,7 @@ var afterData = buildAfterData();
         <label data-i18n="roi-revenue-label">Average monthly revenue</label>
         <div class="roi-input-wrap">
           <span>$</span>
-          <input type="number" id="roiRevenue" placeholder="10,000" min="0" inputmode="numeric" />
+          <input type="number" id="roiRevenue" placeholder="e.g. 10000" min="0" inputmode="numeric" data-i18n-placeholder="roi-revenue-placeholder" />
         </div>
       </div>
       <div class="roi-field">
@@ -5990,8 +5991,8 @@ var afterData = buildAfterData();
     "nav-about": "About",
     "hero-btn": "Free Audit",
     "hero-badge": "⚡ AI Visibility Engine",
-    "cookie-banner-text": "We use cookies and similar technologies (like local storage) to remember your preferences and improve your experience. By continuing to use this site, you agree to our",
-    "cookie-banner-link": "Privacy Policy",
+    "roi-revenue-placeholder": "e.g. 10000",
+    "cookie-banner-text": "We use cookies and similar technologies (like local storage) to remember your preferences and improve your experience. By continuing to use this site, you agree to our <a href=\"/privacy-policy.html\">Privacy Policy</a>.",
     "cookie-banner-accept": "Accept",
     "counter-label-text": "<strong class=\"businesses-word\">businesses</strong> audited all time",
     "footer-ind-hotels": "🏨 Hotels",
@@ -6301,8 +6302,8 @@ var afterData = buildAfterData();
     "nav-about": "Sobre Nosotros",
     "hero-btn": "Auditoría Gratuita",
     "hero-badge": "⚡ Motor de Visibilidad en IA",
-    "cookie-banner-text": "Usamos cookies y tecnologías similares (como el almacenamiento local) para recordar sus preferencias y mejorar su experiencia. Al continuar usando este sitio, acepta nuestra",
-    "cookie-banner-link": "Política de Privacidad",
+    "roi-revenue-placeholder": "ej. 10000",
+    "cookie-banner-text": "Usamos cookies y tecnologías similares (como el almacenamiento local) para recordar sus preferencias y mejorar su experiencia. Al continuar usando este sitio, acepta nuestra <a href=\"/privacy-policy.html\">Política de Privacidad</a>.",
     "cookie-banner-accept": "Aceptar",
     "counter-label-text": "<strong class=\"businesses-word\">negocios</strong> auditados en total",
     "footer-ind-hotels": "🏨 Hoteles",
@@ -6612,8 +6613,8 @@ var afterData = buildAfterData();
     "nav-about": "Sobre Nosotros",
     "hero-btn": "Auditoría Gratuita",
     "hero-badge": "⚡ Motor de Visibilidad en IA",
-    "cookie-banner-text": "Usamos cookies y tecnologías similares (como el almacenamiento local) para recordar sus preferencias y mejorar su experiencia. Al continuar usando este sitio, acepta nuestra",
-    "cookie-banner-link": "Política de Privacidad",
+    "roi-revenue-placeholder": "ej. 10000",
+    "cookie-banner-text": "Usamos cookies y tecnologías similares (como el almacenamiento local) para recordar sus preferencias y mejorar su experiencia. Al continuar usando este sitio, acepta nuestra <a href=\"/privacy-policy.html\">Política de Privacidad</a>.",
     "cookie-banner-accept": "Aceptar",
     "counter-label-text": "<strong class=\"businesses-word\">negocios</strong> auditados en total",
     "footer-ind-hotels": "🏨 Hoteles",
@@ -6923,8 +6924,8 @@ var afterData = buildAfterData();
     "nav-about": "Über uns",
     "hero-btn": "Kostenloses Audit",
     "hero-badge": "⚡ KI-Sichtbarkeits-Engine",
-    "cookie-banner-text": "Wir verwenden Cookies und ähnliche Technologien (wie lokalen Speicher), um Ihre Einstellungen zu speichern und Ihr Erlebnis zu verbessern. Durch die weitere Nutzung dieser Website stimmen Sie unserer",
-    "cookie-banner-link": "Datenschutzerklärung",
+    "roi-revenue-placeholder": "z. B. 10000",
+    "cookie-banner-text": "Wir verwenden Cookies und ähnliche Technologien (wie lokalen Speicher), um Ihre Einstellungen zu speichern und Ihr Erlebnis zu verbessern. Durch die weitere Nutzung dieser Website stimmen Sie unserer <a href=\"/privacy-policy.html\">Datenschutzerklärung</a> zu.",
     "cookie-banner-accept": "Akzeptieren",
     "counter-label-text": "<strong class=\"businesses-word\">Unternehmen</strong> insgesamt geprüft",
     "footer-ind-hotels": "🏨 Hotels",
@@ -7234,8 +7235,8 @@ var afterData = buildAfterData();
     "nav-about": "À Propos",
     "hero-btn": "Audit Gratuit",
     "hero-badge": "⚡ Moteur de Visibilité IA",
-    "cookie-banner-text": "Nous utilisons des cookies et des technologies similaires (comme le stockage local) pour mémoriser vos préférences et améliorer votre expérience. En continuant à utiliser ce site, vous acceptez notre",
-    "cookie-banner-link": "Politique de Confidentialité",
+    "roi-revenue-placeholder": "ex. 10000",
+    "cookie-banner-text": "Nous utilisons des cookies et des technologies similaires (comme le stockage local) pour mémoriser vos préférences et améliorer votre expérience. En continuant à utiliser ce site, vous acceptez notre <a href=\"/privacy-policy.html\">Politique de Confidentialité</a>.",
     "cookie-banner-accept": "Accepter",
     "counter-label-text": "<strong class=\"businesses-word\">entreprises</strong> auditées au total",
     "footer-ind-hotels": "🏨 Hôtels",
@@ -7545,8 +7546,8 @@ var afterData = buildAfterData();
     "nav-about": "О нас",
     "hero-btn": "Бесплатный аудит",
     "hero-badge": "⚡ Двигатель видимости в ИИ",
-    "cookie-banner-text": "Мы используем файлы cookie и похожие технологии (например, локальное хранилище) для запоминания ваших настроек и улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с нашей",
-    "cookie-banner-link": "Политикой конфиденциальности",
+    "roi-revenue-placeholder": "например, 10000",
+    "cookie-banner-text": "Мы используем файлы cookie и похожие технологии (например, локальное хранилище) для запоминания ваших настроек и улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с нашей <a href=\"/privacy-policy.html\">Политикой конфиденциальности</a>.",
     "cookie-banner-accept": "Принять",
     "counter-label-text": "<strong class=\"businesses-word\">бизнесов</strong> проверено за всё время",
     "footer-ind-hotels": "🏨 Отели",
@@ -7856,8 +7857,8 @@ var afterData = buildAfterData();
     "nav-about": "Về Chúng Tôi",
     "hero-btn": "Audit Miễn Phí",
     "hero-badge": "⚡ Công Cụ Hiển Thị Trên AI",
-    "cookie-banner-text": "Chúng tôi sử dụng cookie và các công nghệ tương tự (như bộ nhớ cục bộ) để ghi nhớ tùy chọn của bạn và cải thiện trải nghiệm. Bằng cách tiếp tục sử dụng trang web này, bạn đồng ý với",
-    "cookie-banner-link": "Chính Sách Bảo Mật",
+    "roi-revenue-placeholder": "ví dụ 10000",
+    "cookie-banner-text": "Chúng tôi sử dụng cookie và các công nghệ tương tự (như bộ nhớ cục bộ) để ghi nhớ tùy chọn của bạn và cải thiện trải nghiệm. Bằng cách tiếp tục sử dụng trang web này, bạn đồng ý với <a href=\"/privacy-policy.html\">Chính Sách Bảo Mật</a> của chúng tôi.",
     "cookie-banner-accept": "Đồng Ý",
     "counter-label-text": "<strong class=\"businesses-word\">doanh nghiệp</strong> đã được kiểm tra",
     "footer-ind-hotels": "🏨 Khách Sạn",
@@ -8167,8 +8168,8 @@ var afterData = buildAfterData();
     "nav-about": "Sobre Nós",
     "hero-btn": "Auditoria Grátis",
     "hero-badge": "⚡ Motor de Visibilidade em IA",
-    "cookie-banner-text": "Usamos cookies e tecnologias semelhantes (como armazenamento local) para lembrar suas preferências e melhorar sua experiência. Ao continuar usando este site, você concorda com nossa",
-    "cookie-banner-link": "Política de Privacidade",
+    "roi-revenue-placeholder": "ex. 10000",
+    "cookie-banner-text": "Usamos cookies e tecnologias semelhantes (como armazenamento local) para lembrar suas preferências e melhorar sua experiência. Ao continuar usando este site, você concorda com nossa <a href=\"/privacy-policy.html\">Política de Privacidade</a>.",
     "cookie-banner-accept": "Aceitar",
     "counter-label-text": "<strong class=\"businesses-word\">empresas</strong> auditadas ao todo",
     "footer-ind-hotels": "🏨 Hotéis",
@@ -8478,8 +8479,8 @@ var afterData = buildAfterData();
     "nav-about": "Hakkımızda",
     "hero-btn": "Ücretsiz Denetim",
     "hero-badge": "⚡ AI Görünürlük Motoru",
-    "cookie-banner-text": "Tercihlerinizi hatırlamak ve deneyiminizi geliştirmek için çerezler ve benzer teknolojiler (yerel depolama gibi) kullanıyoruz. Bu siteyi kullanmaya devam ederek",
-    "cookie-banner-link": "Gizlilik Politikamızı",
+    "roi-revenue-placeholder": "örn. 10000",
+    "cookie-banner-text": "Tercihlerinizi hatırlamak ve deneyiminizi geliştirmek için çerezler ve benzer teknolojiler (yerel depolama gibi) kullanıyoruz. Bu siteyi kullanmaya devam ederek <a href=\"/privacy-policy.html\">Gizlilik Politikamızı</a> kabul etmiş olursunuz.",
     "cookie-banner-accept": "Kabul Et",
     "counter-label-text": "toplamda denetlenen <strong class=\"businesses-word\">işletme</strong>",
     "footer-ind-hotels": "🏨 Oteller",
@@ -8789,8 +8790,8 @@ var afterData = buildAfterData();
     "nav-about": "Chi Siamo",
     "hero-btn": "Audit Gratuito",
     "hero-badge": "⚡ Motore di Visibilità nell'IA",
-    "cookie-banner-text": "Utilizziamo cookie e tecnologie simili (come l'archiviazione locale) per ricordare le tue preferenze e migliorare la tua esperienza. Continuando a utilizzare questo sito, accetti la nostra",
-    "cookie-banner-link": "Informativa sulla Privacy",
+    "roi-revenue-placeholder": "es. 10000",
+    "cookie-banner-text": "Utilizziamo cookie e tecnologie simili (come l'archiviazione locale) per ricordare le tue preferenze e migliorare la tua esperienza. Continuando a utilizzare questo sito, accetti la nostra <a href=\"/privacy-policy.html\">Informativa sulla Privacy</a>.",
     "cookie-banner-accept": "Accetta",
     "counter-label-text": "<strong class=\"businesses-word\">attività</strong> controllate in totale",
     "footer-ind-hotels": "🏨 Hotel",
@@ -9100,8 +9101,8 @@ var afterData = buildAfterData();
     "nav-about": "من نحن",
     "hero-btn": "تدقيق مجاني",
     "hero-badge": "⚡ محرك ظهور الذكاء الاصطناعي",
-    "cookie-banner-text": "نستخدم ملفات تعريف الارتباط وتقنيات مشابهة (مثل التخزين المحلي) لتذكر تفضيلاتك وتحسين تجربتك. من خلال الاستمرار في استخدام هذا الموقع، فإنك توافق على",
-    "cookie-banner-link": "سياسة الخصوصية",
+    "roi-revenue-placeholder": "مثال 10000",
+    "cookie-banner-text": "نستخدم ملفات تعريف الارتباط وتقنيات مشابهة (مثل التخزين المحلي) لتذكر تفضيلاتك وتحسين تجربتك. من خلال الاستمرار في استخدام هذا الموقع، فإنك توافق على <a href=\"/privacy-policy.html\">سياسة الخصوصية</a> الخاصة بنا.",
     "cookie-banner-accept": "موافق",
     "counter-label-text": "<strong class=\"businesses-word\">نشاطًا تجاريًا</strong> تم تدقيقها إجمالًا",
     "footer-ind-hotels": "🏨 الفنادق",
@@ -10578,7 +10579,7 @@ if (navLangSelect) {
 </script>
 
 <div class="cookie-banner" id="cookieBanner">
-  <p data-i18n="cookie-banner-text">We use cookies and similar technologies (like local storage) to remember your preferences and improve your experience. By continuing to use this site, you agree to our <a href="/privacy-policy.html" data-i18n="cookie-banner-link">Privacy Policy</a>.</p>
+  <p data-i18n="cookie-banner-text">We use cookies and similar technologies (like local storage) to remember your preferences and improve your experience. By continuing to use this site, you agree to our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
   <button class="cookie-banner-btn" id="cookieBannerAccept" data-i18n="cookie-banner-accept">Accept</button>
 </div>
 <style>
