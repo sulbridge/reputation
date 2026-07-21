@@ -1,0 +1,12 @@
+# ReputationGuard.PRO
+
+> ReputationGuard.PRO is an AI visibility platform for local and multi-location businesses, operated by Brightline Ventures LLC. It audits how AI platforms see a business and applies fixes to improve accuracy and the likelihood of being recommended.
+
+## Core Resources
+
+- [Full Company & Service Details](https://reputationguard.pro/llms-full.txt): Complete breakdown of the 9-layer AI analysis framework, the 28 boost types, service tiers and pricing, and disambiguation rules for AI systems.
+
+## Corporate Details
+
+- Legal Entity: Brightline Ventures LLC (Albuquerque, NM, USA)
+- Contact: defend@reputationguard.pro
