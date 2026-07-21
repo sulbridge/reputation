@@ -286,6 +286,68 @@
       margin-top: 8px;
     }
 
+    .lang-dropdown {
+      position: relative;
+    }
+    .lang-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #e5e7eb;
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: 'Inter', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+    }
+    .lang-dropdown-toggle:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: #60A5FA;
+    }
+    .lang-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: #14161d;
+      border: 1px solid #2d3748;
+      border-radius: 14px;
+      padding: 6px;
+      min-width: 170px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+      z-index: 50;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+    .lang-dropdown.open .lang-dropdown-menu { display: block; }
+    .lang-dropdown-menu .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: #e5e7eb;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 8px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      transition: 0.15s;
+      font-family: 'Inter', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+    }
+    .lang-dropdown-menu .lang-btn:hover { background: rgba(255,255,255,0.06); }
+    .lang-dropdown-menu .lang-btn.active { background: #1E3A8A; color: white; }
+    @media (max-width: 992px) {
+      .nav-lang { margin-top: 12px; }
+      .lang-dropdown-menu { left: 50%; right: auto; transform: translateX(-50%); }
+    }
+
     /* ===== TIMELINE (Our Story) ===== */
     .timeline {
       position: relative;
@@ -360,6 +422,15 @@
       transform: translateY(-2px);
     }
 
+    html[dir="rtl"] body {
+      direction: rtl;
+      text-align: right;
+    }
+    html[dir="rtl"] .timeline { padding-left: 0; padding-right: 36px; }
+    html[dir="rtl"] .timeline::before { left: auto; right: 9px; }
+    html[dir="rtl"] .timeline-dot { left: auto; right: -36px; }
+    html[dir="rtl"] .nav-menu, html[dir="rtl"] .footer-container { direction: rtl; }
+
     /* ===== FOOTER (единый с главной) ===== */
     footer {
       background: #0d0f14;
@@ -406,32 +477,35 @@
       text-align: center;
     }
     .footer-lang-switch {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
       gap: 8px;
-      justify-items: center;
       margin-top: 8px;
     }
     .footer-lang-switch .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
       background: #1a1f2b;
-      border: none;
+      border: 1px solid #2d3748;
       font-weight: 600;
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       cursor: pointer;
-      padding: 4px 0;
-      border-radius: 24px;
+      padding: 6px 12px;
+      border-radius: 20px;
       transition: 0.2s;
       color: #9ca3af;
-      width: 70px;
       white-space: nowrap;
-      font-family: 'Segoe UI Emoji', 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+      font-family: 'Inter', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
     }
     .footer-lang-switch .lang-btn.active {
       background: #1E3A8A;
       color: white;
+      border-color: #1E3A8A;
     }
     .footer-lang-switch .lang-btn:hover {
       background: #1e293b;
+      border-color: #3B82F6;
     }
     .footer-bottom {
       text-align: center;
@@ -453,8 +527,7 @@
       .section-title { font-size: 1.8rem; }
       .footer-container { flex-direction: column; text-align: center; gap: 24px; }
       .footer-column p i { width: auto; }
-      .footer-lang-switch { grid-template-columns: repeat(3, 1fr); gap: 6px; justify-items: center; }
-      .footer-lang-switch .lang-btn { width: auto; padding: 4px 8px; }
+      .footer-lang-switch { justify-content: center; }
     }
   </style>
 </head>
@@ -471,23 +544,31 @@
       <i class="fas fa-bars"></i>
     </button>
     <ul class="nav-menu">
-      <li><a href="/#services">Services</a></li>
-      <li><a href="/#pricing">Pricing</a></li>
-      <li><a href="/#cases">Case Studies</a></li>
-      <li><a href="/#faq">FAQ</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/enterprise.html">Enterprise</a></li>
-      <li><a href="/#contact-form-section" class="btn-primary nav-cta">Free Audit</a></li>
+      <li><a href="/" data-i18n="nav_home">Home</a></li>
+      <li><a href="#our-story" data-i18n="story_h1">Our Story</a></li>
+      <li><a href="#what-we-do" data-i18n="wwd_title">What We Do</a></li>
+      <li><a href="#why-trust-us" data-i18n="wtu_title">Why Businesses Trust Us</a></li>
+      <li><a href="#enterprise" data-i18n="nav_enterprise">Enterprise</a></li>
+      <li><a href="/#contact-form-section" class="btn-primary nav-cta" data-i18n="nav_cta">Free Audit</a></li>
+      <li class="nav-lang">
+        <div class="lang-dropdown" id="langDropdown">
+          <button type="button" class="lang-dropdown-toggle" id="langDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span id="langDropdownCurrent">🇺🇸 EN</span>
+            <i class="fas fa-chevron-down" style="font-size:0.65rem;"></i>
+          </button>
+          <div class="lang-dropdown-menu" id="langDropdownMenu"></div>
+        </div>
+      </li>
     </ul>
   </div>
 </div>
 
 <!-- ===== OUR STORY ===== -->
 <div class="container">
-  <section class="section">
-    <span class="badge-ai">Since 2008</span>
-    <h1 class="section-title" style="font-size:1.8rem; margin-bottom: 8px;">Our Story</h1>
-    <p class="section-sub" style="margin-bottom: 8px;">
+  <section class="section" id="our-story">
+    <span class="badge-ai" data-i18n="badge_since">Since 2008</span>
+    <h1 class="section-title" style="font-size:1.8rem; margin-bottom: 8px;" data-i18n="story_h1">Our Story</h1>
+    <p class="section-sub" style="margin-bottom: 8px;" data-i18n="story_intro">
       We didn't discover AI visibility yesterday. We've spent almost two decades learning how brands earn trust online, first from search engines, now from AI.
     </p>
 
@@ -496,26 +577,26 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <span class="timeline-year">2008</span>
-          <h4>Our first website, for a supply business</h4>
-          <p>It started with a single hand‑coded HTML site built for a supply‑chain business. No frameworks, no shortcuts, just learning, line by line, what makes a business believable online.</p>
+          <h4 data-i18n="t1_title">Our first website, for a supply business</h4>
+          <p data-i18n="t1_text">It started with a single hand‑coded HTML site built for a supply‑chain business. No frameworks, no shortcuts, just learning, line by line, what makes a business believable online.</p>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <span class="timeline-year">2009 – 2018</span>
-          <h4>The SEO decade</h4>
-          <p>That first site turned into hundreds more. We moved deep into SEO, built and grew dozens of technology and internet businesses, and spent a decade figuring out exactly what search engines, and the people behind them, trust and reward.</p>
+          <h4 data-i18n="t2_title">The SEO decade</h4>
+          <p data-i18n="t2_text">That first site turned into hundreds more. We moved deep into SEO, built and grew dozens of technology and internet businesses, and spent a decade figuring out exactly what search engines, and the people behind them, trust and reward.</p>
         </div>
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <span class="timeline-year">2019 – 2022</span>
-          <h4>The rise of neural networks</h4>
-          <p>As the first large language models emerged, we saw the shift coming early: the gatekeeper to customers was changing from search rankings to AI answers. We started studying how these models form opinions about brands.</p>
+          <h4 data-i18n="t3_title">The rise of neural networks</h4>
+          <p data-i18n="t3_text">As the first large language models emerged, we saw the shift coming early: the gatekeeper to customers was changing from search rankings to AI answers. We started studying how these models form opinions about brands.</p>
         </div>
         <div class="timeline-item is-now">
           <div class="timeline-dot"></div>
-          <span class="timeline-year">Today</span>
-          <h4>AI recommendations, automated at scale</h4>
-          <p>Now most of the process is automated: continuous audits, signal cleanup, and monitoring across ChatGPT, Gemini, Claude and Perplexity. That's 18 years of hands‑on experience, from one HTML page to a full AI Visibility Engine, distilled into a system built to get you recommended.</p>
+          <span class="timeline-year" data-i18n="t4_year">Today</span>
+          <h4 data-i18n="t4_title">AI recommendations, automated at scale</h4>
+          <p data-i18n="t4_text">Now most of the process is automated: continuous audits, signal cleanup, and monitoring across ChatGPT, Gemini, Claude and Perplexity. That's 18 years of hands‑on experience, from one HTML page to a full AI Visibility Engine, distilled into a system built to get you recommended.</p>
         </div>
       </div>
 
@@ -523,32 +604,32 @@
         <div style="background: #1a1f2b; border-radius: 28px; padding: 32px 24px; border: 1px solid #2d3748; text-align: center;">
           <img src="https://reputationguard.pro/founderreputationguardpro.png" alt="Aleksei Zlobin, Founder & CEO of ReputationGuardPro" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #3B82F6; margin: 0 auto 16px;" />
           <p style="color: #f9fafb; font-weight: 700; font-size: 1.15rem; margin-bottom: 2px;">Aleksei Zlobin</p>
-          <p style="color: #60A5FA; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">Founder &amp; CEO</p>
-          <p style="color: #9ca3af; font-size: 0.9rem; text-align: left; margin-bottom: 16px;">
+          <p style="color: #60A5FA; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;" data-i18n="founder_role">Founder &amp; CEO</p>
+          <p style="color: #9ca3af; font-size: 0.9rem; text-align: left; margin-bottom: 16px;" data-i18n="founder_bio">
             Aleksei has spent almost two decades in web and search, starting with a single hand‑coded HTML site in 2008 and going on to build hundreds more. He led the shift from classic SEO into AI visibility early, and now heads the team behind ReputationGuardPro's 9‑layer audit system.
           </p>
           <a href="https://www.f6s.com/aivisibility#about" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; color: #93C5FD; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
-            <i class="fas fa-rocket"></i> View on F6S
+            <i class="fas fa-rocket"></i> <span data-i18n="view_f6s">View on F6S</span>
           </a>
         </div>
 
         <div style="background: #1a1f2b; border-radius: 28px; padding: 32px 24px; border: 1px solid #2d3748; text-align: center; margin-top: 24px;">
           <img src="https://reputationguard.pro/cofoundercforeputationguardpro.png" alt="Vitalii Salakhov, Co‑Founder & CFO of ReputationGuardPro" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #3B82F6; margin: 0 auto 16px;" />
           <p style="color: #f9fafb; font-weight: 700; font-size: 1.15rem; margin-bottom: 2px;">Vitalii Salakhov</p>
-          <p style="color: #60A5FA; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">Co‑Founder &amp; CFO</p>
-          <p style="color: #9ca3af; font-size: 0.9rem; text-align: left; margin-bottom: 16px;">
+          <p style="color: #60A5FA; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;" data-i18n="cofounder_role">Co‑Founder &amp; CFO</p>
+          <p style="color: #9ca3af; font-size: 0.9rem; text-align: left; margin-bottom: 16px;" data-i18n="cofounder_bio">
             Vitalii oversees the numbers behind the mission: pricing, unit economics, and making sure every client sees a clear return on their investment. His discipline keeps ReputationGuardPro's growth sustainable as it scales from dozens to hundreds of accounts.
           </p>
           <a href="https://www.f6s.com/cforeputationguardpro" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; color: #93C5FD; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
-            <i class="fas fa-rocket"></i> View on F6S
+            <i class="fas fa-rocket"></i> <span data-i18n="view_f6s">View on F6S</span>
           </a>
         </div>
 
         <div style="background: #1a1f2b; border-radius: 28px; padding: 28px 24px; border: 1px solid #2d3748; text-align: center; margin-top: 24px; position: sticky; top: 96px;">
           <div style="font-size: 4rem; margin-bottom: 12px;">🚀</div>
-          <p style="color: #f9fafb; font-weight: 700; font-size: 1.2rem;">AI Visibility Score</p>
+          <p style="color: #f9fafb; font-weight: 700; font-size: 1.2rem;" data-i18n="score_title">AI Visibility Score</p>
           <p style="color: #60A5FA; font-size: 3rem; font-weight: 800;">0–100</p>
-          <p style="color: #9ca3af; font-size: 0.9rem;">We don't guess. We measure exactly where you stand across 9 critical layers, built on nearly two decades of experience in what makes brands trusted online.</p>
+          <p style="color: #9ca3af; font-size: 0.9rem;" data-i18n="score_text">We don't guess. We measure exactly where you stand across 9 critical layers, built on nearly two decades of experience in what makes brands trusted online.</p>
         </div>
       </div>
     </div>
@@ -557,25 +638,25 @@
 
 <!-- ===== WHAT WE DO ===== -->
 <div class="container">
-  <section class="section">
-    <h2 class="section-title">What We Do</h2>
-    <p class="section-sub" style="margin-bottom: 20px;">We don't just clean reviews. We <strong>boost</strong> your brand's AI visibility, systematically, layer by layer.</p>
+  <section class="section" id="what-we-do">
+    <h2 class="section-title" data-i18n="wwd_title">What We Do</h2>
+    <p class="section-sub" style="margin-bottom: 20px;" data-i18n-html="true" data-i18n="wwd_sub">We don't just clean reviews. We <strong>boost</strong> your brand's AI visibility, systematically, layer by layer.</p>
     <div class="grid-2">
       <div class="card">
-        <h3><i class="fas fa-search"></i> 9‑Layer AI Audit</h3>
-        <p>We scan your brand across all major AI platforms. Identify exactly which signals are hurting your visibility, from inconsistent listings to weak schema markup.</p>
+        <h3><i class="fas fa-search"></i> <span data-i18n="wwd1_title">9‑Layer AI Audit</span></h3>
+        <p data-i18n="wwd1_text">We scan your brand across all major AI platforms. Identify exactly which signals are hurting your visibility, from inconsistent listings to weak schema markup.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-broom"></i> Signal Cleanup &amp; Boosts</h3>
-        <p>We clean the data AI relies on. Fix inconsistencies and apply targeted <strong>boosts</strong> so AI starts recommending your brand with confidence.</p>
+        <h3><i class="fas fa-broom"></i> <span data-i18n="wwd2_title">Signal Cleanup &amp; Boosts</span></h3>
+        <p data-i18n-html="true" data-i18n="wwd2_text">We clean the data AI relies on. Fix inconsistencies and apply targeted <strong>boosts</strong> so AI starts recommending your brand with confidence.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-chart-line"></i> AI Visibility Monitoring</h3>
-        <p>Weekly reports track your AI visibility score across ChatGPT, Gemini, Perplexity, Claude, and more. You see exactly when your brand starts winning AI recommendations.</p>
+        <h3><i class="fas fa-chart-line"></i> <span data-i18n="wwd3_title">AI Visibility Monitoring</span></h3>
+        <p data-i18n="wwd3_text">Weekly reports track your AI visibility score across ChatGPT, Gemini, Perplexity, Claude, and more. You see exactly when your brand starts winning AI recommendations.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-shield-alt"></i> Continuous Protection</h3>
-        <p>Real‑time alerts notify you of new reputation risks. We keep your AI visibility high so your competitors stay behind, and AI keeps recommending you.</p>
+        <h3><i class="fas fa-shield-alt"></i> <span data-i18n="wwd4_title">Continuous Protection</span></h3>
+        <p data-i18n="wwd4_text">Real‑time alerts notify you of new reputation risks. We keep your AI visibility high so your competitors stay behind, and AI keeps recommending you.</p>
       </div>
     </div>
   </section>
@@ -583,25 +664,25 @@
 
 <!-- ===== WHY TRUST US ===== -->
 <div class="container">
-  <section class="section">
-    <h2 class="section-title">Why Businesses Trust Us</h2>
+  <section class="section" id="why-trust-us">
+    <h2 class="section-title" data-i18n="wtu_title">Why Businesses Trust Us</h2>
     <div class="grid-2">
       <div class="card">
-        <h3><i class="fas fa-robot"></i> 9‑Layer AI Expertise</h3>
-        <p>We don't guess. We analyse the 9 specific layers that AI models use to evaluate trust. You get a clear score and a roadmap to improve it.</p>
+        <h3><i class="fas fa-robot"></i> <span data-i18n="wtu1_title">9‑Layer AI Expertise</span></h3>
+        <p data-i18n="wtu1_text">We don't guess. We analyse the 9 specific layers that AI models use to evaluate trust. You get a clear score and a roadmap to improve it.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-check-circle"></i> 89% Signal Cleanup Success</h3>
-        <p>Our policy‑based approach consistently outperforms industry averages. We know exactly what signals to target and how to fix them.</p>
-        <p class="stat-highlight">*Based on 500+ audits processed in 2025. Individual results vary.</p>
+        <h3><i class="fas fa-check-circle"></i> <span data-i18n="wtu2_title">89% Signal Cleanup Success</span></h3>
+        <p data-i18n="wtu2_text">Our policy‑based approach consistently outperforms industry averages. We know exactly what signals to target and how to fix them.</p>
+        <p class="stat-highlight" data-i18n="wtu2_stat">*Based on 500+ audits processed in 2025. Individual results vary.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-globe"></i> Trusted in 12+ Countries</h3>
-        <p>From boutique hotels in Bali to dental clinics in Texas, we've helped businesses worldwide get recommended by AI.</p>
+        <h3><i class="fas fa-globe"></i> <span data-i18n="wtu3_title">Trusted in 12+ Countries</span></h3>
+        <p data-i18n="wtu3_text">From boutique hotels in Bali to dental clinics in Texas, we've helped businesses worldwide get recommended by AI.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-shield-alt"></i> 100% Transparent</h3>
-        <p>You keep full control. We work as trusted partners, not owners. No hidden fees, no surprises, just results you can see.</p>
+        <h3><i class="fas fa-shield-alt"></i> <span data-i18n="wtu4_title">100% Transparent</span></h3>
+        <p data-i18n="wtu4_text">You keep full control. We work as trusted partners, not owners. No hidden fees, no surprises, just results you can see.</p>
       </div>
     </div>
   </section>
@@ -610,16 +691,16 @@
 <!-- ===== VERIFIED PROFILES ===== -->
 <div class="container">
   <section class="section" style="margin: 40px 0;">
-    <p style="color:#6b7280; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px; text-align:center;">Verified Profiles</p>
+    <p style="color:#6b7280; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px; text-align:center;" data-i18n="verified_label">Verified Profiles</p>
     <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;">
       <a href="https://www.f6s.com/reputationguard.pro" target="_blank" rel="noopener" class="badge-link" style="display:flex; align-items:center; gap:10px; background:#1a1f2b; border:1px solid #2d3748; border-radius:40px; padding:10px 22px; text-decoration:none; transition:0.2s;">
         <i class="fas fa-rocket" style="color:#F97316;"></i>
-        <span style="color:#f9fafb; font-weight:600; font-size:0.9rem;">Verified on F6S</span>
+        <span style="color:#f9fafb; font-weight:600; font-size:0.9rem;" data-i18n="verified_company">Verified on F6S</span>
         <i class="fas fa-arrow-up-right-from-square" style="color:#6b7280; font-size:0.75rem;"></i>
       </a>
       <a href="https://www.f6s.com/aivisibility#about" target="_blank" rel="noopener" class="badge-link" style="display:flex; align-items:center; gap:10px; background:#1a1f2b; border:1px solid #2d3748; border-radius:40px; padding:10px 22px; text-decoration:none; transition:0.2s;">
         <i class="fas fa-rocket" style="color:#F97316;"></i>
-        <span style="color:#f9fafb; font-weight:600; font-size:0.9rem;">Founder on F6S</span>
+        <span style="color:#f9fafb; font-weight:600; font-size:0.9rem;" data-i18n="verified_founder">Founder on F6S</span>
         <i class="fas fa-arrow-up-right-from-square" style="color:#6b7280; font-size:0.75rem;"></i>
       </a>
     </div>
@@ -628,24 +709,24 @@
 
 <!-- ===== ENTERPRISE ===== -->
 <div class="container">
-  <section class="section">
+  <section class="section" id="enterprise">
     <div style="background: linear-gradient(135deg, #14203b, #1a1f2b); border: 1px solid #3B82F6; border-radius: 28px; padding: 40px 32px; position: relative; overflow: hidden;">
-      <span class="badge-ai" style="margin-bottom: 16px;"><i class="fas fa-building" style="margin-right:6px;"></i> For Larger Organizations</span>
+      <span class="badge-ai" style="margin-bottom: 16px;"><i class="fas fa-building" style="margin-right:6px;"></i> <span data-i18n="ent_badge">For Larger Organizations</span></span>
       <div class="grid-2" style="align-items: center; margin: 8px 0 0;">
         <div>
-          <h2 style="color:#f9fafb; font-size: 1.7rem; font-weight: 800; margin-bottom: 12px; letter-spacing:-0.02em;">Enterprise AI Visibility</h2>
-          <p style="color:#9ca3af; font-size: 1.05rem;">
+          <h2 style="color:#f9fafb; font-size: 1.7rem; font-weight: 800; margin-bottom: 12px; letter-spacing:-0.02em;" data-i18n="ent_title">Enterprise AI Visibility</h2>
+          <p style="color:#9ca3af; font-size: 1.05rem;" data-i18n="ent_text">
             Multi‑location brands, franchises, and portfolios need more than a single audit. Our Enterprise plan brings dedicated strategy, custom integrations, and hands‑on management to organizations managing AI visibility across dozens or hundreds of locations.
           </p>
         </div>
         <div>
           <ul style="list-style: none; margin-bottom: 24px;">
-            <li style="color:#e5e7eb; margin-bottom: 10px; display:flex; align-items:flex-start; gap:10px;"><i class="fas fa-check-circle" style="color:#60A5FA; margin-top:4px;"></i> Dedicated AI reputation manager &amp; strategy calls</li>
-            <li style="color:#e5e7eb; margin-bottom: 10px; display:flex; align-items:flex-start; gap:10px;"><i class="fas fa-check-circle" style="color:#60A5FA; margin-top:4px;"></i> Multi‑location &amp; multi‑brand rollout</li>
-            <li style="color:#e5e7eb; margin-bottom: 10px; display:flex; align-items:flex-start; gap:10px;"><i class="fas fa-check-circle" style="color:#60A5FA; margin-top:4px;"></i> Custom reporting &amp; API / CRM integrations</li>
-            <li style="color:#e5e7eb; margin-bottom: 10px; display:flex; align-items:flex-start; gap:10px;"><i class="fas fa-check-circle" style="color:#60A5FA; margin-top:4px;"></i> Priority SLA &amp; white‑glove onboarding</li>
+            <li style="color:#e5e7eb; margin-bottom: 10px; display:flex; align-items:flex-start; gap:10px;"><i class="fas fa-check-circle" style="color:#60A5FA; margin-top:4px;"></i> <span data-i18n="ent_li1">Dedicated AI reputation manager &amp; strategy calls</span></li>
+            <li style="color:#e5e7eb; margin-bottom: 10px; display:flex; align-items:flex-start; gap:10px;"><i class="fas fa-check-circle" style="color:#60A5FA; margin-top:4px;"></i> <span data-i18n="ent_li2">Multi‑location &amp; multi‑brand rollout</span></li>
+            <li style="color:#e5e7eb; margin-bottom: 10px; display:flex; align-items:flex-start; gap:10px;"><i class="fas fa-check-circle" style="color:#60A5FA; margin-top:4px;"></i> <span data-i18n="ent_li3">Custom reporting &amp; API / CRM integrations</span></li>
+            <li style="color:#e5e7eb; margin-bottom: 10px; display:flex; align-items:flex-start; gap:10px;"><i class="fas fa-check-circle" style="color:#60A5FA; margin-top:4px;"></i> <span data-i18n="ent_li4">Priority SLA &amp; white‑glove onboarding</span></li>
           </ul>
-          <a href="/enterprise.html" class="btn-primary">Explore Enterprise →</a>
+          <a href="/enterprise.html" class="btn-primary" data-i18n="ent_cta">Explore Enterprise →</a>
         </div>
       </div>
     </div>
@@ -656,8 +737,8 @@
 <div class="container">
   <section class="section">
     <div class="card" style="border-color:#F59E0B; background: #1e222e;">
-      <h3 style="color:#F59E0B;"><i class="fas fa-balance-scale"></i> Important: We Are Not a Law Firm</h3>
-      <p style="color:#d1d5db;">
+      <h3 style="color:#F59E0B;"><i class="fas fa-balance-scale"></i> <span data-i18n="law_title">Important: We Are Not a Law Firm</span></h3>
+      <p style="color:#d1d5db;" data-i18n-html="true" data-i18n="law_text">
         ReputationGuardPro is an <strong>AI visibility and reputation technology company</strong>, not a legal practice. We do not provide legal advice or represent clients in court. Our work focuses on identifying weak reputation signals, preparing evidence‑based appeals, and filing them through official platform channels. If legal action is required, we compile a complete evidence brief for your licensed attorney. We always encourage clients to consult qualified legal counsel for defamation or related claims.
       </p>
     </div>
@@ -667,8 +748,8 @@
 <!-- ===== CTA ===== -->
 <div class="container">
   <section class="section" style="text-align: center;">
-    <p style="color: #9ca3af; font-size: 1.05rem; margin-bottom: 24px;">See exactly where your brand stands, free.</p>
-    <a href="/#contact-form-section" class="btn-primary">Get Your Free AI Visibility Audit →</a>
+    <p style="color: #9ca3af; font-size: 1.05rem; margin-bottom: 24px;" data-i18n="cta_text">See exactly where your brand stands, free.</p>
+    <a href="/#contact-form-section" class="btn-primary" data-i18n="cta_btn">Get Your Free AI Visibility Audit →</a>
   </section>
 </div>
 
@@ -678,69 +759,673 @@
 
     <div class="footer-column">
       <h4>ReputationGuard</h4>
-      <p>AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends, by restoring the trust signals that drive AI visibility and sales.</p>
-      <p style="margin-top: 8px;"><a href="/about.html">About Us</a></p>
+      <p data-i18n="footer_desc">AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends, by restoring the trust signals that drive AI visibility and sales.</p>
+      <p style="margin-top: 8px;"><a href="/about.html" data-i18n="footer_about">About Us</a></p>
     </div>
 
     <div class="footer-column">
-      <h4>Services</h4>
+      <h4 data-i18n="footer_services">Services</h4>
       <ul>
-        <li><a href="/review-removal.html">AI Visibility Optimization</a></li>
-        <li><a href="/appeal-filing.html">Signal Cleanup</a></li>
-        <li><a href="/reputation-monitoring.html">AI Sentiment Monitoring</a></li>
-        <li><a href="/serm-consulting.html">GEO Strategy Consulting</a></li>
-        <li><a href="/affiliate.html">Affiliate Program</a></li>
-        <li><a href="/white-label.html">White‑Label Partnership</a></li>
-        <li><a href="/enterprise.html">Enterprise</a></li>
+        <li><a href="/review-removal.html" data-i18n="footer_s1">AI Visibility Optimization</a></li>
+        <li><a href="/appeal-filing.html" data-i18n="footer_s2">Signal Cleanup</a></li>
+        <li><a href="/reputation-monitoring.html" data-i18n="footer_s3">AI Sentiment Monitoring</a></li>
+        <li><a href="/serm-consulting.html" data-i18n="footer_s4">GEO Strategy Consulting</a></li>
+        <li><a href="/affiliate.html" data-i18n="footer_s5">Affiliate Program</a></li>
+        <li><a href="/white-label.html" data-i18n="footer_s6">White‑Label Partnership</a></li>
+        <li><a href="/enterprise.html" data-i18n="nav_enterprise">Enterprise</a></li>
       </ul>
     </div>
 
     <div class="footer-column">
-      <h4>Industries</h4>
+      <h4 data-i18n="footer_industries">Industries</h4>
       <ul>
-        <li><a href="/hotel-reputation-management.html">🏨 Hotels</a></li>
-        <li><a href="/dental-reputation-management.html">🦷 Dental Clinics</a></li>
-        <li><a href="/restaurant-reputation-management.html">🍽️ Restaurants</a></li>
-        <li><a href="/car-rental-reputation-management.html">🚗 Car Rentals</a></li>
-        <li><a href="/tour-reputation-management.html">✈️ Tours & Travel</a></li>
-        <li><a href="/fitness-reputation-management.html">💪 Fitness & Physio</a></li>
-        <li><a href="/resort-reputation-management.html">🌴 Resorts</a></li>
-        <li><a href="/legal-reputation-management.html">⚖️ Law Firms</a></li>
-        <li><a href="/real-estate-reputation-management.html">🏠 Real Estate</a></li>
+        <li><a href="/hotel-reputation-management.html">🏨 <span data-i18n="footer_i1">Hotels</span></a></li>
+        <li><a href="/dental-reputation-management.html">🦷 <span data-i18n="footer_i2">Dental Clinics</span></a></li>
+        <li><a href="/restaurant-reputation-management.html">🍽️ <span data-i18n="footer_i3">Restaurants</span></a></li>
+        <li><a href="/car-rental-reputation-management.html">🚗 <span data-i18n="footer_i4">Car Rentals</span></a></li>
+        <li><a href="/tour-reputation-management.html">✈️ <span data-i18n="footer_i5">Tours &amp; Travel</span></a></li>
+        <li><a href="/fitness-reputation-management.html">💪 <span data-i18n="footer_i6">Fitness &amp; Physio</span></a></li>
+        <li><a href="/resort-reputation-management.html">🌴 <span data-i18n="footer_i7">Resorts</span></a></li>
+        <li><a href="/legal-reputation-management.html">⚖️ <span data-i18n="footer_i8">Law Firms</span></a></li>
+        <li><a href="/real-estate-reputation-management.html">🏠 <span data-i18n="footer_i9">Real Estate</span></a></li>
       </ul>
     </div>
 
     <div class="footer-column">
-      <h4>Legal</h4>
+      <h4 data-i18n="footer_legal">Legal</h4>
       <ul>
-        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-        <li><a href="/terms-of-service.html">Terms of Service</a></li>
-        <li><a href="/refund-policy.html">Refund Policy</a></li>
-        <li><a href="https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400" target="_blank">Manage Subscription</a></li>
+        <li><a href="/privacy-policy.html" data-i18n="footer_l1">Privacy Policy</a></li>
+        <li><a href="/terms-of-service.html" data-i18n="footer_l2">Terms of Service</a></li>
+        <li><a href="/refund-policy.html" data-i18n="footer_l3">Refund Policy</a></li>
+        <li><a href="https://billing.stripe.com/p/login/dRmeVcdyf1f14O58u2bo400" target="_blank" data-i18n="footer_l4">Manage Subscription</a></li>
       </ul>
     </div>
 
     <div class="footer-column">
-      <h4>Contact</h4>
+      <h4 data-i18n="footer_contact">Contact</h4>
       <p><i class="fas fa-envelope"></i> defend@reputationguard.pro</p>
       <p><i class="fas fa-globe"></i> reputationguard.pro</p>
       <p>
         <i class="fas fa-phone-alt"></i>
         <a href="tel:+15053136274" style="color:#93C5FD;">+1 (505) 313‑6274</a>
-        <span style="color:#9ca3af; display:block; font-size:0.75rem; margin-top:2px;">Call / WhatsApp · Mon–Fri 9am–6pm EST</span>
+        <span style="color:#9ca3af; display:block; font-size:0.75rem; margin-top:2px;" data-i18n="footer_hours">Call / WhatsApp · Mon–Fri 9am–6pm EST</span>
       </p>
+    </div>
+
+    <div class="footer-column">
+      <h4 data-i18n="footer_language">Language</h4>
+      <div class="footer-lang-switch" id="footerLangSwitch"></div>
     </div>
 
   </div>
 
   <div class="footer-bottom">
-    <p>*Results may vary. AI platforms make independent recommendation decisions.</p>
-    <p>© 2026 ReputationGuard Global. All rights reserved.</p>
+    <p data-i18n="footer_disclaimer">*Results may vary. AI platforms make independent recommendation decisions.</p>
+    <p data-i18n="footer_copyright">© 2026 ReputationGuard Global. All rights reserved.</p>
     <p style="font-size: 0.65rem; color: #9ca3af; margin-top: 8px;">
       1209 Mountain Road PL NE, STE N, Albuquerque, NM 87110, USA
     </p>
   </div>
 </footer>
+
+<!-- ===== I18N: AUTO LANGUAGE DETECTION + SWITCHER ===== -->
+<script>
+(function(){
+  var LANGS = [
+    { code: 'en', label: 'EN', flag: '🇺🇸' },
+    { code: 'vi', label: 'VI', flag: '🇻🇳' },
+    { code: 'pt', label: 'PT', flag: '🇧🇷' },
+    { code: 'tr', label: 'TR', flag: '🇹🇷' },
+    { code: 'ar', label: 'ع',  flag: '🇦🇪' },
+    { code: 'es', label: 'ES', flag: '🇪🇸' },
+    { code: 'de', label: 'DE', flag: '🇩🇪' },
+    { code: 'fr', label: 'FR', flag: '🇫🇷' }
+  ];
+  var RTL = ['ar'];
+
+  var T = {
+    en: {
+      nav_home:"Home", nav_enterprise:"Enterprise", nav_cta:"Free Audit",
+      badge_since:"Since 2008", story_h1:"Our Story",
+      story_intro:"We didn't discover AI visibility yesterday. We've spent almost two decades learning how brands earn trust online, first from search engines, now from AI.",
+      t1_title:"Our first website, for a supply business",
+      t1_text:"It started with a single hand‑coded HTML site built for a supply‑chain business. No frameworks, no shortcuts, just learning, line by line, what makes a business believable online.",
+      t2_title:"The SEO decade",
+      t2_text:"That first site turned into hundreds more. We moved deep into SEO, built and grew dozens of technology and internet businesses, and spent a decade figuring out exactly what search engines, and the people behind them, trust and reward.",
+      t3_title:"The rise of neural networks",
+      t3_text:"As the first large language models emerged, we saw the shift coming early: the gatekeeper to customers was changing from search rankings to AI answers. We started studying how these models form opinions about brands.",
+      t4_year:"Today", t4_title:"AI recommendations, automated at scale",
+      t4_text:"Now most of the process is automated: continuous audits, signal cleanup, and monitoring across ChatGPT, Gemini, Claude and Perplexity. That's 18 years of hands‑on experience, from one HTML page to a full AI Visibility Engine, distilled into a system built to get you recommended.",
+      founder_role:"Founder & CEO",
+      founder_bio:"Aleksei has spent almost two decades in web and search, starting with a single hand‑coded HTML site in 2008 and going on to build hundreds more. He led the shift from classic SEO into AI visibility early, and now heads the team behind ReputationGuardPro's 9‑layer audit system.",
+      cofounder_role:"Co‑Founder & CFO",
+      cofounder_bio:"Vitalii oversees the numbers behind the mission: pricing, unit economics, and making sure every client sees a clear return on their investment. His discipline keeps ReputationGuardPro's growth sustainable as it scales from dozens to hundreds of accounts.",
+      view_f6s:"View on F6S", score_title:"AI Visibility Score",
+      score_text:"We don't guess. We measure exactly where you stand across 9 critical layers, built on nearly two decades of experience in what makes brands trusted online.",
+      wwd_title:"What We Do",
+      wwd_sub:"We don't just clean reviews. We <strong>boost</strong> your brand's AI visibility, systematically, layer by layer.",
+      wwd1_title:"9‑Layer AI Audit",
+      wwd1_text:"We scan your brand across all major AI platforms. Identify exactly which signals are hurting your visibility, from inconsistent listings to weak schema markup.",
+      wwd2_title:"Signal Cleanup & Boosts",
+      wwd2_text:"We clean the data AI relies on. Fix inconsistencies and apply targeted <strong>boosts</strong> so AI starts recommending your brand with confidence.",
+      wwd3_title:"AI Visibility Monitoring",
+      wwd3_text:"Weekly reports track your AI visibility score across ChatGPT, Gemini, Perplexity, Claude, and more. You see exactly when your brand starts winning AI recommendations.",
+      wwd4_title:"Continuous Protection",
+      wwd4_text:"Real‑time alerts notify you of new reputation risks. We keep your AI visibility high so your competitors stay behind, and AI keeps recommending you.",
+      wtu_title:"Why Businesses Trust Us",
+      wtu1_title:"9‑Layer AI Expertise",
+      wtu1_text:"We don't guess. We analyse the 9 specific layers that AI models use to evaluate trust. You get a clear score and a roadmap to improve it.",
+      wtu2_title:"89% Signal Cleanup Success",
+      wtu2_text:"Our policy‑based approach consistently outperforms industry averages. We know exactly what signals to target and how to fix them.",
+      wtu2_stat:"*Based on 500+ audits processed in 2025. Individual results vary.",
+      wtu3_title:"Trusted in 12+ Countries",
+      wtu3_text:"From boutique hotels in Bali to dental clinics in Texas, we've helped businesses worldwide get recommended by AI.",
+      wtu4_title:"100% Transparent",
+      wtu4_text:"You keep full control. We work as trusted partners, not owners. No hidden fees, no surprises, just results you can see.",
+      verified_label:"Verified Profiles", verified_company:"Verified on F6S", verified_founder:"Founder on F6S",
+      ent_badge:"For Larger Organizations", ent_title:"Enterprise AI Visibility",
+      ent_text:"Multi‑location brands, franchises, and portfolios need more than a single audit. Our Enterprise plan brings dedicated strategy, custom integrations, and hands‑on management to organizations managing AI visibility across dozens or hundreds of locations.",
+      ent_li1:"Dedicated AI reputation manager & strategy calls",
+      ent_li2:"Multi‑location & multi‑brand rollout",
+      ent_li3:"Custom reporting & API / CRM integrations",
+      ent_li4:"Priority SLA & white‑glove onboarding",
+      ent_cta:"Explore Enterprise →",
+      law_title:"Important: We Are Not a Law Firm",
+      law_text:"ReputationGuardPro is an <strong>AI visibility and reputation technology company</strong>, not a legal practice. We do not provide legal advice or represent clients in court. Our work focuses on identifying weak reputation signals, preparing evidence‑based appeals, and filing them through official platform channels. If legal action is required, we compile a complete evidence brief for your licensed attorney. We always encourage clients to consult qualified legal counsel for defamation or related claims.",
+      cta_text:"See exactly where your brand stands, free.", cta_btn:"Get Your Free AI Visibility Audit →",
+      footer_desc:"AI reputation management for hotels, restaurants, dental clinics, car rentals, gyms, retail shops, resorts, law firms, and real estate. We make your brand the one AI recommends, by restoring the trust signals that drive AI visibility and sales.",
+      footer_about:"About Us", footer_services:"Services",
+      footer_s1:"AI Visibility Optimization", footer_s2:"Signal Cleanup", footer_s3:"AI Sentiment Monitoring", footer_s4:"GEO Strategy Consulting", footer_s5:"Affiliate Program", footer_s6:"White‑Label Partnership",
+      footer_industries:"Industries",
+      footer_i1:"Hotels", footer_i2:"Dental Clinics", footer_i3:"Restaurants", footer_i4:"Car Rentals", footer_i5:"Tours & Travel", footer_i6:"Fitness & Physio", footer_i7:"Resorts", footer_i8:"Law Firms", footer_i9:"Real Estate",
+      footer_legal:"Legal", footer_l1:"Privacy Policy", footer_l2:"Terms of Service", footer_l3:"Refund Policy", footer_l4:"Manage Subscription",
+      footer_contact:"Contact", footer_hours:"Call / WhatsApp · Mon–Fri 9am–6pm EST",
+      footer_language:"Language",
+      footer_disclaimer:"*Results may vary. AI platforms make independent recommendation decisions.",
+      footer_copyright:"© 2026 ReputationGuard Global. All rights reserved."
+    },
+    vi: {
+      nav_home:"Trang chủ", nav_enterprise:"Doanh nghiệp", nav_cta:"Kiểm tra miễn phí",
+      badge_since:"Từ năm 2008", story_h1:"Câu chuyện của chúng tôi",
+      story_intro:"Chúng tôi không phát hiện ra AI visibility ngày hôm qua. Gần hai thập kỷ qua, chúng tôi đã học cách các thương hiệu xây dựng niềm tin trực tuyến, trước tiên với công cụ tìm kiếm, giờ đây với AI.",
+      t1_title:"Website đầu tiên, cho một doanh nghiệp cung ứng",
+      t1_text:"Mọi thứ bắt đầu với một trang HTML viết tay cho một doanh nghiệp chuỗi cung ứng. Không framework, không đường tắt, chỉ có việc học từng dòng một điều gì làm một doanh nghiệp đáng tin trên mạng.",
+      t2_title:"Thập kỷ SEO",
+      t2_text:"Trang web đầu tiên đó phát triển thành hàng trăm trang khác. Chúng tôi đi sâu vào SEO, xây dựng và phát triển hàng chục doanh nghiệp công nghệ và internet, dành cả một thập kỷ để hiểu rõ điều mà công cụ tìm kiếm, và những người đứng sau chúng, tin tưởng và đánh giá cao.",
+      t3_title:"Sự trỗi dậy của mạng nơ‑ron",
+      t3_text:"Khi các mô hình ngôn ngữ lớn đầu tiên xuất hiện, chúng tôi đã nhận ra sự thay đổi từ sớm: cánh cửa đến khách hàng đang chuyển từ thứ hạng tìm kiếm sang câu trả lời của AI. Chúng tôi bắt đầu nghiên cứu cách các mô hình này hình thành quan điểm về thương hiệu.",
+      t4_year:"Hiện tại", t4_title:"Đề xuất từ AI, tự động hóa ở quy mô lớn",
+      t4_text:"Ngày nay, hầu hết quy trình đã được tự động hóa: kiểm tra liên tục, làm sạch tín hiệu và giám sát trên ChatGPT, Gemini, Claude và Perplexity. Đó là 18 năm kinh nghiệm thực chiến, từ một trang HTML đến một AI Visibility Engine hoàn chỉnh, được chắt lọc thành một hệ thống giúp bạn được AI đề xuất.",
+      founder_role:"Nhà sáng lập & CEO",
+      founder_bio:"Aleksei đã dành gần hai thập kỷ trong lĩnh vực web và tìm kiếm, bắt đầu với một trang HTML viết tay năm 2008 rồi xây dựng thêm hàng trăm trang khác. Ông dẫn dắt sự chuyển dịch từ SEO cổ điển sang AI visibility từ rất sớm, và hiện đứng đầu đội ngũ phát triển hệ thống kiểm toán 9 lớp của ReputationGuardPro.",
+      cofounder_role:"Đồng sáng lập & CFO",
+      cofounder_bio:"Vitalii phụ trách các con số đằng sau sứ mệnh: định giá, kinh tế đơn vị, và đảm bảo mỗi khách hàng đều thấy lợi tức đầu tư rõ ràng. Sự kỷ luật của ông giúp tăng trưởng của ReputationGuardPro bền vững khi mở rộng từ vài chục lên hàng trăm tài khoản.",
+      view_f6s:"Xem trên F6S", score_title:"Điểm AI Visibility",
+      score_text:"Chúng tôi không đoán mò. Chúng tôi đo lường chính xác vị trí của bạn qua 9 lớp tín hiệu quan trọng, dựa trên gần hai thập kỷ kinh nghiệm về điều tạo nên niềm tin cho thương hiệu trực tuyến.",
+      wwd_title:"Chúng tôi làm gì",
+      wwd_sub:"Chúng tôi không chỉ dọn dẹp đánh giá. Chúng tôi <strong>tăng cường</strong> khả năng hiển thị AI của thương hiệu bạn, một cách hệ thống, từng lớp một.",
+      wwd1_title:"Kiểm toán AI 9 lớp",
+      wwd1_text:"Chúng tôi quét thương hiệu của bạn trên mọi nền tảng AI lớn. Xác định chính xác tín hiệu nào đang làm giảm khả năng hiển thị, từ thông tin niêm yết không nhất quán đến schema markup yếu.",
+      wwd2_title:"Làm sạch tín hiệu & Tăng cường",
+      wwd2_text:"Chúng tôi làm sạch dữ liệu mà AI dựa vào. Khắc phục sự không nhất quán và áp dụng các <strong>tăng cường</strong> có mục tiêu để AI bắt đầu tự tin đề xuất thương hiệu của bạn.",
+      wwd3_title:"Giám sát AI Visibility",
+      wwd3_text:"Báo cáo hàng tuần theo dõi điểm AI visibility của bạn trên ChatGPT, Gemini, Perplexity, Claude và hơn thế nữa. Bạn thấy chính xác khi nào thương hiệu bắt đầu được AI đề xuất.",
+      wwd4_title:"Bảo vệ liên tục",
+      wwd4_text:"Cảnh báo thời gian thực thông báo cho bạn về rủi ro uy tín mới. Chúng tôi giữ AI visibility của bạn ở mức cao để đối thủ luôn ở phía sau, còn AI thì luôn đề xuất bạn.",
+      wtu_title:"Vì sao doanh nghiệp tin tưởng chúng tôi",
+      wtu1_title:"Chuyên môn AI 9 lớp",
+      wtu1_text:"Chúng tôi không đoán mò. Chúng tôi phân tích 9 lớp cụ thể mà các mô hình AI dùng để đánh giá độ tin cậy. Bạn nhận được điểm số rõ ràng và lộ trình cải thiện.",
+      wtu2_title:"89% thành công làm sạch tín hiệu",
+      wtu2_text:"Phương pháp dựa trên chính sách của chúng tôi luôn vượt trội so với mức trung bình ngành. Chúng tôi biết chính xác cần nhắm vào tín hiệu nào và cách khắc phục.",
+      wtu2_stat:"*Dựa trên hơn 500 lượt kiểm toán thực hiện năm 2025. Kết quả có thể khác nhau.",
+      wtu3_title:"Được tin dùng tại hơn 12 quốc gia",
+      wtu3_text:"Từ khách sạn boutique ở Bali đến phòng khám nha khoa ở Texas, chúng tôi đã giúp các doanh nghiệp trên toàn thế giới được AI đề xuất.",
+      wtu4_title:"Minh bạch 100%",
+      wtu4_text:"Bạn luôn giữ toàn quyền kiểm soát. Chúng tôi là đối tác đáng tin cậy, không phải chủ sở hữu. Không phí ẩn, không bất ngờ, chỉ có kết quả bạn có thể thấy.",
+      verified_label:"Hồ sơ đã xác minh", verified_company:"Đã xác minh trên F6S", verified_founder:"Nhà sáng lập trên F6S",
+      ent_badge:"Dành cho tổ chức lớn", ent_title:"AI Visibility cho doanh nghiệp lớn",
+      ent_text:"Các thương hiệu đa địa điểm, nhượng quyền và danh mục đầu tư cần nhiều hơn một lượt kiểm toán đơn lẻ. Gói Enterprise của chúng tôi mang đến chiến lược riêng, tích hợp tùy chỉnh và quản lý sát sao cho các tổ chức quản lý AI visibility trên hàng chục, hàng trăm địa điểm.",
+      ent_li1:"Quản lý uy tín AI riêng & các cuộc gọi chiến lược",
+      ent_li2:"Triển khai đa địa điểm & đa thương hiệu",
+      ent_li3:"Báo cáo tùy chỉnh & tích hợp API / CRM",
+      ent_li4:"SLA ưu tiên & onboarding cao cấp",
+      ent_cta:"Khám phá gói Enterprise →",
+      law_title:"Lưu ý quan trọng: Chúng tôi không phải công ty luật",
+      law_text:"ReputationGuardPro là một <strong>công ty công nghệ về AI visibility và uy tín thương hiệu</strong>, không phải một tổ chức hành nghề luật. Chúng tôi không cung cấp tư vấn pháp lý hay đại diện khách hàng tại tòa án. Công việc của chúng tôi tập trung vào việc xác định các tín hiệu uy tín yếu, chuẩn bị khiếu nại dựa trên bằng chứng, và nộp thông qua các kênh chính thức của nền tảng. Nếu cần hành động pháp lý, chúng tôi tổng hợp đầy đủ hồ sơ bằng chứng cho luật sư có giấy phép của bạn. Chúng tôi luôn khuyến khích khách hàng tham khảo ý kiến luật sư đủ điều kiện đối với các khiếu nại về phỉ báng hoặc liên quan.",
+      cta_text:"Xem chính xác vị trí thương hiệu của bạn, miễn phí.", cta_btn:"Nhận kiểm tra AI Visibility miễn phí →",
+      footer_desc:"Quản lý uy tín AI cho khách sạn, nhà hàng, phòng khám nha khoa, cho thuê xe, phòng gym, cửa hàng bán lẻ, khu nghỉ dưỡng, công ty luật và bất động sản. Chúng tôi giúp thương hiệu của bạn trở thành lựa chọn AI đề xuất, bằng cách khôi phục các tín hiệu uy tín thúc đẩy AI visibility và doanh số.",
+      footer_about:"Giới thiệu", footer_services:"Dịch vụ",
+      footer_s1:"Tối ưu AI Visibility", footer_s2:"Làm sạch tín hiệu", footer_s3:"Giám sát cảm xúc AI", footer_s4:"Tư vấn chiến lược GEO", footer_s5:"Chương trình liên kết", footer_s6:"Hợp tác White‑Label",
+      footer_industries:"Ngành nghề",
+      footer_i1:"Khách sạn", footer_i2:"Phòng khám nha khoa", footer_i3:"Nhà hàng", footer_i4:"Cho thuê xe", footer_i5:"Du lịch", footer_i6:"Thể hình & Vật lý trị liệu", footer_i7:"Khu nghỉ dưỡng", footer_i8:"Công ty luật", footer_i9:"Bất động sản",
+      footer_legal:"Pháp lý", footer_l1:"Chính sách bảo mật", footer_l2:"Điều khoản dịch vụ", footer_l3:"Chính sách hoàn tiền", footer_l4:"Quản lý gói đăng ký",
+      footer_contact:"Liên hệ", footer_hours:"Gọi / WhatsApp · Th2–Th6 9h–18h EST",
+      footer_language:"Ngôn ngữ",
+      footer_disclaimer:"*Kết quả có thể khác nhau. Các nền tảng AI đưa ra quyết định đề xuất độc lập.",
+      footer_copyright:"© 2026 ReputationGuard Global. Bảo lưu mọi quyền."
+    },
+    pt: {
+      nav_home:"Início", nav_enterprise:"Enterprise", nav_cta:"Auditoria Gratuita",
+      badge_since:"Desde 2008", story_h1:"Nossa História",
+      story_intro:"Não descobrimos a visibilidade em IA ontem. Passamos quase duas décadas aprendendo como as marcas conquistam confiança online, primeiro com mecanismos de busca, agora com IA.",
+      t1_title:"Nosso primeiro site, para uma empresa de suprimentos",
+      t1_text:"Tudo começou com um único site em HTML feito à mão para uma empresa de cadeia de suprimentos. Sem frameworks, sem atalhos, apenas aprendendo, linha por linha, o que torna um negócio confiável online.",
+      t2_title:"A década do SEO",
+      t2_text:"Aquele primeiro site se transformou em centenas de outros. Mergulhamos fundo em SEO, construímos e expandimos dezenas de negócios de tecnologia e internet, e passamos uma década entendendo exatamente o que os mecanismos de busca, e as pessoas por trás deles, confiam e recompensam.",
+      t3_title:"A ascensão das redes neurais",
+      t3_text:"Quando os primeiros grandes modelos de linguagem surgiram, percebemos a mudança cedo: o portal de acesso aos clientes estava passando dos rankings de busca para as respostas da IA. Começamos a estudar como esses modelos formam opiniões sobre marcas.",
+      t4_year:"Hoje", t4_title:"Recomendações de IA, automatizadas em escala",
+      t4_text:"Hoje, a maior parte do processo é automatizada: auditorias contínuas, limpeza de sinais e monitoramento no ChatGPT, Gemini, Claude e Perplexity. São 18 anos de experiência prática, de uma única página HTML a um AI Visibility Engine completo, condensados em um sistema criado para fazer a IA recomendar você.",
+      founder_role:"Fundador & CEO",
+      founder_bio:"Aleksei passou quase duas décadas em web e busca, começando com um único site HTML feito à mão em 2008 e construindo centenas de outros depois. Ele liderou cedo a transição do SEO clássico para a visibilidade em IA, e hoje comanda a equipe por trás do sistema de auditoria em 9 camadas da ReputationGuardPro.",
+      cofounder_role:"Cofundador & CFO",
+      cofounder_bio:"Vitalii supervisiona os números por trás da missão: precificação, unit economics, e garantir que cada cliente veja um retorno claro sobre o investimento. Sua disciplina mantém o crescimento da ReputationGuardPro sustentável à medida que ela escala de dezenas para centenas de contas.",
+      view_f6s:"Ver no F6S", score_title:"AI Visibility Score",
+      score_text:"Nós não chutamos. Medimos exatamente onde você está em 9 camadas críticas, com base em quase duas décadas de experiência sobre o que faz marcas confiáveis online.",
+      wwd_title:"O Que Fazemos",
+      wwd_sub:"Não limpamos apenas avaliações. Nós <strong>impulsionamos</strong> a visibilidade da sua marca em IA, de forma sistemática, camada por camada.",
+      wwd1_title:"Auditoria de IA em 9 Camadas",
+      wwd1_text:"Escaneamos sua marca em todas as principais plataformas de IA. Identificamos exatamente quais sinais estão prejudicando sua visibilidade, de listagens inconsistentes a schema markup fraco.",
+      wwd2_title:"Limpeza de Sinais & Impulsos",
+      wwd2_text:"Limpamos os dados nos quais a IA se baseia. Corrigimos inconsistências e aplicamos <strong>impulsos</strong> direcionados para que a IA passe a recomendar sua marca com confiança.",
+      wwd3_title:"Monitoramento de AI Visibility",
+      wwd3_text:"Relatórios semanais acompanham seu AI visibility score no ChatGPT, Gemini, Perplexity, Claude e mais. Você vê exatamente quando sua marca começa a ganhar recomendações da IA.",
+      wwd4_title:"Proteção Contínua",
+      wwd4_text:"Alertas em tempo real avisam sobre novos riscos de reputação. Mantemos sua AI visibility alta para que os concorrentes fiquem para trás, e a IA continue recomendando você.",
+      wtu_title:"Por Que as Empresas Confiam em Nós",
+      wtu1_title:"Especialização em IA de 9 Camadas",
+      wtu1_text:"Nós não chutamos. Analisamos as 9 camadas específicas que os modelos de IA usam para avaliar confiança. Você recebe uma pontuação clara e um roteiro para melhorá-la.",
+      wtu2_title:"89% de Sucesso na Limpeza de Sinais",
+      wtu2_text:"Nossa abordagem baseada em políticas supera consistentemente as médias do setor. Sabemos exatamente quais sinais atacar e como corrigi-los.",
+      wtu2_stat:"*Com base em mais de 500 auditorias realizadas em 2025. Resultados individuais variam.",
+      wtu3_title:"Confiável em Mais de 12 Países",
+      wtu3_text:"De hotéis boutique em Bali a clínicas odontológicas no Texas, ajudamos empresas ao redor do mundo a serem recomendadas pela IA.",
+      wtu4_title:"100% Transparente",
+      wtu4_text:"Você mantém total controle. Trabalhamos como parceiros de confiança, não donos. Sem taxas ocultas, sem surpresas, apenas resultados que você pode ver.",
+      verified_label:"Perfis Verificados", verified_company:"Verificado no F6S", verified_founder:"Fundador no F6S",
+      ent_badge:"Para Organizações Maiores", ent_title:"AI Visibility para Enterprise",
+      ent_text:"Marcas com múltiplas unidades, franquias e portfólios precisam de mais do que uma única auditoria. Nosso plano Enterprise oferece estratégia dedicada, integrações personalizadas e gestão próxima para organizações que administram AI visibility em dezenas ou centenas de unidades.",
+      ent_li1:"Gestor de reputação em IA dedicado & chamadas estratégicas",
+      ent_li2:"Implantação multi‑unidade & multi‑marca",
+      ent_li3:"Relatórios personalizados & integrações API / CRM",
+      ent_li4:"SLA prioritário & onboarding white‑glove",
+      ent_cta:"Conhecer o Enterprise →",
+      law_title:"Importante: Não Somos um Escritório de Advocacia",
+      law_text:"A ReputationGuardPro é uma <strong>empresa de tecnologia de visibilidade em IA e reputação</strong>, não um escritório de advocacia. Não fornecemos consultoria jurídica nem representamos clientes em tribunal. Nosso trabalho foca em identificar sinais de reputação fracos, preparar recursos baseados em evidências e enviá-los pelos canais oficiais das plataformas. Se for necessária ação judicial, compilamos um dossiê completo de evidências para o seu advogado licenciado. Sempre incentivamos os clientes a consultar um advogado qualificado para questões de difamação ou relacionadas.",
+      cta_text:"Veja exatamente onde sua marca está, gratuitamente.", cta_btn:"Receber Auditoria Gratuita de AI Visibility →",
+      footer_desc:"Gestão de reputação em IA para hotéis, restaurantes, clínicas odontológicas, locadoras de veículos, academias, lojas, resorts, escritórios de advocacia e imobiliárias. Fazemos da sua marca aquela que a IA recomenda, restaurando os sinais de confiança que impulsionam AI visibility e vendas.",
+      footer_about:"Sobre Nós", footer_services:"Serviços",
+      footer_s1:"Otimização de AI Visibility", footer_s2:"Limpeza de Sinais", footer_s3:"Monitoramento de Sentimento em IA", footer_s4:"Consultoria de Estratégia GEO", footer_s5:"Programa de Afiliados", footer_s6:"Parceria White‑Label",
+      footer_industries:"Setores",
+      footer_i1:"Hotéis", footer_i2:"Clínicas Odontológicas", footer_i3:"Restaurantes", footer_i4:"Locadoras de Veículos", footer_i5:"Turismo & Viagens", footer_i6:"Academias & Fisioterapia", footer_i7:"Resorts", footer_i8:"Escritórios de Advocacia", footer_i9:"Imobiliárias",
+      footer_legal:"Jurídico", footer_l1:"Política de Privacidade", footer_l2:"Termos de Serviço", footer_l3:"Política de Reembolso", footer_l4:"Gerenciar Assinatura",
+      footer_contact:"Contato", footer_hours:"Ligação / WhatsApp · Seg–Sex 9h–18h EST",
+      footer_language:"Idioma",
+      footer_disclaimer:"*Os resultados podem variar. As plataformas de IA tomam decisões de recomendação independentes.",
+      footer_copyright:"© 2026 ReputationGuard Global. Todos os direitos reservados."
+    },
+    tr: {
+      nav_home:"Ana Sayfa", nav_enterprise:"Kurumsal", nav_cta:"Ücretsiz Denetim",
+      badge_since:"2008'den beri", story_h1:"Hikayemiz",
+      story_intro:"AI görünürlüğünü dün keşfetmedik. Markaların çevrimiçi güven kazanmasını, önce arama motorlarıyla, şimdi ise yapay zekâyla, neredeyse yirmi yıldır öğreniyoruz.",
+      t1_title:"İlk web sitemiz, bir tedarik işletmesi için",
+      t1_text:"Her şey bir tedarik zinciri işletmesi için elle kodlanmış tek bir HTML sitesiyle başladı. Framework yok, kestirme yol yok, sadece bir işletmeyi çevrimiçi ortamda inandırıcı kılan şeyi satır satır öğrenmek vardı.",
+      t2_title:"SEO on yılı",
+      t2_text:"O ilk site, yüzlerce siteye dönüştü. SEO'ya derinlemesine yöneldik, düzinelerce teknoloji ve internet işletmesi kurup büyüttük ve arama motorlarının, ve arkalarındaki insanların, tam olarak neye güvendiğini ve neyi ödüllendirdiğini anlamak için bir on yıl geçirdik.",
+      t3_title:"Sinir ağlarının yükselişi",
+      t3_text:"İlk büyük dil modelleri ortaya çıktığında, değişimi erkenden gördük: müşterilere açılan kapı, arama sıralamalarından yapay zekâ yanıtlarına kayıyordu. Bu modellerin markalar hakkında nasıl fikir oluşturduğunu incelemeye başladık.",
+      t4_year:"Bugün", t4_title:"Ölçekte otomatikleştirilmiş yapay zekâ önerileri",
+      t4_text:"Bugün sürecin büyük kısmı otomatik: ChatGPT, Gemini, Claude ve Perplexity genelinde sürekli denetim, sinyal temizliği ve izleme. Bu, tek bir HTML sayfasından eksiksiz bir AI Visibility Engine'e uzanan, sizi önerilir hale getirmek için tasarlanmış bir sisteme damıtılmış 18 yıllık uygulamalı deneyim demek.",
+      founder_role:"Kurucu & CEO",
+      founder_bio:"Aleksei, web ve arama alanında neredeyse yirmi yıl geçirdi; 2008'de elle kodlanmış tek bir HTML siteyle başlayıp yüzlercesini inşa etti. Klasik SEO'dan yapay zekâ görünürlüğüne geçişe erkenden öncülük etti ve şimdi ReputationGuardPro'nun 9 katmanlı denetim sisteminin arkasındaki ekibe liderlik ediyor.",
+      cofounder_role:"Kurucu Ortak & CFO",
+      cofounder_bio:"Vitalii, misyonun arkasındaki rakamlardan sorumlu: fiyatlandırma, birim ekonomisi ve her müşterinin yatırımından net bir getiri görmesini sağlamak. Disiplini, ReputationGuardPro düzinelerce hesaptan yüzlerceye ölçeklenirken büyümenin sürdürülebilir kalmasını sağlıyor.",
+      view_f6s:"F6S'te Görüntüle", score_title:"AI Visibility Skoru",
+      score_text:"Tahmin etmeyiz. 9 kritik katman boyunca tam olarak nerede durduğunuzu ölçeriz; markaları çevrimiçi güvenilir kılan şey konusundaki neredeyse yirmi yıllık deneyime dayanarak.",
+      wwd_title:"Ne Yapıyoruz",
+      wwd_sub:"Sadece yorumları temizlemiyoruz. Markanızın yapay zekâ görünürlüğünü sistematik olarak, katman katman <strong>güçlendiriyoruz</strong>.",
+      wwd1_title:"9 Katmanlı Yapay Zekâ Denetimi",
+      wwd1_text:"Markanızı tüm büyük yapay zekâ platformlarında tarıyoruz. Tutarsız listelemelerden zayıf şema işaretlemesine kadar görünürlüğünüzü hangi sinyallerin zedelediğini tam olarak belirleriz.",
+      wwd2_title:"Sinyal Temizliği & Güçlendirmeler",
+      wwd2_text:"Yapay zekânın dayandığı verileri temizleriz. Tutarsızlıkları düzeltir ve yapay zekânın markanızı güvenle önermeye başlaması için hedefli <strong>güçlendirmeler</strong> uygularız.",
+      wwd3_title:"AI Visibility İzleme",
+      wwd3_text:"Haftalık raporlar, ChatGPT, Gemini, Perplexity, Claude ve daha fazlasında AI visibility skorunuzu takip eder. Markanızın ne zaman yapay zekâ önerileri kazanmaya başladığını tam olarak görürsünüz.",
+      wwd4_title:"Sürekli Koruma",
+      wwd4_text:"Gerçek zamanlı uyarılar sizi yeni itibar risklerinden haberdar eder. Rakipleriniz geride kalsın ve yapay zekâ sizi önermeye devam etsin diye AI visibility'nizi yüksek tutarız.",
+      wtu_title:"İşletmeler Neden Bize Güveniyor",
+      wtu1_title:"9 Katmanlı Yapay Zekâ Uzmanlığı",
+      wtu1_text:"Tahmin etmeyiz. Yapay zekâ modellerinin güveni değerlendirmek için kullandığı 9 spesifik katmanı analiz ederiz. Net bir skor ve onu iyileştirmek için bir yol haritası alırsınız.",
+      wtu2_title:"%89 Sinyal Temizleme Başarısı",
+      wtu2_text:"Politika tabanlı yaklaşımımız sektör ortalamalarının sürekli üzerinde performans gösterir. Hangi sinyalleri hedeflememiz ve nasıl düzelteceğimizi tam olarak biliriz.",
+      wtu2_stat:"*2025'te yapılan 500'den fazla denetime dayanmaktadır. Bireysel sonuçlar değişebilir.",
+      wtu3_title:"12'den Fazla Ülkede Güveniliyor",
+      wtu3_text:"Bali'deki butik otellerden Teksas'taki diş kliniklerine kadar, dünya çapında işletmelerin yapay zekâ tarafından önerilmesine yardımcı olduk.",
+      wtu4_title:"%100 Şeffaf",
+      wtu4_text:"Kontrol tamamen sizde kalır. Sahip değil, güvenilir ortak olarak çalışırız. Gizli ücret yok, sürpriz yok, sadece görebileceğiniz sonuçlar var.",
+      verified_label:"Doğrulanmış Profiller", verified_company:"F6S'te Doğrulandı", verified_founder:"Kurucu F6S'te",
+      ent_badge:"Büyük Kuruluşlar İçin", ent_title:"Kurumsal AI Visibility",
+      ent_text:"Çok şubeli markaların, franchise'ların ve portföylerin tek bir denetimden fazlasına ihtiyacı vardır. Enterprise planımız, düzinelerce veya yüzlerce lokasyonda AI visibility'yi yöneten kuruluşlara özel strateji, özel entegrasyonlar ve yakın yönetim sunar.",
+      ent_li1:"Özel yapay zekâ itibar yöneticisi & strateji görüşmeleri",
+      ent_li2:"Çok lokasyonlu & çok markalı uygulama",
+      ent_li3:"Özel raporlama & API / CRM entegrasyonları",
+      ent_li4:"Öncelikli SLA & özel katılım süreci",
+      ent_cta:"Kurumsal Planı Keşfedin →",
+      law_title:"Önemli: Biz Bir Hukuk Bürosu Değiliz",
+      law_text:"ReputationGuardPro bir <strong>yapay zekâ görünürlüğü ve itibar teknolojisi şirketi</strong>dir, hukuk bürosu değildir. Hukuki tavsiye vermeyiz veya müvekkilleri mahkemede temsil etmeyiz. Çalışmamız, zayıf itibar sinyallerini tespit etmeye, kanıta dayalı itirazlar hazırlamaya ve bunları resmi platform kanalları üzerinden sunmaya odaklanır. Hukuki işlem gerekirse, ruhsatlı avukatınız için eksiksiz bir kanıt dosyası hazırlarız. Müvekkillerimizi iftira veya benzeri iddialar için her zaman nitelikli hukuk danışmanına başvurmaya teşvik ederiz.",
+      cta_text:"Markanızın tam olarak nerede durduğunu ücretsiz görün.", cta_btn:"Ücretsiz AI Visibility Denetimi Alın →",
+      footer_desc:"Oteller, restoranlar, diş klinikleri, araç kiralama, spor salonları, mağazalar, tatil köyleri, hukuk büroları ve emlak için yapay zekâ itibar yönetimi. Markanızı, AI visibility ve satışları artıran güven sinyallerini geri kazandırarak yapay zekânın önerdiği marka haline getiriyoruz.",
+      footer_about:"Hakkımızda", footer_services:"Hizmetler",
+      footer_s1:"AI Visibility Optimizasyonu", footer_s2:"Sinyal Temizliği", footer_s3:"Yapay Zekâ Duygu Analizi İzleme", footer_s4:"GEO Strateji Danışmanlığı", footer_s5:"Ortaklık Programı", footer_s6:"White‑Label Ortaklığı",
+      footer_industries:"Sektörler",
+      footer_i1:"Oteller", footer_i2:"Diş Klinikleri", footer_i3:"Restoranlar", footer_i4:"Araç Kiralama", footer_i5:"Turlar & Seyahat", footer_i6:"Fitness & Fizyoterapi", footer_i7:"Tatil Köyleri", footer_i8:"Hukuk Büroları", footer_i9:"Emlak",
+      footer_legal:"Yasal", footer_l1:"Gizlilik Politikası", footer_l2:"Hizmet Şartları", footer_l3:"İade Politikası", footer_l4:"Aboneliği Yönet",
+      footer_contact:"İletişim", footer_hours:"Arama / WhatsApp · Pzt–Cum 9:00–18:00 EST",
+      footer_language:"Dil",
+      footer_disclaimer:"*Sonuçlar değişebilir. Yapay zekâ platformları bağımsız öneri kararları verir.",
+      footer_copyright:"© 2026 ReputationGuard Global. Tüm hakları saklıdır."
+    },
+    ar: {
+      nav_home:"الرئيسية", nav_enterprise:"للمؤسسات", nav_cta:"تدقيق مجاني",
+      badge_since:"منذ 2008", story_h1:"قصتنا",
+      story_intro:"لم نكتشف رؤية الذكاء الاصطناعي بالأمس. أمضينا ما يقارب عقدين في تعلّم كيف تكسب العلامات التجارية ثقة الجمهور على الإنترنت، أولاً عبر محركات البحث، والآن عبر الذكاء الاصطناعي.",
+      t1_title:"موقعنا الإلكتروني الأول، لشركة توريد",
+      t1_text:"بدأت القصة بموقع HTML واحد مكتوب يدويًا لشركة في سلسلة التوريد. لا أطر عمل، لا اختصارات، فقط تعلّم، سطرًا بسطر، ما الذي يجعل عملًا تجاريًا موثوقًا على الإنترنت.",
+      t2_title:"عقد تحسين محركات البحث (SEO)",
+      t2_text:"تحوّل ذلك الموقع الأول إلى مئات المواقع الأخرى. توغّلنا بعمق في تحسين محركات البحث، وأسسنا ونمّينا عشرات الشركات التقنية والإلكترونية، وأمضينا عقدًا كاملًا في فهم ما تثق به محركات البحث، والقائمون عليها، بالضبط.",
+      t3_title:"صعود الشبكات العصبية",
+      t3_text:"مع ظهور أولى نماذج اللغة الكبيرة، لاحظنا التحول مبكرًا: بوابة الوصول إلى العملاء كانت تنتقل من نتائج البحث إلى إجابات الذكاء الاصطناعي. بدأنا في دراسة كيفية تكوين هذه النماذج لآرائها حول العلامات التجارية.",
+      t4_year:"اليوم", t4_title:"توصيات الذكاء الاصطناعي، مؤتمتة على نطاق واسع",
+      t4_text:"اليوم، تتم أتمتة معظم العملية: تدقيق مستمر، تنظيف الإشارات، ومراقبة عبر ChatGPT وGemini وClaude وPerplexity. هذه 18 عامًا من الخبرة العملية، من صفحة HTML واحدة إلى محرك متكامل لرؤية الذكاء الاصطناعي، مُكثّفة في نظام مصمم لجعل الذكاء الاصطناعي يوصي بك.",
+      founder_role:"المؤسس والرئيس التنفيذي",
+      founder_bio:"أمضى أليكسي ما يقارب عقدين في مجال الويب والبحث، بدءًا بموقع HTML واحد مكتوب يدويًا عام 2008 وصولًا إلى بناء المئات غيره. قاد التحول من تحسين محركات البحث الكلاسيكي إلى رؤية الذكاء الاصطناعي في وقت مبكر، ويقود اليوم الفريق المسؤول عن نظام التدقيق ذي التسع طبقات في ReputationGuardPro.",
+      cofounder_role:"المؤسس المشارك والمدير المالي",
+      cofounder_bio:"يشرف فيتالي على الأرقام وراء المهمة: التسعير، اقتصاديات الوحدة، وضمان أن يرى كل عميل عائدًا واضحًا على استثماره. انضباطه يحافظ على استدامة نمو ReputationGuardPro مع توسعها من عشرات إلى مئات الحسابات.",
+      view_f6s:"عرض على F6S", score_title:"مؤشر رؤية الذكاء الاصطناعي",
+      score_text:"نحن لا نخمّن. نقيس بدقة موقعك عبر 9 طبقات حاسمة، استنادًا إلى ما يقارب عقدين من الخبرة في ما يجعل العلامات التجارية موثوقة على الإنترنت.",
+      wwd_title:"ماذا نقدّم",
+      wwd_sub:"لا نكتفي بتنظيف التقييمات. نحن <strong>نعزز</strong> ظهور علامتك التجارية أمام الذكاء الاصطناعي، بشكل منهجي، طبقة تلو الأخرى.",
+      wwd1_title:"تدقيق ذكاء اصطناعي من 9 طبقات",
+      wwd1_text:"نفحص علامتك التجارية عبر جميع منصات الذكاء الاصطناعي الرئيسية. نحدد بدقة الإشارات التي تضر بظهورك، من القوائم غير المتسقة إلى ترميز Schema الضعيف.",
+      wwd2_title:"تنظيف الإشارات والتعزيزات",
+      wwd2_text:"ننظّف البيانات التي يعتمد عليها الذكاء الاصطناعي. نصحح التناقضات ونطبّق <strong>تعزيزات</strong> موجهة ليبدأ الذكاء الاصطناعي بالتوصية بعلامتك التجارية بثقة.",
+      wwd3_title:"مراقبة رؤية الذكاء الاصطناعي",
+      wwd3_text:"تتابع التقارير الأسبوعية مؤشر رؤيتك عبر ChatGPT وGemini وPerplexity وClaude وغيرها. تشاهد بدقة متى تبدأ علامتك التجارية بالفوز بتوصيات الذكاء الاصطناعي.",
+      wwd4_title:"حماية مستمرة",
+      wwd4_text:"تنبهك التنبيهات الفورية إلى مخاطر السمعة الجديدة. نحافظ على ارتفاع رؤيتك أمام الذكاء الاصطناعي حتى يبقى منافسوك في الخلف، ويستمر الذكاء الاصطناعي في التوصية بك.",
+      wtu_title:"لماذا تثق بنا الشركات",
+      wtu1_title:"خبرة في 9 طبقات للذكاء الاصطناعي",
+      wtu1_text:"نحن لا نخمّن. نحلل الطبقات التسع المحددة التي تستخدمها نماذج الذكاء الاصطناعي لتقييم الثقة. تحصل على مؤشر واضح وخارطة طريق لتحسينه.",
+      wtu2_title:"نجاح 89% في تنظيف الإشارات",
+      wtu2_text:"يتفوق نهجنا القائم على السياسات باستمرار على متوسطات القطاع. نعرف بدقة الإشارات التي يجب استهدافها وكيفية إصلاحها.",
+      wtu2_stat:"*استنادًا إلى أكثر من 500 عملية تدقيق أُجريت في 2025. قد تختلف النتائج الفردية.",
+      wtu3_title:"موثوق في أكثر من 12 دولة",
+      wtu3_text:"من فنادق البوتيك في بالي إلى عيادات الأسنان في تكساس، ساعدنا شركات حول العالم على أن يوصي بها الذكاء الاصطناعي.",
+      wtu4_title:"شفافية 100%",
+      wtu4_text:"تحتفظ بالسيطرة الكاملة. نعمل كشركاء موثوقين، لا كمالكين. لا رسوم خفية، لا مفاجآت، فقط نتائج يمكنك رؤيتها.",
+      verified_label:"ملفات موثقة", verified_company:"موثّق على F6S", verified_founder:"المؤسس على F6S",
+      ent_badge:"للمؤسسات الكبرى", ent_title:"رؤية الذكاء الاصطناعي للمؤسسات",
+      ent_text:"العلامات التجارية متعددة الفروع، والامتيازات، والمحافظ الاستثمارية تحتاج إلى أكثر من تدقيق واحد. توفّر باقة Enterprise استراتيجية مخصصة، وتكاملات مصممة خصيصًا، وإدارة عن قرب للمؤسسات التي تدير رؤية الذكاء الاصطناعي عبر عشرات أو مئات المواقع.",
+      ent_li1:"مدير مخصص لسمعة الذكاء الاصطناعي ومكالمات استراتيجية",
+      ent_li2:"نشر متعدد المواقع والعلامات التجارية",
+      ent_li3:"تقارير مخصصة وتكاملات API / CRM",
+      ent_li4:"اتفاقية مستوى خدمة ذات أولوية وتأهيل متميز",
+      ent_cta:"استكشف باقة Enterprise ←",
+      law_title:"مهم: نحن لسنا مكتب محاماة",
+      law_text:"ReputationGuardPro هي <strong>شركة تقنية متخصصة في رؤية الذكاء الاصطناعي وإدارة السمعة</strong>، وليست ممارسة قانونية. لا نقدّم استشارات قانونية ولا نمثّل العملاء أمام المحاكم. يركز عملنا على تحديد إشارات السمعة الضعيفة، وإعداد طعون قائمة على الأدلة، وتقديمها عبر القنوات الرسمية للمنصات. إذا تطلّب الأمر إجراءً قانونيًا، نُعدّ ملفًا كاملًا من الأدلة لمحاميك المرخص. نشجّع العملاء دائمًا على استشارة محامٍ مؤهل بشأن دعاوى التشهير أو ما شابهها.",
+      cta_text:"اطّلع بدقة على موقع علامتك التجارية، مجانًا.", cta_btn:"احصل على تدقيق مجاني لرؤية الذكاء الاصطناعي ←",
+      footer_desc:"إدارة سمعة الذكاء الاصطناعي للفنادق والمطاعم وعيادات الأسنان وتأجير السيارات والصالات الرياضية والمتاجر والمنتجعات ومكاتب المحاماة والعقارات. نجعل علامتك التجارية هي التي يوصي بها الذكاء الاصطناعي، عبر استعادة إشارات الثقة التي تدفع الرؤية والمبيعات.",
+      footer_about:"من نحن", footer_services:"الخدمات",
+      footer_s1:"تحسين رؤية الذكاء الاصطناعي", footer_s2:"تنظيف الإشارات", footer_s3:"مراقبة مشاعر الذكاء الاصطناعي", footer_s4:"استشارات استراتيجية GEO", footer_s5:"برنامج الشراكة", footer_s6:"شراكة العلامة البيضاء",
+      footer_industries:"القطاعات",
+      footer_i1:"الفنادق", footer_i2:"عيادات الأسنان", footer_i3:"المطاعم", footer_i4:"تأجير السيارات", footer_i5:"السياحة والسفر", footer_i6:"اللياقة والعلاج الطبيعي", footer_i7:"المنتجعات", footer_i8:"مكاتب المحاماة", footer_i9:"العقارات",
+      footer_legal:"القانونية", footer_l1:"سياسة الخصوصية", footer_l2:"شروط الخدمة", footer_l3:"سياسة الاسترداد", footer_l4:"إدارة الاشتراك",
+      footer_contact:"تواصل معنا", footer_hours:"اتصال / واتساب · الإثنين–الجمعة 9ص–6م بتوقيت EST",
+      footer_language:"اللغة",
+      footer_disclaimer:"*قد تختلف النتائج. تتخذ منصات الذكاء الاصطناعي قرارات توصية مستقلة.",
+      footer_copyright:"© 2026 ReputationGuard Global. جميع الحقوق محفوظة."
+    },
+    es: {
+      nav_home:"Inicio", nav_enterprise:"Empresas", nav_cta:"Auditoría Gratuita",
+      badge_since:"Desde 2008", story_h1:"Nuestra Historia",
+      story_intro:"No descubrimos la visibilidad en IA ayer. Llevamos casi dos décadas aprendiendo cómo las marcas ganan confianza online, primero con los buscadores, ahora con la IA.",
+      t1_title:"Nuestro primer sitio web, para una empresa de suministros",
+      t1_text:"Todo comenzó con un único sitio en HTML hecho a mano para una empresa de cadena de suministro. Sin frameworks, sin atajos, solo aprendiendo, línea por línea, qué hace que un negocio resulte creíble en internet.",
+      t2_title:"La década del SEO",
+      t2_text:"Aquel primer sitio se convirtió en cientos más. Nos adentramos en el SEO, construimos y hicimos crecer decenas de negocios tecnológicos y de internet, y pasamos una década averiguando exactamente en qué confían, y qué premian, los buscadores y las personas detrás de ellos.",
+      t3_title:"El auge de las redes neuronales",
+      t3_text:"Cuando surgieron los primeros grandes modelos de lenguaje, vimos venir el cambio pronto: la puerta de entrada a los clientes estaba pasando de los rankings de búsqueda a las respuestas de la IA. Empezamos a estudiar cómo estos modelos forman opiniones sobre las marcas.",
+      t4_year:"Hoy", t4_title:"Recomendaciones de IA, automatizadas a escala",
+      t4_text:"Hoy, la mayor parte del proceso está automatizado: auditorías continuas, limpieza de señales y monitoreo en ChatGPT, Gemini, Claude y Perplexity. Son 18 años de experiencia práctica, desde una página HTML hasta un AI Visibility Engine completo, destilados en un sistema creado para conseguir que te recomienden.",
+      founder_role:"Fundador y CEO",
+      founder_bio:"Aleksei ha pasado casi dos décadas en web y buscadores, empezando con un único sitio HTML hecho a mano en 2008 y construyendo cientos más después. Lideró pronto el paso del SEO clásico a la visibilidad en IA, y hoy dirige al equipo detrás del sistema de auditoría de 9 capas de ReputationGuardPro.",
+      cofounder_role:"Cofundador y CFO",
+      cofounder_bio:"Vitalii supervisa las cifras detrás de la misión: precios, unit economics, y asegurarse de que cada cliente vea un retorno claro de su inversión. Su disciplina mantiene el crecimiento de ReputationGuardPro sostenible a medida que escala de decenas a cientos de cuentas.",
+      view_f6s:"Ver en F6S", score_title:"AI Visibility Score",
+      score_text:"No adivinamos. Medimos exactamente dónde estás en 9 capas críticas, con base en casi dos décadas de experiencia sobre qué hace que las marcas sean confiables online.",
+      wwd_title:"Qué Hacemos",
+      wwd_sub:"No solo limpiamos reseñas. <strong>Potenciamos</strong> la visibilidad de tu marca en IA, de forma sistemática, capa por capa.",
+      wwd1_title:"Auditoría de IA de 9 Capas",
+      wwd1_text:"Escaneamos tu marca en todas las principales plataformas de IA. Identificamos exactamente qué señales están dañando tu visibilidad, desde listados inconsistentes hasta un schema markup débil.",
+      wwd2_title:"Limpieza de Señales y Refuerzos",
+      wwd2_text:"Limpiamos los datos en los que se basa la IA. Corregimos inconsistencias y aplicamos <strong>refuerzos</strong> específicos para que la IA empiece a recomendar tu marca con confianza.",
+      wwd3_title:"Monitoreo de AI Visibility",
+      wwd3_text:"Informes semanales siguen tu AI visibility score en ChatGPT, Gemini, Perplexity, Claude y más. Ves exactamente cuándo tu marca empieza a ganar recomendaciones de la IA.",
+      wwd4_title:"Protección Continua",
+      wwd4_text:"Alertas en tiempo real te avisan de nuevos riesgos de reputación. Mantenemos tu AI visibility alta para que tu competencia se quede atrás, y la IA siga recomendándote.",
+      wtu_title:"Por Qué las Empresas Confían en Nosotros",
+      wtu1_title:"Experiencia en IA de 9 Capas",
+      wtu1_text:"No adivinamos. Analizamos las 9 capas específicas que los modelos de IA usan para evaluar la confianza. Obtienes una puntuación clara y una hoja de ruta para mejorarla.",
+      wtu2_title:"89% de Éxito en Limpieza de Señales",
+      wtu2_text:"Nuestro enfoque basado en políticas supera de forma constante las medias del sector. Sabemos exactamente qué señales atacar y cómo corregirlas.",
+      wtu2_stat:"*Basado en más de 500 auditorías realizadas en 2025. Los resultados individuales pueden variar.",
+      wtu3_title:"Confiado en Más de 12 Países",
+      wtu3_text:"Desde hoteles boutique en Bali hasta clínicas dentales en Texas, hemos ayudado a negocios de todo el mundo a ser recomendados por la IA.",
+      wtu4_title:"100% Transparente",
+      wtu4_text:"Mantienes el control total. Trabajamos como socios de confianza, no como dueños. Sin comisiones ocultas, sin sorpresas, solo resultados que puedes ver.",
+      verified_label:"Perfiles Verificados", verified_company:"Verificado en F6S", verified_founder:"Fundador en F6S",
+      ent_badge:"Para Organizaciones Grandes", ent_title:"AI Visibility para Empresas",
+      ent_text:"Las marcas con múltiples ubicaciones, franquicias y portfolios necesitan más que una sola auditoría. Nuestro plan Enterprise ofrece estrategia dedicada, integraciones a medida y gestión cercana para organizaciones que gestionan la AI visibility en decenas o cientos de ubicaciones.",
+      ent_li1:"Gestor de reputación en IA dedicado y llamadas de estrategia",
+      ent_li2:"Implementación multi‑ubicación y multi‑marca",
+      ent_li3:"Informes personalizados e integraciones API / CRM",
+      ent_li4:"SLA prioritario e incorporación premium",
+      ent_cta:"Explorar Enterprise →",
+      law_title:"Importante: No Somos un Bufete de Abogados",
+      law_text:"ReputationGuardPro es una <strong>empresa de tecnología de visibilidad en IA y reputación</strong>, no un despacho legal. No ofrecemos asesoría jurídica ni representamos a clientes en tribunales. Nuestro trabajo se centra en identificar señales de reputación débiles, preparar apelaciones basadas en evidencia y presentarlas por los canales oficiales de las plataformas. Si se requiere acción legal, compilamos un expediente completo de evidencia para tu abogado colegiado. Siempre animamos a los clientes a consultar con un abogado calificado ante reclamos de difamación o similares.",
+      cta_text:"Descubre exactamente dónde está tu marca, gratis.", cta_btn:"Solicitar Auditoría Gratuita de AI Visibility →",
+      footer_desc:"Gestión de reputación en IA para hoteles, restaurantes, clínicas dentales, alquiler de coches, gimnasios, tiendas, resorts, bufetes de abogados e inmobiliarias. Hacemos que tu marca sea la que la IA recomienda, restaurando las señales de confianza que impulsan la AI visibility y las ventas.",
+      footer_about:"Sobre Nosotros", footer_services:"Servicios",
+      footer_s1:"Optimización de AI Visibility", footer_s2:"Limpieza de Señales", footer_s3:"Monitoreo de Sentimiento en IA", footer_s4:"Consultoría de Estrategia GEO", footer_s5:"Programa de Afiliados", footer_s6:"Alianza White‑Label",
+      footer_industries:"Sectores",
+      footer_i1:"Hoteles", footer_i2:"Clínicas Dentales", footer_i3:"Restaurantes", footer_i4:"Alquiler de Coches", footer_i5:"Tours y Viajes", footer_i6:"Fitness y Fisioterapia", footer_i7:"Resorts", footer_i8:"Bufetes de Abogados", footer_i9:"Inmobiliarias",
+      footer_legal:"Legal", footer_l1:"Política de Privacidad", footer_l2:"Términos de Servicio", footer_l3:"Política de Reembolso", footer_l4:"Gestionar Suscripción",
+      footer_contact:"Contacto", footer_hours:"Llamada / WhatsApp · Lun–Vie 9am–6pm EST",
+      footer_language:"Idioma",
+      footer_disclaimer:"*Los resultados pueden variar. Las plataformas de IA toman decisiones de recomendación independientes.",
+      footer_copyright:"© 2026 ReputationGuard Global. Todos los derechos reservados."
+    },
+    de: {
+      nav_home:"Startseite", nav_enterprise:"Enterprise", nav_cta:"Kostenloses Audit",
+      badge_since:"Seit 2008", story_h1:"Unsere Geschichte",
+      story_intro:"Wir haben KI‑Sichtbarkeit nicht gestern entdeckt. Wir haben fast zwei Jahrzehnte damit verbracht zu lernen, wie Marken online Vertrauen gewinnen, zunächst bei Suchmaschinen, heute bei KI.",
+      t1_title:"Unsere erste Website, für ein Zulieferunternehmen",
+      t1_text:"Alles begann mit einer einzigen handgecodeten HTML‑Seite für ein Unternehmen aus der Lieferkette. Keine Frameworks, keine Abkürzungen, nur das zeilenweise Lernen, was ein Unternehmen online glaubwürdig macht.",
+      t2_title:"Das SEO‑Jahrzehnt",
+      t2_text:"Aus dieser ersten Seite wurden Hunderte weitere. Wir vertieften uns in SEO, bauten und förderten Dutzende Technologie‑ und Internetunternehmen und verbrachten ein Jahrzehnt damit, genau herauszufinden, worauf Suchmaschinen, und die Menschen dahinter, vertrauen und was sie belohnen.",
+      t3_title:"Der Aufstieg neuronaler Netze",
+      t3_text:"Als die ersten großen Sprachmodelle aufkamen, erkannten wir den Wandel früh: Das Tor zu den Kunden verschob sich von Suchrankings zu KI‑Antworten. Wir begannen zu untersuchen, wie diese Modelle Meinungen über Marken bilden.",
+      t4_year:"Heute", t4_title:"KI‑Empfehlungen, in großem Maßstab automatisiert",
+      t4_text:"Heute ist der Großteil des Prozesses automatisiert: laufende Audits, Signal‑Bereinigung und Monitoring über ChatGPT, Gemini, Claude und Perplexity hinweg. Das sind 18 Jahre praktische Erfahrung, von einer HTML‑Seite bis zu einer vollständigen AI Visibility Engine, destilliert in ein System, das dafür sorgt, dass Sie empfohlen werden.",
+      founder_role:"Gründer & CEO",
+      founder_bio:"Aleksei hat fast zwei Jahrzehnte im Web‑ und Suchbereich verbracht, angefangen mit einer einzigen handgecodeten HTML‑Seite im Jahr 2008 bis zum Bau von Hunderten weiteren. Er leitete früh den Wandel von klassischem SEO zu KI‑Sichtbarkeit und führt heute das Team hinter dem 9‑Schichten‑Auditsystem von ReputationGuardPro.",
+      cofounder_role:"Mitgründer & CFO",
+      cofounder_bio:"Vitalii verantwortet die Zahlen hinter der Mission: Preisgestaltung, Unit Economics und sicherzustellen, dass jeder Kunde einen klaren Return on Investment sieht. Seine Disziplin hält das Wachstum von ReputationGuardPro nachhaltig, während es von Dutzenden auf Hunderte Kunden skaliert.",
+      view_f6s:"Auf F6S ansehen", score_title:"AI Visibility Score",
+      score_text:"Wir raten nicht. Wir messen exakt, wo Sie über 9 kritische Ebenen stehen, basierend auf fast zwei Jahrzehnten Erfahrung darin, was Marken online vertrauenswürdig macht.",
+      wwd_title:"Was Wir Tun",
+      wwd_sub:"Wir bereinigen nicht nur Bewertungen. Wir <strong>steigern</strong> die KI‑Sichtbarkeit Ihrer Marke, systematisch, Ebene für Ebene.",
+      wwd1_title:"9‑Schichten‑KI‑Audit",
+      wwd1_text:"Wir scannen Ihre Marke auf allen großen KI‑Plattformen. Wir identifizieren genau, welche Signale Ihre Sichtbarkeit beeinträchtigen, von inkonsistenten Einträgen bis zu schwachem Schema‑Markup.",
+      wwd2_title:"Signal‑Bereinigung & Boosts",
+      wwd2_text:"Wir bereinigen die Daten, auf die sich die KI stützt. Wir beheben Inkonsistenzen und wenden gezielte <strong>Boosts</strong> an, damit die KI beginnt, Ihre Marke mit Vertrauen zu empfehlen.",
+      wwd3_title:"AI‑Visibility‑Monitoring",
+      wwd3_text:"Wöchentliche Berichte verfolgen Ihren AI Visibility Score bei ChatGPT, Gemini, Perplexity, Claude und mehr. Sie sehen genau, wann Ihre Marke beginnt, KI‑Empfehlungen zu gewinnen.",
+      wwd4_title:"Kontinuierlicher Schutz",
+      wwd4_text:"Echtzeit‑Warnungen informieren Sie über neue Reputationsrisiken. Wir halten Ihre KI‑Sichtbarkeit hoch, damit Ihre Mitbewerber zurückbleiben und die KI Sie weiterhin empfiehlt.",
+      wtu_title:"Warum Unternehmen Uns Vertrauen",
+      wtu1_title:"9‑Schichten‑KI‑Expertise",
+      wtu1_text:"Wir raten nicht. Wir analysieren die 9 spezifischen Ebenen, die KI‑Modelle zur Bewertung von Vertrauen nutzen. Sie erhalten einen klaren Score und einen Fahrplan zur Verbesserung.",
+      wtu2_title:"89% Erfolg bei der Signal‑Bereinigung",
+      wtu2_text:"Unser richtlinienbasierter Ansatz übertrifft branchenübliche Durchschnittswerte konstant. Wir wissen genau, welche Signale anzugehen sind und wie man sie behebt.",
+      wtu2_stat:"*Basierend auf über 500 Audits, die 2025 durchgeführt wurden. Individuelle Ergebnisse können abweichen.",
+      wtu3_title:"Vertraut in Über 12 Ländern",
+      wtu3_text:"Von Boutique‑Hotels auf Bali bis zu Zahnarztpraxen in Texas haben wir Unternehmen weltweit dabei geholfen, von KI empfohlen zu werden.",
+      wtu4_title:"100% Transparent",
+      wtu4_text:"Sie behalten die volle Kontrolle. Wir arbeiten als vertrauenswürdige Partner, nicht als Eigentümer. Keine versteckten Gebühren, keine Überraschungen, nur Ergebnisse, die Sie sehen können.",
+      verified_label:"Verifizierte Profile", verified_company:"Auf F6S verifiziert", verified_founder:"Gründer auf F6S",
+      ent_badge:"Für Größere Organisationen", ent_title:"Enterprise KI‑Sichtbarkeit",
+      ent_text:"Marken mit mehreren Standorten, Franchises und Portfolios brauchen mehr als ein einzelnes Audit. Unser Enterprise‑Plan bietet dedizierte Strategie, individuelle Integrationen und persönliche Betreuung für Organisationen, die KI‑Sichtbarkeit über Dutzende oder Hunderte von Standorten verwalten.",
+      ent_li1:"Dedizierter KI‑Reputationsmanager & Strategiegespräche",
+      ent_li2:"Multi‑Standort‑ & Multi‑Marken‑Rollout",
+      ent_li3:"Individuelle Berichte & API‑/CRM‑Integrationen",
+      ent_li4:"Priorisiertes SLA & White‑Glove‑Onboarding",
+      ent_cta:"Enterprise entdecken →",
+      law_title:"Wichtig: Wir Sind Keine Anwaltskanzlei",
+      law_text:"ReputationGuardPro ist ein <strong>Technologieunternehmen für KI‑Sichtbarkeit und Reputation</strong>, keine Rechtsanwaltskanzlei. Wir bieten keine Rechtsberatung an und vertreten Mandanten nicht vor Gericht. Unsere Arbeit konzentriert sich darauf, schwache Reputationssignale zu identifizieren, evidenzbasierte Einsprüche vorzubereiten und diese über offizielle Plattformkanäle einzureichen. Ist ein rechtliches Vorgehen erforderlich, stellen wir für Ihren zugelassenen Anwalt ein vollständiges Beweisdossier zusammen. Wir ermutigen Mandanten stets, bei Verleumdungs‑ oder verwandten Ansprüchen qualifizierten Rechtsbeistand zu konsultieren.",
+      cta_text:"Sehen Sie genau, wo Ihre Marke steht, kostenlos.", cta_btn:"Kostenloses AI‑Visibility‑Audit anfordern →",
+      footer_desc:"KI‑Reputationsmanagement für Hotels, Restaurants, Zahnarztpraxen, Autovermietungen, Fitnessstudios, Einzelhandel, Resorts, Anwaltskanzleien und Immobilien. Wir machen Ihre Marke zu der, die die KI empfiehlt, indem wir die Vertrauenssignale wiederherstellen, die KI‑Sichtbarkeit und Umsatz antreiben.",
+      footer_about:"Über Uns", footer_services:"Leistungen",
+      footer_s1:"AI‑Visibility‑Optimierung", footer_s2:"Signal‑Bereinigung", footer_s3:"KI‑Stimmungsmonitoring", footer_s4:"GEO‑Strategieberatung", footer_s5:"Partnerprogramm", footer_s6:"White‑Label‑Partnerschaft",
+      footer_industries:"Branchen",
+      footer_i1:"Hotels", footer_i2:"Zahnarztpraxen", footer_i3:"Restaurants", footer_i4:"Autovermietungen", footer_i5:"Touren & Reisen", footer_i6:"Fitness & Physiotherapie", footer_i7:"Resorts", footer_i8:"Anwaltskanzleien", footer_i9:"Immobilien",
+      footer_legal:"Rechtliches", footer_l1:"Datenschutzrichtlinie", footer_l2:"Nutzungsbedingungen", footer_l3:"Rückerstattungsrichtlinie", footer_l4:"Abonnement verwalten",
+      footer_contact:"Kontakt", footer_hours:"Anruf / WhatsApp · Mo–Fr 9–18 Uhr EST",
+      footer_language:"Sprache",
+      footer_disclaimer:"*Ergebnisse können variieren. KI‑Plattformen treffen unabhängige Empfehlungsentscheidungen.",
+      footer_copyright:"© 2026 ReputationGuard Global. Alle Rechte vorbehalten."
+    },
+    fr: {
+      nav_home:"Accueil", nav_enterprise:"Entreprise", nav_cta:"Audit Gratuit",
+      badge_since:"Depuis 2008", story_h1:"Notre Histoire",
+      story_intro:"Nous n'avons pas découvert la visibilité IA hier. Nous avons passé près de deux décennies à apprendre comment les marques gagnent la confiance en ligne, d'abord avec les moteurs de recherche, aujourd'hui avec l'IA.",
+      t1_title:"Notre premier site web, pour une entreprise d'approvisionnement",
+      t1_text:"Tout a commencé avec un seul site HTML codé à la main pour une entreprise de la chaîne d'approvisionnement. Pas de framework, pas de raccourci, juste apprendre, ligne par ligne, ce qui rend une entreprise crédible en ligne.",
+      t2_title:"La décennie du SEO",
+      t2_text:"Ce premier site s'est transformé en centaines d'autres. Nous nous sommes plongés dans le SEO, avons créé et développé des dizaines d'entreprises technologiques et internet, et avons passé une décennie à comprendre exactement ce que les moteurs de recherche, et les personnes derrière eux, font confiance et récompensent.",
+      t3_title:"L'essor des réseaux de neurones",
+      t3_text:"Lorsque les premiers grands modèles de langage sont apparus, nous avons anticipé le changement : la porte d'accès aux clients passait des classements de recherche aux réponses de l'IA. Nous avons commencé à étudier comment ces modèles se forgent une opinion sur les marques.",
+      t4_year:"Aujourd'hui", t4_title:"Des recommandations IA, automatisées à grande échelle",
+      t4_text:"Aujourd'hui, la majeure partie du processus est automatisée : audits continus, nettoyage des signaux et surveillance sur ChatGPT, Gemini, Claude et Perplexity. Ce sont 18 ans d'expérience concrète, d'une simple page HTML à un AI Visibility Engine complet, condensés dans un système conçu pour vous faire recommander.",
+      founder_role:"Fondateur & CEO",
+      founder_bio:"Aleksei a passé près de deux décennies dans le web et la recherche, en commençant par un unique site HTML codé à la main en 2008 avant d'en construire des centaines d'autres. Il a été à l'avant‑garde du passage du SEO classique à la visibilité IA, et dirige aujourd'hui l'équipe derrière le système d'audit en 9 couches de ReputationGuardPro.",
+      cofounder_role:"Cofondateur & CFO",
+      cofounder_bio:"Vitalii supervise les chiffres derrière la mission : tarification, unit economics, et s'assurer que chaque client voit un retour sur investissement clair. Sa rigueur maintient la croissance de ReputationGuardPro durable à mesure qu'elle passe de dizaines à des centaines de comptes.",
+      view_f6s:"Voir sur F6S", score_title:"AI Visibility Score",
+      score_text:"Nous ne devinons pas. Nous mesurons précisément où vous en êtes sur 9 couches critiques, en nous appuyant sur près de deux décennies d'expérience sur ce qui rend les marques dignes de confiance en ligne.",
+      wwd_title:"Ce Que Nous Faisons",
+      wwd_sub:"Nous ne faisons pas que nettoyer les avis. Nous <strong>renforçons</strong> la visibilité IA de votre marque, de façon systématique, couche par couche.",
+      wwd1_title:"Audit IA en 9 Couches",
+      wwd1_text:"Nous scannons votre marque sur toutes les grandes plateformes IA. Nous identifions précisément quels signaux nuisent à votre visibilité, des fiches incohérentes à un balisage schema faible.",
+      wwd2_title:"Nettoyage des Signaux & Renforts",
+      wwd2_text:"Nous nettoyons les données sur lesquelles l'IA s'appuie. Nous corrigeons les incohérences et appliquons des <strong>renforts</strong> ciblés pour que l'IA commence à recommander votre marque en toute confiance.",
+      wwd3_title:"Surveillance de l'AI Visibility",
+      wwd3_text:"Des rapports hebdomadaires suivent votre AI visibility score sur ChatGPT, Gemini, Perplexity, Claude et plus encore. Vous voyez précisément quand votre marque commence à obtenir des recommandations IA.",
+      wwd4_title:"Protection Continue",
+      wwd4_text:"Des alertes en temps réel vous informent des nouveaux risques de réputation. Nous maintenons votre AI visibility élevée pour que vos concurrents restent à la traîne, et que l'IA continue de vous recommander.",
+      wtu_title:"Pourquoi Les Entreprises Nous Font Confiance",
+      wtu1_title:"Expertise IA en 9 Couches",
+      wtu1_text:"Nous ne devinons pas. Nous analysons les 9 couches spécifiques que les modèles d'IA utilisent pour évaluer la confiance. Vous obtenez un score clair et une feuille de route pour l'améliorer.",
+      wtu2_title:"89% de Réussite du Nettoyage des Signaux",
+      wtu2_text:"Notre approche basée sur des règles surpasse constamment les moyennes du secteur. Nous savons exactement quels signaux cibler et comment les corriger.",
+      wtu2_stat:"*Basé sur plus de 500 audits réalisés en 2025. Les résultats individuels peuvent varier.",
+      wtu3_title:"Fiable Dans Plus de 12 Pays",
+      wtu3_text:"Des hôtels boutique à Bali aux cliniques dentaires du Texas, nous avons aidé des entreprises du monde entier à être recommandées par l'IA.",
+      wtu4_title:"100% Transparent",
+      wtu4_text:"Vous gardez le contrôle total. Nous agissons comme des partenaires de confiance, pas comme des propriétaires. Pas de frais cachés, pas de surprises, juste des résultats que vous pouvez constater.",
+      verified_label:"Profils Vérifiés", verified_company:"Vérifié sur F6S", verified_founder:"Fondateur sur F6S",
+      ent_badge:"Pour Les Grandes Organisations", ent_title:"AI Visibility pour Entreprises",
+      ent_text:"Les marques multi‑sites, franchises et portefeuilles ont besoin de plus qu'un simple audit. Notre offre Enterprise apporte une stratégie dédiée, des intégrations sur mesure et un accompagnement rapproché aux organisations qui gèrent leur AI visibility sur des dizaines, voire des centaines de sites.",
+      ent_li1:"Gestionnaire de réputation IA dédié & appels stratégiques",
+      ent_li2:"Déploiement multi‑sites & multi‑marques",
+      ent_li3:"Rapports personnalisés & intégrations API / CRM",
+      ent_li4:"SLA prioritaire & onboarding sur‑mesure",
+      ent_cta:"Découvrir Enterprise →",
+      law_title:"Important : Nous Ne Sommes Pas un Cabinet d'Avocats",
+      law_text:"ReputationGuardPro est une <strong>entreprise technologique spécialisée dans la visibilité IA et la réputation</strong>, pas un cabinet juridique. Nous ne fournissons pas de conseil juridique et ne représentons pas de clients devant les tribunaux. Notre travail consiste à identifier les signaux de réputation faibles, à préparer des recours étayés par des preuves, et à les déposer via les canaux officiels des plateformes. Si une action en justice est nécessaire, nous compilons un dossier de preuves complet pour votre avocat agréé. Nous encourageons toujours les clients à consulter un conseil juridique qualifié pour les questions de diffamation ou assimilées.",
+      cta_text:"Découvrez précisément où en est votre marque, gratuitement.", cta_btn:"Obtenir un Audit AI Visibility Gratuit →",
+      footer_desc:"Gestion de la réputation IA pour hôtels, restaurants, cliniques dentaires, locations de voitures, salles de sport, commerces, resorts, cabinets d'avocats et immobilier. Nous faisons de votre marque celle que l'IA recommande, en restaurant les signaux de confiance qui stimulent l'AI visibility et les ventes.",
+      footer_about:"À Propos", footer_services:"Services",
+      footer_s1:"Optimisation de l'AI Visibility", footer_s2:"Nettoyage des Signaux", footer_s3:"Surveillance du Sentiment IA", footer_s4:"Conseil en Stratégie GEO", footer_s5:"Programme d'Affiliation", footer_s6:"Partenariat White‑Label",
+      footer_industries:"Secteurs",
+      footer_i1:"Hôtels", footer_i2:"Cliniques Dentaires", footer_i3:"Restaurants", footer_i4:"Locations de Voitures", footer_i5:"Voyages & Tourisme", footer_i6:"Fitness & Kinésithérapie", footer_i7:"Resorts", footer_i8:"Cabinets d'Avocats", footer_i9:"Immobilier",
+      footer_legal:"Mentions Légales", footer_l1:"Politique de Confidentialité", footer_l2:"Conditions d'Utilisation", footer_l3:"Politique de Remboursement", footer_l4:"Gérer l'Abonnement",
+      footer_contact:"Contact", footer_hours:"Appel / WhatsApp · Lun–Ven 9h–18h EST",
+      footer_language:"Langue",
+      footer_disclaimer:"*Les résultats peuvent varier. Les plateformes IA prennent des décisions de recommandation indépendantes.",
+      footer_copyright:"© 2026 ReputationGuard Global. Tous droits réservés."
+    }
+  };
+
+  function detectLang(){
+    var saved = null;
+    try { saved = localStorage.getItem('rgp_lang'); } catch(e){}
+    if (saved && T[saved]) return saved;
+
+    var browserLangs = navigator.languages || [navigator.language || navigator.userLanguage || 'en'];
+    for (var i=0; i<browserLangs.length; i++){
+      var code = (browserLangs[i] || '').toLowerCase().split('-')[0];
+      if (T[code]) return code;
+    }
+    return 'en';
+  }
+
+  function applyLang(lang){
+    if (!T[lang]) lang = 'en';
+    var dict = T[lang];
+
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if (!dict[key]) return;
+      if (el.hasAttribute('data-i18n-html')) {
+        el.innerHTML = dict[key];
+      } else {
+        el.textContent = dict[key];
+      }
+    });
+
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', RTL.indexOf(lang) > -1 ? 'rtl' : 'ltr');
+
+    document.querySelectorAll('.lang-btn').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+
+    var current = document.getElementById('langDropdownCurrent');
+    if (current) {
+      var match = LANGS.filter(function(l){ return l.code === lang; })[0];
+      if (match) current.textContent = match.flag + ' ' + match.label;
+    }
+
+    try { localStorage.setItem('rgp_lang', lang); } catch(e){}
+  }
+
+  function buildFooterSwitcher(container){
+    if (!container) return;
+    container.innerHTML = '';
+    LANGS.forEach(function(l){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'lang-btn';
+      btn.setAttribute('data-lang', l.code);
+      btn.textContent = l.flag + ' ' + l.label;
+      btn.addEventListener('click', function(){ applyLang(l.code); });
+      container.appendChild(btn);
+    });
+  }
+
+  function buildNavDropdown(){
+    var dropdown = document.getElementById('langDropdown');
+    var toggle = document.getElementById('langDropdownToggle');
+    var menu = document.getElementById('langDropdownMenu');
+    var current = document.getElementById('langDropdownCurrent');
+    if (!dropdown || !toggle || !menu) return;
+
+    menu.innerHTML = '';
+    LANGS.forEach(function(l){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'lang-btn';
+      btn.setAttribute('data-lang', l.code);
+      btn.textContent = l.flag + ' ' + l.label;
+      btn.addEventListener('click', function(){
+        applyLang(l.code);
+        dropdown.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+      menu.appendChild(btn);
+    });
+
+    toggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var willOpen = !dropdown.classList.contains('open');
+      dropdown.classList.toggle('open', willOpen);
+      toggle.setAttribute('aria-expanded', String(willOpen));
+    });
+    document.addEventListener('click', function(e){
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    buildNavDropdown();
+    buildFooterSwitcher(document.getElementById('footerLangSwitch'));
+    applyLang(detectLang());
+  });
+})();
+</script>
 
 <!-- ===== NAVBAR SCROLL & BURGER ===== -->
 <script>
