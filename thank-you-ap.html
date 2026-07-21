@@ -70,6 +70,41 @@
       margin-top: 0.2rem;
     }
 
+    /* Order summary */
+    .order-summary {
+      display: none;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.6rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .order-summary.show {
+      display: flex;
+    }
+    .order-summary .os-label {
+      font-size: 0.78rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 0.15rem;
+    }
+    .order-summary .os-plan {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0a1e2f;
+    }
+    .order-summary .os-price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #2563eb;
+      white-space: nowrap;
+    }
+
     /* Divider */
     .divider {
       height: 2px;
@@ -111,6 +146,11 @@
     .form-group label .required {
       color: #dc2626;
       margin-left: 2px;
+    }
+    .form-group label .optional-tag {
+      color: #64748b;
+      font-weight: 400;
+      font-size: 0.8rem;
     }
     .form-group .hint {
       font-size: 0.8rem;
@@ -231,6 +271,36 @@
       font-size: 0.95rem;
     }
 
+    /* Submit error banner */
+    .submit-error {
+      display: none;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 12px;
+      padding: 1.1rem 1.3rem;
+      margin-top: 1.2rem;
+      text-align: left;
+    }
+    .submit-error.show {
+      display: block;
+    }
+    .submit-error h3 {
+      color: #dc2626;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    .submit-error p {
+      color: #7f1d1d;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .submit-error a {
+      color: #b91c1c;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
     /* Footer */
     .footer {
       text-align: center;
@@ -271,8 +341,17 @@
     <!-- Header -->
     <div class="header">
       <div class="badge">✅ Payment Successful</div>
-      <h1>Thank You <span></span></h1>
-      <p class="sub">We’re ready to clean up your business AI visibility.</p>
+      <h1 id="thankYouHeading">Thank You</h1>
+      <p class="sub">We're ready to clean up your business AI visibility.</p>
+    </div>
+
+    <!-- Order summary (shown only if plan is known from the payment redirect) -->
+    <div class="order-summary" id="orderSummary">
+      <div>
+        <div class="os-label">You purchased</div>
+        <div class="os-plan" id="osPlanName">—</div>
+      </div>
+      <div class="os-price" id="osPlanPrice"></div>
     </div>
 
     <div class="divider"></div>
@@ -280,7 +359,7 @@
     <!-- Intro -->
     <div class="intro">
       <strong>🔍 One more step to get started</strong><br />
-      Please fill in your business details below. This helps us prepare your appeal and <span class="highlight">start within 24 hours</span> (or sooner for priority plans).<br />
+      Please fill in your business details below. This helps us prepare your onboarding and <span class="highlight">start within 24 hours</span> (or sooner for priority plans).<br />
       <span style="font-size:0.85rem; color:#475569;">All fields marked with <span style="color:#dc2626;">*</span> are required.</span>
     </div>
 
@@ -296,8 +375,23 @@
       <!-- Company Name -->
       <div class="form-group">
         <label for="company">Company Name <span class="required">*</span></label>
-        <input type="text" id="company" name="company" placeholder="e.g. Acme Inc." required />
+        <input type="text" id="company" name="company" placeholder="e.g. Hotel Duomo Firenze" required />
         <div class="error-msg">Please enter your company name.</div>
+      </div>
+
+      <!-- Website URL -->
+      <div class="form-group">
+        <label for="website_url">Website URL <span class="required">*</span></label>
+        <input type="url" id="website_url" name="website_url" placeholder="https://yourbusiness.com" required />
+        <div class="hint">Your main business website. Most of the technical work happens here.</div>
+        <div class="error-msg">Please enter a valid URL (starting with http:// or https://).</div>
+      </div>
+
+      <!-- Webmaster / developer contact -->
+      <div class="form-group">
+        <label for="webmaster_contact">Webmaster / Developer Contact <span class="optional-tag">(recommended)</span></label>
+        <input type="text" id="webmaster_contact" name="webmaster_contact" placeholder="Name and email of whoever manages your website" />
+        <div class="hint">We'll need this to apply technical fixes. Nothing changes on your site without your sign-off first.</div>
       </div>
 
       <!-- Google Profile URL -->
@@ -313,17 +407,18 @@
         <label for="plan">Purchased Plan <span class="required">*</span></label>
         <select id="plan" name="plan" required>
           <option value="">– Select your plan –</option>
-          <option value="One-time AI Cleanup">⚡ One‑time AI Cleanup ($249)</option>
-          <option value="AI Monitor">AI Monitor ($399/mo)</option>
-          <option value="AI Protect">AI Protect ($899/mo)</option>
-          <option value="GEO Strategy & Growth">GEO Strategy & Growth ($1799/mo)</option>
+          <option value="AI Visibility Boost">⚡ AI Visibility Boost – $249 one-time</option>
+          <option value="AI Visibility">AI Visibility – $399/mo</option>
+          <option value="AI Authority">⭐ AI Authority – $899/mo</option>
+          <option value="AI Dominate">AI Dominate – $1,799/mo</option>
         </select>
+        <div class="hint">This should match the plan name shown on your receipt. Contact us if you're not sure.</div>
         <div class="error-msg">Please select your plan.</div>
       </div>
 
       <!-- Additional Info -->
       <div class="form-group">
-        <label for="additional">Additional Information <span style="color:#64748b; font-weight:400;">(optional)</span></label>
+        <label for="additional">Additional Information <span class="optional-tag">(optional)</span></label>
         <textarea id="additional" name="additional" placeholder="Any specific review you'd like us to focus on? Anything else we should know?"></textarea>
       </div>
 
@@ -346,8 +441,18 @@
     <!-- Success message (hidden initially) -->
     <div id="successMessage" class="success-message">
       <h3>🎉 All set!</h3>
-      <p>We’ve received your details. Our team will review your case and reach out within 24 hours (or sooner for priority plans). Check your email for confirmation.</p>
+      <p>We've received your details. Our team will review your case and reach out within 24 hours (or sooner for priority plans). Check your email for confirmation.</p>
       <p style="margin-top:0.5rem; font-size:0.9rem;">🔗 <a href="https://reputationguard.pro" style="color:#2563eb;">Return to homepage</a></p>
+    </div>
+
+    <!-- Error message (hidden initially, shown only if submission actually fails) -->
+    <div id="submitError" class="submit-error">
+      <h3>⚠️ We couldn't submit your details</h3>
+      <p>
+        Your payment was successful, but this form couldn't reach our system. Please try submitting again,
+        or email your details directly to <a href="mailto:defend@reputationguard.pro">defend@reputationguard.pro</a>
+        so we don't lose time getting started.
+      </p>
     </div>
 
     <!-- Footer -->
@@ -363,6 +468,15 @@
       const btnText = document.getElementById('btnText');
       const btnSpinner = document.getElementById('btnSpinner');
       const successMsg = document.getElementById('successMessage');
+      const submitError = document.getElementById('submitError');
+
+      // Plan metadata: keep this in sync with the live pricing page (reputationguard.pro/#pricing)
+      const PLAN_INFO = {
+        'AI Visibility Boost': { label: '⚡ AI Visibility Boost', price: '$249 one-time' },
+        'AI Visibility':       { label: 'AI Visibility',          price: '$399/mo' },
+        'AI Authority':        { label: '⭐ AI Authority',        price: '$899/mo' },
+        'AI Dominate':         { label: 'AI Dominate',            price: '$1,799/mo' },
+      };
 
       // Helper to show field error
       function setFieldError(field, hasError) {
@@ -406,9 +520,9 @@
           } catch (_) {
             valid = false;
           }
-        } else if (tag === 'SELECT' && field.value === '') {
+        } else if (tag === 'SELECT' && field.hasAttribute('required') && field.value === '') {
           valid = false;
-        } else if (type === 'checkbox' && !field.checked) {
+        } else if (type === 'checkbox' && field.hasAttribute('required') && !field.checked) {
           valid = false;
         }
 
@@ -439,9 +553,11 @@
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
+        // Hide any previous error state on a retry
+        submitError.classList.remove('show');
+
         // Run validation
         if (!validateForm()) {
-          // Scroll to first error
           const firstError = form.querySelector('.form-group.error');
           if (firstError) {
             firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -460,33 +576,30 @@
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
-        // You can send data to your backend endpoint.
-        // Replace the URL below with your actual endpoint (e.g., /api/submit-form)
-        // For now, we simulate a POST request with fetch.
+        // --- Formspree endpoint. Confirm this form is verified and active
+        // in the Formspree dashboard before relying on it in production. ---
+        const ENDPOINT_URL = 'https://formspree.io/f/mykqokjr';
 
         try {
-          // --- CHANGE THIS URL TO YOUR BACKEND ENDPOINT ---
-          const response = await fetch('https://formspree.io/f/mykqokjr', {
+          const response = await fetch(ENDPOINT_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
             body: JSON.stringify(data)
           });
-          // If you don't have an endpoint yet, you can remove the fetch and just show success.
-          // For demo, we'll consider any 2xx as success.
+
           if (response.ok) {
             showSuccess();
           } else {
-            throw new Error('Server error');
+            showSubmitError();
           }
         } catch (error) {
-          // If you don't have a backend, you can still show success for demo purposes
-          // but we'll also show an error message if fetch fails.
-          // For production, you should handle errors gracefully.
-          console.warn('Form submission error (if no endpoint, this is expected):', error);
-          // Still show success for demo – remove this when you have a real endpoint.
-          showSuccess();
-          // Optionally, show an error message:
-          // alert('Something went wrong. Please try again or contact support.');
+          // Network failure, endpoint down, CORS issue, etc.
+          // Never silently claim success here, the customer's data was not received.
+          console.error('Form submission failed:', error);
+          showSubmitError();
         } finally {
           submitBtn.disabled = false;
           btnText.textContent = 'Submit & Complete Order';
@@ -496,17 +609,57 @@
 
       function showSuccess() {
         form.style.display = 'none';
+        submitError.classList.remove('show');
         successMsg.classList.add('show');
-        // Optionally scroll to success
         successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
 
-      // If you want to pre-fill email from URL param (e.g., ?email=...)
+      function showSubmitError() {
+        submitError.classList.add('show');
+        submitError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      // Pre-fill from URL params passed on the Stripe success redirect,
+      // e.g. ?email=...&plan=AI%20Authority&company=...&website=...
       const urlParams = new URLSearchParams(window.location.search);
+
       const emailParam = urlParams.get('email');
       if (emailParam) {
         const emailField = document.getElementById('email');
         if (emailField) emailField.value = emailParam;
+      }
+
+      const companyParam = urlParams.get('company');
+      if (companyParam) {
+        const companyField = document.getElementById('company');
+        if (companyField) companyField.value = companyParam;
+      }
+
+      const websiteParam = urlParams.get('website');
+      if (websiteParam) {
+        const websiteField = document.getElementById('website_url');
+        if (websiteField) websiteField.value = websiteParam;
+      }
+
+      const nameParam = urlParams.get('name');
+      if (nameParam) {
+        const heading = document.getElementById('thankYouHeading');
+        if (heading) heading.textContent = 'Thank You, ' + nameParam;
+      }
+
+      const planParam = urlParams.get('plan');
+      if (planParam && PLAN_INFO[planParam]) {
+        const planField = document.getElementById('plan');
+        if (planField) planField.value = planParam;
+
+        const orderSummary = document.getElementById('orderSummary');
+        const osPlanName = document.getElementById('osPlanName');
+        const osPlanPrice = document.getElementById('osPlanPrice');
+        if (orderSummary && osPlanName && osPlanPrice) {
+          osPlanName.textContent = PLAN_INFO[planParam].label;
+          osPlanPrice.textContent = PLAN_INFO[planParam].price;
+          orderSummary.classList.add('show');
+        }
       }
     })();
   </script>
