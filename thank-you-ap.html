@@ -4,17 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Payment Successful – ReputationGuard</title>
-  <!-- Google Font for clean typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
   <style>
-    /* Reset & base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #f8fafc;
@@ -31,19 +25,31 @@
       border-radius: 24px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
       padding: 2.5rem 2rem;
-      transition: all 0.2s;
+      position: relative;
     }
     @media (max-width: 480px) {
-      .container {
-        padding: 1.8rem 1.2rem;
-      }
+      .container { padding: 1.8rem 1.2rem; }
     }
 
-    /* Header */
-    .header {
-      text-align: center;
-      margin-bottom: 2rem;
+    .lang-switch {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.4rem;
     }
+    .lang-switch select {
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #475569;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 0.3rem 1.6rem 0.3rem 0.8rem;
+      cursor: pointer;
+    }
+    [dir="rtl"] .lang-switch { right: auto; left: 1.4rem; }
+
+    .header { text-align: center; margin-bottom: 2rem; }
     .header .badge {
       display: inline-block;
       background: #e6f7e6;
@@ -55,22 +61,9 @@
       letter-spacing: 0.3px;
       margin-bottom: 1rem;
     }
-    .header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #0a1e2f;
-      margin-bottom: 0.4rem;
-    }
-    .header h1 span {
-      color: #2563eb;
-    }
-    .header p.sub {
-      font-size: 1.1rem;
-      color: #475569;
-      margin-top: 0.2rem;
-    }
+    .header h1 { font-size: 2rem; font-weight: 700; color: #0a1e2f; margin-bottom: 0.4rem; }
+    .header p.sub { font-size: 1.1rem; color: #475569; margin-top: 0.2rem; }
 
-    /* Order summary */
     .order-summary {
       display: none;
       background: #f1f5f9;
@@ -83,9 +76,7 @@
       gap: 1rem;
       flex-wrap: wrap;
     }
-    .order-summary.show {
-      display: flex;
-    }
+    .order-summary.show { display: flex; }
     .order-summary .os-label {
       font-size: 0.78rem;
       color: #64748b;
@@ -93,26 +84,11 @@
       letter-spacing: 0.4px;
       margin-bottom: 0.15rem;
     }
-    .order-summary .os-plan {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #0a1e2f;
-    }
-    .order-summary .os-price {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #2563eb;
-      white-space: nowrap;
-    }
+    .order-summary .os-plan { font-size: 1.05rem; font-weight: 700; color: #0a1e2f; }
+    .order-summary .os-price { font-size: 1.2rem; font-weight: 700; color: #2563eb; white-space: nowrap; }
 
-    /* Divider */
-    .divider {
-      height: 2px;
-      background: #e9edf2;
-      margin: 1.8rem 0;
-    }
+    .divider { height: 2px; background: #e9edf2; margin: 1.8rem 0; }
 
-    /* Intro text */
     .intro {
       background: #f1f5f9;
       padding: 1rem 1.4rem;
@@ -122,44 +98,16 @@
       color: #1e293b;
       line-height: 1.6;
     }
-    .intro strong {
-      color: #0f172a;
-    }
-    .intro .highlight {
-      background: #dbeafe;
-      padding: 0.1rem 0.4rem;
-      border-radius: 4px;
-      font-weight: 500;
-    }
+    .intro strong { color: #0f172a; }
+    .intro .highlight { background: #dbeafe; padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 500; }
+    .intro .required-note { font-size: 0.85rem; color: #475569; }
 
-    /* Form */
-    .form-group {
-      margin-bottom: 1.4rem;
-    }
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #0f172a;
-      margin-bottom: 0.3rem;
-    }
-    .form-group label .required {
-      color: #dc2626;
-      margin-left: 2px;
-    }
-    .form-group label .optional-tag {
-      color: #64748b;
-      font-weight: 400;
-      font-size: 0.8rem;
-    }
-    .form-group .hint {
-      font-size: 0.8rem;
-      color: #64748b;
-      margin-top: 0.2rem;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
+    .form-group { margin-bottom: 1.4rem; }
+    .form-group label { display: block; font-weight: 600; font-size: 0.9rem; color: #0f172a; margin-bottom: 0.3rem; }
+    .form-group label .required { color: #dc2626; margin-left: 2px; }
+    .form-group label .optional-tag { color: #64748b; font-weight: 400; font-size: 0.8rem; }
+    .form-group .hint { font-size: 0.8rem; color: #64748b; margin-top: 0.2rem; }
+    .form-group input, .form-group select, .form-group textarea {
       width: 100%;
       padding: 0.7rem 1rem;
       border: 1px solid #d1d5db;
@@ -169,43 +117,20 @@
       background: #fafcff;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
       outline: none;
       border-color: #2563eb;
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
       background: #ffffff;
     }
-    .form-group textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-    .form-group .checkbox {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      margin-top: 0.3rem;
-    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-group .checkbox { display: flex; align-items: flex-start; gap: 0.6rem; margin-top: 0.3rem; }
     .form-group .checkbox input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      margin-top: 2px;
-      flex-shrink: 0;
-      accent-color: #2563eb;
+      width: 20px; height: 20px; margin-top: 2px; flex-shrink: 0; accent-color: #2563eb;
     }
-    .form-group .checkbox label {
-      font-weight: 400;
-      font-size: 0.9rem;
-      color: #1e293b;
-      cursor: pointer;
-    }
-    .form-group .checkbox label a {
-      color: #2563eb;
-      text-decoration: underline;
-    }
+    .form-group .checkbox label { font-weight: 400; font-size: 0.9rem; color: #1e293b; cursor: pointer; }
+    .form-group .checkbox label a { color: #2563eb; text-decoration: underline; }
 
-    /* Submit button */
     .btn-submit {
       width: 100%;
       background: #0a1e2f;
@@ -223,132 +148,67 @@
       justify-content: center;
       gap: 0.5rem;
     }
-    .btn-submit:hover {
-      background: #1a3347;
-    }
-    .btn-submit:active {
-      transform: scale(0.98);
-    }
-    .btn-submit:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-    }
+    .btn-submit:hover { background: #1a3347; }
+    .btn-submit:active { transform: scale(0.98); }
+    .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; }
 
-    /* Spinner */
     .spinner {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 3px solid rgba(255,255,255,0.3);
-      border-top-color: #ffffff;
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
+      display: inline-block; width: 20px; height: 20px;
+      border: 3px solid rgba(255,255,255,0.3); border-top-color: #ffffff;
+      border-radius: 50%; animation: spin 0.7s linear infinite;
     }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Success message after form submit */
-    .success-message {
-      display: none;
-      background: #e6f7e6;
-      border-radius: 12px;
-      padding: 1.5rem;
-      text-align: center;
-      margin-top: 1.5rem;
-    }
-    .success-message.show {
-      display: block;
-    }
-    .success-message h3 {
-      color: #0b7e3d;
-      font-weight: 700;
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-    .success-message p {
-      color: #1e293b;
-      font-size: 0.95rem;
-    }
+    .success-message { display: none; background: #e6f7e6; border-radius: 12px; padding: 1.5rem; text-align: center; margin-top: 1.5rem; }
+    .success-message.show { display: block; }
+    .success-message h3 { color: #0b7e3d; font-weight: 700; font-size: 1.2rem; margin-bottom: 0.3rem; }
+    .success-message p { color: #1e293b; font-size: 0.95rem; }
 
-    /* Submit error banner */
-    .submit-error {
-      display: none;
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      border-radius: 12px;
-      padding: 1.1rem 1.3rem;
-      margin-top: 1.2rem;
-      text-align: left;
-    }
-    .submit-error.show {
-      display: block;
-    }
-    .submit-error h3 {
-      color: #dc2626;
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
-    }
-    .submit-error p {
-      color: #7f1d1d;
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-    .submit-error a {
-      color: #b91c1c;
-      font-weight: 600;
-      text-decoration: underline;
-    }
+    .submit-error { display: none; background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 1.1rem 1.3rem; margin-top: 1.2rem; text-align: left; }
+    .submit-error.show { display: block; }
+    .submit-error h3 { color: #dc2626; font-weight: 700; font-size: 1rem; margin-bottom: 0.3rem; }
+    .submit-error p { color: #7f1d1d; font-size: 0.9rem; line-height: 1.5; }
+    .submit-error a { color: #b91c1c; font-weight: 600; text-decoration: underline; }
 
-    /* Footer */
-    .footer {
-      text-align: center;
-      margin-top: 2.5rem;
-      font-size: 0.8rem;
-      color: #94a3b8;
-      border-top: 1px solid #e9edf2;
-      padding-top: 1.5rem;
-    }
-    .footer a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
+    .footer { text-align: center; margin-top: 2.5rem; font-size: 0.8rem; color: #94a3b8; border-top: 1px solid #e9edf2; padding-top: 1.5rem; }
+    .footer a { color: #2563eb; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
 
-    /* Error input */
-    .form-group.error input,
-    .form-group.error select,
-    .form-group.error textarea {
-      border-color: #dc2626;
-      background: #fef2f2;
+    .form-group.error input, .form-group.error select, .form-group.error textarea {
+      border-color: #dc2626; background: #fef2f2;
     }
-    .form-group .error-msg {
-      color: #dc2626;
-      font-size: 0.8rem;
-      margin-top: 0.2rem;
-      display: none;
-    }
-    .form-group.error .error-msg {
-      display: block;
-    }
+    .form-group .error-msg { color: #dc2626; font-size: 0.8rem; margin-top: 0.2rem; display: none; }
+    .form-group.error .error-msg { display: block; }
+
+    [dir="rtl"] .form-group .checkbox { flex-direction: row-reverse; }
+    [dir="rtl"] .order-summary { flex-direction: row-reverse; }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Header -->
-    <div class="header">
-      <div class="badge">✅ Payment Successful</div>
-      <h1 id="thankYouHeading">Thank You</h1>
-      <p class="sub">We're ready to clean up your business AI visibility.</p>
+    <div class="lang-switch">
+      <select id="langSwitch" aria-label="Language">
+        <option value="en">EN</option>
+        <option value="it">IT</option>
+        <option value="es">ES</option>
+        <option value="fr">FR</option>
+        <option value="de">DE</option>
+        <option value="pt">PT</option>
+        <option value="vi">VI</option>
+        <option value="tr">TR</option>
+        <option value="ar">AR</option>
+      </select>
     </div>
 
-    <!-- Order summary (shown only if plan is known from the payment redirect) -->
+    <div class="header">
+      <div class="badge" data-i18n="badge">✅ Payment Successful</div>
+      <h1 id="thankYouHeading" data-i18n="heading">Thank You</h1>
+      <p class="sub" data-i18n="subtitle">We're ready to clean up your business AI visibility.</p>
+    </div>
+
     <div class="order-summary" id="orderSummary">
       <div>
-        <div class="os-label">You purchased</div>
+        <div class="os-label" data-i18n="orderSummaryLabel">You purchased</div>
         <div class="os-plan" id="osPlanName">—</div>
       </div>
       <div class="os-price" id="osPlanPrice"></div>
@@ -356,113 +216,503 @@
 
     <div class="divider"></div>
 
-    <!-- Intro -->
     <div class="intro">
-      <strong>🔍 One more step to get started</strong><br />
-      Please fill in your business details below. This helps us prepare your onboarding and <span class="highlight">start within 24 hours</span> (or sooner for priority plans).<br />
-      <span style="font-size:0.85rem; color:#475569;">All fields marked with <span style="color:#dc2626;">*</span> are required.</span>
+      <strong data-i18n="introTitle">🔍 One more step to get started</strong><br />
+      <span data-i18n="introBodyPre">Please fill in your business details below. This helps us prepare your onboarding and</span>
+      <span class="highlight" data-i18n="introBodyHighlight">start within 24 hours</span>
+      <span data-i18n="introBodyPost">(or sooner for priority plans).</span><br />
+      <span class="required-note" data-i18n="requiredNote">All fields marked with * are required.</span>
     </div>
 
-    <!-- Form -->
     <form id="customerForm" novalidate>
-      <!-- Email -->
       <div class="form-group">
-        <label for="email">Email <span class="required">*</span></label>
-        <input type="email" id="email" name="email" placeholder="you@company.com" required />
-        <div class="error-msg">Please enter a valid email address.</div>
+        <label for="email"><span data-i18n="labelEmail">Email</span> <span class="required">*</span></label>
+        <input type="email" id="email" name="email" data-i18n-placeholder="placeholderEmail" placeholder="you@company.com" required />
+        <div class="error-msg" data-i18n="errorEmail">Please enter a valid email address.</div>
       </div>
 
-      <!-- Company Name -->
       <div class="form-group">
-        <label for="company">Company Name <span class="required">*</span></label>
-        <input type="text" id="company" name="company" placeholder="e.g. Hotel New York" required />
-        <div class="error-msg">Please enter your company name.</div>
+        <label for="company"><span data-i18n="labelCompany">Company Name</span> <span class="required">*</span></label>
+        <input type="text" id="company" name="company" data-i18n-placeholder="placeholderCompany" placeholder="e.g. Acme Inc." required />
+        <div class="error-msg" data-i18n="errorCompany">Please enter your company name.</div>
       </div>
 
-      <!-- Website URL -->
       <div class="form-group">
-        <label for="website_url">Website URL <span class="required">*</span></label>
-        <input type="url" id="website_url" name="website_url" placeholder="https://yourbusiness.com" required />
-        <div class="hint">Your main business website. Most of the technical work happens here.</div>
-        <div class="error-msg">Please enter a valid URL (starting with http:// or https://).</div>
+        <label for="website_url"><span data-i18n="labelWebsite">Website URL</span> <span class="required">*</span></label>
+        <input type="url" id="website_url" name="website_url" data-i18n-placeholder="placeholderWebsite" placeholder="https://yourbusiness.com" required />
+        <div class="hint" data-i18n="hintWebsite">Your main business website. Most of the technical work happens here.</div>
+        <div class="error-msg" data-i18n="errorWebsite">Please enter a valid URL (starting with http:// or https://).</div>
       </div>
 
-      <!-- Webmaster / developer contact -->
       <div class="form-group">
-        <label for="webmaster_contact">Webmaster / Developer Contact <span class="optional-tag">(recommended)</span></label>
-        <input type="text" id="webmaster_contact" name="webmaster_contact" placeholder="Name and email of whoever manages your website" />
-        <div class="hint">We'll need this to apply technical fixes. Nothing changes on your site without your sign-off first.</div>
+        <label for="webmaster_contact"><span data-i18n="labelWebmaster">Webmaster / Developer Contact</span> <span class="optional-tag" data-i18n="webmasterOptional">(recommended)</span></label>
+        <input type="text" id="webmaster_contact" name="webmaster_contact" data-i18n-placeholder="placeholderWebmaster" placeholder="Name and email of whoever manages your website" />
+        <div class="hint" data-i18n="hintWebmaster">We'll need this to apply technical fixes. Nothing changes on your site without your sign-off first.</div>
       </div>
 
-      <!-- Google Profile URL -->
       <div class="form-group">
-        <label for="google_url">Google Business Profile URL <span class="required">*</span></label>
-        <input type="url" id="google_url" name="google_url" placeholder="https://maps.app.goo.gl/..." required />
-        <div class="hint">Paste the full link to your Google Business Profile (e.g., from the "Share" button).</div>
-        <div class="error-msg">Please enter a valid URL (starting with http:// or https://).</div>
+        <label for="google_url"><span data-i18n="labelGoogle">Google Business Profile URL</span> <span class="required">*</span></label>
+        <input type="url" id="google_url" name="google_url" data-i18n-placeholder="placeholderGoogle" placeholder="https://maps.app.goo.gl/..." required />
+        <div class="hint" data-i18n="hintGoogle">Paste the full link to your Google Business Profile (e.g., from the "Share" button).</div>
+        <div class="error-msg" data-i18n="errorGoogle">Please enter a valid URL (starting with http:// or https://).</div>
       </div>
 
-      <!-- Plan -->
       <div class="form-group">
-        <label for="plan">Purchased Plan <span class="required">*</span></label>
+        <label for="plan"><span data-i18n="labelPlan">Purchased Plan</span> <span class="required">*</span></label>
         <select id="plan" name="plan" required>
-          <option value="">– Select your plan –</option>
+          <option value="" data-i18n="selectPlanDefault">– Select your plan –</option>
           <option value="AI Visibility Boost">⚡ AI Visibility Boost – $249 one-time</option>
           <option value="AI Visibility">AI Visibility – $399/mo</option>
           <option value="AI Authority">⭐ AI Authority – $899/mo</option>
           <option value="AI Dominate">AI Dominate – $1,799/mo</option>
         </select>
-        <div class="hint">This should match the plan name shown on your receipt. Contact us if you're not sure.</div>
-        <div class="error-msg">Please select your plan.</div>
+        <div class="hint" data-i18n="hintPlan">This should match the plan name shown on your receipt. Contact us if you're not sure.</div>
+        <div class="error-msg" data-i18n="errorPlan">Please select your plan.</div>
       </div>
 
-      <!-- Additional Info -->
       <div class="form-group">
-        <label for="additional">Additional Information <span class="optional-tag">(optional)</span></label>
-        <textarea id="additional" name="additional" placeholder="Any specific review you'd like us to focus on? Anything else we should know?"></textarea>
+        <label for="additional"><span data-i18n="labelAdditional">Additional Information</span> <span class="optional-tag" data-i18n="additionalOptional">(optional)</span></label>
+        <textarea id="additional" name="additional" data-i18n-placeholder="placeholderAdditional" placeholder="Anything else we should know?"></textarea>
       </div>
 
-      <!-- Consent -->
       <div class="form-group">
         <div class="checkbox">
           <input type="checkbox" id="consent" name="consent" required />
-          <label for="consent">I agree that my data will be used to deliver the service and I have read the <a href="/privacy-policy.html" target="_blank">Privacy Policy</a>. <span class="required">*</span></label>
+          <label for="consent"><span data-i18n="labelConsent">I agree that my data will be used to deliver the service and I have read the</span> <a href="/privacy-policy.html" target="_blank" data-i18n="privacyPolicyLinkText">Privacy Policy</a>. <span class="required">*</span></label>
         </div>
-        <div class="error-msg">You must agree to the terms.</div>
+        <div class="error-msg" data-i18n="errorConsent">You must agree to the terms.</div>
       </div>
 
-      <!-- Submit -->
       <button type="submit" class="btn-submit" id="submitBtn">
-        <span id="btnText">Submit & Complete Order</span>
+        <span id="btnText" data-i18n="btnSubmit">Submit &amp; Complete Order</span>
         <span id="btnSpinner" style="display:none;" class="spinner"></span>
       </button>
     </form>
 
-    <!-- Success message (hidden initially) -->
     <div id="successMessage" class="success-message">
-      <h3>🎉 All set!</h3>
-      <p>We've received your details. Our team will review your case and reach out within 24 hours (or sooner for priority plans). Check your email for confirmation.</p>
-      <p style="margin-top:0.5rem; font-size:0.9rem;">🔗 <a href="https://reputationguard.pro" style="color:#2563eb;">Return to homepage</a></p>
+      <h3 data-i18n="successTitle">🎉 All set!</h3>
+      <p data-i18n="successBody">We've received your details. Our team will review your case and reach out within 24 hours (or sooner for priority plans). Check your email for confirmation.</p>
+      <p style="margin-top:0.5rem; font-size:0.9rem;">🔗 <a href="https://reputationguard.pro" style="color:#2563eb;" data-i18n="returnHome">Return to homepage</a></p>
     </div>
 
-    <!-- Error message (hidden initially, shown only if submission actually fails) -->
     <div id="submitError" class="submit-error">
-      <h3>⚠️ We couldn't submit your details</h3>
-      <p>
+      <h3 data-i18n="errorTitle">⚠️ We couldn't submit your details</h3>
+      <p data-i18n-html="errorBody">
         Your payment was successful, but this form couldn't reach our system. Please try submitting again,
         or email your details directly to <a href="mailto:defend@reputationguard.pro">defend@reputationguard.pro</a>
         so we don't lose time getting started.
       </p>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
-      &copy; 2026 ReputationGuard. All rights reserved. &bull; <a href="/privacy-policy.html">Privacy Policy</a>
+      &copy; 2026 ReputationGuard. <span data-i18n="footerRights">All rights reserved.</span> &bull; <a href="/privacy-policy.html" data-i18n="footerPrivacy">Privacy Policy</a>
     </div>
   </div>
 
   <script>
     (function() {
+      const I18N = {
+        en: {
+          badge: "✅ Payment Successful", heading: "Thank You",
+          subtitle: "We're ready to clean up your business AI visibility.",
+          orderSummaryLabel: "You purchased",
+          introTitle: "🔍 One more step to get started",
+          introBodyPre: "Please fill in your business details below. This helps us prepare your onboarding and",
+          introBodyHighlight: "start within 24 hours",
+          introBodyPost: "(or sooner for priority plans).",
+          requiredNote: "All fields marked with * are required.",
+          labelEmail: "Email", labelCompany: "Company Name", labelWebsite: "Website URL",
+          labelWebmaster: "Webmaster / Developer Contact", webmasterOptional: "(recommended)",
+          labelGoogle: "Google Business Profile URL", labelPlan: "Purchased Plan",
+          labelAdditional: "Additional Information", additionalOptional: "(optional)",
+          labelConsent: "I agree that my data will be used to deliver the service and I have read the",
+          privacyPolicyLinkText: "Privacy Policy",
+          placeholderEmail: "you@company.com", placeholderCompany: "e.g. Acme Inc.",
+          placeholderWebsite: "https://yourbusiness.com",
+          placeholderWebmaster: "Name and email of whoever manages your website",
+          placeholderGoogle: "https://maps.app.goo.gl/...",
+          placeholderAdditional: "Anything else we should know?",
+          hintWebsite: "Your main business website. Most of the technical work happens here.",
+          hintWebmaster: "We'll need this to apply technical fixes. Nothing changes on your site without your sign-off first.",
+          hintGoogle: "Paste the full link to your Google Business Profile (e.g., from the \"Share\" button).",
+          hintPlan: "This should match the plan name shown on your receipt. Contact us if you're not sure.",
+          selectPlanDefault: "– Select your plan –",
+          errorEmail: "Please enter a valid email address.", errorCompany: "Please enter your company name.",
+          errorWebsite: "Please enter a valid URL (starting with http:// or https://).",
+          errorGoogle: "Please enter a valid URL (starting with http:// or https://).",
+          errorPlan: "Please select your plan.", errorConsent: "You must agree to the terms.",
+          btnSubmit: "Submit &amp; Complete Order", btnSubmitting: "Submitting...",
+          successTitle: "🎉 All set!",
+          successBody: "We've received your details. Our team will review your case and reach out within 24 hours (or sooner for priority plans). Check your email for confirmation.",
+          returnHome: "Return to homepage",
+          errorTitle: "⚠️ We couldn't submit your details",
+          errorBody: 'Your payment was successful, but this form couldn\'t reach our system. Please try submitting again, or email your details directly to <a href="mailto:defend@reputationguard.pro">defend@reputationguard.pro</a> so we don\'t lose time getting started.',
+          footerRights: "All rights reserved.", footerPrivacy: "Privacy Policy",
+        },
+        it: {
+          badge: "✅ Pagamento Riuscito", heading: "Grazie",
+          subtitle: "Siamo pronti a migliorare la vostra visibilità AI.",
+          orderSummaryLabel: "Avete acquistato",
+          introTitle: "🔍 Un ultimo passo per iniziare",
+          introBodyPre: "Compilate i vostri dati aziendali qui sotto. Questo ci aiuta a preparare l'onboarding e a",
+          introBodyHighlight: "iniziare entro 24 ore",
+          introBodyPost: "(anche prima per i piani prioritari).",
+          requiredNote: "I campi contrassegnati con * sono obbligatori.",
+          labelEmail: "Email", labelCompany: "Nome Azienda", labelWebsite: "URL del Sito Web",
+          labelWebmaster: "Contatto Webmaster / Sviluppatore", webmasterOptional: "(consigliato)",
+          labelGoogle: "URL Profilo Google Business", labelPlan: "Piano Acquistato",
+          labelAdditional: "Informazioni Aggiuntive", additionalOptional: "(facoltativo)",
+          labelConsent: "Accetto che i miei dati siano utilizzati per erogare il servizio e ho letto la",
+          privacyPolicyLinkText: "Informativa sulla Privacy",
+          placeholderEmail: "voi@azienda.com", placeholderCompany: "es. Acme Inc.",
+          placeholderWebsite: "https://vostrosito.com",
+          placeholderWebmaster: "Nome ed email di chi gestisce il vostro sito",
+          placeholderGoogle: "https://maps.app.goo.gl/...",
+          placeholderAdditional: "Altro che dovremmo sapere?",
+          hintWebsite: "Il vostro sito web principale. Qui avviene la maggior parte del lavoro tecnico.",
+          hintWebmaster: "Ci servirà per applicare le correzioni tecniche. Niente cambia sul sito senza la vostra approvazione.",
+          hintGoogle: "Incollate il link completo al vostro Profilo Google Business (es. dal pulsante \"Condividi\").",
+          hintPlan: "Deve corrispondere al piano indicato sulla vostra ricevuta. Contattateci in caso di dubbi.",
+          selectPlanDefault: "– Seleziona il tuo piano –",
+          errorEmail: "Inserisci un indirizzo email valido.", errorCompany: "Inserisci il nome della tua azienda.",
+          errorWebsite: "Inserisci un URL valido (che inizi con http:// o https://).",
+          errorGoogle: "Inserisci un URL valido (che inizi con http:// o https://).",
+          errorPlan: "Seleziona il tuo piano.", errorConsent: "Devi accettare i termini.",
+          btnSubmit: "Invia e Completa l'Ordine", btnSubmitting: "Invio in corso...",
+          successTitle: "🎉 Fatto!",
+          successBody: "Abbiamo ricevuto i vostri dati. Il nostro team esaminerà il vostro caso e vi contatterà entro 24 ore (anche prima per i piani prioritari). Controllate la vostra email per la conferma.",
+          returnHome: "Torna alla homepage",
+          errorTitle: "⚠️ Non siamo riusciti a inviare i tuoi dati",
+          errorBody: 'Il pagamento è andato a buon fine, ma il modulo non è riuscito a raggiungere il nostro sistema. Riprova a inviarlo, oppure scrivi i tuoi dati direttamente a <a href="mailto:defend@reputationguard.pro">defend@reputationguard.pro</a> per non perdere tempo prezioso.',
+          footerRights: "Tutti i diritti riservati.", footerPrivacy: "Informativa sulla Privacy",
+        },
+        es: {
+          badge: "✅ Pago Realizado", heading: "Gracias",
+          subtitle: "Estamos listos para mejorar la visibilidad de su negocio en la IA.",
+          orderSummaryLabel: "Ha comprado",
+          introTitle: "🔍 Un último paso para empezar",
+          introBodyPre: "Complete los datos de su negocio a continuación. Esto nos ayuda a preparar su incorporación y a",
+          introBodyHighlight: "comenzar en 24 horas",
+          introBodyPost: "(antes en planes prioritarios).",
+          requiredNote: "Los campos marcados con * son obligatorios.",
+          labelEmail: "Correo electrónico", labelCompany: "Nombre de la Empresa", labelWebsite: "URL del Sitio Web",
+          labelWebmaster: "Contacto del Webmaster / Desarrollador", webmasterOptional: "(recomendado)",
+          labelGoogle: "URL del Perfil de Google Business", labelPlan: "Plan Adquirido",
+          labelAdditional: "Información Adicional", additionalOptional: "(opcional)",
+          labelConsent: "Acepto que mis datos se usen para prestar el servicio y he leído la",
+          privacyPolicyLinkText: "Política de Privacidad",
+          placeholderEmail: "usted@empresa.com", placeholderCompany: "ej. Acme Inc.",
+          placeholderWebsite: "https://susitio.com",
+          placeholderWebmaster: "Nombre y correo de quien gestiona su sitio web",
+          placeholderGoogle: "https://maps.app.goo.gl/...",
+          placeholderAdditional: "¿Algo más que debamos saber?",
+          hintWebsite: "El sitio web principal de su negocio. Aquí ocurre la mayor parte del trabajo técnico.",
+          hintWebmaster: "Lo necesitaremos para aplicar las correcciones técnicas. Nada cambia en su sitio sin su aprobación.",
+          hintGoogle: "Pegue el enlace completo a su Perfil de Google Business (ej. desde el botón \"Compartir\").",
+          hintPlan: "Debe coincidir con el plan indicado en su recibo. Contáctenos si no está seguro.",
+          selectPlanDefault: "– Seleccione su plan –",
+          errorEmail: "Introduzca un correo electrónico válido.", errorCompany: "Introduzca el nombre de su empresa.",
+          errorWebsite: "Introduzca una URL válida (que empiece con http:// o https://).",
+          errorGoogle: "Introduzca una URL válida (que empiece con http:// o https://).",
+          errorPlan: "Seleccione su plan.", errorConsent: "Debe aceptar los términos.",
+          btnSubmit: "Enviar y Completar Pedido", btnSubmitting: "Enviando...",
+          successTitle: "🎉 ¡Listo!",
+          successBody: "Hemos recibido sus datos. Nuestro equipo revisará su caso y se pondrá en contacto en 24 horas (antes en planes prioritarios). Revise su correo para la confirmación.",
+          returnHome: "Volver a la página principal",
+          errorTitle: "⚠️ No pudimos enviar sus datos",
+          errorBody: 'Su pago se realizó correctamente, pero el formulario no pudo conectarse a nuestro sistema. Intente enviarlo de nuevo, o envíe sus datos directamente a <a href="mailto:defend@reputationguard.pro">defend@reputationguard.pro</a> para no perder tiempo.',
+          footerRights: "Todos los derechos reservados.", footerPrivacy: "Política de Privacidad",
+        },
+        fr: {
+          badge: "✅ Paiement Réussi", heading: "Merci",
+          subtitle: "Nous sommes prêts à améliorer votre visibilité IA.",
+          orderSummaryLabel: "Vous avez acheté",
+          introTitle: "🔍 Une dernière étape pour commencer",
+          introBodyPre: "Veuillez renseigner les informations de votre entreprise ci-dessous. Cela nous aide à préparer votre intégration et à",
+          introBodyHighlight: "démarrer sous 24 heures",
+          introBodyPost: "(plus tôt pour les offres prioritaires).",
+          requiredNote: "Les champs marqués d'un * sont obligatoires.",
+          labelEmail: "E-mail", labelCompany: "Nom de l'Entreprise", labelWebsite: "URL du Site Web",
+          labelWebmaster: "Contact Webmaster / Développeur", webmasterOptional: "(recommandé)",
+          labelGoogle: "URL du Profil Google Business", labelPlan: "Offre Achetée",
+          labelAdditional: "Informations Complémentaires", additionalOptional: "(facultatif)",
+          labelConsent: "J'accepte que mes données soient utilisées pour fournir le service et j'ai lu la",
+          privacyPolicyLinkText: "Politique de Confidentialité",
+          placeholderEmail: "vous@entreprise.com", placeholderCompany: "ex. Acme Inc.",
+          placeholderWebsite: "https://votresite.com",
+          placeholderWebmaster: "Nom et e-mail de la personne qui gère votre site",
+          placeholderGoogle: "https://maps.app.goo.gl/...",
+          placeholderAdditional: "Autre chose à nous signaler ?",
+          hintWebsite: "Le site web principal de votre entreprise. La majorité du travail technique se fait ici.",
+          hintWebmaster: "Nécessaire pour appliquer les corrections techniques. Rien ne change sur votre site sans votre accord.",
+          hintGoogle: "Collez le lien complet vers votre Profil Google Business (ex. depuis le bouton \"Partager\").",
+          hintPlan: "Doit correspondre à l'offre indiquée sur votre reçu. Contactez-nous en cas de doute.",
+          selectPlanDefault: "– Sélectionnez votre offre –",
+          errorEmail: "Veuillez saisir une adresse e-mail valide.", errorCompany: "Veuillez saisir le nom de votre entreprise.",
+          errorWebsite: "Veuillez saisir une URL valide (commençant par http:// ou https://).",
+          errorGoogle: "Veuillez saisir une URL valide (commençant par http:// ou https://).",
+          errorPlan: "Veuillez sélectionner votre offre.", errorConsent: "Vous devez accepter les conditions.",
+          btnSubmit: "Envoyer et Finaliser la Commande", btnSubmitting: "Envoi en cours...",
+          successTitle: "🎉 C'est fait !",
+          successBody: "Nous avons bien reçu vos informations. Notre équipe examinera votre dossier et vous contactera sous 24 heures (plus tôt pour les offres prioritaires). Vérifiez votre e-mail pour la confirmation.",
+          returnHome: "Retour à l'accueil",
+          errorTitle: "⚠️ Nous n'avons pas pu envoyer vos données",
+          errorBody: 'Votre paiement a été accepté, mais ce formulaire n\'a pas pu joindre notre système. Merci de réessayer, ou envoyez vos informations directement à <a href="mailto:defend@reputationguard.pro">defend@reputationguard.pro</a> pour ne pas perdre de temps.',
+          footerRights: "Tous droits réservés.", footerPrivacy: "Politique de Confidentialité",
+        },
+        de: {
+          badge: "✅ Zahlung Erfolgreich", heading: "Vielen Dank",
+          subtitle: "Wir sind bereit, Ihre KI-Sichtbarkeit zu verbessern.",
+          orderSummaryLabel: "Sie haben gekauft",
+          introTitle: "🔍 Noch ein letzter Schritt",
+          introBodyPre: "Bitte geben Sie unten Ihre Unternehmensdaten ein. Das hilft uns, Ihr Onboarding vorzubereiten und",
+          introBodyHighlight: "innerhalb von 24 Stunden zu starten",
+          introBodyPost: "(bei Prioritätsplänen früher).",
+          requiredNote: "Mit * markierte Felder sind Pflichtfelder.",
+          labelEmail: "E-Mail", labelCompany: "Firmenname", labelWebsite: "Website-URL",
+          labelWebmaster: "Webmaster- / Entwickler-Kontakt", webmasterOptional: "(empfohlen)",
+          labelGoogle: "Google Unternehmensprofil-URL", labelPlan: "Gekaufter Plan",
+          labelAdditional: "Zusätzliche Informationen", additionalOptional: "(optional)",
+          labelConsent: "Ich stimme zu, dass meine Daten zur Erbringung der Dienstleistung genutzt werden, und habe die",
+          privacyPolicyLinkText: "Datenschutzerklärung",
+          placeholderEmail: "sie@unternehmen.com", placeholderCompany: "z. B. Acme Inc.",
+          placeholderWebsite: "https://ihrewebsite.com",
+          placeholderWebmaster: "Name und E-Mail der Person, die Ihre Website verwaltet",
+          placeholderGoogle: "https://maps.app.goo.gl/...",
+          placeholderAdditional: "Gibt es sonst noch etwas, das wir wissen sollten?",
+          hintWebsite: "Ihre Haupt-Unternehmenswebsite. Hier findet der größte Teil der technischen Arbeit statt.",
+          hintWebmaster: "Wir benötigen dies für technische Korrekturen. Ohne Ihre Freigabe ändert sich nichts auf Ihrer Website.",
+          hintGoogle: "Fügen Sie den vollständigen Link zu Ihrem Google Unternehmensprofil ein (z. B. über \"Teilen\").",
+          hintPlan: "Sollte mit dem Plan auf Ihrer Quittung übereinstimmen. Kontaktieren Sie uns bei Unsicherheit.",
+          selectPlanDefault: "– Plan auswählen –",
+          errorEmail: "Bitte geben Sie eine gültige E-Mail-Adresse ein.", errorCompany: "Bitte geben Sie Ihren Firmennamen ein.",
+          errorWebsite: "Bitte geben Sie eine gültige URL ein (beginnend mit http:// oder https://).",
+          errorGoogle: "Bitte geben Sie eine gültige URL ein (beginnend mit http:// oder https://).",
+          errorPlan: "Bitte wählen Sie Ihren Plan.", errorConsent: "Sie müssen den Bedingungen zustimmen.",
+          btnSubmit: "Absenden &amp; Bestellung Abschließen", btnSubmitting: "Wird gesendet...",
+          successTitle: "🎉 Erledigt!",
+          successBody: "Wir haben Ihre Daten erhalten. Unser Team prüft Ihren Fall und meldet sich innerhalb von 24 Stunden (bei Prioritätsplänen früher). Bitte prüfen Sie Ihre E-Mails für die Bestätigung.",
+          returnHome: "Zurück zur Startseite",
+          errorTitle: "⚠️ Ihre Daten konnten nicht übermittelt werden",
+          errorBody: 'Ihre Zahlung war erfolgreich, aber das Formular konnte unser System nicht erreichen. Bitte versuchen Sie es erneut oder senden Sie Ihre Daten direkt an <a href="mailto:defend@reputationguard.pro">defend@reputationguard.pro</a>, damit wir keine Zeit verlieren.',
+          footerRights: "Alle Rechte vorbehalten.", footerPrivacy: "Datenschutzerklärung",
+        },
+        pt: {
+          badge: "✅ Pagamento Concluído", heading: "Obrigado",
+          subtitle: "Estamos prontos para melhorar sua visibilidade em IA.",
+          orderSummaryLabel: "Você comprou",
+          introTitle: "🔍 Mais um passo para começar",
+          introBodyPre: "Preencha os dados da sua empresa abaixo. Isso nos ajuda a preparar sua integração e a",
+          introBodyHighlight: "começar em até 24 horas",
+          introBodyPost: "(antes em planos prioritários).",
+          requiredNote: "Os campos marcados com * são obrigatórios.",
+          labelEmail: "E-mail", labelCompany: "Nome da Empresa", labelWebsite: "URL do Site",
+          labelWebmaster: "Contato do Webmaster / Desenvolvedor", webmasterOptional: "(recomendado)",
+          labelGoogle: "URL do Perfil do Google Business", labelPlan: "Plano Adquirido",
+          labelAdditional: "Informações Adicionais", additionalOptional: "(opcional)",
+          labelConsent: "Concordo que meus dados sejam usados para prestar o serviço e li a",
+          privacyPolicyLinkText: "Política de Privacidade",
+          placeholderEmail: "voce@empresa.com", placeholderCompany: "ex. Acme Inc.",
+          placeholderWebsite: "https://seusite.com",
+          placeholderWebmaster: "Nome e e-mail de quem gerencia o seu site",
+          placeholderGoogle: "https://maps.app.goo.gl/...",
+          placeholderAdditional: "Algo mais que devemos saber?",
+          hintWebsite: "O site principal do seu negócio. A maior parte do trabalho técnico acontece aqui.",
+          hintWebmaster: "Vamos precisar disso para aplicar as correções técnicas. Nada muda no seu site sem sua aprovação.",
+          hintGoogle: "Cole o link completo do seu Perfil do Google Business (ex. pelo botão \"Compartilhar\").",
+          hintPlan: "Deve corresponder ao plano mostrado no seu recibo. Fale conosco em caso de dúvida.",
+          selectPlanDefault: "– Selecione seu plano –",
+          errorEmail: "Insira um e-mail válido.", errorCompany: "Insira o nome da sua empresa.",
+          errorWebsite: "Insira uma URL válida (começando com http:// ou https://).",
+          errorGoogle: "Insira uma URL válida (começando com http:// ou https://).",
+          errorPlan: "Selecione seu plano.", errorConsent: "Você deve concordar com os termos.",
+          btnSubmit: "Enviar e Concluir Pedido", btnSubmitting: "Enviando...",
+          successTitle: "🎉 Pronto!",
+          successBody: "Recebemos os seus dados. Nossa equipe vai analisar o seu caso e entrar em contato em até 24 horas (antes em planos prioritários). Verifique seu e-mail para a confirmação.",
+          returnHome: "Voltar à página inicial",
+          errorTitle: "⚠️ Não conseguimos enviar seus dados",
+          errorBody: 'Seu pagamento foi concluído, mas este formulário não conseguiu se conectar ao nosso sistema. Tente enviar novamente, ou envie seus dados diretamente para <a href="mailto:defend@reputationguard.pro">defend@reputationguard.pro</a> para não perdermos tempo.',
+          footerRights: "Todos os direitos reservados.", footerPrivacy: "Política de Privacidade",
+        },
+        vi: {
+          badge: "✅ Thanh Toán Thành Công", heading: "Cảm Ơn Bạn",
+          subtitle: "Chúng tôi đã sẵn sàng cải thiện khả năng hiển thị AI cho doanh nghiệp của bạn.",
+          orderSummaryLabel: "Bạn đã mua",
+          introTitle: "🔍 Thêm một bước nữa để bắt đầu",
+          introBodyPre: "Vui lòng điền thông tin doanh nghiệp bên dưới. Điều này giúp chúng tôi chuẩn bị và",
+          introBodyHighlight: "bắt đầu trong vòng 24 giờ",
+          introBodyPost: "(sớm hơn với các gói ưu tiên).",
+          requiredNote: "Các trường có dấu * là bắt buộc.",
+          labelEmail: "Email", labelCompany: "Tên Công Ty", labelWebsite: "URL Trang Web",
+          labelWebmaster: "Liên Hệ Quản Trị Viên / Lập Trình Viên", webmasterOptional: "(khuyến nghị)",
+          labelGoogle: "URL Hồ Sơ Doanh Nghiệp Google", labelPlan: "Gói Đã Mua",
+          labelAdditional: "Thông Tin Bổ Sung", additionalOptional: "(không bắt buộc)",
+          labelConsent: "Tôi đồng ý cho dữ liệu của mình được sử dụng để cung cấp dịch vụ và đã đọc",
+          privacyPolicyLinkText: "Chính Sách Bảo Mật",
+          placeholderEmail: "ban@congty.com", placeholderCompany: "vd. Acme Inc.",
+          placeholderWebsite: "https://trangwebcuaban.com",
+          placeholderWebmaster: "Tên và email của người quản lý trang web của bạn",
+          placeholderGoogle: "https://maps.app.goo.gl/...",
+          placeholderAdditional: "Có điều gì khác chúng tôi nên biết không?",
+          hintWebsite: "Trang web chính của doanh nghiệp bạn. Hầu hết công việc kỹ thuật diễn ra ở đây.",
+          hintWebmaster: "Chúng tôi cần thông tin này để áp dụng các sửa lỗi kỹ thuật. Không có gì thay đổi trên trang web của bạn nếu chưa có sự đồng ý.",
+          hintGoogle: "Dán liên kết đầy đủ đến Hồ Sơ Doanh Nghiệp Google của bạn (vd. từ nút \"Chia sẻ\").",
+          hintPlan: "Phải khớp với tên gói trên biên nhận của bạn. Liên hệ chúng tôi nếu bạn không chắc chắn.",
+          selectPlanDefault: "– Chọn gói của bạn –",
+          errorEmail: "Vui lòng nhập email hợp lệ.", errorCompany: "Vui lòng nhập tên công ty của bạn.",
+          errorWebsite: "Vui lòng nhập URL hợp lệ (bắt đầu bằng http:// hoặc https://).",
+          errorGoogle: "Vui lòng nhập URL hợp lệ (bắt đầu bằng http:// hoặc https://).",
+          errorPlan: "Vui lòng chọn gói của bạn.", errorConsent: "Bạn phải đồng ý với các điều khoản.",
+          btnSubmit: "Gửi &amp; Hoàn Tất Đơn Hàng", btnSubmitting: "Đang gửi...",
+          successTitle: "🎉 Xong rồi!",
+          successBody: "Chúng tôi đã nhận được thông tin của bạn. Đội ngũ của chúng tôi sẽ xem xét và liên hệ trong vòng 24 giờ (sớm hơn với các gói ưu tiên). Vui lòng kiểm tra email để xác nhận.",
+          returnHome: "Quay lại trang chủ",
+          errorTitle: "⚠️ Chúng tôi không thể gửi thông tin của bạn",
+          errorBody: 'Thanh toán của bạn đã thành công, nhưng biểu mẫu này không thể kết nối đến hệ thống của chúng tôi. Vui lòng thử gửi lại, hoặc gửi thông tin trực tiếp đến <a href="mailto:defend@reputationguard.pro">defend@reputationguard.pro</a> để không mất thời gian.',
+          footerRights: "Đã đăng ký bản quyền.", footerPrivacy: "Chính Sách Bảo Mật",
+        },
+        tr: {
+          badge: "✅ Ödeme Başarılı", heading: "Teşekkürler",
+          subtitle: "İşletmenizin yapay zeka görünürlüğünü iyileştirmeye hazırız.",
+          orderSummaryLabel: "Satın aldığınız",
+          introTitle: "🔍 Başlamak için son bir adım",
+          introBodyPre: "Lütfen aşağıya işletme bilgilerinizi girin. Bu, katılım sürecinizi hazırlamamıza ve",
+          introBodyHighlight: "24 saat içinde başlamamıza",
+          introBodyPost: "yardımcı olur (öncelikli planlarda daha erken).",
+          requiredNote: "* ile işaretli alanlar zorunludur.",
+          labelEmail: "E-posta", labelCompany: "Şirket Adı", labelWebsite: "Web Sitesi URL'si",
+          labelWebmaster: "Webmaster / Geliştirici İletişimi", webmasterOptional: "(önerilir)",
+          labelGoogle: "Google İşletme Profili URL'si", labelPlan: "Satın Alınan Plan",
+          labelAdditional: "Ek Bilgi", additionalOptional: "(isteğe bağlı)",
+          labelConsent: "Verilerimin hizmeti sunmak amacıyla kullanılmasını kabul ediyorum ve",
+          privacyPolicyLinkText: "Gizlilik Politikası'nı okudum",
+          placeholderEmail: "siz@sirket.com", placeholderCompany: "örn. Acme Inc.",
+          placeholderWebsite: "https://sizinsiteniz.com",
+          placeholderWebmaster: "Web sitenizi yöneten kişinin adı ve e-postası",
+          placeholderGoogle: "https://maps.app.goo.gl/...",
+          placeholderAdditional: "Bilmemiz gereken başka bir şey var mı?",
+          hintWebsite: "İşletmenizin ana web sitesi. Teknik çalışmaların çoğu burada gerçekleşir.",
+          hintWebmaster: "Teknik düzeltmeleri uygulamak için buna ihtiyacımız olacak. Onayınız olmadan sitenizde hiçbir şey değişmez.",
+          hintGoogle: "Google İşletme Profilinizin tam bağlantısını yapıştırın (örn. \"Paylaş\" düğmesinden).",
+          hintPlan: "Makbuzunuzda gösterilen planla eşleşmelidir. Emin değilseniz bizimle iletişime geçin.",
+          selectPlanDefault: "– Planınızı seçin –",
+          errorEmail: "Lütfen geçerli bir e-posta adresi girin.", errorCompany: "Lütfen şirket adınızı girin.",
+          errorWebsite: "Lütfen geçerli bir URL girin (http:// veya https:// ile başlayan).",
+          errorGoogle: "Lütfen geçerli bir URL girin (http:// veya https:// ile başlayan).",
+          errorPlan: "Lütfen planınızı seçin.", errorConsent: "Şartları kabul etmelisiniz.",
+          btnSubmit: "Gönder ve Siparişi Tamamla", btnSubmitting: "Gönderiliyor...",
+          successTitle: "🎉 Tamamdır!",
+          successBody: "Bilgilerinizi aldık. Ekibimiz durumunuzu inceleyip 24 saat içinde sizinle iletişime geçecek (öncelikli planlarda daha erken). Onay için e-postanızı kontrol edin.",
+          returnHome: "Ana sayfaya dön",
+          errorTitle: "⚠️ Bilgilerinizi gönderemedik",
+          errorBody: 'Ödemeniz başarılı oldu, ancak bu form sistemimize ulaşamadı. Lütfen tekrar göndermeyi deneyin veya zaman kaybetmemek için bilgilerinizi doğrudan <a href="mailto:defend@reputationguard.pro">defend@reputationguard.pro</a> adresine e-posta ile gönderin.',
+          footerRights: "Tüm hakları saklıdır.", footerPrivacy: "Gizlilik Politikası",
+        },
+        ar: {
+          badge: "✅ تم الدفع بنجاح", heading: "شكراً لك",
+          subtitle: "نحن جاهزون لتحسين ظهور نشاطك التجاري في الذكاء الاصطناعي.",
+          orderSummaryLabel: "لقد اشتريت",
+          introTitle: "🔍 خطوة أخيرة للبدء",
+          introBodyPre: "يرجى تعبئة بيانات نشاطك التجاري أدناه. هذا يساعدنا على تجهيز حسابك و",
+          introBodyHighlight: "البدء خلال 24 ساعة",
+          introBodyPost: "(أبكر للباقات ذات الأولوية).",
+          requiredNote: "الحقول المميزة بـ * إلزامية.",
+          labelEmail: "البريد الإلكتروني", labelCompany: "اسم الشركة", labelWebsite: "رابط الموقع الإلكتروني",
+          labelWebmaster: "جهة اتصال مسؤول الموقع / المطور", webmasterOptional: "(موصى به)",
+          labelGoogle: "رابط ملف Google Business", labelPlan: "الباقة المشتراة",
+          labelAdditional: "معلومات إضافية", additionalOptional: "(اختياري)",
+          labelConsent: "أوافق على استخدام بياناتي لتقديم الخدمة وقد قرأت",
+          privacyPolicyLinkText: "سياسة الخصوصية",
+          placeholderEmail: "you@company.com", placeholderCompany: "مثال: Acme Inc.",
+          placeholderWebsite: "https://yourbusiness.com",
+          placeholderWebmaster: "اسم وبريد الشخص المسؤول عن موقعك",
+          placeholderGoogle: "https://maps.app.goo.gl/...",
+          placeholderAdditional: "هل هناك أي شيء آخر يجب أن نعرفه؟",
+          hintWebsite: "الموقع الرئيسي لنشاطك التجاري. تتم معظم الأعمال التقنية هنا.",
+          hintWebmaster: "سنحتاج إلى هذا لتطبيق الإصلاحات التقنية. لن يتغير شيء في موقعك دون موافقتك أولاً.",
+          hintGoogle: "الصق الرابط الكامل لملف Google Business الخاص بك (مثلاً من زر \"مشاركة\").",
+          hintPlan: "يجب أن يطابق اسم الباقة الموضح في إيصالك. تواصل معنا إذا لم تكن متأكداً.",
+          selectPlanDefault: "– اختر باقتك –",
+          errorEmail: "يرجى إدخال بريد إلكتروني صالح.", errorCompany: "يرجى إدخال اسم شركتك.",
+          errorWebsite: "يرجى إدخال رابط صالح (يبدأ بـ http:// أو https://).",
+          errorGoogle: "يرجى إدخال رابط صالح (يبدأ بـ http:// أو https://).",
+          errorPlan: "يرجى اختيار باقتك.", errorConsent: "يجب الموافقة على الشروط.",
+          btnSubmit: "إرسال وإتمام الطلب", btnSubmitting: "جارٍ الإرسال...",
+          successTitle: "🎉 تم كل شيء!",
+          successBody: "لقد استلمنا بياناتك. سيقوم فريقنا بمراجعة حالتك والتواصل معك خلال 24 ساعة (أبكر للباقات ذات الأولوية). يرجى التحقق من بريدك الإلكتروني للتأكيد.",
+          returnHome: "العودة إلى الصفحة الرئيسية",
+          errorTitle: "⚠️ لم نتمكن من إرسال بياناتك",
+          errorBody: 'تمت عملية الدفع بنجاح، لكن هذا النموذج لم يتمكن من الوصول إلى نظامنا. يرجى المحاولة مرة أخرى، أو إرسال بياناتك مباشرة إلى <a href="mailto:defend@reputationguard.pro">defend@reputationguard.pro</a> حتى لا نضيع الوقت.',
+          footerRights: "جميع الحقوق محفوظة.", footerPrivacy: "سياسة الخصوصية",
+        },
+      };
+
+      const SUPPORTED = Object.keys(I18N);
+      const RTL_LANGS = ['ar'];
+      let currentPlanParam = null;
+      let currentNameParam = null;
+
+      const PLAN_INFO = {
+        'AI Visibility Boost': { label: '⚡ AI Visibility Boost', price: '$249' },
+        'AI Visibility':       { label: 'AI Visibility',          price: '$399/mo' },
+        'AI Authority':        { label: '⭐ AI Authority',        price: '$899/mo' },
+        'AI Dominate':         { label: 'AI Dominate',            price: '$1,799/mo' },
+      };
+
+      function detectLanguage() {
+        const urlLang = new URLSearchParams(window.location.search).get('lang');
+        if (urlLang && SUPPORTED.includes(urlLang)) return urlLang;
+        const browserLangs = navigator.languages || [navigator.language || 'en'];
+        for (const bl of browserLangs) {
+          const code = bl.slice(0, 2).toLowerCase();
+          if (SUPPORTED.includes(code)) return code;
+        }
+        return 'en';
+      }
+
+      function applyDynamicFromParams(dict) {
+        if (currentNameParam) {
+          const heading = document.getElementById('thankYouHeading');
+          if (heading) heading.textContent = dict.heading + ', ' + currentNameParam;
+        }
+        if (currentPlanParam && PLAN_INFO[currentPlanParam]) {
+          const orderSummary = document.getElementById('orderSummary');
+          const osPlanName = document.getElementById('osPlanName');
+          const osPlanPrice = document.getElementById('osPlanPrice');
+          if (orderSummary && osPlanName && osPlanPrice) {
+            osPlanName.textContent = PLAN_INFO[currentPlanParam].label;
+            osPlanPrice.textContent = PLAN_INFO[currentPlanParam].price;
+            orderSummary.classList.add('show');
+          }
+        }
+      }
+
+      function applyLanguage(lang) {
+        const dict = I18N[lang] || I18N.en;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) el.innerHTML = dict[key];
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+          const key = el.getAttribute('data-i18n-html');
+          if (dict[key] !== undefined) el.innerHTML = dict[key];
+        });
+        document.documentElement.lang = lang;
+        document.documentElement.dir = RTL_LANGS.includes(lang) ? 'rtl' : 'ltr';
+        document.getElementById('langSwitch').value = lang;
+        window.CURRENT_LANG = lang;
+        window.CURRENT_DICT = dict;
+        applyDynamicFromParams(dict);
+      }
+
+      document.getElementById('langSwitch').addEventListener('change', function() {
+        applyLanguage(this.value);
+      });
+
       const form = document.getElementById('customerForm');
       const submitBtn = document.getElementById('submitBtn');
       const btnText = document.getElementById('btnText');
@@ -470,32 +720,15 @@
       const successMsg = document.getElementById('successMessage');
       const submitError = document.getElementById('submitError');
 
-      // Plan metadata: keep this in sync with the live pricing page (reputationguard.pro/#pricing)
-      const PLAN_INFO = {
-        'AI Visibility Boost': { label: '⚡ AI Visibility Boost', price: '$249 one-time' },
-        'AI Visibility':       { label: 'AI Visibility',          price: '$399/mo' },
-        'AI Authority':        { label: '⭐ AI Authority',        price: '$899/mo' },
-        'AI Dominate':         { label: 'AI Dominate',            price: '$1,799/mo' },
-      };
-
-      // Helper to show field error
       function setFieldError(field, hasError) {
         const group = field.closest('.form-group');
         if (!group) return;
-        if (hasError) {
-          group.classList.add('error');
-        } else {
-          group.classList.remove('error');
-        }
+        group.classList.toggle('error', hasError);
       }
 
-      // Real-time validation clearing
       form.querySelectorAll('input, select, textarea').forEach(el => {
-        el.addEventListener('blur', function() {
-          validateField(this);
-        });
+        el.addEventListener('blur', function() { validateField(this); });
         el.addEventListener('input', function() {
-          // Clear error on typing for text fields
           if (this.type !== 'checkbox' && this.tagName !== 'SELECT') {
             const group = this.closest('.form-group');
             if (group) group.classList.remove('error');
@@ -503,60 +736,38 @@
         });
       });
 
-      // Validation function per field
       function validateField(field) {
         const type = field.type;
         const tag = field.tagName;
         let valid = true;
-
-        if (field.hasAttribute('required') && !field.value.trim()) {
+        if (field.hasAttribute('required') && !field.value.trim() && type !== 'checkbox') {
           valid = false;
         } else if (type === 'email' && field.value.trim()) {
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           if (!emailRegex.test(field.value.trim())) valid = false;
         } else if (type === 'url' && field.value.trim()) {
-          try {
-            new URL(field.value.trim());
-          } catch (_) {
-            valid = false;
-          }
+          try { new URL(field.value.trim()); } catch (_) { valid = false; }
         } else if (tag === 'SELECT' && field.hasAttribute('required') && field.value === '') {
           valid = false;
         } else if (type === 'checkbox' && field.hasAttribute('required') && !field.checked) {
           valid = false;
         }
-
         setFieldError(field, !valid);
         return valid;
       }
 
-      // Validate entire form
       function validateForm() {
         let allValid = true;
-        const fields = form.querySelectorAll('input[required], select[required], textarea[required]');
-        fields.forEach(f => {
-          const isValid = validateField(f);
-          if (!isValid) allValid = false;
+        form.querySelectorAll('input[required], select[required], textarea[required]').forEach(f => {
+          if (!validateField(f)) allValid = false;
         });
-        // Special: consent checkbox
-        const consent = document.getElementById('consent');
-        if (!consent.checked) {
-          setFieldError(consent, true);
-          allValid = false;
-        } else {
-          setFieldError(consent, false);
-        }
         return allValid;
       }
 
-      // Submit handler
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
-
-        // Hide any previous error state on a retry
         submitError.classList.remove('show');
 
-        // Run validation
         if (!validateForm()) {
           const firstError = form.querySelector('.form-group.error');
           if (firstError) {
@@ -567,42 +778,30 @@
           return;
         }
 
-        // Disable button and show spinner
+        const dict = window.CURRENT_DICT || I18N.en;
         submitBtn.disabled = true;
-        btnText.textContent = 'Submitting...';
+        btnText.textContent = dict.btnSubmitting;
         btnSpinner.style.display = 'inline-block';
 
-        // Collect data
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
+        data.language = window.CURRENT_LANG || 'en';
 
-        // --- Formspree endpoint. Confirm this form is verified and active
-        // in the Formspree dashboard before relying on it in production. ---
         const ENDPOINT_URL = 'https://formspree.io/f/mykqokjr';
 
         try {
           const response = await fetch(ENDPOINT_URL, {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(data)
           });
-
-          if (response.ok) {
-            showSuccess();
-          } else {
-            showSubmitError();
-          }
+          if (response.ok) { showSuccess(); } else { showSubmitError(); }
         } catch (error) {
-          // Network failure, endpoint down, CORS issue, etc.
-          // Never silently claim success here, the customer's data was not received.
           console.error('Form submission failed:', error);
           showSubmitError();
         } finally {
           submitBtn.disabled = false;
-          btnText.textContent = 'Submit & Complete Order';
+          btnText.innerHTML = dict.btnSubmit;
           btnSpinner.style.display = 'none';
         }
       });
@@ -613,54 +812,26 @@
         successMsg.classList.add('show');
         successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
-
       function showSubmitError() {
         submitError.classList.add('show');
         submitError.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
 
-      // Pre-fill from URL params passed on the Stripe success redirect,
-      // e.g. ?email=...&plan=AI%20Authority&company=...&website=...
       const urlParams = new URLSearchParams(window.location.search);
-
       const emailParam = urlParams.get('email');
-      if (emailParam) {
-        const emailField = document.getElementById('email');
-        if (emailField) emailField.value = emailParam;
-      }
-
+      if (emailParam) { const f = document.getElementById('email'); if (f) f.value = emailParam; }
       const companyParam = urlParams.get('company');
-      if (companyParam) {
-        const companyField = document.getElementById('company');
-        if (companyField) companyField.value = companyParam;
-      }
-
+      if (companyParam) { const f = document.getElementById('company'); if (f) f.value = companyParam; }
       const websiteParam = urlParams.get('website');
-      if (websiteParam) {
-        const websiteField = document.getElementById('website_url');
-        if (websiteField) websiteField.value = websiteParam;
-      }
-
-      const nameParam = urlParams.get('name');
-      if (nameParam) {
-        const heading = document.getElementById('thankYouHeading');
-        if (heading) heading.textContent = 'Thank You, ' + nameParam;
-      }
-
-      const planParam = urlParams.get('plan');
-      if (planParam && PLAN_INFO[planParam]) {
+      if (websiteParam) { const f = document.getElementById('website_url'); if (f) f.value = websiteParam; }
+      currentNameParam = urlParams.get('name');
+      currentPlanParam = urlParams.get('plan');
+      if (currentPlanParam) {
         const planField = document.getElementById('plan');
-        if (planField) planField.value = planParam;
-
-        const orderSummary = document.getElementById('orderSummary');
-        const osPlanName = document.getElementById('osPlanName');
-        const osPlanPrice = document.getElementById('osPlanPrice');
-        if (orderSummary && osPlanName && osPlanPrice) {
-          osPlanName.textContent = PLAN_INFO[planParam].label;
-          osPlanPrice.textContent = PLAN_INFO[planParam].price;
-          orderSummary.classList.add('show');
-        }
+        if (planField && PLAN_INFO[currentPlanParam]) planField.value = currentPlanParam;
       }
+
+      applyLanguage(detectLanguage());
     })();
   </script>
 </body>
