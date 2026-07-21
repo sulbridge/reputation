@@ -477,21 +477,23 @@
       text-align: center;
     }
     .footer-lang-switch {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 8px;
       margin-top: 8px;
+      max-width: 260px;
     }
     .footer-lang-switch .lang-btn {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
       background: #1a1f2b;
       border: 1px solid #2d3748;
       font-weight: 600;
       font-size: 0.78rem;
       cursor: pointer;
-      padding: 6px 12px;
+      padding: 6px 8px;
       border-radius: 20px;
       transition: 0.2s;
       color: #9ca3af;
@@ -527,7 +529,7 @@
       .section-title { font-size: 1.8rem; }
       .footer-container { flex-direction: column; text-align: center; gap: 24px; }
       .footer-column p i { width: auto; }
-      .footer-lang-switch { justify-content: center; }
+      .footer-lang-switch { margin-left: auto; margin-right: auto; }
     }
   </style>
 </head>
@@ -810,10 +812,7 @@
         <a href="tel:+15053136274" style="color:#93C5FD;">+1 (505) 313‑6274</a>
         <span style="color:#9ca3af; display:block; font-size:0.75rem; margin-top:2px;" data-i18n="footer_hours">Call / WhatsApp · Mon–Fri 9am–6pm EST</span>
       </p>
-    </div>
-
-    <div class="footer-column">
-      <h4 data-i18n="footer_language">Language</h4>
+      <h4 style="margin-top: 20px;" data-i18n="footer_language">Language</h4>
       <div class="footer-lang-switch" id="footerLangSwitch"></div>
     </div>
 
@@ -839,7 +838,8 @@
     { code: 'ar', label: 'ع',  flag: '🇦🇪' },
     { code: 'es', label: 'ES', flag: '🇪🇸' },
     { code: 'de', label: 'DE', flag: '🇩🇪' },
-    { code: 'fr', label: 'FR', flag: '🇫🇷' }
+    { code: 'fr', label: 'FR', flag: '🇫🇷' },
+    { code: 'it', label: 'IT', flag: '🇮🇹' }
   ];
   var RTL = ['ar'];
 
@@ -1323,6 +1323,66 @@
       footer_language:"Langue",
       footer_disclaimer:"*Les résultats peuvent varier. Les plateformes IA prennent des décisions de recommandation indépendantes.",
       footer_copyright:"© 2026 ReputationGuard Global. Tous droits réservés."
+    },
+    it: {
+      nav_home:"Home", nav_enterprise:"Enterprise", nav_cta:"Audit Gratuita",
+      badge_since:"Dal 2008", story_h1:"La Nostra Storia",
+      story_intro:"Non abbiamo scoperto la visibilità nell'IA ieri. Abbiamo trascorso quasi due decenni imparando come i marchi conquistano la fiducia online, prima con i motori di ricerca, oggi con l'IA.",
+      t1_title:"Il nostro primo sito web, per un'azienda di forniture",
+      t1_text:"Tutto è iniziato con un unico sito HTML scritto a mano per un'azienda della catena di approvvigionamento. Nessun framework, nessuna scorciatoia, solo l'apprendimento, riga per riga, di ciò che rende un'attività credibile online.",
+      t2_title:"Il decennio della SEO",
+      t2_text:"Quel primo sito si è trasformato in centinaia di altri. Ci siamo immersi nella SEO, abbiamo costruito e fatto crescere decine di aziende tecnologiche e internet, e abbiamo trascorso un decennio a capire esattamente di cosa si fidano, e cosa premiano, i motori di ricerca e le persone dietro di essi.",
+      t3_title:"L'ascesa delle reti neurali",
+      t3_text:"Quando sono emersi i primi grandi modelli linguistici, abbiamo intuito il cambiamento in anticipo: la porta d'accesso ai clienti stava passando dai ranking di ricerca alle risposte dell'IA. Abbiamo iniziato a studiare come questi modelli formano opinioni sui marchi.",
+      t4_year:"Oggi", t4_title:"Raccomandazioni dell'IA, automatizzate su larga scala",
+      t4_text:"Oggi gran parte del processo è automatizzato: audit continui, pulizia dei segnali e monitoraggio su ChatGPT, Gemini, Claude e Perplexity. Sono 18 anni di esperienza sul campo, da una singola pagina HTML a un AI Visibility Engine completo, distillati in un sistema pensato per farti raccomandare.",
+      founder_role:"Fondatore & CEO",
+      founder_bio:"Aleksei ha trascorso quasi due decenni nel web e nella ricerca, iniziando con un unico sito HTML scritto a mano nel 2008 per poi costruirne centinaia di altri. Ha guidato precocemente il passaggio dalla SEO classica alla visibilità nell'IA, e oggi dirige il team dietro il sistema di audit a 9 livelli di ReputationGuardPro.",
+      cofounder_role:"Co‑Fondatore & CFO",
+      cofounder_bio:"Vitalii supervisiona i numeri dietro la missione: pricing, unit economics, e garantire che ogni cliente veda un chiaro ritorno sull'investimento. La sua disciplina mantiene sostenibile la crescita di ReputationGuardPro mentre passa da decine a centinaia di account.",
+      view_f6s:"Vedi su F6S", score_title:"AI Visibility Score",
+      score_text:"Non indoviniamo. Misuriamo esattamente dove ti trovi su 9 livelli critici, basandoci su quasi due decenni di esperienza su ciò che rende i marchi affidabili online.",
+      wwd_title:"Cosa Facciamo",
+      wwd_sub:"Non ci limitiamo a ripulire le recensioni. <strong>Potenziamo</strong> la visibilità del tuo marchio nell'IA, in modo sistematico, livello per livello.",
+      wwd1_title:"Audit IA a 9 Livelli",
+      wwd1_text:"Analizziamo il tuo marchio su tutte le principali piattaforme IA. Identifichiamo esattamente quali segnali danneggiano la tua visibilità, da schede incoerenti a schema markup deboli.",
+      wwd2_title:"Pulizia dei Segnali & Potenziamenti",
+      wwd2_text:"Ripuliamo i dati su cui si basa l'IA. Correggiamo le incoerenze e applichiamo <strong>potenziamenti</strong> mirati affinché l'IA inizi a raccomandare il tuo marchio con fiducia.",
+      wwd3_title:"Monitoraggio dell'AI Visibility",
+      wwd3_text:"Report settimanali monitorano il tuo AI visibility score su ChatGPT, Gemini, Perplexity, Claude e altro ancora. Vedi esattamente quando il tuo marchio inizia a guadagnare raccomandazioni dall'IA.",
+      wwd4_title:"Protezione Continua",
+      wwd4_text:"Avvisi in tempo reale ti informano di nuovi rischi reputazionali. Manteniamo alta la tua AI visibility affinché i concorrenti restino indietro, e l'IA continui a raccomandarti.",
+      wtu_title:"Perché le Aziende si Fidano di Noi",
+      wtu1_title:"Competenza IA a 9 Livelli",
+      wtu1_text:"Non indoviniamo. Analizziamo i 9 livelli specifici che i modelli IA usano per valutare la fiducia. Ottieni un punteggio chiaro e una roadmap per migliorarlo.",
+      wtu2_title:"89% di Successo nella Pulizia dei Segnali",
+      wtu2_text:"Il nostro approccio basato su policy supera costantemente le medie di settore. Sappiamo esattamente quali segnali colpire e come correggerli.",
+      wtu2_stat:"*Basato su oltre 500 audit effettuati nel 2025. I risultati individuali possono variare.",
+      wtu3_title:"Affidabile in Oltre 12 Paesi",
+      wtu3_text:"Da hotel boutique a Bali a cliniche dentistiche in Texas, abbiamo aiutato aziende in tutto il mondo a essere raccomandate dall'IA.",
+      wtu4_title:"100% Trasparente",
+      wtu4_text:"Mantieni il pieno controllo. Lavoriamo come partner di fiducia, non come proprietari. Nessuna commissione nascosta, nessuna sorpresa, solo risultati che puoi vedere.",
+      verified_label:"Profili Verificati", verified_company:"Verificato su F6S", verified_founder:"Fondatore su F6S",
+      ent_badge:"Per Organizzazioni Più Grandi", ent_title:"AI Visibility per l'Enterprise",
+      ent_text:"I marchi multi‑sede, le catene in franchising e i portafogli hanno bisogno di più di un semplice audit. Il nostro piano Enterprise offre strategia dedicata, integrazioni personalizzate e gestione ravvicinata per le organizzazioni che gestiscono l'AI visibility su decine o centinaia di sedi.",
+      ent_li1:"Responsabile reputazione IA dedicato & chiamate strategiche",
+      ent_li2:"Implementazione multi‑sede & multi‑marchio",
+      ent_li3:"Report personalizzati & integrazioni API / CRM",
+      ent_li4:"SLA prioritario & onboarding white‑glove",
+      ent_cta:"Scopri Enterprise →",
+      law_title:"Importante: Non Siamo uno Studio Legale",
+      law_text:"ReputationGuardPro è un'<strong>azienda tecnologica specializzata in AI visibility e reputazione</strong>, non uno studio legale. Non forniamo consulenza legale né rappresentiamo clienti in tribunale. Il nostro lavoro si concentra sull'identificare segnali reputazionali deboli, preparare ricorsi basati su prove e presentarli attraverso i canali ufficiali delle piattaforme. Se è necessaria un'azione legale, compiliamo un dossier probatorio completo per il tuo avvocato abilitato. Incoraggiamo sempre i clienti a consultare un legale qualificato per questioni di diffamazione o correlate.",
+      cta_text:"Scopri esattamente dove si trova il tuo marchio, gratuitamente.", cta_btn:"Richiedi un Audit AI Visibility Gratuito →",
+      footer_desc:"Gestione della reputazione IA per hotel, ristoranti, cliniche dentistiche, noleggio auto, palestre, negozi, resort, studi legali e agenzie immobiliari. Rendiamo il tuo marchio quello che l'IA raccomanda, ripristinando i segnali di fiducia che guidano l'AI visibility e le vendite.",
+      footer_about:"Chi Siamo", footer_services:"Servizi",
+      footer_s1:"Ottimizzazione dell'AI Visibility", footer_s2:"Pulizia dei Segnali", footer_s3:"Monitoraggio del Sentiment IA", footer_s4:"Consulenza Strategica GEO", footer_s5:"Programma di Affiliazione", footer_s6:"Partnership White‑Label",
+      footer_industries:"Settori",
+      footer_i1:"Hotel", footer_i2:"Cliniche Dentistiche", footer_i3:"Ristoranti", footer_i4:"Noleggio Auto", footer_i5:"Tour & Viaggi", footer_i6:"Fitness & Fisioterapia", footer_i7:"Resort", footer_i8:"Studi Legali", footer_i9:"Immobiliare",
+      footer_legal:"Legale", footer_l1:"Informativa sulla Privacy", footer_l2:"Termini di Servizio", footer_l3:"Politica di Rimborso", footer_l4:"Gestisci Abbonamento",
+      footer_contact:"Contatti", footer_hours:"Chiamata / WhatsApp · Lun–Ven 9–18 EST",
+      footer_language:"Lingua",
+      footer_disclaimer:"*I risultati possono variare. Le piattaforme IA prendono decisioni di raccomandazione indipendenti.",
+      footer_copyright:"© 2026 ReputationGuard Global. Tutti i diritti riservati."
     }
   };
 
